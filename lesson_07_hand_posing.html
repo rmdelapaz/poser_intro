@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master the art of hand posing in Poser 12. Learn to create expressive, natural hand gestures that add life and emotion to your characters.">
+    <meta name="author" content="Poser 12 Course">
+    <title>Advanced Hand Posing - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
+        <div class="progress-bar"></div>
+    </div>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Poser 12 Mastery</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="nav-links" id="nav-links" aria-hidden="false">
+                <a href="index.html">Home</a>
+                <a href="index.html#modules">All Modules</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#module2">Module 2: Essential Posing Techniques</a></li>
+            <li aria-current="page">Advanced Hand Posing</li>
+        </ul>
+    </nav>
+    <main id="main-content">
+        <div class="container">
+            <header>
+                <h1>✋ Advanced Hand Posing</h1>
+                <p class="lead">Hands are the most expressive part of the human body after the face—and sometimes even more expressive! Master the art of creating hands that speak volumes!</p>
+                <div class="card">
+                    <h2>🎯 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will:</p>
+                    <ul>
+                        <li>Understand hand anatomy and natural finger movement</li>
+                        <li>Create natural, relaxed hand poses</li>
+                        <li>Master expressive gestures and functional poses</li>
+                        <li>Use hands to convey emotion and personality</li>
+                        <li>Avoid common hand posing mistakes</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated time:</strong> 50-60 minutes</p>
+                    <p><strong>🎯 Project:</strong> Create a library of 10 expressive hand poses</p>
+                </div>
+            </header>
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">📑 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#why-hands" class="toc-link">Why Hands Matter</a></li>
+                        <li><a href="#anatomy" class="toc-link">Hand Anatomy Basics</a></li>
+                        <li><a href="#natural-rest" class="toc-link">Natural Resting Hand</a></li>
+                        <li><a href="#principles" class="toc-link">Key Principles</a></li>
+                        <li><a href="#gestures" class="toc-link">Common Gestures</a></li>
+                        <li><a href="#mistakes" class="toc-link">Common Mistakes</a></li>
+                        <li><a href="#project" class="toc-link">Project</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <section id="why-hands" class="lesson-section">
+                <h2>Why Hands Matter So Much</h2>
+                <p>Hands are called "the second face" for good reason—they communicate emotion powerfully. Professional work is distinguished by well-posed hands.</p>
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>💡 The Power of Hands</h3>
+                    <ul style="color: white;">
+                        <li>27 bones and 34 muscles per hand</li>
+                        <li>Over 10,000 possible distinct gestures</li>
+                        <li>Universal communication across cultures</li>
+                        <li>Reveal emotion, personality, and intention</li>
+                    </ul>
+                </div>
+                <blockquote>
+                    <strong>🎨 Artist's Truth:</strong> Bad hand poses are the #1 sign of amateur 3D work. Master hands, and you immediately level up your art!
+                </blockquote>
+            </section>
+
+            <section id="anatomy" class="lesson-section">
+                <h2>Hand Anatomy Basics</h2>
+                <h3>Four Key Components</h3>
+                <div class="card">
+                    <h4>1. Palm</h4>
+                    <p>The stable foundation. Can cup or flatten but remains relatively rigid.</p>
+                </div>
+                <div class="card">
+                    <h4>2. Thumb</h4>
+                    <p>Only 2 joints (not 3). Opposes other fingers. Essential for grasping.</p>
+                </div>
+                <div class="card">
+                    <h4>3. Fingers</h4>
+                    <p>Each has 3 joints: base (knuckle), middle, and tip. Each finger has unique characteristics.</p>
+                </div>
+                <div class="card">
+                    <h4>4. Wrist</h4>
+                    <p>Controls overall hand angle and positioning.</p>
+                </div>
+                <h3>The Cascade Rule</h3>
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <p><strong>When fingers curl naturally:</strong></p>
+                    <ul>
+                        <li>Base joint curls MOST (60°)</li>
+                        <li>Middle joint curls LESS (45°)</li>
+                        <li>Tip joint curls LEAST (25°)</li>
+                        <li>Result: Smooth natural arc, not zigzag!</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="natural-rest" class="lesson-section">
+                <h2>The Natural Resting Hand</h2>
+                <p>This is your baseline for ALL hand poses!</p>
+                <div class="card">
+                    <h3>Natural Rest Formula</h3>
+                    <ul>
+                        <li><strong>Base joint:</strong> 15-20° curl</li>
+                        <li><strong>Middle joint:</strong> 10-15° curl</li>
+                        <li><strong>Tip joint:</strong> 5-10° curl</li>
+                        <li><strong>Finger spacing:</strong> Slightly spread (not together)</li>
+                        <li><strong>Thumb:</strong> 45° angle from index finger</li>
+                        <li><strong>Variation:</strong> Each finger 2-5° different</li>
+                    </ul>
+                </div>
+                <blockquote>
+                    <strong>💡 The 80/20 Rule:</strong> 80% of hand poses are variations on natural rest. Master this, and you're 80% there!
+                </blockquote>
+            </section>
+
+            <section id="principles" class="lesson-section">
+                <h2>Seven Key Principles</h2>
+                <div class="card">
+                    <h4>1. The Cascade Rule</h4>
+                    <p>Base curls most → middle less → tip least. Creates natural arc.</p>
+                </div>
+                <div class="card">
+                    <h4>2. Asymmetry Always</h4>
+                    <p>Every finger should be slightly different. Perfect symmetry looks robotic.</p>
+                </div>
+                <div class="card">
+                    <h4>3. Thumb Opposition</h4>
+                    <p>Thumb swings ACROSS palm when grasping, not alongside fingers.</p>
+                </div>
+                <div class="card">
+                    <h4>4. Finger Independence</h4>
+                    <p>Index is most independent. Ring and middle move together. Pinky is expressive.</p>
+                </div>
+                <div class="card">
+                    <h4>5. Point and Curl Contrast</h4>
+                    <p>When one finger points, others naturally curl slightly.</p>
+                </div>
+                <div class="card">
+                    <h4>6. Tension Reveals Emotion</h4>
+                    <p>Tight curls = stress/anger. Loose curls = relaxed. Open = confident.</p>
+                </div>
+                <div class="card">
+                    <h4>7. Contact Shows Weight</h4>
+                    <p>Fingers flatten slightly when touching surfaces or objects.</p>
+                </div>
+            </section>
+
+            <section id="gestures" class="lesson-section">
+                <h2>Common Hand Gestures</h2>
+                
+                <h3>Open Palm (Honesty, Stop)</h3>
+                <ul>
+                    <li>Fingers mostly straight with subtle curve</li>
+                    <li>Slightly spread</li>
+                    <li>Palm facing viewer</li>
+                    <li>Meaning: openness, honesty, yielding</li>
+                </ul>
+
+                <h3>Fist (Anger, Power)</h3>
+                <ul>
+                    <li>Fingers curl tight (80-90° base)</li>
+                    <li>Thumb wraps OVER fingers (not inside!)</li>
+                    <li>Compact shape</li>
+                    <li>Meaning: determination, anger, strength</li>
+                </ul>
+
+                <h3>Pointing (Direction, Emphasis)</h3>
+                <ul>
+                    <li>Index straight</li>
+                    <li>Other fingers curl progressively</li>
+                    <li>Thumb relaxed or extended</li>
+                    <li>Meaning: direction, accusation, emphasis</li>
+                </ul>
+
+                <h3>Peace Sign / Victory</h3>
+                <ul>
+                    <li>Index and middle extended in V</li>
+                    <li>Ring and pinky curled</li>
+                    <li>Thumb holds down curled fingers</li>
+                    <li>Meaning: peace, victory, casual pose</li>
+                </ul>
+
+                <h3>Relaxed Hang (Neutral)</h3>
+                <ul>
+                    <li>Gentle curves in all fingers</li>
+                    <li>No tension</li>
+                    <li>Each finger slightly different</li>
+                    <li>Meaning: neutral, at ease, relaxed</li>
+                </ul>
+            </section>
+
+            <section id="mistakes" class="lesson-section">
+                <h2>Top 10 Common Mistakes</h2>
+                
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>1. Wooden Plank Hands</h4>
+                    <p><strong>Problem:</strong> All fingers perfectly straight<br>
+                    <strong>Fix:</strong> Add natural rest curl to every finger</p>
+                </div>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>2. Identical Finger Curls</h4>
+                    <p><strong>Problem:</strong> All fingers same angle<br>
+                    <strong>Fix:</strong> Vary each by 5-10 degrees</p>
+                </div>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>3. Equal Joint Bends</h4>
+                    <p><strong>Problem:</strong> All joints bent equally (zigzag)<br>
+                    <strong>Fix:</strong> Follow cascade rule</p>
+                </div>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>4. Thumb Like a Finger</h4>
+                    <p><strong>Problem:</strong> Thumb parallel to fingers<br>
+                    <strong>Fix:</strong> Angle away or swing across palm</p>
+                </div>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>5. Fingers Pressed Together</h4>
+                    <p><strong>Problem:</strong> No spacing between fingers<br>
+                    <strong>Fix:</strong> Add 5-15° spread</p>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Quick Hand Audit</h4>
+                    <p>Before finalizing, check:</p>
+                    <ul>
+                        <li>□ Natural curve in all fingers?</li>
+                        <li>□ Each finger slightly different?</li>
+                        <li>□ Cascade rule followed?</li>
+                        <li>□ Thumb positioned naturally?</li>
+                        <li>□ Fingers slightly spread?</li>
+                        <li>□ Could I make this pose comfortably?</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="project" class="lesson-section">
+                <h2>Project: Build Your Hand Library</h2>
+                
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>🎯 Create 10 Essential Hand Poses</h3>
+                    <p style="color: white;">Build a reusable library of hand poses!</p>
+                    <ul style="color: white;">
+                        <li>5 gesture poses</li>
+                        <li>5 functional poses</li>
+                        <li>Save each with clear names</li>
+                        <li>Time: 90-120 minutes</li>
+                    </ul>
+                </div>
+
+                <h3>The 10 Poses to Create</h3>
+                <ol>
+                    <li><strong>Natural Rest</strong> - Your baseline (5 min)</li>
+                    <li><strong>Open Palm</strong> - Honesty gesture (10 min)</li>
+                    <li><strong>Pointing</strong> - Direction gesture (10 min)</li>
+                    <li><strong>Fist</strong> - Power gesture (10 min)</li>
+                    <li><strong>Peace Sign</strong> - Victory gesture (10 min)</li>
+                    <li><strong>Grasping Rod</strong> - Sword/tool handle (12 min)</li>
+                    <li><strong>Holding Cup</strong> - Drinking gesture (12 min)</li>
+                    <li><strong>Pen Grip</strong> - Precision hold (10 min)</li>
+                    <li><strong>Resting on Surface</strong> - Table rest (10 min)</li>
+                    <li><strong>Grasping Sphere</strong> - Ball hold (12 min)</li>
+                </ol>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Success Checklist</h4>
+                    <p>Each pose should:</p>
+                    <ul>
+                        <li>□ Follow natural principles</li>
+                        <li>□ Be clearly recognizable</li>
+                        <li>□ Pass the Hand Audit</li>
+                        <li>□ Be saved with clear name</li>
+                        <li>□ Look natural and comfortable</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="summary" class="lesson-section">
+                <h2>Wrapping Up</h2>
+                
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h3>🎉 You're Now a Hand Master!</h3>
+                    <p>Key takeaways:</p>
+                    <ul>
+                        <li>✅ Natural hands always have gentle curves</li>
+                        <li>✅ Cascade rule: base curls most, tip least</li>
+                        <li>✅ Asymmetry creates life and naturalness</li>
+                        <li>✅ Thumbs oppose, they don't align</li>
+                        <li>✅ Hands reveal emotion powerfully</li>
+                        <li>✅ Use your own hands as reference</li>
+                        <li>✅ Build a library for efficiency</li>
+                    </ul>
+                </div>
+
+                <h3>🚀 What's Next?</h3>
+                <p>You've mastered body posing, natural poses, and hands! Next up: <strong>"Facial Expressions and Emotion"</strong>—we'll complete the character by bringing the face to life!</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>✨ The Hand Whisperer</h3>
+                    <p style="color: white;">Hands are no longer your enemy—they're your storytelling superpower! You understand anatomy, natural movement, and emotional expression. Every character you pose will now have hands that truly speak!</p>
+                    <p style="color: white; margin-bottom: 0;"><strong>From fingertip to toe, your characters feel alive! ✋✨</strong></p>
+                </div>
+            </section>
+
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_06_natural_poses.html" class="prev-lesson">← Previous: Creating Natural Poses</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_08_facial_expressions.html" class="next-lesson">Next: Facial Expressions →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 2rem; margin-top: 4rem; border-top: 1px solid var(--border-color);">
+        <p>&copy; 2024 Poser 12 Mastery Course. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9em; opacity: 0.8;">Made with ❤️ for aspiring 3D artists</p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

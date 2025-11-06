@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn to work with props and build complete scenes in Poser 12. Master prop placement, scaling, parenting, and scene composition to create compelling 3D environments.">
+    <meta name="author" content="Poser 12 Course">
+    <title>Working with Props and Building Scenes - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
+        <div class="progress-bar"></div>
+    </div>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Poser 12 Mastery</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="nav-links" id="nav-links" aria-hidden="false">
+                <a href="index.html">Home</a>
+                <a href="index.html#modules">All Modules</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#module3">Module 3: Working with Props and Scenes</a></li>
+            <li aria-current="page">Working with Props and Building Scenes</li>
+        </ul>
+    </nav>
+    <main id="main-content">
+        <div class="container">
+            <header>
+                <h1>🏛️ Working with Props and Building Scenes</h1>
+                <p class="lead">Welcome to Module 3! You've mastered character posing—now it's time to give your characters a world to live in. A character standing in empty space is just a study; a character in a well-crafted scene tells a story. In this lesson, you'll learn to populate your 3D world with props, furniture, architecture, and environment elements that transform your work from character studies into complete, immersive scenes!</p>
+                
+                <div class="card">
+                    <h2>🎯 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will:</p>
+                    <ul>
+                        <li>Navigate and use Poser's prop library effectively</li>
+                        <li>Load, position, scale, and rotate props with precision</li>
+                        <li>Understand and use parent-child relationships with props</li>
+                        <li>Master prop manipulation tools and techniques</li>
+                        <li>Apply basic scene composition principles</li>
+                        <li>Create depth and visual interest in scenes</li>
+                        <li>Work with primitive shapes to build custom elements</li>
+                        <li>Organize complex scenes efficiently</li>
+                        <li>Import external props from various sources</li>
+                        <li>Build a complete, story-rich scene from scratch</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated time:</strong> 60-75 minutes</p>
+                    <p><strong>🎯 Project:</strong> Build a complete room scene with character interaction</p>
+                </div>
+            </header>
+
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">📑 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#why-props" class="toc-link">Why Props and Scenes Matter</a></li>
+                        <li><a href="#prop-library" class="toc-link">The Prop Library</a></li>
+                        <li><a href="#loading-props" class="toc-link">Loading and Placing Props</a></li>
+                        <li><a href="#manipulation" class="toc-link">Prop Manipulation Tools</a></li>
+                        <li><a href="#parenting" class="toc-link">Parenting and Relationships</a></li>
+                        <li><a href="#composition" class="toc-link">Scene Composition Basics</a></li>
+                        <li><a href="#primitives" class="toc-link">Working with Primitives</a></li>
+                        <li><a href="#organization" class="toc-link">Scene Organization</a></li>
+                        <li><a href="#importing" class="toc-link">Importing External Props</a></li>
+                        <li><a href="#project" class="toc-link">Project: Complete Room Scene</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <section id="why-props" class="lesson-section">
+                <h2>Why Props and Scenes Matter</h2>
+                
+                <p>Imagine watching a movie where actors perform in front of a blank green screen with no set, no furniture, no environment. Even with great acting, something feels empty. The same is true for 3D art—characters need context, and props provide that context!</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>💡 The Set Designer's Perspective</h3>
+                    <p style="color: white;">Think of yourself as both director and set designer. Your character is the actor, but the props and environment are the stage. Every object you place tells part of the story:</p>
+                    <ul style="color: white;">
+                        <li>A coffee mug suggests someone lives here</li>
+                        <li>Books on shelves reveal personality</li>
+                        <li>A sword on the wall hints at adventure</li>
+                        <li>Empty bottles tell a different story than trophies</li>
+                        <li>Props aren't decoration—they're storytelling tools!</li>
+                    </ul>
+                </div>
+
+                <h3>What Props Add to Your Work</h3>
+
+                <div class="card">
+                    <h4>Context and Place</h4>
+                    <p>Props establish WHERE your scene takes place:</p>
+                    <ul>
+                        <li>Office furniture = workplace scene</li>
+                        <li>Trees and rocks = outdoor/nature scene</li>
+                        <li>Spaceship controls = sci-fi environment</li>
+                        <li>Medieval furniture = fantasy/historical setting</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Scale and Proportion</h4>
+                    <p>Props give viewers reference for size:</p>
+                    <ul>
+                        <li>A character next to a door shows realistic height</li>
+                        <li>A chair indicates whether character is human-sized or giant</li>
+                        <li>Without props, scale is ambiguous and confusing</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Visual Interest and Depth</h4>
+                    <p>Props create layers and complexity:</p>
+                    <ul>
+                        <li>Foreground elements frame the subject</li>
+                        <li>Background elements add depth</li>
+                        <li>Multiple objects at different distances = realistic space</li>
+                        <li>Empty space = boring; layered space = engaging</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Character Interaction</h4>
+                    <p>Props give characters something to DO:</p>
+                    <ul>
+                        <li>Sitting on furniture shows relaxation</li>
+                        <li>Holding objects tells what they're doing</li>
+                        <li>Leaning against walls conveys attitude</li>
+                        <li>Interacting with environment = more believable scenes</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Storytelling and Emotion</h4>
+                    <p>The RIGHT props enhance your narrative:</p>
+                    <ul>
+                        <li>Wilted flowers suggest sadness or neglect</li>
+                        <li>Party decorations imply celebration</li>
+                        <li>Weapons suggest conflict or danger</li>
+                        <li>Personal items reveal character history</li>
+                    </ul>
+                </div>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Props in Scenes] --> B[Establish Context<br/>Where & When]
+                    A --> C[Provide Scale<br/>Size Reference]
+                    A --> D[Create Depth<br/>Visual Layers]
+                    A --> E[Enable Interaction<br/>Character Actions]
+                    A --> F[Tell Stories<br/>Visual Narrative]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:3px,color:#fff
+                </div>
+
+                <h3>The Scene Building Mindset</h3>
+                <p>As you build scenes, think like a film director:</p>
+                <ol>
+                    <li><strong>What's the story?</strong> What's happening in this moment?</li>
+                    <li><strong>Where are we?</strong> What environment supports that story?</li>
+                    <li><strong>What belongs here?</strong> What props would realistically be present?</li>
+                    <li><strong>What enhances composition?</strong> What makes the image visually stronger?</li>
+                    <li><strong>What's unnecessary?</strong> Sometimes less is more!</li>
+                </ol>
+
+                <blockquote>
+                    <strong>🎬 Director's Wisdom:</strong> "Every prop should either tell part of the story or enhance the composition. If it does neither, remove it. Clutter isn't the same as detail—be intentional with every object you place!"
+                </blockquote>
+            </section>
+
+            <section id="prop-library" class="lesson-section">
+                <h2>The Prop Library</h2>
+                
+                <p>Poser comes with an extensive library of props, and understanding how to navigate it is your first step to efficient scene building.</p>
+
+                <h3>Accessing the Prop Library</h3>
+                <p>The Library panel is typically on the right side of the interface:</p>
+                <ol>
+                    <li>If not visible: <strong>Window > Library</strong></li>
+                    <li>Look for folder icons at the top</li>
+                    <li>Click the <strong>Props folder</strong> (usually has a cube/box icon)</li>
+                    <li>Browse through categories</li>
+                </ol>
+
+                <h3>Library Organization</h3>
+                <p>Poser's prop library is organized hierarchically. The exact structure varies by Poser version and installed content, but typical categories include:</p>
+
+                <div class="card">
+                    <h4>Common Prop Categories</h4>
+                    <ul>
+                        <li><strong>Primitives:</strong> Basic shapes (cube, sphere, cylinder, cone)</li>
+                        <li><strong>Furniture:</strong> Chairs, tables, beds, sofas</li>
+                        <li><strong>Architecture:</strong> Walls, doors, windows, columns</li>
+                        <li><strong>Accessories:</strong> Glasses, jewelry, small handheld items</li>
+                        <li><strong>Weapons:</strong> Swords, guns, medieval weapons</li>
+                        <li><strong>Electronics:</strong> Computers, phones, appliances</li>
+                        <li><strong>Nature:</strong> Trees, rocks, plants, terrain</li>
+                        <li><strong>Vehicles:</strong> Cars, spaceships, bikes</li>
+                        <li><strong>Fantasy/Sci-Fi:</strong> Genre-specific items</li>
+                    </ul>
+                </div>
+
+                <h3>Navigating the Library</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>How To</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Open category</strong></td>
+                            <td>Double-click folder</td>
+                            <td>Browse subcategories</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Go up a level</strong></td>
+                            <td>Click up arrow or parent folder</td>
+                            <td>Navigate back</td>
+                        </tr>
+                        <tr>
+                            <td><strong>View thumbnails</strong></td>
+                            <td>Click thumbnail view icon</td>
+                            <td>See visual previews</td>
+                        </tr>
+                        <tr>
+                            <td><strong>View list</strong></td>
+                            <td>Click list view icon</td>
+                            <td>See prop names in list</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Search</strong></td>
+                            <td>Use search field (if available)</td>
+                            <td>Find props quickly</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Understanding Prop Thumbnails</h3>
+                <p>When browsing in thumbnail view:</p>
+                <ul>
+                    <li><strong>Image shows preview</strong> of the prop from default angle</li>
+                    <li><strong>Name appears below</strong> thumbnail</li>
+                    <li><strong>File format indicated</strong> (usually .pp2 for props)</li>
+                    <li><strong>Hover for details</strong> (in some versions)</li>
+                </ul>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Pro Library Tips</h4>
+                    <ul>
+                        <li><strong>Explore systematically:</strong> Spend 15 minutes browsing each major category to know what's available</li>
+                        <li><strong>Create favorites:</strong> Some Poser versions let you create favorite/bookmark collections</li>
+                        <li><strong>Organize purchases:</strong> Keep downloaded/purchased content in clearly labeled folders</li>
+                        <li><strong>Take notes:</strong> Keep a document listing useful props you discover</li>
+                        <li><strong>Remember locations:</strong> Mental map of where things are saves time later</li>
+                    </ul>
+                </div>
+
+                <h3>Runtime and External Libraries</h3>
+                <p>Advanced note: Poser uses a "Runtime" folder structure:</p>
+                <ul>
+                    <li><strong>Runtime:</strong> The main content folder</li>
+                    <li><strong>Libraries:</strong> Within runtime, organized by type</li>
+                    <li><strong>External runtimes:</strong> Can add additional runtime folders</li>
+                    <li><strong>Purchased content:</strong> Often installed to separate runtimes</li>
+                </ul>
+
+                <p><strong>For now:</strong> Focus on the default library that came with Poser. As you advance, you'll explore content from marketplaces!</p>
+
+                <blockquote>
+                    <strong>📚 Library Exploration Exercise:</strong> Before moving forward, spend 10 minutes browsing your prop library. Open each major category. Get familiar with what's available. You can't use what you don't know exists!
+                </blockquote>
+            </section>
+
+            <section id="loading-props" class="lesson-section">
+                <h2>Loading and Placing Props</h2>
+                
+                <p>Now let's get hands-on! Loading props is simple, but placing them effectively requires understanding several techniques.</p>
+
+                <h3>Basic Prop Loading</h3>
+                
+                <div class="card">
+                    <h4>Method 1: Double-Click (Simplest)</h4>
+                    <ol>
+                        <li>Navigate to desired prop in Library</li>
+                        <li>Double-click the thumbnail</li>
+                        <li>Prop loads at world center (0, 0, 0)</li>
+                        <li>Prop appears in scene and hierarchy</li>
+                    </ol>
+                    <p><strong>Best for:</strong> Quick loading when position doesn't matter initially</p>
+                </div>
+
+                <div class="card">
+                    <h4>Method 2: Click and Drag</h4>
+                    <ol>
+                        <li>Click and hold on prop thumbnail</li>
+                        <li>Drag into the document window</li>
+                        <li>Release where you want prop placed</li>
+                        <li>Prop appears at approximate location</li>
+                    </ol>
+                    <p><strong>Best for:</strong> Placing props approximately where you want them</p>
+                </div>
+
+                <div class="card">
+                    <h4>Method 3: Right-Click Options</h4>
+                    <ol>
+                        <li>Right-click on prop thumbnail</li>
+                        <li>Choose "Add to Scene" or similar option</li>
+                        <li>May offer additional placement options</li>
+                    </ol>
+                    <p><strong>Best for:</strong> Access to advanced loading options (varies by version)</p>
+                </div>
+
+                <h3>What Happens When Props Load</h3>
+                <p>Understanding the loading process helps you work efficiently:</p>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Double-Click Prop] --> B[Prop File Loaded]
+                    B --> C[Geometry Created]
+                    C --> D[Default Materials Applied]
+                    D --> E[Placed at Origin or Cursor]
+                    E --> F[Added to Scene Hierarchy]
+                    F --> G[Ready for Manipulation]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style G fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <ul>
+                    <li><strong>Geometry loads:</strong> The 3D mesh structure</li>
+                    <li><strong>Materials apply:</strong> Default textures and colors</li>
+                    <li><strong>Position set:</strong> Usually at world origin (0, 0, 0)</li>
+                    <li><strong>Hierarchy updates:</strong> Prop appears in scene list</li>
+                    <li><strong>Prop is selected:</strong> Ready for immediate adjustment</li>
+                </ul>
+
+                <h3>Initial Prop Placement Strategy</h3>
+                <p>Here's a professional workflow for placing props:</p>
+
+                <ol>
+                    <li><strong>Load the prop</strong> (double-click for speed)</li>
+                    <li><strong>Don't worry about exact position</strong> initially</li>
+                    <li><strong>Switch to appropriate camera view</strong> (top, side, or main)</li>
+                    <li><strong>Use positioning tools</strong> to move to approximate location</li>
+                    <li><strong>Fine-tune position, rotation, scale</strong> as needed</li>
+                    <li><strong>Test from final camera angle</strong> to verify</li>
+                </ol>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Common Loading Issues</h4>
+                    <p><strong>Prop loads but I can't see it:</strong></p>
+                    <ul>
+                        <li>It might be very small or very large (check scale)</li>
+                        <li>It might be behind the camera (use top/side view)</li>
+                        <li>Materials might match background (change materials or background)</li>
+                    </ul>
+                    <p><strong>Solution:</strong> Select prop in hierarchy, press "F" key to frame/focus camera on it</p>
+                </div>
+
+                <h3>Multiple Props of Same Type</h3>
+                <p>Need multiple chairs? Multiple trees? Easy!</p>
+                <ul>
+                    <li><strong>Load prop once</strong></li>
+                    <li><strong>Edit > Duplicate</strong> (or Ctrl+D / Cmd+D)</li>
+                    <li><strong>Move duplicate to new position</strong></li>
+                    <li><strong>Repeat as needed</strong></li>
+                    <li>Each instance is independent but shares base geometry (efficient!)</li>
+                </ul>
+
+                <blockquote>
+                    <strong>🎯 Quick Practice:</strong> Load three different props right now: a primitive cube, a chair (if available), and any other prop that interests you. Practice loading each using a different method. Get comfortable with the basics before we dive into manipulation!
+                </blockquote>
+            </section>
+
+            <section id="manipulation" class="lesson-section">
+                <h2>Prop Manipulation Tools</h2>
+                
+                <p>Once props are loaded, you need to position, scale, and rotate them precisely. Poser provides several tools for this!</p>
+
+                <h3>The Essential Manipulation Tools</h3>
+
+                <div class="card">
+                    <h4>1. Translate/Move Tool</h4>
+                    <p><strong>Icon:</strong> Crossed arrows or hand</p>
+                    <p><strong>Shortcut:</strong> Often "T" key</p>
+                    <p><strong>What it does:</strong> Moves props in X, Y, Z space</p>
+                    <p><strong>How to use:</strong></p>
+                    <ul>
+                        <li>Select prop</li>
+                        <li>Click and drag on arrows to move along that axis</li>
+                        <li>Drag on center to move freely</li>
+                        <li>Hold Shift often constrains to axis</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>2. Rotate Tool</h4>
+                    <p><strong>Icon:</strong> Circular arrows</p>
+                    <p><strong>Shortcut:</strong> Often "R" key</p>
+                    <p><strong>What it does:</strong> Rotates props around axes</p>
+                    <p><strong>How to use:</strong></p>
+                    <ul>
+                        <li>Select prop</li>
+                        <li>Drag on rotation rings/circles</li>
+                        <li>Each ring = different axis (X, Y, Z)</li>
+                        <li>Center drag = free rotation</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>3. Scale Tool</h4>
+                    <p><strong>Icon:</strong> Box with corner handles</p>
+                    <p><strong>Shortcut:</strong> Often "S" key</p>
+                    <p><strong>What it does:</strong> Changes prop size</p>
+                    <p><strong>How to use:</strong></p>
+                    <ul>
+                        <li>Select prop</li>
+                        <li>Drag handles to scale uniformly</li>
+                        <li>Some versions allow non-uniform scaling</li>
+                        <li>Can also scale via parameters panel</li>
+                    </ul>
+                </div>
+
+                <h3>Understanding Coordinate Axes</h3>
+                <p>Critical to understand Poser's 3D space:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Axis</th>
+                            <th>Direction</th>
+                            <th>Color (Usually)</th>
+                            <th>Controls</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>X-Axis</strong></td>
+                            <td>Left ↔ Right</td>
+                            <td>Red</td>
+                            <td>Horizontal position, side-to-side movement</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Y-Axis</strong></td>
+                            <td>Up ↕ Down</td>
+                            <td>Green</td>
+                            <td>Vertical position, height</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Z-Axis</strong></td>
+                            <td>Front ↔ Back</td>
+                            <td>Blue</td>
+                            <td>Depth, forward/backward</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="mermaid">
+                    graph TD
+                    A[3D Space Axes] --> B[X-Axis: Left/Right<br/>Red]
+                    A --> C[Y-Axis: Up/Down<br/>Green]
+                    A --> D[Z-Axis: Forward/Back<br/>Blue]
+                    
+                    B --> E[Translate X<br/>Rotate X pitch]
+                    C --> F[Translate Y<br/>Rotate Y yaw]
+                    D --> G[Translate Z<br/>Rotate Z roll]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Parameters Panel for Precise Control</h3>
+                <p>For exact positioning, use the Parameters Panel:</p>
+
+                <div class="card">
+                    <h4>Transform Parameters</h4>
+                    <p><strong>xTran, yTran, zTran:</strong> Position coordinates</p>
+                    <ul>
+                        <li>Numbers = distance from world origin</li>
+                        <li>Negative vs. positive determines direction</li>
+                        <li>Type exact values for precision</li>
+                    </ul>
+                    <p><strong>xRotate, yRotate, zRotate:</strong> Rotation angles</p>
+                    <ul>
+                        <li>Numbers = degrees of rotation</li>
+                        <li>0-360 degree range (typically)</li>
+                        <li>Negative values rotate opposite direction</li>
+                    </ul>
+                    <p><strong>xScale, yScale, zScale:</strong> Size multipliers</p>
+                    <ul>
+                        <li>100% = original size</li>
+                        <li>200% = twice as large</li>
+                        <li>50% = half size</li>
+                        <li>Often locked together for uniform scaling</li>
+                    </ul>
+                </div>
+
+                <h3>Common Manipulation Techniques</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Moving Props to Ground Level</h4>
+                    <ol>
+                        <li>Select prop</li>
+                        <li>Check yTran value in parameters</li>
+                        <li>Set yTran to 0 (or appropriate ground height)</li>
+                        <li>If prop sinks into ground, increase yTran slightly</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Centering Props</h4>
+                    <ol>
+                        <li>Select prop</li>
+                        <li>Set xTran = 0, zTran = 0</li>
+                        <li>Prop centers horizontally in scene</li>
+                        <li>Adjust yTran for height</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Rotating Props to Face Camera</h4>
+                    <ol>
+                        <li>Check main camera angle</li>
+                        <li>Select prop</li>
+                        <li>Adjust yRotate (usually) to face camera direction</li>
+                        <li>Common values: 0°, 90°, 180°, 270°</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Scaling Props Proportionally</h4>
+                    <ol>
+                        <li>Select prop</li>
+                        <li>Check if scale parameters are linked (chain icon)</li>
+                        <li>If linked: adjust any one scale value</li>
+                        <li>If not linked: adjust all three to same percentage</li>
+                        <li>Common scales: 50%, 100%, 150%, 200%</li>
+                    </ol>
+                </div>
+
+                <h3>Grid and Snap Options</h3>
+                <p>For precise alignment, Poser offers grid and snapping:</p>
+                <ul>
+                    <li><strong>Show Grid:</strong> Display > Grid (if available)</li>
+                    <li><strong>Snap to Grid:</strong> Movements lock to grid intersections</li>
+                    <li><strong>Snap to Object:</strong> Props snap to other props' surfaces</li>
+                    <li><strong>Grid spacing:</strong> Adjustable for fine or coarse alignment</li>
+                </ul>
+
+                <p><strong>When to use snapping:</strong></p>
+                <ul>
+                    <li>Building architectural scenes (walls, floors align perfectly)</li>
+                    <li>Creating grids of objects (evenly spaced trees, etc.)</li>
+                    <li>Ensuring objects sit flush on surfaces</li>
+                </ul>
+
+                <blockquote>
+                    <strong>⚙️ Practice Time:</strong> Load a primitive cube. Practice each tool: move it around (translate), spin it in all directions (rotate), make it bigger and smaller (scale). Get comfortable with these basics—they're the foundation of all scene building!
+                </blockquote>
+            </section>
+
+            <section id="parenting" class="lesson-section">
+                <h2>Parenting and Relationships</h2>
+                
+                <p>Here's where things get powerful! Parenting allows you to create relationships between props and figures, so they move together as a unit.</p>
+
+                <h3>What is Parenting?</h3>
+                <p>Remember figure hierarchy? The same concept applies to props!</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>💡 The Parent-Child Concept</h3>
+                    <p style="color: white;"><strong>Parent:</strong> The controlling object</p>
+                    <p style="color: white;"><strong>Child:</strong> The object that follows the parent</p>
+                    <p style="color: white; margin-bottom: 0;"><strong>The Rule:</strong> Move parent → child follows automatically. Move child → parent stays put.</p>
+                </div>
+
+                <h3>Why Parenting Matters</h3>
+
+                <div class="card">
+                    <h4>Example 1: Character Holding Object</h4>
+                    <p><strong>Scenario:</strong> Character holds a sword</p>
+                    <p><strong>Without parenting:</strong></p>
+                    <ul>
+                        <li>Pose character's hand</li>
+                        <li>Position sword in hand</li>
+                        <li>Move character → sword stays behind (disaster!)</li>
+                        <li>Have to reposition sword manually every time</li>
+                    </ul>
+                    <p><strong>With parenting:</strong></p>
+                    <ul>
+                        <li>Parent sword to character's hand</li>
+                        <li>Sword moves with hand automatically</li>
+                        <li>Repose character → sword stays in hand (magic!)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Example 2: Object on Table</h4>
+                    <p><strong>Scenario:</strong> Book on table</p>
+                    <p><strong>Without parenting:</strong></p>
+                    <ul>
+                        <li>Move table → book stays floating in air</li>
+                        <li>Have to move both separately</li>
+                    </ul>
+                    <p><strong>With parenting:</strong></p>
+                    <ul>
+                        <li>Parent book to table</li>
+                        <li>Move table → book moves with it</li>
+                    </ul>
+                </div>
+
+                <h3>How to Parent Props</h3>
+
+                <div class="card">
+                    <h4>Method 1: Via Menu (Most Reliable)</h4>
+                    <ol>
+                        <li>Select the <strong>child object</strong> (the one that should follow)</li>
+                        <li>Go to <strong>Object > Change Parent</strong> (or similar menu)</li>
+                        <li>A list appears showing possible parents</li>
+                        <li>Select the <strong>parent object</strong> from list</li>
+                        <li>Click OK</li>
+                        <li>Child is now parented!</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Method 2: Via Hierarchy Panel</h4>
+                    <ol>
+                        <li>Open hierarchy panel (if available)</li>
+                        <li>Drag child object onto parent object</li>
+                        <li>Release to create parent-child relationship</li>
+                        <li>Child becomes nested under parent visually</li>
+                    </ol>
+                </div>
+
+                <h3>Common Parenting Scenarios</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>What You Want</th>
+                            <th>Parent (The Boss)</th>
+                            <th>Child (The Follower)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Character holds sword</td>
+                            <td>Right Hand</td>
+                            <td>Sword prop</td>
+                        </tr>
+                        <tr>
+                            <td>Hat on character's head</td>
+                            <td>Head</td>
+                            <td>Hat prop</td>
+                        </tr>
+                        <tr>
+                            <td>Book on table</td>
+                            <td>Table</td>
+                            <td>Book prop</td>
+                        </tr>
+                        <tr>
+                            <td>Picture on wall</td>
+                            <td>Wall</td>
+                            <td>Picture frame</td>
+                        </tr>
+                        <tr>
+                            <td>Character sitting in chair</td>
+                            <td>Chair (or hip)</td>
+                            <td>Depends on setup</td>
+                        </tr>
+                        <tr>
+                            <td>Glasses on character</td>
+                            <td>Head</td>
+                            <td>Glasses</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Unparenting</h3>
+                <p>Need to break the relationship?</p>
+                <ol>
+                    <li>Select the child object</li>
+                    <li>Object > Change Parent</li>
+                    <li>Select "Universe" or "None" from list</li>
+                    <li>Object is now independent again</li>
+                </ol>
+
+                <h3>Parenting Best Practices</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ The Parenting Workflow</h4>
+                    <ol>
+                        <li><strong>Position first, parent second:</strong> Get prop roughly in place BEFORE parenting</li>
+                        <li><strong>Fine-tune after parenting:</strong> Adjust child's position relative to parent</li>
+                        <li><strong>Test the relationship:</strong> Move parent to verify child follows correctly</li>
+                        <li><strong>Adjust as needed:</strong> Reposition child if it's not quite right</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Common Parenting Mistakes</h4>
+                    <p><strong>Problem:</strong> Parented object jumps to weird location</p>
+                    <p><strong>Cause:</strong> When parenting, child's position is calculated relative to parent</p>
+                    <p><strong>Solution:</strong> After parenting, adjust child's translate values to reposition</p>
+                    <br>
+                    <p><strong>Problem:</strong> Can't find parented object</p>
+                    <p><strong>Cause:</strong> It's moving with parent, might be far from where you expect</p>
+                    <p><strong>Solution:</strong> Select child in hierarchy, press F to frame/focus on it</p>
+                </div>
+
+                <blockquote>
+                    <strong>🔗 Parenting Exercise:</strong> Load a character and a prop (like a box or ball). Parent the prop to the character's right hand. Now pose the arm in different positions. Watch the prop follow! This is game-changing for complex scenes.
+                </blockquote>
+            </section>
+
+            <section id="composition" class="lesson-section">
+                <h2>Scene Composition Basics</h2>
+                
+                <p>Now that you can load and manipulate props, let's talk about ARRANGING them effectively. Good composition separates amateur scenes from professional ones!</p>
+
+                <h3>The Rule of Thirds</h3>
+                <p>The most fundamental composition principle:</p>
+
+                <div class="card">
+                    <h4>What It Is</h4>
+                    <p>Imagine dividing your frame into a 3×3 grid (like a tic-tac-toe board). The four points where lines intersect are "power points"—naturally pleasing focal areas.</p>
+                    <p><strong>The Rule:</strong> Place your main subject or key elements at or near these intersections, not dead center!</p>
+                </div>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Scene Composition] --> B[Rule of Thirds<br/>Off-center subjects]
+                    A --> C[Depth Layers<br/>Fore/Mid/Background]
+                    A --> D[Leading Lines<br/>Guide viewer's eye]
+                    A --> E[Framing<br/>Objects frame subject]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Creating Depth with Layers</h3>
+                <p>3D scenes need to FEEL three-dimensional! Create depth by using three distinct layers:</p>
+
+                <div class="card">
+                    <h4>Foreground Layer</h4>
+                    <p><strong>Purpose:</strong> Frame the subject, add immediate context</p>
+                    <p><strong>Examples:</strong></p>
+                    <ul>
+                        <li>Blurred plants/objects near camera</li>
+                        <li>Part of a door frame</li>
+                        <li>Edge of furniture</li>
+                    </ul>
+                    <p><strong>Technique:</strong> Often slightly out of focus, partially cut off by frame edge</p>
+                </div>
+
+                <div class="card">
+                    <h4>Midground Layer</h4>
+                    <p><strong>Purpose:</strong> Where your main subject lives</p>
+                    <p><strong>Examples:</strong></p>
+                    <ul>
+                        <li>Your character</li>
+                        <li>The main action</li>
+                        <li>Primary props (chair character sits in, desk they work at)</li>
+                    </ul>
+                    <p><strong>Technique:</strong> Sharpest focus, most detail, viewer's primary attention</p>
+                </div>
+
+                <div class="card">
+                    <h4>Background Layer</h4>
+                    <p><strong>Purpose:</strong> Context, environment, depth</p>
+                    <p><strong>Examples:</strong></p>
+                    <ul>
+                        <li>Walls and architecture</li>
+                        <li>Distant furniture</li>
+                        <li>Windows showing outside</li>
+                        <li>Bookshelves, decorations</li>
+                    </ul>
+                    <p><strong>Technique:</strong> Can be less detailed, slightly out of focus, establishes setting</p>
+                </div>
+
+                <h3>Leading Lines</h3>
+                <p>Use props to create visual paths that lead the viewer's eye to your subject:</p>
+                <ul>
+                    <li><strong>Hallway/corridor:</strong> Lines converge on character at end</li>
+                    <li><strong>Row of pillars:</strong> Creates rhythm leading to focal point</li>
+                    <li><strong>Furniture arrangement:</strong> Angled toward subject</li>
+                    <li><strong>Table edge:</strong> Points toward character</li>
+                </ul>
+
+                <h3>Framing Within the Frame</h3>
+                <p>Use props to create a "frame within a frame":</p>
+                <ul>
+                    <li><strong>Doorways:</strong> Character seen through door opening</li>
+                    <li><strong>Windows:</strong> Character framed by window</li>
+                    <li><strong>Arches:</strong> Character beneath archway</li>
+                    <li><strong>Foliage:</strong> Character seen through gap in plants</li>
+                </ul>
+
+                <p><strong>Why it works:</strong> Draws attention to subject, adds depth, creates visual interest</p>
+
+                <h3>The Triangle Principle</h3>
+                <p>Arrange three objects in a triangle for pleasing composition:</p>
+                <ul>
+                    <li>Character at one point</li>
+                    <li>Tall prop at second point (lamp, tree)</li>
+                    <li>Lower prop at third point (chair, rock)</li>
+                    <li>Creates dynamic balance, guides eye around scene</li>
+                </ul>
+
+                <h3>Scale Variation</h3>
+                <p>Mix object sizes for visual interest:</p>
+                <ul>
+                    <li><strong>Large props:</strong> Anchor the scene (furniture, architecture)</li>
+                    <li><strong>Medium props:</strong> Main functional objects (books, tools)</li>
+                    <li><strong>Small props:</strong> Details that add life (coffee cup, pen, flower)</li>
+                </ul>
+
+                <p><strong>Avoid:</strong> Everything the same size—boring!</p>
+
+                <h3>Negative Space</h3>
+                <p>Empty space isn't wasted space—it's breathing room!</p>
+                <ul>
+                    <li><strong>Don't fill every inch:</strong> Clutter overwhelms</li>
+                    <li><strong>Let subjects breathe:</strong> Space around objects = elegance</li>
+                    <li><strong>Balance busy and empty:</strong> Detailed area + simple area = pleasing</li>
+                </ul>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Quick Composition Checklist</h4>
+                    <ul>
+                        <li>□ Main subject NOT dead center (rule of thirds)</li>
+                        <li>□ Three distinct depth layers visible</li>
+                        <li>□ Leading lines guide eye to subject</li>
+                        <li>□ Mix of large, medium, small props</li>
+                        <li>□ Some negative space (not cluttered)</li>
+                        <li>□ Framing element (doorway, window, etc.) if appropriate</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <strong>📸 Think Like a Photographer:</strong> Before adding each prop, ask "Does this enhance my composition or just add clutter?" Every object should either direct attention to the subject, provide context, or add visual balance. If it does none of these, don't add it!
+                </blockquote>
+            </section>
+
+            <section id="primitives" class="lesson-section">
+                <h2>Working with Primitives</h2>
+                
+                <p>Primitives are basic geometric shapes that come with Poser. They're incredibly useful for building custom elements!</p>
+
+                <h3>The Basic Primitives</h3>
+
+                <div class="card">
+                    <h4>Cube/Box</h4>
+                    <p><strong>Uses:</strong> Tables, boxes, buildings, platforms, walls</p>
+                    <p><strong>Tip:</strong> Scale non-uniformly (different X, Y, Z) to create rectangular shapes</p>
+                </div>
+
+                <div class="card">
+                    <h4>Sphere/Ball</h4>
+                    <p><strong>Uses:</strong> Planets, balls, round objects, light bulbs</p>
+                    <p><strong>Tip:</strong> Scale uniformly to keep it perfectly round</p>
+                </div>
+
+                <div class="card">
+                    <h4>Cylinder</h4>
+                    <p><strong>Uses:</strong> Columns, pipes, cans, tree trunks, poles</p>
+                    <p><strong>Tip:</strong> Rotate to horizontal for logs, pipes</p>
+                </div>
+
+                <div class="card">
+                    <h4>Cone</h4>
+                    <p><strong>Uses:</strong> Party hats, mountains, pointed objects</p>
+                    <p><strong>Tip:</strong> Combine with cylinder for complex shapes</p>
+                </div>
+
+                <div class="card">
+                    <h4>Plane/Square</h4>
+                    <p><strong>Uses:</strong> Ground plane, walls, flat surfaces, backdrop</p>
+                    <p><strong>Tip:</strong> Scale very large for ground or sky</p>
+                </div>
+
+                <div class="card">
+                    <h4>Torus (if available)</h4>
+                    <p><strong>Uses:</strong> Donuts, rings, tires, decorative elements</p>
+                    <p><strong>Tip:</strong> Scale inner/outer radius for variety</p>
+                </div>
+
+                <h3>Building with Primitives</h3>
+                <p>Primitives become powerful when combined:</p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Example: Simple Table</h4>
+                    <ol>
+                        <li>Load cube, scale to (200%, 10%, 100%) = tabletop</li>
+                        <li>Load cylinder, scale to (5%, 50%, 5%) = leg</li>
+                        <li>Duplicate leg 3 times</li>
+                        <li>Position legs at four corners</li>
+                        <li>Parent all legs to tabletop</li>
+                        <li>Apply wood material to all</li>
+                        <li>Result: Custom table!</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Example: Simple Room</h4>
+                    <ol>
+                        <li>Load plane, scale large (500%, 1%, 500%) = floor</li>
+                        <li>Load cube, scale to (500%, 300%, 1%) = back wall</li>
+                        <li>Duplicate and rotate for side walls</li>
+                        <li>Apply different materials to each</li>
+                        <li>Result: Basic room for character!</li>
+                    </ol>
+                </div>
+
+                <h3>Material Application</h3>
+                <p>Primitives start with basic materials, but you can change them:</p>
+                <ul>
+                    <li>Select primitive</li>
+                    <li>Open Material Room or Simple Materials</li>
+                    <li>Apply wood, metal, stone, or custom textures</li>
+                    <li>Same cube becomes wood box, metal crate, or stone block!</li>
+                </ul>
+
+                <p><strong>Pro tip:</strong> Build basic scene structure with primitives, then replace with detailed props where needed.</p>
+
+                <blockquote>
+                    <strong>🔨 Builder's Challenge:</strong> Using only primitives (cube, sphere, cylinder, plane), build a simple outdoor scene: ground plane, cylinder tree trunks, sphere tree tops, cube rocks. See how much you can create with basics!
+                </blockquote>
+            </section>
+
+            <section id="organization" class="lesson-section">
+                <h2>Scene Organization</h2>
+                
+                <p>As scenes grow complex with many props, organization becomes critical. A messy scene is hard to work with!</p>
+
+                <h3>Naming Props</h3>
+                <p>Default prop names are useless in complex scenes!</p>
+
+                <div class="card">
+                    <h4>Renaming Props</h4>
+                    <ol>
+                        <li>Select prop</li>
+                        <li>Look for "Name" field (often in properties or hierarchy)</li>
+                        <li>Change from "Cube_1" to "WallBack" or descriptive name</li>
+                        <li>Be consistent (WallLeft, WallRight, WallBack)</li>
+                    </ol>
+                </div>
+
+                <p><strong>Good naming conventions:</strong></p>
+                <ul>
+                    <li><strong>Location-based:</strong> TableCenter, ChairLeft, LampRight</li>
+                    <li><strong>Function-based:</strong> HeroSword, BackgroundTree, ForegroundRock</li>
+                    <li><strong>Numbered series:</strong> Book01, Book02, Book03</li>
+                </ul>
+
+                <h3>Grouping Related Props</h3>
+                <p>Some Poser versions allow grouping:</p>
+                <ul>
+                    <li>Create empty parent object</li>
+                    <li>Parent related props to it</li>
+                    <li>Name the group (e.g., "FurnitureSet" or "Trees")</li>
+                    <li>Move entire group as one unit</li>
+                    <li>Show/hide entire group together</li>
+                </ul>
+
+                <h3>Visibility Management</h3>
+                <p>Hide props you're not currently working on:</p>
+                <ul>
+                    <li><strong>Eye icon (visibility toggle):</strong> Click to hide/show</li>
+                    <li><strong>Benefits:</strong> Faster viewport, clearer view, easier selection</li>
+                    <li><strong>Hidden props still render:</strong> They're just invisible in the workspace</li>
+                </ul>
+
+                <h3>Scene Hierarchy Organization</h3>
+                <p>Keep your hierarchy panel organized:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Element Type</th>
+                            <th>Organization Strategy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Characters</strong></td>
+                            <td>Top of hierarchy, clearly named</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Major props</strong></td>
+                            <td>Next level, grouped by function</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Parented items</strong></td>
+                            <td>Under their parents</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Background elements</strong></td>
+                            <td>Lower in hierarchy, grouped together</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lights</strong></td>
+                            <td>Separate area, descriptive names</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cameras</strong></td>
+                            <td>Separate area, named by view type</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Saving Scene Subsets</h3>
+                <p>For reusable prop arrangements:</p>
+                <ol>
+                    <li>Build furniture arrangement (chair + table + lamp)</li>
+                    <li>Select all elements</li>
+                    <li>File > Save > Prop or Smart Prop</li>
+                    <li>Name it ("OfficeCorner") and save to library</li>
+                    <li>Load as a single unit in future projects!</li>
+                </ol>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Organization Best Practices</h4>
+                    <ul>
+                        <li><strong>Name as you go:</strong> Rename props immediately after loading</li>
+                        <li><strong>Group logically:</strong> Related items together</li>
+                        <li><strong>Hide extras:</strong> Toggle visibility on background elements while working on foreground</li>
+                        <li><strong>Save incremental versions:</strong> Scene_v1, Scene_v2, Scene_v3 (in case you need to go back)</li>
+                        <li><strong>Delete unused:</strong> Remove props you decided not to use (cleaner scene file)</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <strong>🗂️ Future You Says Thanks:</strong> You might remember what "Cube_17" is right now, but will you remember in a week? Or when you reopen the scene six months later? Good organization is a gift to future you!
+                </blockquote>
+            </section>
+
+            <section id="importing" class="lesson-section">
+                <h2>Importing External Props</h2>
+                
+                <p>Poser's built-in library is just the beginning! You can import props from many sources.</p>
+
+                <h3>Common Import Formats</h3>
+                <p>Poser supports various 3D file formats:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Format</th>
+                            <th>Extension</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>OBJ</strong></td>
+                            <td>.obj</td>
+                            <td>Most common, widely compatible</td>
+                        </tr>
+                        <tr>
+                            <td><strong>FBX</strong></td>
+                            <td>.fbx</td>
+                            <td>Industry standard, includes animations</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3DS</strong></td>
+                            <td>.3ds</td>
+                            <td>Older format, still common</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DAE (Collada)</strong></td>
+                            <td>.dae</td>
+                            <td>Open format, good compatibility</td>
+                        </tr>
+                        <tr>
+                            <td><strong>LWO</strong></td>
+                            <td>.lwo</td>
+                            <td>Lightwave format</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>How to Import</h3>
+
+                <div class="card">
+                    <h4>File > Import Method</h4>
+                    <ol>
+                        <li>Go to <strong>File > Import</strong></li>
+                        <li>Choose format from submenu (Import OBJ, Import FBX, etc.)</li>
+                        <li>Navigate to file location</li>
+                        <li>Select file</li>
+                        <li>Import dialog may appear with options</li>
+                        <li>Click OK/Import</li>
+                        <li>Prop appears in scene</li>
+                    </ol>
+                </div>
+
+                <h3>Import Options to Watch For</h3>
+                <p>Depending on format, you might see options like:</p>
+                <ul>
+                    <li><strong>Scale:</strong> Some formats import huge or tiny (adjust if needed)</li>
+                    <li><strong>Rotation:</strong> Might be oriented wrong (adjust after import)</li>
+                    <li><strong>Materials:</strong> May or may not import correctly</li>
+                    <li><strong>Normals:</strong> Affect how lighting interacts (usually auto-calculated)</li>
+                    <li><strong>Smoothing:</strong> How smooth curved surfaces appear</li>
+                </ul>
+
+                <h3>Where to Find Props</h3>
+
+                <div class="card">
+                    <h4>Free Resources</h4>
+                    <ul>
+                        <li><strong>ShareCG:</strong> Free Poser content community</li>
+                        <li><strong>Renderosity Freebies:</strong> Free section of major marketplace</li>
+                        <li><strong>TurboSquid Free:</strong> Free 3D models (check license!)</li>
+                        <li><strong>Sketchfab:</strong> Many downloadable models (check license!)</li>
+                        <li><strong>CGTrader Free:</strong> Free section (verify license)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Paid Marketplaces</h4>
+                    <ul>
+                        <li><strong>Renderosity:</strong> Largest Poser marketplace</li>
+                        <li><strong>DAZ 3D:</strong> Works with Poser (usually)</li>
+                        <li><strong>TurboSquid:</strong> Professional 3D models</li>
+                        <li><strong>CGTrader:</strong> Large marketplace</li>
+                        <li><strong>Poser Official Store:</strong> Designed specifically for Poser</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Important: Check Licenses!</h4>
+                    <p>When downloading or purchasing props:</p>
+                    <ul>
+                        <li><strong>Read license terms</strong> carefully</li>
+                        <li><strong>Personal vs. Commercial:</strong> Can you sell renders using this prop?</li>
+                        <li><strong>Redistribution:</strong> Can you share the prop file itself?</li>
+                        <li><strong>Attribution:</strong> Do you need to credit the creator?</li>
+                    </ul>
+                    <p><strong>When in doubt, ask or don't use it commercially!</strong></p>
+                </div>
+
+                <h3>Troubleshooting Imports</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Problem</th>
+                            <th>Likely Cause</th>
+                            <th>Solution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Prop is tiny</td>
+                            <td>Different unit scale</td>
+                            <td>Scale up 100x or 1000x</td>
+                        </tr>
+                        <tr>
+                            <td>Prop is huge</td>
+                            <td>Different unit scale</td>
+                            <td>Scale down to 10% or 1%</td>
+                        </tr>
+                        <tr>
+                            <td>Upside down</td>
+                            <td>Different axis orientation</td>
+                            <td>Rotate 180° on appropriate axis</td>
+                        </tr>
+                        <tr>
+                            <td>No materials/all gray</td>
+                            <td>Materials didn't import</td>
+                            <td>Apply materials manually in Material Room</td>
+                        </tr>
+                        <tr>
+                            <td>Looks inside-out</td>
+                            <td>Reversed normals</td>
+                            <td>Check for "Flip Normals" option or reimport</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <blockquote>
+                    <strong>🌐 The World is Your Library:</strong> Millions of 3D props exist online. With proper importing skills, you're not limited to Poser's default library. The entire 3D community becomes your resource!
+                </blockquote>
+            </section>
+
+            <section id="project" class="lesson-section">
+                <h2>Project: Build a Complete Room Scene</h2>
+                
+                <p>Time to apply everything you've learned! You'll build a complete, story-rich room scene with a character.</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>🎯 Project Brief</h3>
+                    <p style="color: white;">Create a room interior with at least one character and multiple props that tell a story about who lives there.</p>
+                    <p><strong style="color: white;">Requirements:</strong></p>
+                    <ul style="color: white;">
+                        <li>At least one character (posed naturally)</li>
+                        <li>Minimum 8 props (furniture, decorations, etc.)</li>
+                        <li>Clear foreground, midground, background</li>
+                        <li>At least one parented object</li>
+                        <li>Good composition (rule of thirds, etc.)</li>
+                        <li>Scene tells a story</li>
+                    </ul>
+                    <p style="color: white;"><strong>Time allocation:</strong> 60-90 minutes</p>
+                </div>
+
+                <h3>Step-by-Step Project Guide</h3>
+
+                <div class="card">
+                    <h4>Phase 1: Planning (10 minutes)</h4>
+                    <p><strong>Decide on your story:</strong></p>
+                    <ul>
+                        <li>Who lives here? (artist, student, warrior, scientist, etc.)</li>
+                        <li>What are they doing? (working, relaxing, preparing for adventure, etc.)</li>
+                        <li>What mood? (cozy, busy, mysterious, elegant, etc.)</li>
+                    </ul>
+                    <p><strong>Sketch or visualize:</strong></p>
+                    <ul>
+                        <li>Rough layout of room</li>
+                        <li>Where character will be</li>
+                        <li>Major furniture pieces</li>
+                        <li>Camera angle</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 2: Build Basic Structure (15 minutes)</h4>
+                    <ol>
+                        <li><strong>Create floor:</strong> Load plane, scale large, position at y=0</li>
+                        <li><strong>Create walls:</strong> Use cubes scaled flat OR load wall props if available
+                            <ul>
+                                <li>Back wall</li>
+                                <li>Optional side walls</li>
+                            </ul>
+                        </li>
+                        <li><strong>Rename everything:</strong> Floor, WallBack, WallLeft, etc.</li>
+                        <li><strong>Apply basic materials:</strong> Floor = wood or carpet, Walls = paint or wallpaper</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 3: Add Major Furniture (15 minutes)</h4>
+                    <ol>
+                        <li><strong>Place character first:</strong> Load and position figure at intended location</li>
+                        <li><strong>Add furniture character interacts with:</strong>
+                            <ul>
+                                <li>Chair if sitting</li>
+                                <li>Desk if working</li>
+                                <li>Bed if sleeping/resting</li>
+                            </ul>
+                        </li>
+                        <li><strong>Add supporting furniture:</strong>
+                            <ul>
+                                <li>Bookshelf, dresser, table</li>
+                                <li>2-3 major pieces total</li>
+                            </ul>
+                        </li>
+                        <li><strong>Position for composition:</strong>
+                            <ul>
+                                <li>Not all against walls</li>
+                                <li>Create visual triangles</li>
+                                <li>Leave pathways/negative space</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 4: Add Character Details (15 minutes)</h4>
+                    <ol>
+                        <li><strong>Pose character naturally:</strong>
+                            <ul>
+                                <li>Sitting, standing, leaning - appropriate to story</li>
+                                <li>Natural poses (contrapposto if standing)</li>
+                                <li>Hands doing something (not zombie arms!)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Add facial expression:</strong> Match mood of scene</li>
+                        <li><strong>Parent objects to character if needed:</strong>
+                            <ul>
+                                <li>Book to hand</li>
+                                <li>Glasses to head</li>
+                                <li>Tool to hand</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 5: Add Storytelling Props (20 minutes)</h4>
+                    <p><strong>Now add the details that bring it to life:</strong></p>
+                    <ol>
+                        <li><strong>On surfaces:</strong>
+                            <ul>
+                                <li>Books on shelves/desk</li>
+                                <li>Papers, coffee mug</li>
+                                <li>Personal items</li>
+                            </ul>
+                        </li>
+                        <li><strong>On walls:</strong>
+                            <ul>
+                                <li>Pictures/paintings</li>
+                                <li>Weapons (fantasy)</li>
+                                <li>Diplomas (office)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Floor level:</strong>
+                            <ul>
+                                <li>Rug or mat</li>
+                                <li>Dropped item</li>
+                                <li>Pet bowl (if applicable)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Character-specific:</strong>
+                            <ul>
+                                <li>Artist? Paint supplies, easel</li>
+                                <li>Warrior? Armor stand, weapons</li>
+                                <li>Student? Backpack, notebooks</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><strong>Remember:</strong> Each prop should tell part of the story!</p>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 6: Composition Refinement (10 minutes)</h4>
+                    <ol>
+                        <li><strong>Set camera to final angle</strong></li>
+                        <li><strong>Check rule of thirds:</strong> Character at power point?</li>
+                        <li><strong>Add foreground element:</strong>
+                            <ul>
+                                <li>Part of furniture near camera</li>
+                                <li>Plant in corner</li>
+                                <li>Door frame edge</li>
+                            </ul>
+                        </li>
+                        <li><strong>Verify depth layers:</strong> Fore/mid/background distinct?</li>
+                        <li><strong>Check leading lines:</strong> Do props guide eye to character?</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 7: Polish (10 minutes)</h4>
+                    <ol>
+                        <li><strong>Name all props descriptively</strong></li>
+                        <li><strong>Hide elements behind camera</strong> (if any)</li>
+                        <li><strong>Check for floating objects:</strong> Everything grounded properly?</li>
+                        <li><strong>Adjust any prop rotations:</strong> Books slightly askew, natural imperfection</li>
+                        <li><strong>Save your scene!</strong> Give it a meaningful name</li>
+                    </ol>
+                </div>
+
+                <h3>Example Scene Ideas</h3>
+
+                <div class="card">
+                    <h4>The Artist's Studio</h4>
+                    <p><strong>Character:</strong> Artist holding brush, contemplating canvas</p>
+                    <p><strong>Props:</strong> Easel, paint supplies, finished paintings on wall, table with brushes/paint tubes, stool, window showing outside, drop cloth on floor, palette</p>
+                    <p><strong>Story:</strong> Moment of creative contemplation</p>
+                </div>
+
+                <div class="card">
+                    <h4>The Warrior's Chamber</h4>
+                    <p><strong>Character:</strong> Warrior sharpening sword, seated</p>
+                    <p><strong>Props:</strong> Armor stand with armor, weapon rack with multiple weapons, shield on wall, rough wooden table, whetstone, simple bed, torch/candle, stone walls</p>
+                    <p><strong>Story:</strong> Preparing for battle</p>
+                </div>
+
+                <div class="card">
+                    <h4>The Student's Dorm</h4>
+                    <p><strong>Character:</strong> Student at desk, studying</p>
+                    <p><strong>Props:</strong> Desk with computer/books, desk lamp, chair, bookshelf crammed with books, coffee mug, backpack on floor, unmade bed, posters on wall, laundry pile</p>
+                    <p><strong>Story:</strong> Late-night study session</p>
+                </div>
+
+                <h3>Success Criteria</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Your Scene Should Have:</h4>
+                    <ul>
+                        <li>□ Clear story/personality (who lives here is obvious)</li>
+                        <li>□ At least 8 props plus walls/floor</li>
+                        <li>□ Character naturally posed and integrated</li>
+                        <li>□ At least one parented object working correctly</li>
+                        <li>□ Good composition (not centered, depth layers)</li>
+                        <li>□ Props appropriately scaled relative to character</li>
+                        <li>□ Everything properly named</li>
+                        <li>□ Scene saved with descriptive filename</li>
+                        <li>□ You can explain the story being told</li>
+                    </ul>
+                </div>
+
+                <h3>Bonus Challenges</h3>
+                <p>If you finish early or want to push further:</p>
+                <ul>
+                    <li><strong>Add a second character:</strong> Two people interacting</li>
+                    <li><strong>Build with primitives:</strong> Custom furniture from basic shapes</li>
+                    <li><strong>Import an external prop:</strong> Find and import something from online</li>
+                    <li><strong>Create a foreground frame:</strong> Doorway or window framing the scene</li>
+                    <li><strong>Add narrative complexity:</strong> Visual evidence of recent activity or upcoming event</li>
+                </ul>
+            </section>
+
+            <section id="summary" class="lesson-section">
+                <h2>Wrapping Up</h2>
+                
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h3>🎉 You're Now a Scene Builder!</h3>
+                    <p>You've learned:</p>
+                    <ul>
+                        <li>✅ How to navigate and use the prop library</li>
+                        <li>✅ Loading and placing props efficiently</li>
+                        <li>✅ Essential manipulation tools (translate, rotate, scale)</li>
+                        <li>✅ Parenting objects for complex relationships</li>
+                        <li>✅ Scene composition fundamentals</li>
+                        <li>✅ Working with primitive shapes</li>
+                        <li>✅ Organizing complex scenes</li>
+                        <li>✅ Importing external props</li>
+                        <li>✅ Building complete, story-rich environments</li>
+                    </ul>
+                </div>
+
+                <h3>Key Principles to Remember</h3>
+                <div class="card">
+                    <ul>
+                        <li><strong>Every prop tells part of the story</strong> - be intentional</li>
+                        <li><strong>Composition matters</strong> - rule of thirds, depth layers, leading lines</li>
+                        <li><strong>Parent for efficiency</strong> - objects that move together should be parented</li>
+                        <li><strong>Organization saves time</strong> - name and group as you go</li>
+                        <li><strong>Less can be more</strong> - don't clutter, use negative space</li>
+                        <li><strong>Primitives are powerful</strong> - basic shapes build complex scenes</li>
+                    </ul>
+                </div>
+
+                <h3>🚀 What's Next?</h3>
+                <p>You can now populate complete environments! In the next lessons of Module 3, we'll explore <strong>Advanced Scene Techniques</strong>, including working with multiple characters, advanced composition, and creating outdoor environments!</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>✨ Your Characters Have a World!</h3>
+                    <p style="color: white;">Your characters are no longer floating in empty space—they have environments that support their stories, provide context, and create visual interest. You're not just posing figures anymore; you're building entire worlds!</p>
+                    <p style="color: white; margin-bottom: 0;"><strong>From character to scene to story—you're becoming a complete 3D artist! 🏛️✨</strong></p>
+                </div>
+            </section>
+
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_08_facial_expressions.html" class="prev-lesson">← Previous: Facial Expressions and Emotion</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_10_multiple_figures.html" class="next-lesson">Next: Working with Multiple Figures →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 2rem; margin-top: 4rem; border-top: 1px solid var(--border-color);">
+        <p>&copy; 2024 Poser 12 Mastery Course. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9em; opacity: 0.8;">Made with ❤️ for aspiring 3D artists</p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master the figure hierarchy in Poser 12. Understand parent-child relationships and how body parts connect for natural, realistic posing.">
+    <meta name="author" content="Poser 12 Course">
+    <title>Understanding the Figure Hierarchy - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Progress indicator -->
+    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
+        <div class="progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Poser 12 Mastery</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">
+                ☰
+            </button>
+            <div class="nav-links" id="nav-links" aria-hidden="false">
+                <a href="index.html">Home</a>
+                <a href="index.html#modules">All Modules</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#module2">Module 2: Essential Posing Techniques</a></li>
+            <li aria-current="page">Understanding the Figure Hierarchy</li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <div class="container">
+            <!-- Lesson Header -->
+            <header>
+                <h1>🦴 Understanding the Figure Hierarchy</h1>
+                <p class="lead">Welcome to Module 2! You've mastered the basics—now it's time to level up your posing game. Understanding how body parts connect and control each other is the secret to creating natural, believable poses. Think of this as learning the anatomy of your digital puppet—once you understand the skeleton, everything else makes perfect sense!</p>
+                
+                <!-- Learning objectives -->
+                <div class="card">
+                    <h2>🎯 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will:</p>
+                    <ul>
+                        <li>Understand parent-child relationships in figure rigging</li>
+                        <li>Navigate the figure hierarchy efficiently</li>
+                        <li>Predict how moving one body part affects others</li>
+                        <li>Use hierarchy knowledge to pose faster and smarter</li>
+                        <li>Work with inverse kinematics (IK) basics</li>
+                        <li>Apply symmetry and mirroring techniques</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated time:</strong> 30-40 minutes</p>
+                    <p><strong>🎯 Project:</strong> Explore the full body hierarchy of a figure</p>
+                </div>
+            </header>
+
+            <!-- Table of Contents -->
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">📑 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#what-is-hierarchy" class="toc-link">What is Figure Hierarchy?</a></li>
+                        <li><a href="#parent-child" class="toc-link">Parent-Child Relationships</a></li>
+                        <li><a href="#body-structure" class="toc-link">The Human Figure Structure</a></li>
+                        <li><a href="#hierarchy-panel" class="toc-link">Using the Hierarchy Panel</a></li>
+                        <li><a href="#chain-reaction" class="toc-link">Understanding the Chain Reaction</a></li>
+                        <li><a href="#ik-basics" class="toc-link">Inverse Kinematics Basics</a></li>
+                        <li><a href="#symmetry" class="toc-link">Working with Symmetry</a></li>
+                        <li><a href="#practical-tips" class="toc-link">Practical Hierarchy Tips</a></li>
+                        <li><a href="#project" class="toc-link">Project: Hierarchy Explorer</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Section 1: What is Hierarchy -->
+            <section id="what-is-hierarchy" class="lesson-section">
+                <h2>What is Figure Hierarchy?</h2>
+                
+                <p>Imagine you're building a puppet. You can't just attach strings to random spots—you need to understand how the parts connect. The shoulder connects to the arm, the arm to the forearm, the forearm to the hand. Each connection matters. That's exactly what figure hierarchy is in Poser: the organizational structure that defines how body parts relate to and control each other.</p>
+
+                <h3>The Skeleton Metaphor</h3>
+                <p>Think of your own skeleton. Your bones aren't just floating around randomly—they're connected in a specific order:</p>
+                <ul>
+                    <li>Your spine connects to your skull</li>
+                    <li>Your spine connects to your shoulders</li>
+                    <li>Your shoulders connect to your upper arms</li>
+                    <li>Your upper arms connect to your forearms</li>
+                    <li>And so on...</li>
+                </ul>
+
+                <p>In Poser, figures are built the same way. Each body part is a "bone" in the digital skeleton, and these bones are arranged in a hierarchy—a family tree of body parts!</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>💡 Why Hierarchy Matters</h3>
+                    <p>Understanding hierarchy helps you:</p>
+                    <ul style="color: white;">
+                        <li><strong>Pose more efficiently:</strong> Adjust parents to move multiple children at once</li>
+                        <li><strong>Avoid frustration:</strong> Understand why body parts move unexpectedly</li>
+                        <li><strong>Create natural movement:</strong> Work with the body's natural structure</li>
+                        <li><strong>Troubleshoot problems:</strong> Know where to look when something isn't working</li>
+                        <li><strong>Work faster:</strong> Select and adjust the right parts on the first try</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <strong>🎭 The Puppet Master Insight:</strong> Professional puppeteers don't pull random strings—they know exactly which string controls which part. Similarly, understanding hierarchy transforms you from someone randomly clicking body parts to a master who knows exactly which part to adjust for the perfect pose!
+                </blockquote>
+            </section>
+
+            <!-- Section 2: Parent-Child -->
+            <section id="parent-child" class="lesson-section">
+                <h2>Parent-Child Relationships</h2>
+                
+                <p>This is the core concept that makes everything else make sense. In Poser's hierarchy, every body part (except the root) has a <strong>parent</strong>, and most parts have one or more <strong>children</strong>.</p>
+
+                <h3>The Golden Rules of Parent-Child</h3>
+                <div class="card">
+                    <h4>Rule #1: Children Follow Parents</h4>
+                    <p>When you move a parent, ALL of its children move with it automatically.</p>
+                    <p><strong>Example:</strong> Rotate the shoulder, and the entire arm (forearm, hand, fingers) rotates with it.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Rule #2: Children Are Independent</h4>
+                    <p>When you move a child, the parent stays put. Children can move freely without affecting their parents.</p>
+                    <p><strong>Example:</strong> Bend the forearm at the elbow, and the shoulder doesn't move at all.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Rule #3: Grandchildren Follow Too</h4>
+                    <p>The relationship cascades down. Move a parent, and children, grandchildren, and great-grandchildren all follow.</p>
+                    <p><strong>Example:</strong> Rotate the shoulder, and the forearm, hand, AND all five fingers move together as one unit.</p>
+                </div>
+
+                <h3>Real-World Analogy: The Mobile</h3>
+                <p>Imagine a hanging mobile (like a baby's crib mobile):</p>
+                <ul>
+                    <li>The <strong>ceiling hook</strong> is the root parent</li>
+                    <li>Move the ceiling hook, and <strong>everything below moves</strong></li>
+                    <li>The <strong>main rod</strong> hangs from the hook (child of hook)</li>
+                    <li>The <strong>smaller rods</strong> hang from the main rod (grandchildren)</li>
+                    <li>The <strong>shapes</strong> hang from the smaller rods (great-grandchildren)</li>
+                </ul>
+
+                <p>Sway the ceiling hook, and every single piece moves. But you can spin one small shape without affecting anything above it!</p>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Parent Body Part] --> B[Child 1]
+                    A --> C[Child 2]
+                    B --> D[Grandchild 1]
+                    B --> E[Grandchild 2]
+                    C --> F[Grandchild 3]
+                    D --> G[Great-Grandchild]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:3px,color:#fff
+                    style B fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style C fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Visualizing the Relationship</h3>
+                <p>Let's look at a specific example: the right arm.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Body Part</th>
+                            <th>Relationship</th>
+                            <th>What Happens When Moved</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Shoulder</strong></td>
+                            <td>Parent of arm</td>
+                            <td>Entire arm rotates from shoulder socket</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Forearm</strong></td>
+                            <td>Child of shoulder<br/>Parent of hand</td>
+                            <td>Hand and fingers follow, but shoulder stays put</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hand</strong></td>
+                            <td>Child of forearm<br/>Parent of fingers</td>
+                            <td>All fingers follow, but arm doesn't move</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Index Finger</strong></td>
+                            <td>Child of hand<br/>Parent of finger segments</td>
+                            <td>Finger segments follow, nothing else moves</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <blockquote>
+                    <strong>💪 The Arm-Lifting Test:</strong> Try this with your own arm right now. Lift your shoulder—your whole arm lifts. Now keep your shoulder still and bend your elbow—only your forearm moves. Now keep your arm still and curl your fingers—only your hand changes. Your body IS a hierarchy. Poser just digitizes it!
+                </blockquote>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Common Beginner Mistake</h4>
+                    <p><strong>The Problem:</strong> "I moved the hand and the whole arm moved! Why?"</p>
+                    <p><strong>The Reality:</strong> You probably selected the shoulder or forearm by mistake, not the hand. When you think you're moving a child but the parent is actually selected, the whole chain follows.</p>
+                    <p><strong>The Fix:</strong> Always double-check which body part is selected before adjusting parameters. The selected part's name should be clearly displayed!</p>
+                </div>
+            </section>
+
+            <!-- Section 3: Body Structure -->
+            <section id="body-structure" class="lesson-section">
+                <h2>The Human Figure Structure</h2>
+                
+                <p>Let's map out the complete hierarchy of a typical Poser figure. This is your reference guide—keep it handy!</p>
+
+                <h3>The Root: Body or Hip</h3>
+                <p>Every Poser figure has a <strong>root</strong> body part—typically called "Body" or "Hip." This is the ultimate parent. Move the root, and the ENTIRE figure moves as one unit.</p>
+
+                <div class="card">
+                    <h4>🌳 Think of It Like a Tree</h4>
+                    <p>The root is like a tree trunk. All branches (body parts) connect to it eventually. Move the trunk, and every branch, twig, and leaf moves with it!</p>
+                </div>
+
+                <h3>The Major Branches</h3>
+                <p>From the root, major body sections branch out:</p>
+
+                <div class="mermaid">
+                    graph TD
+                    ROOT[Body/Hip<br/>ROOT] --> LOWER[Lower Body<br/>Pelvis, Legs]
+                    ROOT --> UPPER[Upper Body<br/>Abdomen, Chest]
+                    UPPER --> NECK[Neck/Head Branch]
+                    UPPER --> LARM[Left Arm Branch]
+                    UPPER --> RARM[Right Arm Branch]
+                    LOWER --> LLEG[Left Leg Branch]
+                    LOWER --> RLEG[Right Leg Branch]
+                    
+                    style ROOT fill:#667eea,stroke:#333,stroke-width:3px,color:#fff
+                    style UPPER fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style LOWER fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Complete Hierarchy Breakdown</h3>
+                
+                <h4>Central Body Column</h4>
+                <ul>
+                    <li><strong>Body (Root)</strong>
+                        <ul>
+                            <li>Hip/Pelvis</li>
+                            <li>Abdomen</li>
+                            <li>Chest
+                                <ul>
+                                    <li>Neck
+                                        <ul>
+                                            <li>Head
+                                                <ul>
+                                                    <li>Left Eye</li>
+                                                    <li>Right Eye</li>
+                                                    <li>Jaw (if present)</li>
+                                                    <li>Tongue (if present)</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>Arm Structure (mirrored on both sides)</h4>
+                <ul>
+                    <li><strong>Chest</strong>
+                        <ul>
+                            <li>Collar (Left/Right)
+                                <ul>
+                                    <li>Shoulder (Left/Right)
+                                        <ul>
+                                            <li>Forearm (Left/Right)
+                                                <ul>
+                                                    <li>Hand (Left/Right)
+                                                        <ul>
+                                                            <li>Thumb (3 segments typically)</li>
+                                                            <li>Index Finger (3 segments)</li>
+                                                            <li>Middle Finger (3 segments)</li>
+                                                            <li>Ring Finger (3 segments)</li>
+                                                            <li>Pinky (3 segments)</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>Leg Structure (mirrored on both sides)</h4>
+                <ul>
+                    <li><strong>Hip/Pelvis</strong>
+                        <ul>
+                            <li>Thigh (Left/Right)
+                                <ul>
+                                    <li>Shin (Left/Right)
+                                        <ul>
+                                            <li>Foot (Left/Right)
+                                                <ul>
+                                                    <li>Toes (Left/Right) - often a single part or multiple</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="card" style="background-color: #f0f0f0; border-left: 4px solid #667eea;">
+                    <h4>💡 Naming Conventions</h4>
+                    <p>Poser uses consistent naming:</p>
+                    <ul>
+                        <li><strong>Left/Right:</strong> Always from the figure's perspective, not yours!</li>
+                        <li><strong>Shoulder vs. Forearm:</strong> "Shoulder" is upper arm, "Forearm" is lower arm (confusing but standard)</li>
+                        <li><strong>Shin:</strong> Lower leg (some figures call it "Calf")</li>
+                        <li><strong>Thigh:</strong> Upper leg</li>
+                    </ul>
+                </div>
+
+                <h3>Key Connection Points to Remember</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>If You Want To...</th>
+                            <th>Select This Parent...</th>
+                            <th>And Its Children Will Follow</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Move entire figure</td>
+                            <td><strong>Body (root)</strong></td>
+                            <td>Everything</td>
+                        </tr>
+                        <tr>
+                            <td>Twist the torso</td>
+                            <td><strong>Chest</strong></td>
+                            <td>Arms, neck, head</td>
+                        </tr>
+                        <tr>
+                            <td>Lean the body</td>
+                            <td><strong>Hip/Pelvis</strong></td>
+                            <td>Legs stay grounded, torso leans</td>
+                        </tr>
+                        <tr>
+                            <td>Raise entire arm</td>
+                            <td><strong>Shoulder</strong></td>
+                            <td>Forearm, hand, all fingers</td>
+                        </tr>
+                        <tr>
+                            <td>Bend elbow only</td>
+                            <td><strong>Forearm</strong></td>
+                            <td>Hand and fingers</td>
+                        </tr>
+                        <tr>
+                            <td>Rotate wrist</td>
+                            <td><strong>Hand</strong></td>
+                            <td>All fingers</td>
+                        </tr>
+                        <tr>
+                            <td>Lift entire leg</td>
+                            <td><strong>Thigh</strong></td>
+                            <td>Shin, foot, toes</td>
+                        </tr>
+                        <tr>
+                            <td>Bend knee only</td>
+                            <td><strong>Shin</strong></td>
+                            <td>Foot and toes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Section 4: Hierarchy Panel -->
+            <section id="hierarchy-panel" class="lesson-section">
+                <h2>Using the Hierarchy Panel</h2>
+                
+                <p>The Hierarchy Panel is your visual map of the figure's structure. It shows every body part in a tree view, making it easy to see parent-child relationships at a glance.</p>
+
+                <h3>Opening the Hierarchy Panel</h3>
+                <p>If you don't see the Hierarchy Panel:</p>
+                <ol>
+                    <li>Go to <strong>Window &gt; Hierarchy</strong></li>
+                    <li>The panel appears (usually on the left side)</li>
+                    <li>You'll see a tree structure with expandable/collapsible branches</li>
+                </ol>
+
+                <h3>Reading the Hierarchy Panel</h3>
+                <p>The panel shows body parts in a tree structure:</p>
+                <ul>
+                    <li><strong>Indentation shows relationships:</strong> Indented items are children</li>
+                    <li><strong>Plus/minus icons:</strong> Expand or collapse branches</li>
+                    <li><strong>Highlight indicates selection:</strong> Selected part is highlighted</li>
+                    <li><strong>Top to bottom:</strong> Reads from parent down to children</li>
+                </ul>
+
+                <div class="card">
+                    <h4>Example Hierarchy Panel View</h4>
+                    <pre style="background: #f5f5f5; padding: 15px; border-radius: 4px; overflow-x: auto;">
++ Figure 1
+  + Body
+    + Hip
+      + Left Thigh
+        + Left Shin
+          + Left Foot
+            + Left Toes
+      + Right Thigh
+        [similar structure]
+    + Abdomen
+      + Chest
+        + Neck
+          + Head
+            + Left Eye
+            + Right Eye
+        + Left Collar
+          + Left Shoulder
+            + Left Forearm
+              + Left Hand
+                + Thumb
+                + Index
+                + Middle
+                + Ring
+                + Pinky
+        + Right Collar
+          [similar structure]
+                    </pre>
+                </div>
+
+                <h3>Using the Panel to Select Parts</h3>
+                <p>The Hierarchy Panel is incredibly useful for selection:</p>
+                <ol>
+                    <li><strong>Click any body part name</strong> in the panel</li>
+                    <li>That part becomes selected in the 3D view</li>
+                    <li>The Properties Panel updates to show that part's parameters</li>
+                </ol>
+
+                <p><strong>Why this is useful:</strong></p>
+                <ul>
+                    <li>Select small parts easily (individual finger segments)</li>
+                    <li>No hunting around the 3D view clicking on things</li>
+                    <li>See at a glance what you have selected</li>
+                    <li>Understand parent-child relationships visually</li>
+                </ul>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Pro Workflow: Dual Selection</h4>
+                    <p>Professionals often use both methods together:</p>
+                    <ol>
+                        <li><strong>Click in 3D view</strong> for major body parts (fast and intuitive)</li>
+                        <li><strong>Use Hierarchy Panel</strong> for precise selection (fingers, small parts)</li>
+                        <li><strong>Glance at panel</strong> to verify what's selected</li>
+                        <li><strong>Expand/collapse branches</strong> to focus on relevant areas</li>
+                    </ol>
+                </div>
+
+                <h3>Navigating the Tree</h3>
+                <p>Tips for efficient hierarchy navigation:</p>
+                <ul>
+                    <li><strong>Collapse unused branches:</strong> Click minus sign to hide arm structure while working on legs</li>
+                    <li><strong>Expand relevant sections:</strong> Open the hand branch when posing fingers</li>
+                    <li><strong>Use the scroll bar:</strong> Long lists can be scrolled</li>
+                    <li><strong>Right-click options:</strong> Some panels offer right-click menus with shortcuts</li>
+                </ul>
+
+                <blockquote>
+                    <strong>🎯 Practice Exercise:</strong> Open the Hierarchy Panel right now. Expand the entire figure tree. Click different body part names and watch how the selection changes in the 3D view. Click "Left Hand" and see all the finger children listed below it. This visual exploration will make hierarchy relationships crystal clear!
+                </blockquote>
+            </section>
+
+            <!-- Section 5: Chain Reaction -->
+            <section id="chain-reaction" class="lesson-section">
+                <h2>Understanding the Chain Reaction</h2>
+                
+                <p>Now that you understand the structure, let's see it in action. When you move a parent, you create a "chain reaction" that flows down the hierarchy. Understanding this helps you predict and control figure behavior.</p>
+
+                <h3>The Domino Effect</h3>
+                <p>Think of hierarchy like dominoes lined up:</p>
+                <ul>
+                    <li>Knock over the first domino (move parent) → all the others fall (children follow)</li>
+                    <li>Remove a domino from the middle (move child) → only dominoes after it fall (descendants follow)</li>
+                    <li>The dominoes before it (parents) stay standing</li>
+                </ul>
+
+                <h3>Practical Examples of Chain Reactions</h3>
+
+                <h4>Example 1: Raising the Arm</h4>
+                <div class="card">
+                    <p><strong>Action:</strong> Rotate the right shoulder (yRotate: 90)</p>
+                    <p><strong>Result:</strong></p>
+                    <ul>
+                        <li>✅ Shoulder rotates up</li>
+                        <li>✅ Forearm follows (maintains angle relative to shoulder)</li>
+                        <li>✅ Hand follows</li>
+                        <li>✅ All five fingers follow</li>
+                        <li>✅ Everything maintains its bent/straight state</li>
+                        <li>❌ Chest stays put (parent doesn't move)</li>
+                    </ul>
+                    <p><strong>Why:</strong> Shoulder is parent to everything else in the arm</p>
+                </div>
+
+                <h4>Example 2: Bending the Elbow</h4>
+                <div class="card">
+                    <p><strong>Action:</strong> Rotate the right forearm (yRotate: -90)</p>
+                    <p><strong>Result:</strong></p>
+                    <ul>
+                        <li>✅ Forearm bends at elbow</li>
+                        <li>✅ Hand follows (keeps same orientation to forearm)</li>
+                        <li>✅ All fingers follow</li>
+                        <li>❌ Shoulder stays put (parent)</li>
+                        <li>❌ Chest stays put (grandparent)</li>
+                    </ul>
+                    <p><strong>Why:</strong> Forearm is parent to hand and fingers only</p>
+                </div>
+
+                <h4>Example 3: Curling a Finger</h4>
+                <div class="card">
+                    <p><strong>Action:</strong> Rotate the right index finger (first segment)</p>
+                    <p><strong>Result:</strong></p>
+                    <ul>
+                        <li>✅ Index finger curls</li>
+                        <li>✅ Remaining segments of index finger follow</li>
+                        <li>❌ Other fingers stay put (siblings, not children)</li>
+                        <li>❌ Hand stays put (parent)</li>
+                        <li>❌ Arm stays put (grandparent)</li>
+                    </ul>
+                    <p><strong>Why:</strong> Each finger is independent; only its own segments are children</p>
+                </div>
+
+                <h4>Example 4: Twisting the Chest</h4>
+                <div class="card">
+                    <p><strong>Action:</strong> Rotate the chest (yRotate: 30)</p>
+                    <p><strong>Result:</strong></p>
+                    <ul>
+                        <li>✅ Chest rotates</li>
+                        <li>✅ Both collars follow</li>
+                        <li>✅ Both complete arms follow</li>
+                        <li>✅ Neck and head follow</li>
+                        <li>❌ Hip/pelvis stays put (parent)</li>
+                        <li>❌ Legs stay put (different branch)</li>
+                    </ul>
+                    <p><strong>Why:</strong> Chest is parent to upper body, but child of hip</p>
+                </div>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Move Shoulder] --> B[Shoulder Rotates]
+                    B --> C[Forearm Follows]
+                    C --> D[Hand Follows]
+                    D --> E[All Fingers Follow]
+                    B -.-> F[Chest STAYS PUT<br/>Parent doesn't move]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style F fill:#FF6B6B,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Predicting Movement</h3>
+                <p>Before you move any body part, ask yourself:</p>
+                <ol>
+                    <li><strong>What am I selecting?</strong> (Verify in Hierarchy Panel)</li>
+                    <li><strong>What are its children?</strong> (They will follow)</li>
+                    <li><strong>What is its parent?</strong> (It will stay put)</li>
+                    <li><strong>Is this the part I really want to move?</strong></li>
+                </ol>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Common Chain Reaction Confusion</h4>
+                    <p><strong>Problem:</strong> "I wanted to bend the elbow, but the whole arm moved!"</p>
+                    <p><strong>Cause:</strong> You selected and rotated the shoulder (parent) instead of the forearm (child)</p>
+                    <p><strong>Solution:</strong> Click the forearm specifically, or use the Hierarchy Panel to select "Right Forearm"</p>
+                </div>
+
+                <blockquote>
+                    <strong>🎮 Game-ify Your Learning:</strong> Challenge yourself! Pick a body part and, BEFORE moving it, predict out loud which parts will follow and which will stay put. Then move it and check if you were right. This mental exercise will make you a posing master fast!
+                </blockquote>
+            </section>
+
+            <!-- Section 6: IK Basics -->
+            <section id="ik-basics" class="lesson-section">
+                <h2>Inverse Kinematics (IK) Basics</h2>
+                
+                <p>So far, we've talked about <strong>Forward Kinematics (FK)</strong>—move a parent and children follow. But Poser also supports <strong>Inverse Kinematics (IK)</strong>, which works backwards: move a child (like a hand) and the parents (arm) adjust automatically to reach it!</p>
+
+                <h3>FK vs. IK: The Key Difference</h3>
+
+                <div class="card">
+                    <h4>Forward Kinematics (FK) - The Normal Way</h4>
+                    <p><strong>How it works:</strong> You adjust parents, and children follow</p>
+                    <p><strong>Example:</strong> Rotate the shoulder → forearm follows → hand follows</p>
+                    <p><strong>Best for:</strong> Natural arm swings, gestures, most posing</p>
+                    <p><strong>Think of it as:</strong> "Move the shoulder to where I want the hand"</p>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>Inverse Kinematics (IK) - The Magic Way</h4>
+                    <p><strong>How it works:</strong> You move a child (goal), and parents figure out how to reach it</p>
+                    <p><strong>Example:</strong> Drag the hand to a spot → shoulder and forearm automatically bend to reach it</p>
+                    <p><strong>Best for:</strong> Reaching for objects, planting feet on ground, precise positioning</p>
+                    <p><strong>Think of it as:</strong> "Put the hand HERE, figure out the rest"</p>
+                </div>
+
+                <h3>Real-World IK Example</h3>
+                <p>Imagine picking up a coffee cup:</p>
+                <ul>
+                    <li><strong>With FK:</strong> You'd manually rotate shoulder, then forearm, then fine-tune both until hand reaches cup (tedious!)</li>
+                    <li><strong>With IK:</strong> You'd move the hand to the cup, and the arm automatically bends to reach it (magic!)</li>
+                </ul>
+
+                <h3>When IK is Enabled in Poser</h3>
+                <p>Most Poser figures have IK turned on by default for:</p>
+                <ul>
+                    <li><strong>Arms:</strong> IK chains from shoulder to hand</li>
+                    <li><strong>Legs:</strong> IK chains from hip to foot</li>
+                </ul>
+
+                <p>You can toggle IK on/off in figure properties or through special controls (we'll cover this more in depth in later lessons).</p>
+
+                <h3>Quick IK Tips for Now</h3>
+                <ul>
+                    <li><strong>Use FK for most posing:</strong> It's more intuitive and gives you direct control</li>
+                    <li><strong>Use IK for specific goals:</strong> "Put foot here," "reach for that object"</li>
+                    <li><strong>IK can be tricky:</strong> Sometimes produces unexpected bends</li>
+                    <li><strong>Learn FK first:</strong> Master the basics before diving deep into IK</li>
+                </ul>
+
+                <div class="card" style="background-color: #f0f0f0; border-left: 4px solid #667eea;">
+                    <h4>💡 IK Explained with a Robot Arm</h4>
+                    <p>Imagine a robot arm picking up a ball:</p>
+                    <p><strong>FK approach:</strong> You program each joint angle: "Shoulder 45°, elbow 60°, wrist 20°"</p>
+                    <p><strong>IK approach:</strong> You just say "Hand needs to be at these X, Y, Z coordinates" and the robot calculates the joint angles automatically!</p>
+                    <p>Same idea in Poser. IK is powerful but not always necessary!</p>
+                </div>
+
+                <blockquote>
+                    <strong>🎯 For This Lesson:</strong> Don't worry too much about IK yet. Understanding hierarchy and FK is your foundation. We'll dive deep into IK techniques in later lessons when you're comfortable with the basics!
+                </blockquote>
+            </section>
+
+            <!-- Section 7: Symmetry -->
+            <section id="symmetry" class="lesson-section">
+                <h2>Working with Symmetry and Mirroring</h2>
+                
+                <p>The human body is roughly symmetrical—left arm mirrors right arm, left leg mirrors right leg. Poser has tools to help you take advantage of this symmetry, saving you tons of time!</p>
+
+                <h3>Why Symmetry Matters</h3>
+                <p>When posing:</p>
+                <ul>
+                    <li>You often want both arms doing similar things (just mirrored)</li>
+                    <li>Both legs typically mirror each other in stance</li>
+                    <li>Adjusting one side then manually replicating on the other is tedious</li>
+                </ul>
+
+                <p><strong>Symmetry tools let you:</strong> Pose one side, then mirror it to the other side automatically!</p>
+
+                <h3>Understanding Left vs. Right</h3>
+                <p>Important: In Poser, "left" and "right" are ALWAYS from the <strong>figure's perspective</strong>, not yours!</p>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The Left/Right Confusion</h4>
+                    <p>When you're looking at a figure facing you:</p>
+                    <ul>
+                        <li>The arm on YOUR left is the figure's <strong>RIGHT</strong> arm</li>
+                        <li>The arm on YOUR right is the figure's <strong>LEFT</strong> arm</li>
+                    </ul>
+                    <p><strong>Remember:</strong> It's like shaking hands with someone. Your right hand shakes their right hand!</p>
+                </div>
+
+                <h3>Using Symmetry in Posing</h3>
+                <p>Poser offers symmetry options in various ways (exact methods vary by version):</p>
+
+                <div class="card">
+                    <h4>Common Symmetry Workflows</h4>
+                    <ol>
+                        <li><strong>Pose one side completely</strong> (e.g., the right arm)</li>
+                        <li><strong>Select the posed parts</strong> you want to mirror</li>
+                        <li><strong>Use a symmetry command</strong> (often in Edit menu or right-click menu)</li>
+                        <li><strong>Choose "Copy Right to Left"</strong> (or vice versa)</li>
+                        <li>The pose <strong>mirrors automatically</strong> to the other side!</li>
+                    </ol>
+                </div>
+
+                <h3>When to Use Symmetry</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Situation</th>
+                            <th>Use Symmetry?</th>
+                            <th>Why</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Standing at attention</td>
+                            <td>✅ Yes</td>
+                            <td>Both arms should match exactly</td>
+                        </tr>
+                        <tr>
+                            <td>Raising both hands</td>
+                            <td>✅ Yes</td>
+                            <td>Mirror action saves time</td>
+                        </tr>
+                        <tr>
+                            <td>Natural standing pose</td>
+                            <td>❌ No</td>
+                            <td>Asymmetry looks more natural</td>
+                        </tr>
+                        <tr>
+                            <td>Action pose (punching)</td>
+                            <td>❌ No</td>
+                            <td>Opposite sides do different things</td>
+                        </tr>
+                        <tr>
+                            <td>Walking pose</td>
+                            <td>❌ No</td>
+                            <td>Legs alternate, not mirror</td>
+                        </tr>
+                        <tr>
+                            <td>Holding a ball with both hands</td>
+                            <td>✅ Yes (with adjustments)</td>
+                            <td>Start with mirror, then fine-tune</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Breaking Symmetry for Realism</h3>
+                <p>Remember from earlier lessons: perfectly symmetrical poses look stiff and unnatural. Even when you use symmetry tools, consider:</p>
+                <ul>
+                    <li><strong>Start with symmetry</strong> for efficiency</li>
+                    <li><strong>Then break it slightly</strong> for realism</li>
+                    <li>Make one arm slightly higher, one leg slightly bent differently</li>
+                    <li>Small asymmetries create life and naturalness</li>
+                </ul>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Smart Symmetry Workflow</h4>
+                    <ol>
+                        <li>Pose one side (e.g., right arm)</li>
+                        <li>Mirror to other side using symmetry tools</li>
+                        <li>Check the result</li>
+                        <li>Make small adjustments to break perfect symmetry</li>
+                        <li>Add 3-5 degrees difference here and there</li>
+                        <li>Result: Fast posing that still looks natural!</li>
+                    </ol>
+                </div>
+
+                <blockquote>
+                    <strong>🎭 The Symmetry Paradox:</strong> Human bodies are symmetric in structure but asymmetric in motion. Use symmetry tools to save time on structure, then add asymmetry in motion to create life. That's the pro secret!
+                </blockquote>
+            </section>
+
+            <!-- Section 8: Practical Tips -->
+            <section id="practical-tips" class="lesson-section">
+                <h2>Practical Hierarchy Tips</h2>
+                
+                <p>Let's wrap up with practical tips that will make you a hierarchy master in your daily posing work!</p>
+
+                <h3>The Top-Down Posing Strategy</h3>
+                <p>Work from large body parts down to small ones:</p>
+                <ol>
+                    <li><strong>Position the body/hip first</strong> (overall stance and weight)</li>
+                    <li><strong>Adjust chest and abdomen</strong> (torso twist and posture)</li>
+                    <li><strong>Position major limbs</strong> (shoulders, thighs)</li>
+                    <li><strong>Bend joints</strong> (elbows, knees)</li>
+                    <li><strong>Refine extremities</strong> (hands, feet)</li>
+                    <li><strong>Fine-tune details</strong> (fingers, head tilt)</li>
+                </ol>
+
+                <p><strong>Why this order?</strong> If you pose fingers first then move the shoulder, you'll have to redo the finger work. Work parent to child!</p>
+
+                <h3>The Selection Verification Habit</h3>
+                <p>Before adjusting any parameter, always verify:</p>
+                <ul>
+                    <li>✅ Look at the Hierarchy Panel - what's highlighted?</li>
+                    <li>✅ Check the Properties Panel - what's the part name?</li>
+                    <li>✅ Look for the highlight in the 3D view</li>
+                </ul>
+
+                <p>This three-second check saves minutes of frustration!</p>
+
+                <h3>Quick Reference: Common Mistakes</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Problem</th>
+                            <th>Cause</th>
+                            <th>Solution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Whole arm moved, wanted elbow only</td>
+                            <td>Selected shoulder, not forearm</td>
+                            <td>Click forearm specifically</td>
+                        </tr>
+                        <tr>
+                            <td>Can't get hand to right position</td>
+                            <td>Fighting the hierarchy chain</td>
+                            <td>Adjust shoulder first, then forearm</td>
+                        </tr>
+                        <tr>
+                            <td>Legs moved when twisting torso</td>
+                            <td>Selected hip (parent of legs)</td>
+                            <td>Select chest or abdomen instead</td>
+                        </tr>
+                        <tr>
+                            <td>One finger moved, others followed</td>
+                            <td>Selected hand (parent of all fingers)</td>
+                            <td>Click the specific finger</td>
+                        </tr>
+                        <tr>
+                            <td>Can't select small body part</td>
+                            <td>Clicking inaccurately in 3D view</td>
+                            <td>Use Hierarchy Panel to select by name</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Hierarchy Cheat Sheet</h3>
+                <div class="card" style="background-color: #f0f0f0;">
+                    <h4>📝 Quick Reference</h4>
+                    <p><strong>Move these to affect large areas:</strong></p>
+                    <ul>
+                        <li><strong>Body:</strong> Entire figure</li>
+                        <li><strong>Hip:</strong> Stance, leg positioning</li>
+                        <li><strong>Chest:</strong> Upper body, both arms</li>
+                        <li><strong>Shoulder:</strong> Entire arm</li>
+                        <li><strong>Thigh:</strong> Entire leg</li>
+                    </ul>
+                    <p><strong>Move these for specific joints:</strong></p>
+                    <ul>
+                        <li><strong>Forearm:</strong> Elbow bend</li>
+                        <li><strong>Hand:</strong> Wrist rotation</li>
+                        <li><strong>Shin:</strong> Knee bend</li>
+                        <li><strong>Foot:</strong> Ankle</li>
+                    </ul>
+                    <p><strong>Move these for details:</strong></p>
+                    <ul>
+                        <li><strong>Individual fingers:</strong> Hand gestures</li>
+                        <li><strong>Head:</strong> Look direction</li>
+                        <li><strong>Eyes:</strong> Gaze direction</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <strong>🎓 Master's Wisdom:</strong> After a few hours of conscious practice paying attention to hierarchy, it becomes automatic. Your brain will intuitively know "I need to select the forearm" without thinking. Trust the process—you're building muscle memory!</p>
+                </blockquote>
+            </section>
+
+            <!-- Section 9: Project -->
+            <section id="project" class="lesson-section">
+                <h2>Project: Hierarchy Explorer</h2>
+                
+                <p>Time to cement your understanding with hands-on exploration!</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>🎯 Project Brief</h3>
+                    <p>Systematically explore your figure's complete hierarchy by moving each major body part and observing which children follow. Create a "chain reaction" cheat sheet for future reference.</p>
+                    <p><strong>Requirements:</strong></p>
+                    <ul style="color: white;">
+                        <li>Load a figure</li>
+                        <li>Open the Hierarchy Panel</li>
+                        <li>Test at least 10 different body parts</li>
+                        <li>Document what moves with each selection</li>
+                        <li>Create one pose that demonstrates hierarchy understanding</li>
+                    </ul>
+                </div>
+
+                <h3>Step-by-Step Project Guide</h3>
+
+                <h4>Part 1: Setup (5 minutes)</h4>
+                <ol>
+                    <li>Load your favorite base figure (Andy, Jessie, etc.)</li>
+                    <li>Open the Hierarchy Panel (<strong>Window &gt; Hierarchy</strong>)</li>
+                    <li>Expand all branches so you can see the complete tree</li>
+                    <li>Position your camera for a good side view</li>
+                </ol>
+
+                <h4>Part 2: Exploration (20 minutes)</h4>
+                <p>For each body part below, do this test:</p>
+                <ol>
+                    <li>Click the body part name in Hierarchy Panel</li>
+                    <li>Rotate it (pick any rotation parameter, use about 30-45 degrees)</li>
+                    <li>Observe: What moved? What stayed put?</li>
+                    <li>Press <kbd>Ctrl+Z</kbd> to undo</li>
+                    <li>Write down or mentally note the relationships</li>
+                </ol>
+
+                <p><strong>Test these body parts:</strong></p>
+                <ul>
+                    <li>Body (root)</li>
+                    <li>Hip</li>
+                    <li>Chest</li>
+                    <li>Right Shoulder</li>
+                    <li>Right Forearm</li>
+                    <li>Right Hand</li>
+                    <li>Right Index Finger</li>
+                    <li>Right Thigh</li>
+                    <li>Right Shin</li>
+                    <li>Head</li>
+                </ul>
+
+                <h4>Part 3: Hierarchy Challenge Pose (15 minutes)</h4>
+                <p>Create a pose that demonstrates you understand hierarchy by following these specific instructions:</p>
+                <ol>
+                    <li><strong>Twist the chest 30 degrees</strong> (both arms should follow)</li>
+                    <li><strong>Raise the right shoulder</strong> (whole right arm should lift)</li>
+                    <li><strong>Bend the right forearm -90 degrees</strong> (hand should follow, shoulder should stay)</li>
+                    <li><strong>Rotate the right hand</strong> (fingers should follow, arm should stay)</li>
+                    <li><strong>Lift the left thigh</strong> (whole left leg should lift)</li>
+                    <li><strong>Bend the left shin</strong> (foot should bend, thigh should stay)</li>
+                    <li><strong>Tilt the head</strong> (head only, body should stay)</li>
+                </ol>
+
+                <p>If you completed these steps correctly, you should have a figure with:</p>
+                <ul>
+                    <li>Twisted torso</li>
+                    <li>Right arm raised with bent elbow</li>
+                    <li>Left leg raised with bent knee</li>
+                    <li>Tilted head</li>
+                </ul>
+
+                <h4>Part 4: Reflection (5 minutes)</h4>
+                <p>Answer these questions:</p>
+                <ol>
+                    <li>Which body part is the parent of the most children?</li>
+                    <li>What happens when you rotate the Body (root)?</li>
+                    <li>How many parts move when you rotate a shoulder?</li>
+                    <li>What's the difference between rotating chest vs. hip?</li>
+                    <li>Did anything surprise you about the hierarchy structure?</li>
+                </ol>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Success Checklist</h4>
+                    <ul>
+                        <li>□ I can identify parent-child relationships</li>
+                        <li>□ I can predict what will move before adjusting a part</li>
+                        <li>□ I understand why moving a parent affects children</li>
+                        <li>□ I can use the Hierarchy Panel to select parts</li>
+                        <li>□ I completed the challenge pose correctly</li>
+                        <li>□ I know to work from large parts down to small</li>
+                    </ul>
+                </div>
+
+                <h3>Bonus Challenge</h3>
+                <p>If you finish early:</p>
+                <ul>
+                    <li>Try using symmetry to mirror one arm's pose to the other</li>
+                    <li>Create a pose using only the Hierarchy Panel (no 3D clicking)</li>
+                    <li>Expand and collapse different branches—organize your view</li>
+                    <li>See how deep the finger hierarchy goes (fingers have segments!)</li>
+                </ul>
+            </section>
+
+            <!-- Summary Section -->
+            <section id="summary" class="lesson-section">
+                <h2>Wrapping Up</h2>
+                
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h3>🎉 You're Now a Hierarchy Master!</h3>
+                    <p>You've learned:</p>
+                    <ul>
+                        <li>✅ What figure hierarchy is and why it matters</li>
+                        <li>✅ How parent-child relationships work</li>
+                        <li>✅ The complete structure of a human figure</li>
+                        <li>✅ How to use the Hierarchy Panel effectively</li>
+                        <li>✅ Predicting the "chain reaction" of movements</li>
+                        <li>✅ Basics of Inverse Kinematics (IK)</li>
+                        <li>✅ Working with symmetry and mirroring</li>
+                        <li>✅ Practical posing strategies using hierarchy</li>
+                    </ul>
+                </div>
+
+                <h3>Key Concepts to Remember</h3>
+                <div class="card">
+                    <ul>
+                        <li><strong>Golden Rule:</strong> Children follow parents, parents ignore children</li>
+                        <li><strong>Work top-down:</strong> Pose large parts first, details last</li>
+                        <li><strong>Verify selection:</strong> Always check what's selected before adjusting</li>
+                        <li><strong>Use the Hierarchy Panel:</strong> It's your visual map of relationships</li>
+                        <li><strong>Predict movement:</strong> Think through consequences before you act</li>
+                        <li><strong>Smart symmetry:</strong> Use it to save time, then break it for realism</li>
+                    </ul>
+                </div>
+
+                <h3>🚀 What's Next?</h3>
+                <p>Now that you understand how body parts connect and control each other, you're ready to dive into <strong>"Creating Natural Poses"</strong>. In the next lesson, you'll learn the principles that make poses look believable, natural, and full of life—including weight distribution, the line of action, and breaking symmetry for realism.</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>✨ Foundation Complete!</h3>
+                    <p>Understanding hierarchy is like learning to read music before playing an instrument. Now that you know the "notes" (body parts) and how they're organized (hierarchy), you're ready to create the "music" (beautiful poses)!</p>
+                    <p style="margin-bottom: 0;"><strong>The skills you learned today will serve you in every single pose you ever create. This knowledge is power!</strong> 🦴✨</p>
+                </div>
+            </section>
+
+            <!-- Lesson Navigation -->
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_04_cameras_and_views.html" class="prev-lesson">← Previous: Cameras and Views</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_06_natural_poses.html" class="next-lesson">Next: Creating Natural Poses →</a>
+            </nav>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; margin-top: 4rem; border-top: 1px solid var(--border-color);">
+        <p>&copy; 2024 Poser 12 Mastery Course. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9em; opacity: 0.8;">Made with ❤️ for aspiring 3D artists</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

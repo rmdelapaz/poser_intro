@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Load your first 3D figure in Poser 12 and learn basic posing techniques. Create your very first character pose!">
+    <meta name="author" content="Poser 12 Course">
+    <title>Your First Figure - Loading and Basic Posing - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Progress indicator -->
+    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
+        <div class="progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Poser 12 Mastery</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">
+                ☰
+            </button>
+            <div class="nav-links" id="nav-links" aria-hidden="false">
+                <a href="index.html">Home</a>
+                <a href="index.html#modules">All Modules</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#module1">Module 1: Getting Started</a></li>
+            <li aria-current="page">Your First Figure - Loading and Basic Posing</li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <div class="container">
+            <!-- Lesson Header -->
+            <header>
+                <h1>🎭 Your First Figure - Loading and Basic Posing</h1>
+                <p class="lead">This is it—the moment you've been waiting for! You're about to load your first 3D figure and make it move. It's like being a puppeteer, animator, and director all rolled into one. By the end of this lesson, you'll have created your very first pose. Let's bring a character to life!</p>
+                
+                <!-- Learning objectives -->
+                <div class="card">
+                    <h2>🎯 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will:</p>
+                    <ul>
+                        <li>Load a figure from the Poser library</li>
+                        <li>Understand the figure hierarchy and body part structure</li>
+                        <li>Select different body parts for posing</li>
+                        <li>Use parameter dials to move and rotate body parts</li>
+                        <li>Create a simple standing pose</li>
+                        <li>Save your scene for future work</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated time:</strong> 30-45 minutes</p>
+                    <p><strong>🎯 Project:</strong> Create a simple standing figure pose</p>
+                </div>
+            </header>
+
+            <!-- Table of Contents -->
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">📑 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#starting-fresh" class="toc-link">Starting with a Fresh Scene</a></li>
+                        <li><a href="#loading-figure" class="toc-link">Loading Your First Figure</a></li>
+                        <li><a href="#figure-hierarchy" class="toc-link">Understanding the Figure Hierarchy</a></li>
+                        <li><a href="#selecting-parts" class="toc-link">Selecting Body Parts</a></li>
+                        <li><a href="#parameter-dials" class="toc-link">Using Parameter Dials to Pose</a></li>
+                        <li><a href="#basic-posing" class="toc-link">Creating Your First Pose</a></li>
+                        <li><a href="#camera-framing" class="toc-link">Framing Your Figure</a></li>
+                        <li><a href="#saving-scene" class="toc-link">Saving Your Work</a></li>
+                        <li><a href="#first-pose-project" class="toc-link">Project: Your First Standing Pose</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Section 1: Starting Fresh -->
+            <section id="starting-fresh" class="lesson-section">
+                <h2>Starting with a Fresh Scene</h2>
+                
+                <p>Before we load our first figure, let's make sure we're starting with a clean slate. If Poser opened with a figure already loaded (it often does), that's perfectly fine—but let's learn how to create a new scene so you know how to start fresh anytime.</p>
+
+                <h3>Creating a New Scene</h3>
+                <p>To start a new, empty scene:</p>
+                <ol>
+                    <li>Go to <strong>File &gt; New</strong> in the menu bar</li>
+                    <li>Poser will ask if you want to save changes to your current scene (if there are any)</li>
+                    <li>Click <strong>No</strong> (we haven't made anything worth saving yet)</li>
+                    <li>Your workspace should now be empty—just the grid floor and background</li>
+                </ol>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>💡 Already Have a Figure Loaded?</h4>
+                    <p>If Poser loaded with a default figure (like Andy or a mannequin), you can either:</p>
+                    <ul>
+                        <li><strong>Keep it and skip to the next section</strong> (you're already ahead!)</li>
+                        <li><strong>Delete it</strong> to practice loading from scratch: Click the figure, press <kbd>Delete</kbd></li>
+                        <li><strong>Start fresh</strong> with File &gt; New</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <strong>🎬 Setting the Stage:</strong> Think of File &gt; New as clearing the stage before a performance. You're giving yourself a blank canvas to work with, ready to add your actors (figures), set pieces (props), and lighting!
+                </blockquote>
+            </section>
+
+            <!-- Section 2: Loading Figure -->
+            <section id="loading-figure" class="lesson-section">
+                <h2>Loading Your First Figure</h2>
+                
+                <p>This is the exciting part! You're about to load your first 3D character. It's like opening a toy box and pulling out your first action figure—except this one you can pose, dress up, and photograph from any angle!</p>
+
+                <h3>Opening the Library</h3>
+                <p>First, make sure your Library palette is visible:</p>
+                <ol>
+                    <li>Look for the Library panel (usually on the right side of the screen)</li>
+                    <li>If you don't see it, press <kbd>Ctrl + L</kbd> or go to <strong>Window &gt; Libraries</strong></li>
+                </ol>
+
+                <h3>Navigating to Figures</h3>
+                <p>The Library palette has several categories at the top. We want the <strong>Figures</strong> category:</p>
+                <ol>
+                    <li>Click on the <strong>Figures</strong> icon/button at the top of the Library</li>
+                    <li>You'll see a list of folders containing different types of figures</li>
+                    <li>Look for a folder called <strong>Poser 12</strong> or <strong>Poser Default</strong></li>
+                    <li>Inside, you should find figures like <strong>Andy</strong>, <strong>Jessie</strong>, or other base figures</li>
+                </ol>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Library Palette] --> B[Click Figures Category]
+                    B --> C[Browse Folders]
+                    C --> D[Find Poser 12 / Default]
+                    D --> E[See Available Figures]
+                    E --> F[Double-click to Load]
+                    
+                    style A fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style F fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Loading a Figure</h3>
+                <p>To load a figure into your scene:</p>
+                <ol>
+                    <li>Find a figure thumbnail you want to load (try <strong>Andy</strong> or <strong>Jessie</strong>—the default Poser figures)</li>
+                    <li><strong>Double-click</strong> the thumbnail</li>
+                    <li>Wait a moment... and tada! Your figure appears in the Document Window!</li>
+                </ol>
+
+                <figure>
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; text-align: center; border-radius: 8px; margin: 20px 0; color: white;">
+                        <p style="font-size: 3em; margin: 0;">🧍</p>
+                        <p style="margin: 10px 0;"><em>Placeholder: Screenshot showing the Library with Figures category selected and Andy figure thumbnail highlighted</em></p>
+                    </div>
+                    <figcaption>The Library palette showing available figures ready to load</figcaption>
+                </figure>
+
+                <h3>What You Should See</h3>
+                <p>Once your figure loads, you should see:</p>
+                <ul>
+                    <li>A 3D figure standing in the center of your viewport</li>
+                    <li>The figure standing on the grid floor</li>
+                    <li>The figure in a default "neutral" pose (usually arms at sides, standing straight)</li>
+                    <li>Good lighting showing the figure clearly</li>
+                </ul>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>🎉 Congratulations!</h4>
+                    <p>You just loaded your first 3D figure! Take a moment to orbit the camera around it (remember: click and drag in empty space). Look at your figure from all angles. Pretty cool, right? This is <strong>your</strong> digital actor, ready to perform!</p>
+                </div>
+
+                <blockquote>
+                    <strong>🎭 Quick Analogy:</strong> Loading a figure is like calling an actor onto your stage. They show up in their default position, waiting for you (the director) to tell them how to stand, what to do, and where to look. You're in charge!
+                </blockquote>
+
+                <h3>Troubleshooting: Figure Didn't Load?</h3>
+                <p>If nothing appeared, try these fixes:</p>
+                <ul>
+                    <li><strong>Check you're in the right category:</strong> Make sure you clicked Figures, not Props or Poses</li>
+                    <li><strong>Try a different figure:</strong> Some figures might have installation issues; try Andy or Jessie</li>
+                    <li><strong>Frame the scene:</strong> Press <kbd>Shift + A</kbd> to frame everything in view</li>
+                    <li><strong>Check for errors:</strong> Look for any error messages in the bottom of the Poser window</li>
+                </ul>
+            </section>
+
+            <!-- Section 3: Figure Hierarchy -->
+            <section id="figure-hierarchy" class="lesson-section">
+                <h2>Understanding the Figure Hierarchy</h2>
+                
+                <p>Now that you have a figure loaded, let's understand how it's built. A Poser figure isn't just one solid object—it's made up of many individual body parts connected together in a hierarchy. Think of it like a skeleton with joints!</p>
+
+                <h3>What is a Hierarchy?</h3>
+                <p>A hierarchy is like a family tree or organizational chart. In Poser figures:</p>
+                <ul>
+                    <li><strong>Parent parts</strong> control their <strong>child parts</strong></li>
+                    <li>Moving a parent automatically moves all its children</li>
+                    <li>Children can move independently of their parents</li>
+                </ul>
+
+                <div class="card">
+                    <h4>Real-World Analogy: Your Own Body</h4>
+                    <p>Think about your own arm:</p>
+                    <ul>
+                        <li><strong>Shoulder</strong> is the parent of the upper arm</li>
+                        <li><strong>Upper arm</strong> is the parent of the forearm</li>
+                        <li><strong>Forearm</strong> is the parent of the hand</li>
+                        <li><strong>Hand</strong> is the parent of the fingers</li>
+                    </ul>
+                    <p>When you lift your shoulder, your entire arm comes with it. But you can bend your elbow without moving your shoulder. That's how hierarchy works!</p>
+                </div>
+
+                <h3>Viewing the Figure Hierarchy</h3>
+                <p>To see the complete hierarchy of your figure:</p>
+                <ol>
+                    <li>Look for the <strong>Hierarchy</strong> panel (usually on the left side)</li>
+                    <li>If you don't see it, go to <strong>Window &gt; Hierarchy</strong></li>
+                    <li>You'll see a tree-like list of all body parts</li>
+                </ol>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Figure/Body] --> B[Hip]
+                    A --> C[Chest]
+                    A --> D[Head]
+                    C --> E[Left Collar]
+                    C --> F[Right Collar]
+                    E --> G[Left Shoulder]
+                    G --> H[Left Forearm]
+                    H --> I[Left Hand]
+                    I --> J[Left Fingers]
+                    B --> K[Left Thigh]
+                    K --> L[Left Shin]
+                    L --> M[Left Foot]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style B fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style C fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Major Body Parts and Their Children</h3>
+                <p>Here's a simplified breakdown of a typical figure hierarchy:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parent Part</th>
+                            <th>Child Parts</th>
+                            <th>What It Controls</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Body (root)</strong></td>
+                            <td>Hip, Chest, Head, Limbs</td>
+                            <td>The entire figure's position and rotation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hip</strong></td>
+                            <td>Abdomen, Pelvis, Thighs</td>
+                            <td>Lower body and stance</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Chest</strong></td>
+                            <td>Collars, Shoulders, Neck</td>
+                            <td>Upper body and torso twist</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Head</strong></td>
+                            <td>Eyes, Jaw, Tongue (if present)</td>
+                            <td>Head rotation and facial features</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Shoulder</strong></td>
+                            <td>Forearm, Hand, Fingers</td>
+                            <td>Entire arm from shoulder down</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hand</strong></td>
+                            <td>Thumb, Index, Middle, Ring, Pinky</td>
+                            <td>All fingers of that hand</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Thigh</strong></td>
+                            <td>Shin, Foot, Toes</td>
+                            <td>Entire leg from hip down</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card" style="background-color: #f0f0f0; border-left: 4px solid #667eea;">
+                    <h4>💡 Pro Tip: Start from the Top</h4>
+                    <p>When posing, it's usually best to work from larger body parts down to smaller ones:</p>
+                    <ol>
+                        <li>Position the body/hip first (overall stance)</li>
+                        <li>Adjust chest and shoulders (upper body posture)</li>
+                        <li>Pose arms and legs (major limb positions)</li>
+                        <li>Fine-tune hands and fingers (details)</li>
+                        <li>Adjust head and face last (expressions)</li>
+                    </ol>
+                    <p>This prevents you from having to redo work when parent parts move!</p>
+                </div>
+
+                <blockquote>
+                    <strong>🤖 Think Like a Robot:</strong> Imagine your figure is a robot made of connected segments. Each segment (body part) can rotate at its joint, but it's attached to its parent segment. Understanding this connection is key to natural posing!
+                </blockquote>
+            </section>
+
+            <!-- Section 4: Selecting Parts -->
+            <section id="selecting-parts" class="lesson-section">
+                <h2>Selecting Body Parts</h2>
+                
+                <p>Before you can pose a body part, you need to select it. Poser gives you several ways to do this. Let's learn all the methods so you can use whichever feels most natural to you!</p>
+
+                <h3>Method 1: Direct Clicking (Easiest for Beginners)</h3>
+                <p>The most intuitive way to select a body part:</p>
+                <ol>
+                    <li>Simply <strong>click directly on the body part</strong> in the Document Window</li>
+                    <li>The selected part will highlight (usually with a colored outline or glow)</li>
+                    <li>The name of the selected part appears somewhere on screen (often top or bottom)</li>
+                </ol>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ What Happens When You Select</h4>
+                    <p>When a body part is selected, you'll notice:</p>
+                    <ul>
+                        <li>The part highlights or glows in the viewport</li>
+                        <li>The Properties Panel updates to show that part's parameters</li>
+                        <li>The current selection name displays somewhere visible</li>
+                        <li>Any tools or dials now affect only that selected part</li>
+                    </ul>
+                </div>
+
+                <h3>Method 2: Using the Hierarchy Panel</h3>
+                <p>For precise selection, especially of hard-to-click parts:</p>
+                <ol>
+                    <li>Open the Hierarchy panel (<strong>Window &gt; Hierarchy</strong>)</li>
+                    <li>Find the body part name in the list</li>
+                    <li>Click the part name</li>
+                    <li>That part is now selected!</li>
+                </ol>
+
+                <p><strong>Why use this method?</strong> Some body parts are small or hard to click (like individual fingers). The Hierarchy panel lets you select them by name without hunting for them in the 3D view.</p>
+
+                <h3>Method 3: Using the Body Part Selection Menu</h3>
+                <p>Poser also has a dropdown menu for body part selection:</p>
+                <ol>
+                    <li>Look for a dropdown near the top of the interface (often says "Body" or the current part name)</li>
+                    <li>Click the dropdown to see a list of all body parts</li>
+                    <li>Select the part you want from the list</li>
+                </ol>
+
+                <h3>Method 4: Keyboard Shortcuts for Common Parts</h3>
+                <p>Some body parts have quick selection shortcuts:</p>
+                <ul>
+                    <li><strong>Selection cycling:</strong> Click the same area repeatedly to cycle through overlapping parts</li>
+                    <li><strong>Shift + Click:</strong> In some modes, adds to selection</li>
+                </ul>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Can't Select a Part?</h4>
+                    <p>If clicking doesn't select the part you want:</p>
+                    <ul>
+                        <li><strong>Try clicking the exact center</strong> of the body part</li>
+                        <li><strong>Use the Hierarchy panel</strong> instead of clicking</li>
+                        <li><strong>Make sure you're in the right tool mode</strong> (not camera mode)</li>
+                        <li><strong>Zoom in closer</strong> to make smaller parts easier to click</li>
+                        <li><strong>Try a different camera angle</strong> where the part is more visible</li>
+                    </ul>
+                </div>
+
+                <h3>Practice Exercise: The Selection Challenge</h3>
+                <blockquote>
+                    <strong>🎯 Try It Now:</strong> Practice selecting these body parts in order. This will help you get comfortable with selection before we start posing:
+                    <ol>
+                        <li>Click the <strong>chest</strong></li>
+                        <li>Click the <strong>right shoulder</strong></li>
+                        <li>Click the <strong>right forearm</strong></li>
+                        <li>Click the <strong>right hand</strong></li>
+                        <li>Click the <strong>head</strong></li>
+                        <li>Click the <strong>left thigh</strong></li>
+                        <li>Click the <strong>left foot</strong></li>
+                    </ol>
+                    <p>Watch how the Properties Panel changes with each selection. Get comfortable with this—you'll be selecting body parts constantly as you pose!</p>
+                </blockquote>
+            </section>
+
+            <!-- Section 5: Parameter Dials -->
+            <section id="parameter-dials" class="lesson-section">
+                <h2>Using Parameter Dials to Pose</h2>
+                
+                <p>Now for the fun part—making your figure move! Parameter dials are your primary tool for posing. Think of them as the control knobs on your character puppet. Each dial controls a specific aspect of movement.</p>
+
+                <h3>Understanding Rotation Parameters</h3>
+                <p>The most important parameters for posing are the <strong>rotation</strong> dials. Most body parts have three rotation axes:</p>
+
+                <div class="card">
+                    <h4>The Three Axes of Rotation</h4>
+                    <ul>
+                        <li><strong>xRotate (Twist):</strong> Rotation around the X-axis - think of it as twisting or rolling</li>
+                        <li><strong>yRotate (Bend):</strong> Rotation around the Y-axis - the main bending motion</li>
+                        <li><strong>zRotate (Side-to-Side):</strong> Rotation around the Z-axis - swinging left or right</li>
+                    </ul>
+                </div>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Body Part] --> B[xRotate<br/>Twist/Roll]
+                    A --> C[yRotate<br/>Bend Up/Down]
+                    A --> D[zRotate<br/>Swing Side/Side]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>How to Use Parameter Dials</h3>
+                <p>Once you've selected a body part, look at the Properties Panel. You'll see dials for that part:</p>
+
+                <ol>
+                    <li><strong>Find the parameter</strong> you want to adjust (like "yRotate" for the shoulder)</li>
+                    <li><strong>Click and drag</strong> the dial left or right</li>
+                    <li><strong>Watch the figure move</strong> in real-time as you drag</li>
+                    <li><strong>Release when you like the position</strong></li>
+                </ol>
+
+                <h3>Alternative Ways to Adjust Parameters</h3>
+                <p>Besides dragging dials, you can:</p>
+                <ul>
+                    <li><strong>Type a value:</strong> Click in the number field and type a specific degree value</li>
+                    <li><strong>Use arrow buttons:</strong> Click the small arrows next to the value for small increments</li>
+                    <li><strong>Double-click to reset:</strong> Double-click a dial to return it to zero/default</li>
+                </ul>
+
+                <div class="card" style="background-color: #f0f0f0; border-left: 4px solid #667eea;">
+                    <h4>💡 Pro Tip: Fine Control</h4>
+                    <p>For precise adjustments:</p>
+                    <ul>
+                        <li>Hold <kbd>Shift</kbd> while dragging for finer, slower movement</li>
+                        <li>Hold <kbd>Ctrl</kbd> while dragging for larger, faster jumps</li>
+                        <li>Use the number field for exact values when you need precision</li>
+                    </ul>
+                </div>
+
+                <h3>Common Parameter Examples</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Body Part</th>
+                            <th>Parameter</th>
+                            <th>What It Does</th>
+                            <th>Try This Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Right Shoulder</td>
+                            <td>yRotate</td>
+                            <td>Raises/lowers the arm</td>
+                            <td>90 (raises arm to horizontal)</td>
+                        </tr>
+                        <tr>
+                            <td>Right Forearm</td>
+                            <td>yRotate</td>
+                            <td>Bends the elbow</td>
+                            <td>-90 (bends elbow 90 degrees)</td>
+                        </tr>
+                        <tr>
+                            <td>Head</td>
+                            <td>yRotate</td>
+                            <td>Nods the head</td>
+                            <td>-20 (looks down slightly)</td>
+                        </tr>
+                        <tr>
+                            <td>Head</td>
+                            <td>xRotate</td>
+                            <td>Tilts head side to side</td>
+                            <td>15 (tilts right)</td>
+                        </tr>
+                        <tr>
+                            <td>Head</td>
+                            <td>zRotate</td>
+                            <td>Turns head left/right</td>
+                            <td>30 (turns to look right)</td>
+                        </tr>
+                        <tr>
+                            <td>Left Thigh</td>
+                            <td>xRotate</td>
+                            <td>Lifts leg forward</td>
+                            <td>45 (lifts leg forward)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Practice: Making an Arm Wave</h3>
+                <blockquote>
+                    <strong>🎯 Try It Now - Your First Pose Motion!</strong>
+                    <p>Let's make your figure wave hello:</p>
+                    <ol>
+                        <li><strong>Select the right shoulder</strong> (click it in the viewport)</li>
+                        <li>Find <strong>yRotate</strong> in the Properties Panel</li>
+                        <li><strong>Drag it to about 90</strong> (raises arm to horizontal)</li>
+                        <li><strong>Select the right forearm</strong></li>
+                        <li><strong>yRotate to about -100</strong> (bends elbow up)</li>
+                        <li><strong>Select the right hand</strong></li>
+                        <li><strong>zRotate to about 30</strong> (angles hand for wave)</li>
+                    </ol>
+                    <p>Congratulations! Your figure is waving! 👋</p>
+                </blockquote>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>🎉 You Just Created Movement!</h4>
+                    <p>That feeling you just experienced—watching your figure come to life—is what makes Poser so rewarding. You're not just pushing buttons; you're bringing a character to life through your creative choices!</p>
+                </div>
+            </section>
+
+            <!-- Section 6: Basic Posing -->
+            <section id="basic-posing" class="lesson-section">
+                <h2>Creating Your First Pose</h2>
+                
+                <p>Now that you understand how to select body parts and use parameter dials, let's create a complete pose from scratch. We'll start with something simple but natural: a relaxed standing pose.</p>
+
+                <h3>The Principles of Natural Posing</h3>
+                <p>Before we dive in, here are key principles that make poses look natural:</p>
+
+                <div class="card">
+                    <h4>🎨 Posing Principles</h4>
+                    <ul>
+                        <li><strong>Avoid perfect symmetry:</strong> Real people don't stand perfectly balanced</li>
+                        <li><strong>Weight distribution matters:</strong> Shift weight to one leg for a natural stance</li>
+                        <li><strong>Subtle angles:</strong> Small rotations (5-15 degrees) add life</li>
+                        <li><strong>The line of action:</strong> The body should have a slight curve or flow</li>
+                        <li><strong>Opposing curves:</strong> If hip tilts one way, shoulders often tilt the opposite way</li>
+                    </ul>
+                </div>
+
+                <h3>Step-by-Step: Creating a Relaxed Standing Pose</h3>
+                <p>Let's create a natural, casual standing pose. Follow along with your figure!</p>
+
+                <h4>Step 1: Position the Hip (Weight Distribution)</h4>
+                <ol>
+                    <li>Select the <strong>Hip</strong></li>
+                    <li>Set <strong>zRotate to about 5</strong> (tilts hip slightly to one side)</li>
+                    <li>This makes it look like weight is shifted to one leg</li>
+                </ol>
+
+                <h4>Step 2: Counter with the Chest</h4>
+                <ol>
+                    <li>Select the <strong>Chest</strong></li>
+                    <li>Set <strong>zRotate to about -3</strong> (tilts slightly opposite direction)</li>
+                    <li>This creates a natural counterbalance</li>
+                </ol>
+
+                <h4>Step 3: Add a Head Tilt</h4>
+                <ol>
+                    <li>Select the <strong>Head</strong></li>
+                    <li>Set <strong>xRotate to about 5</strong> (slight tilt)</li>
+                    <li>Set <strong>zRotate to about 8</strong> (turn slightly to one side)</li>
+                    <li>This adds personality and breaks perfect symmetry</li>
+                </ol>
+
+                <h4>Step 4: Relax the Arms</h4>
+                <ol>
+                    <li>Select <strong>Right Shoulder</strong></li>
+                    <li>Set <strong>yRotate to about -10</strong> (arm slightly forward)</li>
+                    <li>Set <strong>zRotate to about 8</strong> (arm slightly away from body)</li>
+                    <li>Repeat similar values for <strong>Left Shoulder</strong> but slightly different (asymmetry!)</li>
+                </ol>
+
+                <h4>Step 5: Bend the Elbows Slightly</h4>
+                <ol>
+                    <li>Select <strong>Right Forearm</strong></li>
+                    <li>Set <strong>yRotate to about -15</strong> (slight bend)</li>
+                    <li>Repeat for <strong>Left Forearm</strong> with a slightly different value like -12</li>
+                </ol>
+
+                <h4>Step 6: Adjust the Legs for Natural Stance</h4>
+                <ol>
+                    <li>Select <strong>Left Thigh</strong> (the weight-bearing leg)</li>
+                    <li>Keep it mostly straight, maybe <strong>xRotate: -5</strong></li>
+                    <li>Select <strong>Right Thigh</strong> (the relaxed leg)</li>
+                    <li>Set <strong>xRotate to about 10</strong> and <strong>zRotate to about 8</strong> (leg slightly bent and out)</li>
+                </ol>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Natural Standing Pose] --> B[Hip tilted 5°]
+                    A --> C[Chest counter-tilted -3°]
+                    A --> D[Head angled and turned]
+                    A --> E[Arms asymmetric]
+                    A --> F[Weight on left leg]
+                    A --> G[Right leg relaxed]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Don't Worry About Perfection!</h4>
+                    <p>Your first pose doesn't need to be perfect. The goal is to:</p>
+                    <ul>
+                        <li>Get comfortable selecting body parts</li>
+                        <li>Practice using parameter dials</li>
+                        <li>See how small changes affect the overall pose</li>
+                        <li>Build confidence in the posing process</li>
+                    </ul>
+                    <p>Professional poses come with practice. For now, experiment and have fun!</p>
+                </div>
+
+                <blockquote>
+                    <strong>🎭 The Magic of Small Adjustments:</strong> Notice how just a few degree changes (5-15 degrees) make a huge difference? That's the secret to natural poses. You're not making big, dramatic rotations—you're making subtle, thoughtful adjustments that add up to something alive and believable!
+                </blockquote>
+            </section>
+
+            <!-- Section 7: Camera Framing -->
+            <section id="camera-framing" class="lesson-section">
+                <h2>Framing Your Figure</h2>
+                
+                <p>Now that you've posed your figure, let's make sure we're viewing it from the best angle. Just like a photographer, you want to frame your subject well!</p>
+
+                <h3>Using Frame Selected</h3>
+                <p>The quickest way to center your figure in view:</p>
+                <ol>
+                    <li>Make sure your figure (or any part of it) is selected</li>
+                    <li>Press <kbd>Shift + F</kbd></li>
+                    <li>The camera automatically moves to frame the selected part perfectly</li>
+                </ol>
+
+                <h3>Framing the Entire Figure</h3>
+                <p>To see your whole figure in the frame:</p>
+                <ol>
+                    <li>Select the <strong>Body</strong> (the root of the figure)</li>
+                    <li>Press <kbd>Shift + A</kbd> (Frame All)</li>
+                    <li>The camera pulls back to show the complete figure</li>
+                </ol>
+
+                <h3>Manual Camera Adjustment</h3>
+                <p>For more control over your view:</p>
+                <ul>
+                    <li><strong>Orbit:</strong> Click and drag in empty space to rotate around the figure</li>
+                    <li><strong>Zoom:</strong> Scroll wheel to move closer or further</li>
+                    <li><strong>Pan:</strong> <kbd>Alt</kbd> + Click and drag to slide the view</li>
+                </ul>
+
+                <div class="card" style="background-color: #f0f0f0; border-left: 4px solid #667eea;">
+                    <h4>💡 Finding Your Best Angle</h4>
+                    <p>Try viewing your pose from these classic angles:</p>
+                    <ul>
+                        <li><strong>Front view:</strong> See the pose head-on</li>
+                        <li><strong>3/4 view:</strong> Orbit about 45 degrees—this is often the most flattering</li>
+                        <li><strong>Side view:</strong> Check the pose in profile</li>
+                        <li><strong>Slightly above:</strong> Look down at a slight angle (like you're taller than the figure)</li>
+                    </ul>
+                    <p>Professional tip: The 3/4 view from slightly above is a classic for a reason—it's almost always flattering!</p>
+                </div>
+
+                <figure>
+                    <div style="background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%); padding: 40px; text-align: center; border-radius: 8px; margin: 20px 0;">
+                        <p style="font-size: 3em; margin: 0;">📷</p>
+                        <p style="margin: 10px 0; color: #333;"><em>Placeholder: Four-panel image showing the same pose from front, 3/4, side, and slightly-above angles</em></p>
+                    </div>
+                    <figcaption>The same pose viewed from different camera angles</figcaption>
+                </figure>
+            </section>
+
+            <!-- Section 8: Saving Scene -->
+            <section id="saving-scene" class="lesson-section">
+                <h2>Saving Your Work</h2>
+                
+                <p>You've created your first pose—congratulations! Now let's make sure you don't lose it. Saving in Poser is straightforward, but let's cover all the important points.</p>
+
+                <h3>Saving Your Scene File</h3>
+                <p>To save your current scene with your posed figure:</p>
+                <ol>
+                    <li>Go to <strong>File &gt; Save As</strong> (for your first save)</li>
+                    <li>Choose a location on your computer (create a "Poser Projects" folder if you haven't)</li>
+                    <li>Give your file a descriptive name like <strong>"my_first_pose"</strong></li>
+                    <li>Make sure the file type is <strong>.pz3</strong> (Poser Scene File)</li>
+                    <li>Click <strong>Save</strong></li>
+                </ol>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ What Gets Saved in a Scene File</h4>
+                    <p>Your .pz3 scene file contains:</p>
+                    <ul>
+                        <li>All figures in your scene and their poses</li>
+                        <li>All props and their positions</li>
+                        <li>Camera positions and settings</li>
+                        <li>Lighting setup</li>
+                        <li>Material settings</li>
+                        <li>Basically, everything about your scene!</li>
+                    </ul>
+                </div>
+
+                <h3>Quick Save</h3>
+                <p>After your initial save, use the quick save:</p>
+                <ul>
+                    <li>Press <kbd>Ctrl + S</kbd></li>
+                    <li>Or go to <strong>File &gt; Save</strong></li>
+                    <li>This updates your existing file without prompting for a name</li>
+                </ul>
+
+                <h3>Organizing Your Files</h3>
+                <p>Good file organization from the start will save you headaches later:</p>
+
+                <div class="card">
+                    <h4>📁 Suggested Folder Structure</h4>
+                    <pre>
+My Documents/
+  └── Poser Projects/
+      ├── Lesson Projects/
+      │   ├── lesson_01_first_pose.pz3
+      │   ├── lesson_02_standing_pose.pz3
+      │   └── ...
+      ├── Practice/
+      │   └── experiments/
+      └── Final Renders/
+          └── exported_images/
+                    </pre>
+                </div>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Save Often!</h4>
+                    <p>Get into the habit of saving regularly:</p>
+                    <ul>
+                        <li>Save when you start working (File &gt; Save As)</li>
+                        <li>Save after making significant changes (<kbd>Ctrl + S</kbd>)</li>
+                        <li>Save before trying something experimental</li>
+                        <li>Save before rendering</li>
+                    </ul>
+                    <p>There's no autosave in Poser, so manual saving is crucial!</p>
+                </div>
+
+                <h3>Loading a Saved Scene</h3>
+                <p>To open a previously saved scene:</p>
+                <ol>
+                    <li>Go to <strong>File &gt; Open</strong></li>
+                    <li>Navigate to your saved .pz3 file</li>
+                    <li>Click <strong>Open</strong></li>
+                    <li>Your scene loads exactly as you saved it!</li>
+                </ol>
+
+                <blockquote>
+                    <strong>💾 The Golden Rule:</strong> Save early, save often! Professional artists save multiple versions of their work (my_pose_v1, my_pose_v2, etc.) so they can always go back if they need to. You never know when you'll want to return to an earlier version!
+                </blockquote>
+            </section>
+
+            <!-- Section 9: Project -->
+            <section id="first-pose-project" class="lesson-section">
+                <h2>Project: Your First Standing Pose</h2>
+                
+                <p>It's time to put everything together! This project will help you practice all the skills you've learned in this lesson.</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>🎯 Project Brief</h3>
+                    <p>Create a natural, relaxed standing pose for your figure. The pose should look like someone casually waiting for a friend or browsing in a store—natural and unstudied.</p>
+                    <p><strong>Requirements:</strong></p>
+                    <ul style="color: white;">
+                        <li>Use weight shift (hip tilt)</li>
+                        <li>Break symmetry (arms and legs different)</li>
+                        <li>Add subtle head positioning</li>
+                        <li>Make it look relaxed and natural</li>
+                        <li>Save your scene with a descriptive name</li>
+                    </ul>
+                </div>
+
+                <h3>Step-by-Step Project Guide</h3>
+                
+                <h4>Phase 1: Foundation (5 minutes)</h4>
+                <ol>
+                    <li>Start with a fresh figure (load Andy or Jessie)</li>
+                    <li>Establish weight distribution by tilting the hip</li>
+                    <li>Counter-tilt the chest</li>
+                    <li>Frame your figure with <kbd>Shift + A</kbd></li>
+                </ol>
+
+                <h4>Phase 2: Upper Body (10 minutes)</h4>
+                <ol>
+                    <li>Position and tilt the head naturally</li>
+                    <li>Adjust both shoulders (remember: make them different!)</li>
+                    <li>Add subtle elbow bends</li>
+                    <li>Orbit the camera to check from different angles</li>
+                </ol>
+
+                <h4>Phase 3: Lower Body (10 minutes)</h4>
+                <ol>
+                    <li>Adjust the weight-bearing leg (keep mostly straight)</li>
+                    <li>Relax the other leg (slight bend and rotation)</li>
+                    <li>Check feet positions (they should look grounded)</li>
+                </ol>
+
+                <h4>Phase 4: Refinement (10 minutes)</h4>
+                <ol>
+                    <li>Orbit around your figure, checking all angles</li>
+                    <li>Make small adjustments to anything that looks stiff</li>
+                    <li>Add personality with hand positions</li>
+                    <li>Find your best camera angle</li>
+                </ol>
+
+                <h4>Phase 5: Save Your Work</h4>
+                <ol>
+                    <li>Save your scene: <strong>File &gt; Save As</strong></li>
+                    <li>Name it something like "first_standing_pose_v1.pz3"</li>
+                    <li>Make note of what you learned</li>
+                </ol>
+
+                <div class="card">
+                    <h4>🎨 Creative Variations to Try</h4>
+                    <p>Once you complete the basic pose, experiment with variations:</p>
+                    <ul>
+                        <li><strong>Confident stance:</strong> Broader stance, shoulders back, head up</li>
+                        <li><strong>Shy pose:</strong> Arms closer to body, head tilted down, weight on one leg</li>
+                        <li><strong>Relaxed casual:</strong> One hand in pocket position, head tilted, easy stance</li>
+                        <li><strong>Curious look:</strong> Weight forward, head turned, one arm reaching</li>
+                    </ul>
+                    <p>Save each variation as a new file (v2, v3, etc.)</p>
+                </div>
+
+                <h3>Self-Assessment Checklist</h3>
+                <p>Use this checklist to evaluate your pose:</p>
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Pose Quality Checklist</h4>
+                    <ul>
+                        <li>□ Weight appears shifted to one side</li>
+                        <li>□ Pose is not perfectly symmetrical</li>
+                        <li>□ Body has subtle curves (not stiff and straight)</li>
+                        <li>□ Head has personality (tilted or turned)</li>
+                        <li>□ Arms are in different positions</li>
+                        <li>□ Elbows have slight bends (not locked straight)</li>
+                        <li>□ Legs look natural (one relaxed, one bearing weight)</li>
+                        <li>□ Overall pose looks comfortable and sustainable</li>
+                        <li>□ Viewed from multiple angles and looks good</li>
+                        <li>□ Scene saved with descriptive filename</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <strong>🌟 Reflection Exercise:</strong> After completing your pose, ask yourself:
+                    <ul>
+                        <li>What was easier than expected?</li>
+                        <li>What was more challenging?</li>
+                        <li>What would you do differently next time?</li>
+                        <li>What are you most proud of in this pose?</li>
+                    </ul>
+                    <p>These reflections will help you grow as an artist!</p>
+                </blockquote>
+            </section>
+
+            <!-- Summary Section -->
+            <section id="summary" class="lesson-section">
+                <h2>Wrapping Up</h2>
+                
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h3>🎉 You Did It! Your First Pose is Complete!</h3>
+                    <p>Take a moment to appreciate what you've accomplished:</p>
+                    <ul>
+                        <li>✅ Loaded a 3D figure from the library</li>
+                        <li>✅ Understood the figure hierarchy</li>
+                        <li>✅ Selected body parts multiple ways</li>
+                        <li>✅ Used parameter dials to create movement</li>
+                        <li>✅ Applied principles of natural posing</li>
+                        <li>✅ Created a complete standing pose</li>
+                        <li>✅ Framed your figure with camera controls</li>
+                        <li>✅ Saved your work properly</li>
+                    </ul>
+                </div>
+
+                <h3>Key Concepts to Remember</h3>
+                <div class="card">
+                    <ul>
+                        <li><strong>Hierarchy matters:</strong> Parent parts control their children</li>
+                        <li><strong>Break symmetry:</strong> Natural poses are never perfectly balanced</li>
+                        <li><strong>Small rotations:</strong> 5-15 degrees makes a huge difference</li>
+                        <li><strong>Weight distribution:</strong> Shift weight to one side for natural stance</li>
+                        <li><strong>Multiple selection methods:</strong> Direct click, hierarchy panel, or dropdown</li>
+                        <li><strong>Three rotation axes:</strong> xRotate (twist), yRotate (bend), zRotate (swing)</li>
+                        <li><strong>Save often:</strong> Protect your work with regular saves</li>
+                    </ul>
+                </div>
+
+                <h3>Common Beginner Mistakes (You're Ahead of the Curve!)</h3>
+                <ul>
+                    <li>❌ Making poses too symmetrical → ✅ You learned to break symmetry</li>
+                    <li>❌ Using too-large rotations → ✅ You used subtle 5-15 degree adjustments</li>
+                    <li>❌ Forgetting to save → ✅ You saved your scene properly</li>
+                    <li>❌ Not checking from multiple angles → ✅ You orbited the camera</li>
+                    <li>❌ Posing tiny parts first → ✅ You started with major body parts</li>
+                </ul>
+
+                <h3>🚀 What's Next?</h3>
+                <p>In the next lesson, <strong>"Cameras and Views"</strong>, we'll dive deeper into camera controls. You'll learn how to set up multiple camera angles, save camera presets, and frame your characters like a professional photographer. This will take your poses to the next level!</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>✨ Celebrate Your Progress!</h3>
+                    <p>You just created your first 3D character pose! That figure didn't move itself—YOU made it come to life through your creative decisions. Every adjustment, every rotation, every subtle tilt was your artistic choice.</p>
+                    <p>This is just the beginning. As you continue, poses that seem complex now will become second nature. You'll develop your own style, your own approach, your own artistic voice.</p>
+                    <p style="margin-bottom: 0;"><strong>Keep that scene file—it's your first step into the world of 3D character art!</strong> 🎭✨</p>
+                </div>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>📸 Optional: Share Your Work!</h4>
+                    <p>Proud of your first pose? Take a screenshot! Many artists keep a "progress portfolio" showing their journey from day one. Your first pose might not be perfect, but it's YOUR first pose—and that makes it special!</p>
+                </div>
+            </section>
+
+            <!-- Lesson Navigation -->
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_02_interface_tour.html" class="prev-lesson">← Previous: The Poser Interface Tour</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_04_cameras_and_views.html" class="next-lesson">Next: Cameras and Views →</a>
+            </nav>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; margin-top: 4rem; border-top: 1px solid var(--border-color);">
+        <p>&copy; 2024 Poser 12 Mastery Course. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9em; opacity: 0.8;">Made with ❤️ for aspiring 3D artists</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

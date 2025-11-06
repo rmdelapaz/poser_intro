@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn the art and science of creating natural, believable poses in Poser 12. Master weight distribution, the line of action, and breaking symmetry for life-like characters.">
+    <meta name="author" content="Poser 12 Course">
+    <title>Creating Natural Poses - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Progress indicator -->
+    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
+        <div class="progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Poser 12 Mastery</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">
+                ☰
+            </button>
+            <div class="nav-links" id="nav-links" aria-hidden="false">
+                <a href="index.html">Home</a>
+                <a href="index.html#modules">All Modules</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#module2">Module 2: Essential Posing Techniques</a></li>
+            <li aria-current="page">Creating Natural Poses</li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <div class="container">
+            <!-- Lesson Header -->
+            <header>
+                <h1>🎭 Creating Natural Poses</h1>
+                <p class="lead">This is where art meets science! A technically correct pose can still look stiff and lifeless, while a truly natural pose feels alive and tells a story. In this lesson, you'll learn the principles that separate amateur poses from professional, life-like character work. Get ready to breathe life into your digital figures!</p>
+                
+                <!-- Learning objectives -->
+                <div class="card">
+                    <h2>🎯 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will:</p>
+                    <ul>
+                        <li>Understand the principles of weight distribution and balance</li>
+                        <li>Master the "Line of Action" concept for dynamic poses</li>
+                        <li>Break symmetry to create natural, living poses</li>
+                        <li>Apply the contrapposto technique for realistic standing poses</li>
+                        <li>Create poses with emotional storytelling</li>
+                        <li>Avoid the most common posing mistakes beginners make</li>
+                        <li>Use reference images effectively</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated time:</strong> 45-60 minutes</p>
+                    <p><strong>🎯 Project:</strong> Create three poses showing different emotional states</p>
+                </div>
+            </header>
+
+            <!-- Table of Contents -->
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">📑 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#why-natural" class="toc-link">Why Natural Poses Matter</a></li>
+                        <li><a href="#weight-balance" class="toc-link">Weight Distribution and Balance</a></li>
+                        <li><a href="#line-of-action" class="toc-link">The Line of Action</a></li>
+                        <li><a href="#breaking-symmetry" class="toc-link">Breaking Symmetry</a></li>
+                        <li><a href="#contrapposto" class="toc-link">Contrapposto: The Standing Pose Secret</a></li>
+                        <li><a href="#body-language" class="toc-link">Body Language and Emotion</a></li>
+                        <li><a href="#common-mistakes" class="toc-link">Common Posing Mistakes to Avoid</a></li>
+                        <li><a href="#using-reference" class="toc-link">Working with Reference Images</a></li>
+                        <li><a href="#practical-tips" class="toc-link">Practical Posing Workflow</a></li>
+                        <li><a href="#project" class="toc-link">Project: Three Emotional States</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Section 1: Why Natural Poses Matter -->
+            <section id="why-natural" class="lesson-section">
+                <h2>Why Natural Poses Matter</h2>
+                
+                <p>Imagine looking at a photograph where something just feels... off. Maybe the person looks like they're about to fall over. Maybe their body looks impossibly twisted. Maybe they look like a mannequin in a store window instead of a living human. That's exactly what happens when we create poses that ignore the principles of natural movement and balance.</p>
+
+                <h3>The Uncanny Valley Effect</h3>
+                <p>There's a concept in 3D art called the "uncanny valley"—the idea that as digital humans get more realistic, small imperfections become more disturbing rather than less. A cartoon can get away with exaggerated, unrealistic poses because our brains accept the stylization. But when you're working with realistic 3D figures, even small unnatural elements stand out!</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>💡 The Restaurant Analogy</h3>
+                    <p>Think of posing like seasoning food at a restaurant:</p>
+                    <ul style="color: white;">
+                        <li><strong>Too little seasoning:</strong> The food is bland (stiff, boring poses)</li>
+                        <li><strong>Perfect seasoning:</strong> The food is delicious (natural, expressive poses)</li>
+                        <li><strong>Too much seasoning:</strong> The food is overwhelming (over-exaggerated, unnatural poses)</li>
+                    </ul>
+                    <p style="margin-bottom: 0;">Natural poses hit that sweet spot—they're expressive and interesting without breaking believability!</p>
+                </div>
+
+                <h3>What Makes a Pose Look Natural?</h3>
+                <p>Natural poses share several key characteristics:</p>
+                <ul>
+                    <li><strong>Proper weight distribution:</strong> The figure looks balanced and stable</li>
+                    <li><strong>Asymmetry:</strong> Slight variations between left and right sides</li>
+                    <li><strong>Flow and continuity:</strong> A clear line of energy through the pose</li>
+                    <li><strong>Appropriate tension:</strong> Muscles that should be engaged look engaged</li>
+                    <li><strong>Emotional consistency:</strong> Body language matches the intended emotion</li>
+                    <li><strong>Physical plausibility:</strong> Joints bend in anatomically correct ways</li>
+                </ul>
+
+                <blockquote>
+                    <strong>🎨 Artist's Wisdom:</strong> "The goal isn't to create 'correct' poses—it's to create poses that feel alive. A technically perfect pose can still look dead if it lacks life and energy. Conversely, a slightly exaggerated pose can feel completely natural if it captures authentic human movement."
+                </blockquote>
+
+                <h3>The Three Levels of Posing Mastery</h3>
+                <div class="mermaid">
+                    graph TD
+                    A[Beginner Level] --> B[Intermediate Level]
+                    B --> C[Expert Level]
+                    A --> D["Technically correct<br/>but often stiff"]
+                    B --> E["Natural and balanced<br/>shows understanding"]
+                    C --> F["Expressive and dynamic<br/>tells a story"]
+                    
+                    style C fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <p>This lesson will take you from beginner to intermediate, with the foundation you need to eventually reach expert level!</p>
+            </section>
+
+            <!-- Section 2: Weight and Balance -->
+            <section id="weight-balance" class="lesson-section">
+                <h2>Weight Distribution and Balance</h2>
+                
+                <p>Let's start with physics. Every pose your character takes must obey gravity—even in fantasy or sci-fi settings, viewers expect physical plausibility. Understanding weight distribution is the foundation of natural posing.</p>
+
+                <h3>The Center of Gravity</h3>
+                <p>Every object, including the human body, has a <strong>center of gravity</strong> (COG)—the point where all the weight appears to balance. For a standing human, this is typically around the belly button area, slightly forward of the spine.</p>
+
+                <div class="card">
+                    <h4>The Balance Rule</h4>
+                    <p><strong>For a figure to look stable, the center of gravity must be supported by the base (the feet or whatever is touching the ground).</strong></p>
+                    <p>If you draw a vertical line straight down from the COG, it should fall somewhere within the "support polygon" formed by the feet and the area between them.</p>
+                </div>
+
+                <h3>Standing Poses: Weight Distribution Basics</h3>
+                <p>When a person stands still, they rarely distribute weight evenly on both feet. Usually, one leg bears most of the weight while the other is relaxed.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pose Type</th>
+                            <th>Weight Distribution</th>
+                            <th>Visual Result</th>
+                            <th>When to Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Even Weight</strong></td>
+                            <td>50% / 50%</td>
+                            <td>Formal, alert, ready for action</td>
+                            <td>Military stance, formal portraits, tense moments</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dominant Leg</strong></td>
+                            <td>70% / 30%</td>
+                            <td>Relaxed, casual, natural</td>
+                            <td>Conversation, waiting, most standing poses</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Single Leg</strong></td>
+                            <td>100% / 0%</td>
+                            <td>Dynamic, in motion, transitioning</td>
+                            <td>Walking, running, kicking, dancing</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>The Hip Shift</h3>
+                <p>Here's a key insight that beginners often miss: <strong>When you shift weight to one leg, the hip on that side rises!</strong> This is automatic in real life but must be deliberately posed in 3D.</p>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Weight on Right Leg] --> B[Right Hip Rises]
+                    B --> C[Spine Curves to Maintain Balance]
+                    C --> D[Shoulders Counter-Tilt]
+                    D --> E[Natural Contrapposto]
+                    
+                    style E fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Testing Balance in Your Poses</h3>
+                <p>Here's a practical test you can do in Poser:</p>
+                <ol>
+                    <li>Look at your posed figure from the front view</li>
+                    <li>Imagine a vertical line straight down from the pelvis/belly button</li>
+                    <li>Ask: "Does this line fall between the feet or over a supporting foot?"</li>
+                    <li>If the line falls completely outside the support base, the figure looks unstable</li>
+                </ol>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Pro Tip: The Real-World Test</h4>
+                    <p>Stand up right now and try your pose yourself! If you can't hold it comfortably for 10 seconds without falling, your character won't look stable either. Your own body is the best reference for balance!</p>
+                </div>
+
+                <h3>Common Balance Mistakes</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mistake</th>
+                            <th>Why It Happens</th>
+                            <th>The Fix</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Figure leans too far without support</td>
+                            <td>Forgot to check COG alignment</td>
+                            <td>Shift weight or add supporting element</td>
+                        </tr>
+                        <tr>
+                            <td>Both legs straight, both feet flat</td>
+                            <td>Default pose not adjusted</td>
+                            <td>Shift weight to one leg, relax the other</td>
+                        </tr>
+                        <tr>
+                            <td>Hip doesn't rise with weight shift</td>
+                            <td>Only posed legs, forgot pelvis</td>
+                            <td>Rotate pelvis to raise loaded hip</td>
+                        </tr>
+                        <tr>
+                            <td>Spine stays perfectly straight</td>
+                            <td>Didn't balance upper and lower body</td>
+                            <td>Add subtle spine curves for balance</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <blockquote>
+                    <strong>⚖️ Physics Reminder:</strong> Gravity always wins! No matter how fantastical your scene, if the physics look wrong, the brain notices. Even superhero poses need to show how they're distributing weight—whether through super-strength, flying, or just good balance!
+                </blockquote>
+            </section>
+
+            <!-- Section 3: Line of Action -->
+            <section id="line-of-action" class="lesson-section">
+                <h2>The Line of Action</h2>
+                
+                <p>If you've studied drawing or animation, you've probably heard of the "line of action." If not, prepare to have your mind blown—this single concept will transform your posing!</p>
+
+                <h3>What Is the Line of Action?</h3>
+                <p>The <strong>line of action</strong> is an imaginary line that captures the overall flow and energy of a pose. It's the gestural spine of your pose—the single curved or straight line that shows the direction and energy of the figure.</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>💡 The Gesture Drawing Connection</h3>
+                    <p>Traditional artists start figure drawings with a single swooping line—the line of action. Everything else is built around it. In Poser, we work backwards: we build the pose, then check if a clear line of action emerges. If it does, the pose feels dynamic. If it doesn't, the pose feels static or confused.</p>
+                </div>
+
+                <h3>Types of Lines of Action</h3>
+
+                <h4>The C-Curve: Dynamic and Expressive</h4>
+                <p>A smooth C-curve creates energy and flow. It suggests movement, grace, or dynamism.</p>
+                <ul>
+                    <li><strong>Best for:</strong> Dancing, reaching, dramatic poses, elegant stances</li>
+                    <li><strong>Creates feeling of:</strong> Movement, flow, elegance, action</li>
+                    <li><strong>Example:</strong> A dancer mid-pirouette, a person reaching for something</li>
+                </ul>
+
+                <h4>The S-Curve: Natural and Attractive</h4>
+                <p>An S-curve (one part curves one way, another curves the opposite way) is incredibly natural and pleasing to the eye.</p>
+                <ul>
+                    <li><strong>Best for:</strong> Standing poses, walking, contrapposto, most natural stances</li>
+                    <li><strong>Creates feeling of:</strong> Balance, naturalness, beauty, stability with interest</li>
+                    <li><strong>Example:</strong> Classic contrapposto pose, a casual standing position</li>
+                </ul>
+
+                <h4>The Straight Line: Strong and Stable</h4>
+                <p>A relatively straight line of action suggests strength, determination, or rigidity.</p>
+                <ul>
+                    <li><strong>Best for:</strong> Military stances, power poses, formal situations</li>
+                    <li><strong>Creates feeling of:</strong> Strength, formality, tension, readiness</li>
+                    <li><strong>Example:</strong> A soldier at attention, a superhero power stance</li>
+                </ul>
+
+                <h4>The Zigzag: Tension and Discomfort</h4>
+                <p>Broken, angular lines suggest discomfort, awkwardness, or tension.</p>
+                <ul>
+                    <li><strong>Best for:</strong> Characters in pain, awkward moments, defeated poses</li>
+                    <li><strong>Creates feeling of:</strong> Tension, discomfort, breakdown, awkwardness</li>
+                    <li><strong>Example:</strong> Someone hunched over in pain, a defeated slump</li>
+                </ul>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Line of Action Types] --> B[C-Curve:<br/>Dynamic & Flowing]
+                    A --> C[S-Curve:<br/>Natural & Beautiful]
+                    A --> D[Straight Line:<br/>Strong & Formal]
+                    A --> E[Zigzag:<br/>Tense & Awkward]
+                    
+                    B --> F[Use for action,<br/>dance, drama]
+                    C --> G[Use for most<br/>natural poses]
+                    D --> H[Use for strength,<br/>formality]
+                    E --> I[Use for pain,<br/>defeat, awkwardness]
+                </div>
+
+                <h3>Finding the Line of Action in Your Pose</h3>
+                <p>Here's a practical exercise:</p>
+                <ol>
+                    <li>Create a pose in Poser</li>
+                    <li>Take a screenshot or render a quick preview</li>
+                    <li>Open it in a simple image editor or print it out</li>
+                    <li>Draw a line following the flow from head through spine to feet</li>
+                    <li>Does a clear, intentional curve emerge?</li>
+                </ol>
+
+                <p><strong>If you can't draw a clean line, your pose is confused!</strong> Go back and simplify.</p>
+
+                <h3>Posing with the Line of Action in Mind</h3>
+                <p>Start thinking about the line of action BEFORE you pose:</p>
+                <ol>
+                    <li><strong>Decide on the emotion or energy:</strong> Dynamic? Relaxed? Powerful?</li>
+                    <li><strong>Choose your line type:</strong> C-curve for action, S-curve for natural, etc.</li>
+                    <li><strong>Start with the spine:</strong> Bend the body to create that line</li>
+                    <li><strong>Add limbs that support the line:</strong> Arms and legs that flow with or complement it</li>
+                    <li><strong>Refine and check:</strong> Does the final pose clearly show your intended line?</li>
+                </ol>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Common Mistake: Broken Lines</h4>
+                    <p><strong>The Problem:</strong> The pose has competing lines of action pulling in different directions.</p>
+                    <p><strong>Example:</strong> The spine curves right but the arms gesture dramatically left, creating visual confusion.</p>
+                    <p><strong>Solution:</strong> Commit to ONE primary line of action. Everything else should support or complement it, not fight it.</p>
+                </div>
+
+                <blockquote>
+                    <strong>🎬 Animation Studio Secret:</strong> Pixar and Disney animators often start with just a simple line sketch—the line of action—before creating any 3D pose. If the line is compelling, the final pose will be too. If the line is boring, no amount of detail will save it!
+                </blockquote>
+            </section>
+
+            <!-- Section 4: Breaking Symmetry -->
+            <section id="breaking-symmetry" class="lesson-section">
+                <h2>Breaking Symmetry</h2>
+                
+                <p>This might be the single most important lesson for making your poses look alive. Ready for the secret? <strong>Perfect symmetry looks dead. Living things are always slightly asymmetrical.</strong></p>
+
+                <h3>Why Symmetry Looks Unnatural</h3>
+                <p>Think about it: when was the last time you stood with both arms in exactly the same position? When you're walking, are both legs doing the same thing at the same time? The answer is never—except perhaps in formal situations like standing at attention.</p>
+
+                <div class="card">
+                    <h4>The Biology Behind It</h4>
+                    <p>Humans aren't perfectly symmetrical creatures:</p>
+                    <ul>
+                        <li>Most people favor one hand (right or left)</li>
+                        <li>One foot is usually dominant</li>
+                        <li>Internal organs aren't mirrored (heart on left, liver on right)</li>
+                        <li>Faces aren't perfectly symmetrical</li>
+                        <li>Muscles develop differently based on use</li>
+                    </ul>
+                    <p>This natural asymmetry shows in every pose we make!</p>
+                </div>
+
+                <h3>The Symmetry Spectrum</h3>
+                <p>Not all poses need the same amount of asymmetry. Think of it as a spectrum:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Situation</th>
+                            <th>Symmetry Level</th>
+                            <th>Asymmetry Approach</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Military attention</td>
+                            <td>High (90% symmetrical)</td>
+                            <td>Add tiny variations (2-5 degrees)</td>
+                        </tr>
+                        <tr>
+                            <td>Formal portrait</td>
+                            <td>Medium-High (70% symmetrical)</td>
+                            <td>One hand slightly different, small weight shift</td>
+                        </tr>
+                        <tr>
+                            <td>Casual standing</td>
+                            <td>Medium (50% symmetrical)</td>
+                            <td>Clear weight shift, arms doing different things</td>
+                        </tr>
+                        <tr>
+                            <td>Action pose</td>
+                            <td>Low (30% symmetrical)</td>
+                            <td>Opposite movements (one arm up, other down)</td>
+                        </tr>
+                        <tr>
+                            <td>Dynamic motion</td>
+                            <td>Very Low (10% symmetrical)</td>
+                            <td>Everything doing something different</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>How to Break Symmetry Effectively</h3>
+                <p>Here are practical techniques to add natural asymmetry:</p>
+
+                <h4>Technique 1: The 3-5 Degree Rule</h4>
+                <p>Even when you want a relatively symmetrical pose, add 3-5 degrees of variation:</p>
+                <ul>
+                    <li>Right shoulder: 10 degrees up → Left shoulder: 13 degrees up</li>
+                    <li>Right elbow: 45 degrees → Left elbow: 47 degrees</li>
+                    <li>Right finger curl: 30 degrees → Left finger curl: 33 degrees</li>
+                </ul>
+                <p><strong>Result:</strong> The pose still reads as symmetrical, but doesn't look robotic!</p>
+
+                <h4>Technique 2: One Action, Different Responses</h4>
+                <p>If both arms are doing similar things, make them respond slightly differently:</p>
+                <ul>
+                    <li>Both hands on hips → One hand palm-flat, other hand curved</li>
+                    <li>Both arms raised → One slightly higher, wrist angled differently</li>
+                    <li>Both legs bearing weight → One knee slightly more bent</li>
+                </ul>
+
+                <h4>Technique 3: Complementary Asymmetry</h4>
+                <p>Use opposite movements that balance each other:</p>
+                <ul>
+                    <li>Right arm raised → Left arm lowered</li>
+                    <li>Right hip forward → Left hip back</li>
+                    <li>Right shoulder up → Left shoulder down</li>
+                    <li>Weight on right leg → Left leg relaxed</li>
+                </ul>
+
+                <h4>Technique 4: The Two-Beat Rhythm</h4>
+                <p>Think of the body as having a rhythm: when one side does something, the other side does something else:</p>
+                <ul>
+                    <li><strong>Walking:</strong> Right leg forward + left arm forward (opposite rhythm)</li>
+                    <li><strong>Reaching:</strong> Reach with one arm, other arm stays back for balance</li>
+                    <li><strong>Looking:</strong> Head turns right, body compensates by shifting left</li>
+                </ul>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Symmetrical Pose<br/>Robot-like] --> B[Add 3-5° variations<br/>Slightly more natural]
+                    B --> C[Add complementary asymmetry<br/>Natural]
+                    C --> D[Add opposite movements<br/>Dynamic]
+                    
+                    style D fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Quick Asymmetry Checklist</h4>
+                    <p>Before finalizing any pose, check:</p>
+                    <ul>
+                        <li>□ Are the shoulders at slightly different heights?</li>
+                        <li>□ Are the hands doing slightly different things?</li>
+                        <li>□ Is weight favoring one leg?</li>
+                        <li>□ Are the feet at different angles?</li>
+                        <li>□ Is the head tilted slightly?</li>
+                        <li>□ Are the elbows bent to different degrees?</li>
+                    </ul>
+                    <p>If you answered "no" to most of these, add some asymmetry!</p>
+                </div>
+
+                <h3>The Asymmetry Paradox</h3>
+                <p>Here's something fascinating: <strong>The human eye finds planned asymmetry more beautiful than perfect symmetry!</strong> Classical sculptures, Renaissance paintings, and modern character designs all use intentional asymmetry to create visual interest.</p>
+
+                <blockquote>
+                    <strong>🎨 Artist's Secret:</strong> "Symmetry is for architecture and logos. Life is asymmetrical. If your character looks too perfect, they look artificial. A slightly tilted head, one shoulder higher than the other, a weight shift to one side—these 'imperfections' are what make a pose feel human."
+                </blockquote>
+            </section>
+
+            <!-- Section 5: Contrapposto -->
+            <section id="contrapposto" class="lesson-section">
+                <h2>Contrapposto: The Standing Pose Secret</h2>
+                
+                <p>Time to learn a technique that's been making statues look amazing for over 2,500 years! <strong>Contrapposto</strong> (Italian for "opposite") is the art of creating natural standing poses by opposing the tilt of the hips and shoulders.</p>
+
+                <h3>What Is Contrapposto?</h3>
+                <p>Contrapposto is a specific type of asymmetrical standing pose where:</p>
+                <ol>
+                    <li>Weight rests primarily on one leg</li>
+                    <li>The hip on the weighted side rises</li>
+                    <li>The spine curves to compensate</li>
+                    <li>The shoulders tilt opposite to the hips</li>
+                    <li>The result is an S-curve through the body</li>
+                </ol>
+
+                <p>It was invented by ancient Greek sculptors and has been the foundation of natural standing poses ever since!</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>💡 The Michelangelo Connection</h3>
+                    <p>Look at any classical statue—Michelangelo's David, Venus de Milo, any Renaissance sculpture. They ALL use contrapposto. Why? Because it's how humans naturally stand when relaxed! The ancients figured this out through observation, and we still use it today in 3D art.</p>
+                </div>
+
+                <h3>The Contrapposto Formula</h3>
+                <p>Here's the step-by-step breakdown:</p>
+
+                <div class="card">
+                    <h4>Step 1: Choose the Weight-Bearing Leg</h4>
+                    <p>Decide which leg will bear most of the weight. Let's say the right leg.</p>
+                    <ul>
+                        <li>Right leg: Straight (or nearly straight)</li>
+                        <li>Left leg: Relaxed, knee slightly bent</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Step 2: Raise the Weight-Bearing Hip</h4>
+                    <p>Rotate the pelvis so the right hip rises slightly (about 5-10 degrees).</p>
+                    <ul>
+                        <li>Right hip: Higher</li>
+                        <li>Left hip: Lower</li>
+                        <li>This happens automatically in real life, but you must pose it deliberately!</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Step 3: Curve the Spine</h4>
+                    <p>The spine curves to keep the torso roughly vertical despite the tilted pelvis.</p>
+                    <ul>
+                        <li>Lower spine: Curves toward the raised hip (right)</li>
+                        <li>Upper spine: Curves away (left) to compensate</li>
+                        <li>Creates an S-curve</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Step 4: Counter-Tilt the Shoulders</h4>
+                    <p>The shoulders tilt OPPOSITE to the hips for balance.</p>
+                    <ul>
+                        <li>Right hip up → Left shoulder up</li>
+                        <li>Left hip down → Right shoulder down</li>
+                        <li>This opposition creates dynamic balance</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>Step 5: Add Natural Head Tilt</h4>
+                    <p>The head often tilts slightly toward the raised shoulder for extra naturalness.</p>
+                    <ul>
+                        <li>Subtle tilt (3-5 degrees)</li>
+                        <li>Not always required, but often looks good</li>
+                    </ul>
+                </div>
+
+                <h3>The Result: Natural, Elegant, Alive</h3>
+                <p>When executed correctly, contrapposto creates:</p>
+                <ul>
+                    <li>✅ A clear S-curve through the body (line of action)</li>
+                    <li>✅ Visual interest through asymmetry</li>
+                    <li>✅ A sense of relaxed naturalness</li>
+                    <li>✅ Dynamic balance despite being a static pose</li>
+                    <li>✅ Professional, polished appearance</li>
+                </ul>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Contrapposto Sequence] --> B[Weight on Right Leg]
+                    B --> C[Right Hip Rises]
+                    C --> D[Spine Creates S-Curve]
+                    D --> E[Left Shoulder Rises<br/>Opposition]
+                    E --> F[Natural Standing Pose]
+                    
+                    style F fill:#4CAF50,stroke:#333,stroke-width:3px,color:#fff
+                </div>
+
+                <h3>Variations on Contrapposto</h3>
+                <p>Once you master basic contrapposto, you can vary it:</p>
+                <ul>
+                    <li><strong>Exaggerated contrapposto:</strong> Increase the hip and shoulder tilts for fashion poses</li>
+                    <li><strong>Subtle contrapposto:</strong> Minimal tilts for more formal or reserved characters</li>
+                    <li><strong>Reverse contrapposto:</strong> Occasionally, shoulders and hips tilt the same direction (less common, for specific effects)</li>
+                </ul>
+
+                <h3>Common Contrapposto Mistakes</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mistake</th>
+                            <th>What It Looks Like</th>
+                            <th>The Fix</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Shoulders and hips tilt the same way</td>
+                            <td>Figure looks like it's leaning unnaturally</td>
+                            <td>Remember: shoulders tilt OPPOSITE to hips</td>
+                        </tr>
+                        <tr>
+                            <td>Hip doesn't rise with weight shift</td>
+                            <td>Looks like legs are posed but torso forgot</td>
+                            <td>Always raise the hip on the weight-bearing side</td>
+                        </tr>
+                        <tr>
+                            <td>Spine stays straight</td>
+                            <td>Looks stiff despite weight shift</td>
+                            <td>Add the S-curve through abdomen and chest</td>
+                        </tr>
+                        <tr>
+                            <td>Both legs straight</td>
+                            <td>Contradicts the relaxed stance</td>
+                            <td>Relax the non-weight-bearing leg, bend knee slightly</td>
+                        </tr>
+                        <tr>
+                            <td>Too much tilt</td>
+                            <td>Looks exaggerated or falling over</td>
+                            <td>Start subtle: 5-10 degrees is often enough</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Practice Makes Natural</h4>
+                    <p>Your first few contrapposto poses might feel mechanical. That's normal! Like learning to ride a bike, it feels awkward at first, then suddenly clicks. After 10-15 practice poses, contrapposto will become second nature!</p>
+                </div>
+
+                <blockquote>
+                    <strong>🗿 Historical Fun Fact:</strong> Before contrapposto was invented in ancient Greece, statues stood straight and stiff (think ancient Egyptian art). The invention of contrapposto was a revolution in art—suddenly statues looked alive! You're learning a technique that's literally timeless.
+                </blockquote>
+            </section>
+
+            <!-- Section 6: Body Language and Emotion -->
+            <section id="body-language" class="lesson-section">
+                <h2>Body Language and Emotion</h2>
+                
+                <p>A technically perfect pose can still fail if it doesn't communicate the right emotion. Body language is how your character speaks without words. Let's learn to make your poses tell a story!</p>
+
+                <h3>The Universal Language</h3>
+                <p>Certain body positions communicate specific emotions across all cultures:</p>
+
+                <h4>Confidence and Power</h4>
+                <ul>
+                    <li><strong>Chest out, shoulders back</strong></li>
+                    <li><strong>Feet apart, stable stance</strong></li>
+                    <li><strong>Arms away from body</strong> (taking up space)</li>
+                    <li><strong>Head up, chin slightly raised</strong></li>
+                    <li><strong>Hands on hips</strong> (power pose)</li>
+                </ul>
+
+                <h4>Vulnerability or Sadness</h4>
+                <ul>
+                    <li><strong>Chest collapsed, shoulders forward and down</strong></li>
+                    <li><strong>Arms close to body or wrapped around self</strong></li>
+                    <li><strong>Head tilted down</strong></li>
+                    <li><strong>Weight on one leg, other leg weak</strong></li>
+                    <li><strong>Making the body smaller</strong> (taking up less space)</li>
+                </ul>
+
+                <h4>Joy and Excitement</h4>
+                <ul>
+                    <li><strong>Chest open, shoulders relaxed but elevated</strong></li>
+                    <li><strong>Arms raised or spread</strong></li>
+                    <li><strong>Body slightly tilted back</strong></li>
+                    <li><strong>Dynamic, asymmetrical positioning</strong></li>
+                    <li><strong>Light, bouncy stance</strong> (less grounded)</li>
+                </ul>
+
+                <h4>Anger or Aggression</h4>
+                <ul>
+                    <li><strong>Shoulders up and forward (hunched)</strong></li>
+                    <li><strong>Chest thrust forward aggressively</strong></li>
+                    <li><strong>Fists clenched</strong></li>
+                    <li><strong>Wide stance (claiming territory)</strong></li>
+                    <li><strong>Forward lean</strong> (invading space)</li>
+                </ul>
+
+                <h4>Fear or Anxiety</h4>
+                <ul>
+                    <li><strong>Shoulders raised (defensive)</strong></li>
+                    <li><strong>Body turned slightly away from threat</strong></li>
+                    <li><strong>Arms protective (in front of body)</strong></li>
+                    <li><strong>Legs together or one behind (ready to flee)</strong></li>
+                    <li><strong>Smaller overall silhouette</strong></li>
+                </ul>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Emotional Poses] --> B[Expansive<br/>Confidence, Joy]
+                    A --> C[Contracted<br/>Fear, Sadness]
+                    A --> D[Forward<br/>Anger, Aggression]
+                    A --> E[Turned Away<br/>Shame, Avoidance]
+                    
+                    B --> F[Open chest<br/>Arms spread<br/>Head up]
+                    C --> G[Closed chest<br/>Arms in<br/>Head down]
+                </div>
+
+                <h3>The Chest Is the Emotional Center</h3>
+                <p>Here's a powerful insight: <strong>The chest position is often the most important indicator of emotion.</strong></p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Chest Position</th>
+                            <th>Emotional Message</th>
+                            <th>Body Language Context</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lifted, expanded</td>
+                            <td>Confidence, pride, strength</td>
+                            <td>"I'm powerful, face me"</td>
+                        </tr>
+                        <tr>
+                            <td>Collapsed, concave</td>
+                            <td>Defeat, sadness, shame</td>
+                            <td>"I'm small, I'm broken"</td>
+                        </tr>
+                        <tr>
+                            <td>Thrust forward</td>
+                            <td>Aggression, confrontation</td>
+                            <td>"Get out of my space"</td>
+                        </tr>
+                        <tr>
+                            <td>Turned away</td>
+                            <td>Avoidance, fear, rejection</td>
+                            <td>"I don't want to deal with this"</td>
+                        </tr>
+                        <tr>
+                            <td>Relaxed, neutral</td>
+                            <td>Calm, content, balanced</td>
+                            <td>"All is well"</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Combining Multiple Emotional Cues</h3>
+                <p>Real emotions are complex. You can layer different signals for nuanced character moments:</p>
+
+                <div class="card">
+                    <h4>Example: Trying to Look Confident But Actually Nervous</h4>
+                    <ul>
+                        <li><strong>Chest:</strong> Lifted (forced confidence)</li>
+                        <li><strong>Shoulders:</strong> Slightly raised (tension)</li>
+                        <li><strong>Hands:</strong> One fiddling with something (nervous tell)</li>
+                        <li><strong>Legs:</strong> Feet close together (defensive, not truly confident)</li>
+                        <li><strong>Head:</strong> Up (trying to project confidence) but slightly tilted (uncertainty)</li>
+                    </ul>
+                    <p><strong>Result:</strong> A complex, realistic emotional state!</p>
+                </div>
+
+                <h3>Cultural and Personal Variations</h3>
+                <p>While many body language cues are universal, remember:</p>
+                <ul>
+                    <li>Different cultures have different personal space norms</li>
+                    <li>Individual characters have unique ways of expressing emotion</li>
+                    <li>Context matters (same pose can mean different things in different situations)</li>
+                    <li>Subtle is often more powerful than exaggerated</li>
+                </ul>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ The Emotion Test</h4>
+                    <p>Before finalizing a pose, ask yourself:</p>
+                    <ol>
+                        <li><strong>What emotion should this character feel?</strong></li>
+                        <li><strong>Does the chest position support that emotion?</strong></li>
+                        <li><strong>Do the arms and hands reinforce it?</strong></li>
+                        <li><strong>Is the stance consistent with the emotion?</strong></li>
+                        <li><strong>If I showed this to someone without context, would they read the emotion correctly?</strong></li>
+                    </ol>
+                </div>
+
+                <blockquote>
+                    <strong>🎬 Actor's Technique:</strong> Professional actors are trained to embody emotions through their whole body, not just their face. The same is true for 3D characters. A sad face on a confident stance looks confused. Make sure the body and face tell the same emotional story!
+                </blockquote>
+            </section>
+
+            <!-- Section 7: Common Mistakes -->
+            <section id="common-mistakes" class="lesson-section">
+                <h2>Common Posing Mistakes to Avoid</h2>
+                
+                <p>Let's look at the most frequent mistakes beginners make so you can avoid them from the start!</p>
+
+                <h3>Mistake 1: The Mannequin Syndrome</h3>
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The Problem</h4>
+                    <p>The figure stands perfectly straight with both arms at their sides, both feet flat on the ground, weight evenly distributed. It looks like a store mannequin or a video game default pose.</p>
+                    <p><strong>Why it happens:</strong> Not adjusting from the default T-pose or A-pose</p>
+                    <p><strong>The fix:</strong> Apply contrapposto, break symmetry, add a line of action</p>
+                </div>
+
+                <h3>Mistake 2: Floating or Sinking</h3>
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The Problem</h4>
+                    <p>The feet don't make proper contact with the ground—either floating slightly above or sinking into it.</p>
+                    <p><strong>Why it happens:</strong> Not checking ground plane alignment, especially after moving the figure</p>
+                    <p><strong>The fix:</strong> Always check from a side view that feet are properly planted. Use "Drop to Floor" commands if available.</p>
+                </div>
+
+                <h3>Mistake 3: Impossible Joint Angles</h3>
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The Problem</h4>
+                    <p>Joints bent in anatomically impossible ways—elbows bending backwards, knees hyperextended, spine twisted beyond human range.</p>
+                    <p><strong>Why it happens:</strong> Clicking and dragging without understanding anatomy limits</p>
+                    <p><strong>The fix:</strong> Try the pose yourself! If you can't do it comfortably, neither should your character. Study basic anatomy.</p>
+                </div>
+
+                <h3>Mistake 4: The Zombie Arms</h3>
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The Problem</h4>
+                    <p>Arms hang straight down like they're dead, or both arms do exactly the same thing simultaneously.</p>
+                    <p><strong>Why it happens:</strong> Forgetting to pose the arms, or posing them symmetrically</p>
+                    <p><strong>The fix:</strong> Arms are incredibly expressive! Give them purpose. Even "resting" arms should have slight variations.</p>
+                </div>
+
+                <h3>Mistake 5: Perfect Symmetry</h3>
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The Problem</h4>
+                    <p>Both sides of the body mirror each other perfectly, creating a robotic appearance.</p>
+                    <p><strong>Why it happens:</strong> Using pose presets without modification, or mirroring one side without adjusting</p>
+                    <p><strong>The fix:</strong> Add 3-5 degrees of variation everywhere. Humans are never perfectly symmetrical.</p>
+                </div>
+
+                <h3>Mistake 6: No Line of Action</h3>
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The Problem</h4>
+                    <p>The pose has no clear flow or direction—parts seem to pull in different directions with no cohesive energy.</p>
+                    <p><strong>Why it happens:</strong> Posing body parts individually without thinking about the whole</p>
+                    <p><strong>The fix:</strong> Decide on your line of action first, then build the pose around it</p>
+                </div>
+
+                <h3>Mistake 7: Stiff Hands</h3>
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The Problem</h4>
+                    <p>Hands are perfectly straight with all fingers doing the exact same thing, or all fingers are curled identically.</p>
+                    <p><strong>Why it happens:</strong> Hands are time-consuming, so people leave them in default poses</p>
+                    <p><strong>The fix:</strong> Hands are CRUCIAL for natural poses. Vary finger positions. Reference real hand photos.</p>
+                </div>
+
+                <h3>Mistake 8: The Center of Gravity Falls Outside Support</h3>
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The Problem</h4>
+                    <p>The figure leans so far that they look like they're about to fall over.</p>
+                    <p><strong>Why it happens:</strong> Not checking balance, especially after rotating the torso</p>
+                    <p><strong>The fix:</strong> Check from the front view—COG should fall over the support base</p>
+                </div>
+
+                <h3>Mistake 9: Disconnected Emotion</h3>
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The Problem</h4>
+                    <p>Body language doesn't match the intended emotion (confident stance with defeated facial expression, etc.)</p>
+                    <p><strong>Why it happens:</strong> Posing body and face separately without considering overall emotional message</p>
+                    <p><strong>The fix:</strong> Decide on emotion FIRST, then make sure every part supports it</p>
+                </div>
+
+                <h3>Mistake 10: Over-Exaggeration</h3>
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The Problem</h4>
+                    <p>Pushing rotations too far, creating poses that look cartoonish or broken rather than natural.</p>
+                    <p><strong>Why it happens:</strong> Thinking "more is better" or trying to make poses "interesting"</p>
+                    <p><strong>The fix:</strong> Start subtle. You can always add more, but it's hard to dial back. Aim for 70% of what you think you need.</p>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ The Quick Pose Audit</h4>
+                    <p>Before finalizing, check these 10 points:</p>
+                    <ol>
+                        <li>□ Is there clear asymmetry?</li>
+                        <li>□ Can I identify a line of action?</li>
+                        <li>□ Are the feet properly on the ground?</li>
+                        <li>□ Does the center of gravity make sense?</li>
+                        <li>□ Are all joint angles anatomically possible?</li>
+                        <li>□ Do the hands look natural?</li>
+                        <li>□ Does the body language match the intended emotion?</li>
+                        <li>□ If applicable, is contrapposto executed correctly?</li>
+                        <li>□ Would this pose be comfortable to hold for 10 seconds?</li>
+                        <li>□ Does it look alive rather than mannequin-like?</li>
+                    </ol>
+                    <p>Fix any "no" answers before rendering!</p>
+                </div>
+            </section>
+
+            <!-- Section 8: Using Reference -->
+            <section id="using-reference" class="lesson-section">
+                <h2>Working with Reference Images</h2>
+                
+                <p>Even professional artists use reference! There's no shame in it—in fact, using reference is a sign of professionalism, not weakness. Let's learn to use references effectively.</p>
+
+                <h3>Why Reference Matters</h3>
+                <p>Reference images help you:</p>
+                <ul>
+                    <li><strong>Understand complex anatomy</strong> in specific poses</li>
+                    <li><strong>See real weight distribution</strong> and balance</li>
+                    <li><strong>Capture authentic body language</strong> for emotions</li>
+                    <li><strong>Avoid impossible poses</strong> that look wrong</li>
+                    <li><strong>Add convincing details</strong> like muscle tension and skin folds</li>
+                    <li><strong>Work faster</strong> by having a clear goal</li>
+                </ul>
+
+                <h3>Where to Find Great Reference</h3>
+                <p>Excellent resources for pose reference:</p>
+
+                <div class="card">
+                    <h4>Free Resources</h4>
+                    <ul>
+                        <li><strong>Quickposes.com:</strong> Timed gesture drawing with figure models</li>
+                        <li><strong>Line-of-action.com:</strong> Figure drawing practice with timer</li>
+                        <li><strong>Pinterest:</strong> Create boards organized by pose type</li>
+                        <li><strong>Unsplash / Pexels:</strong> High-quality free photography</li>
+                        <li><strong>Action movies:</strong> Pause frames for dynamic action poses</li>
+                        <li><strong>Sports photography:</strong> Incredible dynamic poses</li>
+                        <li><strong>Dance videos:</strong> Elegant, expressive movement</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Paid Resources (Worth It!)</h4>
+                    <ul>
+                        <li><strong>Pose reference books:</strong> Dynamic Anatomy by Burne Hogarth, etc.</li>
+                        <li><strong>3D Scan stores:</strong> Actual 3D scanned poses you can import</li>
+                        <li><strong>Stock photo sites:</strong> Adobe Stock, Shutterstock for specific needs</li>
+                        <li><strong>Poser content stores:</strong> Pose packs created specifically for Poser</li>
+                    </ul>
+                </div>
+
+                <h3>How to Use Reference Effectively</h3>
+
+                <h4>Method 1: Side-by-Side Workflow</h4>
+                <ol>
+                    <li>Open reference image on second monitor or tablet</li>
+                    <li>Work in Poser on main monitor</li>
+                    <li>Glance at reference frequently while posing</li>
+                    <li>Focus on major shapes and lines first, details last</li>
+                </ol>
+
+                <h4>Method 2: Study and Internalize</h4>
+                <ol>
+                    <li>Study the reference for 2-3 minutes</li>
+                    <li>Note: weight distribution, line of action, key angles</li>
+                    <li>Close the reference and pose from memory</li>
+                    <li>Check reference again to verify and refine</li>
+                    <li>This method helps you understand WHY the pose works</li>
+                </ol>
+
+                <h4>Method 3: Import as Background</h4>
+                <ol>
+                    <li>Import reference as a background image in Poser's camera view</li>
+                    <li>Lower opacity so you can see both reference and your figure</li>
+                    <li>Match major proportions and angles</li>
+                    <li>Remove reference for final adjustments</li>
+                    <li>Great for matching specific poses exactly</li>
+                </ol>
+
+                <h3>Using Reference vs. Copying</h3>
+                <p>There's a difference between using reference intelligently and copying blindly:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Copying (Don't Do This)</th>
+                            <th>Using Reference (Do This)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Match every angle exactly</td>
+                            <td>Understand the principles shown</td>
+                        </tr>
+                        <tr>
+                            <td>Reproduce pose mechanically</td>
+                            <td>Adapt pose to your character's story</td>
+                        </tr>
+                        <tr>
+                            <td>Never look away from reference</td>
+                            <td>Glance at reference, then work</td>
+                        </tr>
+                        <tr>
+                            <td>Result looks traced</td>
+                            <td>Result feels inspired but original</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>The Multiple Reference Technique</h3>
+                <p>Don't rely on a single reference! Combine multiple sources:</p>
+                <ul>
+                    <li><strong>Reference A:</strong> Overall pose and stance</li>
+                    <li><strong>Reference B:</strong> Hand position and detail</li>
+                    <li><strong>Reference C:</strong> Emotional expression and body language</li>
+                    <li><strong>Reference D:</strong> Clothing draping and materials</li>
+                </ul>
+
+                <p><strong>Result:</strong> A unique pose informed by multiple sources rather than a copy of one!</p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Pro Reference Tips</h4>
+                    <ul>
+                        <li><strong>Organize your reference:</strong> Create folders by category (standing, action, emotions, etc.)</li>
+                        <li><strong>Save inspiration constantly:</strong> When you see a great pose in any media, save it</li>
+                        <li><strong>Study real life:</strong> Watch people at coffee shops, parks, airports—real human movement</li>
+                        <li><strong>Take your own photos:</strong> Ask friends to model, or use self-timer photos</li>
+                        <li><strong>Video is valuable:</strong> Pause video at different frames for natural in-between poses</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <strong>🎨 Master Artists Use Reference:</strong> Every professional artist, from Pixar animators to Marvel comic illustrators, uses reference extensively. It's not cheating—it's working smart. The goal isn't to prove you can pose without reference; it's to create the best pose possible!
+                </blockquote>
+            </section>
+
+            <!-- Section 9: Practical Tips -->
+            <section id="practical-tips" class="lesson-section">
+                <h2>Practical Posing Workflow</h2>
+                
+                <p>Let's put it all together into a repeatable workflow you can use for every pose!</p>
+
+                <h3>The Professional Posing Process</h3>
+
+                <div class="card">
+                    <h4>Stage 1: Concept (2-3 minutes)</h4>
+                    <ol>
+                        <li><strong>Define the emotion or story:</strong> What is this character feeling/doing?</li>
+                        <li><strong>Choose reference if needed:</strong> Find 1-3 reference images</li>
+                        <li><strong>Identify the line of action:</strong> Sketch or visualize the main curve</li>
+                        <li><strong>Plan the weight distribution:</strong> Which leg bears weight? Static or dynamic?</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Stage 2: Block In (5-10 minutes)</h4>
+                    <ol>
+                        <li><strong>Start with the spine/torso:</strong> Create your line of action</li>
+                        <li><strong>Position the hips/pelvis:</strong> Set weight distribution</li>
+                        <li><strong>Place the legs:</strong> Establish stance and balance</li>
+                        <li><strong>Block in the arms:</strong> Major positions, not details yet</li>
+                        <li><strong>Set head direction:</strong> Where is the character looking?</li>
+                    </ol>
+                    <p><strong>At this stage:</strong> Everything is rough, but the overall energy is visible</p>
+                </div>
+
+                <div class="card">
+                    <h4>Stage 3: Refine Major Forms (10-15 minutes)</h4>
+                    <ol>
+                        <li><strong>Check and adjust balance:</strong> Verify COG alignment</li>
+                        <li><strong>Apply contrapposto if standing:</strong> Hip up, shoulder down, etc.</li>
+                        <li><strong>Break symmetry:</strong> Add 3-5 degree variations</li>
+                        <li><strong>Refine arm angles:</strong> Elbows, wrists, overall arm flow</li>
+                        <li><strong>Adjust leg details:</strong> Knees, ankles, foot angles</li>
+                        <li><strong>Fine-tune spine curve:</strong> Make sure S-curve or C-curve is clear</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Stage 4: Add Details (10-15 minutes)</h4>
+                    <ol>
+                        <li><strong>Pose the hands:</strong> This is crucial! Spend time here</li>
+                        <li><strong>Add finger variations:</strong> No two fingers should be identical</li>
+                        <li><strong>Adjust head tilt:</strong> Small tilts add huge naturalness</li>
+                        <li><strong>Fine-tune shoulders:</strong> Small rotations make big differences</li>
+                        <li><strong>Check feet:</strong> Angles, toe positions, ground contact</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>Stage 5: Final Polish (5 minutes)</h4>
+                    <ol>
+                        <li><strong>Run the pose audit checklist:</strong> (from earlier in lesson)</li>
+                        <li><strong>Check from multiple camera angles:</strong> Front, side, 3/4 view</li>
+                        <li><strong>Look for "dead" areas:</strong> Parts that look stiff or forgot to pose</li>
+                        <li><strong>Add final micro-adjustments:</strong> The little 2-3 degree tweaks</li>
+                        <li><strong>Step back and feel it:</strong> Does it convey the emotion you want?</li>
+                    </ol>
+                </div>
+
+                <h3>Time-Saving Tips</h3>
+                <ul>
+                    <li><strong>Build a pose library:</strong> Save your best poses for reuse and variation</li>
+                    <li><strong>Start from good presets:</strong> Modify existing poses rather than starting from T-pose</li>
+                    <li><strong>Use symmetry tools strategically:</strong> Pose one arm, mirror it, then break the symmetry</li>
+                    <li><strong>Master the keyboard shortcuts:</strong> Switching between body parts quickly</li>
+                    <li><strong>Work in layers:</strong> Don't jump to details until the foundation is solid</li>
+                </ul>
+
+                <h3>When to Trust Your Instinct</h3>
+                <p>Sometimes a pose "feels right" even if it breaks some rules. Trust that feeling! Rules are guidelines, not laws. If your pose:</p>
+                <ul>
+                    <li>✅ Looks balanced and stable</li>
+                    <li>✅ Conveys the right emotion</li>
+                    <li>✅ Has visual interest and energy</li>
+                    <li>✅ Tells the story you want</li>
+                </ul>
+
+                <p><strong>Then it works!</strong> Don't overthink it.</p>
+
+                <blockquote>
+                    <strong>⏱️ Speed vs. Quality Balance:</strong> Your first poses will take 45-60 minutes. That's fine! As you practice, you'll naturally speed up. Eventually, you'll block in great poses in 10-15 minutes. But never sacrifice quality for speed—a great pose is worth the time!
+                </blockquote>
+            </section>
+
+            <!-- Section 10: Project -->
+            <section id="project" class="lesson-section">
+                <h2>Project: Three Emotional States</h2>
+                
+                <p>Time to put everything you've learned into practice! This project will solidify your understanding of natural posing principles.</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>🎯 Project Brief</h3>
+                    <p>Create three distinct poses of the same character showing three different emotional states. Each pose must demonstrate the principles learned in this lesson.</p>
+                    <p><strong>Requirements:</strong></p>
+                    <ul style="color: white;">
+                        <li>Same character, three different emotions</li>
+                        <li>Each pose must show clear body language</li>
+                        <li>Apply natural posing principles (asymmetry, balance, line of action)</li>
+                        <li>At least one pose must use contrapposto</li>
+                        <li>Hands must be posed (not default)</li>
+                        <li>Save all three poses for your portfolio</li>
+                    </ul>
+                    <p><strong>Time allocation:</strong> 90-120 minutes total (30-40 minutes per pose)</p>
+                </div>
+
+                <h3>The Three Emotions to Portray</h3>
+
+                <div class="card">
+                    <h4>Pose 1: Confidence / Triumph</h4>
+                    <p><strong>Goal:</strong> Character feels powerful, successful, in control</p>
+                    <p><strong>Key body language elements:</strong></p>
+                    <ul>
+                        <li>Chest expanded and lifted</li>
+                        <li>Shoulders back</li>
+                        <li>Head up, possibly chin slightly raised</li>
+                        <li>Arms away from body (claiming space) or one hand on hip</li>
+                        <li>Stable, wide stance OR strong contrapposto</li>
+                        <li>Clear, strong line of action (could be straight or C-curve)</li>
+                    </ul>
+                    <p><strong>Challenge:</strong> Make it confident without looking arrogant. Add subtle asymmetry to keep it natural.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Pose 2: Vulnerability / Sadness</h4>
+                    <p><strong>Goal:</strong> Character feels defeated, sad, or vulnerable</p>
+                    <p><strong>Key body language elements:</strong></p>
+                    <ul>
+                        <li>Chest collapsed or turned inward</li>
+                        <li>Shoulders forward and down</li>
+                        <li>Head tilted down or turned away</li>
+                        <li>Arms close to body, possibly wrapped around self</li>
+                        <li>Weight distribution shows weakness (maybe leaning on something)</li>
+                        <li>Body making itself smaller (taking up less space)</li>
+                    </ul>
+                    <p><strong>Challenge:</strong> Convey sadness through the whole body, not just the face. Make sure it still looks balanced!</p>
+                </div>
+
+                <div class="card">
+                    <h4>Pose 3: Joy / Excitement</h4>
+                    <p><strong>Goal:</strong> Character feels happy, excited, energetic</p>
+                    <p><strong>Key body language elements:</strong></p>
+                    <ul>
+                        <li>Chest open and possibly lifted</li>
+                        <li>Arms raised or spread</li>
+                        <li>Dynamic, asymmetrical positioning</li>
+                        <li>Possibly slight backward lean (opening up)</li>
+                        <li>Clear C-curve line of action showing energy</li>
+                        <li>Lighter stance (not heavily grounded, suggesting movement)</li>
+                    </ul>
+                    <p><strong>Challenge:</strong> Show energy and joy without making it look exaggerated or unstable.</p>
+                </div>
+
+                <h3>Step-by-Step Project Guide</h3>
+
+                <h4>Part 1: Setup (5 minutes)</h4>
+                <ol>
+                    <li>Load your favorite figure</li>
+                    <li>Create three separate camera angles for your three poses (or use the same angle for all three)</li>
+                    <li>Gather reference images if desired (optional but helpful)</li>
+                    <li>Create a plan: which emotion will you tackle first?</li>
+                </ol>
+
+                <h4>Part 2: Pose 1 - Confidence (30-40 minutes)</h4>
+                <ol>
+                    <li><strong>Concept:</strong> Decide on the specific moment—triumphant victory? Cool confidence? Power stance?</li>
+                    <li><strong>Block in:</strong> Start with spine and torso, establish the strong foundation</li>
+                    <li><strong>Add contrapposto:</strong> This is a great one for contrapposto! Weight on one leg, opposite shoulder up</li>
+                    <li><strong>Position arms:</strong> Where do powerful arms go? Hands on hips? One raised? Both spread?</li>
+                    <li><strong>Details:</strong> Pose those hands! Check head tilt. Adjust shoulders.</li>
+                    <li><strong>Verify:</strong> Does the whole body say "confident"? Run through the emotion checklist.</li>
+                    <li><strong>Save:</strong> Save this pose with a descriptive name like "Character_Confident_01"</li>
+                </ol>
+
+                <h4>Part 3: Pose 2 - Vulnerability (30-40 minutes)</h4>
+                <ol>
+                    <li><strong>Concept:</strong> What kind of sadness? Quiet defeat? Overwhelming grief? Loss?</li>
+                    <li><strong>Block in:</strong> Collapse that chest! Curve the spine forward and down</li>
+                    <li><strong>Weight distribution:</strong> Probably uneven, showing weakness or exhaustion</li>
+                    <li><strong>Arms and hands:</strong> Wrapped around self? Hanging limply? One hand to face?</li>
+                    <li><strong>Head position:</strong> Down and/or turned away. Very important for sadness!</li>
+                    <li><strong>Details:</strong> Make the body language speak louder than the face</li>
+                    <li><strong>Save:</strong> "Character_Vulnerable_01"</li>
+                </ol>
+
+                <h4>Part 4: Pose 3 - Joy (30-40 minutes)</h4>
+                <ol>
+                    <li><strong>Concept:</strong> Moment of victory? Greeting a friend? Celebrating? Dancing?</li>
+                    <li><strong>Block in:</strong> Open that chest! Create a dynamic C-curve</li>
+                    <li><strong>Asymmetry is key:</strong> Arms doing different things, dynamic stance</li>
+                    <li><strong>Add movement feel:</strong> Even though it's a still pose, suggest motion</li>
+                    <li><strong>Hands:</strong> Open, expressive, excited—not closed or limp</li>
+                    <li><strong>Balance check:</strong> Make sure they don't look like they're falling! Joy should still be grounded.</li>
+                    <li><strong>Save:</strong> "Character_Joyful_01"</li>
+                </ol>
+
+                <h4>Part 5: Review and Compare (10 minutes)</h4>
+                <ol>
+                    <li>Load all three poses side by side (if possible) or switch between them</li>
+                    <li>Are the three emotions clearly distinct?</li>
+                    <li>Could someone identify each emotion without seeing the face?</li>
+                    <li>Does each pose demonstrate natural posing principles?</li>
+                    <li>Take quick renders or screenshots of all three</li>
+                </ol>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Success Checklist</h4>
+                    <p>For each pose, verify:</p>
+                    <ul>
+                        <li>□ Clear emotional body language</li>
+                        <li>□ Asymmetry (no perfect mirroring)</li>
+                        <li>□ Identifiable line of action</li>
+                        <li>□ Proper weight distribution and balance</li>
+                        <li>□ Hands are posed (not default)</li>
+                        <li>□ At least one pose uses contrapposto correctly</li>
+                        <li>□ All joint angles are anatomically possible</li>
+                        <li>□ Feet are properly planted</li>
+                        <li>□ Each pose tells a clear story</li>
+                        <li>□ The poses look natural and alive, not stiff</li>
+                    </ul>
+                </div>
+
+                <h3>Bonus Challenges</h3>
+                <p>If you finish all three poses and want to push further:</p>
+                <ul>
+                    <li><strong>Add a fourth emotion:</strong> Try anger, fear, or contemplation</li>
+                    <li><strong>Create transitions:</strong> Pose the character transitioning between two emotions</li>
+                    <li><strong>Try different characters:</strong> Repeat the exercise with a different figure—notice how body language changes!</li>
+                    <li><strong>Add props:</strong> How do the emotions change when holding objects?</li>
+                    <li><strong>Experiment with extreme emotions:</strong> Push further than you normally would</li>
+                </ul>
+
+                <h3>What to Do with Your Results</h3>
+                <ul>
+                    <li>Save all three poses to your pose library for future reuse</li>
+                    <li>Take high-quality renders to add to your portfolio</li>
+                    <li>Share with other Poser artists for feedback</li>
+                    <li>Compare to your earlier work—see how far you've come!</li>
+                    <li>Use these as templates for future projects</li>
+                </ul>
+            </section>
+
+            <!-- Summary Section -->
+            <section id="summary" class="lesson-section">
+                <h2>Wrapping Up</h2>
+                
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h3>🎉 You're Now a Natural Poser!</h3>
+                    <p>You've learned:</p>
+                    <ul>
+                        <li>✅ Why natural poses matter and what makes them work</li>
+                        <li>✅ How to manage weight distribution and balance</li>
+                        <li>✅ The power of the line of action in creating dynamic poses</li>
+                        <li>✅ How to break symmetry for natural, living results</li>
+                        <li>✅ The contrapposto technique for beautiful standing poses</li>
+                        <li>✅ How to use body language to convey emotion</li>
+                        <li>✅ Common mistakes to avoid</li>
+                        <li>✅ How to work effectively with reference images</li>
+                        <li>✅ A professional workflow for creating any pose</li>
+                    </ul>
+                </div>
+
+                <h3>Key Principles to Remember Forever</h3>
+                <div class="card">
+                    <ul>
+                        <li><strong>Balance is physics:</strong> Center of gravity must be supported</li>
+                        <li><strong>Line of action creates flow:</strong> Every great pose has a clear energy line</li>
+                        <li><strong>Perfect symmetry looks dead:</strong> Always add asymmetry for life</li>
+                        <li><strong>Contrapposto is magic:</strong> Hip up, opposite shoulder down = instant natural stance</li>
+                        <li><strong>Body language speaks louder:</strong> Emotion shows in the whole body, not just the face</li>
+                        <li><strong>Reference is your friend:</strong> Use it intelligently, not as a crutch</li>
+                        <li><strong>Start rough, refine gradually:</strong> Block in first, details last</li>
+                        <li><strong>When in doubt, try it yourself:</strong> Your body is the best reference</li>
+                    </ul>
+                </div>
+
+                <h3>🚀 What's Next?</h3>
+                <p>You've mastered the fundamentals of creating natural poses! In the next lesson, <strong>"Advanced Hand Posing"</strong>, we'll dive deep into one of the most expressive parts of the body—the hands. You'll learn to create gestures that speak volumes, from subtle emotional tells to dramatic flourishes.</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>✨ The Journey Continues</h3>
+                    <p>Natural posing is both an art and a science. You now understand the science—the principles that govern believable poses. As you practice, you'll develop the art—the intuition that lets you create stunning poses without consciously thinking about the rules.</p>
+                    <p><strong>Keep practicing, keep observing real life, and keep creating!</strong> Every pose you make builds your skills. Before long, natural posing will become second nature.</p>
+                    <p style="margin-bottom: 0;"><strong>You're on your way to creating characters that truly come alive! 🎭✨</strong></p>
+                </div>
+            </section>
+
+            <!-- Lesson Navigation -->
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_05_figure_hierarchy.html" class="prev-lesson">← Previous: Understanding the Figure Hierarchy</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_07_hand_posing.html" class="next-lesson">Next: Advanced Hand Posing →</a>
+            </nav>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; margin-top: 4rem; border-top: 1px solid var(--border-color);">
+        <p>&copy; 2024 Poser 12 Mastery Course. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9em; opacity: 0.8;">Made with ❤️ for aspiring 3D artists</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master camera controls in Poser 12. Learn to frame your characters perfectly and create stunning compositions from any angle.">
+    <meta name="author" content="Poser 12 Course">
+    <title>Cameras and Views - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Progress indicator -->
+    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
+        <div class="progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Poser 12 Mastery</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">
+                ☰
+            </button>
+            <div class="nav-links" id="nav-links" aria-hidden="false">
+                <a href="index.html">Home</a>
+                <a href="index.html#modules">All Modules</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#module1">Module 1: Getting Started</a></li>
+            <li aria-current="page">Cameras and Views</li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <div class="container">
+            <!-- Lesson Header -->
+            <header>
+                <h1>📷 Cameras and Views</h1>
+                <p class="lead">You've created your first pose—now let's learn to photograph it like a pro! Just as a great photographer can make any subject look amazing through clever angles and framing, mastering Poser's cameras will transform your scenes from good to stunning. Think of this lesson as your crash course in virtual cinematography!</p>
+                
+                <!-- Learning objectives -->
+                <div class="card">
+                    <h2>🎯 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will:</p>
+                    <ul>
+                        <li>Understand the different camera types in Poser</li>
+                        <li>Navigate 3D space confidently with camera controls</li>
+                        <li>Frame your subjects using composition principles</li>
+                        <li>Create and save custom camera positions</li>
+                        <li>Use specialized cameras for close-up work</li>
+                        <li>Apply professional camera techniques to your scenes</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated time:</strong> 35-45 minutes</p>
+                    <p><strong>🎯 Project:</strong> Create three different camera angles of your posed figure</p>
+                </div>
+            </header>
+
+            <!-- Table of Contents -->
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">📑 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#camera-types" class="toc-link">Understanding Camera Types</a></li>
+                        <li><a href="#main-camera" class="toc-link">The Main Camera - Your Primary View</a></li>
+                        <li><a href="#camera-navigation" class="toc-link">Mastering Camera Navigation</a></li>
+                        <li><a href="#composition-basics" class="toc-link">Composition Basics for 3D</a></li>
+                        <li><a href="#specialized-cameras" class="toc-link">Specialized Cameras</a></li>
+                        <li><a href="#creating-cameras" class="toc-link">Creating Custom Cameras</a></li>
+                        <li><a href="#camera-properties" class="toc-link">Camera Properties and Settings</a></li>
+                        <li><a href="#practical-techniques" class="toc-link">Practical Camera Techniques</a></li>
+                        <li><a href="#project" class="toc-link">Project: Three Camera Angles</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Section 1: Camera Types -->
+            <section id="camera-types" class="lesson-section">
+                <h2>Understanding Camera Types</h2>
+                
+                <p>In Poser, cameras are your windows into the 3D world. Unlike real-world photography where you have one camera, Poser gives you multiple cameras, each serving a different purpose. Think of it like having a whole film crew with cameras positioned at different locations around your set!</p>
+
+                <h3>The Camera Selector</h3>
+                <p>At the top of your Document Window, you'll see a dropdown menu. This is your <strong>Camera Selector</strong>—it shows which camera you're currently looking through and lets you switch between cameras instantly.</p>
+
+                <div class="card">
+                    <h4>📹 Available Camera Types</h4>
+                    <p>Poser comes with several built-in cameras:</p>
+                    <ul>
+                        <li><strong>Main Camera:</strong> Your primary rendering camera—this is what you'll use for final images</li>
+                        <li><strong>Posing Camera:</strong> Optimized angle for posing characters comfortably</li>
+                        <li><strong>Face Camera:</strong> Close-up view focused on the figure's face</li>
+                        <li><strong>Left Hand Camera:</strong> Close-up of the left hand</li>
+                        <li><strong>Right Hand Camera:</strong> Close-up of the right hand</li>
+                        <li><strong>Auxiliary Camera:</strong> An extra camera you can position anywhere</li>
+                        <li><strong>Dolly Camera:</strong> Specialized for smooth forward/backward movement</li>
+                    </ul>
+                </div>
+
+                <h3>Orthographic vs. Perspective Cameras</h3>
+                <p>Poser also includes orthographic cameras—these show flat, technical views:</p>
+                <ul>
+                    <li><strong>Top Camera:</strong> Looking straight down</li>
+                    <li><strong>Bottom Camera:</strong> Looking straight up</li>
+                    <li><strong>Front Camera:</strong> Facing the front</li>
+                    <li><strong>Back Camera:</strong> Facing the back</li>
+                    <li><strong>Left Camera:</strong> Side view from the left</li>
+                    <li><strong>Right Camera:</strong> Side view from the right</li>
+                </ul>
+
+                <div class="mermaid">
+                    graph TB
+                    A[Poser Cameras] --> B[Perspective Cameras]
+                    A --> C[Orthographic Cameras]
+                    B --> D[Main Camera<br/>Your primary view]
+                    B --> E[Posing Camera<br/>For character work]
+                    B --> F[Face Camera<br/>Portrait close-ups]
+                    B --> G[Hand Cameras<br/>Detail work]
+                    B --> H[Auxiliary Camera<br/>Custom position]
+                    C --> I[Top/Bottom<br/>Plan views]
+                    C --> J[Front/Back<br/>Elevation views]
+                    C --> K[Left/Right<br/>Side views]
+                    
+                    style D fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style E fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <blockquote>
+                    <strong>🎬 Film Set Analogy:</strong> Imagine you're directing a movie. The Main Camera is your primary filming camera that captures the final shot. The Posing Camera is like the director's monitor—positioned for the best working view. The Face and Hand cameras are like having specialized macro cameras for close-up detail shots. You're the director, and you can cut between any camera instantly!
+                </blockquote>
+
+                <h3>Switching Between Cameras</h3>
+                <p>To switch cameras:</p>
+                <ol>
+                    <li>Click the <strong>Camera Selector dropdown</strong> at the top of the Document Window</li>
+                    <li>Choose the camera you want from the list</li>
+                    <li>Your view instantly switches to that camera's perspective</li>
+                </ol>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Important: Camera Independence</h4>
+                    <p>Each camera remembers its own position and settings. When you move one camera, the others stay where they are. This means you can set up multiple "shots" of your scene and switch between them instantly—perfect for comparing angles or setting up a sequence!</p>
+                </div>
+            </section>
+
+            <!-- Section 2: Main Camera -->
+            <section id="main-camera" class="lesson-section">
+                <h2>The Main Camera - Your Primary View</h2>
+                
+                <p>The Main Camera is your workhorse—it's the camera you'll use for your final renders and the one you'll spend most of your time perfecting. Let's master it!</p>
+
+                <h3>Why the Main Camera Matters</h3>
+                <p>When you render your scene (create a final image), Poser uses the <strong>current camera's view</strong>. For most work, that's the Main Camera. Think of it as your "hero shot"—the camera that captures what your audience will see.</p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>🎯 Main Camera Best Practices</h4>
+                    <ul>
+                        <li><strong>Use for final framing:</strong> Once your pose is set, switch to Main Camera for composition</li>
+                        <li><strong>Save the position:</strong> When you find a great angle, save it (we'll learn how later)</li>
+                        <li><strong>Check before rendering:</strong> Always verify you're viewing through Main Camera before hitting render</li>
+                        <li><strong>Test different angles:</strong> Don't settle for the first view—explore!</li>
+                    </ul>
+                </div>
+
+                <h3>Main Camera vs. Posing Camera</h3>
+                <p>Here's when to use each:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Camera</th>
+                            <th>Best For</th>
+                            <th>When to Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Posing Camera</strong></td>
+                            <td>Working on poses</td>
+                            <td>When adjusting body parts, checking proportions, general posing work</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Main Camera</strong></td>
+                            <td>Final composition</td>
+                            <td>When finalizing the shot, checking composition, preparing to render</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <blockquote>
+                    <strong>💡 Pro Workflow:</strong> Many professionals pose in the Posing Camera (which is optimized for visibility and access), then switch to Main Camera to frame and fine-tune the final shot. It's like blocking out a scene with a work camera, then bringing in the cinema camera for the actual take!
+                </blockquote>
+
+                <figure>
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; text-align: center; border-radius: 8px; margin: 20px 0; color: white;">
+                        <p style="font-size: 3em; margin: 0;">🎥</p>
+                        <p style="margin: 10px 0;"><em>Placeholder: Side-by-side comparison showing the same figure from Posing Camera (practical angle) vs Main Camera (artistic angle)</em></p>
+                    </div>
+                    <figcaption>The same scene viewed through Posing Camera (left) and Main Camera (right)</figcaption>
+                </figure>
+            </section>
+
+            <!-- Section 3: Camera Navigation -->
+            <section id="camera-navigation" class="lesson-section">
+                <h2>Mastering Camera Navigation</h2>
+                
+                <p>You've dabbled with camera controls, but now let's become true masters. Smooth, confident camera navigation is one of those skills that separates beginners from pros—and it's easier to learn than you might think!</p>
+
+                <h3>The Four Essential Camera Moves</h3>
+                <p>There are four fundamental ways to move your camera. Let's break each one down:</p>
+
+                <h4>🔄 Orbit (Rotate Around Subject)</h4>
+                <p>This is your most-used camera move. Orbiting rotates the camera around your subject while keeping the camera pointed at it—like walking in a circle around a statue.</p>
+                <ul>
+                    <li><strong>Mouse control:</strong> Left-click and drag in empty space</li>
+                    <li><strong>What it does:</strong> Circles around your figure</li>
+                    <li><strong>When to use:</strong> Finding the best angle, checking poses from all sides</li>
+                    <li><strong>Pro tip:</strong> Think "I'm walking around my subject"</li>
+                </ul>
+
+                <h4>↔️ Pan (Slide the View)</h4>
+                <p>Panning slides the camera left, right, up, or down without rotating it—like sliding a camera on rails.</p>
+                <ul>
+                    <li><strong>Mouse control:</strong> Alt + Left-click and drag</li>
+                    <li><strong>What it does:</strong> Shifts the view sideways or vertically</li>
+                    <li><strong>When to use:</strong> Adjusting composition, centering your subject</li>
+                    <li><strong>Pro tip:</strong> Think "I'm on a dolly track sliding left/right"</li>
+                </ul>
+
+                <h4>🔍 Dolly (Move Closer/Further)</h4>
+                <p>Dollying physically moves the camera toward or away from your subject.</p>
+                <ul>
+                    <li><strong>Mouse control:</strong> Scroll wheel, or Alt + Right-click and drag</li>
+                    <li><strong>What it does:</strong> Moves forward and backward</li>
+                    <li><strong>When to use:</strong> Getting closer for details, pulling back for full body shots</li>
+                    <li><strong>Pro tip:</strong> Think "I'm walking toward or away from my subject"</li>
+                </ul>
+
+                <h4>🎯 Point At (Aim the Camera)</h4>
+                <p>This changes what the camera is pointing at without moving the camera's position.</p>
+                <ul>
+                    <li><strong>How to do it:</strong> Usually through camera parameters or special controls</li>
+                    <li><strong>What it does:</strong> Rotates the camera to look at a different spot</li>
+                    <li><strong>When to use:</strong> Adjusting exactly what's in frame</li>
+                </ul>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Camera Controls] --> B[Orbit<br/>Circle around subject]
+                    A --> C[Pan<br/>Slide left/right/up/down]
+                    A --> D[Dolly<br/>Move closer/further]
+                    A --> E[Point<br/>Aim camera]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Quick Reference: Mouse + Keyboard Combos</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>Control</th>
+                            <th>Visual Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Orbit</strong></td>
+                            <td>Left-click + drag</td>
+                            <td>You circle around the subject</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pan</strong></td>
+                            <td>Alt + Left-click + drag</td>
+                            <td>View slides horizontally/vertically</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dolly/Zoom</strong></td>
+                            <td>Scroll wheel</td>
+                            <td>Move closer to or further from subject</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dolly/Zoom</strong></td>
+                            <td>Alt + Right-click + drag</td>
+                            <td>Alternative dolly control</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Frame Selected</strong></td>
+                            <td>Shift + F</td>
+                            <td>Focuses on selected item</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Frame All</strong></td>
+                            <td>Shift + A</td>
+                            <td>Shows entire scene</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Practice Exercise: The Camera Dance</h3>
+                <blockquote>
+                    <strong>🎯 Try This Right Now:</strong>
+                    <p>Load a figure (or use the one from your last lesson) and practice this camera "dance":</p>
+                    <ol>
+                        <li><strong>Orbit 360°:</strong> Click and drag left until you're back where you started</li>
+                        <li><strong>Orbit up and down:</strong> Drag up to view from above, down to view from below</li>
+                        <li><strong>Pan left, then right:</strong> Alt+drag to slide the view</li>
+                        <li><strong>Dolly in close:</strong> Scroll in until you see just the head and shoulders</li>
+                        <li><strong>Dolly out:</strong> Scroll out until you can see the full figure</li>
+                        <li><strong>Frame it:</strong> Press Shift+F to center everything</li>
+                    </ol>
+                    <p>Repeat this sequence 3-4 times. By the end, your hands will remember these moves!</p>
+                </blockquote>
+
+                <div class="card" style="background-color: #f0f0f0; border-left: 4px solid #667eea;">
+                    <h4>💡 Camera Navigation Troubleshooting</h4>
+                    <p><strong>Lost your figure?</strong></p>
+                    <ul>
+                        <li>Press <kbd>Shift + A</kbd> to frame everything</li>
+                        <li>Or switch to a different camera and back</li>
+                    </ul>
+                    <p><strong>Camera moving too fast or slow?</strong></p>
+                    <ul>
+                        <li>Move your mouse slower for finer control</li>
+                        <li>Some camera properties can adjust sensitivity</li>
+                    </ul>
+                    <p><strong>Can't orbit (camera just moves)?</strong></p>
+                    <ul>
+                        <li>Make sure you're clicking in empty space, not on the figure</li>
+                        <li>Check you're not in a special edit mode</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 4: Composition Basics -->
+            <section id="composition-basics" class="lesson-section">
+                <h2>Composition Basics for 3D</h2>
+                
+                <p>Now that you can move the camera anywhere, let's talk about <em>where</em> to put it. Composition is the art of arranging elements in your frame—and it's what makes the difference between a snapshot and a photograph!</p>
+
+                <h3>The Rule of Thirds</h3>
+                <p>Imagine your frame divided into a 3×3 grid (like a tic-tac-toe board). The Rule of Thirds says: place important elements along these lines or at their intersections, not dead center.</p>
+
+                <div class="card">
+                    <h4>Why It Works</h4>
+                    <p>Centering your subject can feel static and boring. Positioning it off-center creates:</p>
+                    <ul>
+                        <li><strong>Visual interest:</strong> Your eye has to do a little work</li>
+                        <li><strong>Dynamic energy:</strong> Suggests movement or direction</li>
+                        <li><strong>Breathing room:</strong> Space for the subject to "look into"</li>
+                        <li><strong>Professional polish:</strong> Mimics what we see in films and photography</li>
+                    </ul>
+                </div>
+
+                <figure>
+                    <div style="background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%); padding: 40px; text-align: center; border-radius: 8px; margin: 20px 0;">
+                        <p style="font-size: 3em; margin: 0;">📐</p>
+                        <p style="margin: 10px 0; color: #333;"><em>Placeholder: Same figure shown with centered composition (boring) vs. rule of thirds composition (dynamic)</em></p>
+                    </div>
+                    <figcaption>Centered vs. Rule of Thirds composition</figcaption>
+                </figure>
+
+                <h3>Camera Height and Angle</h3>
+                <p>Where you place your camera vertically dramatically changes the feeling of your shot:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Camera Position</th>
+                            <th>Emotional Effect</th>
+                            <th>Best For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Eye Level</strong></td>
+                            <td>Neutral, relatable</td>
+                            <td>Natural portraits, conversation scenes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Low Angle</strong> (looking up)</td>
+                            <td>Powerful, heroic, imposing</td>
+                            <td>Heroes, authority figures, dramatic shots</td>
+                        </tr>
+                        <tr>
+                            <td><strong>High Angle</strong> (looking down)</td>
+                            <td>Vulnerable, small, cute</td>
+                            <td>Children, weakness, overview shots</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dutch Angle</strong> (tilted)</td>
+                            <td>Tension, unease, dynamic</td>
+                            <td>Action scenes, psychological drama</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <blockquote>
+                    <strong>🎬 Director's Secret:</strong> In superhero movies, heroes are often shot from low angles (making them look powerful) while villains might be shot from high angles when defeated (making them look weak). You can use these same psychological tricks in your 3D scenes!
+                </blockquote>
+
+                <h3>The 45-Degree Sweet Spot</h3>
+                <p>One of the most universally flattering camera angles is the <strong>3/4 view at eye level or slightly above</strong>:</p>
+                <ul>
+                    <li>Orbit about 45 degrees off center (not straight front or side)</li>
+                    <li>Position slightly above eye level (looking down 10-15 degrees)</li>
+                    <li>This is flattering for almost every pose and figure type</li>
+                </ul>
+
+                <h3>Leading Lines and Depth</h3>
+                <p>Use elements in your scene to guide the viewer's eye:</p>
+                <ul>
+                    <li><strong>Leading lines:</strong> Arms, props, or environmental elements that point toward your subject</li>
+                    <li><strong>Depth layers:</strong> Foreground, subject (middle ground), and background</li>
+                    <li><strong>Frame within a frame:</strong> Using elements to frame your subject</li>
+                </ul>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Quick Composition Checklist</h4>
+                    <p>When framing your shot, ask yourself:</p>
+                    <ul>
+                        <li>□ Is my subject off-center (Rule of Thirds)?</li>
+                        <li>□ Does the camera height match the mood I want?</li>
+                        <li>□ Is there "breathing room" or leading space?</li>
+                        <li>□ Can I see the important details clearly?</li>
+                        <li>□ Does the angle flatter my pose?</li>
+                        <li>□ Is there unwanted empty space (dead space)?</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 5: Specialized Cameras -->
+            <section id="specialized-cameras" class="lesson-section">
+                <h2>Specialized Cameras</h2>
+                
+                <p>While the Main Camera is your workhorse, Poser's specialized cameras are incredibly useful for specific tasks. Let's explore when and how to use each one!</p>
+
+                <h3>Face Camera</h3>
+                <p>The Face Camera automatically positions itself for a close-up of your figure's face—perfect for portrait work and facial expression adjustments.</p>
+
+                <div class="card">
+                    <h4>Best Uses for Face Camera</h4>
+                    <ul>
+                        <li><strong>Adjusting facial expressions:</strong> See subtle morph changes clearly</li>
+                        <li><strong>Eye positioning:</strong> Fine-tune where the figure is looking</li>
+                        <li><strong>Portrait renders:</strong> Create headshot-style images</li>
+                        <li><strong>Checking facial details:</strong> Verify makeup, skin textures, features</li>
+                    </ul>
+                </div>
+
+                <h3>Hand Cameras (Left and Right)</h3>
+                <p>Each Hand Camera focuses on one hand—invaluable when you need to fine-tune hand poses and finger positions.</p>
+
+                <div class="card">
+                    <h4>Best Uses for Hand Cameras</h4>
+                    <ul>
+                        <li><strong>Posing individual fingers:</strong> See exactly what you're adjusting</li>
+                        <li><strong>Hand gestures:</strong> Perfect natural hand poses</li>
+                        <li><strong>Holding props:</strong> Position objects in hands precisely</li>
+                        <li><strong>Detail work:</strong> Check how hands look up close</li>
+                    </ul>
+                </div>
+
+                <h3>Auxiliary Camera</h3>
+                <p>The Auxiliary Camera is a blank slate—you can position it anywhere you want and it stays there. Think of it as your "custom shot" camera.</p>
+
+                <div class="card">
+                    <h4>Best Uses for Auxiliary Camera</h4>
+                    <ul>
+                        <li><strong>Save a special angle:</strong> Set up a great view and preserve it</li>
+                        <li><strong>Reference view:</strong> Keep a specific angle you want to return to</li>
+                        <li><strong>Alternate compositions:</strong> Compare two different framings</li>
+                        <li><strong>Custom work:</strong> Any unique perspective you need</li>
+                    </ul>
+                </div>
+
+                <h3>Orthographic Cameras (Top, Front, Side, etc.)</h3>
+                <p>These are technical views with no perspective distortion—what architects and engineers use. In Poser, they're useful for specific purposes:</p>
+
+                <div class="card">
+                    <h4>When to Use Orthographic Views</h4>
+                    <ul>
+                        <li><strong>Checking alignment:</strong> Verify figures are standing straight</li>
+                        <li><strong>Symmetry work:</strong> Compare left and right sides</li>
+                        <li><strong>Technical accuracy:</strong> Ensure proportions are correct</li>
+                        <li><strong>Prop placement:</strong> Position objects precisely in 3D space</li>
+                    </ul>
+                    <p><strong>Note:</strong> Don't render from these cameras—they look flat and unnatural. They're working views only!</p>
+                </div>
+
+                <blockquote>
+                    <strong>💡 Pro Workflow Tip:</strong> Many professionals use this camera combination:
+                    <ul>
+                        <li><strong>Posing Camera:</strong> For general pose adjustments</li>
+                        <li><strong>Face Camera:</strong> To perfect facial expressions</li>
+                        <li><strong>Hand Cameras:</strong> To nail hand gestures</li>
+                        <li><strong>Main Camera:</strong> For final composition and rendering</li>
+                    </ul>
+                    <p>It's like having a whole camera crew working together!</p>
+                </blockquote>
+
+                <h3>Quick Switching Between Cameras</h3>
+                <p>Get fast at switching cameras and you'll dramatically speed up your workflow:</p>
+                <ol>
+                    <li>Work on pose in <strong>Posing Camera</strong></li>
+                    <li>Quick check in <strong>Face Camera</strong>—does the expression work?</li>
+                    <li>Quick check in <strong>Hand Cameras</strong>—are the hands natural?</li>
+                    <li>Switch to <strong>Main Camera</strong> and frame your shot</li>
+                    <li>Done!</li>
+                </ol>
+            </section>
+
+            <!-- Section 6: Creating Custom Cameras -->
+            <section id="creating-cameras" class="lesson-section">
+                <h2>Creating Custom Cameras</h2>
+                
+                <p>Sometimes the built-in cameras aren't quite what you need. Good news: you can create as many custom cameras as you want! This is incredibly powerful for setting up multiple shots of the same scene.</p>
+
+                <h3>Why Create Custom Cameras?</h3>
+                <p>Custom cameras let you:</p>
+                <ul>
+                    <li>Save multiple angles of the same scene</li>
+                    <li>Create a "shot list" for animation or photo series</li>
+                    <li>Compare different compositions side-by-side</li>
+                    <li>Set up complex multi-camera scenes</li>
+                </ul>
+
+                <h3>Creating a New Camera</h3>
+                <p>To create a custom camera:</p>
+                <ol>
+                    <li>Go to <strong>Object &gt; Create Camera</strong></li>
+                    <li>A new camera appears in your scene</li>
+                    <li>It's automatically selected and active</li>
+                    <li>Position it using normal camera controls</li>
+                    <li>Give it a descriptive name (optional but recommended)</li>
+                </ol>
+
+                <h3>Naming Your Cameras</h3>
+                <p>To rename a camera for easy identification:</p>
+                <ol>
+                    <li>Select the camera (it should be active)</li>
+                    <li>Look for the camera properties or name field</li>
+                    <li>Give it a meaningful name like "Hero Shot" or "Close Up Portrait"</li>
+                </ol>
+
+                <div class="card" style="background-color: #f0f0f0; border-left: 4px solid #667eea;">
+                    <h4>💡 Camera Naming Ideas</h4>
+                    <p>Use descriptive names that tell you instantly what the camera shows:</p>
+                    <ul>
+                        <li><strong>By purpose:</strong> "Hero Shot", "Close Up", "Wide Angle", "Over Shoulder"</li>
+                        <li><strong>By composition:</strong> "Rule of Thirds Left", "Centered Full Body"</li>
+                        <li><strong>By emotion:</strong> "Dramatic Low", "Friendly Eye Level", "Mysterious High"</li>
+                        <li><strong>By sequence:</strong> "Shot 1", "Shot 2", "Shot 3"</li>
+                    </ul>
+                </div>
+
+                <h3>Saving Camera Positions</h3>
+                <p>You can save a camera's exact position to the Library for reuse in other scenes:</p>
+                <ol>
+                    <li>Position your camera exactly as you want it</li>
+                    <li>Go to <strong>File &gt; Export &gt; Camera</strong> (or Add to Library)</li>
+                    <li>Give it a name and save to your Camera library</li>
+                    <li>Load it anytime in any scene!</li>
+                </ol>
+
+                <blockquote>
+                    <strong>🎬 Professional Setup:</strong> Many pros create a library of their favorite camera angles—"My Standard Portrait", "My Action Angle", "My Full Body Shot"—and load them into every new project. This creates consistency across their work and speeds up their workflow dramatically!
+                </blockquote>
+            </section>
+
+            <!-- Section 7: Camera Properties -->
+            <section id="camera-properties" class="lesson-section">
+                <h2>Camera Properties and Settings</h2>
+                
+                <p>Just like real cameras, Poser cameras have adjustable properties that affect how they "see" the world. Let's explore the most important settings!</p>
+
+                <h3>Accessing Camera Properties</h3>
+                <p>To see camera properties:</p>
+                <ol>
+                    <li>Make sure a camera is selected (click the Camera Selector)</li>
+                    <li>Look at the Properties Panel</li>
+                    <li>You'll see various camera parameters</li>
+                </ol>
+
+                <h3>Important Camera Parameters</h3>
+
+                <h4>Focal Length (Field of View)</h4>
+                <p>This controls how "wide" or "zoomed" the camera view is:</p>
+                <ul>
+                    <li><strong>Lower values (20-35mm):</strong> Wide angle—more of the scene in view, slight distortion</li>
+                    <li><strong>Medium values (50-85mm):</strong> Normal—closest to human eye perspective</li>
+                    <li><strong>Higher values (100-200mm):</strong> Telephoto—zoomed in, compressed perspective</li>
+                </ul>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Focal Length</th>
+                            <th>Effect</th>
+                            <th>Best For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>28-35mm</td>
+                            <td>Wide angle, dramatic</td>
+                            <td>Environmental shots, dynamic action</td>
+                        </tr>
+                        <tr>
+                            <td>50mm</td>
+                            <td>Natural, neutral</td>
+                            <td>General purpose, most situations</td>
+                        </tr>
+                        <tr>
+                            <td>85-105mm</td>
+                            <td>Portrait focal length</td>
+                            <td>Flattering portraits, character shots</td>
+                        </tr>
+                        <tr>
+                            <td>200mm+</td>
+                            <td>Compressed, telephoto</td>
+                            <td>Distant subjects, compressed backgrounds</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Depth of Field (DOF)</h4>
+                <p>In real photography, depth of field controls how much of the image is in focus. Poser can simulate this:</p>
+                <ul>
+                    <li><strong>Shallow DOF:</strong> Subject sharp, background blurry (professional portrait look)</li>
+                    <li><strong>Deep DOF:</strong> Everything in focus (landscape or architectural look)</li>
+                </ul>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ DOF Rendering Note</h4>
+                    <p>Depth of field only shows up in final renders, not in the working viewport. You'll need to render to see the effect. We'll cover this more in the rendering lessons!</p>
+                </div>
+
+                <h4>Camera Position and Rotation</h4>
+                <p>Like any object in Poser, cameras have position and rotation parameters:</p>
+                <ul>
+                    <li><strong>xTran, yTran, zTran:</strong> Camera position in 3D space</li>
+                    <li><strong>xRotate, yRotate, zRotate:</strong> Camera rotation/aim direction</li>
+                </ul>
+
+                <p>Most of the time, you'll move cameras using mouse controls rather than typing in these values, but they're there for precision work!</p>
+
+                <div class="card" style="background-color: #f0f0f0; border-left: 4px solid #667eea;">
+                    <h4>💡 When to Adjust Camera Parameters Manually</h4>
+                    <ul>
+                        <li><strong>Matching a specific focal length:</strong> Type in exact mm value (like 85mm)</li>
+                        <li><strong>Precise positioning:</strong> Need the camera at exact coordinates</li>
+                        <li><strong>Copying settings:</strong> Replicate parameters from one camera to another</li>
+                        <li><strong>Animation:</strong> Keyframe exact camera movements</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 8: Practical Techniques -->
+            <section id="practical-techniques" class="lesson-section">
+                <h2>Practical Camera Techniques</h2>
+                
+                <p>Now let's put it all together with some practical techniques you can use right away!</p>
+
+                <h3>The Three-Shot Method</h3>
+                <p>Professional photographers often capture three standard shots of every subject. You should too:</p>
+
+                <div class="card">
+                    <h4>📸 The Three Essential Shots</h4>
+                    <ol>
+                        <li><strong>Wide/Establishing Shot:</strong> Full figure, showing context and environment</li>
+                        <li><strong>Medium Shot:</strong> Waist-up or knee-up, the standard "portrait" view</li>
+                        <li><strong>Close-Up:</strong> Face and shoulders, focusing on expression and detail</li>
+                    </ol>
+                    <p>Create all three for every pose you make. You'll always have options!</p>
+                </div>
+
+                <h3>The Circle Technique</h3>
+                <p>When you're not sure what angle works best:</p>
+                <ol>
+                    <li>Position your figure in the center</li>
+                    <li>Frame it at eye level</li>
+                    <li>Orbit completely around the figure (360°)</li>
+                    <li>Stop at 4-5 different angles that look good</li>
+                    <li>Create a custom camera at each position</li>
+                    <li>Compare them and choose the best!</li>
+                </ol>
+
+                <h3>The Angle Stack</h3>
+                <p>From the same horizontal position, try three vertical angles:</p>
+                <ol>
+                    <li><strong>Eye level:</strong> Neutral and relatable</li>
+                    <li><strong>Above (high angle):</strong> Looking down 20-30 degrees</li>
+                    <li><strong>Below (low angle):</strong> Looking up 20-30 degrees</li>
+                </ol>
+                <p>One of these three will almost always be "the one"!</p>
+
+                <h3>The Frame-Reframe Method</h3>
+                <p>Start wide, then get closer:</p>
+                <ol>
+                    <li>Frame the entire figure (Shift+A)</li>
+                    <li>Orbit to find your best angle</li>
+                    <li>Dolly in to improve composition</li>
+                    <li>Pan slightly to apply Rule of Thirds</li>
+                    <li>Make final micro-adjustments</li>
+                </ol>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Camera Workflow] --> B[Start with Wide View]
+                    B --> C[Orbit to Find Best Angle]
+                    C --> D[Dolly In for Better Framing]
+                    D --> E[Pan for Rule of Thirds]
+                    E --> F[Final Adjustments]
+                    F --> G[Save Camera Position]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style G fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Common Camera Mistakes to Avoid</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mistake</th>
+                            <th>Why It's Bad</th>
+                            <th>Fix</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dead center framing</td>
+                            <td>Looks static and boring</td>
+                            <td>Use Rule of Thirds</td>
+                        </tr>
+                        <tr>
+                            <td>Too much headroom</td>
+                            <td>Wastes frame space</td>
+                            <td>Dolly in or pan up</td>
+                        </tr>
+                        <tr>
+                            <td>Cutting off feet randomly</td>
+                            <td>Looks like a mistake</td>
+                            <td>Show full body or crop at meaningful joints</td>
+                        </tr>
+                        <tr>
+                            <td>Extreme angles without reason</td>
+                            <td>Distracting, gimmicky</td>
+                            <td>Use dramatic angles only with purpose</td>
+                        </tr>
+                        <tr>
+                            <td>Not checking from multiple angles</td>
+                            <td>Might miss better compositions</td>
+                            <td>Always orbit and explore</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <blockquote>
+                    <strong>🎨 Artist's Insight:</strong> The difference between amateur and professional work often isn't the pose or the model—it's the camera angle. A mediocre pose from a great angle looks better than a great pose from a boring angle. Never underestimate the power of good framing!
+                </blockquote>
+            </section>
+
+            <!-- Section 9: Project -->
+            <section id="project" class="lesson-section">
+                <h2>Project: Three Camera Angles</h2>
+                
+                <p>Time to practice everything you've learned! This project will help you develop your eye for composition and become comfortable with camera controls.</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>🎯 Project Brief</h3>
+                    <p>Create three distinctly different camera angles of your posed figure (use the pose from the previous lesson or create a new one). Each angle should tell a different story or create a different mood.</p>
+                    <p><strong>Requirements:</strong></p>
+                    <ul style="color: white;">
+                        <li>Create three custom cameras</li>
+                        <li>Each must use different compositions (vary height, distance, and angle)</li>
+                        <li>Apply at least one principle (Rule of Thirds, leading lines, etc.)</li>
+                        <li>Name each camera descriptively</li>
+                        <li>Save your scene with all three cameras preserved</li>
+                    </ul>
+                </div>
+
+                <h3>Step-by-Step Project Guide</h3>
+
+                <h4>Setup (5 minutes)</h4>
+                <ol>
+                    <li>Open your posed figure from the previous lesson (or create a simple pose)</li>
+                    <li>Switch to Main Camera</li>
+                    <li>Press <kbd>Shift + A</kbd> to frame everything</li>
+                </ol>
+
+                <h4>Camera 1: The Hero Shot (10 minutes)</h4>
+                <ol>
+                    <li>Create your main, dramatic angle</li>
+                    <li>Try a 3/4 view from slightly below (heroic feel)</li>
+                    <li>Use Rule of Thirds—position figure off-center</li>
+                    <li>Frame from about knee-up</li>
+                    <li>Create a new camera: <strong>Object &gt; Create Camera</strong></li>
+                    <li>Name it "Hero Shot"</li>
+                </ol>
+
+                <h4>Camera 2: The Portrait (10 minutes)</h4>
+                <ol>
+                    <li>Switch to your new camera or create another</li>
+                    <li>Get in close—show shoulders and head only</li>
+                    <li>Position at eye level or slightly above</li>
+                    <li>Make sure the face fills most of the frame</li>
+                    <li>Name this camera "Close Portrait"</li>
+                </ol>
+
+                <h4>Camera 3: The Dynamic Angle (10 minutes)</h4>
+                <ol>
+                    <li>Create a third camera</li>
+                    <li>Go for something more dramatic or unusual</li>
+                    <li>Try a high angle looking down, or a low angle looking up</li>
+                    <li>Or try a Dutch angle (camera tilted)</li>
+                    <li>Show the full figure in an interesting composition</li>
+                    <li>Name this camera "Dynamic View"</li>
+                </ol>
+
+                <h4>Review and Refine (10 minutes)</h4>
+                <ol>
+                    <li>Switch between all three cameras</li>
+                    <li>Compare them—do they each tell a different story?</li>
+                    <li>Make small adjustments to improve each one</li>
+                    <li>Check your composition against the Rule of Thirds</li>
+                    <li>Save your scene!</li>
+                </ol>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Self-Evaluation Checklist</h4>
+                    <p>Review each camera angle:</p>
+                    <ul>
+                        <li>□ Is the figure clearly visible and well-framed?</li>
+                        <li>□ Does each angle feel different from the others?</li>
+                        <li>□ Did I use Rule of Thirds in at least one shot?</li>
+                        <li>□ Are my cameras named descriptively?</li>
+                        <li>□ Does at least one angle feel "professional"?</li>
+                        <li>□ Can I switch between all three cameras easily?</li>
+                        <li>□ Did I save my scene?</li>
+                    </ul>
+                </div>
+
+                <h3>Bonus Challenges</h3>
+                <p>If you finish early or want to push yourself:</p>
+                <ul>
+                    <li><strong>Create a fourth camera:</strong> An extreme close-up of just the face</li>
+                    <li><strong>Try different focal lengths:</strong> Adjust camera properties to see the effect</li>
+                    <li><strong>Create a sequence:</strong> Make 5 cameras that tell a visual story</li>
+                    <li><strong>Test orthographic views:</strong> See your pose from Top, Front, and Side cameras</li>
+                </ul>
+
+                <blockquote>
+                    <strong>🌟 Reflection Questions:</strong>
+                    <ul>
+                        <li>Which of your three angles is your favorite? Why?</li>
+                        <li>How does camera height change the feeling of the pose?</li>
+                        <li>What was challenging about composition?</li>
+                        <li>How does off-center framing compare to centered?</li>
+                    </ul>
+                </blockquote>
+            </section>
+
+            <!-- Summary Section -->
+            <section id="summary" class="lesson-section">
+                <h2>Wrapping Up</h2>
+                
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h3>🎉 You're Now a Camera Master!</h3>
+                    <p>Look at what you've accomplished:</p>
+                    <ul>
+                        <li>✅ Understand all camera types and their purposes</li>
+                        <li>✅ Navigate 3D space smoothly and confidently</li>
+                        <li>✅ Apply composition principles like Rule of Thirds</li>
+                        <li>✅ Create and save custom cameras</li>
+                        <li>✅ Use specialized cameras for detail work</li>
+                        <li>✅ Understand camera properties and settings</li>
+                        <li>✅ Apply professional camera techniques</li>
+                        <li>✅ Created three unique angles of your figure</li>
+                    </ul>
+                </div>
+
+                <h3>Key Concepts to Remember</h3>
+                <div class="card">
+                    <ul>
+                        <li><strong>Camera selection matters:</strong> Use Posing Camera for work, Main Camera for final shots</li>
+                        <li><strong>Four basic moves:</strong> Orbit, Pan, Dolly, and Point</li>
+                        <li><strong>Rule of Thirds:</strong> Off-center usually beats centered</li>
+                        <li><strong>Height = emotion:</strong> Low angle = power, high angle = vulnerability</li>
+                        <li><strong>The 3/4 view:</strong> Almost always flattering at 45 degrees</li>
+                        <li><strong>Save good angles:</strong> Create custom cameras for shots you like</li>
+                        <li><strong>Three standard shots:</strong> Wide, medium, close-up</li>
+                    </ul>
+                </div>
+
+                <h3>Camera Navigation Quick Reference</h3>
+                <div class="card" style="background-color: #f0f0f0;">
+                    <ul>
+                        <li><strong>Orbit:</strong> Left-click + drag</li>
+                        <li><strong>Pan:</strong> Alt + Left-click + drag</li>
+                        <li><strong>Dolly:</strong> Scroll wheel or Alt + Right-click + drag</li>
+                        <li><strong>Frame Selected:</strong> Shift + F</li>
+                        <li><strong>Frame All:</strong> Shift + A</li>
+                        <li><strong>Switch cameras:</strong> Camera Selector dropdown</li>
+                    </ul>
+                </div>
+
+                <h3>🚀 What's Next?</h3>
+                <p>Congratulations! You've completed Module 1: Getting Started! You now know how to navigate Poser, load and pose figures, and frame them beautifully with cameras.</p>
+                
+                <p>In Module 2, <strong>"Essential Posing Techniques"</strong>, we'll dive deep into creating natural, expressive poses. You'll learn the secrets to making hands look natural, creating believable facial expressions, and capturing dynamic action poses. Your characters are about to come alive!</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>✨ Milestone Achievement!</h3>
+                    <p>You've completed the first module of your Poser journey! You started knowing nothing about 3D character work, and now you can:</p>
+                    <ul style="color: white;">
+                        <li>Navigate the Poser interface like a pro</li>
+                        <li>Load and pose 3D figures</li>
+                        <li>Frame characters with professional camera techniques</li>
+                    </ul>
+                    <p>These are foundational skills that everything else builds on. Every amazing Poser artwork starts with exactly what you've learned in these four lessons.</p>
+                    <p style="margin-bottom: 0;"><strong>Take a moment to appreciate how far you've come. Then let's keep going—the best is yet to come!</strong> 🎬✨</p>
+                </div>
+            </section>
+
+            <!-- Lesson Navigation -->
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_03_first_figure.html" class="prev-lesson">← Previous: Your First Figure</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_05_figure_hierarchy.html" class="next-lesson">Next: Understanding the Figure Hierarchy →</a>
+            </nav>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; margin-top: 4rem; border-top: 1px solid var(--border-color);">
+        <p>&copy; 2024 Poser 12 Mastery Course. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9em; opacity: 0.8;">Made with ❤️ for aspiring 3D artists</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

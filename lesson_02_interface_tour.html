@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Take a complete tour of the Poser 12 interface. Learn where everything is and how to navigate like a pro.">
+    <meta name="author" content="Poser 12 Course">
+    <title>The Poser Interface Tour - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Progress indicator -->
+    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
+        <div class="progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Poser 12 Mastery</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">
+                ☰
+            </button>
+            <div class="nav-links" id="nav-links" aria-hidden="false">
+                <a href="index.html">Home</a>
+                <a href="index.html#modules">All Modules</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#module1">Module 1: Getting Started</a></li>
+            <li aria-current="page">The Poser Interface Tour</li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <div class="container">
+            <!-- Lesson Header -->
+            <header>
+                <h1>🖥️ The Poser Interface Tour</h1>
+                <p class="lead">Welcome to your first hands-on lesson! Think of this as moving into a new home—before you start decorating, you need to know where the kitchen is, how the lights work, and where everything belongs. By the end of this tour, you'll feel right at home in Poser 12!</p>
+                
+                <!-- Learning objectives -->
+                <div class="card">
+                    <h2>🎯 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will:</p>
+                    <ul>
+                        <li>Navigate the Poser 12 interface confidently</li>
+                        <li>Understand what each major interface area does</li>
+                        <li>Locate the most important tools and panels</li>
+                        <li>Customize your workspace for efficiency</li>
+                        <li>Use keyboard shortcuts to speed up your workflow</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated time:</strong> 30-40 minutes</p>
+                </div>
+            </header>
+
+            <!-- Table of Contents -->
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">📑 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#first-launch" class="toc-link">Opening Poser for the First Time</a></li>
+                        <li><a href="#workspace-overview" class="toc-link">Workspace Overview: The Big Picture</a></li>
+                        <li><a href="#document-window" class="toc-link">The Document Window: Your Canvas</a></li>
+                        <li><a href="#camera-controls" class="toc-link">Camera Controls: Navigating 3D Space</a></li>
+                        <li><a href="#library-palette" class="toc-link">The Library Palette: Your Content Hub</a></li>
+                        <li><a href="#properties-panel" class="toc-link">Properties Panel: The Control Center</a></li>
+                        <li><a href="#editing-tools" class="toc-link">Editing Tools and Timeline</a></li>
+                        <li><a href="#customizing" class="toc-link">Customizing Your Workspace</a></li>
+                        <li><a href="#keyboard-shortcuts" class="toc-link">Essential Keyboard Shortcuts</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Section 1: First Launch -->
+            <section id="first-launch" class="lesson-section">
+                <h2>Opening Poser for the First Time</h2>
+                
+                <p>Okay, deep breath! Let's launch Poser 12. You might see a splash screen with loading information, and then... the interface appears! Don't panic if it looks overwhelming—that's completely normal. Every professional Poser artist felt the same way their first time.</p>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h3>⚡ First Launch Tips</h3>
+                    <p>When Poser opens for the first time, you may see:</p>
+                    <ul>
+                        <li>A default figure (usually a mannequin) already loaded in the scene</li>
+                        <li>Several floating panels and windows</li>
+                        <li>A welcome dialog or tip of the day (you can close these)</li>
+                        <li>Poser organizing your content library (this might take a few moments)</li>
+                    </ul>
+                </div>
+
+                <h3>What If Nothing Appears?</h3>
+                <p>If Poser opens to a blank workspace with no figure, that's okay too! We'll load one in the next lesson. For now, we're just getting familiar with where everything is located.</p>
+
+                <blockquote>
+                    <strong>💡 Pro Tip:</strong> If Poser seems slow on first launch, it's probably indexing your content library. This is a one-time process. Grab a coffee and give it a minute to finish—future launches will be much faster!
+                </blockquote>
+            </section>
+
+            <!-- Section 2: Workspace Overview -->
+            <section id="workspace-overview" class="lesson-section">
+                <h2>Workspace Overview: The Big Picture</h2>
+                
+                <p>Let's start with the 30,000-foot view. The Poser interface is organized into several main areas, each with a specific purpose. Think of it like a professional photography studio—you have the shooting area, the equipment storage, the control desk, and the viewing monitor.</p>
+
+                <div class="mermaid">
+                    graph TB
+                    A[Poser 12 Interface] --> B[Menu Bar<br/>File, Edit, View, etc.]
+                    A --> C[Document Window<br/>Your 3D Viewport]
+                    A --> D[Camera Controls<br/>Navigation Tools]
+                    A --> E[Library Palette<br/>Content Browser]
+                    A --> F[Properties Panel<br/>Parameters & Settings]
+                    A --> G[Editing Tools<br/>Pose & Transform]
+                    A --> H[Timeline<br/>Animation Controls]
+                    
+                    style C fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style E fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style F fill:#FF6B6B,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>The Layout Philosophy</h3>
+                <p>Poser's interface follows a logical pattern:</p>
+                <ul>
+                    <li><strong>Center:</strong> The Document Window—where you see and work with your 3D scene</li>
+                    <li><strong>Sides:</strong> Panels with controls and settings</li>
+                    <li><strong>Top:</strong> Menus and main toolbar</li>
+                    <li><strong>Bottom:</strong> Timeline and animation controls</li>
+                </ul>
+
+                <div class="card">
+                    <h4>🎨 The Artist's Analogy</h4>
+                    <p>Imagine you're painting:</p>
+                    <ul>
+                        <li>The <strong>Document Window</strong> is your canvas</li>
+                        <li>The <strong>Library</strong> is your reference photos and supplies</li>
+                        <li>The <strong>Properties Panel</strong> is your mixing palette</li>
+                        <li>The <strong>Editing Tools</strong> are your brushes</li>
+                        <li>The <strong>Camera Controls</strong> let you step back and view from different angles</li>
+                    </ul>
+                </div>
+
+                <figure>
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; text-align: center; border-radius: 8px; margin: 20px 0; color: white;">
+                        <p style="font-size: 3em; margin: 0;">🖼️</p>
+                        <p style="margin: 10px 0;"><em>Placeholder: Annotated screenshot of Poser interface with numbered callouts</em></p>
+                        <p style="font-size: 0.9em; margin-top: 15px;">Key areas: 1-Menu Bar, 2-Document Window, 3-Library, 4-Properties, 5-Tools, 6-Timeline</p>
+                    </div>
+                    <figcaption>The Poser 12 interface with major areas highlighted</figcaption>
+                </figure>
+            </section>
+
+            <!-- Section 3: Document Window -->
+            <section id="document-window" class="lesson-section">
+                <h2>The Document Window: Your Canvas</h2>
+                
+                <p>The Document Window is the largest area in the center of your screen—this is where all the magic happens! It's your view into the 3D world, like looking through a camera viewfinder.</p>
+
+                <h3>Understanding the 3D Viewport</h3>
+                <p>Unlike a 2D image, the Document Window shows you a <strong>3D scene</strong> from a specific camera angle. You can think of it as looking through a virtual camera lens. The camera can move around your 3D objects to show them from any angle.</p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>Key Elements in the Document Window</h4>
+                    <ul>
+                        <li><strong>Grid floor:</strong> The checkerboard pattern helps you understand depth and space</li>
+                        <li><strong>Figures/Objects:</strong> Whatever characters or props are in your scene</li>
+                        <li><strong>Background:</strong> Can be solid color or an image</li>
+                        <li><strong>Guides and overlays:</strong> Optional helpers like ground shadows</li>
+                    </ul>
+                </div>
+
+                <h3>What You'll See</h3>
+                <p>When you first open Poser, you'll typically see:</p>
+                <ol>
+                    <li>A figure (often a default mannequin or "Andy" figure) standing in the center</li>
+                    <li>A grid floor beneath the figure's feet</li>
+                    <li>A light gray or gradient background</li>
+                    <li>Good lighting so you can see the figure clearly</li>
+                </ol>
+
+                <blockquote>
+                    <strong>🎬 Movie Director Analogy:</strong> The Document Window is like looking through your camera's monitor on a film set. You're seeing exactly what will be "photographed" when you render. Move the camera, change the lighting, adjust the actors (figures)—this is your director's view!
+                </blockquote>
+
+                <h3>Display Modes</h3>
+                <p>The Document Window can show your scene in different ways:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Display Mode</th>
+                            <th>What It Shows</th>
+                            <th>When to Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Texture Shaded</strong></td>
+                            <td>Full colors and textures</td>
+                            <td>Most of the time—shows what you're creating</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wireframe</strong></td>
+                            <td>Just the 3D mesh structure</td>
+                            <td>When you need to see the underlying geometry</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Smooth Shaded</strong></td>
+                            <td>Solid colors without textures</td>
+                            <td>For faster performance on complex scenes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Silhouette</strong></td>
+                            <td>Outline style, like a sketch</td>
+                            <td>For checking poses and proportions</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>You can change display modes from the <strong>Display</strong> menu at the top of the screen.</p>
+            </section>
+
+            <!-- Section 4: Camera Controls -->
+            <section id="camera-controls" class="lesson-section">
+                <h2>Camera Controls: Navigating 3D Space</h2>
+                
+                <p>Here's where things get fun! Learning to navigate in 3D space is like learning to fly—once you get the hang of it, you'll wonder how you ever worked without it.</p>
+
+                <h3>The Camera Selector</h3>
+                <p>At the top of the Document Window, you'll see a dropdown menu showing which camera you're looking through. By default, it usually says "Main Camera" or "Posing Camera."</p>
+
+                <div class="card">
+                    <h4>Common Camera Types</h4>
+                    <ul>
+                        <li><strong>Main Camera:</strong> Your primary view for composing scenes</li>
+                        <li><strong>Posing Camera:</strong> Optimized angle for adjusting poses</li>
+                        <li><strong>Face Camera:</strong> Close-up view of the figure's face</li>
+                        <li><strong>Hand Cameras:</strong> Close-up views of left and right hands</li>
+                        <li><strong>Auxiliary Camera:</strong> Extra cameras you can create and position</li>
+                        <li><strong>Orthogonal Cameras:</strong> Top, Bottom, Left, Right, Front, Back—flat 2D views</li>
+                    </ul>
+                </div>
+
+                <h3>The Trackball and Camera Controls</h3>
+                <p>Look for the camera control tools—they usually appear as icons or a circular "trackball" control. These let you move the camera around your scene:</p>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Camera Controls] --> B[Rotate/Orbit<br/>Spin around subject]
+                    A --> C[Pan<br/>Slide left/right/up/down]
+                    A --> D[Dolly/Zoom<br/>Move closer or further]
+                    A --> E[Track<br/>Follow subject]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Understanding Camera Movement</h3>
+                
+                <h4>🔄 Rotate (Orbit)</h4>
+                <p>Rotates the camera around your subject. Imagine you're circling around a sculpture in a museum—the sculpture stays in place while you move around it. This is your most-used camera move!</p>
+
+                <h4>↔️ Pan (Track)</h4>
+                <p>Slides the camera left, right, up, or down without changing the angle. Like sliding a camera on a dolly track in filmmaking.</p>
+
+                <h4>🔍 Dolly (Zoom)</h4>
+                <p>Moves the camera closer to or further from the subject. Like walking toward or away from something (though technically zoom changes focal length, dolly moves the camera position).</p>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Important: Lost Your View?</h4>
+                    <p>If you accidentally move the camera and lose sight of your figure, don't panic! Here's how to reset:</p>
+                    <ol>
+                        <li>Go to <strong>Display &gt; Camera View &gt; Reset</strong></li>
+                        <li>Or switch to a different camera (like Face Camera) then back</li>
+                        <li>Or press <strong>Shift+F</strong> to frame the selected figure</li>
+                    </ol>
+                </div>
+
+                <h3>Mouse Controls for Camera Navigation</h3>
+                <p>Most camera movement uses mouse + keyboard combinations:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>Control</th>
+                            <th>What It Does</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Rotate Camera</td>
+                            <td>Left-click + drag in empty space</td>
+                            <td>Orbits around the scene</td>
+                        </tr>
+                        <tr>
+                            <td>Pan Camera</td>
+                            <td>Alt + Left-click + drag</td>
+                            <td>Slides the view</td>
+                        </tr>
+                        <tr>
+                            <td>Zoom Camera</td>
+                            <td>Scroll wheel or Alt + Right-click + drag</td>
+                            <td>Moves closer/further</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <blockquote>
+                    <strong>💡 Practice Exercise:</strong> Try orbiting around the default figure by clicking and dragging in empty space near it. Go ahead—you can't break anything! Try viewing the figure from the front, back, side, and top. Get comfortable with camera movement; it's one of the most important skills!
+                </blockquote>
+            </section>
+
+            <!-- Section 5: Library Palette -->
+            <section id="library-palette" class="lesson-section">
+                <h2>The Library Palette: Your Content Hub</h2>
+                
+                <p>The Library is like your giant walk-in closet full of everything you could ever need—figures, clothing, props, poses, lights, cameras, and more! This is where you'll spend a lot of time browsing and selecting content.</p>
+
+                <h3>Finding the Library</h3>
+                <p>The Library palette is usually docked on the right side of the interface. If you don't see it, go to <strong>Window &gt; Libraries</strong> to open it.</p>
+
+                <h3>Library Categories</h3>
+                <p>The Library is organized into categories, each with folders of content:</p>
+
+                <div class="card">
+                    <h4>Main Library Categories</h4>
+                    <ul>
+                        <li><strong>👤 Figures:</strong> Characters and creatures you can pose</li>
+                        <li><strong>👕 Conforming:</strong> Clothing that fits and moves with figures</li>
+                        <li><strong>🎭 Face:</strong> Facial expressions and morphs</li>
+                        <li><strong>💇 Hair:</strong> Hairstyles and hair assets</li>
+                        <li><strong>🤚 Hands:</strong> Hand poses and gestures</li>
+                        <li><strong>🕺 Poses:</strong> Full-body poses you can apply</li>
+                        <li><strong>🪑 Props:</strong> Objects like furniture, weapons, accessories</li>
+                        <li><strong>💡 Lights:</strong> Pre-configured lighting setups</li>
+                        <li><strong>📷 Camera:</strong> Camera presets and angles</li>
+                        <li><strong>🎨 Materials:</strong> Textures and material presets</li>
+                    </ul>
+                </div>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Library Palette] --> B[Figures]
+                    A --> C[Props]
+                    A --> D[Poses]
+                    A --> E[Materials]
+                    B --> F[People]
+                    B --> G[Animals]
+                    C --> H[Furniture]
+                    C --> I[Vehicles]
+                    C --> J[Accessories]
+                    D --> K[Standing]
+                    D --> L[Sitting]
+                    D --> M[Action]
+                    
+                    style A fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Navigating the Library</h3>
+                <p>The Library works like a file browser:</p>
+                <ol>
+                    <li><strong>Click a category</strong> at the top (Figures, Poses, etc.)</li>
+                    <li><strong>Browse folders</strong> by clicking the folder names</li>
+                    <li><strong>See thumbnails</strong> of available items</li>
+                    <li><strong>Double-click a thumbnail</strong> to load it into your scene</li>
+                </ol>
+
+                <h3>Runtime Folders</h3>
+                <p>At the very top of the Library, you'll see a dropdown that says "Poser 12" or similar. This shows which content library (runtime) you're browsing. Poser can access multiple content libraries, which is useful if you buy additional content packs.</p>
+
+                <div class="card" style="background-color: #f0f0f0; border-left: 4px solid #667eea;">
+                    <h4>💡 Pro Tip: Favorites</h4>
+                    <p>You can add frequently-used items to your Favorites for quick access! Right-click any item in the Library and select "Add to Favorites." Your favorites appear in the Favorites category for easy retrieval.</p>
+                </div>
+
+                <blockquote>
+                    <strong>🎯 Try It Now:</strong> Open your Library palette, click on the Poses category, and browse through the folders. You'll see thumbnails showing different poses. Don't load anything yet—just get comfortable browsing. Notice how the library is organized logically by type of pose (standing, sitting, action, etc.).
+                </blockquote>
+            </section>
+
+            <!-- Section 6: Properties Panel -->
+            <section id="properties-panel" class="lesson-section">
+                <h2>Properties Panel: The Control Center</h2>
+                
+                <p>If the Library is your closet, the Properties Panel is your control panel—this is where you make precise adjustments to everything in your scene. Think of it as the mixing board in a recording studio where you fine-tune every detail.</p>
+
+                <h3>Finding the Properties Panel</h3>
+                <p>The Properties Panel (also called the Parameters Panel) is usually on the right side of the interface, often tabbed with or near the Library. If you don't see it, go to <strong>Window &gt; Parameter Dials</strong>.</p>
+
+                <h3>What Are Parameters?</h3>
+                <p>Parameters are <strong>adjustable values</strong> that control aspects of your scene—things like:</p>
+                <ul>
+                    <li>Body part rotation (bend an elbow 45 degrees)</li>
+                    <li>Figure proportions (make someone taller or wider)</li>
+                    <li>Light intensity (brightness of a light source)</li>
+                    <li>Camera zoom (how far zoomed in)</li>
+                    <li>Material properties (how shiny or rough a surface is)</li>
+                </ul>
+
+                <h3>The Parameter Dial Interface</h3>
+                <p>Each parameter has:</p>
+                <ul>
+                    <li><strong>A name</strong> describing what it controls</li>
+                    <li><strong>A dial</strong> you can click and drag to adjust</li>
+                    <li><strong>A numeric value</strong> showing the current setting</li>
+                    <li><strong>Min and max values</strong> showing the allowed range</li>
+                </ul>
+
+                <div class="card">
+                    <h4>Example: Rotating a Body Part</h4>
+                    <p>Let's say you select a figure's arm in your scene. The Properties Panel will show parameters like:</p>
+                    <ul>
+                        <li><strong>xRotate:</strong> -180 to 180 degrees (twist)</li>
+                        <li><strong>yRotate:</strong> -180 to 180 degrees (bend at shoulder)</li>
+                        <li><strong>zRotate:</strong> -180 to 180 degrees (swing forward/back)</li>
+                        <li><strong>xTran, yTran, zTran:</strong> Move the body part in space</li>
+                    </ul>
+                    <p>By adjusting the yRotate dial, you could raise the arm from the figure's side up to waving position!</p>
+                </div>
+
+                <h3>Parameter Groups</h3>
+                <p>Parameters are organized into collapsible groups to keep things tidy:</p>
+                <ul>
+                    <li><strong>Body:</strong> Overall figure settings</li>
+                    <li><strong>Morph:</strong> Shape adjustments (make taller, thinner, muscular, etc.)</li>
+                    <li><strong>Properties:</strong> General object properties</li>
+                    <li><strong>Currently Used:</strong> Shows only parameters you've already adjusted</li>
+                </ul>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Context-Sensitive Panel</h4>
+                    <p>The Properties Panel shows parameters for whatever is currently selected in your scene. Select different objects (figure, prop, light, camera) and watch the panel change to show relevant controls!</p>
+                </div>
+
+                <h3>Adjusting Parameters</h3>
+                <p>You can change parameter values in several ways:</p>
+                <ol>
+                    <li><strong>Click and drag the dial</strong> left or right</li>
+                    <li><strong>Click in the number field</strong> and type a specific value</li>
+                    <li><strong>Use the slider</strong> if one is present</li>
+                    <li><strong>Use the arrow buttons</strong> to increment by small amounts</li>
+                </ol>
+
+                <blockquote>
+                    <strong>💪 Power User Tip:</strong> Hold Shift while dragging a dial to make finer adjustments. Hold Ctrl to make larger jumps. These modifier keys give you more precision control!</p>
+                </blockquote>
+            </section>
+
+            <!-- Section 7: Editing Tools -->
+            <section id="editing-tools" class="lesson-section">
+                <h2>Editing Tools and Timeline</h2>
+                
+                <p>Now let's look at the tools that let you directly manipulate objects in your scene, plus the timeline for animation work.</p>
+
+                <h3>The Editing Tools</h3>
+                <p>Usually found on the left side or top of the interface, these tools let you select and manipulate objects:</p>
+
+                <div class="card">
+                    <h4>Common Editing Tools</h4>
+                    <ul>
+                        <li><strong>🖱️ Selection Tool:</strong> Click to select objects</li>
+                        <li><strong>✋ Pose Tool:</strong> Click and drag body parts to pose them</li>
+                        <li><strong>↔️ Translate/Pull:</strong> Move objects in 3D space</li>
+                        <li><strong>🔄 Rotate Tool:</strong> Rotate selected objects</li>
+                        <li><strong>📏 Scale Tool:</strong> Make objects larger or smaller</li>
+                        <li><strong>🎭 Morph Tool:</strong> Adjust shape morphs with a brush</li>
+                        <li><strong>👆 Direct Manipulation:</strong> Click and drag directly on body parts</li>
+                    </ul>
+                </div>
+
+                <h3>The Figure Hierarchy</h3>
+                <p>Poser figures are built from connected body parts in a parent-child hierarchy. This hierarchy is often shown in a tree view where you can:</p>
+                <ul>
+                    <li>See all body parts listed</li>
+                    <li>Click to select specific body parts</li>
+                    <li>Expand/collapse groups (like expanding "Left Arm" to see hand, fingers, etc.)</li>
+                </ul>
+
+                <h3>The Timeline</h3>
+                <p>At the bottom of the interface, you'll find the Timeline—this is primarily used for animation. Even if you're not animating, it's good to know it's there!</p>
+
+                <div class="card">
+                    <h4>Timeline Elements</h4>
+                    <ul>
+                        <li><strong>Frame counter:</strong> Shows which frame you're on (1 = first frame)</li>
+                        <li><strong>Playback controls:</strong> Play, pause, step forward/back</li>
+                        <li><strong>Frame slider:</strong> Scrub through your animation</li>
+                        <li><strong>Frame range:</strong> Set how many frames in your animation</li>
+                    </ul>
+                </div>
+
+                <p>For still images (non-animated work), you'll typically stay on Frame 1 and ignore the timeline. But it's always there if you decide to create animations later!</p>
+
+                <blockquote>
+                    <strong>📸 Still Image Focus:</strong> If you're only creating still images (not animations), you can minimize or hide the Timeline to give yourself more screen space. Go to <strong>Window &gt; Timeline</strong> to toggle it on or off.
+                </blockquote>
+            </section>
+
+            <!-- Section 8: Customizing Workspace -->
+            <section id="customizing" class="lesson-section">
+                <h2>Customizing Your Workspace</h2>
+                
+                <p>Here's some great news: Poser's interface is highly customizable! You can arrange panels to suit your workflow, save custom layouts, and adjust everything to feel just right for you.</p>
+
+                <h3>Moving and Resizing Panels</h3>
+                <p>Most panels in Poser can be:</p>
+                <ul>
+                    <li><strong>Moved:</strong> Click the title bar and drag to reposition</li>
+                    <li><strong>Resized:</strong> Drag the edges or corners</li>
+                    <li><strong>Docked:</strong> Drag to the edges of the screen to dock</li>
+                    <li><strong>Undocked:</strong> Drag away from edges to make floating windows</li>
+                    <li><strong>Tabbed:</strong> Drag one panel onto another to create tabs</li>
+                    <li><strong>Hidden:</strong> Use the Window menu to show/hide specific panels</li>
+                </ul>
+
+                <h3>The Window Menu: Your Panel Control</h3>
+                <p>The <strong>Window</strong> menu at the top shows all available panels and palettes. Check marks indicate which are currently visible. Use this menu to show or hide:</p>
+                <ul>
+                    <li>Libraries</li>
+                    <li>Parameter Dials</li>
+                    <li>Timeline</li>
+                    <li>Figure Hierarchy</li>
+                    <li>And many more specialized panels</li>
+                </ul>
+
+                <h3>Workspace Presets</h3>
+                <p>Poser comes with preset workspace layouts optimized for different tasks. Look for these in the <strong>Window &gt; Workspace</strong> menu or the workspace selector:</p>
+
+                <div class="card">
+                    <h4>Common Workspace Presets</h4>
+                    <ul>
+                        <li><strong>Simple:</strong> Minimal interface for beginners</li>
+                        <li><strong>Advanced:</strong> Full interface with all panels</li>
+                        <li><strong>Animation:</strong> Emphasizes timeline and playback controls</li>
+                        <li><strong>Materials:</strong> Focuses on material editing tools</li>
+                        <li><strong>Your Custom Layouts:</strong> Save your own arrangements!</li>
+                    </ul>
+                </div>
+
+                <h3>Saving Your Custom Workspace</h3>
+                <p>Once you've arranged panels the way you like:</p>
+                <ol>
+                    <li>Go to <strong>Window &gt; Workspace</strong></li>
+                    <li>Select <strong>Save Workspace</strong></li>
+                    <li>Give it a name (like "My Perfect Setup")</li>
+                    <li>Click OK</li>
+                </ol>
+                <p>Your custom workspace will now appear in the Workspace menu for instant recall!</p>
+
+                <div class="card" style="background-color: #f0f0f0; border-left: 4px solid #667eea;">
+                    <h4>💡 Pro Tip: Multiple Monitors</h4>
+                    <p>If you have two monitors, you can undock panels and move them to your second screen! Many professionals keep the Document Window on their main monitor and all panels on a second monitor for maximum working space.</p>
+                </div>
+
+                <h3>Recommended Beginner Layout</h3>
+                <p>While you're learning, we recommend this simple layout:</p>
+                <ul>
+                    <li><strong>Center:</strong> Document Window (as large as possible)</li>
+                    <li><strong>Right side:</strong> Library and Properties Panel (tabbed together)</li>
+                    <li><strong>Left side:</strong> Figure Hierarchy (if needed)</li>
+                    <li><strong>Bottom:</strong> Timeline (minimized or hidden if not animating)</li>
+                </ul>
+
+                <p>This gives you maximum space for your 3D view while keeping your most-used controls easily accessible.</p>
+            </section>
+
+            <!-- Section 9: Keyboard Shortcuts -->
+            <section id="keyboard-shortcuts" class="lesson-section">
+                <h2>Essential Keyboard Shortcuts</h2>
+                
+                <p>Learning keyboard shortcuts will dramatically speed up your workflow! Don't try to memorize them all at once—just bookmark this section and refer back as you work. You'll naturally remember the ones you use frequently.</p>
+
+                <h3>Camera and Navigation Shortcuts</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Shortcut</th>
+                            <th>Action</th>
+                            <th>Why It's Useful</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Shift + F</strong></td>
+                            <td>Frame selected object</td>
+                            <td>Instantly centers and zooms to what you're working on</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Shift + A</strong></td>
+                            <td>Frame all</td>
+                            <td>Fits entire scene in view</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ctrl + D</strong></td>
+                            <td>Show/hide ground</td>
+                            <td>Toggle the grid floor on/off</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ctrl + W</strong></td>
+                            <td>Wireframe preview</td>
+                            <td>Quick toggle between textured and wireframe view</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>General Workflow Shortcuts</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Shortcut</th>
+                            <th>Action</th>
+                            <th>Why It's Useful</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Ctrl + S</strong></td>
+                            <td>Save scene</td>
+                            <td>Save early, save often!</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ctrl + O</strong></td>
+                            <td>Open scene</td>
+                            <td>Load a saved Poser file</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ctrl + Z</strong></td>
+                            <td>Undo</td>
+                            <td>Fix mistakes instantly</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ctrl + Y</strong></td>
+                            <td>Redo</td>
+                            <td>Redo what you undid</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Delete</strong></td>
+                            <td>Delete selected object</td>
+                            <td>Remove figures, props, or lights</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Selection and Posing Shortcuts</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Shortcut</th>
+                            <th>Action</th>
+                            <th>Why It's Useful</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Ctrl + Click</strong></td>
+                            <td>Add to selection</td>
+                            <td>Select multiple objects at once</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Shift + Drag</strong></td>
+                            <td>Constrain movement</td>
+                            <td>Move along one axis only</td>
+                        </tr>
+                        <tr>
+                            <td><strong>R</strong></td>
+                            <td>Render preview</td>
+                            <td>Quick test render of current view</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ctrl + R</strong></td>
+                            <td>Full render</td>
+                            <td>High-quality render with all settings</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Panel and Window Shortcuts</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Shortcut</th>
+                            <th>Action</th>
+                            <th>Why It's Useful</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Ctrl + L</strong></td>
+                            <td>Open Library</td>
+                            <td>Quick access to your content</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ctrl + Shift + P</strong></td>
+                            <td>Parameters palette</td>
+                            <td>Show/hide Properties Panel</td>
+                        </tr>
+                        <tr>
+                            <td><strong>F9</strong></td>
+                            <td>Material Room</td>
+                            <td>Open advanced material editor</td>
+                        </tr>
+                        <tr>
+                            <td><strong>F5</strong></td>
+                            <td>Pose Room</td>
+                            <td>Switch to pose editing mode</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>🎯 Start with These Five</h4>
+                    <p>Don't overwhelm yourself! Start by learning just these five shortcuts:</p>
+                    <ol>
+                        <li><strong>Ctrl + S</strong> - Save your work</li>
+                        <li><strong>Ctrl + Z</strong> - Undo mistakes</li>
+                        <li><strong>Shift + F</strong> - Frame selected object</li>
+                        <li><strong>Ctrl + L</strong> - Open Library</li>
+                        <li><strong>R</strong> - Quick render preview</li>
+                    </ol>
+                    <p>Master these five, and the others will come naturally as you need them!</p>
+                </div>
+
+                <blockquote>
+                    <strong>🚀 Pro Efficiency Tip:</strong> Create a small sticky note with your top 5 most-used shortcuts and stick it on your monitor edge. Within a week, they'll become muscle memory!
+                </blockquote>
+            </section>
+
+            <!-- Summary Section -->
+            <section id="summary" class="lesson-section">
+                <h2>Wrapping Up</h2>
+                
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h3>🎉 You've Completed the Interface Tour!</h3>
+                    <p>You now understand:</p>
+                    <ul>
+                        <li>The overall layout of the Poser 12 interface</li>
+                        <li>What the Document Window shows and how it works</li>
+                        <li>How to navigate 3D space with camera controls</li>
+                        <li>Where to find content in the Library palette</li>
+                        <li>How to adjust parameters in the Properties Panel</li>
+                        <li>The purpose of editing tools and the timeline</li>
+                        <li>How to customize your workspace</li>
+                        <li>Essential keyboard shortcuts to speed up your work</li>
+                    </ul>
+                </div>
+
+                <h3>Quick Reference Checklist</h3>
+                <p>Keep this checklist handy as you work:</p>
+                <div class="card">
+                    <h4>✅ Interface Quick Reference</h4>
+                    <ul>
+                        <li>□ Document Window = Your 3D viewport</li>
+                        <li>□ Camera controls = Navigate 3D space</li>
+                        <li>□ Library = Browse and load content</li>
+                        <li>□ Properties = Adjust selected object parameters</li>
+                        <li>□ Editing tools = Select and manipulate objects</li>
+                        <li>□ Window menu = Show/hide all panels</li>
+                        <li>□ Shift + F = Frame selected object</li>
+                        <li>□ Ctrl + S = Save your work!</li>
+                    </ul>
+                </div>
+
+                <h3>🚀 What's Next?</h3>
+                <p>In the next lesson, <strong>"Your First Figure - Loading and Basic Posing"</strong>, you'll finally get hands-on! We'll load a figure into your scene, learn how to select body parts, and create your very first pose. This is where the real fun begins!</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>✨ You're Making Great Progress!</h3>
+                    <p>Learning a new interface can feel overwhelming, but you're doing great! Remember, you don't need to memorize everything—this lesson is a reference you can come back to anytime. The more you use Poser, the more natural it will feel.</p>
+                    <p style="margin-bottom: 0;"><strong>Next up: Creating your first pose! Let's bring a character to life!</strong> 🎭✨</p>
+                </div>
+            </section>
+
+            <!-- Lesson Navigation -->
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_01_welcome_to_poser.html" class="prev-lesson">← Previous: Welcome to Poser 12</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_03_first_figure.html" class="next-lesson">Next: Your First Figure →</a>
+            </nav>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; margin-top: 4rem; border-top: 1px solid var(--border-color);">
+        <p>&copy; 2024 Poser 12 Mastery Course. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9em; opacity: 0.8;">Made with ❤️ for aspiring 3D artists</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

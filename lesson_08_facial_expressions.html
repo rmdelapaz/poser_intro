@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master facial expressions and emotions in Poser 12. Learn to create compelling, believable characters through expressive faces that tell stories.">
+    <meta name="author" content="Poser 12 Course">
+    <title>Facial Expressions and Emotion - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
+        <div class="progress-bar"></div>
+    </div>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Poser 12 Mastery</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="nav-links" id="nav-links" aria-hidden="false">
+                <a href="index.html">Home</a>
+                <a href="index.html#modules">All Modules</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#module2">Module 2: Essential Posing Techniques</a></li>
+            <li aria-current="page">Facial Expressions and Emotion</li>
+        </ul>
+    </nav>
+    <main id="main-content">
+        <div class="container">
+            <header>
+                <h1>😊 Facial Expressions and Emotion</h1>
+                <p class="lead">The face is the primary window into a character's soul. A subtle raise of an eyebrow, a slight curl of the lips, the tension around the eyes—these details transform a 3D model into a living, breathing character with thoughts, feelings, and personality. In this lesson, you'll master the art of creating expressive, emotionally compelling faces!</p>
+                <div class="card">
+                    <h2>🎯 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will:</p>
+                    <ul>
+                        <li>Understand facial anatomy and how expressions work</li>
+                        <li>Master the six universal emotions (Ekman's model)</li>
+                        <li>Create subtle and extreme expressions</li>
+                        <li>Use morphs and parameters effectively in Poser</li>
+                        <li>Combine multiple facial elements for complex emotions</li>
+                        <li>Match facial expressions to body language</li>
+                        <li>Create micro-expressions and emotional nuance</li>
+                        <li>Avoid common facial posing mistakes</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated time:</strong> 50-60 minutes</p>
+                    <p><strong>🎯 Project:</strong> Create six emotional portraits of the same character</p>
+                </div>
+            </header>
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">📑 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#why-faces" class="toc-link">Why Facial Expressions Matter</a></li>
+                        <li><a href="#anatomy" class="toc-link">Facial Anatomy Basics</a></li>
+                        <li><a href="#six-emotions" class="toc-link">The Six Universal Emotions</a></li>
+                        <li><a href="#poser-tools" class="toc-link">Using Poser's Expression Tools</a></li>
+                        <li><a href="#subtle-expressions" class="toc-link">Creating Subtle Expressions</a></li>
+                        <li><a href="#complex-emotions" class="toc-link">Complex and Mixed Emotions</a></li>
+                        <li><a href="#common-mistakes" class="toc-link">Common Mistakes</a></li>
+                        <li><a href="#project" class="toc-link">Project: Six Emotions</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <section id="why-faces" class="lesson-section">
+                <h2>Why Facial Expressions Matter</h2>
+                <p>The human face is the most expressive part of our bodies. We have over 40 facial muscles that create thousands of possible expressions. Viewers instinctively read faces—it's hardwired into our brains from birth. A character with a blank expression feels lifeless, while one with a believable expression immediately draws us in.</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>💡 The Face Connection</h3>
+                    <ul style="color: white;">
+                        <li><strong>43 facial muscles</strong> control expressions</li>
+                        <li>Humans can recognize emotions in <strong>33 milliseconds</strong></li>
+                        <li><strong>Universal expressions</strong> cross all cultures</li>
+                        <li>Face is the <strong>first place</strong> viewers look</li>
+                        <li>Micro-expressions reveal <strong>true emotions</strong></li>
+                    </ul>
+                </div>
+
+                <h3>The Emotional Hierarchy</h3>
+                <p>When posing characters, work in this order:</p>
+                <ol>
+                    <li><strong>Body language</strong> - Sets overall emotional tone</li>
+                    <li><strong>Hands</strong> - Add specificity and nuance</li>
+                    <li><strong>Face</strong> - Confirms and amplifies the emotion</li>
+                </ol>
+                <p>All three must tell the same story! A smiling face on an angry body pose creates confusion.</p>
+
+                <blockquote>
+                    <strong>🎭 Director's Insight:</strong> "Great actors use their whole body to express emotion, but the face is where the audience connects. In 3D art, you have the luxury of perfecting each element. Use it wisely—make the face the exclamation point on your character's emotional statement!"
+                </blockquote>
+            </section>
+
+            <section id="anatomy" class="lesson-section">
+                <h2>Facial Anatomy Basics</h2>
+                <p>Understanding basic facial anatomy helps you create believable expressions. You don't need to memorize every muscle, but knowing the key areas is essential.</p>
+
+                <h3>The Five Key Expression Zones</h3>
+
+                <div class="card">
+                    <h4>1. The Eyebrows and Forehead</h4>
+                    <p><strong>Muscles involved:</strong> Frontalis (raises brows), Corrugator (furrows brows)</p>
+                    <p><strong>Controls:</strong> Surprise, confusion, anger, concern, skepticism</p>
+                    <p><strong>Key insight:</strong> Eyebrows are the most important element for readable expressions!</p>
+                    <ul>
+                        <li>Raised brows = surprise, fear, interest</li>
+                        <li>Furrowed brows = anger, confusion, concentration</li>
+                        <li>One raised brow = skepticism, curiosity</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>2. The Eyes</h4>
+                    <p><strong>Muscles involved:</strong> Orbicularis oculi (squinting), levator palpebrae (opening)</p>
+                    <p><strong>Controls:</strong> Intensity, sincerity, focus, emotion depth</p>
+                    <p><strong>Key insight:</strong> "The eyes are the windows to the soul"—they reveal truth!</p>
+                    <ul>
+                        <li>Wide open = surprise, fear, interest</li>
+                        <li>Squinted = happiness (genuine), suspicion, discomfort</li>
+                        <li>Half-closed = skepticism, tiredness, seduction</li>
+                        <li>Gaze direction = focus and intention</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>3. The Nose</h4>
+                    <p><strong>Muscles involved:</strong> Nasalis (wrinkles nose)</p>
+                    <p><strong>Controls:</strong> Disgust, contempt, certain smiles</p>
+                    <p><strong>Key insight:</strong> Often overlooked but crucial for disgust and anger</p>
+                    <ul>
+                        <li>Wrinkled = disgust, strong emotion</li>
+                        <li>Flared nostrils = anger, exertion</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>4. The Mouth</h4>
+                    <p><strong>Muscles involved:</strong> Zygomaticus (smile), depressor anguli oris (frown), orbicularis oris (purse)</p>
+                    <p><strong>Controls:</strong> Happiness, sadness, anger, disgust, speech</p>
+                    <p><strong>Key insight:</strong> Most obvious expression area, but least reliable alone!</p>
+                    <ul>
+                        <li>Corners up = happiness, satisfaction</li>
+                        <li>Corners down = sadness, disapproval</li>
+                        <li>Open = surprise, fear, speaking</li>
+                        <li>Tight/pursed = anger, concentration, disapproval</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>5. The Jaw and Chin</h4>
+                    <p><strong>Muscles involved:</strong> Masseter (jaw clench), mentalis (chin raise)</p>
+                    <p><strong>Controls:</strong> Tension, determination, sadness</p>
+                    <p><strong>Key insight:</strong> Subtle but adds significant emotional depth</p>
+                    <ul>
+                        <li>Clenched = anger, determination, stress</li>
+                        <li>Relaxed = calm, content</li>
+                        <li>Protruding chin = crying, sadness</li>
+                    </ul>
+                </div>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Facial Expression] --> B[Eyebrows<br/>Most Important]
+                    A --> C[Eyes<br/>Reveal Truth]
+                    A --> D[Mouth<br/>Most Obvious]
+                    A --> E[Supporting Areas<br/>Nose, Jaw, Cheeks]
+                    
+                    style B fill:#667eea,stroke:#333,stroke-width:3px,color:#fff
+                </div>
+
+                <h3>The Duchenne Smile (Real vs. Fake)</h3>
+                <p>Here's a crucial insight: <strong>A real smile uses the eyes; a fake smile doesn't.</strong></p>
+                <ul>
+                    <li><strong>Genuine smile:</strong> Mouth corners up + eyes squinted with wrinkles = authentic happiness</li>
+                    <li><strong>Fake smile:</strong> Mouth corners up + eyes remain wide = forced, insincere</li>
+                </ul>
+                <p>This applies to ALL expressions—the eyes confirm or contradict the mouth!</p>
+            </section>
+
+            <section id="six-emotions" class="lesson-section">
+                <h2>The Six Universal Emotions</h2>
+                <p>Psychologist Paul Ekman identified six emotions that are recognized across all human cultures. Master these, and you can create any expression!</p>
+
+                <h3>1. Happiness / Joy</h3>
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>The Anatomy of Joy</h4>
+                    <p><strong>Eyebrows:</strong> Relaxed or slightly raised</p>
+                    <p><strong>Eyes:</strong> Squinted with crow's feet (genuine smile)</p>
+                    <p><strong>Cheeks:</strong> Raised (this is crucial!)</p>
+                    <p><strong>Mouth:</strong> Corners up, teeth may show</p>
+                    <p><strong>Overall:</strong> Face appears lifted and bright</p>
+                    <p><strong>Intensity range:</strong> Subtle satisfaction → Broad grin → Ecstatic laughter</p>
+                </div>
+
+                <h3>2. Sadness</h3>
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>The Anatomy of Sadness</h4>
+                    <p><strong>Eyebrows:</strong> Inner corners raised, creating upside-down V</p>
+                    <p><strong>Eyes:</strong> May be downcast or appear droopy</p>
+                    <p><strong>Cheeks:</strong> May be raised if trying not to cry</p>
+                    <p><strong>Mouth:</strong> Corners down, lower lip may push up</p>
+                    <p><strong>Overall:</strong> Face appears heavy and drooping</p>
+                    <p><strong>Intensity range:</strong> Melancholy → Crying → Grief</p>
+                </div>
+
+                <h3>3. Anger</h3>
+                <div class="card" style="background: #ffebee; border-left: 4px solid #f44336;">
+                    <h4>The Anatomy of Anger</h4>
+                    <p><strong>Eyebrows:</strong> Lowered and drawn together</p>
+                    <p><strong>Eyes:</strong> Wide open with intense stare OR squinted</p>
+                    <p><strong>Nose:</strong> May be wrinkled or nostrils flared</p>
+                    <p><strong>Mouth:</strong> Pressed tight OR open with teeth showing</p>
+                    <p><strong>Jaw:</strong> Clenched (very important)</p>
+                    <p><strong>Overall:</strong> Face appears tense and compressed</p>
+                    <p><strong>Intensity range:</strong> Irritation → Anger → Rage</p>
+                </div>
+
+                <h3>4. Fear</h3>
+                <div class="card" style="background: #fff3e0; border-left: 4px solid #ff9800;">
+                    <h4>The Anatomy of Fear</h4>
+                    <p><strong>Eyebrows:</strong> Raised and pulled together</p>
+                    <p><strong>Eyes:</strong> Wide open, showing more white</p>
+                    <p><strong>Mouth:</strong> Open, lips tensed back</p>
+                    <p><strong>Overall:</strong> Face appears stretched and open</p>
+                    <p><strong>Key difference from surprise:</strong> Eyebrows drawn together (not just up)</p>
+                    <p><strong>Intensity range:</strong> Concern → Fear → Terror</p>
+                </div>
+
+                <h3>5. Disgust</h3>
+                <div class="card" style="background: #f3e5f5; border-left: 4px solid #9c27b0;">
+                    <h4>The Anatomy of Disgust</h4>
+                    <p><strong>Eyebrows:</strong> Lowered</p>
+                    <p><strong>Eyes:</strong> Slightly narrowed</p>
+                    <p><strong>Nose:</strong> Wrinkled (this is the key!)</p>
+                    <p><strong>Upper lip:</strong> Raised</p>
+                    <p><strong>Mouth:</strong> Open or grimacing</p>
+                    <p><strong>Overall:</strong> Face appears to be pulling away from something</p>
+                    <p><strong>Intensity range:</strong> Distaste → Disgust → Revulsion</p>
+                </div>
+
+                <h3>6. Surprise</h3>
+                <div class="card" style="background: #e0f7fa; border-left: 4px solid #00bcd4;">
+                    <h4>The Anatomy of Surprise</h4>
+                    <p><strong>Eyebrows:</strong> Raised high, creating forehead wrinkles</p>
+                    <p><strong>Eyes:</strong> Wide open, whites showing above and below iris</p>
+                    <p><strong>Jaw:</strong> Dropped open</p>
+                    <p><strong>Mouth:</strong> Open in O-shape</p>
+                    <p><strong>Overall:</strong> Everything opens wide</p>
+                    <p><strong>Note:</strong> Surprise is brief—it quickly transitions to another emotion</p>
+                    <p><strong>Intensity range:</strong> Mild surprise → Shock → Astonishment</p>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Emotion</th>
+                            <th>Eyebrows</th>
+                            <th>Eyes</th>
+                            <th>Mouth</th>
+                            <th>Key Identifier</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Happy</strong></td>
+                            <td>Relaxed/up</td>
+                            <td>Squinted</td>
+                            <td>Corners up</td>
+                            <td>Crow's feet at eyes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sad</strong></td>
+                            <td>Inner corners up</td>
+                            <td>Droopy</td>
+                            <td>Corners down</td>
+                            <td>Upside-down V brows</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Angry</strong></td>
+                            <td>Down & together</td>
+                            <td>Intense stare</td>
+                            <td>Tight/teeth</td>
+                            <td>Clenched jaw</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fear</strong></td>
+                            <td>Up & together</td>
+                            <td>Wide open</td>
+                            <td>Open/tense</td>
+                            <td>White showing in eyes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Disgust</strong></td>
+                            <td>Down</td>
+                            <td>Narrowed</td>
+                            <td>Upper lip raised</td>
+                            <td>Wrinkled nose</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Surprise</strong></td>
+                            <td>High up</td>
+                            <td>Very wide</td>
+                            <td>Open O-shape</td>
+                            <td>Everything opens</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <blockquote>
+                    <strong>🌍 Universal Language:</strong> These six emotions are recognized worldwide, regardless of culture, language, or background. A happy face in Japan reads the same as in Brazil, Norway, or Kenya. This is powerful—your characters speak a universal language!
+                </blockquote>
+            </section>
+
+            <section id="poser-tools" class="lesson-section">
+                <h2>Using Poser's Expression Tools</h2>
+                <p>Poser provides powerful tools for creating facial expressions. Understanding how to use them efficiently is key!</p>
+
+                <h3>Expression Morphs (Dials)</h3>
+                <p>Most Poser figures come with preset expression morphs. These are your starting point:</p>
+
+                <div class="card">
+                    <h4>Common Expression Morphs</h4>
+                    <ul>
+                        <li><strong>Smile</strong> - Raises mouth corners</li>
+                        <li><strong>Frown</strong> - Lowers mouth corners</li>
+                        <li><strong>Surprise</strong> - Opens mouth, raises brows</li>
+                        <li><strong>Anger</strong> - Furrows brows, tenses mouth</li>
+                        <li><strong>Eyes Closed</strong> - Various degrees</li>
+                        <li><strong>Brow Up/Down</strong> - Individual brow control</li>
+                    </ul>
+                </div>
+
+                <h3>The Layering Technique</h3>
+                <p>Professional technique: <strong>Don't rely on single morphs!</strong> Layer multiple small adjustments:</p>
+                <ol>
+                    <li><strong>Start with preset</strong> (e.g., "Smile" at 50%)</li>
+                    <li><strong>Adjust eyes</strong> (add squint for genuine smile)</li>
+                    <li><strong>Fine-tune brows</strong> (raise slightly for extra joy)</li>
+                    <li><strong>Add asymmetry</strong> (one side slightly more than other)</li>
+                    <li><strong>Adjust intensity</strong> (dial morphs up or down)</li>
+                </ol>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ The 50% Rule</h4>
+                    <p>Start morphs at 50% (0.5) instead of 100%:</p>
+                    <ul>
+                        <li>Preset morphs are often exaggerated</li>
+                        <li>50% gives you room to adjust up or down</li>
+                        <li>Creates more subtle, natural expressions</li>
+                        <li>You can always increase if needed</li>
+                    </ul>
+                </div>
+
+                <h3>Individual Facial Controls</h3>
+                <p>For precise control, use individual face elements:</p>
+                <ul>
+                    <li><strong>Left Eye</strong> - Can move independently</li>
+                    <li><strong>Right Eye</strong> - Can move independently</li>
+                    <li><strong>Left Brow</strong> - Individual control</li>
+                    <li><strong>Right Brow</strong> - Individual control</li>
+                    <li><strong>Jaw</strong> - Open, clench, sideways movement</li>
+                    <li><strong>Tongue</strong> - For speaking or extreme expressions</li>
+                </ul>
+
+                <h3>Eye Direction and Focus</h3>
+                <p>Where the eyes look is CRUCIAL for expression:</p>
+                <ul>
+                    <li><strong>Direct gaze:</strong> Confidence, confrontation, connection</li>
+                    <li><strong>Looking away:</strong> Sadness, shame, avoidance</li>
+                    <li><strong>Looking up:</strong> Thinking, remembering, hope</li>
+                    <li><strong>Looking down:</strong> Sadness, submission, reading</li>
+                    <li><strong>Sideways glance:</strong> Suspicion, flirtation, checking</li>
+                </ul>
+
+                <blockquote>
+                    <strong>👁️ Eyes First Rule:</strong> Set eye direction BEFORE finalizing the expression. Where the character looks affects the entire emotional read!
+                </blockquote>
+            </section>
+
+            <section id="subtle-expressions" class="lesson-section">
+                <h2>Creating Subtle Expressions</h2>
+                <p>Not every emotion needs to be extreme! Subtle expressions often feel more realistic and sophisticated.</p>
+
+                <h3>The Subtlety Spectrum</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Intensity</th>
+                            <th>Morph Strength</th>
+                            <th>When to Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Micro (5-15%)</strong></td>
+                            <td>Barely visible</td>
+                            <td>Candid moments, background characters</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Subtle (20-40%)</strong></td>
+                            <td>Noticeable but restrained</td>
+                            <td>Professional settings, controlled emotions</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Moderate (45-65%)</strong></td>
+                            <td>Clear emotion</td>
+                            <td>Most everyday expressions</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Strong (70-85%)</strong></td>
+                            <td>Pronounced</td>
+                            <td>Dramatic moments, emphasis</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Extreme (90-100%)</strong></td>
+                            <td>Maximum</td>
+                            <td>Screaming, extreme horror, intense laughter</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Subtle Expression Examples</h3>
+
+                <div class="card">
+                    <h4>Subtle Smile (Content)</h4>
+                    <ul>
+                        <li>Smile morph: 25-35%</li>
+                        <li>Slight eye squint: 15-20%</li>
+                        <li>Barely raised cheeks</li>
+                        <li>Relaxed everything else</li>
+                        <li><strong>Result:</strong> Peaceful, content, quietly happy</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Mild Concern</h4>
+                    <ul>
+                        <li>Inner brows raised slightly: 20-30%</li>
+                        <li>Eyes slightly wider: 10-15%</li>
+                        <li>Mouth neutral or barely down</li>
+                        <li><strong>Result:</strong> Worried but not panicked</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Thoughtful</h4>
+                    <ul>
+                        <li>One brow raised: 30%</li>
+                        <li>Eyes looking slightly up or away</li>
+                        <li>Mouth slightly pursed or neutral</li>
+                        <li><strong>Result:</strong> Contemplative, considering</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <strong>💡 Less is More:</strong> Beginning artists often over-express. Real people rarely make extreme faces except in extreme situations. Subtle expressions feel more authentic and give your work sophistication!
+                </blockquote>
+            </section>
+
+            <section id="complex-emotions" class="lesson-section">
+                <h2>Complex and Mixed Emotions</h2>
+                <p>Real humans rarely feel just one pure emotion. We experience complex blends!</p>
+
+                <h3>Creating Mixed Emotions</h3>
+
+                <div class="card">
+                    <h4>Bittersweet (Happy + Sad)</h4>
+                    <p>Combine elements of both:</p>
+                    <ul>
+                        <li>Smile with mouth (happiness): 40%</li>
+                        <li>Sad eyebrows (inner corners up): 30%</li>
+                        <li>Slightly glistening eyes</li>
+                        <li><strong>Result:</strong> Touching, emotional, reminiscent</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Smirk (Amusement + Smugness)</h4>
+                    <ul>
+                        <li>Asymmetric smile (one corner up more): 50% one side, 20% other</li>
+                        <li>One eyebrow raised: 40%</li>
+                        <li>Slight squint</li>
+                        <li><strong>Result:</strong> Knowing, slightly superior, amused</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Nervous Smile (Fear + Politeness)</h4>
+                    <ul>
+                        <li>Smile (forced): 60%</li>
+                        <li>Wide eyes (fear indicator): 30%</li>
+                        <li>Raised eyebrows: 25%</li>
+                        <li><strong>Result:</strong> Uncomfortable, trying to be polite</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Contempt (Disgust + Anger + Superiority)</h4>
+                    <ul>
+                        <li>Asymmetric upper lip raise: 50% one side</li>
+                        <li>One eye slightly narrowed more than other</li>
+                        <li>Slight nose wrinkle</li>
+                        <li><strong>Result:</strong> Disdain, looking down on something</li>
+                    </ul>
+                </div>
+
+                <h3>The Asymmetry Secret</h3>
+                <p><strong>Key insight:</strong> Asymmetric expressions often feel more natural and interesting!</p>
+                <ul>
+                    <li>One eyebrow higher than the other = skepticism, curiosity</li>
+                    <li>One side of mouth higher = smirk, slight smile</li>
+                    <li>One eye more squinted = contemplation, evaluation</li>
+                </ul>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ The Blend Formula</h4>
+                    <p>To create any complex emotion:</p>
+                    <ol>
+                        <li>Identify the two emotions being mixed</li>
+                        <li>Apply primary emotion at 50-70%</li>
+                        <li>Add secondary emotion at 20-40%</li>
+                        <li>Fine-tune for believability</li>
+                        <li>Add asymmetry for naturalness</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section id="common-mistakes" class="lesson-section">
+                <h2>Common Facial Expression Mistakes</h2>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>1. The Blank Stare</h4>
+                    <p><strong>Problem:</strong> No expression at all, default face<br>
+                    <strong>Fix:</strong> Even "neutral" needs subtle life—slight smile or thoughtful look</p>
+                </div>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>2. Eyes Don't Match Mouth</h4>
+                    <p><strong>Problem:</strong> Smiling mouth but sad/angry eyes<br>
+                    <strong>Fix:</strong> Eyes and mouth must tell same story (unless intentionally mixed)</p>
+                </div>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>3. The Fake Smile</h4>
+                    <p><strong>Problem:</strong> Mouth smiles but eyes stay wide open<br>
+                    <strong>Fix:</strong> Add eye squint (crow's feet) for genuine happiness</p>
+                </div>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>4. Over-Dialed Morphs</h4>
+                    <p><strong>Problem:</strong> Expression morphs at 100% look cartoonish<br>
+                    <strong>Fix:</strong> Start at 50% and adjust. Real faces rarely reach extremes</p>
+                </div>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>5. Perfect Symmetry</h4>
+                    <p><strong>Problem:</strong> Both sides of face identical<br>
+                    <strong>Fix:</strong> Add subtle asymmetry (one brow slightly higher, etc.)</p>
+                </div>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>6. Wrong Gaze Direction</h4>
+                    <p><strong>Problem:</strong> Eyes looking wrong direction for emotion<br>
+                    <strong>Fix:</strong> Match eye direction to emotional context</p>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Expression Quality Checklist</h4>
+                    <ul>
+                        <li>□ Do eyes match the mouth emotion?</li>
+                        <li>□ Is there subtle asymmetry?</li>
+                        <li>□ Are morphs between 40-70% (not extreme)?</li>
+                        <li>□ Does eye direction support the emotion?</li>
+                        <li>□ Is it readable from a distance?</li>
+                        <li>□ Does it match body language?</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="project" class="lesson-section">
+                <h2>Project: Six Emotional Portraits</h2>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>🎯 Create Six Emotion Studies</h3>
+                    <p style="color: white;">Show the same character expressing all six universal emotions!</p>
+                    <ul style="color: white;">
+                        <li>Same character, six different emotions</li>
+                        <li>Each clearly identifiable</li>
+                        <li>Moderate intensity (50-70%)</li>
+                        <li>Consistent lighting across all</li>
+                        <li>Time: 60-90 minutes</li>
+                    </ul>
+                </div>
+
+                <h3>The Six Expressions to Create</h3>
+
+                <div class="card">
+                    <h4>1. Happiness (10 minutes)</h4>
+                    <ul>
+                        <li>Smile: 60%</li>
+                        <li>Eye squint: 40%</li>
+                        <li>Cheeks raised</li>
+                        <li>Brows relaxed or slightly up</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>2. Sadness (10 minutes)</h4>
+                    <ul>
+                        <li>Inner brows up (V-shape): 50%</li>
+                        <li>Mouth corners down: 40%</li>
+                        <li>Eyes looking down or droopy</li>
+                        <li>Lower lip may push up</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>3. Anger (10 minutes)</h4>
+                    <ul>
+                        <li>Brows down and together: 60%</li>
+                        <li>Eyes intense (wide or squinted)</li>
+                        <li>Mouth tight or teeth showing</li>
+                        <li>Jaw clenched</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>4. Fear (10 minutes)</h4>
+                    <ul>
+                        <li>Brows up and together: 60%</li>
+                        <li>Eyes very wide: 70%</li>
+                        <li>Mouth open, lips tense</li>
+                        <li>Overall face stretched open</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>5. Disgust (10 minutes)</h4>
+                    <ul>
+                        <li>Nose wrinkled: 50%</li>
+                        <li>Upper lip raised: 50%</li>
+                        <li>Eyes slightly narrowed</li>
+                        <li>Brows lowered</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>6. Surprise (10 minutes)</h4>
+                    <ul>
+                        <li>Brows very high: 80%</li>
+                        <li>Eyes very wide: 80%</li>
+                        <li>Jaw dropped open</li>
+                        <li>Everything opens!</li>
+                    </ul>
+                </div>
+
+                <h3>Process for Each Expression</h3>
+                <ol>
+                    <li>Reset face to neutral</li>
+                    <li>Set eye direction appropriately</li>
+                    <li>Apply main expression morph at 50%</li>
+                    <li>Fine-tune eyebrows</li>
+                    <li>Adjust eye intensity</li>
+                    <li>Add subtle asymmetry</li>
+                    <li>Save/render</li>
+                </ol>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Success Criteria</h4>
+                    <ul>
+                        <li>□ All six emotions clearly recognizable</li>
+                        <li>□ Eyes match mouth in each</li>
+                        <li>□ Subtle asymmetry present</li>
+                        <li>□ Appropriate intensity (not extreme)</li>
+                        <li>□ Character consistency across all six</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="summary" class="lesson-section">
+                <h2>Wrapping Up</h2>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h3>🎉 You're Now a Face Master!</h3>
+                    <p>Key takeaways:</p>
+                    <ul>
+                        <li>✅ Six universal emotions: Happy, Sad, Angry, Fear, Disgust, Surprise</li>
+                        <li>✅ Eyes must match mouth for believability</li>
+                        <li>✅ Start morphs at 50%, not 100%</li>
+                        <li>✅ Subtle asymmetry adds realism</li>
+                        <li>✅ Eye direction affects entire expression</li>
+                        <li>✅ Layer multiple morphs for complexity</li>
+                        <li>✅ Match facial expression to body language</li>
+                    </ul>
+                </div>
+
+                <h3>🚀 What's Next?</h3>
+                <p>You've now mastered the complete character: body poses, hands, and faces! In Module 3, we'll start <strong>"Working with Props and Scenes"</strong>—building complete environments where your expressive characters can live and tell stories!</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>✨ The Complete Character</h3>
+                    <p style="color: white;">Your characters now have natural poses, expressive hands, and emotionally compelling faces. They're no longer 3D models—they're living, breathing characters with personality, emotion, and stories to tell!</p>
+                    <p style="color: white; margin-bottom: 0;"><strong>You've completed Module 2! Time to build their world! 😊✨</strong></p>
+                </div>
+            </section>
+
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_07_hand_posing.html" class="prev-lesson">← Previous: Advanced Hand Posing</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_09_props_scenes.html" class="next-lesson">Next: Props and Scenes →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 2rem; margin-top: 4rem; border-top: 1px solid var(--border-color);">
+        <p>&copy; 2024 Poser 12 Mastery Course. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9em; opacity: 0.8;">Made with ❤️ for aspiring 3D artists</p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

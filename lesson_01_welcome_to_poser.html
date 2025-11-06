@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to Poser 12! Discover what Poser can do and begin your journey into 3D character art and animation.">
+    <meta name="author" content="Poser 12 Course">
+    <title>Welcome to Poser 12 - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Progress indicator -->
+    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
+        <div class="progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Poser 12 Mastery</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">
+                ☰
+            </button>
+            <div class="nav-links" id="nav-links" aria-hidden="false">
+                <a href="index.html">Home</a>
+                <a href="index.html#modules">All Modules</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#module1">Module 1: Getting Started</a></li>
+            <li aria-current="page">Welcome to Poser 12</li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <div class="container">
+            <!-- Lesson Header -->
+            <header>
+                <h1>🎨 Welcome to Poser 12!</h1>
+                <p class="lead">Your journey into the amazing world of 3D character art starts here. Whether you want to create stunning illustrations, build comic book scenes, or bring characters to life through animation, Poser 12 is your creative playground!</p>
+                
+                <!-- Learning objectives -->
+                <div class="card">
+                    <h2>🎯 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will:</p>
+                    <ul>
+                        <li>Understand what Poser 12 is and what makes it special</li>
+                        <li>Discover the amazing things you can create with Poser</li>
+                        <li>Learn how Poser fits into the 3D art world</li>
+                        <li>See real-world examples of Poser in action</li>
+                        <li>Get excited about your creative journey ahead!</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated time:</strong> 15-20 minutes</p>
+                </div>
+            </header>
+
+            <!-- Table of Contents -->
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">📑 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#what-is-poser" class="toc-link">What is Poser 12?</a></li>
+                        <li><a href="#what-can-you-create" class="toc-link">What Can You Create?</a></li>
+                        <li><a href="#posing-vs-modeling" class="toc-link">Posing vs. Modeling: Understanding the Difference</a></li>
+                        <li><a href="#real-world-uses" class="toc-link">Real-World Applications</a></li>
+                        <li><a href="#why-poser" class="toc-link">Why Choose Poser?</a></li>
+                        <li><a href="#your-journey" class="toc-link">Your Creative Journey</a></li>
+                        <li><a href="#getting-ready" class="toc-link">Getting Ready to Start</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Section 1: What is Poser -->
+            <section id="what-is-poser" class="lesson-section">
+                <h2>What is Poser 12?</h2>
+                
+                <p>Imagine you're a movie director, but instead of hiring actors, building sets, and renting expensive cameras, you have a complete digital studio at your fingertips. That's essentially what Poser 12 is!</p>
+                
+                <p><strong>Poser 12</strong> is a powerful 3D software application specifically designed for posing, animating, and rendering human and animal figures. Think of it as a virtual photography studio where your subjects never get tired, the lighting is always perfect (once you set it up!), and you have unlimited creative control.</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>💡 The Simple Explanation</h3>
+                    <p>If traditional 3D modeling is like being a sculptor who starts with a lump of digital clay, Poser is like being a photographer with action figures that you can pose, dress, light, and photograph. The figures are already built—you just bring them to life!</p>
+                </div>
+
+                <h3>A Brief History</h3>
+                <p>Poser has been around since 1995, making it one of the longest-running 3D character software applications. Over the years, it has evolved from a simple posing tool to a comprehensive character design and animation suite. Poser 12 represents the latest evolution, packed with modern rendering engines, advanced materials, and a massive content library.</p>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Poser 1<br/>1995] --> B[Poser 4<br/>Early 2000s<br/>Major Breakthrough]
+                    B --> C[Poser 7-9<br/>Professional Features]
+                    C --> D[Poser 11<br/>SuperFly Renderer]
+                    D --> E[Poser 12<br/>2020+<br/>Modern Workflows]
+                    style E fill:#667eea,stroke:#333,stroke-width:3px,color:#fff
+                </div>
+
+                <blockquote>
+                    <strong>🎨 Fun Fact:</strong> Poser was originally created to help artists by providing a digital "reference model" they could pose instead of hiring live models. Today, it's become a complete character creation powerhouse used by professionals worldwide!
+                </blockquote>
+            </section>
+
+            <!-- Section 2: What Can You Create -->
+            <section id="what-can-you-create" class="lesson-section">
+                <h2>What Can You Create with Poser?</h2>
+                
+                <p>This is where things get exciting! Poser is incredibly versatile. Let's explore the amazing things you can bring to life:</p>
+
+                <h3>✨ Character Illustrations</h3>
+                <p>Create stunning single images of characters for:</p>
+                <ul>
+                    <li><strong>Digital art and paintings</strong> - Use Poser renders as the foundation for your artwork</li>
+                    <li><strong>Book covers</strong> - Romance novels, sci-fi epics, fantasy adventures</li>
+                    <li><strong>Concept art</strong> - Character designs for games, films, or personal projects</li>
+                    <li><strong>Portrait photography</strong> - Perfect lighting and poses every time</li>
+                </ul>
+
+                <figure>
+                    <div style="background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%); padding: 40px; text-align: center; border-radius: 8px; margin: 20px 0;">
+                        <p style="font-size: 3em; margin: 0;">🎭</p>
+                        <p style="margin: 10px 0; color: #333;"><em>Placeholder: Beautiful character portrait in dramatic lighting</em></p>
+                    </div>
+                    <figcaption>Example: A character portrait created in Poser with custom lighting and materials</figcaption>
+                </figure>
+
+                <h3>📚 Comic Books and Graphic Novels</h3>
+                <p>Many comic artists use Poser to create consistent characters and complex scenes. Imagine drawing a crowd scene with dozens of people—in Poser, you can set that up in minutes!</p>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>Real-World Example: Comic Creation</h4>
+                    <p>Professional comic artist Sarah Jenkins uses Poser to create all her backgrounds and character references. "Instead of spending hours drawing the same character from different angles, I pose them once in Poser and use those renders as my reference. It's cut my production time in half!"</p>
+                </div>
+
+                <h3>🎬 Animation and Filmmaking</h3>
+                <p>Create short films, animated sequences, or previz (pre-visualization) for larger projects:</p>
+                <ul>
+                    <li>Character animations for YouTube or social media</li>
+                    <li>Animated shorts and web series</li>
+                    <li>Storyboard previz for film and TV</li>
+                    <li>Dance animations and choreography</li>
+                </ul>
+
+                <h3>🎮 Game Development and VR</h3>
+                <p>Design characters and scenes that can be exported to game engines:</p>
+                <ul>
+                    <li>Character concept designs</li>
+                    <li>NPC (non-player character) references</li>
+                    <li>Cinematic cutscene planning</li>
+                    <li>VR experience character modeling</li>
+                </ul>
+
+                <h3>🏗️ Architectural Visualization</h3>
+                <p>Add life to architectural renders by populating spaces with people:</p>
+                <ul>
+                    <li>People in building visualizations</li>
+                    <li>Lifestyle scenes for real estate marketing</li>
+                    <li>Urban planning presentations</li>
+                </ul>
+
+                <h3>🎓 Education and Training</h3>
+                <p>Create instructional materials with clear visual demonstrations:</p>
+                <ul>
+                    <li>Medical and anatomical illustrations</li>
+                    <li>Safety training scenarios</li>
+                    <li>Historical recreations</li>
+                    <li>Physical therapy and movement demonstrations</li>
+                </ul>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Poser 12] --> B[Still Images]
+                    A --> C[Animations]
+                    B --> D[Illustrations]
+                    B --> E[Comics]
+                    B --> F[Concept Art]
+                    C --> G[Short Films]
+                    C --> H[Character Animation]
+                    C --> I[Previz]
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+            </section>
+
+            <!-- Section 3: Posing vs Modeling -->
+            <section id="posing-vs-modeling" class="lesson-section">
+                <h2>Posing vs. Modeling: Understanding the Difference</h2>
+                
+                <p>One of the most important concepts to understand as you begin your Poser journey is the difference between <strong>posing</strong> and <strong>modeling</strong>. This is crucial because it helps you understand what Poser excels at!</p>
+
+                <h3>🔨 3D Modeling (The Sculptor's Approach)</h3>
+                <p>3D modeling is like sculpting from scratch. You start with nothing and build your character polygon by polygon, vertex by vertex. Software like Blender, Maya, and ZBrush are modeling tools.</p>
+
+                <div class="card">
+                    <h4>The Modeling Process:</h4>
+                    <ol>
+                        <li>Start with basic shapes (cubes, spheres, cylinders)</li>
+                        <li>Push, pull, and manipulate geometry</li>
+                        <li>Add detail and refinement</li>
+                        <li>Create the UV maps for textures</li>
+                        <li>Rig the character (add bones)</li>
+                        <li>Paint textures and materials</li>
+                        <li>Finally... pose and render!</li>
+                    </ol>
+                    <p><strong>Time investment:</strong> Days to weeks for a single character</p>
+                </div>
+
+                <h3>🎭 3D Posing (The Director's Approach)</h3>
+                <p>Posing is like working with digital actors who are already built and ready to perform. You load pre-made figures and focus on bringing them to life through pose, expression, lighting, and scene composition.</p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>The Posing Process:</h4>
+                    <ol>
+                        <li>Load a pre-made figure from the library</li>
+                        <li>Pose the figure using intuitive controls</li>
+                        <li>Add clothing, hair, and accessories</li>
+                        <li>Set up lighting and camera angles</li>
+                        <li>Apply or customize materials</li>
+                        <li>Render your final image!</li>
+                    </ol>
+                    <p><strong>Time investment:</strong> Minutes to hours for a complete scene</p>
+                </div>
+
+                <h3>The Analogy That Makes It Click</h3>
+                <blockquote>
+                    <p><strong>Modeling</strong> is like being a toymaker—you're creating the action figure from scratch, molding every detail of its body, creating its joints, and painting it.</p>
+                    <p><strong>Posing</strong> is like being a stop-motion animator—you're using action figures that already exist and creating amazing scenes by posing them, dressing them, lighting them, and photographing them.</p>
+                </blockquote>
+
+                <div class="mermaid">
+                    graph LR
+                    A[3D Character Creation] --> B[Modeling Approach]
+                    A --> C[Posing Approach]
+                    B --> D[Build from Scratch<br/>Days-Weeks]
+                    C --> E[Use Existing Figures<br/>Minutes-Hours]
+                    D --> F[Full Control<br/>Steep Learning Curve]
+                    E --> G[Faster Results<br/>Easier to Learn]
+                    style C fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style E fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style G fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Can You Model in Poser?</h3>
+                <p>Yes and no. While Poser does have some morphing and sculpting tools, it's not primarily a modeling application. Think of it this way:</p>
+                
+                <ul>
+                    <li>✅ <strong>Poser is excellent for:</strong> Posing, animating, rendering characters and scenes</li>
+                    <li>✅ <strong>Poser is good for:</strong> Modifying existing figures with morphs</li>
+                    <li>⚠️ <strong>Poser is not ideal for:</strong> Creating characters from scratch</li>
+                </ul>
+
+                <div class="card" style="background-color: #f0f0f0; border-left: 4px solid #667eea;">
+                    <h4>💡 Pro Tip</h4>
+                    <p>Many professional artists use a combination approach: they model custom props or characters in Blender or ZBrush, then import them into Poser for posing, lighting, and rendering. You get the best of both worlds!</p>
+                </div>
+            </section>
+
+            <!-- Section 4: Real World Uses -->
+            <section id="real-world-uses" class="lesson-section">
+                <h2>Real-World Applications</h2>
+                
+                <p>Let's look at how real professionals and hobbyists are using Poser in their creative work:</p>
+
+                <h3>📖 Publishing and Book Covers</h3>
+                <p>Romance, fantasy, and sci-fi publishers love Poser because it allows them to create custom book covers without expensive photo shoots. Need a warrior princess on a dragon? A space captain on an alien planet? Poser makes it possible.</p>
+
+                <div class="card">
+                    <h4>Case Study: Independent Author Success</h4>
+                    <p><strong>Meet Jennifer Martinez</strong>, an independent romance author who learned Poser to create her own book covers:</p>
+                    <blockquote>
+                        <p>"I was spending $300-500 per cover hiring designers. Now I create my own custom covers in Poser for the cost of the software. I've created covers for 15 books and saved thousands of dollars. Plus, my characters look exactly how I imagined them!"</p>
+                    </blockquote>
+                </div>
+
+                <h3>🎨 Fine Art and Digital Painting</h3>
+                <p>Many digital painters use Poser to create reference poses and lighting setups. Instead of hiring a model or taking photos, they pose a figure in Poser and paint over or reference the render.</p>
+
+                <h3>🎬 Independent Filmmaking</h3>
+                <p>Indie filmmakers use Poser for:</p>
+                <ul>
+                    <li><strong>Storyboarding:</strong> Create detailed storyboards with proper lighting and camera angles</li>
+                    <li><strong>Previz:</strong> Plan complex scenes before the actual shoot</li>
+                    <li><strong>VFX:</strong> Create digital characters that interact with live-action footage</li>
+                </ul>
+
+                <h3>🏫 Education and Academia</h3>
+                <p>Teachers and researchers use Poser for:</p>
+                <ul>
+                    <li>Anatomy studies and medical illustrations</li>
+                    <li>Historical recreations and documentaries</li>
+                    <li>Safety demonstrations and training materials</li>
+                    <li>Archaeological reconstructions</li>
+                </ul>
+
+                <h3>🎮 Game Development</h3>
+                <p>While large studios build everything custom, indie game developers often use Poser to:</p>
+                <ul>
+                    <li>Create character concept art</li>
+                    <li>Design NPCs and background characters</li>
+                    <li>Plan cutscene animations</li>
+                    <li>Export characters to Unity or Unreal Engine</li>
+                </ul>
+
+                <div class="mermaid">
+                    graph TB
+                    A[Poser 12 Users] --> B[Professional Artists]
+                    A --> C[Hobbyists & Enthusiasts]
+                    A --> D[Educators & Students]
+                    B --> E[Illustrators]
+                    B --> F[Comic Artists]
+                    B --> G[3D Artists]
+                    C --> H[Personal Projects]
+                    C --> I[Fan Art]
+                    C --> J[Social Media Content]
+                    D --> K[Academic Research]
+                    D --> L[Training Materials]
+                    D --> M[Student Projects]
+                </div>
+            </section>
+
+            <!-- Section 5: Why Poser -->
+            <section id="why-poser" class="lesson-section">
+                <h2>Why Choose Poser?</h2>
+                
+                <p>With so many 3D software options available, why choose Poser? Let's break down the compelling reasons:</p>
+
+                <h3>⚡ Speed and Efficiency</h3>
+                <p>You can go from concept to finished render in a fraction of the time it takes with traditional 3D modeling software. Load a figure, pose it, light it, render it—done! What might take days in other software takes hours in Poser.</p>
+
+                <h3>📚 Massive Content Library</h3>
+                <p>Poser comes with a huge library of figures, props, clothing, and poses right out of the box. Plus, there's an enormous marketplace of additional content available:</p>
+                <ul>
+                    <li>Thousands of characters and figures</li>
+                    <li>Clothing and accessories for every era and genre</li>
+                    <li>Props from furniture to spaceships</li>
+                    <li>Poses and expressions for every situation</li>
+                    <li>Environments and scene sets</li>
+                </ul>
+
+                <h3>🎯 Focus on Creativity, Not Technical Details</h3>
+                <p>You don't need to know topology, edge loops, or UV unwrapping to get started. Poser lets you focus on the creative aspects—posing, composition, lighting, storytelling—rather than technical modeling challenges.</p>
+
+                <h3>💰 Cost-Effective Production</h3>
+                <p>Compare the costs:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Cost per Image</th>
+                            <th>Time Required</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Traditional Photo Shoot</td>
+                            <td>$500-$5,000+</td>
+                            <td>Days (planning, shooting, editing)</td>
+                        </tr>
+                        <tr>
+                            <td>Commission an Artist</td>
+                            <td>$200-$2,000+</td>
+                            <td>Days to weeks</td>
+                        </tr>
+                        <tr>
+                            <td>3D Modeling from Scratch</td>
+                            <td>Time cost (days-weeks)</td>
+                            <td>Weeks to months</td>
+                        </tr>
+                        <tr style="background-color: #e8f5e9;">
+                            <td><strong>Poser 12</strong></td>
+                            <td><strong>$0 (after software purchase)</strong></td>
+                            <td><strong>Hours to days</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>🔄 Unlimited Iterations</h3>
+                <p>Changed your mind about the lighting? The pose? The camera angle? No problem! In traditional photography or commissioned art, changes are expensive and time-consuming. In Poser, you can iterate endlessly until it's perfect.</p>
+
+                <h3>🎓 Gentle Learning Curve</h3>
+                <p>While Poser has depth and complexity available when you need it, the basics are intuitive and beginner-friendly. You'll create your first posed figure in your very first session!</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>🌟 The Bottom Line</h3>
+                    <p>Poser is perfect if you want to:</p>
+                    <ul style="color: white;">
+                        <li>Create character art quickly and professionally</li>
+                        <li>Focus on storytelling and composition</li>
+                        <li>Avoid the technical complexity of modeling</li>
+                        <li>Produce consistent characters across multiple images</li>
+                        <li>Have complete creative control over every aspect of your scenes</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 6: Your Journey -->
+            <section id="your-journey" class="lesson-section">
+                <h2>Your Creative Journey Ahead</h2>
+                
+                <p>You're about to embark on an exciting adventure! Let's preview what you'll be learning throughout this course.</p>
+
+                <h3>🗺️ The Road Map</h3>
+                <p>This course is structured to take you from absolute beginner to confident Poser artist. Here's the journey:</p>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Week 1-2: Foundations] --> B[Week 3-4: Posing Mastery]
+                    B --> C[Week 5-6: Scene Building]
+                    C --> D[Week 7-8: Materials & Lighting]
+                    D --> E[Week 9-10: Rendering]
+                    E --> F[Week 11+: Advanced Techniques]
+                    F --> G[Final Project: Your Portfolio]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style G fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Module Breakdown</h3>
+                
+                <div class="card">
+                    <h4>🚀 Module 1: Getting Started (You Are Here!)</h4>
+                    <p>Learn the interface, load your first figure, and understand the workspace. By the end of Module 1, you'll have created your first posed character!</p>
+                </div>
+
+                <div class="card">
+                    <h4>🎭 Module 2: Essential Posing Techniques</h4>
+                    <p>Master the art of creating natural, expressive poses. Learn to pose hands, create facial expressions, and capture dynamic action poses.</p>
+                </div>
+
+                <div class="card">
+                    <h4>🏗️ Module 3: Working with Props and Scenes</h4>
+                    <p>Build complete environments with props, furniture, and multiple characters. Create scenes that tell stories.</p>
+                </div>
+
+                <div class="card">
+                    <h4>🎨 Module 4: Materials and Textures</h4>
+                    <p>Learn to apply and customize materials to make your characters look photorealistic or stylized, depending on your vision.</p>
+                </div>
+
+                <div class="card">
+                    <h4>💡 Module 5: Lighting Fundamentals</h4>
+                    <p>Master the art of lighting to create mood, drama, and visual impact. Learn three-point lighting and advanced techniques.</p>
+                </div>
+
+                <div class="card">
+                    <h4>🖼️ Module 6: Rendering Your Work</h4>
+                    <p>Produce professional-quality final images using both Firefly and SuperFly render engines.</p>
+                </div>
+
+                <h3>What You'll Be Able to Create</h3>
+                <p>By the time you complete this course, you'll be able to:</p>
+                
+                <ul>
+                    <li>✅ Create character portraits with professional lighting</li>
+                    <li>✅ Build complex multi-figure scenes</li>
+                    <li>✅ Design custom characters with unique looks</li>
+                    <li>✅ Produce comic book panels and sequences</li>
+                    <li>✅ Create simple animations (if you choose that path)</li>
+                    <li>✅ Render photorealistic or stylized images</li>
+                    <li>✅ Build a portfolio of 5-10 polished pieces</li>
+                </ul>
+
+                <blockquote>
+                    <strong>💪 Remember:</strong> Every expert was once a beginner. Every amazing Poser artwork you've seen started with someone opening the software for the first time, just like you're about to do. You've got this!
+                </blockquote>
+            </section>
+
+            <!-- Section 7: Getting Ready -->
+            <section id="getting-ready" class="lesson-section">
+                <h2>Getting Ready to Start</h2>
+                
+                <h3>📋 What You'll Need</h3>
+                <p>Before we dive into the next lesson, let's make sure you're set up for success:</p>
+
+                <div class="card">
+                    <h4>Software Requirements</h4>
+                    <ul>
+                        <li><strong>Poser 12</strong> (Standard or Pro edition)</li>
+                        <li>Windows 10/11 or macOS 10.14+</li>
+                        <li>At least 8GB RAM (16GB recommended)</li>
+                        <li>Dedicated GPU recommended for rendering</li>
+                        <li>At least 30GB free hard drive space for software and content</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Optional but Helpful</h4>
+                    <ul>
+                        <li>A mouse (posing is much easier than with a trackpad)</li>
+                        <li>A second monitor for reference images</li>
+                        <li>External hard drive for storing renders and projects</li>
+                        <li>Notebook or digital note-taking app for ideas</li>
+                    </ul>
+                </div>
+
+                <h3>🎯 Setting Up Your Workspace</h3>
+                <p>Physical workspace matters too! Here are some tips:</p>
+                <ul>
+                    <li><strong>Good lighting:</strong> Reduce eye strain with proper room lighting</li>
+                    <li><strong>Comfortable chair:</strong> You'll be spending hours creating art</li>
+                    <li><strong>Reference materials:</strong> Keep inspiration nearby (art books, Pinterest boards, etc.)</li>
+                    <li><strong>Uninterrupted time:</strong> Each lesson works best when you can focus for 30-60 minutes</li>
+                </ul>
+
+                <h3>💡 Learning Tips</h3>
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>How to Get the Most from This Course</h4>
+                    <ol>
+                        <li><strong>Follow along:</strong> Don't just read—actually do each exercise in Poser</li>
+                        <li><strong>Experiment:</strong> After learning a technique, try variations</li>
+                        <li><strong>Save your work:</strong> Keep all your practice files to see your progress</li>
+                        <li><strong>Don't rush:</strong> It's better to master one lesson than to rush through many</li>
+                        <li><strong>Have fun:</strong> You're learning to create art! Enjoy the process</li>
+                    </ol>
+                </div>
+
+                <h3>🎨 Your First Assignment (Optional)</h3>
+                <p>Before moving to the next lesson, take a few minutes to gather inspiration:</p>
+                <ol>
+                    <li>Browse online galleries of Poser art (DeviantArt, ArtStation, Renderosity)</li>
+                    <li>Create a folder on your computer called "Poser Inspiration"</li>
+                    <li>Save 5-10 images of Poser artwork that inspires you</li>
+                    <li>Note what you like about each image (the pose? the lighting? the mood?)</li>
+                </ol>
+
+                <p>These will serve as your North Star as you learn—reminders of what's possible and what you're working toward!</p>
+            </section>
+
+            <!-- Summary Section -->
+            <section id="summary" class="lesson-section">
+                <h2>Wrapping Up</h2>
+                
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h3>🎉 Key Takeaways</h3>
+                    <ul>
+                        <li><strong>Poser is a posing and rendering tool</strong>, not a modeling tool—think digital photography studio, not digital sculpture studio</li>
+                        <li><strong>You can create amazing art quickly</strong> by using pre-made figures and focusing on creativity</li>
+                        <li><strong>Poser is used professionally</strong> for book covers, comics, illustrations, concept art, and more</li>
+                        <li><strong>The learning curve is gentle</strong>—you'll create your first posed figure in the very next lesson!</li>
+                        <li><strong>This course will take you from beginner to confident artist</strong> through hands-on projects and clear instruction</li>
+                    </ul>
+                </div>
+
+                <h3>🚀 What's Next?</h3>
+                <p>In the next lesson, <strong>"The Poser Interface Tour"</strong>, we'll open Poser for the first time together and explore the workspace. You'll learn where everything is located and how to navigate the interface like a pro. By the end of that lesson, you'll feel comfortable and confident opening Poser!</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3>✨ A Word of Encouragement</h3>
+                    <p>You're standing at the beginning of an incredible creative journey. Some lessons will feel easy, others might challenge you—that's completely normal and part of the learning process. Remember: every amazing artist started exactly where you are right now.</p>
+                    <p style="margin-bottom: 0;"><strong>Welcome to the Poser community. Let's create something amazing together!</strong> 🎨✨</p>
+                </div>
+            </section>
+
+            <!-- Lesson Navigation -->
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="index.html" class="prev-lesson">← Back to Course Home</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_02_interface_tour.html" class="next-lesson">Next: The Poser Interface Tour →</a>
+            </nav>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; margin-top: 4rem; border-top: 1px solid var(--border-color);">
+        <p>&copy; 2024 Poser 12 Mastery Course. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9em; opacity: 0.8;">Made with ❤️ for aspiring 3D artists</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>
