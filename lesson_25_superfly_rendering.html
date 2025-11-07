@@ -2740,3 +2740,652 @@
                 </blockquote>
 
             </section>
+            <!-- Section 10: Project -->
+            <section id="project" class="content-section">
+                <h2>🎯 Project: Photorealistic Product Render with SuperFly</h2>
+                
+                <p>
+                    Time to put everything together! You'll create a professional product render using SuperFly's full capabilities—HDR lighting, PBR materials, proper sampling, and denoising. This project will give you hands-on experience with SuperFly's workflow and result in a portfolio-quality image.
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3 style="color: white;">🎨 Project Goal</h3>
+                    <p style="color: white; margin: 0;">
+                        Create a photorealistic product render using SuperFly with physically-based materials, HDR environment lighting, and optimized render settings. The final image should look like a professional product photograph suitable for commercial use.
+                    </p>
+                </div>
+
+                <h3>Project Setup</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Step 1: Scene Composition (Use Firefly - 5 minutes)</h4>
+                    <ol>
+                        <li>Choose your product subject:
+                            <ul>
+                                <li>Simple prop (bottle, glass, jewelry, device)</li>
+                                <li>Or use a simple primitive (sphere, torus, cube with beveled edges)</li>
+                            </ul>
+                        </li>
+                        <li>Position on a simple ground plane or pedestal</li>
+                        <li>Set up camera:
+                            <ul>
+                                <li>Slightly above and in front of product</li>
+                                <li>Close enough to fill frame but show context</li>
+                                <li>Use the <strong>Dolly Camera</strong> to frame nicely</li>
+                            </ul>
+                        </li>
+                        <li><strong>Quick Firefly render</strong> to verify composition</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Step 2: Switch to SuperFly</h4>
+                    <ol>
+                        <li>Go to <strong>Render Settings</strong></li>
+                        <li>Change render engine to <strong>SuperFly</strong></li>
+                        <li>Initial settings:
+                            <ul>
+                                <li><strong>Max Samples:</strong> 200 (for testing)</li>
+                                <li><strong>Adaptive Threshold:</strong> 0.05</li>
+                                <li><strong>Max Bounces:</strong> 12</li>
+                                <li><strong>Diffuse/Glossy Bounces:</strong> 4</li>
+                                <li><strong>Transmission Bounces:</strong> 8</li>
+                                <li><strong>Denoising:</strong> OFF (for now)</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>Material Creation</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Step 3: Create Product Material</h4>
+                    <ol>
+                        <li>Go to <strong>Material Room</strong></li>
+                        <li>Select your product object</li>
+                        <li>Apply <strong>Principled BSDF</strong> shader</li>
+                        <li>Choose a material type and configure it:</li>
+                    </ol>
+                    
+                    <p><strong>Option A: Polished Metal (Chrome/Silver):</strong></p>
+                    <ul>
+                        <li><strong>Base Color:</strong> RGB (0.95, 0.95, 0.95) - very light gray</li>
+                        <li><strong>Metallic:</strong> 1.0</li>
+                        <li><strong>Roughness:</strong> 0.1 (polished)</li>
+                    </ul>
+                    
+                    <p><strong>Option B: Colored Glass:</strong></p>
+                    <ul>
+                        <li><strong>Base Color:</strong> White or slight tint (e.g., RGB 1.0, 0.98, 0.95)</li>
+                        <li><strong>Transmission:</strong> 1.0</li>
+                        <li><strong>Roughness:</strong> 0.0</li>
+                        <li><strong>IOR:</strong> 1.5</li>
+                    </ul>
+                    
+                    <p><strong>Option C: Glossy Plastic:</strong></p>
+                    <ul>
+                        <li><strong>Base Color:</strong> Your product color (e.g., RGB 0.8, 0.2, 0.2 for red)</li>
+                        <li><strong>Metallic:</strong> 0.0</li>
+                        <li><strong>Roughness:</strong> 0.2-0.3</li>
+                        <li><strong>Specular:</strong> 0.5</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Step 4: Ground Plane Material</h4>
+                    <ol>
+                        <li>Select ground plane</li>
+                        <li>Apply <strong>Principled BSDF</strong></li>
+                        <li>Settings:
+                            <ul>
+                                <li><strong>Base Color:</strong> Neutral gray (RGB 0.5, 0.5, 0.5) or white</li>
+                                <li><strong>Roughness:</strong> 0.6-0.8 (slightly matte)</li>
+                                <li><strong>Metallic:</strong> 0.0</li>
+                            </ul>
+                        </li>
+                        <li>This will pick up light and create realistic shadows</li>
+                    </ol>
+                </div>
+
+                <h3>HDR Lighting Setup</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Step 5: Load HDR Environment</h4>
+                    <ol>
+                        <li>In <strong>Render Settings</strong>, find environment/IBL section</li>
+                        <li>Enable <strong>Image-Based Lighting</strong></li>
+                        <li>Load an HDR file:
+                            <ul>
+                                <li>Studio HDR for clean product look</li>
+                                <li>Or outdoor HDR for natural lighting</li>
+                                <li>If you don't have HDRs, download free ones from Polyhaven.com</li>
+                            </ul>
+                        </li>
+                        <li>Set <strong>IBL Intensity:</strong> 1.0 (starting point)</li>
+                        <li>Enable <strong>Background Visibility</strong> temporarily to see HDR</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Step 6: Test Lighting (200 samples, 5-10 minutes)</h4>
+                    <ol>
+                        <li>Render at current settings (200 samples, no denoising)</li>
+                        <li>Will be noisy—that's expected!</li>
+                        <li>Evaluate:
+                            <ul>
+                                <li>Is the product lit from a good angle?</li>
+                                <li>Are materials reflecting the environment?</li>
+                                <li>Is overall exposure good (not too dark/bright)?</li>
+                            </ul>
+                        </li>
+                        <li>Adjust:
+                            <ul>
+                                <li><strong>Rotate HDR</strong> to change lighting direction</li>
+                                <li><strong>Adjust intensity</strong> if too bright or dark</li>
+                                <li>Re-render and iterate until lighting looks good</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>Material Refinement</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Step 7: Material Testing (1000 samples, 15-20 minutes)</h4>
+                    <ol>
+                        <li>Increase settings:
+                            <ul>
+                                <li><strong>Max Samples:</strong> 1000</li>
+                                <li><strong>Enable Denoising:</strong> ON (OpenImageDenoise)</li>
+                            </ul>
+                        </li>
+                        <li>Render again</li>
+                        <li>Now you can properly evaluate materials:
+                            <ul>
+                                <li>Does roughness look right?</li>
+                                <li>Is metal reflective enough?</li>
+                                <li>Does glass refract properly?</li>
+                                <li>Are colors accurate?</li>
+                            </ul>
+                        </li>
+                        <li>Adjust material parameters:
+                            <ul>
+                                <li>Too shiny? Increase <strong>Roughness</strong></li>
+                                <li>Too matte? Decrease <strong>Roughness</strong></li>
+                                <li>Metal not reflective? Check <strong>Metallic = 1.0</strong></li>
+                                <li>Glass not clear? Increase <strong>Transmission Bounces</strong> to 12</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>Optional Enhancements</h3>
+
+                <div class="card">
+                    <h4>🌟 Add Depth of Field (Optional)</h4>
+                    <ol>
+                        <li>Select your camera</li>
+                        <li>Enable <strong>Depth of Field</strong> in camera properties</li>
+                        <li>Set <strong>f-Stop:</strong> 4.0-5.6 (moderate DOF)</li>
+                        <li>Use <strong>Point At</strong> to focus on product</li>
+                        <li>This creates professional bokeh blur in background</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>💡 Add Rim Light (Optional)</h4>
+                    <ol>
+                        <li>Add a <strong>Point Light</strong> or <strong>Spotlight</strong></li>
+                        <li>Position behind and above product</li>
+                        <li>Low intensity: 0.3-0.5</li>
+                        <li>Creates edge definition and separation from background</li>
+                    </ol>
+                </div>
+
+                <h3>Final Render</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Step 8: Final Quality Render</h4>
+                    <ol>
+                        <li>Finalize all settings:
+                            <ul>
+                                <li><strong>Max Samples:</strong> 2000-2500</li>
+                                <li><strong>Adaptive Threshold:</strong> 0.015</li>
+                                <li><strong>Denoising:</strong> ON</li>
+                                <li><strong>Resolution:</strong> Full size (1920x1080 or higher)</li>
+                            </ul>
+                        </li>
+                        <li>Optional: Disable <strong>Background Visibility</strong> if you want plain background instead of HDR visible</li>
+                        <li>Save your scene before rendering!</li>
+                        <li>Click <strong>Render</strong></li>
+                        <li>Estimated time: 30-60 minutes depending on complexity and hardware</li>
+                        <li>Go have coffee—don't watch it render!</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Step 9: Post-Processing (Optional)</h4>
+                    <ol>
+                        <li>Open render in Photoshop or image editor</li>
+                        <li>Optional adjustments:
+                            <ul>
+                                <li>Slight contrast boost (Curves adjustment)</li>
+                                <li>Minor color correction if needed</li>
+                                <li>Subtle sharpening (Smart Sharpen, 10-20%)</li>
+                                <li>Crop to final composition</li>
+                            </ul>
+                        </li>
+                        <li>Save final version</li>
+                    </ol>
+                </div>
+
+                <h3>Success Checklist</h3>
+
+                <div class="card">
+                    <h4>Your final render should have:</h4>
+                    <ul>
+                        <li>✓ <strong>Photorealistic materials:</strong> Proper PBR properties (roughness, metallic, etc.)</li>
+                        <li>✓ <strong>Realistic lighting:</strong> HDR provides natural, believable illumination</li>
+                        <li>✓ <strong>Clean image:</strong> No excessive noise (denoising working properly)</li>
+                        <li>✓ <strong>Accurate reflections:</strong> Shiny materials reflect environment realistically</li>
+                        <li>✓ <strong>Proper shadows:</strong> Contact shadows ground the object</li>
+                        <li>✓ <strong>Good exposure:</strong> Not too dark or blown-out</li>
+                        <li>✓ <strong>Professional composition:</strong> Well-framed, interesting angle</li>
+                        <li>✓ <strong>Portfolio quality:</strong> Looks like it could be a real product photo</li>
+                    </ul>
+                </div>
+
+                <h3>Comparison Exercise</h3>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 Firefly vs SuperFly Comparison</h4>
+                    <p>
+                        For extra learning, render the <strong>same scene in Firefly</strong>:
+                    </p>
+                    <ol>
+                        <li>Switch render engine to Firefly</li>
+                        <li>Set up traditional three-point lighting</li>
+                        <li>Convert materials to Poser Surface (adjust specular, reflection manually)</li>
+                        <li>Render with similar quality settings</li>
+                        <li>Compare the two renders side-by-side</li>
+                    </ol>
+                    <p>
+                        You'll see how SuperFly's physically-based approach creates more realistic reflections, caustics, and material behavior—especially noticeable on metal and glass!
+                    </p>
+                </div>
+
+                <h3>Troubleshooting Your Project</h3>
+
+                <div class="card">
+                    <h4>If things go wrong:</h4>
+                    <ul>
+                        <li><strong>Too noisy:</strong> Increase samples to 3000 or check denoising is enabled</li>
+                        <li><strong>Too dark:</strong> Increase HDR intensity or add fill light</li>
+                        <li><strong>Materials look wrong:</strong> Review PBR settings—metallic for metals, transmission for glass</li>
+                        <li><strong>Taking forever:</strong> Reduce samples to 1500, check bounce counts aren't excessive</li>
+                        <li><strong>Glass is black:</strong> Increase transmission bounces to 12, check transmission = 1.0</li>
+                        <li><strong>No reflections:</strong> Verify HDR is loaded and enabled</li>
+                    </ul>
+                </div>
+
+                <h3>Bonus Challenges</h3>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>🌟 Take It Further (Optional)</h4>
+                    <ul>
+                        <li><strong>Add subsurface scattering:</strong> Try rendering a wax candle or jade object with SSS</li>
+                        <li><strong>Create caustics:</strong> Place glass object with strong directional light to create light patterns</li>
+                        <li><strong>Multi-material object:</strong> Combine metal, plastic, and glass in one product</li>
+                        <li><strong>Render passes:</strong> Output beauty, diffuse, glossy, and depth passes for compositing</li>
+                        <li><strong>Different HDRs:</strong> Try 3-4 different HDR environments to see dramatic lighting changes</li>
+                        <li><strong>Volumetric effects:</strong> Add subtle fog/atmosphere around product</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Project Philosophy:</strong> Don't expect perfection on the first try. The real learning happens through iteration—render, evaluate, adjust, repeat. Each test render teaches you more about how SuperFly interprets your materials and lighting. Embrace the process!
+                    </p>
+                </blockquote>
+
+                <div class="card" style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white;">
+                    <h3 style="color: white;">🎉 Congratulations!</h3>
+                    <p style="color: white; margin: 0;">
+                        You've just created a photorealistic SuperFly render from scratch! This workflow—composition in Firefly, material setup, HDR lighting, iterative testing, and final quality render—is exactly how professionals work with SuperFly. You now have the foundation to tackle any SuperFly project with confidence.
+                    </p>
+                </div>
+
+            </section>
+            <!-- Section 11: Summary -->
+            <section id="summary" class="content-section">
+                <h2>📝 Summary and Key Takeaways</h2>
+                
+                <p>
+                    Congratulations! You've mastered SuperFly rendering in Poser—one of the most powerful tools for creating photorealistic 3D images. Let's review the essential concepts and techniques you've learned in this lesson.
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white; padding: 1.5rem;">
+                    <h3 style="color: white; margin-top: 0;">🎓 Key Takeaways</h3>
+                    <ul style="color: white;">
+                        <li><strong>Physically-Based Rendering:</strong> SuperFly simulates real-world light physics, creating automatic caustics, color bleeding, and realistic materials</li>
+                        <li><strong>PBR Materials:</strong> Use roughness, metallic, and transmission to create any surface—no artistic guesswork needed</li>
+                        <li><strong>HDR is Your Friend:</strong> Environment-based lighting provides instant realism without manual light placement</li>
+                        <li><strong>Samples Control Quality:</strong> More samples = cleaner image, but diminishing returns after 2500-3000</li>
+                        <li><strong>Denoising Changes Everything:</strong> AI denoising lets you get clean results at 1500 samples instead of 5000+</li>
+                        <li><strong>Workflow Matters:</strong> Test cheap (low samples), render expensive (high samples). Front-load creative decisions.</li>
+                        <li><strong>SuperFly vs Firefly:</strong> Different tools for different jobs—use both strategically</li>
+                    </ul>
+                </div>
+
+                <h3>SuperFly Core Principles</h3>
+
+                <div class="card">
+                    <h4>The Three Pillars of SuperFly Success</h4>
+                    <ol>
+                        <li><strong>Accurate Materials:</strong> Physically-based properties (PBR) are non-negotiable. Get metallic/roughness/transmission right.</li>
+                        <li><strong>Good Lighting:</strong> Start with HDR for natural illumination. Add supplemental lights only when truly needed.</li>
+                        <li><strong>Sufficient Samples:</strong> 1500-2500 with denoising is the sweet spot for quality + reasonable time.</li>
+                    </ol>
+                    <p>
+                        Master these three, and 90% of SuperFly rendering becomes straightforward. Struggle with any one of them, and even perfect settings won't save your render.
+                    </p>
+                </div>
+
+                <h3>Essential Settings Summary</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Setting</th>
+                            <th>Test/Preview</th>
+                            <th>Final Quality</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Max Samples</strong></td>
+                            <td>200-500</td>
+                            <td>1500-2500</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Adaptive Threshold</strong></td>
+                            <td>0.05</td>
+                            <td>0.01-0.02</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Max Bounces</strong></td>
+                            <td>8</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Diffuse Bounces</strong></td>
+                            <td>2-4</td>
+                            <td>4-6</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Glossy Bounces</strong></td>
+                            <td>2-4</td>
+                            <td>4-6</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Transmission Bounces</strong></td>
+                            <td>4-6</td>
+                            <td>8-12</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Denoising</strong></td>
+                            <td>ON (for 500+ samples)</td>
+                            <td>ON</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Resolution</strong></td>
+                            <td>50-75%</td>
+                            <td>100%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>PBR Material Quick Reference</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Material Type</th>
+                            <th>Base Color</th>
+                            <th>Roughness</th>
+                            <th>Metallic</th>
+                            <th>Other Key Settings</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Polished Metal</strong></td>
+                            <td>Bright (0.9+)</td>
+                            <td>0.05-0.2</td>
+                            <td>1.0</td>
+                            <td>Color in base, not specular</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rough Metal</strong></td>
+                            <td>Medium-bright</td>
+                            <td>0.4-0.7</td>
+                            <td>1.0</td>
+                            <td>Roughness map helps</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Plastic (Glossy)</strong></td>
+                            <td>Material color</td>
+                            <td>0.2-0.4</td>
+                            <td>0.0</td>
+                            <td>IOR: 1.45</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Plastic (Matte)</strong></td>
+                            <td>Material color</td>
+                            <td>0.7-0.9</td>
+                            <td>0.0</td>
+                            <td>Low specular</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Glass</strong></td>
+                            <td>White/light tint</td>
+                            <td>0.0</td>
+                            <td>0.0</td>
+                            <td>Transmission: 1.0, IOR: 1.5</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wood</strong></td>
+                            <td>Wood texture</td>
+                            <td>0.7-0.9</td>
+                            <td>0.0</td>
+                            <td>Normal map for grain</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Skin</strong></td>
+                            <td>Skin color/texture</td>
+                            <td>0.3-0.5</td>
+                            <td>0.0</td>
+                            <td>Subsurface: 0.3-0.5</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fabric</strong></td>
+                            <td>Fabric color</td>
+                            <td>0.8-1.0</td>
+                            <td>0.0</td>
+                            <td>Normal map for weave</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>The SuperFly Decision Tree</h3>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Start New Render] --> B{Need Photorealism?}
+                    B -->|Yes| C{Have Time?}
+                    B -->|No, Stylized| D[Use Firefly]
+                    
+                    C -->|Yes, 30+ min OK| E[Use SuperFly]
+                    C -->|No, Need Fast| D
+                    
+                    E --> F[Setup PBR Materials]
+                    F --> G[Load HDR Environment]
+                    G --> H[Test at 200 samples]
+                    H --> I{Looks Good?}
+                    I -->|No| J[Adjust Materials/HDR]
+                    J --> H
+                    I -->|Yes| K[Render 1500-2500 samples]
+                    K --> L[Enable Denoising]
+                    L --> M[Final Output]
+                    
+                    D --> N[Traditional Workflow]
+                    
+                    style E fill:#2196F3,stroke:#333,stroke-width:2px,color:#fff
+                    style M fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Common SuperFly Mistakes to Avoid</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Top 10 SuperFly Pitfalls</h4>
+                    <ol>
+                        <li><strong>Starting final quality immediately:</strong> Always test at low samples first</li>
+                        <li><strong>Ignoring denoising:</strong> Wasting hours on high sample counts when denoising would work</li>
+                        <li><strong>Wrong metallic values:</strong> Non-metals with Metallic = 0.5 look wrong. Use 0.0 or 1.0!</li>
+                        <li><strong>Dark metal base colors:</strong> Metals need bright base colors to reflect properly</li>
+                        <li><strong>Not using HDR:</strong> Manual lighting in SuperFly is much harder than using good HDR</li>
+                        <li><strong>Excessive bounces everywhere:</strong> Setting all bounces to 16 wastes time. Be strategic!</li>
+                        <li><strong>No render region for tests:</strong> Rendering full image when testing one material</li>
+                        <li><strong>Forgetting transmission for glass:</strong> Transmission = 1.0 is essential for clear glass</li>
+                        <li><strong>Not saving versions:</strong> Overwriting scene before long render, then needing to change something</li>
+                        <li><strong>Watching paint dry:</strong> Staring at render progress bar. Go do something else!</li>
+                    </ol>
+                </div>
+
+                <h3>When to Use Firefly vs SuperFly</h3>
+
+                <div class="card">
+                    <h4>Decision Matrix</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Project Type</th>
+                                <th>Recommended Engine</th>
+                                <th>Why</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Character portraits</td>
+                                <td>Firefly (or SuperFly with time)</td>
+                                <td>Firefly faster, both can look great</td>
+                            </tr>
+                            <tr>
+                                <td>Product visualization</td>
+                                <td>SuperFly</td>
+                                <td>PBR materials, realistic reflections critical</td>
+                            </tr>
+                            <tr>
+                                <td>Jewelry/gems</td>
+                                <td>SuperFly</td>
+                                <td>Needs caustics, accurate refraction</td>
+                            </tr>
+                            <tr>
+                                <td>Architecture</td>
+                                <td>SuperFly</td>
+                                <td>Natural lighting, realistic materials</td>
+                            </tr>
+                            <tr>
+                                <td>Animation</td>
+                                <td>Firefly</td>
+                                <td>Much faster per frame</td>
+                            </tr>
+                            <tr>
+                                <td>Stylized/toon</td>
+                                <td>Firefly</td>
+                                <td>More artistic control</td>
+                            </tr>
+                            <tr>
+                                <td>Quick concepts</td>
+                                <td>Firefly</td>
+                                <td>Speed for iteration</td>
+                            </tr>
+                            <tr>
+                                <td>Portfolio pieces</td>
+                                <td>SuperFly</td>
+                                <td>Maximum quality, photorealism</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>What's Next?</h3>
+
+                <p>
+                    In the next lesson, we'll explore <strong>Render Optimization and Troubleshooting</strong>—advanced techniques for speeding up renders, diagnosing problems, and getting the most out of both Firefly and SuperFly. You'll learn render farm techniques, optimization strategies, and how to rescue problematic renders.
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3 style="color: white;">🚀 Your SuperFly Journey</h3>
+                    <p style="color: white;">
+                        SuperFly represents a paradigm shift from traditional rendering. You're no longer painting with lights and faking materials—you're setting up a virtual photography studio with real physics. This takes time to master, but the results speak for themselves.
+                    </p>
+                    <p style="color: white;">
+                        The key to SuperFly mastery is <em>understanding</em>, not memorizing settings. When you understand why roughness creates blurry reflections, why metals need bright base colors, and why samples reduce noise, you can solve any problem. You're not following a recipe—you're applying principles.
+                    </p>
+                    <p style="color: white; margin-bottom: 0;">
+                        Now go forth and create photorealistic magic! Your renders will only get better from here. 🌟
+                    </p>
+                </div>
+
+                <h3>Quick Reference Card</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ SuperFly Render Checklist</h4>
+                    <p><strong>Before Final Render:</strong></p>
+                    <ol>
+                        <li>☐ Composition tested and approved (Firefly OK for this)</li>
+                        <li>☐ All materials use Principled BSDF with correct PBR values</li>
+                        <li>☐ HDR environment loaded and positioned correctly</li>
+                        <li>☐ Tested at 500-1000 samples—materials look right?</li>
+                        <li>☐ Sample count set to 1500-2500 for final</li>
+                        <li>☐ Bounces appropriate (4-6 diffuse/glossy, 8-12 transmission)</li>
+                        <li>☐ Denoising enabled (OpenImageDenoise)</li>
+                        <li>☐ Adaptive threshold set to 0.01-0.02</li>
+                        <li>☐ Resolution at 100% (full quality)</li>
+                        <li>☐ Scene saved before starting render!</li>
+                    </ol>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Final Wisdom:</strong> SuperFly rewards patience and understanding. Firefly rewards speed and artistic skill. Master both, and you'll have the perfect tool for every situation. The best Poser artists aren't dogmatic about render engines—they're pragmatic, choosing the right tool for each job.
+                    </p>
+                </blockquote>
+
+            </section>
+
+        </article>
+
+        <!-- Lesson Navigation -->
+        <nav class="lesson-nav" aria-label="Lesson Navigation">
+            <a href="lesson_24_firefly_rendering.html" class="prev-lesson">← Previous: Firefly Rendering</a>
+            <a href="index.html" class="home-link">🏠 Course Home</a>
+            <a href="lesson_26_render_optimization.html" class="next-lesson">Next: Render Optimization →</a>
+        </nav>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <p>&copy; 2024 Poser 12 Mastery Course. All rights reserved.</p>
+            <p>Lesson 25: SuperFly Rendering | Module 6: Rendering Your Work</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>
