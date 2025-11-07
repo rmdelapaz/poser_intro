@@ -1,0 +1,2274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master conforming clothing and smart props in Poser 12. Learn to dress your figures in complete outfits, adjust fit with morphs, and create professional character designs with layered clothing.">
+    <meta name="author" content="Poser 12 Course">
+    <title>Smart Props and Conforming Items - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <nav class="topnav" role="navigation" aria-label="Main Navigation">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🎨</span>
+                <span class="logo-text">Poser 12 Mastery</span>
+            </a>
+            <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><a href="index.html#modules">📚 Modules</a></li>
+                <li><a href="index.html#resources">🔧 Resources</a></li>
+                <li><a href="index.html#about">ℹ️ About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="breadcrumb" role="navigation" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> &gt; 
+        <a href="index.html#module-3">Module 3: Working with Props and Scenes</a> &gt; 
+        <span>Lesson 13: Smart Props and Conforming Items</span>
+    </div>
+
+    <main class="container">
+        <article class="lesson-content">
+            <header class="lesson-header">
+                <h1>👔 Smart Props and Conforming Items</h1>
+                <p class="lesson-subtitle">Dressing Your Characters Like a Professional</p>
+            </header>
+
+            <p class="lead">
+                Picture this: you've created the perfect character pose—heroic stance, expressive face, dynamic body language. But they're standing there in their default state, basically wearing digital underwear. To bring your character to life, you need <strong>clothes</strong>. Not just any clothes, but clothing that moves naturally with the figure, bends where it should, and looks like it actually fits. This is where <strong>conforming clothing</strong> becomes your superpower.
+            </p>
+
+            <p>
+                Unlike regular props (which are static and rigid), conforming clothing is <strong>intelligent</strong>—it knows how to wrap itself around your figure and follow along as you pose. Bend an arm, and the sleeve bends with it. Move a leg, and the pants leg follows. It's like magic, but it's actually clever 3D technology working behind the scenes.
+            </p>
+
+            <p>
+                In this lesson, you'll master one of the most essential skills for creating professional Poser artwork: dressing your characters. We'll cover everything from understanding what conforming clothing is and how it differs from props, to loading outfits, adjusting fit with morphs, working with smart props that automatically attach themselves, and managing multiple clothing layers. By the end, you'll be able to dress any figure in a complete, professional-looking outfit.
+            </p>
+
+            <p>
+                This is where your characters transform from posed mannequins into fully realized individuals with style, personality, and visual interest. Let's get your figures dressed for success!
+            </p>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin: 2rem 0;">
+                <h3 style="color: white; margin-top: 0;">💡 What You'll Learn in This Lesson</h3>
+                <ul style="color: white;">
+                    <li><strong>Understanding conforming clothing</strong> and how it differs from regular props</li>
+                    <li><strong>The conforming process</strong> and how clothing automatically fits figures</li>
+                    <li><strong>Loading clothing</strong> from the library efficiently</li>
+                    <li><strong>Adjusting fit with morphs</strong> to handle poke-through and poor fits</li>
+                    <li><strong>Smart props</strong> and automatic parenting to body parts</li>
+                    <li><strong>Managing clothing layers</strong> (underwear, shirts, jackets, accessories)</li>
+                    <li><strong>Hiding body parts</strong> under clothing for better performance</li>
+                    <li><strong>Troubleshooting common issues</strong> like poke-through and bad morphs</li>
+                    <li><strong>Creating complete outfits</strong> with multiple clothing items</li>
+                </ul>
+                <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                    <p style="margin: 0; color: white;"><strong>⏱️ Estimated Time:</strong> 60-75 minutes</p>
+                    <p style="margin: 0.5rem 0 0 0; color: white;"><strong>🎯 Project:</strong> Dress a figure in a complete outfit with accessories</p>
+                </div>
+            </div>
+
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">📑 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#understanding-conforming" class="toc-link">Understanding Conforming Clothing</a></li>
+                        <li><a href="#types-of-clothing" class="toc-link">Types of Clothing and Wearables</a></li>
+                        <li><a href="#loading-clothing" class="toc-link">Loading and Conforming Clothing</a></li>
+                        <li><a href="#adjusting-fit" class="toc-link">Adjusting Fit with Morphs</a></li>
+                        <li><a href="#smart-props" class="toc-link">Smart Props and Auto-Parenting</a></li>
+                        <li><a href="#layering" class="toc-link">Managing Clothing Layers</a></li>
+                        <li><a href="#hiding-geometry" class="toc-link">Hiding Body Parts for Performance</a></li>
+                        <li><a href="#troubleshooting" class="toc-link">Troubleshooting Common Issues</a></li>
+                        <li><a href="#project" class="toc-link">Project: Complete Outfit</a></li>
+                        <li><a href="#summary" class="toc-link">Lesson Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <section id="understanding-conforming" class="lesson-section">
+                <h2>👗 Understanding Conforming Clothing</h2>
+                
+                <p>
+                    Let's start by understanding what makes conforming clothing special. It's one of those Poser features that seems like magic when you first use it, but understanding how it works helps you use it more effectively.
+                </p>
+
+                <h3>What Is Conforming Clothing?</h3>
+
+                <p>
+                    Conforming clothing is 3D clothing that has been specially designed to <strong>automatically wrap around and follow a specific figure</strong>. Think of it like a second skin that knows the figure's skeletal structure and can bend, twist, and pose right along with it.
+                </p>
+
+                <div class="card">
+                    <h4>🔍 The Key Difference</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Aspect</th>
+                                <th>Regular Prop</th>
+                                <th>Conforming Clothing</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Structure</strong></td>
+                                <td>Single rigid object</td>
+                                <td>Rigged with bones matching figure</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Movement</strong></td>
+                                <td>Moves as one piece</td>
+                                <td>Bends and deforms with figure</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Attachment</strong></td>
+                                <td>Manual parenting required</td>
+                                <td>Conforms automatically</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Posing</strong></td>
+                                <td>Must reposition for each pose</td>
+                                <td>Follows figure poses automatically</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Example</strong></td>
+                                <td>Hat, sword, cup, chair</td>
+                                <td>Shirt, pants, dress, shoes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>How Conforming Works: The Technical Magic</h3>
+
+                <p>
+                    When you "conform" clothing to a figure, here's what happens behind the scenes:
+                </p>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Load Clothing Item] --> B[Clothing Has Same Skeleton as Figure]
+                    B --> C[User Clicks 'Conform To' Command]
+                    C --> D[Poser Maps Clothing Bones to Figure Bones]
+                    D --> E[Clothing Becomes Child of Figure]
+                    E --> F[Clothing Inherits Figure's Poses]
+                    F --> G[Each Clothing Bone Follows Matching Figure Bone]
+                    G --> H[Clothing Bends, Twists, Moves with Figure]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style H fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>🎯 The Key Concept: Matching Rigging</h4>
+                    <p>
+                        For clothing to conform, it must have been created with a <strong>rigging structure that matches the figure</strong>. A shirt designed for Poser's LaFemme figure has the same bone structure (shoulder, upper arm, forearm, hand) as LaFemme herself. When you conform it, each clothing bone aligns with its corresponding figure bone.
+                    </p>
+                    <p>
+                        This is why you can't just take any 3D clothing from the internet and make it conform—it needs to be specifically designed for Poser and for the figure you're using.
+                    </p>
+                </div>
+
+                <h3>Real-World Analogy</h3>
+
+                <p>
+                    Think of conforming clothing like a <strong>puppet costume</strong>. Imagine a marionette puppet wearing a tiny jacket. The jacket isn't just glued to the puppet—it's designed with the same joints. When the puppet's arm bends at the elbow, the jacket's sleeve has an elbow too, so it bends naturally. That's exactly how conforming clothing works in 3D.
+                </p>
+
+                <p>
+                    In contrast, a regular prop is like putting a <strong>cardboard box</strong> on the puppet. Sure, you can attach it, but it won't bend or deform—it stays rigid no matter what the puppet does.
+                </p>
+
+                <blockquote>
+                    <p><strong>💡 Why This Matters:</strong> Understanding that conforming clothing has its own skeleton helps you troubleshoot issues. When clothing doesn't follow a pose correctly, it's usually because the rigging doesn't perfectly match, or morphs are needed to adjust the fit. We'll tackle these problems later in this lesson!</p>
+                </blockquote>
+
+            </section>
+
+            <section id="types-of-clothing" class="lesson-section">
+                <h2>🎽 Types of Clothing and Wearables</h2>
+                
+                <p>
+                    Not all clothing in Poser works the same way. Let's break down the different types you'll encounter and how each behaves.
+                </p>
+
+                <h3>Conforming Clothing (The Main Event)</h3>
+
+                <div class="card">
+                    <h4>What It Includes</h4>
+                    <ul>
+                        <li><strong>Body covering garments:</strong> Shirts, pants, dresses, skirts, jackets, coats</li>
+                        <li><strong>Footwear:</strong> Shoes, boots, sandals, socks</li>
+                        <li><strong>Full body items:</strong> Bodysuits, jumpsuits, full armor sets</li>
+                        <li><strong>Undergarments:</strong> Underwear, bras, slips (yes, layering matters!)</li>
+                    </ul>
+                    <p><strong>Behavior:</strong> Follows figure's skeleton automatically after conforming</p>
+                    <p><strong>Library location:</strong> Usually under Figures → (Brand) → Clothing</p>
+                </div>
+
+                <h3>Smart Props</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✨ The Automatic Helpers</h4>
+                    <p>
+                        Smart props are props (not clothing) that <strong>automatically parent themselves</strong> to the correct body part when loaded. They're "smart" because they know where they belong!
+                    </p>
+                    <p><strong>Common smart props:</strong></p>
+                    <ul>
+                        <li><strong>Glasses/sunglasses:</strong> Auto-parent to head</li>
+                        <li><strong>Hats and headwear:</strong> Auto-parent to head</li>
+                        <li><strong>Jewelry:</strong> Necklaces (neck/chest), bracelets (hands/wrists), earrings (head)</li>
+                        <li><strong>Held items:</strong> Some weapons, tools auto-parent to hands</li>
+                        <li><strong>Hair:</strong> Technically a smart prop that parents to head</li>
+                    </ul>
+                    <p><strong>Behavior:</strong> Auto-parent on load, move with that body part, but don't bend/deform</p>
+                    <p><strong>Library location:</strong> Props → (Brand) → Accessories or Smart Props folder</p>
+                </div>
+
+                <h3>Dynamic Clothing</h3>
+
+                <div class="card" style="background-color: #f3e5f5; border-left: 4px solid #9C27B0;">
+                    <h4>💨 Physics-Based Clothing (Advanced)</h4>
+                    <p>
+                        Dynamic clothing uses <strong>physics simulation</strong> to drape and flow realistically. Instead of conforming to the figure, it calculates how fabric would actually behave with gravity, wind, and movement.
+                    </p>
+                    <p><strong>Examples:</strong> Flowing capes, long dresses, flags, curtains</p>
+                    <p><strong>When to use:</strong> When you need realistic fabric draping and flow</p>
+                    <p><strong>Complexity:</strong> More advanced—requires cloth simulation setup</p>
+                    <p><strong>Note:</strong> We'll cover basic dynamic cloth in advanced lessons. For now, focus on conforming clothing!</p>
+                </div>
+
+                <h3>Rigid Props (Non-Conforming)</h3>
+
+                <div class="card">
+                    <h4>The Traditional Props</h4>
+                    <p>
+                        Regular props that you manually parent to figures, like we learned in Lesson 10.
+                    </p>
+                    <p><strong>Examples:</strong> Weapons, bags, tools, cups, books</p>
+                    <p><strong>Behavior:</strong> Rigid, move as one piece, require manual parenting</p>
+                    <p><strong>When to use:</strong> For items that don't need to deform (hard objects)</p>
+                </div>
+
+                <h3>The Clothing Hierarchy</h3>
+
+                <p>
+                    When dressing a figure, think in layers from closest to skin to outermost:
+                </p>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Naked Figure] --> B[Layer 1:<br/>Undergarments]
+                    B --> C[Layer 2:<br/>Base Clothing<br/>shirt, pants]
+                    C --> D[Layer 3:<br/>Outer Layer<br/>jacket, coat]
+                    D --> E[Layer 4:<br/>Accessories<br/>belt, jewelry]
+                    E --> F[Layer 5:<br/>Held Items<br/>props]
+                    
+                    style A fill:#ff6b6b,stroke:#333,stroke-width:2px,color:#fff
+                    style F fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <p>
+                    Each layer needs to fit over the previous layer without clipping through it. This is why clothing often comes with morphs to adjust thickness and fit.
+                </p>
+
+                <h3>Compatibility: Figure-Specific Clothing</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Critical Rule: Clothing Must Match Figure</h4>
+                    <p>
+                        Conforming clothing is designed for <strong>specific figures</strong>. You cannot mix and match freely between different figure types without issues.
+                    </p>
+                    <p><strong>Examples of figure compatibility:</strong></p>
+                    <ul>
+                        <li><strong>LaFemme clothing</strong> works on LaFemme figures</li>
+                        <li><strong>Andy clothing</strong> works on Andy figures (the male equivalent)</li>
+                        <li><strong>Genesis 8 clothing</strong> works on Genesis 8 figures (DAZ content)</li>
+                        <li><strong>Victoria 4 clothing</strong> works on Victoria 4 figures (older generation)</li>
+                    </ul>
+                    <p><strong>What happens if you try wrong clothing?</strong></p>
+                    <ul>
+                        <li>Won't conform properly</li>
+                        <li>Wrong size (huge or tiny)</li>
+                        <li>Won't follow poses correctly</li>
+                        <li>Massive poke-through and clipping</li>
+                    </ul>
+                    <p><strong>Solution:</strong> Always check clothing description for compatible figures before purchasing or using!</p>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Shopping Tip:</strong> When buying clothing from content stores, the product page always lists compatible figures. Make sure your figure is on that list! Many clothing sets work with multiple figure generations, but never assume—always check.</p>
+                </blockquote>
+
+            </section>
+
+            <section id="loading-clothing" class="lesson-section">
+                <h2>👕 Loading and Conforming Clothing</h2>
+                
+                <p>
+                    Now let's get practical. Here's exactly how to dress your figure with conforming clothing.
+                </p>
+
+                <h3>The Complete Clothing Workflow</h3>
+
+                <div class="card">
+                    <h4>Step-by-Step: Dressing Your Figure</h4>
+                    <ol>
+                        <li><strong>Start with your posed figure</strong>
+                            <ul>
+                                <li>Have your figure loaded and posed (or use default pose)</li>
+                                <li>Figure should be selected in scene</li>
+                            </ul>
+                        </li>
+                        <li><strong>Navigate to clothing in library</strong>
+                            <ul>
+                                <li>Open Library palette</li>
+                                <li>Go to Figures → (Your Figure Brand) → Clothing</li>
+                                <li>Or Props → Clothing (organization varies)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Preview the clothing item</strong>
+                            <ul>
+                                <li>Click on clothing thumbnail to see preview</li>
+                                <li>Check if it matches your figure type</li>
+                            </ul>
+                        </li>
+                        <li><strong>Load the clothing</strong>
+                            <ul>
+                                <li>Double-click clothing item</li>
+                                <li>Or drag into scene</li>
+                                <li>Clothing loads at origin, usually overlapping figure</li>
+                            </ul>
+                        </li>
+                        <li><strong>Conform the clothing to figure</strong>
+                            <ul>
+                                <li>With clothing selected</li>
+                                <li>Go to: Figure menu → Conform To...</li>
+                                <li>Select your figure from dropdown list</li>
+                                <li>Click OK</li>
+                            </ul>
+                        </li>
+                        <li><strong>Watch the magic happen</strong>
+                            <ul>
+                                <li>Clothing wraps itself around figure</li>
+                                <li>Automatically matches figure's current pose</li>
+                                <li>Becomes child of figure in hierarchy</li>
+                            </ul>
+                        </li>
+                        <li><strong>Adjust if needed</strong>
+                            <ul>
+                                <li>Check for poke-through</li>
+                                <li>Apply morphs to fix fit (covered next section)</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>Auto-Conform vs. Manual Conform</h3>
+
+                <p>
+                    Some clothing items are set to <strong>auto-conform</strong> when loaded. This means step 5 above happens automatically—the clothing conforms immediately upon loading. Other times, you need to manually conform using the Figure menu.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ How to Tell If Clothing Is Conformed</h4>
+                    <ul>
+                        <li><strong>Visual check:</strong> Clothing wraps naturally around figure, follows pose</li>
+                        <li><strong>Hierarchy check:</strong> Look at hierarchy panel
+                            <ul>
+                                <li>Conformed: Clothing appears nested under figure</li>
+                                <li>Not conformed: Clothing is separate in hierarchy</li>
+                            </ul>
+                        </li>
+                        <li><strong>Pose test:</strong> Move figure's arm
+                            <ul>
+                                <li>Conformed: Clothing sleeve moves with arm</li>
+                                <li>Not conformed: Clothing stays in place, arm pokes through</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <h3>Common Loading Scenarios</h3>
+
+                <div class="card">
+                    <h4>Scenario 1: Auto-Conform Clothing</h4>
+                    <p><strong>What happens:</strong></p>
+                    <ul>
+                        <li>Double-click clothing in library</li>
+                        <li>Clothing loads AND automatically conforms to active figure</li>
+                        <li>No manual conform step needed</li>
+                    </ul>
+                    <p><strong>This is ideal!</strong> Many modern clothing sets work this way.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Scenario 2: Manual Conform Required</h4>
+                    <p><strong>What happens:</strong></p>
+                    <ul>
+                        <li>Double-click clothing in library</li>
+                        <li>Clothing loads but doesn't conform automatically</li>
+                        <li>Appears overlapping figure but not following pose</li>
+                    </ul>
+                    <p><strong>Solution:</strong></p>
+                    <ol>
+                        <li>Select clothing item</li>
+                        <li>Figure → Conform To → Select Figure → OK</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Scenario 3: Wrong Figure Selected</h4>
+                    <p><strong>What happens:</strong></p>
+                    <ul>
+                        <li>You have multiple figures in scene</li>
+                        <li>Load clothing</li>
+                        <li>It conforms to wrong figure (or random one)</li>
+                    </ul>
+                    <p><strong>Solution:</strong></p>
+                    <ol>
+                        <li>Select clothing</li>
+                        <li>Figure → Conform To → Select CORRECT figure → OK</li>
+                        <li>Clothing recon forms to proper figure</li>
+                    </ol>
+                </div>
+
+                <h3>The Conform To Dialog</h3>
+
+                <p>
+                    When you use Figure → Conform To, a dialog appears listing all figures in your scene. Here's what you need to know:
+                </p>
+
+                <div class="card">
+                    <h4>Understanding the Conform Dialog</h4>
+                    <ul>
+                        <li><strong>Figure list:</strong> Shows all compatible figures in scene</li>
+                        <li><strong>Compatible figures:</strong> Only figures with matching skeleton structure appear</li>
+                        <li><strong>Grayed out figures:</strong> Incompatible with this clothing</li>
+                        <li><strong>Multiple matches:</strong> If you have multiple of same figure type, all appear</li>
+                        <li><strong>Selection:</strong> Click figure name, then OK</li>
+                    </ul>
+                </div>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Load Clothing Item] --> B{Auto-Conform?}
+                    B -->|Yes| C[Clothing Automatically<br/>Conforms to Active Figure]
+                    B -->|No| D[Clothing Loads<br/>But Not Conformed]
+                    D --> E[User: Figure → Conform To]
+                    E --> F[Select Target Figure]
+                    F --> G[Clothing Conforms<br/>to Selected Figure]
+                    C --> H[Clothing Follows<br/>Figure Poses]
+                    G --> H
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style H fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Unconforming Clothing</h3>
+
+                <p>
+                    Sometimes you need to unconform clothing (turn it back into a regular prop):
+                </p>
+
+                <ul>
+                    <li><strong>When:</strong> If you want to parent it differently or it's not working right</li>
+                    <li><strong>How:</strong> Select clothing → Figure → Unconf orm</li>
+                    <li><strong>Result:</strong> Clothing becomes independent prop, stops following figure</li>
+                    <li><strong>Then:</strong> Can delete it, reconform to different figure, or manually parent</li>
+                </ul>
+
+                <blockquote>
+                    <p><strong>💡 Pro Tip:</strong> Before conforming clothing, make sure your figure is selected and that it's the figure you want! With multiple figures in a scene, clothing can auto-conform to the wrong one. If that happens, simply select the clothing and use Figure → Conform To to switch it to the correct figure.</p>
+                </blockquote>
+
+            </section>
+
+            <section id="adjusting-fit" class="lesson-section">
+                <h2>🔧 Adjusting Fit with Morphs</h2>
+                
+                <p>
+                    Even with perfect conforming, clothing rarely fits absolutely perfectly right out of the box. This is where <strong>clothing morphs</strong> save the day. Think of morphs as the tailoring tools of the 3D world.
+                </p>
+
+                <h3>Why Fit Adjustments Are Needed</h3>
+
+                <p>
+                    Several factors can cause fit issues:
+                </p>
+
+                <div class="card">
+                    <h4>Common Fit Problems</h4>
+                    <ul>
+                        <li><strong>Poke-through:</strong> Body parts (breasts, shoulders, knees) poke through clothing</li>
+                        <li><strong>Figure morphs:</strong> If you morphed your figure (taller, more muscular, different body shape), clothing may not match</li>
+                        <li><strong>Extreme poses:</strong> Very bent limbs or twisted torsos can cause clothing to pull or clip</li>
+                        <li><strong>Layering:</strong> Wearing clothing over other clothing requires the outer layer to be slightly bigger</li>
+                        <li><strong>Different figure versions:</strong> Even within same figure type, proportions can vary</li>
+                    </ul>
+                </div>
+
+                <h3>Types of Clothing Morphs</h3>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>🎚️ Fit Morphs (The Most Important)</h4>
+                    <p>
+                        These adjust how closely clothing hugs the figure or how loose it is:
+                    </p>
+                    <ul>
+                        <li><strong>Tightness/Looseness:</strong> Make clothing tighter or looser overall</li>
+                        <li><strong>Body part specific:</strong> 
+                            <ul>
+                                <li>Bust adjust (for shirts, dresses)</li>
+                                <li>Hips adjust</li>
+                                <li>Shoulders adjust</li>
+                                <li>Arm/leg thickness</li>
+                            </ul>
+                        </li>
+                        <li><strong>Smooth/Tighten:</strong> Pull clothing closer to body to eliminate poke-through</li>
+                        <li><strong>Expand/Thicken:</strong> Make clothing bigger for layering</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✨ Style Morphs</h4>
+                    <p>
+                        These change the appearance of the clothing itself:
+                    </p>
+                    <ul>
+                        <li><strong>Sleeve length:</strong> Short sleeve ↔ Long sleeve</li>
+                        <li><strong>Hem length:</strong> Short skirt ↔ Long skirt</li>
+                        <li><strong>Collar:</strong> Open ↔ Closed, high collar ↔ low collar</li>
+                        <li><strong>Details:</strong> Pockets visible, buttons open/closed, rolled sleeves</li>
+                        <li><strong>Damage:</strong> Torn, worn, battle-damaged</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background-color: #f3e5f5; border-left: 4px solid #9C27B0;">
+                    <h4>🔄 Matching Morphs (The Helper Morphs)</h4>
+                    <p>
+                        These match specific figure body morphs:
+                    </p>
+                    <ul>
+                        <li><strong>What they are:</strong> If your figure uses "BodyBuilder" morph, clothing may have matching "BodyBuilder" morph</li>
+                        <li><strong>Purpose:</strong> Automatically adjust clothing to match figure's shape changes</li>
+                        <li><strong>How to use:</strong> If you morphed your figure, look for matching morphs in clothing</li>
+                        <li><strong>Common matching morphs:</strong> Muscular, Thin, Heavy, Tall, Short, Breast Size variations</li>
+                    </ul>
+                </div>
+
+                <h3>How to Access and Use Clothing Morphs</h3>
+
+                <div class="card">
+                    <h4>Step-by-Step: Applying Morphs</h4>
+                    <ol>
+                        <li><strong>Select the clothing item</strong>
+                            <ul>
+                                <li>Click on clothing in viewport</li>
+                                <li>Or select in hierarchy panel</li>
+                            </ul>
+                        </li>
+                        <li><strong>Open Parameters/Properties panel</strong>
+                            <ul>
+                                <li>Window → Parameters (if not visible)</li>
+                                <li>Usually on right side of interface</li>
+                            </ul>
+                        </li>
+                        <li><strong>Find morph category</strong>
+                            <ul>
+                                <li>Look for "Morphs" folder/category</li>
+                                <li>May be under "Body" or specific body parts</li>
+                                <li>Sometimes organized as "Fit", "Style", "Adjustments"</li>
+                            </ul>
+                        </li>
+                        <li><strong>Identify the morph you need</strong>
+                            <ul>
+                                <li>Read morph names carefully</li>
+                                <li>Look for descriptive names (BustAdjust, TightenChest, etc.)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Adjust the morph dial</strong>
+                            <ul>
+                                <li>Move slider or type in value</li>
+                                <li>Watch viewport to see effect</li>
+                                <li>Typical range: -1.0 to 1.0 or 0% to 100%</li>
+                            </ul>
+                        </li>
+                        <li><strong>Make small adjustments</strong>
+                            <ul>
+                                <li>Start with small values (0.1 to 0.3)</li>
+                                <li>Increase gradually until problem fixed</li>
+                                <li>Too much can look unnatural</li>
+                            </ul>
+                        </li>
+                        <li><strong>Combine multiple morphs if needed</strong>
+                            <ul>
+                                <li>May need bust adjust + tighten chest together</li>
+                                <li>Each morph targets specific area</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>Common Morph Solutions</h3>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Problem</th>
+                            <th>Morphs to Try</th>
+                            <th>Typical Values</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Breasts poking through shirt</strong></td>
+                            <td>Bust Adjust, Expand Bust, Smooth Bust</td>
+                            <td>+0.2 to +0.5</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Shoulders clipping</strong></td>
+                            <td>Shoulder Width, Smooth Shoulders</td>
+                            <td>+0.1 to +0.3</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Clothing too tight overall</strong></td>
+                            <td>Loosen, Expand, Scale</td>
+                            <td>+0.2 to +0.4</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pants clipping at hips/thighs</strong></td>
+                            <td>Hip Adjust, Thigh Smooth, Loosen Legs</td>
+                            <td>+0.2 to +0.5</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sleeves clipping bent arms</strong></td>
+                            <td>Arm Thickness, Elbow Smooth</td>
+                            <td>+0.1 to +0.3</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Layering jacket over shirt</strong></td>
+                            <td>Expand Overall, Thicken</td>
+                            <td>+0.3 to +0.6</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Clothing floating away from body</strong></td>
+                            <td>Tighten, Conform, Shrink</td>
+                            <td>-0.2 to -0.4</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>The Morph Workflow</h3>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Load and Conform Clothing] --> B[Check for Problems]
+                    B --> C{Issues Found?}
+                    C -->|No| D[Done! Clothing Fits]
+                    C -->|Yes| E[Identify Problem Area]
+                    E --> F[Select Clothing]
+                    F --> G[Open Parameters Panel]
+                    G --> H[Find Relevant Morphs]
+                    H --> I[Apply Small Adjustments]
+                    I --> J[Check Viewport]
+                    J --> K{Fixed?}
+                    K -->|No| I
+                    K -->|Yes| D
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style D fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Pro Tips for Morph Adjustment</h3>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3 style="color: white; margin-top: 0;">💡 Expert Morphing Techniques</h3>
+                    <ul style="color: white;">
+                        <li><strong>Work from different camera angles:</strong> Poke-through might be hidden from one angle but visible from another</li>
+                        <li><strong>Pose first, fit second:</strong> Get your pose right, THEN adjust clothing. Morphs needed depend on pose</li>
+                        <li><strong>Less is more:</strong> Over-morphing makes clothing look wrong. Start small (0.1-0.2)</li>
+                        <li><strong>Body-part specific:</strong> Most clothing lets you morph individual body parts separately—use this!</li>
+                        <li><strong>Save morph combinations:</strong> If you find a good combination, note the values for future use</li>
+                        <li><strong>Test renders:</strong> What looks fine in viewport might show problems in render (or vice versa)</li>
+                        <li><strong>Layer strategically:</strong> Inner layer tight, outer layers progressively looser</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ When Morphs Aren't Enough</h4>
+                    <p>
+                        Sometimes morphs can't fix severe issues:
+                    </p>
+                    <ul>
+                        <li><strong>Completely wrong figure:</strong> Clothing designed for different figure—get correct clothing</li>
+                        <li><strong>Extreme body morphs:</strong> If you made figure drastically different, clothing may not have enough morphs</li>
+                        <li><strong>Poor quality clothing:</strong> Some clothing just isn't well-made—limited morph options</li>
+                        <li><strong>Extreme pose limits:</strong> Some poses break any clothing (yoga positions, etc.)</li>
+                    </ul>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Try different clothing that fits better</li>
+                        <li>Reduce figure body morphs slightly</li>
+                        <li>Use less extreme poses</li>
+                        <li>Hide problem areas with camera angles</li>
+                        <li>Advanced: Use cloth room for dynamic simulation</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>🎯 The Morphing Mindset:</strong> Think of morphs like a tailor making adjustments. A little tuck here, a little let-out there. You're not redesigning the clothing—you're fine-tuning the fit. Small, strategic adjustments usually solve 90% of fit issues!</p>
+                </blockquote>
+
+            </section>
+
+            <section id="smart-props" class="lesson-section">
+                <h2>🎩 Smart Props and Auto-Parenting</h2>
+                
+                <p>
+                    Now let's talk about smart props—those clever accessories that know exactly where they belong on your figure without you having to manually parent them!
+                </p>
+
+                <h3>What Makes Props "Smart"?</h3>
+
+                <p>
+                    A smart prop is a regular prop with <strong>built-in parenting information</strong>. The creator embedded instructions that tell Poser: "When loaded, automatically parent me to [specific body part]."
+                </p>
+
+                <div class="card">
+                    <h4>Smart Props vs. Regular Props</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Regular Prop</th>
+                                <th>Smart Prop</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Loading</strong></td>
+                                <td>Loads at origin (0,0,0)</td>
+                                <td>Loads already attached to body part</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Parenting</strong></td>
+                                <td>Must manually parent</td>
+                                <td>Auto-parents on load</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Position</strong></td>
+                                <td>Must manually position</td>
+                                <td>Pre-positioned (usually correct spot)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Movement</strong></td>
+                                <td>Stays at origin until parented</td>
+                                <td>Immediately follows body part</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Examples</strong></td>
+                                <td>Generic sword, cup, book</td>
+                                <td>Glasses, hats, earrings, hair</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Common Smart Props</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✨ Typical Smart Props You'll Encounter</h4>
+                    
+                    <p><strong>Head-Parenting Items:</strong></p>
+                    <ul>
+                        <li><strong>Glasses/Sunglasses:</strong> Auto-parent to head, positioned on nose bridge</li>
+                        <li><strong>Hats/Caps/Helmets:</strong> Parent to head, sit on top of head</li>
+                        <li><strong>Earrings:</strong> Parent to head, positioned at ears</li>
+                        <li><strong>Headbands/Tiaras:</strong> Parent to head</li>
+                        <li><strong>Hair:</strong> Technically a smart prop (even though treated specially)</li>
+                    </ul>
+
+                    <p><strong>Neck/Chest Items:</strong></p>
+                    <ul>
+                        <li><strong>Necklaces:</strong> Parent to neck or chest</li>
+                        <li><strong>Ties:</strong> Parent to neck/chest</li>
+                        <li><strong>Scarves:</strong> Parent to neck</li>
+                    </ul>
+
+                    <p><strong>Hand/Wrist Items:</strong></p>
+                    <ul>
+                        <li><strong>Bracelets/Watches:</strong> Parent to left or right wrist</li>
+                        <li><strong>Rings:</strong> Parent to specific fingers</li>
+                        <li><strong>Gloves:</strong> Sometimes smart props, sometimes conforming</li>
+                    </ul>
+
+                    <p><strong>Held Items:</strong></p>
+                    <ul>
+                        <li><strong>Weapons:</strong> Some smart-parent to hands</li>
+                        <li><strong>Microphones:</strong> Parent to hand</li>
+                        <li><strong>Phones:</strong> Parent to hand</li>
+                    </ul>
+                </div>
+
+                <h3>How to Use Smart Props</h3>
+
+                <div class="card">
+                    <h4>The Easy Process</h4>
+                    <ol>
+                        <li><strong>Make sure figure is loaded</strong> (smart prop needs a parent!)</li>
+                        <li><strong>Select your figure</strong> (smart prop will parent to active figure if multiple in scene)</li>
+                        <li><strong>Navigate to smart prop in library</strong>
+                            <ul>
+                                <li>Usually in: Props → [Brand] → Accessories</li>
+                                <li>Or: Props → Smart Props</li>
+                                <li>Or alongside conforming clothing</li>
+                            </ul>
+                        </li>
+                        <li><strong>Double-click to load</strong></li>
+                        <li><strong>Smart prop automatically:</strong>
+                            <ul>
+                                <li>Parents to correct body part</li>
+                                <li>Positions itself correctly</li>
+                                <li>Ready to use immediately!</li>
+                            </ul>
+                        </li>
+                        <li><strong>Fine-tune position if needed</strong>
+                            <ul>
+                                <li>Translate slightly for perfect fit</li>
+                                <li>Rotate if not quite right</li>
+                                <li>Scale if size is off</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>When Smart Props Need Adjustments</h3>
+
+                <p>
+                    Smart props are pre-positioned for the default figure. If you've morphed your figure or used a different pose, adjustments may be needed:
+                </p>
+
+                <div class="card">
+                    <h4>Common Adjustments</h4>
+                    
+                    <p><strong>Glasses:</strong></p>
+                    <ul>
+                        <li>May need Z-translate (forward/back) to sit on nose properly</li>
+                        <li>May need scale if head is morphed larger/smaller</li>
+                        <li>May need slight rotation if head is tilted</li>
+                    </ul>
+
+                    <p><strong>Hats:</strong></p>
+                    <ul>
+                        <li>May need Y-translate (up/down) to sit at right height</li>
+                        <li>May need scale for different head sizes</li>
+                        <li>May sink into hair—adjust positioning</li>
+                    </ul>
+
+                    <p><strong>Jewelry:</strong></p>
+                    <ul>
+                        <li>Necklaces may need length adjustment (Y-translate)</li>
+                        <li>Bracelets may need scale for different wrist sizes</li>
+                        <li>Earrings usually perfect as-is</li>
+                    </ul>
+                </div>
+
+                <h3>Smart Props and Multiple Figures</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Important: Which Figure Gets the Smart Prop?</h4>
+                    <p>
+                        If you have multiple figures in your scene, smart props will parent to the <strong>currently selected figure</strong>.
+                    </p>
+                    <p><strong>Best practice:</strong></p>
+                    <ol>
+                        <li>Select the specific figure you want to dress/accessorize</li>
+                        <li>Then load smart props</li>
+                        <li>They'll attach to that figure</li>
+                    </ol>
+                    <p><strong>If smart prop attaches to wrong figure:</strong></p>
+                    <ol>
+                        <li>Select the smart prop</li>
+                        <li>Object → Change Parent</li>
+                        <li>Select correct body part on correct figure</li>
+                        <li>May need to reposition</li>
+                    </ol>
+                </div>
+
+                <h3>Creating Collections with Smart Props</h3>
+
+                <p>
+                    Smart props shine when creating complete looks:
+                </p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💎 Accessorizing Like a Pro</h4>
+                    
+                    <p><strong>Business Professional:</strong></p>
+                    <ul>
+                        <li>Conforming suit</li>
+                        <li>Smart prop: Glasses</li>
+                        <li>Smart prop: Watch</li>
+                        <li>Smart prop: Briefcase (parented to hand)</li>
+                        <li>Result: Complete professional look</li>
+                    </ul>
+
+                    <p><strong>Casual Youth:</strong></p>
+                    <ul>
+                        <li>Conforming jeans and t-shirt</li>
+                        <li>Smart prop: Baseball cap</li>
+                        <li>Smart prop: Earbuds</li>
+                        <li>Smart prop: Phone (in hand)</li>
+                        <li>Smart prop: Backpack</li>
+                        <li>Result: Modern casual character</li>
+                    </ul>
+
+                    <p><strong>Fantasy Warrior:</strong></p>
+                    <ul>
+                        <li>Conforming armor</li>
+                        <li>Smart prop: Helmet</li>
+                        <li>Smart prop: Sword (in hand)</li>
+                        <li>Smart prop: Shield (other hand)</li>
+                        <li>Regular props: Scene weapons</li>
+                        <li>Result: Battle-ready character</li>
+                    </ul>
+                </div>
+
+                <h3>Hair: The Special Smart Prop</h3>
+
+                <p>
+                    Hair in Poser is technically a smart prop, but it's special enough to warrant its own mention:
+                </p>
+
+                <div class="card">
+                    <h4>💇 Working with Hair Props</h4>
+                    <ul>
+                        <li><strong>Location:</strong> Usually in Hair library category (not Props)</li>
+                        <li><strong>Loading:</strong> Auto-parents to head like other smart props</li>
+                        <li><strong>Fitting:</strong> Often has morphs to adjust fit, length, style</li>
+                        <li><strong>Multiple hair pieces:</strong> Can load multiple (bangs, ponytail, etc.)</li>
+                        <li><strong>Dynamic hair:</strong> Some hair uses physics simulation (advanced)</li>
+                    </ul>
+                    <p><strong>Pro tip:</strong> Load hair AFTER clothing. Clothing may cover head area and you need to see how hair interacts with clothing (collars, hoods, etc.)</p>
+                </div>
+
+                <blockquote>
+                    <p><strong>✨ The Smart Props Advantage:</strong> Smart props save you time and frustration. Instead of manually parenting and positioning every accessory, you get instant results. It's the difference between spending 30 seconds or 5 minutes per accessory. Over a complete character outfit, that adds up to significant time savings!</p>
+                </blockquote>
+
+            </section>
+
+            <section id="layering" class="lesson-section">
+                <h2>👚 Managing Clothing Layers</h2>
+                
+                <p>
+                    In the real world, we don't just put on clothes—we layer them. Underwear, then shirt, then jacket. Each layer sits over the previous one. In Poser, managing multiple clothing layers is both an art and a science.
+                </p>
+
+                <h3>The Layering Principle</h3>
+
+                <p>
+                    Just like real clothing, 3D clothing layers need to be ordered properly:
+                </p>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Naked Figure<br/>Base Layer] --> B[Layer 1: Undergarments<br/>Closest to skin]
+                    B --> C[Layer 2: Base Clothing<br/>Shirt, pants, dress]
+                    C --> D[Layer 3: Mid Layer<br/>Vest, sweater]
+                    D --> E[Layer 4: Outer Layer<br/>Jacket, coat]
+                    E --> F[Layer 5: Accessories<br/>Belt, scarf, jewelry]
+                    F --> G[Layer 6: Held/Carried<br/>Bag, weapon, prop]
+                    
+                    style A fill:#ff6b6b,stroke:#333,stroke-width:2px,color:#fff
+                    style G fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>The Loading Order Strategy</h3>
+
+                <p>
+                    <strong>Load clothing in layer order—innermost to outermost.</strong> This helps prevent issues and makes adjustments easier.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Proper Loading Sequence</h4>
+                    <ol>
+                        <li><strong>Start with figure</strong> (obviously!)</li>
+                        <li><strong>Load undergarments</strong> (if visible or if affecting outer layers)
+                            <ul>
+                                <li>Bra, underwear, undershirt</li>
+                                <li>Conform to figure</li>
+                            </ul>
+                        </li>
+                        <li><strong>Load base clothing layer</strong>
+                            <ul>
+                                <li>Shirt, pants, skirt, dress</li>
+                                <li>Conform to figure</li>
+                                <li>Apply morphs to fit over undergarments</li>
+                            </ul>
+                        </li>
+                        <li><strong>Load mid layers</strong> (if any)
+                            <ul>
+                                <li>Vests, sweaters, casual jackets</li>
+                                <li>Conform to figure</li>
+                                <li>Apply morphs to fit over base layer</li>
+                            </ul>
+                        </li>
+                        <li><strong>Load outer layers</strong>
+                            <ul>
+                                <li>Heavy jackets, coats, cloaks</li>
+                                <li>Conform to figure</li>
+                                <li>Apply morphs to fit over everything</li>
+                            </ul>
+                        </li>
+                        <li><strong>Add accessories</strong>
+                            <ul>
+                                <li>Belts, scarves, jewelry</li>
+                                <li>Smart props and regular props</li>
+                            </ul>
+                        </li>
+                        <li><strong>Finally, add hair</strong> (interacts with clothing collars/hoods)</li>
+                    </ol>
+                </div>
+
+                <h3>Morphing for Layers</h3>
+
+                <p>
+                    Each outer layer needs to be slightly bigger than the layer beneath it. This is where layer morphs become essential:
+                </p>
+
+                <div class="card">
+                    <h4>Layer-Specific Morph Applications</h4>
+                    
+                    <p><strong>Undergarments (Layer 1):</strong></p>
+                    <ul>
+                        <li>Should be tight/form-fitting</li>
+                        <li>May need tighten morphs</li>
+                        <li>Minimal adjustments usually needed</li>
+                    </ul>
+
+                    <p><strong>Base Clothing (Layer 2):</strong></p>
+                    <ul>
+                        <li>Needs to fit over underwear</li>
+                        <li>Apply expand/loosen morphs: +0.1 to +0.2</li>
+                        <li>Focus on areas where underwear is thick</li>
+                    </ul>
+
+                    <p><strong>Mid Layers (Layer 3):</strong></p>
+                    <ul>
+                        <li>Must fit over shirt/pants</li>
+                        <li>Apply expand/thicken morphs: +0.2 to +0.4</li>
+                        <li>May need armhole adjustments for sleeves</li>
+                    </ul>
+
+                    <p><strong>Outer Layers (Layer 4):</strong></p>
+                    <ul>
+                        <li>Must accommodate everything underneath</li>
+                        <li>Apply expand morphs: +0.3 to +0.6</li>
+                        <li>Often come with "layering" morphs specifically for this</li>
+                    </ul>
+                </div>
+
+                <h3>Common Layering Scenarios</h3>
+
+                <div class="card">
+                    <h4>Scenario 1: T-Shirt Under Jacket</h4>
+                    <p><strong>Process:</strong></p>
+                    <ol>
+                        <li>Load and conform t-shirt → fit normally</li>
+                        <li>Load and conform jacket</li>
+                        <li>On jacket: apply "Expand" or "Thicken" morph (+0.3 to +0.5)</li>
+                        <li>Check sleeves: may need "Arm Thickness" adjustment</li>
+                        <li>Check shoulders: may need "Shoulder Width" adjustment</li>
+                        <li>Result: Jacket sits naturally over shirt</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Scenario 2: Pants Over Underwear</h4>
+                    <p><strong>Process:</strong></p>
+                    <ol>
+                        <li>Load and conform underwear → fit normally</li>
+                        <li>Load and conform pants</li>
+                        <li>On pants: slight "Expand" morph (+0.1 to +0.2)</li>
+                        <li>Focus on hip and thigh area</li>
+                        <li>Underwear should not poke through waistband</li>
+                        <li>Result: Natural pants fit</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Scenario 3: Full Winter Outfit</h4>
+                    <p><strong>Process:</strong></p>
+                    <ol>
+                        <li>Underwear → conform, normal fit</li>
+                        <li>Long underwear/thermal layer → conform, expand +0.1</li>
+                        <li>Shirt → conform, expand +0.2</li>
+                        <li>Sweater → conform, expand +0.3</li>
+                        <li>Heavy jacket → conform, expand +0.5 to +0.7</li>
+                        <li>Result: Bulky winter look without clipping</li>
+                    </ol>
+                </div>
+
+                <h3>The Hierarchy Panel: Your Layering Manager</h3>
+
+                <p>
+                    The hierarchy panel shows you all clothing items and their relationship to the figure. Use it to manage complex outfits:
+                </p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>📋 Managing Layers in Hierarchy</h4>
+                    <ul>
+                        <li><strong>Organization:</strong> All conformed clothing appears nested under figure</li>
+                        <li><strong>Naming:</strong> Rename each piece descriptively
+                            <ul>
+                                <li>Instead of: "Shirt", "Shirt 1", "Shirt 2"</li>
+                                <li>Use: "T-Shirt", "Button-Shirt", "Jacket"</li>
+                            </ul>
+                        </li>
+                        <li><strong>Visibility toggle:</strong> Click eye icon to hide layers temporarily
+                            <ul>
+                                <li>Hide outer layers to work on inner layers</li>
+                                <li>Toggle on/off to compare</li>
+                            </ul>
+                        </li>
+                        <li><strong>Selection:</strong> Click item in hierarchy to select it for morphing</li>
+                        <li><strong>Order awareness:</strong> Load order determines which items are "on top" visually</li>
+                    </ul>
+                </div>
+
+                <h3>Troubleshooting Layer Issues</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Common Layering Problems</h4>
+                    
+                    <p><strong>Problem: Inner layer poking through outer layer</strong></p>
+                    <p><strong>Solution:</strong></p>
+                    <ul>
+                        <li>Increase outer layer's expand morph</li>
+                        <li>OR decrease inner layer's tight/conform morph</li>
+                        <li>Check specific problem areas (elbows, knees, shoulders)</li>
+                    </ul>
+
+                    <p><strong>Problem: Too much gap between layers (floating clothing)</strong></p>
+                    <p><strong>Solution:</strong></p>
+                    <ul>
+                        <li>Reduce outer layer's expand morph slightly</li>
+                        <li>Layers should be close but not clipping</li>
+                    </ul>
+
+                    <p><strong>Problem: Can't tell which layer is which</strong></p>
+                    <p><strong>Solution:</strong></p>
+                    <ul>
+                        <li>Use hierarchy panel</li>
+                        <li>Rename items clearly</li>
+                        <li>Toggle visibility to isolate layers</li>
+                    </ul>
+
+                    <p><strong>Problem: Scene getting slow with many layers</strong></p>
+                    <p><strong>Solution:</strong></p>
+                    <ul>
+                        <li>Hide body parts under clothing (see next section)</li>
+                        <li>Lower preview quality</li>
+                        <li>Work on layers separately, combine for final render</li>
+                    </ul>
+                </div>
+
+                <h3>Layer Textures and Materials</h3>
+
+                <p>
+                    Beyond fit, consider visual layering:
+                </p>
+
+                <div class="card">
+                    <h4>Visual Layering Tips</h4>
+                    <ul>
+                        <li><strong>Color coordination:</strong> Layers should look intentional together</li>
+                        <li><strong>Texture variety:</strong> Mix smooth and textured fabrics for visual interest</li>
+                        <li><strong>Edge visibility:</strong> Inner layers should be visible at edges
+                            <ul>
+                                <li>Shirt collar visible above jacket neckline</li>
+                                <li>Shirt cuffs visible beyond jacket sleeves</li>
+                                <li>This proves layering is real</li>
+                            </ul>
+                        </li>
+                        <li><strong>Material differences:</strong> Different shader properties for different materials
+                            <ul>
+                                <li>Cotton shirt: matte, less reflective</li>
+                                <li>Leather jacket: slight gloss, more reflective</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>👔 The Layering Rule of Thumb:</strong> In the real world, we instinctively know a jacket goes over a shirt. Apply that same logic in 3D. Load in order, expand progressively, and check from multiple angles. If it looks wrong, it is wrong—trust your eye and adjust until it looks natural!</p>
+                </blockquote>
+
+            </section>
+
+            <section id="hiding-geometry" class="lesson-section">
+                <h2>👁️ Hiding Body Parts for Performance</h2>
+                
+                <p>
+                    Here's a pro technique that both improves performance and solves poke-through problems: <strong>hiding body parts that are completely covered by clothing</strong>.
+                </p>
+
+                <h3>Why Hide Body Parts?</h3>
+
+                <div class="card">
+                    <h4>Benefits of Hiding Covered Geometry</h4>
+                    <ul>
+                        <li><strong>Performance improvement:</strong> Less geometry = faster viewport and faster renders</li>
+                        <li><strong>Eliminates poke-through:</strong> Can't poke through if body part isn't there!</li>
+                        <li><strong>Cleaner workflow:</strong> Less visual clutter when working</li>
+                        <li><strong>Simpler morph adjustments:</strong> Focus on visible clothing only</li>
+                        <li><strong>Professional technique:</strong> This is what the pros do!</li>
+                    </ul>
+                </div>
+
+                <h3>What to Hide and When</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Safe to Hide</h4>
+                    
+                    <p><strong>Full Coverage Scenarios:</strong></p>
+                    <ul>
+                        <li><strong>Long sleeve shirt:</strong> Hide arms, hands (if gloves too)</li>
+                        <li><strong>Long pants:</strong> Hide legs, feet (if shoes too)</li>
+                        <li><strong>Full body suit:</strong> Hide torso, arms, legs</li>
+                        <li><strong>Gloves:</strong> Hide hands</li>
+                        <li><strong>Shoes/Boots:</strong> Hide feet</li>
+                        <li><strong>Helmet with visor:</strong> Hide head (if completely covered)</li>
+                    </ul>
+
+                    <p><strong>Rule:</strong> If camera will NEVER see it, hide it!</p>
+                </div>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Don't Hide These</h4>
+                    
+                    <p><strong>Visible Body Parts:</strong></p>
+                    <ul>
+                        <li><strong>Exposed skin:</strong> Obvious—if it shows, it stays</li>
+                        <li><strong>Head/Face:</strong> Unless completely covered by helmet</li>
+                        <li><strong>Hands:</strong> If no gloves or sleeves ride up</li>
+                        <li><strong>Feet:</strong> If wearing sandals or going barefoot</li>
+                        <li><strong>Partial coverage:</strong> Short sleeves showing forearms</li>
+                    </ul>
+
+                    <p><strong>Warning:</strong> Don't hide body parts you might need to show from different camera angles!</p>
+                </div>
+
+                <h3>How to Hide Body Parts</h3>
+
+                <div class="card">
+                    <h4>Method 1: Using the Hierarchy Panel (Easiest)</h4>
+                    <ol>
+                        <li><strong>Open hierarchy panel</strong> (usually on left side)</li>
+                        <li><strong>Expand your figure</strong> to see body parts</li>
+                        <li><strong>Find the body part to hide</strong>
+                            <ul>
+                                <li>Example: Left Forearm, Right Hand, Left Foot</li>
+                            </ul>
+                        </li>
+                        <li><strong>Click the eye icon</strong> next to that body part
+                            <ul>
+                                <li>Eye open = visible</li>
+                                <li>Eye closed/crossed = hidden</li>
+                            </ul>
+                        </li>
+                        <li><strong>Repeat for other body parts</strong></li>
+                        <li><strong>Body parts remain hidden</strong> in viewport and renders</li>
+                    </ol>
+                    <p><strong>To unhide:</strong> Click the eye icon again to toggle visibility back on</p>
+                </div>
+
+                <div class="card">
+                    <h4>Method 2: Using Properties Panel</h4>
+                    <ol>
+                        <li><strong>Select the body part</strong> (click on it in viewport or hierarchy)</li>
+                        <li><strong>Open Properties panel</strong> (Window → Properties)</li>
+                        <li><strong>Find "Visible" checkbox</strong></li>
+                        <li><strong>Uncheck "Visible"</strong></li>
+                        <li><strong>Body part disappears</strong></li>
+                    </ol>
+                    <p><strong>To unhide:</strong> Recheck the "Visible" checkbox</p>
+                </div>
+
+                <h3>Strategic Hiding Workflow</h3>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>🎯 Pro Hiding Strategy</h4>
+                    <ol>
+                        <li><strong>Dress figure completely first</strong>
+                            <ul>
+                                <li>Load all clothing</li>
+                                <li>Conform everything</li>
+                                <li>Apply necessary morphs</li>
+                            </ul>
+                        </li>
+                        <li><strong>Set final camera angle</strong>
+                            <ul>
+                                <li>Determines what's actually visible</li>
+                                <li>Some body parts may be hidden by camera angle too</li>
+                            </ul>
+                        </li>
+                        <li><strong>Identify completely covered parts</strong>
+                            <ul>
+                                <li>Walk through figure mentally</li>
+                                <li>Check from multiple angles (not just camera view)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Hide conservatively first</strong>
+                            <ul>
+                                <li>Start with obviously hidden parts</li>
+                                <li>Test render to ensure nothing shows that shouldn't</li>
+                            </ul>
+                        </li>
+                        <li><strong>Hide aggressively for performance</strong>
+                            <ul>
+                                <li>If confident about coverage, hide more</li>
+                                <li>Can always unhide if needed</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>Common Hiding Patterns</h3>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Outfit Type</th>
+                            <th>Body Parts to Hide</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Business suit (full)</strong></td>
+                            <td>Torso, arms (if long sleeves), legs, feet (in shoes)</td>
+                            <td>Keep hands visible unless wearing gloves</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Casual jeans & t-shirt</strong></td>
+                            <td>Legs (covered by jeans), feet (in shoes)</td>
+                            <td>Arms visible if short sleeves</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Long dress</strong></td>
+                            <td>Legs, feet</td>
+                            <td>Arms depend on sleeve length</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Full armor</strong></td>
+                            <td>Everything except head (if visible)</td>
+                            <td>Most aggressive hiding scenario</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Swimsuit</strong></td>
+                            <td>None (minimal coverage)</td>
+                            <td>Most skin visible</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Winter coat</strong></td>
+                            <td>Torso, arms, legs (if long), feet</td>
+                            <td>Heavy clothing = more hiding opportunity</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>The Performance Impact</h3>
+
+                <p>
+                    How much does hiding body parts help?
+                </p>
+
+                <div class="card">
+                    <h4>Performance Comparison</h4>
+                    <ul>
+                        <li><strong>Full figure visible + clothing:</strong> 100% geometry load</li>
+                        <li><strong>Hide arms and legs:</strong> ~40-50% reduction</li>
+                        <li><strong>Hide torso, arms, legs:</strong> ~60-70% reduction</li>
+                        <li><strong>Full armor (most hidden):</strong> ~70-80% reduction</li>
+                    </ul>
+                    <p><strong>Result:</strong> Noticeably faster viewport, significantly faster rendering</p>
+                </div>
+
+                <h3>Troubleshooting Hidden Parts</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Common Issues</h4>
+                    
+                    <p><strong>Problem: Hidden body part shows in final render</strong></p>
+                    <p><strong>Cause:</strong> Clothing transparent or camera angle reveals gap</p>
+                    <p><strong>Solution:</strong> Unhide that body part, or adjust clothing</p>
+                    <br>
+                    
+                    <p><strong>Problem: Forgot what I hid</strong></p>
+                    <p><strong>Solution:</strong> Check hierarchy panel—hidden items have closed eye icon</p>
+                    <br>
+                    
+                    <p><strong>Problem: Want to quickly unhide everything</strong></p>
+                    <p><strong>Solution:</strong> Go through hierarchy and click each closed eye icon. Or reload figure (loses clothing though)</p>
+                    <br>
+                    
+                    <p><strong>Problem: Clothing looks weird after hiding body parts</strong></p>
+                    <p><strong>Cause:</strong> Some clothing uses body parts as reference for positioning</p>
+                    <p><strong>Solution:</strong> Unhide the body part—this is rare but can happen</p>
+                </div>
+
+                <h3>Hiding vs. Transparency</h3>
+
+                <p>
+                    Some people try to use transparency instead of hiding. Here's why that doesn't work as well:
+                </p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Approach</th>
+                            <th>How It Works</th>
+                            <th>Performance</th>
+                            <th>Best Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Hiding (visibility off)</strong></td>
+                            <td>Geometry not rendered at all</td>
+                            <td>Excellent - geometry doesn't exist</td>
+                            <td>Completely covered body parts</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Transparency</strong></td>
+                            <td>Geometry rendered but invisible</td>
+                            <td>Poor - still calculates geometry</td>
+                            <td>When you need the volume but not the surface</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    <strong>Verdict:</strong> For completely covered body parts under clothing, always use hiding (visibility off), not transparency!
+                </p>
+
+                <blockquote>
+                    <p><strong>🎯 The Visibility Mindset:</strong> Think of hiding body parts like a movie set. The camera only films one angle—the back of the set doesn't need to exist. In 3D, if the camera will never see it and it's completely covered, it doesn't need to render. Save that computing power for what matters!</p>
+                </blockquote>
+
+            </section>
+
+            <section id="troubleshooting" class="lesson-section">
+                <h2>🔧 Troubleshooting Common Issues</h2>
+                
+                <p>
+                    Even with all this knowledge, things can still go wrong. Let's tackle the most common clothing problems and their solutions.
+                </p>
+
+                <h3>Issue 1: Poke-Through</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The Most Common Problem</h4>
+                    <p><strong>Symptom:</strong> Body parts (breasts, shoulders, knees, elbows) poke through clothing</p>
+                    <p><strong>Causes:</strong></p>
+                    <ul>
+                        <li>Clothing not morphed to match figure's body shape</li>
+                        <li>Extreme pose causing clothing to pull tight</li>
+                        <li>Clothing designed for different body proportions</li>
+                        <li>Multiple clothing layers fighting for same space</li>
+                    </ul>
+                    <p><strong>Solutions (try in order):</strong></p>
+                    <ol>
+                        <li><strong>Apply fit morphs:</strong> Bust adjust, smooth chest, expand, etc. (values: +0.2 to +0.5)</li>
+                        <li><strong>Check for matching body morphs:</strong> If figure is "Muscular 0.8", apply "Muscular" morph to clothing too</li>
+                        <li><strong>Adjust pose slightly:</strong> Sometimes small pose change eliminates problem</li>
+                        <li><strong>Hide the body part:</strong> If completely covered, just hide it!</li>
+                        <li><strong>Camera angle:</strong> Position camera to not show the problem (last resort)</li>
+                    </ol>
+                </div>
+
+                <h3>Issue 2: Clothing Won't Conform</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The "Why Won't It Work?" Problem</h4>
+                    <p><strong>Symptom:</strong> Figure → Conform To is grayed out, or clothing doesn't wrap around figure</p>
+                    <p><strong>Causes & Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Wrong figure type:</strong>
+                            <ul>
+                                <li>Cause: Clothing designed for different figure (LaFemme clothing on Genesis 8 figure)</li>
+                                <li>Solution: Get correct clothing for your figure type</li>
+                            </ul>
+                        </li>
+                        <li><strong>Not actually conforming clothing:</strong>
+                            <ul>
+                                <li>Cause: Loaded a regular prop thinking it was clothing</li>
+                                <li>Solution: Check library category—should be in Clothing or Figures</li>
+                            </ul>
+                        </li>
+                        <li><strong>No figure loaded:</strong>
+                            <ul>
+                                <li>Cause: Conforming needs a figure to conform TO</li>
+                                <li>Solution: Load figure first, then clothing</li>
+                            </ul>
+                        </li>
+                        <li><strong>Corrupted clothing file:</strong>
+                            <ul>
+                                <li>Cause: File installation error or download problem</li>
+                                <li>Solution: Reinstall the clothing content</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <h3>Issue 3: Clothing Explodes or Looks Distorted</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The "What Happened?!" Problem</h4>
+                    <p><strong>Symptom:</strong> Clothing loads looking stretched, distorted, or pieces flying everywhere</p>
+                    <p><strong>Causes & Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Figure in extreme pose when clothing loaded:</strong>
+                            <ul>
+                                <li>Cause: Clothing tries to match extreme pose immediately, can't handle it</li>
+                                <li>Solution: Put figure in zero pose (T-pose), load clothing, THEN pose figure</li>
+                            </ul>
+                        </li>
+                        <li><strong>Scale mismatch:</strong>
+                            <ul>
+                                <li>Cause: Figure or clothing has wrong scale value</li>
+                                <li>Solution: Check scale in parameters—should be around 100%</li>
+                            </ul>
+                        </li>
+                        <li><strong>Rigging problem:</strong>
+                            <ul>
+                                <li>Cause: Clothing file has broken rigging data</li>
+                                <li>Solution: Reinstall clothing or contact content creator</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <h3>Issue 4: Clothing Moves Separately from Figure</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The "It's Not Following" Problem</h4>
+                    <p><strong>Symptom:</strong> Move figure's arm, clothing sleeve doesn't move with it</p>
+                    <p><strong>Cause:</strong> Clothing not properly conformed</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ol>
+                        <li><strong>Check conforming status:</strong> Look in hierarchy—is clothing nested under figure?</li>
+                        <li><strong>Reconform:</strong> Select clothing → Figure → Conform To → Select figure</li>
+                        <li><strong>If still doesn't work:</strong> Unconform, delete clothing, reload fresh, conform again</li>
+                    </ol>
+                </div>
+
+                <h3>Issue 5: Multiple Clothing Items Interfering</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The "Too Crowded" Problem</h4>
+                    <p><strong>Symptom:</strong> Layered clothing clipping through each other</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Apply progressive expand morphs:</strong>
+                            <ul>
+                                <li>Inner layer: 0 or +0.1</li>
+                                <li>Middle layer: +0.2 to +0.3</li>
+                                <li>Outer layer: +0.4 to +0.6</li>
+                            </ul>
+                        </li>
+                        <li><strong>Load in correct order:</strong> Inside out</li>
+                        <li><strong>Consider alternatives:</strong> Some clothing combinations just don't work well together</li>
+                        <li><strong>Hide inner layers:</strong> If not visible, hide them to reduce clipping</li>
+                    </ul>
+                </div>
+
+                <h3>Issue 6: Smart Props in Wrong Location</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The "Glasses on the Floor" Problem</h4>
+                    <p><strong>Symptom:</strong> Smart prop parents correctly but positioned wrong</p>
+                    <p><strong>Causes & Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Figure morphs:</strong>
+                            <ul>
+                                <li>Smart prop positioned for default figure</li>
+                                <li>Your figure has different proportions (bigger head, etc.)</li>
+                                <li>Solution: Manually adjust position and scale</li>
+                            </ul>
+                        </li>
+                        <li><strong>Parented to wrong figure:</strong>
+                            <ul>
+                                <li>Multiple figures in scene</li>
+                                <li>Solution: Object → Change Parent → Select correct figure's body part</li>
+                            </ul>
+                        </li>
+                        <li><strong>Not truly a smart prop:</strong>
+                            <ul>
+                                <li>Regular prop that needs manual parenting</li>
+                                <li>Solution: Manually parent to desired body part</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <h3>Issue 7: Can't Find Clothing Morphs</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The "Where Are The Morphs?" Problem</h4>
+                    <p><strong>Symptom:</strong> Opened parameters but can't find expected morphs</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Make sure clothing is selected:</strong> Not figure—the actual clothing item</li>
+                        <li><strong>Expand all categories:</strong> Morphs may be in Body → Morphs or other nested locations</li>
+                        <li><strong>Check different body parts:</strong> Some morphs are under specific body parts (Chest, Hip, etc.)</li>
+                        <li><strong>Clothing may have limited morphs:</strong> Not all clothing comes with extensive morphs</li>
+                        <li><strong>Use search:</strong> Some parameter panels have search function</li>
+                    </ul>
+                </div>
+
+                <h3>Issue 8: Clothing Looks Wrong After Saving/Loading</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The "It Looked Fine Before" Problem</h4>
+                    <p><strong>Symptom:</strong> Saved scene, closed Poser, reopened—clothing is wrong</p>
+                    <p><strong>Possible causes:</strong></p>
+                    <ul>
+                        <li><strong>Morphs not saved:</strong>
+                            <ul>
+                                <li>Some versions may not save all morph settings</li>
+                                <li>Solution: Resave with different save options, or reapply morphs</li>
+                            </ul>
+                        </li>
+                        <li><strong>Clothing library path changed:</strong>
+                            <ul>
+                                <li>Poser can't find clothing files</li>
+                                <li>Solution: Check library paths in preferences</li>
+                            </ul>
+                        </li>
+                        <li><strong>Conforming lost:</strong>
+                            <ul>
+                                <li>Clothing loaded but not conformed</li>
+                                <li>Solution: Reconform all clothing items</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <h3>The Systematic Troubleshooting Approach</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ When Things Go Wrong: Your Checklist</h4>
+                    <ol>
+                        <li><strong>Identify the specific problem</strong> (poke-through, wrong fit, won't conform, etc.)</li>
+                        <li><strong>Check the obvious first</strong>
+                            <ul>
+                                <li>Is clothing selected when trying to use it?</li>
+                                <li>Is it conformed? (check hierarchy)</li>
+                                <li>Right clothing for this figure type?</li>
+                            </ul>
+                        </li>
+                        <li><strong>Try the simplest solution</strong>
+                            <ul>
+                                <li>Apply relevant morph</li>
+                                <li>Adjust pose slightly</li>
+                                <li>Reconform</li>
+                            </ul>
+                        </li>
+                        <li><strong>If that doesn't work, escalate</strong>
+                            <ul>
+                                <li>Delete and reload clothing</li>
+                                <li>Check figure is at correct scale</li>
+                                <li>Try different clothing item</li>
+                            </ul>
+                        </li>
+                        <li><strong>Last resort options</strong>
+                            <ul>
+                                <li>Hide problem body parts</li>
+                                <li>Adjust camera to avoid showing problem</li>
+                                <li>Contact content creator for support</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <blockquote>
+                    <p><strong>🔧 The Troubleshooter's Mantra:</strong> "90% of clothing problems are solved by morphs. 9% are solved by reconforming. The remaining 1% means you need different clothing." Start with morphs, work your way up, and you'll fix almost everything!</p>
+                </blockquote>
+
+            </section>
+
+            <section id="project" class="lesson-section">
+                <h2>🎯 Project: Dress a Figure in a Complete Outfit</h2>
+                
+                <p>
+                    Time to put everything together! You'll create a fully dressed character with multiple clothing layers and accessories.
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3 style="color: white; margin-top: 0;">👔 Project Brief</h3>
+                    <p style="color: white;">
+                        Create a completely dressed figure with at least 3-4 clothing items plus accessories, properly fitted and ready for a professional render.
+                    </p>
+                    <p><strong style="color: white;">Requirements:</strong></p>
+                    <ul style="color: white;">
+                        <li>Base clothing layer (shirt/pants or dress)</li>
+                        <li>At least one additional layer (jacket, vest, or outer garment)</li>
+                        <li>Footwear</li>
+                        <li>At least 2 accessories (smart props or jewelry)</li>
+                        <li>All clothing properly conformed and fitted</li>
+                        <li>No visible poke-through from final camera angle</li>
+                        <li>Hidden body parts where appropriate</li>
+                        <li>Figure in a natural pose</li>
+                    </ul>
+                    <p style="color: white;"><strong>Time allocation:</strong> 45-60 minutes</p>
+                </div>
+
+                <h3>Choose Your Character Style</h3>
+
+                <p>
+                    Select one of these character archetypes (or create your own):
+                </p>
+
+                <div class="card">
+                    <h4>Option A: Business Professional</h4>
+                    <p><strong>Outfit:</strong></p>
+                    <ul>
+                        <li>Dress shirt or blouse</li>
+                        <li>Dress pants or skirt</li>
+                        <li>Suit jacket or blazer</li>
+                        <li>Dress shoes</li>
+                        <li>Accessories: Watch, glasses, briefcase or bag</li>
+                    </ul>
+                    <p><strong>Mood:</strong> Confident, professional, polished</p>
+                </div>
+
+                <div class="card">
+                    <h4>Option B: Casual Modern</h4>
+                    <p><strong>Outfit:</strong></p>
+                    <ul>
+                        <li>T-shirt or casual shirt</li>
+                        <li>Jeans or casual pants</li>
+                        <li>Hoodie, cardigan, or light jacket</li>
+                        <li>Sneakers or casual shoes</li>
+                        <li>Accessories: Baseball cap, headphones, phone, backpack</li>
+                    </ul>
+                    <p><strong>Mood:</strong> Relaxed, approachable, contemporary</p>
+                </div>
+
+                <div class="card">
+                    <h4>Option C: Fantasy Adventurer</h4>
+                    <p><strong>Outfit:</strong></p>
+                    <ul>
+                        <li>Tunic or medieval shirt</li>
+                        <li>Pants or leggings</li>
+                        <li>Vest, cloak, or armor pieces</li>
+                        <li>Boots</li>
+                        <li>Accessories: Belt, sword, pouches, helmet or hat</li>
+                    </ul>
+                    <p><strong>Mood:</strong> Adventurous, ready for action</p>
+                </div>
+
+                <div class="card">
+                    <h4>Option D: Winter Casual</h4>
+                    <p><strong>Outfit:</strong></p>
+                    <ul>
+                        <li>Long-sleeve shirt or thermal</li>
+                        <li>Jeans or warm pants</li>
+                        <li>Sweater or pullover</li>
+                        <li>Heavy jacket or coat</li>
+                        <li>Boots</li>
+                        <li>Accessories: Scarf, hat, gloves</li>
+                    </ul>
+                    <p><strong>Mood:</strong> Cozy, bundled up, seasonal</p>
+                </div>
+
+                <h3>Step-by-Step Project Workflow</h3>
+
+                <div class="card">
+                    <h4>Phase 1: Setup (5 minutes)</h4>
+                    <ol>
+                        <li><strong>Load your figure</strong>
+                            <ul>
+                                <li>Use default figure (LaFemme, Andy, or your preference)</li>
+                                <li>Start in T-pose or default pose</li>
+                            </ul>
+                        </li>
+                        <li><strong>Plan your outfit</strong>
+                            <ul>
+                                <li>Browse library to see what's available</li>
+                                <li>Choose character style</li>
+                                <li>Mentally note loading order</li>
+                            </ul>
+                        </li>
+                        <li><strong>Organize workspace</strong>
+                            <ul>
+                                <li>Open hierarchy panel</li>
+                                <li>Open parameters panel</li>
+                                <li>Set camera to comfortable working angle</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 2: Base Layer (10 minutes)</h4>
+                    <ol>
+                        <li><strong>Load base clothing</strong>
+                            <ul>
+                                <li>Start with shirt/top</li>
+                                <li>Then pants/skirt/dress</li>
+                            </ul>
+                        </li>
+                        <li><strong>Conform each item</strong>
+                            <ul>
+                                <li>Check hierarchy—verify conformed status</li>
+                                <li>Clothing should wrap figure immediately</li>
+                            </ul>
+                        </li>
+                        <li><strong>Check for poke-through</strong>
+                            <ul>
+                                <li>Rotate camera around figure</li>
+                                <li>Look for problem areas</li>
+                            </ul>
+                        </li>
+                        <li><strong>Apply fit morphs if needed</strong>
+                            <ul>
+                                <li>Start with small values (+0.1 to +0.2)</li>
+                                <li>Focus on bust, shoulders, hips</li>
+                            </ul>
+                        </li>
+                        <li><strong>Rename items in hierarchy</strong>
+                            <ul>
+                                <li>"T-Shirt", "Jeans", etc.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 3: Footwear (5 minutes)</h4>
+                    <ol>
+                        <li><strong>Load shoes/boots</strong></li>
+                        <li><strong>Conform to figure</strong></li>
+                        <li><strong>Check foot positioning</strong>
+                            <ul>
+                                <li>Feet should sit properly in shoes</li>
+                                <li>No floating or sinking</li>
+                            </ul>
+                        </li>
+                        <li><strong>Apply morphs if needed</strong></li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 4: Outer Layer (10 minutes)</h4>
+                    <ol>
+                        <li><strong>Load jacket/coat/vest</strong></li>
+                        <li><strong>Conform to figure</strong></li>
+                        <li><strong>Apply expand morphs</strong>
+                            <ul>
+                                <li>Must fit over base clothing</li>
+                                <li>Start with +0.3 to +0.5</li>
+                                <li>Adjust until no clipping with base layer</li>
+                            </ul>
+                        </li>
+                        <li><strong>Check layering</strong>
+                            <ul>
+                                <li>Base clothing should be visible at edges</li>
+                                <li>Shirt collar above jacket neckline</li>
+                                <li>Sleeves showing if appropriate</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 5: Accessories (10 minutes)</h4>
+                    <ol>
+                        <li><strong>Load first smart prop</strong>
+                            <ul>
+                                <li>Glasses, hat, or jewelry</li>
+                                <li>Should auto-parent and position</li>
+                            </ul>
+                        </li>
+                        <li><strong>Adjust position if needed</strong>
+                            <ul>
+                                <li>Small translate/rotate adjustments</li>
+                                <li>Scale if too big/small</li>
+                            </ul>
+                        </li>
+                        <li><strong>Load second smart prop</strong></li>
+                        <li><strong>Load any held items</strong>
+                            <ul>
+                                <li>Parent to hand if not smart prop</li>
+                                <li>Position naturally in grip</li>
+                            </ul>
+                        </li>
+                        <li><strong>Load hair if available</strong>
+                            <ul>
+                                <li>Should auto-parent to head</li>
+                                <li>Check interaction with collar/hat</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 6: Posing (10 minutes)</h4>
+                    <ol>
+                        <li><strong>Create natural pose</strong>
+                            <ul>
+                                <li>Standing, sitting, or action pose</li>
+                                <li>Break symmetry</li>
+                                <li>Weight distribution</li>
+                            </ul>
+                        </li>
+                        <li><strong>Check clothing with pose</strong>
+                            <ul>
+                                <li>Clothing should follow naturally</li>
+                                <li>Look for new poke-through from bent limbs</li>
+                            </ul>
+                        </li>
+                        <li><strong>Adjust morphs for pose if needed</strong>
+                            <ul>
+                                <li>Bent arms may need elbow morphs</li>
+                                <li>Bent legs may need knee morphs</li>
+                            </ul>
+                        </li>
+                        <li><strong>Adjust accessories for pose</strong>
+                            <ul>
+                                <li>Glasses stay put (good!)</li>
+                                <li>Held items may need repositioning</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 7: Optimization & Polish (10 minutes)</h4>
+                    <ol>
+                        <li><strong>Set final camera angle</strong>
+                            <ul>
+                                <li>Choose best view of character</li>
+                                <li>Frame nicely</li>
+                            </ul>
+                        </li>
+                        <li><strong>Hide body parts</strong>
+                            <ul>
+                                <li>Identify completely covered parts</li>
+                                <li>Hide via hierarchy panel</li>
+                                <li>Test that nothing shows that shouldn't</li>
+                            </ul>
+                        </li>
+                        <li><strong>Final poke-through check</strong>
+                            <ul>
+                                <li>Rotate camera 360° around figure</li>
+                                <li>Fix any remaining issues</li>
+                            </ul>
+                        </li>
+                        <li><strong>Clean up hierarchy</strong>
+                            <ul>
+                                <li>All items named descriptively</li>
+                                <li>Organization makes sense</li>
+                            </ul>
+                        </li>
+                        <li><strong>Test render (optional)</strong>
+                            <ul>
+                                <li>Quick render to see how it looks</li>
+                                <li>Identify any issues not visible in viewport</li>
+                            </ul>
+                        </li>
+                        <li><strong>Save your work!</strong>
+                            <ul>
+                                <li>Descriptive filename</li>
+                                <li>Include character style in name</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>Success Criteria</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Your Dressed Character Should Have:</h4>
+                    <ul>
+                        <li>□ At least 3-4 clothing items (base + outer + footwear)</li>
+                        <li>□ All clothing properly conformed (check hierarchy)</li>
+                        <li>□ No visible poke-through from camera angle</li>
+                        <li>□ Layering looks natural (outer over inner)</li>
+                        <li>□ At least 2 accessories</li>
+                        <li>□ Natural, interesting pose</li>
+                        <li>□ Covered body parts hidden for performance</li>
+                        <li>□ Clean, organized hierarchy with descriptive names</li>
+                        <li>□ Professional appearance worthy of a portfolio piece</li>
+                        <li>□ Character has personality through clothing choices</li>
+                    </ul>
+                </div>
+
+                <h3>Bonus Challenges</h3>
+
+                <ul>
+                    <li><strong>Add even more layers:</strong> Create 5-6 layer outfit (underwear, shirt, vest, jacket, coat)</li>
+                    <li><strong>Create outfit variations:</strong> Save 3 different outfits for same figure</li>
+                    <li><strong>Try extreme morphs:</strong> Make figure very muscular or very thin, adjust all clothing to fit</li>
+                    <li><strong>Action pose challenge:</strong> Dress figure then put in dynamic action pose, fix any issues</li>
+                    <li><strong>Multiple characters:</strong> Dress 2-3 figures in complementary outfits</li>
+                    <li><strong>Period costume:</strong> Create historical outfit with appropriate layers</li>
+                </ul>
+
+                <h3>What You've Accomplished</h3>
+
+                <p>
+                    If you've completed this project, you've done something significant: you've mastered the full workflow of professional character dressing in Poser. You can now:
+                </p>
+
+                <ul>
+                    <li>Load and conform clothing efficiently</li>
+                    <li>Fix fit issues with morphs</li>
+                    <li>Layer clothing naturally</li>
+                    <li>Add accessories with smart props</li>
+                    <li>Optimize scenes by hiding geometry</li>
+                    <li>Troubleshoot common problems</li>
+                    <li>Create complete, professional character designs</li>
+                </ul>
+
+                <p>
+                    This is the foundation for creating any character you can imagine—from everyday people to fantasy heroes to sci-fi warriors. The specific clothing changes, but the workflow remains the same!
+                </p>
+
+                <blockquote>
+                    <p><strong>🎨 The Character Designer's Secret:</strong> "Clothes make the man (or woman, or elf, or robot)." A well-dressed character immediately tells a story about who they are, what they do, and the world they inhabit. You're not just adding polygons—you're building identity!</p>
+                </blockquote>
+            </section>
+
+            <section id="summary" class="lesson-section">
+                <h2>📝 Lesson Summary</h2>
+
+                <p>
+                    Congratulations! You've just mastered one of the most essential skills in character creation—dressing your figures professionally. Let's recap everything you've learned.
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3 style="color: white; margin-top: 0;">🎯 Key Takeaways</h3>
+                    
+                    <h4 style="color: white;">Understanding the Fundamentals</h4>
+                    <ul style="color: white;">
+                        <li><strong>Conforming clothing:</strong> Specially rigged clothing that automatically wraps around and follows figure poses</li>
+                        <li><strong>The magic of rigging:</strong> Clothing has matching bone structure to figures, enabling automatic posing</li>
+                        <li><strong>Figure compatibility:</strong> Clothing must be designed for your specific figure type</li>
+                        <li><strong>Types of wearables:</strong> Conforming clothing, smart props, dynamic cloth, and regular props each serve different purposes</li>
+                    </ul>
+
+                    <h4 style="color: white;">The Conforming Workflow</h4>
+                    <ul style="color: white;">
+                        <li><strong>Loading sequence:</strong> Load clothing, conform to figure, clothing wraps and follows poses</li>
+                        <li><strong>Auto-conform vs manual:</strong> Some clothing conforms automatically, others need Figure → Conform To command</li>
+                        <li><strong>Verification:</strong> Check hierarchy panel to confirm conforming status</li>
+                    </ul>
+
+                    <h4 style="color: white;">Adjusting Fit with Morphs</h4>
+                    <ul style="color: white;">
+                        <li><strong>Fit morphs:</strong> Tighten or loosen clothing to match figure's body shape</li>
+                        <li><strong>Style morphs:</strong> Change clothing appearance (sleeve length, hem, details)</li>
+                        <li><strong>Matching morphs:</strong> Apply corresponding morphs when figure has body modifications</li>
+                        <li><strong>Small adjustments:</strong> Start with values of +0.1 to +0.3 and increase as needed</li>
+                        <li><strong>Poke-through solutions:</strong> 90% of fit issues solved with proper morph application</li>
+                    </ul>
+
+                    <h4 style="color: white;">Smart Props and Accessories</h4>
+                    <ul style="color: white;">
+                        <li><strong>Auto-parenting magic:</strong> Smart props automatically attach to correct body parts on load</li>
+                        <li><strong>Common smart props:</strong> Glasses, hats, jewelry, hair—anything that goes on specific body parts</li>
+                        <li><strong>Fine-tuning:</strong> May need minor position/scale adjustments for perfect fit</li>
+                        <li><strong>Multiple figures:</strong> Smart props parent to currently selected figure</li>
+                    </ul>
+
+                    <h4 style="color: white;">Layering Mastery</h4>
+                    <ul style="color: white;">
+                        <li><strong>Loading order:</strong> Inside-out (underwear → base → mid → outer → accessories)</li>
+                        <li><strong>Progressive expansion:</strong> Each outer layer needs bigger morphs than layer beneath it</li>
+                        <li><strong>Layer relationships:</strong> Inner +0.1, middle +0.3, outer +0.5 (typical values)</li>
+                        <li><strong>Visual authenticity:</strong> Inner layers should be visible at edges (collars, cuffs)</li>
+                    </ul>
+
+                    <h4 style="color: white;">Performance Optimization</h4>
+                    <ul style="color: white;">
+                        <li><strong>Hide covered body parts:</strong> Improves performance and eliminates poke-through</li>
+                        <li><strong>Visibility toggle:</strong> Use hierarchy panel's eye icon to hide/show</li>
+                        <li><strong>Strategic hiding:</strong> Hide what camera will never see and what's completely covered</li>
+                        <li><strong>Performance gain:</strong> Can reduce geometry by 40-70% depending on outfit</li>
+                    </ul>
+
+                    <h4 style="color: white;">Troubleshooting</h4>
+                    <ul style="color: white;">
+                        <li><strong>Poke-through:</strong> Apply fit morphs, hide body parts, adjust pose slightly</li>
+                        <li><strong>Won't conform:</strong> Check figure compatibility, ensure figure is loaded</li>
+                        <li><strong>Clothing explodes:</strong> Reset to T-pose before loading clothing</li>
+                        <li><strong>Layering conflicts:</strong> Progressive expand morphs and correct loading order</li>
+                        <li><strong>Systematic approach:</strong> Check obvious first, try simple solutions, escalate if needed</li>
+                    </ul>
+                </div>
+
+                <h3>The Skills You've Mastered</h3>
+
+                <div class="card">
+                    <h4>✅ Technical Skills Checklist</h4>
+                    <ul>
+                        <li>✅ Understand conforming clothing vs regular props</li>
+                        <li>✅ Load and conform clothing to figures</li>
+                        <li>✅ Navigate clothing library efficiently</li>
+                        <li>✅ Apply and adjust clothing morphs for perfect fit</li>
+                        <li>✅ Work with smart props and auto-parenting accessories</li>
+                        <li>✅ Layer multiple clothing items naturally</li>
+                        <li>✅ Hide body parts for performance and to eliminate poke-through</li>
+                        <li>✅ Troubleshoot common clothing issues systematically</li>
+                        <li>✅ Create complete, professional character outfits</li>
+                        <li>✅ Organize and manage complex clothing hierarchies</li>
+                    </ul>
+                </div>
+
+                <h3>Real-World Applications</h3>
+
+                <p>
+                    The clothing skills you've learned enable countless creative possibilities:
+                </p>
+
+                <div class="card" style="background-color: #f3e5f5; border-left: 4px solid #9C27B0;">
+                    <h4>🎨 What You Can Now Create</h4>
+                    <ul>
+                        <li><strong>Character portraits:</strong> Fully dressed characters with personality and style</li>
+                        <li><strong>Professional illustrations:</strong> Business people, doctors, teachers in appropriate attire</li>
+                        <li><strong>Fantasy characters:</strong> Warriors, mages, rogues in complete fantasy outfits</li>
+                        <li><strong>Historical scenes:</strong> Period-appropriate costumes and clothing</li>
+                        <li><strong>Sci-fi characters:</strong> Futuristic clothing and tech accessories</li>
+                        <li><strong>Fashion visualization:</strong> Clothing design previsualization</li>
+                        <li><strong>Comic/manga characters:</strong> Complete character designs with distinctive looks</li>
+                        <li><strong>Game character concepts:</strong> Fully outfitted characters for game design</li>
+                    </ul>
+                    <p>
+                        Every scene you create from now on can feature properly dressed, professional-looking characters that tell visual stories through their clothing choices!
+                    </p>
+                </div>
+
+                <h3>The Workflow Becomes Second Nature</h3>
+
+                <p>
+                    At first, dressing a character might seem like a lot of steps. But after you've done it a few times, the workflow becomes automatic:
+                </p>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Load Figure] --> B[Load Clothing<br/>Inside-Out]
+                    B --> C[Conform Each<br/>Item]
+                    C --> D[Check Fit<br/>Apply Morphs]
+                    D --> E[Add Accessories<br/>Smart Props]
+                    E --> F[Pose Figure]
+                    F --> G[Hide Covered<br/>Body Parts]
+                    G --> H[Final Polish]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style H fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <p>
+                    Soon you'll be dressing characters without thinking about each step—it becomes muscle memory. Your focus shifts from "how do I do this" to "what look do I want to create."
+                </p>
+
+                <h3>Building Your Clothing Library Knowledge</h3>
+
+                <p>
+                    As you work more with Poser, you'll become familiar with what's in your clothing library:
+                </p>
+
+                <ul>
+                    <li><strong>Know your inventory:</strong> What clothing options you have available</li>
+                    <li><strong>Favorite items:</strong> Certain pieces you use frequently</li>
+                    <li><strong>Quality awareness:</strong> Which clothing items have good morphs and fit well</li>
+                    <li><strong>Compatibility knowledge:</strong> What works with what figure</li>
+                    <li><strong>Style combinations:</strong> Outfits that work well together</li>
+                </ul>
+
+                <p>
+                    This familiarity makes character creation much faster—you know exactly where to find the perfect jacket for a character concept!
+                </p>
+
+                <h3>What's Next?</h3>
+
+                <p>
+                    You've now completed Module 3: Working with Props and Scenes! You can:
+                </p>
+
+                <ul>
+                    <li>Work with props and figures</li>
+                    <li>Build complete scenes</li>
+                    <li>Manage multiple figures</li>
+                    <li>Dress characters professionally</li>
+                </ul>
+
+                <p>
+                    Next up in Module 4, we'll explore <strong>Materials and Textures</strong>—because a well-dressed character deserves materials that look as good as the outfit fits. You'll learn to customize colors, apply textures, and make your characters' clothing look photorealistic!
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white; text-align: center; padding: 2rem;">
+                    <h3 style="color: white; margin-top: 0;">🎉 You're Now a Character Stylist!</h3>
+                    <p style="color: white; font-size: 1.1em; margin: 1rem 0;">
+                        You can dress any figure in any outfit, fix any fit issue, and create professional, portfolio-worthy character designs!
+                    </p>
+                    <p style="color: white; margin: 1rem 0;">
+                        From naked mannequins to fully styled characters—you've mastered the transformation. Your figures now have personality, style, and purpose expressed through their clothing!
+                    </p>
+                    <p style="color: white; font-style: italic; margin-top: 1.5rem;">
+                        "Fashion is not something that exists in dresses only. Fashion is in the sky, in the street... fashion is about ideas, the way we live, what is happening." — And now, fashion is in your 3D scenes too! 👗✨
+                    </p>
+                </div>
+
+            </section>
+
+        </article>
+
+        <nav class="lesson-nav" aria-label="Lesson Navigation">
+            <a href="lesson_12_multiple_figures.html" class="prev-lesson">← Previous: Working with Multiple Figures</a>
+            <a href="index.html" class="home-link">🏠 Course Home</a>
+            <a href="lesson_14_material_room.html" class="next-lesson">Next: Introduction to the Material Room →</a>
+        </nav>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Poser 12 Mastery Course. All rights reserved.</p>
+            <p>Empowering aspiring 3D artists to create stunning character art.</p>
+        </div>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

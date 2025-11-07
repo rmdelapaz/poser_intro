@@ -1,0 +1,2143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn to build complete, professional scenes in Poser 12 by combining props, environments, and figures into cohesive compositions with proper lighting and organization.">
+    <meta name="author" content="Poser 12 Course">
+    <title>Building Your First Scene - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <nav class="topnav" role="navigation" aria-label="Main Navigation">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🎨</span>
+                <span class="logo-text">Poser 12 Mastery</span>
+            </a>
+            <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><a href="index.html#modules">📚 Modules</a></li>
+                <li><a href="index.html#resources">🔧 Resources</a></li>
+                <li><a href="index.html#about">ℹ️ About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="breadcrumb" role="navigation" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> &gt; 
+        <a href="index.html#module-3">Module 3: Working with Props and Scenes</a> &gt; 
+        <span>Lesson 11: Building Your First Scene</span>
+    </div>
+
+    <main class="container">
+        <article class="lesson-content">
+            <header class="lesson-header">
+                <h1>🏗️ Building Your First Scene</h1>
+                <p class="lesson-subtitle">Creating Complete Environments That Tell Stories</p>
+            </header>
+
+            <p class="lead">
+                Think about your favorite movie scenes. They don't just have actors standing in empty space—there's a rich environment around them. A detective's cluttered office tells you about their work style. A cozy café with soft lighting suggests romance. A stark, industrial warehouse sets the tone for tension. The <strong>environment is a character</strong> in your visual story, and now it's time for you to become an environment designer.
+            </p>
+
+            <p>
+                You've learned how to pose figures and work with individual props. Now comes the exciting part: <strong>building complete scenes</strong> that feel like real places. This is where all your skills come together—posing, props, camera angles, and composition—to create images that transport viewers into the worlds you imagine.
+            </p>
+
+            <p>
+                In this lesson, you'll go from having a figure and a couple of props floating in space to creating a fully-realized indoor scene. Whether you're aiming for a home office, a medieval tavern, a futuristic laboratory, or a simple bedroom, the principles are the same. You'll learn how to use set props and environments, establish proper ground planes, arrange elements for visual interest, and organize everything so your scene stays manageable even as it grows complex.
+            </p>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin: 2rem 0;">
+                <h3 style="color: white; margin-top: 0;">💡 What You'll Learn in This Lesson</h3>
+                <ul style="color: white;">
+                    <li><strong>Working with set props and environments</strong> to establish your scene's location</li>
+                    <li><strong>Using ground planes</strong> to anchor your scene and create realistic shadows</li>
+                    <li><strong>Arranging multiple props</strong> for composition and visual flow</li>
+                    <li><strong>Scene organization best practices</strong> to keep complex scenes manageable</li>
+                    <li><strong>Creating depth and atmosphere</strong> through layering and placement</li>
+                    <li><strong>Working with layers and groups</strong> for efficient scene management</li>
+                    <li><strong>Building a complete indoor scene</strong> with a figure at a desk</li>
+                </ul>
+                <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                    <p style="margin: 0; color: white;"><strong>⏱️ Estimated Time:</strong> 60-90 minutes</p>
+                    <p style="margin: 0.5rem 0 0 0; color: white;"><strong>🎯 Project:</strong> Create a simple indoor scene with a figure at a desk or in a room</p>
+                </div>
+            </div>
+
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">📑 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#scene-building-mindset" class="toc-link">The Scene-Building Mindset</a></li>
+                        <li><a href="#set-props-environments" class="toc-link">Set Props and Environments</a></li>
+                        <li><a href="#ground-plane" class="toc-link">Ground Planes and Shadows</a></li>
+                        <li><a href="#composition-arrangement" class="toc-link">Arranging Props for Composition</a></li>
+                        <li><a href="#depth-layering" class="toc-link">Creating Depth Through Layering</a></li>
+                        <li><a href="#scene-organization" class="toc-link">Scene Organization Best Practices</a></li>
+                        <li><a href="#layers-groups" class="toc-link">Working with Layers and Groups</a></li>
+                        <li><a href="#lighting-atmosphere" class="toc-link">Adding Lighting and Atmosphere</a></li>
+                        <li><a href="#project" class="toc-link">Project: Indoor Office Scene</a></li>
+                        <li><a href="#summary" class="toc-link">Lesson Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <section id="scene-building-mindset" class="lesson-section">
+                <h2>🎬 The Scene-Building Mindset</h2>
+                
+                <p>
+                    Before we dive into the technical aspects, let's talk about how to <em>think</em> about scene building. This shift in perspective will transform how you approach every project in Poser.
+                </p>
+
+                <h3>From Isolated Elements to Unified Worlds</h3>
+
+                <p>
+                    Up until now, you've been working with individual elements—a figure here, a prop there. Scene building requires a different way of thinking. You're no longer just arranging objects; you're <strong>creating a believable space</strong> where things make sense together.
+                </p>
+
+                <blockquote>
+                    <p><strong>💡 Think like a set designer:</strong> When a movie set designer creates a detective's office, they don't just throw in a desk and call it done. They think about who works there, how long they've been there, what their habits are. The coffee-stained cup next to the computer tells a story. The pile of papers suggests workload. The family photo on the desk reveals character. Every element contributes to the whole.</p>
+                </blockquote>
+
+                <h3>The Three Layers of Scene Building</h3>
+
+                <p>
+                    Professional scene builders think in three distinct layers, much like how a painter builds up a canvas:
+                </p>
+
+                <div class="mermaid">
+                    graph TB
+                    A[Complete Scene] --> B[Background Layer]
+                    A --> C[Midground Layer]
+                    A --> D[Foreground Layer]
+                    
+                    B --> B1[Walls, floors, ceiling]
+                    B --> B2[Large set pieces]
+                    B --> B3[Environmental elements]
+                    
+                    C --> C1[Main figures and characters]
+                    C --> C2[Key furniture and props]
+                    C --> C3[Primary action area]
+                    
+                    D --> D1[Close details]
+                    D --> D2[Frame elements]
+                    D --> D3[Focus props]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style B fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style C fill:#FF9800,stroke:#333,stroke-width:2px,color:#fff
+                    style D fill:#e91e63,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <div class="card">
+                    <h4>🎨 The Three-Layer Approach</h4>
+                    
+                    <p><strong>Background Layer (The Foundation):</strong></p>
+                    <ul>
+                        <li>Walls, floors, ceilings—the architectural bones of your space</li>
+                        <li>Large set pieces like room environments or outdoor landscapes</li>
+                        <li>Sky, horizon, or backdrop elements</li>
+                        <li>These establish WHERE your scene takes place</li>
+                    </ul>
+
+                    <p><strong>Midground Layer (The Action):</strong></p>
+                    <ul>
+                        <li>Your main figures and characters</li>
+                        <li>Key furniture they interact with (desks, chairs, tables)</li>
+                        <li>Important props that support the story</li>
+                        <li>This is where the main action happens</li>
+                    </ul>
+
+                    <p><strong>Foreground Layer (The Detail):</strong></p>
+                    <ul>
+                        <li>Objects close to the camera for depth</li>
+                        <li>Detail props that add character (books, coffee cups, papers)</li>
+                        <li>Frame elements that guide the eye</li>
+                        <li>These add richness and realism</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Pro Tip:</strong> Build your scene in this order—background first, then midground, then foreground. This prevents you from spending an hour perfectly positioning a coffee cup only to realize the desk needs to move. Start big, then add details.</p>
+                </blockquote>
+
+                <h3>The Story Question</h3>
+
+                <p>
+                    Before you place a single prop, ask yourself: <strong>"What's happening here?"</strong> Every good scene answers this question, even if it's a simple answer.
+                </p>
+
+                <div class="card" style="background-color: #f3e5f5; border-left: 4px solid #9C27B0;">
+                    <h4>📖 Examples of Scene Stories</h4>
+                    <ul>
+                        <li><strong>"A writer at work late at night"</strong> — Suggests mood lighting, coffee cup, scattered papers, tired posture</li>
+                        <li><strong>"A CEO's powerful office"</strong> — Clean desk, expensive props, confident pose, formal lighting</li>
+                        <li><strong>"A student cramming for exams"</strong> — Messy desk, stacked books, energy drink cans, stressed expression</li>
+                        <li><strong>"Morning coffee and contemplation"</strong> — Simple scene, peaceful pose, sunlight, minimal props</li>
+                    </ul>
+                    <p>
+                        See how each story immediately suggests what props you'll need, how the figure should be posed, and what the overall atmosphere should feel like? That's the power of starting with story.
+                    </p>
+                </div>
+
+                <h3>The Goldilocks Principle of Scene Building</h3>
+
+                <p>
+                    There's a balance to strike when building scenes:
+                </p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Too Little</th>
+                            <th>Just Right</th>
+                            <th>Too Much</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Figure floating in empty void</td>
+                            <td>Scene with purpose and context</td>
+                            <td>Cluttered chaos where nothing stands out</td>
+                        </tr>
+                        <tr>
+                            <td>Looks unfinished and amateur</td>
+                            <td>Looks professional and intentional</td>
+                            <td>Looks messy and confusing</td>
+                        </tr>
+                        <tr>
+                            <td>No sense of place or story</td>
+                            <td>Clear setting that supports the narrative</td>
+                            <td>Viewer doesn't know where to look</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <blockquote>
+                    <p><strong>💡 The Sweet Spot:</strong> Your scene should have enough elements to be interesting and believable, but not so many that it becomes overwhelming. When in doubt, ask: "Does this prop contribute to the story or is it just clutter?" If it's the latter, consider removing it.</p>
+                </blockquote>
+
+            </section>
+
+            <section id="set-props-environments" class="lesson-section">
+                <h2>🏛️ Set Props and Environments</h2>
+
+                <p>
+                    Now let's talk about the foundation of your scene: <strong>set props and environments</strong>. These are the large-scale pieces that establish your location.
+                </p>
+
+                <h3>What Are Set Props?</h3>
+
+                <p>
+                    Set props (sometimes called "environment props" or "scene props") are large-scale elements designed to create a complete space. Unlike individual props like cups or books, set props are entire rooms, buildings, outdoor landscapes, or architectural structures.
+                </p>
+
+                <div class="card">
+                    <h4>🏠 Common Types of Set Props</h4>
+                    
+                    <p><strong>Interior Sets:</strong></p>
+                    <ul>
+                        <li><strong>Room environments:</strong> Complete rooms with walls, floor, ceiling (bedroom, office, kitchen)</li>
+                        <li><strong>Wall sets:</strong> Individual walls you can arrange to create custom room layouts</li>
+                        <li><strong>Corner sets:</strong> Two walls meeting at a corner, great for focused compositions</li>
+                        <li><strong>Partial interiors:</strong> Sections of rooms that give context without enclosing everything</li>
+                    </ul>
+
+                    <p><strong>Exterior Sets:</strong></p>
+                    <ul>
+                        <li><strong>Landscape environments:</strong> Terrain, ground textures, outdoor settings</li>
+                        <li><strong>Building exteriors:</strong> Houses, shops, structures from the outside</li>
+                        <li><strong>Sky domes:</strong> Curved backgrounds that create sky and distant horizons</li>
+                        <li><strong>Urban environments:</strong> Street scenes, city blocks, alleyways</li>
+                    </ul>
+
+                    <p><strong>Fantasy/Sci-Fi Sets:</strong></p>
+                    <ul>
+                        <li><strong>Spaceship interiors:</strong> Futuristic corridors, bridges, cargo bays</li>
+                        <li><strong>Medieval environments:</strong> Castle rooms, taverns, dungeons</li>
+                        <li><strong>Abstract spaces:</strong> Stylized environments for artistic compositions</li>
+                    </ul>
+                </div>
+
+                <h3>Finding Set Props in Your Library</h3>
+
+                <p>
+                    Set props are typically found in several places in your Poser library:
+                </p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>📚 Where to Find Environments</h4>
+                    <ul>
+                        <li><strong>Props → Environments</strong> — Dedicated environment category</li>
+                        <li><strong>Props → Architecture</strong> — Buildings, walls, structural elements</li>
+                        <li><strong>Props → Sets</strong> — Pre-built scene sets</li>
+                        <li><strong>Specific genre folders</strong> — Props → SciFi, Props → Medieval, etc.</li>
+                        <li><strong>Pose Room → Background</strong> — Some basic backdrop options</li>
+                    </ul>
+                    <p>
+                        <em>Note: The exact organization depends on your content library. If you've purchased or downloaded additional content, you may have vendor-specific folders with environments.</em>
+                    </p>
+                </div>
+
+                <h3>Loading and Positioning Set Props</h3>
+
+                <p>
+                    Set props load just like any other prop, but because they're larger, you'll need to pay attention to scale and positioning:
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Best Practices for Set Props</h4>
+                    
+                    <p><strong>1. Load the set FIRST (before your figure):</strong></p>
+                    <p>
+                        This might seem counterintuitive, but it's easier to position a figure in an environment than to build an environment around an already-posed figure. Start with the set, then add your character.
+                    </p>
+
+                    <p><strong>2. Check the scale immediately:</strong></p>
+                    <p>
+                        Different set props from different creators may have wildly different scales. A "room" from one vendor might be tiny compared to Poser's default figures. Use the Scale parameter to adjust the entire set proportionally if needed.
+                    </p>
+
+                    <p><strong>3. Position sets at the origin point:</strong></p>
+                    <p>
+                        Most sets are designed to sit at Poser's zero point (0, 0, 0 in XYZ coordinates). If you're using multiple sets or mixing pieces, keeping everything centered at the origin makes positioning much easier.
+                    </p>
+
+                    <p><strong>4. Consider camera angles early:</strong></p>
+                    <p>
+                        Set up your main camera view before you start adding lots of detail props. This helps you focus on what will actually be visible in your final render. You might discover you can skip entire sections of the scene that the camera won't see.
+                    </p>
+                </div>
+
+                <h3>Working Without Pre-Made Sets</h3>
+
+                <p>
+                    What if you don't have elaborate environment sets? No problem! You can create effective scenes with basic elements:
+                </p>
+
+                <div class="card">
+                    <h4>🛠️ Building Scenes from Simple Props</h4>
+                    
+                    <p><strong>Create walls with primitives:</strong></p>
+                    <ul>
+                        <li>Use Poser's built-in box primitive (Create → Box) and scale it flat to create a wall</li>
+                        <li>Rotate and duplicate to create multiple walls for a room</li>
+                        <li>Apply materials to give them color and texture</li>
+                    </ul>
+
+                    <p><strong>Use the ground plane creatively:</strong></p>
+                    <ul>
+                        <li>Poser includes a ground plane (Display → Ground Plane)</li>
+                        <li>Scale and texture it to serve as floors or outdoor ground</li>
+                        <li>Add a simple backdrop behind your figure for context</li>
+                    </ul>
+
+                    <p><strong>Imply space without showing everything:</strong></p>
+                    <ul>
+                        <li>A desk and chair suggest an office even without walls</li>
+                        <li>Good lighting can create the feeling of a room</li>
+                        <li>Strategic camera angles show what matters, hide what doesn't</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Remember:</strong> Professional artists often work with limitations. Some of the most striking images use minimal environments because they focus the viewer's attention on what really matters—the figure and the story. Don't feel you need elaborate sets to create compelling scenes.</p>
+                </blockquote>
+
+                <h3>Combining Multiple Set Elements</h3>
+
+                <p>
+                    Sometimes you'll want to mix and match different set pieces to create exactly the space you envision:
+                </p>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Your Custom Scene] --> B[Base Room Set]
+                    A --> C[Additional Wall Piece]
+                    A --> D[Window Prop]
+                    A --> E[Floor Texture]
+                    A --> F[Door from Different Set]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style B fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <p>
+                    When combining elements from different sets:
+                </p>
+
+                <ul>
+                    <li>Pay attention to <strong>scale consistency</strong> — Make sure all pieces are roughly the same size relative to your figures</li>
+                    <li>Watch for <strong>style matching</strong> — A futuristic door in a medieval castle breaks immersion (unless that's your intent!)</li>
+                    <li>Use <strong>materials strategically</strong> — Sometimes applying similar materials to different props helps them feel like they belong together</li>
+                    <li>Consider <strong>lighting unity</strong> — Consistent lighting makes disparate elements feel like part of the same space</li>
+                </ul>
+
+            </section>
+
+            <section id="ground-plane" class="lesson-section">
+                <h2>🌍 Ground Planes and Shadows</h2>
+
+                <p>
+                    One of the biggest differences between a scene that looks professional and one that looks amateurish is the presence of a proper <strong>ground plane</strong>. Let's understand why this matters and how to use it effectively.
+                </p>
+
+                <h3>Why Ground Planes Matter</h3>
+
+                <p>
+                    Imagine taking a photo of someone standing in mid-air with nothing beneath them. It looks wrong, right? Our brains expect objects to rest on surfaces, to cast shadows, to exist in physical space. A ground plane provides that critical anchor point that tells our brain, "Yes, this figure exists in a real place."
+                </p>
+
+                <blockquote>
+                    <p><strong>💡 Think of it this way:</strong> The ground plane is like the stage floor in a theater. Even if the set is minimal, the actors need somewhere to stand. The ground plane serves the same purpose in your 3D scene—it grounds your figures (literally) and gives them a relationship to space.</p>
+                </blockquote>
+
+                <h3>Enabling Poser's Ground Plane</h3>
+
+                <p>
+                    Poser includes a built-in ground plane that's perfect for getting started:
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Activating the Ground Plane</h4>
+                    
+                    <p><strong>Step 1: Show the Ground Plane</strong></p>
+                    <ul>
+                        <li>Go to <strong>Display → Ground Plane</strong> in the menu</li>
+                        <li>Check this option to make the ground plane visible</li>
+                        <li>You'll see a grid appear beneath your scene</li>
+                    </ul>
+
+                    <p><strong>Step 2: Enable Ground Shadows</strong></p>
+                    <ul>
+                        <li>Go to <strong>Display → Ground Shadows</strong></li>
+                        <li>Check this option to enable shadow casting</li>
+                        <li>Your figures and props will now cast shadows on the ground</li>
+                    </ul>
+
+                    <p><strong>Step 3: Customize the Appearance</strong></p>
+                    <ul>
+                        <li>Select the Ground in the Scene hierarchy</li>
+                        <li>In the Properties panel, you can adjust its color and material</li>
+                        <li>You can also scale it larger or smaller as needed</li>
+                    </ul>
+                </div>
+
+                <h3>Ground Plane vs. Prop Floors</h3>
+
+                <p>
+                    You might wonder: "Should I use Poser's ground plane or load a floor prop?" Here's when to use each:
+                </p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Situation</th>
+                            <th>Use Ground Plane</th>
+                            <th>Use Prop Floor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Simple, minimal scenes</strong></td>
+                            <td>✅ Perfect choice</td>
+                            <td>Optional</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Outdoor scenes</strong></td>
+                            <td>✅ Great for grass, dirt, simple ground</td>
+                            <td>Use for detailed terrain</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Indoor rooms with sets</strong></td>
+                            <td>Can turn off</td>
+                            <td>✅ Use set's built-in floor</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Detailed floor needed</strong></td>
+                            <td>Basic option</td>
+                            <td>✅ Better for wood, tile, carpet textures</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Quick renders/tests</strong></td>
+                            <td>✅ Fast and easy</td>
+                            <td>Unnecessary complexity</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Multiple height levels</strong></td>
+                            <td>Single height only</td>
+                            <td>✅ Can have stairs, platforms</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <blockquote>
+                    <p><strong>💡 Pro Tip:</strong> The ground plane is fantastic for testing and simple scenes. As your scenes get more complex or require detailed floor textures, you'll transition to using prop floors. Many artists use the ground plane during the building phase, then hide it and add a detailed floor prop for the final render.</p>
+                </blockquote>
+
+                <h3>Understanding Shadows</h3>
+
+                <p>
+                    Shadows are critically important for making your scenes feel real. They tell the viewer about light direction, time of day, and spatial relationships between objects.
+                </p>
+
+                <div class="card">
+                    <h4>☀️ Types of Shadows in Poser</h4>
+                    
+                    <p><strong>Ground Shadows (Simple):</strong></p>
+                    <ul>
+                        <li>Fast to calculate and render</li>
+                        <li>Only cast by objects onto the ground plane</li>
+                        <li>Great for quick previews and simple scenes</li>
+                        <li>Not as realistic as raytraced shadows</li>
+                    </ul>
+
+                    <p><strong>Raytraced Shadows (Advanced):</strong></p>
+                    <ul>
+                        <li>Physically accurate shadows</li>
+                        <li>Objects can cast shadows on each other</li>
+                        <li>More realistic but slower to render</li>
+                        <li>Configured in the lighting settings (covered in Module 4)</li>
+                    </ul>
+                </div>
+
+                <h3>Common Ground Plane Issues and Solutions</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Troubleshooting Ground Planes</h4>
+                    
+                    <p><strong>Problem: "My figure's feet are sinking into the ground!"</strong></p>
+                    <p><strong>Solution:</strong> Use the Translate/Pull tool to move the figure up slightly on the Y-axis until feet rest naturally on the surface. Remember, Y-axis is up/down in Poser's coordinate system.</p>
+                    
+                    <p><strong>Problem: "The ground plane is too small/large for my scene!"</strong></p>
+                    <p><strong>Solution:</strong> Select the Ground in the hierarchy, then use the Scale parameter to make it larger or smaller. Scale it uniformly (same percentage on all axes) to maintain proportions.</p>
+                    
+                    <p><strong>Problem: "Shadows aren't showing up!"</strong></p>
+                    <p><strong>Solution:</strong> Check that Display → Ground Shadows is enabled. Also verify your lights are set to cast shadows (this is a light property you can check in the Light controls).</p>
+                    
+                    <p><strong>Problem: "The ground plane has an ugly grid pattern in renders!"</strong></p>
+                    <p><strong>Solution:</strong> The grid is just for reference and shouldn't render. If it does, check your render settings. You can also apply a solid color or texture material to the ground to override the grid appearance.</p>
+                    
+                    <p><strong>Problem: "I'm using a room set and the ground plane is showing through the floor!"</strong></p>
+                    <p><strong>Solution:</strong> Either disable the ground plane (Display → Ground Plane, uncheck), or move it down below the room floor on the Y-axis so it's hidden. Most room sets include their own floor, so you don't need both.</p>
+                </div>
+
+                <h3>Using the Ground Creatively</h3>
+
+                <p>
+                    The ground plane doesn't have to be boring! Here are creative ways to use it:
+                </p>
+
+                <div class="card" style="background-color: #f3e5f5; border-left: 4px solid #9C27B0;">
+                    <h4>🎨 Creative Ground Applications</h4>
+                    <ul>
+                        <li><strong>Reflective surfaces:</strong> Apply a reflective material to create a mirror-like floor (great for dramatic character portraits)</li>
+                        <li><strong>Textured environments:</strong> Apply textures like grass, sand, concrete, wood to quickly establish outdoor or specific indoor settings</li>
+                        <li><strong>Water surfaces:</strong> With the right material, the ground can become a water surface for beach or dock scenes</li>
+                        <li><strong>Abstract backgrounds:</strong> Use solid colors that complement your lighting for minimalist, studio-style compositions</li>
+                        <li><strong>Gradient materials:</strong> Create depth by applying gradients that get lighter or darker toward the horizon</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Remember:</strong> The ground plane is one of those "invisible" elements that viewers don't consciously notice when it's done right, but they definitely notice when it's missing or wrong. A proper ground makes everything else in your scene look more professional and believable.</p>
+                </blockquote>
+
+            </section>
+
+            <section id="composition-arrangement" class="lesson-section">
+                <h2>🎨 Arranging Props for Composition</h2>
+
+                <p>
+                    Now comes the artistry: <strong>arranging your props</strong> to create visual interest and guide the viewer's eye. This is where scene building becomes less about technical skill and more about artistic sensibility.
+                </p>
+
+                <h3>The Rule of Thirds in 3D Space</h3>
+
+                <p>
+                    You may have heard of the "rule of thirds" in photography—dividing your frame into a 3×3 grid and placing important elements at the intersections. This principle works beautifully in 3D scene composition too.
+                </p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>📐 Applying the Rule of Thirds</h4>
+                    <p>
+                        Imagine your camera view divided into three vertical sections and three horizontal sections, creating a tic-tac-toe grid. The intersections of these lines are "power points" where the eye naturally gravitates.
+                    </p>
+                    <ul>
+                        <li><strong>Place your main figure</strong> at one of these intersection points, not dead center</li>
+                        <li><strong>Arrange key props</strong> along these gridlines or at intersections</li>
+                        <li><strong>Use the lines</strong> to align vertical elements (doorways, windows) or horizontal elements (desk edges, horizons)</li>
+                        <li><strong>Leave breathing room</strong> in the negative space—don't fill every inch</li>
+                    </ul>
+                </div>
+
+                <h3>Visual Weight and Balance</h3>
+
+                <p>
+                    Every element in your scene has "visual weight"—how much it attracts the viewer's attention. Understanding this helps you create balanced, pleasing compositions.
+                </p>
+
+                <div class="card">
+                    <h4>⚖️ Elements That Add Visual Weight</h4>
+                    
+                    <p><strong>High visual weight (draws attention):</strong></p>
+                    <ul>
+                        <li>Figures and characters (especially faces)</li>
+                        <li>Bright or contrasting colors</li>
+                        <li>Areas of high detail or texture</li>
+                        <li>Objects in sharp focus</li>
+                        <li>Light sources or brightly lit areas</li>
+                        <li>Unusual or unexpected elements</li>
+                    </ul>
+
+                    <p><strong>Low visual weight (recedes):</strong></p>
+                    <ul>
+                        <li>Neutral colors and muted tones</li>
+                        <li>Smooth, simple surfaces</li>
+                        <li>Shadowed or darker areas</li>
+                        <li>Blurred or out-of-focus elements</li>
+                        <li>Background elements</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 The Balance Principle:</strong> Your scene should feel balanced, but not necessarily symmetrical. A large figure on one side can be balanced by a cluster of smaller props on the other side. A brightly lit area on the left might be balanced by interesting details on the right. Think of it like a seesaw—different weights at different distances can achieve equilibrium.</p>
+                </blockquote>
+
+                <h3>The Triangle Composition</h3>
+
+                <p>
+                    One of the most reliable composition techniques is arranging elements in <strong>triangular patterns</strong>. Our eyes naturally follow these shapes, and they create dynamic, interesting layouts.
+                </p>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Top Point - Figure's Head or Focal Point]
+                    B[Bottom Left - Supporting Prop]
+                    C[Bottom Right - Secondary Prop]
+                    
+                    A --> B
+                    A --> C
+                    B --> C
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style B fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style C fill:#FF9800,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>▲ Triangle Composition Examples</h4>
+                    
+                    <p><strong>Office Scene Triangle:</strong></p>
+                    <ul>
+                        <li><strong>Top point:</strong> Character's head (sitting at desk)</li>
+                        <li><strong>Bottom left:</strong> Computer monitor</li>
+                        <li><strong>Bottom right:</strong> Coffee mug or desk lamp</li>
+                        <li><em>Result:</em> Eye travels naturally from face to work area</li>
+                    </ul>
+
+                    <p><strong>Standing Figure Triangle:</strong></p>
+                    <ul>
+                        <li><strong>Top point:</strong> Character's head</li>
+                        <li><strong>Bottom left:</strong> Chair they're standing beside</li>
+                        <li><strong>Bottom right:</strong> Table with props</li>
+                        <li><em>Result:</em> Stable, grounded composition</li>
+                    </ul>
+
+                    <p><strong>Multiple Triangles:</strong></p>
+                    <ul>
+                        <li>Advanced: Create multiple overlapping triangles</li>
+                        <li>Larger triangle for overall composition</li>
+                        <li>Smaller triangles within sections of the scene</li>
+                        <li>Creates rich, layered visual interest</li>
+                    </ul>
+                </div>
+
+                <h3>Leading Lines and Visual Flow</h3>
+
+                <p>
+                    Arrange props to create <strong>leading lines</strong>—imaginary or actual lines that guide the viewer's eye through the scene toward your focal point.
+                </p>
+
+                <div class="card">
+                    <h4>➡️ Creating Leading Lines</h4>
+                    <ul>
+                        <li><strong>Desk edges:</strong> Position desks at angles that point toward your figure</li>
+                        <li><strong>Floor patterns:</strong> Tile or wood grain lines that lead to the focal point</li>
+                        <li><strong>Furniture arrangement:</strong> Create paths through the scene with furniture placement</li>
+                        <li><strong>Light patterns:</strong> Shadows and highlights that draw the eye</li>
+                        <li><strong>Prop alignment:</strong> Multiple props in a row create a natural line</li>
+                    </ul>
+                </div>
+
+                <h3>The Foreground-Midground-Background Technique</h3>
+
+                <p>
+                    Remember those three layers we talked about? Now let's put them into practice with specific arrangement techniques:
+                </p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Layer</th>
+                            <th>What to Place Here</th>
+                            <th>Composition Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Foreground</strong></td>
+                            <td>
+                                • Corner of desk<br>
+                                • Edge of chair<br>
+                                • Partially visible prop<br>
+                                • Frame elements
+                            </td>
+                            <td>
+                                Creates depth and realism<br>
+                                "I'm looking into the scene"<br>
+                                Adds sense of space
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Midground</strong></td>
+                            <td>
+                                • Main figure<br>
+                                • Key furniture<br>
+                                • Important props<br>
+                                • Primary action
+                            </td>
+                            <td>
+                                Where the story happens<br>
+                                Main focal point<br>
+                                Sharpest focus
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Background</strong></td>
+                            <td>
+                                • Walls<br>
+                                • Distant furniture<br>
+                                • Windows<br>
+                                • Environmental context
+                            </td>
+                            <td>
+                                Establishes setting<br>
+                                Provides context<br>
+                                Can be slightly blurred
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <blockquote>
+                    <p><strong>💡 Pro Tip:</strong> Don't be afraid to place foreground elements that partially obscure the view. A blurred edge of a desk or the corner of a doorframe in the foreground actually makes the scene feel more realistic—like you're peeking into a real space rather than looking at a stage.</p>
+                </blockquote>
+
+                <h3>The Odd Number Rule</h3>
+
+                <p>
+                    Here's an interesting psychological quirk: <strong>odd numbers feel more natural</strong> to our brains than even numbers. When arranging multiples of the same type of prop, use odd numbers when possible.
+                </p>
+
+                <div class="card" style="background-color: #f3e5f5; border-left: 4px solid #9C27B0;">
+                    <h4>🎯 Odd vs. Even Arrangements</h4>
+                    <p><strong>More Dynamic (Odd):</strong></p>
+                    <ul>
+                        <li>Three books stacked on a desk (not two or four)</li>
+                        <li>Five picture frames on a wall (not four or six)</li>
+                        <li>One main plant with two smaller ones (not two equal-sized)</li>
+                    </ul>
+                    <p><strong>When to Use Even Numbers:</strong></p>
+                    <ul>
+                        <li>Symmetrical, formal scenes (matching lamps on either side of a desk)</li>
+                        <li>When you specifically want a balanced, stable feeling</li>
+                        <li>Architectural elements (four legs on a chair, two walls meeting)</li>
+                    </ul>
+                </div>
+
+                <h3>Negative Space: The Power of Empty Areas</h3>
+
+                <p>
+                    One of the biggest mistakes beginners make is filling every inch of the scene. <strong>Negative space</strong>—the empty areas—is just as important as the objects you place.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✨ Using Negative Space Effectively</h4>
+                    <ul>
+                        <li><strong>Gives the eye rest:</strong> Too much detail everywhere is exhausting to look at</li>
+                        <li><strong>Creates focus:</strong> Empty space directs attention to what matters</li>
+                        <li><strong>Suggests atmosphere:</strong> Open space can feel peaceful, spacious, or isolating depending on context</li>
+                        <li><strong>Professional appearance:</strong> Skilled artists know when to leave areas empty</li>
+                        <li><strong>Room for text or titles:</strong> If you're creating commercial work, negative space provides placement options</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 The 60-30-10 Rule:</strong> A helpful guideline is to have roughly 60% of your composition be negative space or simple background, 30% supporting elements and props, and 10% focal point (your main figure and key props). These aren't strict numbers, but they prevent overcrowding.</p>
+                </blockquote>
+
+            </section>
+
+            <section id="depth-layering" class="lesson-section">
+                <h2>🏔️ Creating Depth Through Layering</h2>
+
+                <p>
+                    A flat-looking scene is one of the telltale signs of beginner work. Professional scenes have <strong>depth</strong>—a sense that you could walk into them. Let's learn how to create that three-dimensional feeling.
+                </p>
+
+                <h3>Why Depth Matters</h3>
+
+                <p>
+                    Our brains are wired to understand three-dimensional space. When a 3D scene looks flat, it triggers a subtle "something's wrong" feeling in viewers, even if they can't articulate why. Depth makes your scenes feel immersive and real.
+                </p>
+
+                <blockquote>
+                    <p><strong>💡 Think about it:</strong> When you look at a real room, you see layers—things close to you, things in the middle distance, things far away. Your eye can focus on different depths. Recreating this layered quality in your 3D scenes makes them feel photographed rather than computer-generated.</p>
+                </blockquote>
+
+                <h3>Seven Techniques for Creating Depth</h3>
+
+                <div class="card">
+                    <h4>1️⃣ Overlapping Elements</h4>
+                    <p>
+                        When one object partially obscures another, our brain instantly understands which is closer. This is one of the simplest and most effective depth cues.
+                    </p>
+                    <p><strong>How to apply it:</strong></p>
+                    <ul>
+                        <li>Place a chair partially in front of a desk</li>
+                        <li>Let a foreground prop overlap the figure slightly</li>
+                        <li>Position wall decorations so some overlap others</li>
+                        <li>Don't line everything up perfectly—real spaces have overlaps</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>2️⃣ Size Variation</h4>
+                    <p>
+                        Objects appear smaller as they get farther away. Use props of different sizes to reinforce distance.
+                    </p>
+                    <p><strong>How to apply it:</strong></p>
+                    <ul>
+                        <li>Make distant furniture slightly smaller than foreground items</li>
+                        <li>Use larger props in the foreground, smaller ones in the background</li>
+                        <li>Create the illusion of perspective even in small spaces</li>
+                        <li>Scale can be subtle—even 10-20% makes a difference</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>3️⃣ Strategic Placement on the Z-Axis</h4>
+                    <p>
+                        The Z-axis (depth axis) is your friend. Don't arrange everything at the same depth—spread props out from front to back.
+                    </p>
+                    <p><strong>How to apply it:</strong></p>
+                    <ul>
+                        <li>Check your scene from a side view to see Z-axis spacing</li>
+                        <li>Move props forward and backward, not just left and right</li>
+                        <li>Create "depth zones"—foreground cluster, midground cluster, background cluster</li>
+                        <li>Leave empty Z-space between zones for maximum depth effect</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>4️⃣ Detail Gradient</h4>
+                    <p>
+                        More detail in the foreground, less in the background. This mimics how our eyes and cameras focus.
+                    </p>
+                    <p><strong>How to apply it:</strong></p>
+                    <ul>
+                        <li>Add intricate props (books with visible titles, detailed desk items) in the foreground</li>
+                        <li>Use simpler, less detailed props for distant elements</li>
+                        <li>Background walls can be plain; foreground surfaces can be textured</li>
+                        <li>This also improves render performance—less detail where viewers don't focus</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>5️⃣ Atmospheric Perspective</h4>
+                    <p>
+                        In real life, distant objects appear slightly hazier and lower in contrast due to air and light scattering. You can simulate this in Poser.
+                    </p>
+                    <p><strong>How to apply it:</strong></p>
+                    <ul>
+                        <li>Make background props slightly lighter or more desaturated</li>
+                        <li>Reduce contrast on distant elements</li>
+                        <li>Add a subtle fog or depth cue effect (covered in lighting lessons)</li>
+                        <li>Keep the sharpest contrast for your focal point in the midground</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>6️⃣ Linear Perspective</h4>
+                    <p>
+                        Parallel lines converge toward a vanishing point as they recede. Use this to your advantage.
+                    </p>
+                    <p><strong>How to apply it:</strong></p>
+                    <ul>
+                        <li>Angle your room so walls recede toward the back</li>
+                        <li>Position floor tiles or boards to create perspective lines</li>
+                        <li>Arrange props in rows that get closer together as they go back</li>
+                        <li>Use ceiling beams or floor patterns that lead the eye into depth</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>7️⃣ Light and Shadow Gradients</h4>
+                    <p>
+                        How light falls off with distance creates depth. Closer objects might be brighter, distant ones in more shadow.
+                    </p>
+                    <p><strong>How to apply it:</strong></p>
+                    <ul>
+                        <li>Light your foreground and midground more strongly</li>
+                        <li>Let backgrounds fall into slightly darker areas</li>
+                        <li>Use shadows to separate layers—foreground shadow, midground light, background shadow</li>
+                        <li>Don't light everything evenly—variation creates depth</li>
+                    </ul>
+                </div>
+
+                <h3>The Depth Workflow</h3>
+
+                <p>
+                    Here's a practical workflow for building depth into your scenes from the start:
+                </p>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Start Scene] --> B[Place Background Elements]
+                    B --> C[Add Midground - Figure & Key Props]
+                    C --> D[Add Foreground Elements]
+                    D --> E[Check Scene from Top View]
+                    E --> F{Good Z-axis Spacing?}
+                    F -->|No| G[Adjust Props Forward/Backward]
+                    G --> E
+                    F -->|Yes| H[Test Camera Angles]
+                    H --> I{Depth Visible?}
+                    I -->|No| J[Add Overlaps or Move Elements]
+                    J --> H
+                    I -->|Yes| K[Refine and Detail]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style K fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Quick Depth Check</h4>
+                    <p>Before you consider your scene complete, do this quick test:</p>
+                    <ol>
+                        <li><strong>Switch to top view</strong> (Poser Camera or Top camera)</li>
+                        <li><strong>Look at the spacing</strong> — Are props spread out front-to-back, or are they all lined up at the same depth?</li>
+                        <li><strong>Switch to your render camera</strong> — Does the scene have obvious foreground, middle, and background?</li>
+                        <li><strong>Count the layers</strong> — Can you identify at least 3-5 distinct depth layers?</li>
+                        <li><strong>Check for overlaps</strong> — Do some objects partially hide others from the camera's view?</li>
+                    </ol>
+                    <p>If you answered "no" or "barely" to these questions, your scene needs more depth work!</p>
+                </div>
+
+                <h3>Common Depth Mistakes</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Avoid These Depth-Killing Errors</h4>
+                    
+                    <p><strong>Mistake 1: "The Line-Up"</strong></p>
+                    <ul>
+                        <li><strong>Problem:</strong> All props arranged in a straight line at the same depth</li>
+                        <li><strong>Fix:</strong> Stagger props—push some forward, pull some back</li>
+                    </ul>
+
+                    <p><strong>Mistake 2: "The Void"</strong></p>
+                    <ul>
+                        <li><strong>Problem:</strong> Huge empty Z-space between figure and background</li>
+                        <li><strong>Fix:</strong> Add mid-distance props to bridge the gap</li>
+                    </ul>
+
+                    <p><strong>Mistake 3: "Everything's Important"</strong></p>
+                    <ul>
+                        <li><strong>Problem:</strong> Equal detail everywhere flattens the scene</li>
+                        <li><strong>Fix:</strong> Concentrate detail in the focal area, simplify elsewhere</li>
+                    </ul>
+
+                    <p><strong>Mistake 4: "Perfect Parallel"</strong></p>
+                    <ul>
+                        <li><strong>Problem:</strong> Everything perfectly aligned with camera, no angles</li>
+                        <li><strong>Fix:</strong> Rotate props slightly, angle furniture, create diagonal lines</li>
+                    </ul>
+
+                    <p><strong>Mistake 5: "Flat Lighting"</strong></p>
+                    <ul>
+                        <li><strong>Problem:</strong> Everything lit equally destroys depth cues</li>
+                        <li><strong>Fix:</strong> Use light falloff and shadow variation to separate layers</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Master Tip:</strong> When in doubt, view your scene in black and white (or squint your eyes). If you can still distinguish foreground from background clearly through tonal differences alone, you've got good depth. If everything blends together, you need more depth separation.</p>
+                </blockquote>
+
+            </section>
+
+            <section id="scene-organization" class="lesson-section">
+                <h2>📋 Scene Organization Best Practices</h2>
+
+                <p>
+                    As your scenes grow more complex, <strong>organization</strong> becomes critical. A messy, disorganized scene file is frustrating to work with and makes even simple edits painful. Let's establish good habits now that will serve you throughout your Poser career.
+                </p>
+
+                <h3>Why Organization Matters</h3>
+
+                <p>
+                    Imagine trying to find a specific book in a library where all the books are randomly scattered on the floor with no labels. That's what working in a disorganized scene feels like. Good organization means:
+                </p>
+
+                <ul>
+                    <li><strong>Finding things quickly:</strong> "Where did I put that lamp?" should take seconds, not minutes</li>
+                    <li><strong>Making changes efficiently:</strong> Need to adjust all the books on the desk? Easy if they're grouped</li>
+                    <li><strong>Preventing mistakes:</strong> Less likely to accidentally move or delete the wrong object</li>
+                    <li><strong>Collaborating smoothly:</strong> If someone else opens your scene file, they should understand it</li>
+                    <li><strong>Reducing stress:</strong> Working in a well-organized scene is simply more pleasant</li>
+                </ul>
+
+                <h3>Naming Conventions: Your First Line of Defense</h3>
+
+                <p>
+                    When you load a prop into Poser, it often comes with a generic name like "Chair_1" or "Prop_47." These names are useless once you have five chairs in your scene. Rename everything with descriptive, specific names.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Good Naming Practices</h4>
+                    
+                    <p><strong>Be Specific:</strong></p>
+                    <ul>
+                        <li>Bad: "Chair", "Chair_1", "Chair_2"</li>
+                        <li>Good: "DeskChair_Main", "GuestChair_Left", "GuestChair_Right"</li>
+                    </ul>
+
+                    <p><strong>Include Location or Function:</strong></p>
+                    <ul>
+                        <li>Bad: "Cup"</li>
+                        <li>Good: "CoffeeCup_OnDesk"</li>
+                    </ul>
+
+                    <p><strong>Use Consistent Prefixes:</strong></p>
+                    <ul>
+                        <li>All furniture: "FURN_DeskOffice", "FURN_ChairDesk", "FURN_BookshelfTall"</li>
+                        <li>All decorations: "DECO_PictureFrame", "DECO_PlantPotted", "DECO_ClockWall"</li>
+                        <li>All lighting: "LIGHT_KeyFront", "LIGHT_FillRight", "LIGHT_RimBack"</li>
+                    </ul>
+
+                    <p><strong>Number When Necessary:</strong></p>
+                    <ul>
+                        <li>For identical items: "Book_Desk_01", "Book_Desk_02", "Book_Desk_03"</li>
+                        <li>Always use leading zeros: "01" not "1" (better sorting)</li>
+                    </ul>
+                </div>
+
+                <h3>How to Rename Objects in Poser</h3>
+
+                <p>
+                    Renaming in Poser is straightforward once you know where to look:
+                </p>
+
+                <div class="card">
+                    <h4>🔧 Renaming Methods</h4>
+                    
+                    <p><strong>Method 1: Properties Panel</strong></p>
+                    <ol>
+                        <li>Select the prop in your scene or in the Hierarchy panel</li>
+                        <li>Look at the Properties panel (usually on the right side)</li>
+                        <li>At the top, you'll see a "Name" field</li>
+                        <li>Click in the field, type your new name, press Enter</li>
+                    </ol>
+
+                    <p><strong>Method 2: Hierarchy Panel</strong></p>
+                    <ol>
+                        <li>Right-click on the object in the Hierarchy panel</li>
+                        <li>Select "Rename" from the context menu</li>
+                        <li>Type the new name and press Enter</li>
+                    </ol>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Pro Tip:</strong> Rename objects as soon as you load them, before you forget what they are or what they're for. Make it a habit: Load → Position roughly → Rename → Fine-tune. This prevents ending up with a scene full of "Prop_1" through "Prop_47."</p>
+                </blockquote>
+
+                <h3>Using the Hierarchy Panel Effectively</h3>
+
+                <p>
+                    The Hierarchy panel (also called Scene Hierarchy or Scene Graph) is your command center for organization. It shows every element in your scene in a tree structure.
+                </p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>🌳 Hierarchy Panel Features</h4>
+                    
+                    <p><strong>Understanding the Tree Structure:</strong></p>
+                    <ul>
+                        <li>Top-level items are independent props and figures</li>
+                        <li>Indented items are parented (children of the item above)</li>
+                        <li>Expand/collapse groups by clicking the triangle icons</li>
+                        <li>Items are listed in load order (oldest at top) by default</li>
+                    </ul>
+
+                    <p><strong>Visibility Controls:</strong></p>
+                    <ul>
+                        <li>Eye icon: Click to hide/show objects in the viewport</li>
+                        <li>Hidden objects aren't deleted—just temporarily invisible</li>
+                        <li>Great for working on specific parts of your scene</li>
+                        <li>Hidden objects still render unless you specifically exclude them</li>
+                    </ul>
+
+                    <p><strong>Selection and Navigation:</strong></p>
+                    <ul>
+                        <li>Click an item to select it</li>
+                        <li>Double-click to frame it in the viewport</li>
+                        <li>Right-click for additional options (rename, delete, etc.)</li>
+                        <li>Use Shift-click to select multiple items</li>
+                    </ul>
+                </div>
+
+                <h3>Grouping Related Objects</h3>
+
+                <p>
+                    Poser allows you to create <strong>groups</strong>—collections of props that you can manage as a unit. This is incredibly useful for scenes with many props.
+                </p>
+
+                <div class="card">
+                    <h4>📦 Creating and Using Groups</h4>
+                    
+                    <p><strong>When to Group:</strong></p>
+                    <ul>
+                        <li>All desk items (computer, monitor, keyboard, mouse, papers, pen holder)</li>
+                        <li>All wall decorations (pictures, clock, shelves, mounted items)</li>
+                        <li>All lighting fixtures (lamps, overhead lights, accent lights)</li>
+                        <li>Scene sections (everything for "desk area", everything for "bookshelf area")</li>
+                    </ul>
+
+                    <p><strong>How to Create Groups:</strong></p>
+                    <ol>
+                        <li>Select multiple props (hold Shift and click each one in the hierarchy)</li>
+                        <li>Go to <strong>Object → Create Group</strong></li>
+                        <li>Give the group a descriptive name like "DeskItems_Group"</li>
+                        <li>The props are now nested under this group in the hierarchy</li>
+                    </ol>
+
+                    <p><strong>Benefits of Grouping:</strong></p>
+                    <ul>
+                        <li>Hide/show entire groups at once for cleaner viewport</li>
+                        <li>Move all grouped items together by moving the group parent</li>
+                        <li>Scale the entire group proportionally</li>
+                        <li>Rotate all items as a unit around a central point</li>
+                        <li>Keep hierarchy cleaner by collapsing groups you're not working on</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Advanced Tip:</strong> You can create nested groups—groups within groups. For example, a "OfficeScene_AllProps" master group might contain "Desk_Group", "Bookshelf_Group", and "Decoration_Group" sub-groups. This creates a logical hierarchy that makes managing complex scenes much easier.</p>
+                </blockquote>
+
+                <h3>The Clean Scene Checklist</h3>
+
+                <p>
+                    Before you save your scene file or move on to lighting and rendering, run through this organization checklist:
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Scene Organization Checklist</h4>
+                    <ul>
+                        <li>□ Every prop has a descriptive, specific name</li>
+                        <li>□ Similar items are grouped logically</li>
+                        <li>□ Groups themselves have clear names</li>
+                        <li>□ Hierarchy is collapsed to show only top-level items</li>
+                        <li>□ No "Prop_1" or other default generic names remain</li>
+                        <li>□ Props you're not using are deleted (not just hidden)</li>
+                        <li>□ Figure and props have appropriate parent-child relationships</li>
+                        <li>□ Scene file has been saved with a descriptive filename</li>
+                        <li>□ You could step away for a week and still understand the scene when you return</li>
+                    </ul>
+                </div>
+
+                <h3>Managing Large Scenes: Performance Tips</h3>
+
+                <p>
+                    As scenes grow, they can slow down your computer. Here are strategies to keep things running smoothly:
+                </p>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚡ Performance Optimization</h4>
+                    
+                    <p><strong>Hide what you're not working on:</strong></p>
+                    <ul>
+                        <li>Use the eye icon in the hierarchy to hide entire groups</li>
+                        <li>Hidden objects don't slow down viewport navigation</li>
+                        <li>Unhide only when you need to see or adjust them</li>
+                    </ul>
+
+                    <p><strong>Reduce viewport quality during building:</strong></p>
+                    <ul>
+                        <li>Set Display Style to "Wireframe" or "Flat Shaded" while arranging</li>
+                        <li>Switch to "Texture Shaded" only when you need to see materials</li>
+                        <li>This can dramatically speed up viewport response</li>
+                    </ul>
+
+                    <p><strong>Delete, don't hide, unused props:</strong></p>
+                    <ul>
+                        <li>If you decided not to use that extra chair, delete it</li>
+                        <li>Hidden objects still consume memory</li>
+                        <li>A leaner scene file is a faster scene file</li>
+                    </ul>
+
+                    <p><strong>Use simpler versions during building:</strong></p>
+                    <ul>
+                        <li>Some complex props have "low-poly" versions for viewport use</li>
+                        <li>Build your scene with simple versions, swap in detailed ones for rendering</li>
+                        <li>This keeps interaction smooth during the creative process</li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <section id="layers-groups" class="lesson-section">
+                <h2>🗂️ Working with Layers and Groups</h2>
+
+                <p>
+                    Now let's dive deeper into <strong>layers and groups</strong>—powerful organizational tools that separate good scene builders from great ones. Understanding these features will transform how you manage complex projects.
+                </p>
+
+                <h3>Understanding Poser's Group System</h3>
+
+                <p>
+                    We touched on groups earlier, but let's explore them in more detail. Groups in Poser work like folders on your computer—they're containers that keep related items together.
+                </p>
+
+                <div class="card">
+                    <h4>📁 Group Hierarchy Basics</h4>
+                    <p>
+                        When you create a group and add props to it, you're establishing a <strong>parent-child relationship</strong>:
+                    </p>
+                    <ul>
+                        <li><strong>The group is the parent:</strong> Transform operations on it affect all children</li>
+                        <li><strong>The props are children:</strong> They inherit some properties from the group</li>
+                        <li><strong>Children can still be moved independently:</strong> They're grouped, not glued together</li>
+                        <li><strong>Groups can contain groups:</strong> Create hierarchies as deep as needed</li>
+                    </ul>
+                </div>
+
+                <h3>Advanced Grouping Strategies</h3>
+
+                <p>
+                    Let's look at how professional scene builders use groups to stay organized:
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✨ Professional Grouping Patterns</h4>
+                    
+                    <p><strong>Geographic Grouping:</strong></p>
+                    <ul>
+                        <li>Group by physical location in the scene</li>
+                        <li>"LeftWall_Group" contains all props on the left wall</li>
+                        <li>"CornerArea_Group" for the corner section</li>
+                        <li>Makes it easy to show/hide sections of your scene</li>
+                    </ul>
+
+                    <p><strong>Functional Grouping:</strong></p>
+                    <ul>
+                        <li>Group by purpose or function</li>
+                        <li>"Lighting_Group" contains all light props (lamps, fixtures)</li>
+                        <li>"Technology_Group" for computer, monitor, devices</li>
+                        <li>"Decoration_Group" for purely aesthetic items</li>
+                    </ul>
+
+                    <p><strong>Workflow Grouping:</strong></p>
+                    <ul>
+                        <li>Group based on when you work on them</li>
+                        <li>"BaseScene_Group" for the foundational elements you set up first</li>
+                        <li>"DetailPass_Group" for fine details added later</li>
+                        <li>"Experimental_Group" for things you're trying out and might remove</li>
+                    </ul>
+
+                    <p><strong>Render Grouping:</strong></p>
+                    <ul>
+                        <li>Group by render needs</li>
+                        <li>"HighDetail_Group" for props that need maximum quality</li>
+                        <li>"Background_Group" for props that can render at lower quality</li>
+                        <li>"NoShadow_Group" for items that shouldn't cast shadows</li>
+                    </ul>
+                </div>
+
+                <h3>Parent-Child Relationships Beyond Groups</h3>
+
+                <p>
+                    Groups are one way to create hierarchies, but Poser's parenting system is even more flexible. Remember when we parented a cup to a figure's hand? That same system works for prop-to-prop relationships:
+                </p>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Desk - Parent] --> B[Monitor - Child of Desk]
+                    A --> C[Keyboard - Child of Desk]
+                    A --> D[Mouse - Child of Desk]
+                    A --> E[DeskLamp - Child of Desk]
+                    E --> F[LightBulb - Child of Lamp]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style E fill:#FF9800,stroke:#333,stroke-width:2px,color:#fff
+                    style F fill:#e91e63,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <div class="card">
+                    <h4>🔗 Strategic Parenting for Props</h4>
+                    <p>
+                        By parenting props to each other, you create logical relationships:
+                    </p>
+                    <ul>
+                        <li><strong>Items on a desk?</strong> Parent them to the desk. Now if you move the desk, everything moves with it.</li>
+                        <li><strong>Books on a shelf?</strong> Parent them to the shelf. The whole unit moves together.</li>
+                        <li><strong>Lamp parts?</strong> Parent the bulb to the lamp base, lampshade to the base, etc.</li>
+                        <li><strong>Objects in a container?</strong> Parent the items to the container prop.</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Pro Tip:</strong> The difference between groups and parenting: Groups are for organization (managing your workspace), while parenting is for behavior (making things move together). Often you'll use both—parent a lamp bulb to its base, then include both in a "Lighting_Group" for easy management.</p>
+                </blockquote>
+
+                <h3>Layer-Like Workflows (Even Without Traditional Layers)</h3>
+
+                <p>
+                    While Poser doesn't have Photoshop-style layers, you can create layer-like workflows using visibility toggles and groups:
+                </p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>🎨 Creating a "Layer" Workflow</h4>
+                    
+                    <p><strong>Layer 1: Base Environment</strong></p>
+                    <ul>
+                        <li>Group name: "Layer_01_BaseEnvironment"</li>
+                        <li>Contains: Walls, floor, ceiling, windows, doors</li>
+                        <li>Toggle this off when you're working on detailed props</li>
+                    </ul>
+
+                    <p><strong>Layer 2: Major Furniture</strong></p>
+                    <ul>
+                        <li>Group name: "Layer_02_Furniture"</li>
+                        <li>Contains: Desk, chairs, bookcases, major pieces</li>
+                        <li>The foundation of your scene's functionality</li>
+                    </ul>
+
+                    <p><strong>Layer 3: Detail Props</strong></p>
+                    <ul>
+                        <li>Group name: "Layer_03_DetailProps"</li>
+                        <li>Contains: Books, cups, papers, small items</li>
+                        <li>These are the character-building details</li>
+                    </ul>
+
+                    <p><strong>Layer 4: Lighting</strong></p>
+                    <ul>
+                        <li>Group name: "Layer_04_Lighting"</li>
+                        <li>Contains: All light sources—props and actual lights</li>
+                        <li>Toggle to see your scene with/without visible light sources</li>
+                    </ul>
+
+                    <p><strong>Layer 5: Figure(s)</strong></p>
+                    <ul>
+                        <li>Group name: "Layer_05_Characters"</li>
+                        <li>Contains: All figures and their conforming items</li>
+                        <li>Sometimes you want to adjust the scene without figures in the way</li>
+                    </ul>
+                </div>
+
+                <h3>The Power of Visibility Management</h3>
+
+                <p>
+                    The eye icon in the Hierarchy panel is one of your most powerful tools. Using it strategically transforms your workflow:
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>👁️ Visibility Best Practices</h4>
+                    
+                    <p><strong>While Building:</strong></p>
+                    <ul>
+                        <li>Hide completed sections to reduce visual clutter</li>
+                        <li>Show only the area you're actively working on</li>
+                        <li>Improves viewport performance on complex scenes</li>
+                    </ul>
+
+                    <p><strong>While Posing Figures:</strong></p>
+                    <ul>
+                        <li>Hide all props temporarily</li>
+                        <li>Focus completely on the figure without distraction</li>
+                        <li>Turn props back on to check interactions</li>
+                    </ul>
+
+                    <p><strong>While Lighting:</strong></p>
+                    <ul>
+                        <li>Hide detail props to see overall light shapes</li>
+                        <li>Add details back gradually to see their impact</li>
+                        <li>Toggle between versions to compare</li>
+                    </ul>
+
+                    <p><strong>While Rendering Tests:</strong></p>
+                    <ul>
+                        <li>Hide high-detail background elements for faster test renders</li>
+                        <li>Bring them back only for final quality renders</li>
+                        <li>Save hours on iteration time</li>
+                    </ul>
+                </div>
+
+                <h3>Selection Sets: Quick Access to Groups</h3>
+
+                <p>
+                    Some versions of Poser support <strong>selection sets</strong>—saved collections of objects you frequently need to select together. Think of them as shortcuts or bookmarks for groups of props.
+                </p>
+
+                <div class="card">
+                    <h4>🎯 Using Selection Sets</h4>
+                    <p>
+                        If your version of Poser has this feature:
+                    </p>
+                    <ul>
+                        <li>Select multiple props (Shift-click in hierarchy)</li>
+                        <li>Go to <strong>Edit → Create Selection Set</strong> (or similar menu location)</li>
+                        <li>Name it descriptively: "AllDeskItems", "WallDecorations", etc.</li>
+                        <li>Now you can instantly select all those items again from the menu</li>
+                    </ul>
+                    <p>
+                        This is incredibly useful for tasks like applying the same material to multiple props or moving clusters of related items.
+                    </p>
+                </div>
+
+                <h3>Organizing Your Workflow: A Complete Example</h3>
+
+                <p>
+                    Let's see how all these organizational tools work together in a real scenario:
+                </p>
+
+                <div class="card" style="background-color: #f3e5f5; border-left: 4px solid #9C27B0;">
+                    <h4>📚 Example: Organizing a Home Office Scene</h4>
+                    
+                    <p><strong>Initial Setup:</strong></p>
+                    <ol>
+                        <li>Create master groups for main categories</li>
+                        <li>As you add each prop, immediately rename it and add to appropriate group</li>
+                    </ol>
+
+                    <p><strong>Hierarchy Structure:</strong></p>
+                    <pre style="background: rgba(0,0,0,0.05); padding: 1rem; border-radius: 4px; overflow-x: auto;">
+HomeOfficeScene
+├─ ENV_BaseEnvironment
+│  ├─ ENV_Floor
+│  ├─ ENV_WallLeft
+│  ├─ ENV_WallRight
+│  └─ ENV_Window
+├─ FURN_Furniture
+│  ├─ FURN_Desk_Main
+│  │  ├─ DeskItem_Monitor (parented to desk)
+│  │  ├─ DeskItem_Keyboard (parented to desk)
+│  │  ├─ DeskItem_Mouse (parented to desk)
+│  │  └─ DeskItem_CoffeeMug (parented to desk)
+│  ├─ FURN_Chair_Desk
+│  └─ FURN_Bookshelf_Wall
+│     ├─ Book_Shelf_01 (parented to bookshelf)
+│     ├─ Book_Shelf_02 (parented to bookshelf)
+│     └─ Book_Shelf_03 (parented to bookshelf)
+├─ DECO_Decorations
+│  ├─ DECO_PlantPotted_Corner
+│  ├─ DECO_PictureFrame_Wall
+│  └─ DECO_Clock_Wall
+├─ LIGHT_Lighting
+│  ├─ LIGHT_DeskLamp
+│  └─ LIGHT_FloorLamp_Corner
+└─ CHAR_Figure
+   └─ Figure 1 (with clothing)
+                    </pre>
+
+                    <p><strong>Working Process:</strong></p>
+                    <ul>
+                        <li>Collapse groups you're not working on</li>
+                        <li>Hide ENV_BaseEnvironment when arranging desk items for clearer view</li>
+                        <li>Hide CHAR_Figure when adjusting furniture positions</li>
+                        <li>Move FURN_Desk_Main and all its parented children move together</li>
+                        <li>Select DECO_Decorations group to quickly adjust all decoration materials at once</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Master Tip:</strong> Spend 5 minutes organizing for every hour of scene building. It feels like extra work at first, but you'll save that time tenfold when you're not hunting for "Prop_23" or accidentally moving the wrong object. Organization is an investment that always pays off.</p>
+                </blockquote>
+
+            </section>
+
+            <section id="lighting-atmosphere" class="lesson-section">
+                <h2>💡 Adding Lighting and Atmosphere</h2>
+
+                <p>
+                    You've built your scene, arranged your props, organized everything beautifully—but it still might look flat or sterile. That's where <strong>lighting and atmosphere</strong> come in. Even basic lighting can transform a good scene into a great one.
+                </p>
+
+                <blockquote>
+                    <p><strong>💡 Key Insight:</strong> We'll cover lighting in detail in Module 4, but even at this stage, understanding basic lighting principles will elevate your scenes dramatically. Think of this as a preview of what's coming!</p>
+                </blockquote>
+
+                <h3>Why Lighting Matters for Scene Building</h3>
+
+                <p>
+                    Lighting does much more than just illuminate your scene:
+                </p>
+
+                <ul>
+                    <li><strong>Establishes mood:</strong> Bright office lights feel different from warm sunset glow</li>
+                    <li><strong>Creates depth:</strong> Light and shadow separate foreground from background</li>
+                    <li><strong>Guides the eye:</strong> Viewers naturally look at the brightest areas first</li>
+                    <li><strong>Tells time and place:</strong> Cool blue suggests morning, warm orange suggests evening</li>
+                    <li><strong>Adds realism:</strong> Proper shadows make objects feel grounded and real</li>
+                </ul>
+
+                <h3>Basic Lighting for Your First Scene</h3>
+
+                <p>
+                    For now, let's establish some simple but effective lighting that will make your scene look professional:
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Simple Three-Point Lighting</h4>
+                    <p>
+                        This is the foundation of professional lighting, borrowed from photography and film:
+                    </p>
+                    
+                    <p><strong>Key Light (Main Light):</strong></p>
+                    <ul>
+                        <li>Your primary light source</li>
+                        <li>Usually positioned 45 degrees to the side and above your subject</li>
+                        <li>Creates the main shadows and defines form</li>
+                        <li>For an office scene: could be window light or overhead lights</li>
+                    </ul>
+
+                    <p><strong>Fill Light (Shadow Softener):</strong></p>
+                    <ul>
+                        <li>Softer, less intense than key light</li>
+                        <li>Positioned opposite the key light</li>
+                        <li>Fills in shadows without eliminating them</li>
+                        <li>About 50% the intensity of your key light</li>
+                    </ul>
+
+                    <p><strong>Rim Light (Edge Definition):</strong></p>
+                    <ul>
+                        <li>Behind and to the side of your subject</li>
+                        <li>Creates a subtle glow on edges</li>
+                        <li>Separates figure from background</li>
+                        <li>Optional but adds professional polish</li>
+                    </ul>
+                </div>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Your Figure/Subject] 
+                    B[Key Light<br/>45° Front-Left<br/>Above<br/>100% Intensity]
+                    C[Fill Light<br/>45° Front-Right<br/>Same Height<br/>50% Intensity]
+                    D[Rim Light<br/>Behind-Left<br/>Above<br/>30% Intensity]
+                    
+                    B -.Strong Light.-> A
+                    C -.Soft Fill.-> A
+                    D -.Edge Glow.-> A
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style B fill:#FFD700,stroke:#333,stroke-width:2px,color:#333
+                    style C fill:#87CEEB,stroke:#333,stroke-width:2px,color:#333
+                    style D fill:#FFA500,stroke:#333,stroke-width:2px,color:#333
+                </div>
+
+                <h3>Practical Lighting for an Office Scene</h3>
+
+                <p>
+                    Let's apply these principles to your indoor office scene project:
+                </p>
+
+                <div class="card">
+                    <h4>🏢 Office Scene Lighting Setup</h4>
+                    
+                    <p><strong>Option 1: Daytime Office (Window Light)</strong></p>
+                    <ul>
+                        <li><strong>Key Light:</strong> Position a bright light outside the window area (if you have a window prop), angled toward your figure. Use a cool-white or slight blue tint to suggest daylight.</li>
+                        <li><strong>Fill Light:</strong> A softer light from the opposite side, warm-white color to suggest indoor lighting mixing with natural light.</li>
+                        <li><strong>Ceiling Light:</strong> If you have ceiling lights as props, add actual lights near them pointing down. Keep these fairly dim—ambient fill rather than dramatic.</li>
+                    </ul>
+
+                    <p><strong>Option 2: Evening Office (Artificial Light)</strong></p>
+                    <ul>
+                        <li><strong>Desk Lamp:</strong> If you have a desk lamp prop, place a spotlight nearby pointed at the work area. Warm yellow-white color.</li>
+                        <li><strong>Overhead Lights:</strong> One or two lights from above, spread out. These should be your key lights. Neutral white.</li>
+                        <li><strong>Ambient Light:</strong> A very dim, bluish fill light to prevent shadows from going completely black. Suggests light from computer screens and ambient city glow.</li>
+                    </ul>
+
+                    <p><strong>Option 3: Dramatic/Moody Office</strong></p>
+                    <ul>
+                        <li><strong>Single Strong Source:</strong> One bright light from the side (desk lamp or window), creating strong shadows.</li>
+                        <li><strong>Minimal Fill:</strong> Just enough to see details in shadows, but let darkness exist.</li>
+                        <li><strong>Rim Light:</strong> Behind the figure to separate them from the dark background.</li>
+                    </ul>
+                </div>
+
+                <h3>Quick Lighting Tips for Beginners</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚡ Lighting Quick Wins</h4>
+                    
+                    <p><strong>Tip 1: Don't Light Everything Equally</strong></p>
+                    <p>Contrast is interesting. Let some areas be brighter than others. Shadows are good—they create drama and depth.</p>
+
+                    <p><strong>Tip 2: Match Light Color to Story</strong></p>
+                    <ul>
+                        <li>Cool blues → Morning, clinical, professional, sad</li>
+                        <li>Warm oranges/yellows → Evening, cozy, intimate, nostalgic</li>
+                        <li>Neutral whites → Midday, energetic, clean, modern</li>
+                    </ul>
+
+                    <p><strong>Tip 3: Light Your Subject, Not Your Scene</strong></p>
+                    <p>The figure or main focal point should be the brightest thing. Background can be dimmer. This naturally guides the viewer's eye.</p>
+
+                    <p><strong>Tip 4: Shadows Sell Reality</strong></p>
+                    <p>Make sure Ground Shadows are enabled (Display menu). Shadows prove your objects exist in the same space.</p>
+
+                    <p><strong>Tip 5: Start Simple, Add Complexity</strong></p>
+                    <p>Begin with just one or two lights. Get those right before adding more. More lights ≠ better lighting.</p>
+                </div>
+
+                <h3>Atmosphere Beyond Lighting</h3>
+
+                <p>
+                    Atmosphere isn't just about lights—it's about the overall feeling of the scene:
+                </p>
+
+                <div class="card" style="background-color: #f3e5f5; border-left: 4px solid #9C27B0;">
+                    <h4>🌟 Creating Atmosphere</h4>
+                    
+                    <p><strong>Color Harmony:</strong></p>
+                    <ul>
+                        <li>Choose a color palette and stick to it</li>
+                        <li>Office: Blues, grays, whites for corporate; warm browns for home office</li>
+                        <li>Use materials and props that reinforce this palette</li>
+                    </ul>
+
+                    <p><strong>Time of Day Indicators:</strong></p>
+                    <ul>
+                        <li>Morning: Cool light, fresh feeling, clean surfaces</li>
+                        <li>Afternoon: Bright, energetic, strong shadows</li>
+                        <li>Evening: Warm lights, longer shadows, cozier feeling</li>
+                        <li>Night: Artificial lights only, dramatic contrast, intimate mood</li>
+                    </ul>
+
+                    <p><strong>Environmental Details:</strong></p>
+                    <ul>
+                        <li>Coffee steam (if you have it) suggests recent activity</li>
+                        <li>Papers scattered vs. neat stack tells different stories</li>
+                        <li>Computer screen glow adds realism to evening scenes</li>
+                        <li>Plants add life and warmth to any space</li>
+                    </ul>
+
+                    <p><strong>Depth Cue (Advanced):</strong></p>
+                    <ul>
+                        <li>Slight haze or fog in the air (available in Poser's atmosphere settings)</li>
+                        <li>Makes distant objects slightly lighter or hazier</li>
+                        <li>Mimics real-world atmospheric scattering</li>
+                        <li>We'll cover this in detail in Module 4</li>
+                    </ul>
+                </div>
+
+                <h3>Testing Your Lighting</h3>
+
+                <p>
+                    Before you get into detailed lighting work, use these quick tests:
+                </p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>🧪 Lighting Quality Checks</h4>
+                    <ol>
+                        <li><strong>The Squint Test:</strong> Squint at your scene. Can you still tell what's important? The main subject should be clearest.</li>
+                        <li><strong>The Silhouette Test:</strong> Does your figure's silhouette separate clearly from the background? Good lighting creates separation.</li>
+                        <li><strong>The Shadow Test:</strong> Are shadows too harsh or too soft? Adjust light intensity or add fill lights accordingly.</li>
+                        <li><strong>The Color Test:</strong> Does the overall color feel right for the mood you're creating? Cool, warm, or neutral?</li>
+                        <li><strong>The Preview Render:</strong> Do a quick, low-quality render. Lighting often looks different rendered vs. in the viewport.</li>
+                    </ol>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Remember:</strong> Lighting is an art form in itself, and we'll dedicate entire lessons to it later. For now, focus on these basics: make sure you can see your figure clearly, create some shadows for depth, and use light color to suggest time of day or mood. That alone will make your scenes look 10x more professional!</p>
+                </blockquote>
+
+            </section>
+
+            <section id="project" class="lesson-section">
+                <h2>🎯 Project: Indoor Office Scene</h2>
+
+                <p>
+                    Time to put everything together! You're going to create a complete indoor office scene featuring a figure at a desk or in a room. This project combines all the skills you've learned: scene building, prop arrangement, composition, organization, and basic lighting.
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3 style="color: white; margin-top: 0;">🎬 Project Goals</h3>
+                    <ul style="color: white;">
+                        <li>Create a believable indoor environment</li>
+                        <li>Arrange props for visual interest and composition</li>
+                        <li>Properly organize and name all scene elements</li>
+                        <li>Apply depth and layering techniques</li>
+                        <li>Add basic lighting for atmosphere</li>
+                        <li>Produce a scene you're proud to show others</li>
+                    </ul>
+                </div>
+
+                <h3>Project Setup</h3>
+
+                <div class="card">
+                    <h4>📋 Before You Begin</h4>
+                    <p><strong>Gather Your Props:</strong></p>
+                    <ul>
+                        <li>Browse your Props library and note what you have available</li>
+                        <li>You'll need: desk or table, chair, and at least 3-5 small props</li>
+                        <li>Optional: room environment, walls, floor props, lighting fixtures</li>
+                        <li>If you don't have furniture props, you can use primitive boxes to represent them</li>
+                    </ul>
+
+                    <p><strong>Choose Your Scenario:</strong></p>
+                    <ul>
+                        <li>Option 1: Writer at desk working late at night</li>
+                        <li>Option 2: Professional in office during daytime meeting prep</li>
+                        <li>Option 3: Student studying surrounded by books</li>
+                        <li>Option 4: Your own creative scenario!</li>
+                    </ul>
+
+                    <p><strong>Set Your Mood/Atmosphere:</strong></p>
+                    <ul>
+                        <li>Decide on time of day (morning, afternoon, evening, night)</li>
+                        <li>Choose emotional tone (busy and energetic, calm and focused, tense and pressured)</li>
+                        <li>This will guide your prop choices and lighting</li>
+                    </ul>
+                </div>
+
+                <h3>Step-by-Step Build Process</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Phase 1: Foundation (15-20 minutes)</h4>
+                    
+                    <p><strong>Step 1: Start with the Ground</strong></p>
+                    <ol>
+                        <li>Create a new scene in Poser</li>
+                        <li>Enable Display → Ground Plane</li>
+                        <li>Enable Display → Ground Shadows</li>
+                        <li>If you have a floor prop or room environment, load it now</li>
+                    </ol>
+
+                    <p><strong>Step 2: Add Background Elements</strong></p>
+                    <ol>
+                        <li>If using a complete room set, load it now</li>
+                        <li>OR load individual walls if you have them</li>
+                        <li>OR create simple background using Poser primitives (Create → Box, scale flat for walls)</li>
+                        <li>Position walls/environment to create your space</li>
+                        <li>Select and rename the environment: "ENV_Background" or similar</li>
+                    </ol>
+
+                    <p><strong>Step 3: Add Major Furniture</strong></p>
+                    <ol>
+                        <li>Load your desk or table prop</li>
+                        <li>Position it where you want the main action</li>
+                        <li>Rename it: "FURN_Desk_Main"</li>
+                        <li>Load your chair prop</li>
+                        <li>Position it at the desk, angled slightly for visual interest (not perfectly straight)</li>
+                        <li>Rename it: "FURN_Chair_Desk"</li>
+                        <li>Check from your intended camera angle—does the composition look interesting?</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Phase 2: Figure and Key Props (15-20 minutes)</h4>
+                    
+                    <p><strong>Step 4: Add Your Figure</strong></p>
+                    <ol>
+                        <li>Load a figure from your library</li>
+                        <li>Position the figure at/near the desk</li>
+                        <li>Use what you've learned: create a natural sitting pose if at desk, or standing pose if not sitting</li>
+                        <li>Make sure feet are properly on the ground (check Y-axis position)</li>
+                        <li>Add a simple facial expression that matches your scene's mood</li>
+                        <li>Rename if needed: "CHAR_Figure_Main"</li>
+                    </ol>
+
+                    <p><strong>Step 5: Add Desktop Props</strong></p>
+                    <ol>
+                        <li>Load 3-5 props that would be on the desk: computer, books, coffee mug, papers, pen holder, etc.</li>
+                        <li>Position each prop on the desk surface</li>
+                        <li>As you place each one, IMMEDIATELY rename it: "Prop_CoffeeMug", "Prop_Monitor", etc.</li>
+                        <li>Parent each desktop prop to the desk (Object → Change Parent → Desk)</li>
+                        <li>Apply the rule of thirds—don't center everything</li>
+                        <li>Use odd numbers (3 books, not 4)</li>
+                        <li>Create visual triangles with prop arrangement</li>
+                    </ol>
+
+                    <p><strong>Step 6: Figure-Prop Interactions</strong></p>
+                    <ol>
+                        <li>If figure is sitting, make sure they're positioned naturally on the chair</li>
+                        <li>Add a prop for the figure to hold if appropriate (coffee mug, pen, book)</li>
+                        <li>Parent this prop to the appropriate hand (Object → Change Parent → Right Hand or Left Hand)</li>
+                        <li>Adjust position and rotation so it looks natural</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Phase 3: Depth and Details (15-20 minutes)</h4>
+                    
+                    <p><strong>Step 7: Add Foreground Elements</strong></p>
+                    <ol>
+                        <li>Position something partially visible in the foreground (corner of another desk, edge of a bookshelf, potted plant)</li>
+                        <li>This creates depth and the feeling of a real space</li>
+                        <li>Can be slightly blurred or out of focus (we'll learn depth of field later)</li>
+                        <li>Rename appropriately: "FORE_DeskCorner" or similar</li>
+                    </ol>
+
+                    <p><strong>Step 8: Add Background Interest</strong></p>
+                    <ol>
+                        <li>Add something to the background—bookshelf, window, wall decorations, distant furniture</li>
+                        <li>Keep it simpler than the midground—less detail</li>
+                        <li>Creates context without competing for attention</li>
+                        <li>Rename: "BACK_Bookshelf" or "BACK_Window"</li>
+                    </ol>
+
+                    <p><strong>Step 9: Final Detail Props</strong></p>
+                    <ol>
+                        <li>Add 2-3 final detail props that add character: wall clock, desk lamp, photos, plants</li>
+                        <li>These should support your story—a stressed student has energy drink cans, a professional has organized files</li>
+                        <li>Remember: every prop should have a reason to be there</li>
+                        <li>Rename each one descriptively</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Phase 4: Organization and Lighting (10-15 minutes)</h4>
+                    
+                    <p><strong>Step 10: Organize Your Scene</strong></p>
+                    <ol>
+                        <li>Open the Hierarchy panel</li>
+                        <li>Review every prop name—make sure nothing is still "Prop_1" or generic</li>
+                        <li>Create groups:
+                            <ul>
+                                <li>Group all background elements: "GROUP_Background"</li>
+                                <li>Group all furniture: "GROUP_Furniture"</li>
+                                <li>Group all detail props: "GROUP_Details"</li>
+                            </ul>
+                        </li>
+                        <li>Collapse groups you're not actively working on</li>
+                    </ol>
+
+                    <p><strong>Step 11: Add Basic Lighting</strong></p>
+                    <ol>
+                        <li>Decide on your lighting scenario (daytime, evening, dramatic)</li>
+                        <li>Add 2-3 lights using the Lights controls (we'll detail this in Module 4, but experiment now)</li>
+                        <li>Position lights to suggest your scenario:
+                            <ul>
+                                <li>Daytime: bright light from window direction, softer fill from opposite</li>
+                                <li>Evening: desk lamp area bright, ceiling light softer, darker overall</li>
+                            </ul>
+                        </li>
+                        <li>Make sure your figure is the brightest/most lit element</li>
+                        <li>Check that shadows are visible and make sense</li>
+                    </ol>
+
+                    <p><strong>Step 12: Camera and Final Adjustments</strong></p>
+                    <ol>
+                        <li>Position your camera for the best view of the scene</li>
+                        <li>Apply rule of thirds—is your figure at an intersection point?</li>
+                        <li>Check depth—can you see foreground, midground, background?</li>
+                        <li>Do a test render (low quality) to see how everything looks</li>
+                        <li>Make any final tweaks to prop positions or lighting</li>
+                        <li>Save your scene with a descriptive name: "OfficeScene_Writer_Evening.pz3"</li>
+                    </ol>
+                </div>
+
+                <h3>Success Checklist</h3>
+
+                <div class="card">
+                    <h4>✨ Your Scene Should Have:</h4>
+                    <ul>
+                        <li>□ A clear setting (recognizable as an office/room)</li>
+                        <li>□ At least one figure with a natural pose</li>
+                        <li>□ 6-10 props arranged thoughtfully</li>
+                        <li>□ Visible foreground, midground, and background layers</li>
+                        <li>□ Props arranged using composition principles (rule of thirds, triangles)</li>
+                        <li>□ All elements properly named (no generic names)</li>
+                        <li>□ Props organized into logical groups</li>
+                        <li>□ Ground plane or floor visible</li>
+                        <li>□ Shadows enabled and visible</li>
+                        <li>□ Basic lighting that creates mood and depth</li>
+                        <li>□ Camera positioned for interesting composition</li>
+                        <li>□ Scene file saved with descriptive name</li>
+                    </ul>
+                </div>
+
+                <h3>Bonus Challenges (Optional)</h3>
+
+                <p>
+                    If you finish early or want to push yourself further:
+                </p>
+
+                <div class="card" style="background-color: #f3e5f5; border-left: 4px solid #9C27B0;">
+                    <h4>🚀 Take It Further</h4>
+                    <ul>
+                        <li><strong>Multiple Camera Angles:</strong> Create 2-3 different camera positions saved as Camera presets. See how the same scene tells different stories from different angles.</li>
+                        <li><strong>Time-of-Day Variations:</strong> Create a duplicate scene and change the lighting to show a different time of day. Same space, different atmosphere.</li>
+                        <li><strong>Emotion Change:</strong> Adjust the figure's pose and expression to change the scene's emotional tone. How does changing from focused to stressed affect the story?</li>
+                        <li><strong>Add a Second Figure:</strong> Try adding another figure in the background doing something different—creates a busier, more dynamic scene.</li>
+                        <li><strong>Story Props:</strong> Add props that tell a specific story—awards for success, discarded drafts for frustration, family photos for personal connection.</li>
+                    </ul>
+                </div>
+
+                <h3>Troubleshooting</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Common Issues and Fixes</h4>
+                    
+                    <p><strong>"My scene looks cluttered and messy!"</strong></p>
+                    <p><strong>Fix:</strong> Less is more. Remove props one by one until it feels cleaner. Remember the 60-30-10 rule—most of your scene should be negative space.</p>
+                    
+                    <p><strong>"Everything looks flat—no depth!"</strong></p>
+                    <p><strong>Fix:</strong> Check from top view—are all your props at the same Z-depth? Move some forward, some back. Add a foreground element. Adjust lighting so not everything is equally bright.</p>
+                    
+                    <p><strong>"I can't see my figure well!"</strong></p>
+                    <p><strong>Fix:</strong> Light the figure more than the background. Move the figure closer to camera or zoom in. Remove props that block the view. Use a rim light to separate figure from background.</p>
+                    
+                    <p><strong>"The composition feels boring!"</strong></p>
+                    <p><strong>Fix:</strong> Move the figure off-center. Angle the camera so it's not perfectly straight-on. Create diagonal lines with prop placement. Add visual triangles.</p>
+                    
+                    <p><strong>"My figure is floating/sinking through the floor!"</strong></p>
+                    <p><strong>Fix:</strong> Select the figure. Use Translate tool to adjust Y-axis (up/down) until feet rest naturally on the ground. Check from a side camera view for accuracy.</p>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Remember:</strong> This is your first complete scene—it doesn't have to be perfect! The goal is to practice all the concepts from this lesson. You're building the foundation for more complex scenes to come. Focus on completing the project and learning from the process.</p>
+                </blockquote>
+
+            </section>
+
+            <section id="summary" class="lesson-section">
+                <h2>📝 Lesson Summary</h2>
+
+                <p>
+                    Congratulations! You've just leveled up from "person who poses figures" to "person who builds complete scenes." This is a massive milestone in your Poser journey. Let's review everything you've mastered:
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3 style="color: white; margin-top: 0;">🎯 Key Takeaways</h3>
+                    
+                    <h4 style="color: white;">Scene-Building Mindset</h4>
+                    <ul style="color: white;">
+                        <li><strong>Think in layers:</strong> Background (environment), midground (action), foreground (detail). Build scenes from back to front.</li>
+                        <li><strong>Start with story:</strong> Every good scene answers "what's happening here?" Props and arrangement should support that story.</li>
+                        <li><strong>Balance is key:</strong> Not too empty (boring), not too cluttered (chaotic). The Goldilocks zone of scene building.</li>
+                    </ul>
+
+                    <h4 style="color: white;">Working with Environments</h4>
+                    <ul style="color: white;">
+                        <li><strong>Set props establish location:</strong> Complete rooms, landscapes, or architectural elements that define your space.</li>
+                        <li><strong>Ground planes anchor reality:</strong> Enable ground plane and shadows to make figures and props feel grounded in space.</li>
+                        <li><strong>Mix and match creatively:</strong> Combine elements from different sets, or build from scratch using primitives and simple props.</li>
+                    </ul>
+
+                    <h4 style="color: white;">Composition Principles</h4>
+                    <ul style="color: white;">
+                        <li><strong>Rule of thirds:</strong> Position key elements at intersection points, not dead center, for dynamic compositions.</li>
+                        <li><strong>Visual weight and balance:</strong> Bright areas, faces, and detailed elements draw attention. Balance heavy elements with negative space.</li>
+                        <li><strong>Triangle compositions:</strong> Arrange elements in triangular patterns for naturally pleasing layouts.</li>
+                        <li><strong>Leading lines:</strong> Use edges, patterns, and prop arrangements to guide the viewer's eye to your focal point.</li>
+                        <li><strong>Odd numbers feel natural:</strong> Use 3, 5, or 7 of similar items rather than even numbers for more organic arrangements.</li>
+                        <li><strong>Negative space matters:</strong> Empty areas aren't wasted space—they're essential for focus and visual breathing room.</li>
+                    </ul>
+
+                    <h4 style="color: white;">Creating Depth</h4>
+                    <ul style="color: white;">
+                        <li><strong>Overlapping elements:</strong> Let objects partially obscure others to show which is closer.</li>
+                        <li><strong>Size variation:</strong> Slightly smaller distant objects reinforce perspective.</li>
+                        <li><strong>Z-axis placement:</strong> Spread props out front-to-back, not just left-to-right.</li>
+                        <li><strong>Detail gradient:</strong> More detail foreground, less detail background—mimics how eyes focus.</li>
+                        <li><strong>Atmospheric perspective:</strong> Distant elements slightly lighter, hazier, lower contrast.</li>
+                        <li><strong>Light and shadow variation:</strong> Different lighting on different depth layers separates them visually.</li>
+                    </ul>
+
+                    <h4 style="color: white;">Organization Best Practices</h4>
+                    <ul style="color: white;">
+                        <li><strong>Descriptive naming:</strong> "DeskChair_Main" beats "Chair_1" every time. Rename props immediately after loading.</li>
+                        <li><strong>Consistent prefixes:</strong> FURN_, DECO_, LIGHT_, CHAR_ create instant categorization.</li>
+                        <li><strong>Group related items:</strong> Desktop props grouped together, wall decorations grouped together, etc.</li>
+                        <li><strong>Use hierarchy panel:</strong> Your command center for visibility, selection, and scene navigation.</li>
+                        <li><strong>Parent strategically:</strong> Items on a desk should parent to the desk. Everything moves together logically.</li>
+                        <li><strong>Hide what you're not working on:</strong> Use visibility toggles to reduce clutter and improve performance.</li>
+                    </ul>
+
+                    <h4 style="color: white;">Basic Lighting Principles</h4>
+                    <ul style="color: white;">
+                        <li><strong>Three-point lighting foundation:</strong> Key light (main), fill light (softens shadows), rim light (edge definition).</li>
+                        <li><strong>Light your subject, not your scene:</strong> Figure should be brightest element to draw focus.</li>
+                        <li><strong>Color suggests time and mood:</strong> Cool blues for morning/clinical, warm oranges for evening/cozy, neutral whites for midday/modern.</li>
+                        <li><strong>Contrast creates drama:</strong> Don't light everything equally. Let shadows exist.</li>
+                        <li><strong>Shadows prove reality:</strong> Ground shadows make objects feel grounded and real.</li>
+                    </ul>
+                </div>
+
+                <h3>The Skills You've Mastered</h3>
+
+                <div class="card">
+                    <h4>✅ Technical Skills Checklist</h4>
+                    <ul>
+                        <li>✅ Load and position set props and environments</li>
+                        <li>✅ Enable and configure ground plane and shadows</li>
+                        <li>✅ Arrange props using composition principles</li>
+                        <li>✅ Create depth through layering and placement</li>
+                        <li>✅ Organize scenes with descriptive naming</li>
+                        <li>✅ Create and manage groups efficiently</li>
+                        <li>✅ Use hierarchy panel for scene management</li>
+                        <li>✅ Parent props strategically for logical relationships</li>
+                        <li>✅ Apply basic three-point lighting</li>
+                        <li>✅ Create atmosphere through prop choice and placement</li>
+                        <li>✅ Build complete, believable indoor scenes</li>
+                        <li>✅ Apply the rule of thirds and visual balance</li>
+                    </ul>
+                </div>
+
+                <h3>From Here to Mastery</h3>
+
+                <p>
+                    The scene you built today is just the beginning. Every principle you learned scales up:
+                </p>
+
+                <div class="card" style="background-color: #f3e5f5; border-left: 4px solid #9C27B0;">
+                    <h4>🚀 Your Scene-Building Journey</h4>
+                    <ul>
+                        <li><strong>Today:</strong> Simple indoor office with one figure and basic props</li>
+                        <li><strong>Soon:</strong> Complex environments with multiple figures interacting</li>
+                        <li><strong>Next Module:</strong> Add sophisticated lighting that creates professional mood and atmosphere</li>
+                        <li><strong>Later:</strong> Outdoor scenes, fantasy environments, sci-fi settings—any world you imagine</li>
+                        <li><strong>Eventually:</strong> Complete narrative scenes that tell stories without words</li>
+                    </ul>
+                    <p>
+                        The foundations you built today—composition, depth, organization—remain constant regardless of scene complexity. You're not just learning to build one type of scene; you're learning the universal principles of environment design.
+                    </p>
+                </div>
+
+                <h3>Practice Recommendations</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✨ Keep Building Your Skills</h4>
+                    
+                    <p><strong>This Week's Practice:</strong></p>
+                    <ul>
+                        <li>Build 2-3 more simple scenes in different settings (kitchen, bedroom, outdoor park bench)</li>
+                        <li>Practice the same scene with different moods (happy office vs. stressful office)</li>
+                        <li>Experiment with different camera angles on your project scene</li>
+                        <li>Try extreme minimal (just 3-4 props) vs. rich detail (15+ props) versions</li>
+                    </ul>
+
+                    <p><strong>Challenge Yourself:</strong></p>
+                    <ul>
+                        <li>Build a scene that tells a story without any figures (abandoned office, waiting room, empty stage)</li>
+                        <li>Create the same room in three time periods (morning, afternoon, night) by changing only lighting</li>
+                        <li>Arrange identical props in three different ways to create three different moods</li>
+                    </ul>
+
+                    <p><strong>Study and Learn:</strong></p>
+                    <ul>
+                        <li>Look at professional photography and film stills—analyze their composition</li>
+                        <li>Notice how movies frame scenes—what's in foreground, midground, background?</li>
+                        <li>Study your favorite spaces in real life—what makes them feel the way they do?</li>
+                        <li>Screenshot game environments or 3D art you admire—reverse-engineer their techniques</li>
+                    </ul>
+                </div>
+
+                <h3>Common Challenges and Growth</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>💪 Expect These Growing Pains</h4>
+                    
+                    <p><strong>"My scenes still look amateur compared to professionals!"</strong></p>
+                    <p><strong>Reality Check:</strong> Professional scene artists have built hundreds of scenes. You've built a handful. The gap is experience, not talent. Keep building. Every scene teaches you something.</p>
+                    
+                    <p><strong>"I spend forever arranging props and it still doesn't look right!"</strong></p>
+                    <p><strong>Growth Sign:</strong> This is actually progress! You're developing your eye faster than your execution skills. Your taste is good—your speed will catch up. Time spent isn't wasted if you're learning.</p>
+                    
+                    <p><strong>"I can't tell if my composition is good or bad!"</strong></p>
+                    <p><strong>Development Phase:</strong> Composition sense develops over time. Use the rules as training wheels (rule of thirds, triangles, leading lines). Eventually these become intuitive and you'll "feel" when something's off.</p>
+                    
+                    <p><strong>"Real environments have so much stuff—how do I know what to include?"</strong></p>
+                    <p><strong>Artistic Choice:</strong> You're not creating reality; you're creating the illusion of reality. Include what supports your story, suggests the environment, and looks interesting. Leave out everything else. Photography isn't about capturing everything in the room—neither is 3D scene building.</p>
+                </div>
+
+                <h3>Looking Ahead</h3>
+
+                <p>
+                    In the next lessons, you'll build on this foundation:
+                </p>
+
+                <div class="card">
+                    <h4>🔜 What's Coming Next</h4>
+                    <ul>
+                        <li><strong>Next Lesson:</strong> Working with Multiple Figures—creating scenes with characters that interact naturally</li>
+                        <li><strong>Soon:</strong> Smart props and conforming items that automatically fit figures</li>
+                        <li><strong>Module 4:</strong> Deep dive into lighting techniques that transform good scenes into stunning ones</li>
+                        <li><strong>Module 5:</strong> Materials and textures that add realism and visual richness</li>
+                        <li><strong>Later:</strong> Advanced composition and visual storytelling techniques</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Final Thought:</strong> Every professional 3D artist has built their share of awkward, cluttered, poorly-lit scenes. The difference between you and them isn't talent—it's that they kept building through the awkward phase until it became natural. You're on the same path. The scene you built today might seem simple, but it contains dozens of decisions about placement, composition, organization, and atmosphere. You're thinking like a scene builder now. That's huge!</p>
+                </blockquote>
+
+                <div class="card" style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white; text-align: center; padding: 2rem;">
+                    <h3 style="color: white; margin-top: 0;">🎉 Outstanding Work!</h3>
+                    <p style="color: white; font-size: 1.1em; margin: 1rem 0;">
+                        You've completed Lesson 11 and can now build complete, professional-looking scenes!
+                    </p>
+                    <p style="color: white; margin: 1rem 0;">
+                        You're no longer just posing figures—you're creating worlds. That's the mark of a true 3D artist!
+                    </p>
+                    <p style="color: white; font-style: italic; margin-top: 1.5rem;">
+                        "A scene is a story told through space, light, and objects. You're now a storyteller!" 🌟
+                    </p>
+                </div>
+
+            </section>
+
+        </article>
+
+        <nav class="lesson-nav" aria-label="Lesson Navigation">
+            <a href="lesson_10_props_vs_figures.html" class="prev-lesson">← Previous: Understanding Props vs. Figures</a>
+            <a href="index.html" class="home-link">🏠 Course Home</a>
+            <a href="lesson_12_multiple_figures.html" class="next-lesson">Next: Working with Multiple Figures →</a>
+        </nav>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Poser 12 Mastery Course. All rights reserved.</p>
+            <p>Empowering aspiring 3D artists to create stunning character art.</p>
+        </div>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

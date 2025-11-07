@@ -1,0 +1,2414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master the Material Room in Poser 12. Learn the fundamentals of materials and textures, understand the node-based interface, and create realistic surface properties for your 3D scenes.">
+    <meta name="author" content="Poser 12 Course">
+    <title>Introduction to the Material Room - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <nav class="topnav" role="navigation" aria-label="Main Navigation">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🎨</span>
+                <span class="logo-text">Poser 12 Mastery</span>
+            </a>
+            <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><a href="index.html#modules">📚 Modules</a></li>
+                <li><a href="index.html#resources">🔧 Resources</a></li>
+                <li><a href="index.html#about">ℹ️ About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="breadcrumb" role="navigation" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> &gt; 
+        <a href="index.html#module-4">Module 4: Materials and Textures</a> &gt; 
+        <span>Lesson 14: Introduction to the Material Room</span>
+    </div>
+
+    <main class="container">
+        <article class="lesson-content">
+            <header class="lesson-header">
+                <h1>🎨 Introduction to the Material Room</h1>
+                <p class="lesson-subtitle">Making Surfaces Come Alive with Realistic Materials</p>
+            </header>
+
+            <p class="lead">
+                Imagine you've created the perfect scene—figures posed naturally, clothing fitted beautifully, composition expertly arranged. But something's off. Everything looks... plastic. Flat. Unconvincing. That's because you haven't yet discovered the <strong>Material Room</strong>—Poser's secret weapon for making 3D objects look like they're made of real materials.
+            </p>
+
+            <p>
+                The difference between an amateur 3D image and a professional one often comes down to materials. A properly textured leather jacket looks like leather—you can almost feel the grain. A character's skin has subtle color variation, pores, and the right amount of shine. Metal looks metallic. Wood looks woody. This is where the Material Room works its magic.
+            </p>
+
+            <p>
+                Think of it this way: you've been building with LEGO blocks, and now you're learning to paint them. The shapes are there, but materials give them <strong>surface reality</strong>. Is this object metal or plastic? Rough or smooth? Shiny or matte? Does it glow? Reflect? The Material Room is where you answer these questions.
+            </p>
+
+            <p>
+                In this lesson, you'll be introduced to one of Poser's most powerful features. We'll start gently—understanding what materials are, touring the Material Room interface, learning basic properties like color and shininess, and working with simple node connections. By the end, you'll be able to take any object and give it realistic surface properties that dramatically improve your renders.
+            </p>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin: 2rem 0;">
+                <h3 style="color: white; margin-top: 0;">💡 What You'll Learn in This Lesson</h3>
+                <ul style="color: white;">
+                    <li><strong>Materials vs. textures</strong> and why the distinction matters</li>
+                    <li><strong>The Material Room interface</strong> and how to navigate it confidently</li>
+                    <li><strong>Basic material properties</strong> (diffuse color, specularity, reflection, bump)</li>
+                    <li><strong>The node system</strong> and how materials are built with connections</li>
+                    <li><strong>Simple shaders</strong> and the building blocks of materials</li>
+                    <li><strong>Material presets</strong> and how to apply them quickly</li>
+                    <li><strong>Modifying existing materials</strong> to get the look you want</li>
+                    <li><strong>Testing materials</strong> with preview renders</li>
+                </ul>
+                <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                    <p style="margin: 0; color: white;"><strong>⏱️ Estimated Time:</strong> 60-75 minutes</p>
+                    <p style="margin: 0.5rem 0 0 0; color: white;"><strong>🎯 Project:</strong> Apply and modify materials on a simple prop</p>
+                </div>
+            </div>
+
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">📑 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#materials-vs-textures" class="toc-link">Materials vs. Textures: What's the Difference?</a></li>
+                        <li><a href="#material-room-tour" class="toc-link">The Material Room: A Guided Tour</a></li>
+                        <li><a href="#basic-properties" class="toc-link">Basic Material Properties</a></li>
+                        <li><a href="#node-system" class="toc-link">Understanding the Node System</a></li>
+                        <li><a href="#simple-shaders" class="toc-link">Simple Shaders and Root Nodes</a></li>
+                        <li><a href="#material-presets" class="toc-link">Using Material Presets</a></li>
+                        <li><a href="#modifying-materials" class="toc-link">Modifying Existing Materials</a></li>
+                        <li><a href="#preview-testing" class="toc-link">Testing with Preview Renders</a></li>
+                        <li><a href="#project" class="toc-link">Project: Apply and Customize Materials</a></li>
+                        <li><a href="#summary" class="toc-link">Lesson Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <section id="materials-vs-textures" class="lesson-section">
+                <h2>🤔 Materials vs. Textures: What's the Difference?</h2>
+                
+                <p>
+                    Before we dive into the Material Room, let's clarify a common point of confusion: materials and textures are related but not the same thing.
+                </p>
+
+                <h3>What Is a Material?</h3>
+
+                <p>
+                    A <strong>material</strong> is the complete set of properties that define how a surface behaves with light. It's the recipe for how something looks.
+                </p>
+
+                <div class="card">
+                    <h4>🎨 Material Properties Include:</h4>
+                    <ul>
+                        <li><strong>Color:</strong> The base color of the surface</li>
+                        <li><strong>Shininess:</strong> How glossy or matte it is (specularity)</li>
+                        <li><strong>Reflectivity:</strong> Does it reflect like a mirror?</li>
+                        <li><strong>Transparency:</strong> Can you see through it?</li>
+                        <li><strong>Surface texture:</strong> Bumps, wrinkles, roughness</li>
+                        <li><strong>Light interaction:</strong> Does it glow? Scatter light? Cast colored shadows?</li>
+                    </ul>
+                    <p>
+                        <strong>Think of it as:</strong> The complete "recipe" for how light interacts with the surface.
+                    </p>
+                </div>
+
+                <h3>What Is a Texture?</h3>
+
+                <p>
+                    A <strong>texture</strong> is typically an image file (like a JPG or PNG) that provides detail or variation to a material property. It's one ingredient in the material recipe.
+                </p>
+
+                <div class="card">
+                    <h4>🖼️ Texture Examples:</h4>
+                    <ul>
+                        <li><strong>Color texture (diffuse map):</strong> An image showing wood grain, fabric pattern, or skin tones</li>
+                        <li><strong>Bump map:</strong> A grayscale image creating the illusion of surface detail</li>
+                        <li><strong>Normal map:</strong> A special image encoding surface direction for lighting</li>
+                        <li><strong>Specularity map:</strong> Controls where surface is shiny vs. matte</li>
+                        <li><strong>Transparency map:</strong> Defines which parts are see-through</li>
+                    </ul>
+                    <p>
+                        <strong>Think of it as:</strong> One ingredient (often visual information from an image) used within the material recipe.
+                    </p>
+                </div>
+
+                <h3>The Relationship</h3>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Complete Material] --> B[Base Color Property]
+                    A --> C[Shininess Property]
+                    A --> D[Bump Property]
+                    A --> E[Reflection Property]
+                    
+                    B --> B1[Can be: Solid Color]
+                    B --> B2[OR: Color Texture Image]
+                    
+                    D --> D1[Can be: Procedural Noise]
+                    D --> D2[OR: Bump Map Image]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:3px,color:#fff
+                    style B2 fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style D2 fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 The Key Distinction:</strong> A material is the whole package—everything that defines surface appearance. A texture is often an image used as part of that package. You can have materials without textures (solid colors), and you can have multiple textures within one material (color map + bump map + specularity map).</p>
+                </blockquote>
+
+                <h3>Real-World Analogy</h3>
+
+                <p>
+                    Think of baking a cake:
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>🍰 The Cake Analogy</h4>
+                    <ul>
+                        <li><strong>Material = The complete cake</strong>
+                            <ul>
+                                <li>Includes: flavor, texture, frosting, decorations, moisture level</li>
+                                <li>The whole experience of eating it</li>
+                            </ul>
+                        </li>
+                        <li><strong>Textures = Specific ingredients</strong>
+                            <ul>
+                                <li>Flour image = color texture</li>
+                                <li>Sugar crystals = bump texture</li>
+                                <li>Food coloring = tint</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>
+                        You need the complete recipe (material) to make the cake, but individual ingredients (textures) contribute to the final result.
+                    </p>
+                </div>
+
+                <h3>In Poser Terms</h3>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Material</th>
+                            <th>Texture</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>What it is</strong></td>
+                            <td>Complete surface definition</td>
+                            <td>Image or pattern providing detail</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Where you edit it</strong></td>
+                            <td>Material Room</td>
+                            <td>Loaded as part of material</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Example</strong></td>
+                            <td>"Leather Material" with color, bump, shine, etc.</td>
+                            <td>"leather_color.jpg" image file</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can exist alone?</strong></td>
+                            <td>Yes (solid color material)</td>
+                            <td>No (must be part of material)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Scope</strong></td>
+                            <td>Defines complete appearance</td>
+                            <td>Provides data for one or more properties</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Why This Matters</h3>
+
+                <p>
+                    Understanding this distinction helps you think correctly about what you're doing:
+                </p>
+
+                <ul>
+                    <li><strong>When someone says "apply a texture":</strong> They usually mean "apply a material that uses texture images"</li>
+                    <li><strong>When you're in Material Room:</strong> You're editing the complete material, which may or may not use texture images</li>
+                    <li><strong>When you want to change appearance:</strong> You modify the material properties, which might involve changing textures</li>
+                </ul>
+
+                <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>📝 Common Usage in 3D</h4>
+                    <p>
+                        In everyday 3D talk, people often use "texture" and "material" interchangeably, and that's okay! Context makes it clear. But technically:
+                    </p>
+                    <ul>
+                        <li><strong>"I'm texturing this model"</strong> = Creating/applying materials (which may include textures)</li>
+                        <li><strong>"This texture looks wrong"</strong> = Usually means the material or a texture image within it</li>
+                        <li><strong>"Load this texture"</strong> = Load this image file to use in a material property</li>
+                    </ul>
+                    <p>
+                        Now you know the technical difference, but don't worry too much about being pedantic—context is king!
+                    </p>
+                </div>
+            </section>
+
+            <section id="material-room-tour" class="lesson-section">
+                <h2>🚪 The Material Room: A Guided Tour</h2>
+                
+                <p>
+                    The Material Room is one of Poser's specialized workspaces. Let's explore it so you feel comfortable navigating this powerful environment.
+                </p>
+
+                <h3>Accessing the Material Room</h3>
+
+                <div class="card">
+                    <h4>How to Enter the Material Room</h4>
+                    <ol>
+                        <li><strong>Look at the top tabs/buttons</strong> in Poser's interface</li>
+                        <li><strong>Find the "Material" tab</strong> (usually near "Pose", "Face", "Hair")</li>
+                        <li><strong>Click "Material"</strong></li>
+                        <li><strong>The interface changes</strong> to show Material Room layout</li>
+                    </ol>
+                    <p><strong>Alternative method:</strong> Window menu → Material Room</p>
+                    <p><strong>To exit:</strong> Click back to "Pose" tab or another room</p>
+                </div>
+
+                <h3>Material Room Layout</h3>
+
+                <p>
+                    When you enter the Material Room, the interface transforms. Here's what you'll see:
+                </p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>🗺️ The Four Main Areas</h4>
+                    
+                    <p><strong>1. Preview Window (Top/Center)</strong></p>
+                    <ul>
+                        <li>Shows selected object with current material</li>
+                        <li>Can rotate and zoom to inspect material</li>
+                        <li>Updates as you make changes (may need manual refresh)</li>
+                        <li>Shows how light interacts with surface</li>
+                    </ul>
+
+                    <p><strong>2. Material List/Object Selector (Left Side or Top)</strong></p>
+                    <ul>
+                        <li>Lists all objects in scene</li>
+                        <li>Shows material zones (parts of objects with different materials)</li>
+                        <li>Click to select what material you're editing</li>
+                        <li>Example: "Figure → Skin" or "Prop → Body"</li>
+                    </ul>
+
+                    <p><strong>3. Shader/Node Window (Center/Bottom - The Big Area)</strong></p>
+                    <ul>
+                        <li>This is where the magic happens!</li>
+                        <li>Shows node network (boxes connected by lines)</li>
+                        <li>Each box (node) represents a function or property</li>
+                        <li>Lines (connections) show how nodes feed into each other</li>
+                        <li>Can be simple (few nodes) or complex (many nodes)</li>
+                    </ul>
+
+                    <p><strong>4. Properties/Parameters Panel (Right Side)</strong></p>
+                    <ul>
+                        <li>Shows detailed settings for selected node</li>
+                        <li>Color pickers, sliders, numeric inputs</li>
+                        <li>File browsers for loading texture images</li>
+                        <li>Where you actually adjust values</li>
+                    </ul>
+                </div>
+
+                <h3>The Simplified View</h3>
+
+                <p>
+                    Poser offers two modes for the Material Room:
+                </p>
+
+                <div class="card">
+                    <h4>Simple vs. Advanced View</h4>
+                    <p><strong>Simple View:</strong></p>
+                    <ul>
+                        <li>Shows basic sliders and color pickers</li>
+                        <li>Hides the node network</li>
+                        <li>Good for quick adjustments</li>
+                        <li>Limited control</li>
+                    </ul>
+
+                    <p><strong>Advanced View (Node View):</strong></p>
+                    <ul>
+                        <li>Shows complete node network</li>
+                        <li>Full control over material</li>
+                        <li>Can build complex materials</li>
+                        <li>More intimidating but more powerful</li>
+                    </ul>
+
+                    <p><strong>Recommendation:</strong> Start with Simple View to understand basics, then gradually move to Advanced View as you get comfortable.</p>
+                </div>
+
+                <h3>Your First Material Room Visit</h3>
+
+                <p>
+                    Let's do a quick walkthrough:
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Try It Now: Material Room Orientation</h4>
+                    <ol>
+                        <li><strong>Load a simple prop</strong> (like a sphere primitive or box)
+                            <ul>
+                                <li>File → New (if needed)</li>
+                                <li>Or use existing scene with props</li>
+                            </ul>
+                        </li>
+                        <li><strong>Select the prop</strong> in viewport</li>
+                        <li><strong>Click "Material" tab</strong> to enter Material Room</li>
+                        <li><strong>Observe the layout:</strong>
+                            <ul>
+                                <li>See the preview window showing your object?</li>
+                                <li>Find the material list on left/top</li>
+                                <li>Notice the shader window (may show nodes or simple controls)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Find the "Diffuse_Color"</strong> property
+                            <ul>
+                                <li>Should see a color swatch</li>
+                                <li>This is the base color of the object</li>
+                            </ul>
+                        </li>
+                        <li><strong>Click the color</strong>
+                            <ul>
+                                <li>Color picker appears</li>
+                                <li>Choose a different color (try red or blue)</li>
+                                <li>Click OK</li>
+                            </ul>
+                        </li>
+                        <li><strong>Watch the preview update</strong>
+                            <ul>
+                                <li>Your object should now be the new color!</li>
+                                <li>Congratulations—you just edited a material!</li>
+                            </ul>
+                        </li>
+                        <li><strong>Return to Pose Room</strong> (click "Pose" tab)</li>
+                        <li><strong>See the change in viewport</strong></li>
+                    </ol>
+                    <p>
+                        If you successfully changed the color, you've already learned the most important concept: Material Room lets you control surface appearance!
+                    </p>
+                </div>
+
+                <h3>Understanding Material Zones</h3>
+
+                <p>
+                    Complex objects often have multiple <strong>material zones</strong>—different parts that can have different materials.
+                </p>
+
+                <div class="card">
+                    <h4>🎭 Material Zones Explained</h4>
+                    <p><strong>Example: A Figure</strong></p>
+                    <ul>
+                        <li><strong>Skin</strong> material zone - for the body</li>
+                        <li><strong>Eyes</strong> material zone - different material than skin</li>
+                        <li><strong>Teeth</strong> material zone - needs to be white and shiny</li>
+                        <li><strong>Hair</strong> material zone (if hair is part of figure)</li>
+                    </ul>
+
+                    <p><strong>Example: A Car</strong></p>
+                    <ul>
+                        <li><strong>Body</strong> material - glossy paint</li>
+                        <li><strong>Windows</strong> material - transparent glass</li>
+                        <li><strong>Tires</strong> material - matte black rubber</li>
+                        <li><strong>Chrome</strong> material - highly reflective metal</li>
+                    </ul>
+
+                    <p><strong>In Material Room:</strong></p>
+                    <ul>
+                        <li>Click object in material list</li>
+                        <li>Expand to see zones (if multiple exist)</li>
+                        <li>Select the zone you want to edit</li>
+                        <li>That zone's material appears in shader window</li>
+                        <li>Edit only affects that zone</li>
+                    </ul>
+                </div>
+
+                <h3>The Preview Window Controls</h3>
+
+                <p>
+                    The preview window lets you inspect your material from different angles:
+                </p>
+
+                <div class="card">
+                    <h4>Preview Controls</h4>
+                    <ul>
+                        <li><strong>Rotate:</strong> Click and drag to spin object</li>
+                        <li><strong>Zoom:</strong> Scroll wheel or designated zoom tool</li>
+                        <li><strong>Pan:</strong> Usually Alt+click and drag (varies by platform)</li>
+                        <li><strong>Lighting:</strong> May have controls to change preview lighting</li>
+                        <li><strong>Background:</strong> Can change background color for better visibility</li>
+                        <li><strong>Refresh:</strong> Button to update preview if it doesn't auto-update</li>
+                    </ul>
+                </div>
+
+                <h3>Material Room Navigation Tips</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Material Room Can Be Overwhelming at First</h4>
+                    <p><strong>Don't panic if you see:</strong></p>
+                    <ul>
+                        <li>Lots of boxes and lines (nodes)</li>
+                        <li>Technical names you don't recognize</li>
+                        <li>Multiple parameters with no obvious purpose</li>
+                    </ul>
+                    <p><strong>Strategy for beginners:</strong></p>
+                    <ol>
+                        <li>Start by only changing simple properties (color, shininess)</li>
+                        <li>Ignore complex nodes until you understand basics</li>
+                        <li>Use presets (covered later) to get started quickly</li>
+                        <li>Learn one property at a time</li>
+                        <li>Gradually explore more as you gain confidence</li>
+                    </ol>
+                    <p>
+                        The Material Room has incredible depth, but you don't need to master everything immediately. Start simple!
+                    </p>
+                </div>
+
+                <h3>Quick Reference: Common Material Room Actions</h3>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>How To Do It</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Enter Material Room</td>
+                            <td>Click "Material" tab at top</td>
+                        </tr>
+                        <tr>
+                            <td>Select object to edit</td>
+                            <td>Click in material list (left/top area)</td>
+                        </tr>
+                        <tr>
+                            <td>Select material zone</td>
+                            <td>Expand object, click zone name</td>
+                        </tr>
+                        <tr>
+                            <td>Change base color</td>
+                            <td>Find Diffuse_Color, click color swatch, choose new color</td>
+                        </tr>
+                        <tr>
+                            <td>Preview changes</td>
+                            <td>Look at preview window (may need to click refresh)</td>
+                        </tr>
+                        <tr>
+                            <td>Return to Pose Room</td>
+                            <td>Click "Pose" tab</td>
+                        </tr>
+                        <tr>
+                            <td>Undo changes</td>
+                            <td>Edit → Undo (or Ctrl+Z / Cmd+Z)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <blockquote>
+                    <p><strong>🗺️ The Navigator's Wisdom:</strong> "The Material Room seems complex because it IS complex—it's one of Poser's most powerful features. But like any powerful tool, you don't need to understand every button to start using it effectively. Master the basics, and the advanced features will make sense when you're ready for them!"</p>
+                </blockquote>
+            </section>
+
+            <section id="basic-properties" class="lesson-section">
+                <h2>🎨 Basic Material Properties</h2>
+                
+                <p>
+                    Now that you've toured the Material Room, let's explore the fundamental properties that control how surfaces look. These are the building blocks of every material.
+                </p>
+
+                <h3>Diffuse Color (Base Color)</h3>
+
+                <p>
+                    This is the most obvious property—the <strong>base color</strong> of the surface under neutral lighting.
+                </p>
+
+                <div class="card">
+                    <h4>🎨 Diffuse Color Explained</h4>
+                    <ul>
+                        <li><strong>What it is:</strong> The color you see when looking at the object</li>
+                        <li><strong>Real-world example:</strong> A red apple's red color is its diffuse color</li>
+                        <li><strong>In Material Room:</strong> Usually labeled "Diffuse_Color" or "Diffuse"</li>
+                        <li><strong>Can be:</strong> Solid color OR color texture image</li>
+                        <li><strong>Effect:</strong> This is what most people think of as "the color of the object"</li>
+                    </ul>
+                    <p><strong>Typical values:</strong> RGB color (0-255 for each channel) or 0.0-1.0 range</p>
+                </div>
+
+                <h3>Specularity (Shininess)</h3>
+
+                <p>
+                    This controls how <strong>shiny or glossy</strong> the surface is—how much it reflects light directly.
+                </p>
+
+                <div class="card">
+                    <h4>✨ Specularity Explained</h4>
+                    <ul>
+                        <li><strong>What it is:</strong> The bright highlights you see on shiny objects</li>
+                        <li><strong>Real-world example:</strong> 
+                            <ul>
+                                <li>High specularity: Polished metal, wet surfaces, plastic</li>
+                                <li>Low specularity: Matte surfaces, chalk, unglazed pottery</li>
+                            </ul>
+                        </li>
+                        <li><strong>In Material Room:</strong> "Specular_Color" and "Specular_Value"</li>
+                        <li><strong>Components:</strong>
+                            <ul>
+                                <li>Specular Color: The color of the highlights (often white)</li>
+                                <li>Specular Value: How strong/bright the highlights are</li>
+                            </ul>
+                        </li>
+                        <li><strong>Effect:</strong> Higher values = shinier, more reflective-looking surface</li>
+                    </ul>
+                    <p><strong>Typical values:</strong> 0.0 (matte) to 1.0 (very shiny)</p>
+                </div>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 The Specularity Spectrum</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Material Type</th>
+                                <th>Specularity Level</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Matte surfaces</strong></td>
+                                <td>0.0 - 0.2</td>
+                                <td>Chalk, unglazed clay, rough stone</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Semi-matte</strong></td>
+                                <td>0.2 - 0.4</td>
+                                <td>Fabric, wood, painted walls</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Slight sheen</strong></td>
+                                <td>0.4 - 0.6</td>
+                                <td>Polished wood, leather, skin</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Glossy</strong></td>
+                                <td>0.6 - 0.8</td>
+                                <td>Plastic, glazed pottery, wet surfaces</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Highly reflective</strong></td>
+                                <td>0.8 - 1.0</td>
+                                <td>Polished metal, glass, mirrors</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Bump (Surface Detail)</h3>
+
+                <p>
+                    Bump creates the <strong>illusion of surface detail</strong> without actually changing the geometry.
+                </p>
+
+                <div class="card">
+                    <h4>🏔️ Bump Mapping Explained</h4>
+                    <ul>
+                        <li><strong>What it is:</strong> Tricks the eye into seeing bumps, wrinkles, texture</li>
+                        <li><strong>How it works:</strong> Uses grayscale image or procedural noise
+                            <ul>
+                                <li>White = raised areas</li>
+                                <li>Black = recessed areas</li>
+                                <li>Gray = in between</li>
+                            </ul>
+                        </li>
+                        <li><strong>Real-world example:</strong> Wrinkles in fabric, pores in skin, grain in wood</li>
+                        <li><strong>In Material Room:</strong> "Bump" channel</li>
+                        <li><strong>Important:</strong> It's an illusion! Silhouette stays smooth</li>
+                        <li><strong>Strength:</strong> Controlled by bump value (often 0.01 to 0.5)</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Bump vs. Displacement</h4>
+                    <p><strong>Bump (what we're discussing):</strong></p>
+                    <ul>
+                        <li>Changes how light interacts, creating illusion of depth</li>
+                        <li>Doesn't actually change geometry</li>
+                        <li>Fast to render</li>
+                        <li>Good for most needs</li>
+                        <li>Fails at silhouettes (edge looks smooth)</li>
+                    </ul>
+                    <p><strong>Displacement (advanced):</strong></p>
+                    <ul>
+                        <li>Actually deforms geometry</li>
+                        <li>True 3D detail</li>
+                        <li>Slower to render</li>
+                        <li>For extreme close-ups</li>
+                        <li>Changes silhouette</li>
+                    </ul>
+                    <p>For now, focus on bump—it handles 90% of situations!</p>
+                </div>
+
+                <h3>Reflection</h3>
+
+                <p>
+                    This controls how much the surface acts like a <strong>mirror</strong>, reflecting the environment.
+                </p>
+
+                <div class="card">
+                    <h4>🪞 Reflection Explained</h4>
+                    <ul>
+                        <li><strong>What it is:</strong> Surface reflects surrounding objects and environment</li>
+                        <li><strong>Real-world example:</strong> Chrome reflects everything, wood reflects barely anything</li>
+                        <li><strong>In Material Room:</strong> "Reflection_Value" and "Reflection_Color"</li>
+                        <li><strong>Render impact:</strong> Reflections are expensive (slower renders)</li>
+                        <li><strong>When to use:</strong> Metals, glass, water, polished surfaces</li>
+                        <li><strong>When to skip:</strong> Matte objects, backgrounds, things far from camera</li>
+                    </ul>
+                    <p><strong>Typical values:</strong> 0.0 (no reflection) to 1.0 (perfect mirror)</p>
+                </div>
+
+                <h3>Transparency/Opacity</h3>
+
+                <p>
+                    Controls whether you can <strong>see through</strong> the surface.
+                </p>
+
+                <div class="card">
+                    <h4>👻 Transparency Explained</h4>
+                    <ul>
+                        <li><strong>What it is:</strong> How see-through the material is</li>
+                        <li><strong>Real-world example:</strong> Glass windows, water, thin fabric</li>
+                        <li><strong>In Material Room:</strong> "Transparency" or "Opacity" (opposite values)</li>
+                        <li><strong>Related properties:</strong>
+                            <ul>
+                                <li>Refraction: How light bends through transparent material (glass, water)</li>
+                                <li>Translucency: Light passes through but scatters (frosted glass, skin)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Common values:</strong>
+                            <ul>
+                                <li>0.0 transparency = solid/opaque</li>
+                                <li>0.5 transparency = semi-transparent</li>
+                                <li>1.0 transparency = completely transparent</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <h3>Ambient (Self-Illumination)</h3>
+
+                <p>
+                    Makes the surface appear to <strong>glow or emit light</strong>.
+                </p>
+
+                <div class="card">
+                    <h4>💡 Ambient/Glow Explained</h4>
+                    <ul>
+                        <li><strong>What it is:</strong> Surface appears lit even in shadow</li>
+                        <li><strong>Real-world example:</strong> LED lights, neon signs, computer screens</li>
+                        <li><strong>In Material Room:</strong> "Ambient_Color" and "Ambient_Value"</li>
+                        <li><strong>Effect:</strong> Object stays visible in darkness</li>
+                        <li><strong>Use sparingly:</strong> Too much ambient makes scenes look flat and unrealistic</li>
+                        <li><strong>When to use:</strong> Light bulbs, screens, magical glows, eyes that shine</li>
+                    </ul>
+                    <p><strong>Pro tip:</strong> Use low ambient values (0.1-0.3) for subtle effects!</p>
+                </div>
+
+                <h3>How Properties Work Together</h3>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Complete Material Appearance] --> B[Diffuse Color<br/>Base color]
+                    A --> C[Specularity<br/>Shininess]
+                    A --> D[Bump<br/>Surface texture]
+                    A --> E[Reflection<br/>Mirror-like quality]
+                    A --> F[Transparency<br/>See-through]
+                    A --> G[Ambient<br/>Self-illumination]
+                    
+                    B --> H[Final Rendered Look]
+                    C --> H
+                    D --> H
+                    E --> H
+                    F --> H
+                    G --> H
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:3px,color:#fff
+                    style H fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <p>
+                    These properties combine to create the final appearance. A realistic material might use:
+                </p>
+
+                <ul>
+                    <li>Diffuse color (base appearance)</li>
+                    <li>+ Moderate specularity (some shine)</li>
+                    <li>+ Bump map (surface detail)</li>
+                    <li>+ A bit of reflection (if appropriate)</li>
+                    <li>= Realistic material!</li>
+                </ul>
+
+                <h3>Common Material Recipes</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>🧪 Quick Material Formulas</h4>
+                    
+                    <p><strong>Plastic:</strong></p>
+                    <ul>
+                        <li>Diffuse: Bright, solid color</li>
+                        <li>Specularity: 0.6-0.8 (quite shiny)</li>
+                        <li>Bump: None or very subtle</li>
+                        <li>Reflection: 0.2-0.4 (slight)</li>
+                    </ul>
+
+                    <p><strong>Wood:</strong></p>
+                    <ul>
+                        <li>Diffuse: Brown with wood grain texture</li>
+                        <li>Specularity: 0.2-0.5 (depends if polished)</li>
+                        <li>Bump: Wood grain pattern</li>
+                        <li>Reflection: 0.0-0.2 (minimal unless varnished)</li>
+                    </ul>
+
+                    <p><strong>Metal (Steel):</strong></p>
+                    <ul>
+                        <li>Diffuse: Gray, desaturated</li>
+                        <li>Specularity: 0.8-1.0 (very shiny)</li>
+                        <li>Bump: Subtle scratches or texture</li>
+                        <li>Reflection: 0.6-1.0 (strong)</li>
+                    </ul>
+
+                    <p><strong>Fabric:</strong></p>
+                    <ul>
+                        <li>Diffuse: Color with fabric texture</li>
+                        <li>Specularity: 0.1-0.3 (mostly matte)</li>
+                        <li>Bump: Weave pattern</li>
+                        <li>Reflection: 0.0 (none)</li>
+                    </ul>
+
+                    <p><strong>Skin:</strong></p>
+                    <ul>
+                        <li>Diffuse: Skin tone with variation</li>
+                        <li>Specularity: 0.3-0.5 (slight sheen)</li>
+                        <li>Bump: Pores, wrinkles</li>
+                        <li>Reflection: 0.0-0.1 (very subtle)</li>
+                        <li>Ambient: Tiny amount for subsurface scattering effect</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>🎨 The Artist's Eye:</strong> "Real materials are never just one property. A plastic toy isn't just 'red'—it has specific shininess, slight reflection, maybe tiny surface imperfections. The magic is in the combination. Start with these basics, and observe real objects to see how light interacts with different materials!"</p>
+                </blockquote>
+            </section>
+
+            <section id="node-system" class="lesson-section">
+                <h2>🔗 Understanding the Node System</h2>
+                
+                <p>
+                    Now we get to the heart of Poser's Material Room: the <strong>node system</strong>. This is what makes Poser's materials so powerful and flexible.
+                </p>
+
+                <h3>What Are Nodes?</h3>
+
+                <p>
+                    Think of nodes as <strong>building blocks or Lego pieces</strong> for materials. Each node performs a specific function, and you connect them together to create complex effects.
+                </p>
+
+                <div class="card">
+                    <h4>🧱 Node Basics</h4>
+                    <ul>
+                        <li><strong>Visual representation:</strong> Boxes or rectangles with labels</li>
+                        <li><strong>Contains:</strong> Specific functionality (color, math, texture, etc.)</li>
+                        <li><strong>Inputs:</strong> Sockets on left side (receive data from other nodes)</li>
+                        <li><strong>Outputs:</strong> Sockets on right side (send data to other nodes)</li>
+                        <li><strong>Connections:</strong> Lines between nodes showing data flow</li>
+                        <li><strong>Parameters:</strong> Settings inside each node you can adjust</li>
+                    </ul>
+                </div>
+
+                <h3>Why Use Nodes?</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✨ The Power of Nodes</h4>
+                    <p><strong>Advantages:</strong></p>
+                    <ul>
+                        <li><strong>Flexibility:</strong> Combine nodes in countless ways</li>
+                        <li><strong>Complexity:</strong> Build materials from simple to incredibly complex</li>
+                        <li><strong>Modularity:</strong> Reuse and recombine node networks</li>
+                        <li><strong>Visual programming:</strong> See the material "recipe" visually</li>
+                        <li><strong>Experimentation:</strong> Easy to try different connections</li>
+                    </ul>
+                    <p><strong>Analogy:</strong></p>
+                    <p>
+                        Nodes are like a recipe with ingredients and steps. Each node is an ingredient or cooking step, and connections show how they combine. Want to add nuts to a cake? Add a "nuts" node. Want to toast them first? Add a "toast" node before connecting to the cake.
+                    </p>
+                </div>
+
+                <h3>Basic Node Types</h3>
+
+                <div class="card">
+                    <h4>📦 Common Node Categories</h4>
+                    
+                    <p><strong>1. Root Node (The Final Output)</strong></p>
+                    <ul>
+                        <li>The main node representing the material itself</li>
+                        <li>Usually called "PoserSurface" or similar</li>
+                        <li>Has inputs for Diffuse, Specular, Bump, etc.</li>
+                        <li>This is where everything else connects</li>
+                        <li>What you see rendered = what's in the root node</li>
+                    </ul>
+
+                    <p><strong>2. Color Nodes</strong></p>
+                    <ul>
+                        <li>Provide color values</li>
+                        <li>Can be solid colors or color pickers</li>
+                        <li>Connect to color inputs like Diffuse_Color</li>
+                    </ul>
+
+                    <p><strong>3. Math Nodes</strong></p>
+                    <ul>
+                        <li>Perform calculations (add, multiply, divide, etc.)</li>
+                        <li>Combine or modify values from other nodes</li>
+                        <li>Example: Multiply two values together</li>
+                    </ul>
+
+                    <p><strong>4. Texture Nodes (Image_Map)</strong></p>
+                    <ul>
+                        <li>Load and display image files</li>
+                        <li>Provide texture data (color, bump, etc.)</li>
+                        <li>One of the most commonly used node types</li>
+                    </ul>
+
+                    <p><strong>5. Procedural Nodes</strong></p>
+                    <ul>
+                        <li>Generate patterns mathematically (no image needed)</li>
+                        <li>Examples: Clouds, Noise, Fractal, Tiles</li>
+                        <li>Useful for creating organic or repeating patterns</li>
+                    </ul>
+
+                    <p><strong>6. Utility Nodes</strong></p>
+                    <ul>
+                        <li>Special functions like blending, masking, mixing</li>
+                        <li>Help combine other nodes</li>
+                        <li>Examples: Blender, Mixer, Alternate_Diffuse</li>
+                    </ul>
+                </div>
+
+                <h3>How Nodes Connect</h3>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Image_Map<br/>Color Texture] -->|Color Output| B[PoserSurface<br/>Root Node]
+                    C[Image_Map<br/>Bump Texture] -->|Grayscale Output| B
+                    D[Value Node<br/>Specularity 0.5] -->|Number Output| B
+                    
+                    B -->|Final Material| E[Rendered Surface]
+                    
+                    style B fill:#667eea,stroke:#333,stroke-width:3px,color:#fff
+                    style E fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <p>
+                    In this simple example:
+                </p>
+                <ul>
+                    <li>Image_Map node loads a color texture</li>
+                    <li>Another Image_Map node loads a bump texture</li>
+                    <li>A Value node provides a specularity number</li>
+                    <li>All connect to the PoserSurface (root) node</li>
+                    <li>PoserSurface combines everything into final material</li>
+                </ul>
+
+                <h3>Reading a Node Network</h3>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>🗺️ How to Read Node Networks</h4>
+                    <ol>
+                        <li><strong>Find the Root Node</strong>
+                            <ul>
+                                <li>Usually on the right side or bottom</li>
+                                <li>Named "PoserSurface" or similar</li>
+                                <li>This is the "destination"</li>
+                            </ul>
+                        </li>
+                        <li><strong>Follow connections backwards</strong>
+                            <ul>
+                                <li>Lines show data flow</li>
+                                <li>Usually flows left-to-right or top-to-bottom</li>
+                                <li>Source nodes feed into destination nodes</li>
+                            </ul>
+                        </li>
+                        <li><strong>Identify input nodes</strong>
+                            <ul>
+                                <li>Nodes on the left or top</li>
+                                <li>Provide data (images, colors, values)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Understand the flow</strong>
+                            <ul>
+                                <li>Data travels from source → processing → root</li>
+                                <li>Each connection represents data passing</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>Simple Node Example: Basic Material</h3>
+
+                <div class="card">
+                    <h4>🎨 Simple Material Network</h4>
+                    <p><strong>Goal:</strong> Create a red, shiny plastic material</p>
+                    <p><strong>Nodes needed:</strong></p>
+                    <ol>
+                        <li><strong>PoserSurface</strong> (root node - already exists)</li>
+                        <li><strong>Color node</strong> (set to red) → connects to Diffuse_Color input</li>
+                        <li><strong>Value node</strong> (set to 0.7) → connects to Specular_Value input</li>
+                    </ol>
+                    <p><strong>Result:</strong> Red surface with high shine = plastic appearance</p>
+                </div>
+
+                <h3>Complex Node Example: Textured Material</h3>
+
+                <div class="card">
+                    <h4>🌳 Textured Wood Material</h4>
+                    <p><strong>Goal:</strong> Create realistic wood with grain and texture</p>
+                    <p><strong>Nodes needed:</strong></p>
+                    <ol>
+                        <li><strong>PoserSurface</strong> (root node)</li>
+                        <li><strong>Image_Map node</strong> (wood color texture) → to Diffuse_Color</li>
+                        <li><strong>Image_Map node</strong> (wood bump texture) → to Bump</li>
+                        <li><strong>Value node</strong> (0.3 for slight shine) → to Specular_Value</li>
+                        <li><strong>Math node</strong> (multiply bump strength) → between bump image and root</li>
+                    </ol>
+                    <p><strong>Result:</strong> Wood with color, grain texture, subtle shine, and surface detail</p>
+                </div>
+
+                <h3>Creating and Connecting Nodes</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Beginner's Note</h4>
+                    <p>
+                        For this lesson, we're focusing on <strong>understanding</strong> nodes rather than manually building complex networks. Most of the time, you'll:
+                    </p>
+                    <ul>
+                        <li>Use existing materials (presets)</li>
+                        <li>Modify existing node networks</li>
+                        <li>Adjust values rather than creating new connections</li>
+                    </ul>
+                    <p>
+                        Advanced node creation comes later. For now, know that:
+                    </p>
+                    <ul>
+                        <li><strong>Nodes exist:</strong> They're the boxes you see</li>
+                        <li><strong>They connect:</strong> Lines show relationships</li>
+                        <li><strong>You can modify them:</strong> Click node, change values</li>
+                        <li><strong>Root node is key:</strong> Everything feeds into it</li>
+                    </ul>
+                    <p>
+                        Understanding the concept is the first step. Creating from scratch is an advanced skill you'll develop gradually!
+                    </p>
+                </div>
+
+                <h3>Node Network Complexity Levels</h3>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Complexity</th>
+                            <th>Node Count</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Simple</strong></td>
+                            <td>1-3 nodes</td>
+                            <td>Basic colors and values only</td>
+                            <td>Solid color plastic</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Basic</strong></td>
+                            <td>4-8 nodes</td>
+                            <td>Textures + basic properties</td>
+                            <td>Textured wood or fabric</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Intermediate</strong></td>
+                            <td>9-15 nodes</td>
+                            <td>Multiple textures, some math</td>
+                            <td>Realistic skin, weathered metal</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Advanced</strong></td>
+                            <td>16-30 nodes</td>
+                            <td>Complex calculations, mixing</td>
+                            <td>Subsurface scattering, complex blending</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Expert</strong></td>
+                            <td>30+ nodes</td>
+                            <td>Highly specialized effects</td>
+                            <td>Procedural materials, advanced shaders</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    Don't be intimidated by complex networks! Even professional materials often use basic networks with just a few well-configured nodes.
+                </p>
+
+                <blockquote>
+                    <p><strong>🔗 The Node Philosophy:</strong> "Nodes might seem confusing at first, but they're actually liberating. Instead of being limited to preset material types, you can build ANYTHING. Start by understanding simple connections, and gradually you'll see nodes as a visual language for describing how surfaces interact with light!"</p>
+                </blockquote>
+            </section>
+
+            <section id="simple-shaders" class="lesson-section">
+                <h2>🎯 Simple Shaders and Root Nodes</h2>
+                
+                <p>
+                    Let's focus on the most important node in any material: the <strong>root node</strong>, also called the shader or surface node.
+                </p>
+
+                <h3>What Is a Shader?</h3>
+
+                <p>
+                    In 3D graphics, a <strong>shader</strong> is a program that calculates how a surface responds to light. In Poser, the root node represents this shader.
+                </p>
+
+                <div class="card">
+                    <h4>🔮 Shader Explained</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Defines the material's interaction with light</li>
+                        <li><strong>Think of it as:</strong> The "brain" of the material</li>
+                        <li><strong>In Poser:</strong> Usually "PoserSurface" node</li>
+                        <li><strong>Contains:</strong> All the input channels (Diffuse, Specular, Bump, etc.)</li>
+                        <li><strong>What it does:</strong> Takes all inputs and calculates final pixel colors in render</li>
+                    </ul>
+                </div>
+
+                <h3>The PoserSurface Node</h3>
+
+                <p>
+                    This is Poser's standard shader node and the one you'll work with most often.
+                </p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>📋 PoserSurface Input Channels</h4>
+                    <p>The PoserSurface node has multiple input sockets, each controlling a different aspect:</p>
+                    
+                    <p><strong>Color/Appearance Channels:</strong></p>
+                    <ul>
+                        <li><strong>Diffuse_Color:</strong> Base color of surface</li>
+                        <li><strong>Diffuse_Value:</strong> Strength of diffuse color (usually 1.0)</li>
+                        <li><strong>Specular_Color:</strong> Color of highlights (often white)</li>
+                        <li><strong>Specular_Value:</strong> Strength of highlights (0.0-1.0)</li>
+                        <li><strong>Ambient_Color:</strong> Self-illumination color</li>
+                        <li><strong>Ambient_Value:</strong> Self-illumination strength</li>
+                    </ul>
+
+                    <p><strong>Surface Detail Channels:</strong></p>
+                    <ul>
+                        <li><strong>Bump:</strong> Surface detail (illusion of depth)</li>
+                        <li><strong>Displacement:</strong> Actual geometry deformation (advanced)</li>
+                        <li><strong>Normal:</strong> Surface direction information (normal maps)</li>
+                    </ul>
+
+                    <p><strong>Reflection/Transparency Channels:</strong></p>
+                    <ul>
+                        <li><strong>Reflection_Color:</strong> Tint of reflections</li>
+                        <li><strong>Reflection_Value:</strong> Strength of reflections (0.0-1.0)</li>
+                        <li><strong>Transparency:</strong> How see-through (0.0-1.0)</li>
+                        <li><strong>Refraction:</strong> Light bending (for glass, water)</li>
+                    </ul>
+
+                    <p><strong>Advanced Channels:</strong></p>
+                    <ul>
+                        <li><strong>Alternate_Diffuse:</strong> Secondary diffuse for complex materials</li>
+                        <li><strong>Alternate_Specular:</strong> Secondary specularity</li>
+                        <li><strong>Subsurface scattering:</strong> Light penetration (skin, wax)</li>
+                        <li><strong>Various utility channels</strong></li>
+                    </ul>
+                </div>
+
+                <h3>Working with the Root Node</h3>
+
+                <p>
+                    Most of your material editing involves adjusting values going INTO the root node.
+                </p>
+
+                <div class="card">
+                    <h4>🎛️ Basic Root Node Workflow</h4>
+                    <ol>
+                        <li><strong>Select material</strong> to edit in Material Room</li>
+                        <li><strong>Locate the root node</strong> (PoserSurface)
+                            <ul>
+                                <li>Usually visible by default</li>
+                                <li>If not, may need to adjust view</li>
+                            </ul>
+                        </li>
+                        <li><strong>Identify the channel to modify</strong>
+                            <ul>
+                                <li>Want to change color? → Look at Diffuse_Color input</li>
+                                <li>Want more shine? → Look at Specular_Value input</li>
+                                <li>Want surface texture? → Look at Bump input</li>
+                            </ul>
+                        </li>
+                        <li><strong>Click the node connected to that channel</strong> OR the channel itself
+                            <ul>
+                                <li>Properties panel shows current settings</li>
+                            </ul>
+                        </li>
+                        <li><strong>Adjust values</strong>
+                            <ul>
+                                <li>Change colors with color picker</li>
+                                <li>Adjust sliders or type numbers</li>
+                                <li>Load different texture images</li>
+                            </ul>
+                        </li>
+                        <li><strong>Preview results</strong>
+                            <ul>
+                                <li>Check preview window</li>
+                                <li>May need to click "Refresh"</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>Typical Root Node Configurations</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Common Material Setups</h4>
+                    
+                    <p><strong>Basic Solid Color Material:</strong></p>
+                    <ul>
+                        <li>Diffuse_Color: Color node (your chosen color)</li>
+                        <li>Specular_Value: Value node (0.3-0.5)</li>
+                        <li>All other channels: Empty or default</li>
+                        <li>Result: Simple colored surface with slight shine</li>
+                    </ul>
+
+                    <p><strong>Textured Material (Basic):</strong></p>
+                    <ul>
+                        <li>Diffuse_Color: Image_Map node (color texture)</li>
+                        <li>Bump: Image_Map node (bump texture)</li>
+                        <li>Specular_Value: Value node (appropriate shininess)</li>
+                        <li>Result: Textured surface with detail</li>
+                    </ul>
+
+                    <p><strong>Reflective Metal:</strong></p>
+                    <ul>
+                        <li>Diffuse_Color: Gray color (desaturated)</li>
+                        <li>Specular_Value: High (0.8-1.0)</li>
+                        <li>Reflection_Value: High (0.6-1.0)</li>
+                        <li>Bump: Slight texture for imperfections</li>
+                        <li>Result: Shiny, reflective metal</li>
+                    </ul>
+
+                    <p><strong>Transparent Glass:</strong></p>
+                    <ul>
+                        <li>Diffuse_Color: Light tint (very light color)</li>
+                        <li>Transparency: High (0.8-0.95)</li>
+                        <li>Refraction: 1.5 (glass refraction index)</li>
+                        <li>Reflection_Value: Moderate (0.3-0.5)</li>
+                        <li>Result: See-through glass with refraction</li>
+                    </ul>
+                </div>
+
+                <h3>Adjusting Individual Properties</h3>
+
+                <p>
+                    Let's walk through adjusting specific properties on the root node:
+                </p>
+
+                <div class="card">
+                    <h4>🎨 Step-by-Step: Change Base Color</h4>
+                    <ol>
+                        <li>In Material Room, find PoserSurface node</li>
+                        <li>Look at Diffuse_Color input socket</li>
+                        <li>See what's connected (probably a color node)</li>
+                        <li>Click that connected node</li>
+                        <li>In properties panel, click color swatch</li>
+                        <li>Choose new color in color picker</li>
+                        <li>Click OK</li>
+                        <li>Preview updates with new color</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>✨ Step-by-Step: Adjust Shininess</h4>
+                    <ol>
+                        <li>In Material Room, find PoserSurface node</li>
+                        <li>Look at Specular_Value input socket</li>
+                        <li>Click the node connected to it (or the socket if empty)</li>
+                        <li>In properties panel, find value slider/number</li>
+                        <li>Adjust value:
+                            <ul>
+                                <li>Lower (0.1-0.3) = matte</li>
+                                <li>Medium (0.4-0.6) = slight sheen</li>
+                                <li>High (0.7-1.0) = very shiny</li>
+                            </ul>
+                        </li>
+                        <li>Preview shows change in shininess</li>
+                    </ol>
+                </div>
+
+                <h3>Understanding Channel Interdependencies</h3>
+
+                <p>
+                    Some channels work together to create effects:
+                </p>
+
+                <div class="card" style="background-color: #f3e5f5; border-left: 4px solid #9C27B0;">
+                    <h4>🔗 How Channels Interact</h4>
+                    
+                    <p><strong>Diffuse + Specular = Surface Appearance</strong></p>
+                    <ul>
+                        <li>Diffuse provides base color</li>
+                        <li>Specular adds highlights</li>
+                        <li>Together they define how glossy/matte the surface is</li>
+                    </ul>
+
+                    <p><strong>Reflection + Specular = Shininess</strong></p>
+                    <ul>
+                        <li>High specular + low reflection = plastic-like</li>
+                        <li>High specular + high reflection = metallic</li>
+                        <li>Low specular + low reflection = matte</li>
+                    </ul>
+
+                    <p><strong>Transparency + Refraction = Glass</strong></p>
+                    <ul>
+                        <li>Transparency alone = flat see-through</li>
+                        <li>+ Refraction = realistic glass that bends light</li>
+                        <li>+ Slight reflection = even more realistic</li>
+                    </ul>
+
+                    <p><strong>Bump + Diffuse Texture = Realistic Detail</strong></p>
+                    <ul>
+                        <li>Diffuse texture provides color variation</li>
+                        <li>Bump adds perceived depth</li>
+                        <li>Together create convincing surface detail</li>
+                    </ul>
+                </div>
+
+                <h3>The 80/20 Rule for Materials</h3>
+
+                <p>
+                    Here's a secret: <strong>80% of the time, you'll only adjust 20% of available channels</strong>.
+                </p>
+
+                <div class="card">
+                    <h4>🎯 The Essential Channels (Use These Most)</h4>
+                    <ol>
+                        <li><strong>Diffuse_Color:</strong> The color—you'll adjust this constantly</li>
+                        <li><strong>Specular_Value:</strong> Shininess—very important for realism</li>
+                        <li><strong>Bump:</strong> Surface texture—adds crucial detail</li>
+                        <li><strong>Reflection_Value:</strong> For metals and glossy surfaces</li>
+                    </ol>
+                    <p><strong>These four channels handle most material needs!</strong></p>
+                    <p>The other channels (ambient, transparency, alternate diffuse, etc.) are for special situations.</p>
+                </div>
+
+                <blockquote>
+                    <p><strong>🎯 The Shader Simplicity Principle:</strong> "Don't let the complexity intimidate you. Most materials are just diffuse color + specular + maybe bump. Master those three, and you can create 90% of the materials you'll ever need. The fancy stuff? That's for when you're ready to level up!"</p>
+                </blockquote>
+            </section>
+
+            <section id="material-presets" class="lesson-section">
+                <h2>📦 Using Material Presets</h2>
+                
+                <p>
+                    Here's the good news: you don't have to build every material from scratch! Poser comes with <strong>material presets</strong>—pre-made materials you can apply instantly.
+                </p>
+
+                <h3>What Are Material Presets?</h3>
+
+                <div class="card">
+                    <h4>💾 Preset Basics</h4>
+                    <ul>
+                        <li><strong>Definition:</strong> Saved material configurations with all node networks and settings</li>
+                        <li><strong>Think of them as:</strong> Material "recipes" saved for reuse</li>
+                        <li><strong>Includes:</strong> Complete node network, all textures, all values</li>
+                        <li><strong>Location:</strong> Library → Materials (or similar category)</li>
+                        <li><strong>Types:</strong> Built-in Poser materials, purchased content, your own saved materials</li>
+                    </ul>
+                </div>
+
+                <h3>Finding Material Presets</h3>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>🗂️ Where to Find Presets</h4>
+                    
+                    <p><strong>In the Library:</strong></p>
+                    <ol>
+                        <li>Open Library palette (should be visible in any room)</li>
+                        <li>Look for "Materials" category at top</li>
+                        <li>Or check under Pose library (materials sometimes stored there)</li>
+                        <li>Navigate to appropriate folder:
+                            <ul>
+                                <li>Poser 12 default materials</li>
+                                <li>Content-specific materials (for purchased items)</li>
+                                <li>Your custom materials</li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <p><strong>Preset Organization:</strong></p>
+                    <ul>
+                        <li><strong>By material type:</strong> Wood, Metal, Fabric, Plastic, etc.</li>
+                        <li><strong>By content set:</strong> Materials for specific figures or props</li>
+                        <li><strong>By creator:</strong> Different artists' material collections</li>
+                    </ul>
+                </div>
+
+                <h3>Applying a Material Preset</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Step-by-Step: Apply a Preset</h4>
+                    <ol>
+                        <li><strong>Select the object/zone</strong> you want to change
+                            <ul>
+                                <li>In Pose Room: Click on object</li>
+                                <li>In Material Room: Select from material list</li>
+                            </ul>
+                        </li>
+                        <li><strong>Open Library</strong> to Materials category</li>
+                        <li><strong>Browse presets</strong>
+                            <ul>
+                                <li>Click thumbnails to preview</li>
+                                <li>Read names/descriptions</li>
+                            </ul>
+                        </li>
+                        <li><strong>Double-click the preset</strong>
+                            <ul>
+                                <li>Or drag onto object in viewport</li>
+                                <li>Or click and use "Apply" button</li>
+                            </ul>
+                        </li>
+                        <li><strong>Material applies instantly</strong>
+                            <ul>
+                                <li>Replaces existing material completely</li>
+                                <li>All nodes, textures, values change</li>
+                            </ul>
+                        </li>
+                        <li><strong>Check result</strong> in viewport or Material Room preview</li>
+                    </ol>
+                </div>
+
+                <h3>Types of Material Presets</h3>
+
+                <div class="card">
+                    <h4>🎨 Common Preset Categories</h4>
+                    
+                    <p><strong>Generic Materials:</strong></p>
+                    <ul>
+                        <li>Basic colors (red plastic, blue metal, etc.)</li>
+                        <li>Material types (wood, stone, fabric)</li>
+                        <li>Can be applied to any object</li>
+                        <li>Good for props and simple objects</li>
+                    </ul>
+
+                    <p><strong>Content-Specific Materials:</strong></p>
+                    <ul>
+                        <li>Designed for specific figures or props</li>
+                        <li>Include proper texture maps for that item</li>
+                        <li>Example: "Character skin material for LaFemme"</li>
+                        <li>Usually higher quality than generic</li>
+                    </ul>
+
+                    <p><strong>MAT Poses:</strong></p>
+                    <ul>
+                        <li>Special presets that apply materials to multiple zones at once</li>
+                        <li>Example: One MAT pose changes shirt, pants, and shoes together</li>
+                        <li>Very common for clothing</li>
+                        <li>Time-saving for complex objects</li>
+                    </ul>
+
+                    <p><strong>Shader Presets:</strong></p>
+                    <ul>
+                        <li>Just the shader/node network without specific textures</li>
+                        <li>Good for creating custom variations</li>
+                        <li>More advanced usage</li>
+                    </ul>
+                </div>
+
+                <h3>Material Presets Best Practices</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Important Preset Tips</h4>
+                    
+                    <p><strong>Texture Paths:</strong></p>
+                    <ul>
+                        <li>Presets reference texture image files</li>
+                        <li>If images are missing, material may look wrong</li>
+                        <li>Ensure content is properly installed</li>
+                        <li>Check for "missing texture" warnings</li>
+                    </ul>
+
+                    <p><strong>Zone Specificity:</strong></p>
+                    <ul>
+                        <li>Some presets designed for specific zones</li>
+                        <li>Applying "skin" material to "eyes" might look wrong</li>
+                        <li>Pay attention to preset names and descriptions</li>
+                    </ul>
+
+                    <p><strong>Overwriting:</strong></p>
+                    <ul>
+                        <li>Applying preset completely replaces existing material</li>
+                        <li>Can't undo with Ctrl+Z after leaving Material Room</li>
+                        <li>Save scene before major material changes</li>
+                    </ul>
+
+                    <p><strong>Figure-Specific Materials:</strong></p>
+                    <ul>
+                        <li>Character materials designed for specific figures</li>
+                        <li>May not work well on different figures</li>
+                        <li>UV mapping must match</li>
+                    </ul>
+                </div>
+
+                <h3>Saving Your Own Material Presets</h3>
+
+                <p>
+                    Once you've created or modified a material you like, save it for reuse!
+                </p>
+
+                <div class="card">
+                    <h4>💾 How to Save a Material Preset</h4>
+                    <ol>
+                        <li><strong>In Material Room</strong>, select the material zone you want to save</li>
+                        <li><strong>Ensure material looks exactly how you want</strong></li>
+                        <li><strong>Go to File menu</strong> (or right-click in some versions)</li>
+                        <li><strong>Choose "Save Material Collection"</strong> or similar option</li>
+                        <li><strong>Choose save location</strong>
+                            <ul>
+                                <li>Save to your library</li>
+                                <li>Create custom folder if desired</li>
+                            </ul>
+                        </li>
+                        <li><strong>Name descriptively</strong>
+                            <ul>
+                                <li>Example: "Red Shiny Plastic" or "Weathered Bronze"</li>
+                            </ul>
+                        </li>
+                        <li><strong>Save</strong></li>
+                        <li><strong>Preset now appears in your library</strong> for future use</li>
+                    </ol>
+                </div>
+
+                <h3>Organizing Your Material Library</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Library Organization Tips</h4>
+                    <ul>
+                        <li><strong>Create category folders:</strong> Metals, Fabrics, Woods, Plastics, etc.</li>
+                        <li><strong>Name clearly:</strong> "Copper_Polished" better than "Material_03"</li>
+                        <li><strong>Include thumbnails:</strong> Visual previews help identification</li>
+                        <li><strong>Separate generic from specific:</strong> Generic materials vs. character-specific</li>
+                        <li><strong>Regular cleanup:</strong> Delete materials you never use</li>
+                        <li><strong>Backup favorites:</strong> Save copies of your best materials</li>
+                    </ul>
+                </div>
+
+                <h3>Popular Material Preset Collections</h3>
+
+                <p>
+                    If you want to expand your material library:
+                </p>
+
+                <div class="card">
+                    <h4>🛒 Where to Find More Materials</h4>
+                    <ul>
+                        <li><strong>Renderosity:</strong> Large marketplace for Poser content including materials</li>
+                        <li><strong>DAZ 3D:</strong> Materials for compatible figures and props</li>
+                        <li><strong>ShareCG:</strong> Free and paid materials</li>
+                        <li><strong>Poser forums:</strong> Community-shared materials</li>
+                        <li><strong>Content Paradise:</strong> Official Poser content store</li>
+                    </ul>
+                    <p><strong>Pro tip:</strong> Start with Poser's built-in materials before buying more. Learn the basics first!</p>
+                </div>
+
+                <blockquote>
+                    <p><strong>📦 The Preset Philosophy:</strong> "Why reinvent the wheel? Material presets are like having a master chef's recipe collection. You can use them as-is, or use them as starting points for your own variations. Every professional 3D artist uses presets—it's not cheating, it's being efficient!"</p>
+                </blockquote>
+            </section>
+
+            <section id="modifying-materials" class="lesson-section">
+                <h2>🔧 Modifying Existing Materials</h2>
+                
+                <p>
+                    Often, you'll find a material that's 90% perfect—it just needs a small tweak. Let's learn how to modify existing materials rather than building from scratch.
+                </p>
+
+                <h3>The Modification Mindset</h3>
+
+                <p>
+                    Think of modifying materials like adjusting a recipe. The basic recipe works, but maybe you want it:
+                </p>
+
+                <ul>
+                    <li>A different color</li>
+                    <li>More or less shiny</li>
+                    <li>With more surface texture</li>
+                    <li>Less reflective</li>
+                    <li>Slightly transparent</li>
+                </ul>
+
+                <p>
+                    You keep the structure (the recipe) but adjust specific ingredients (the parameters).
+                </p>
+
+                <h3>Common Material Modifications</h3>
+
+                <div class="card">
+                    <h4>🎨 Modification 1: Change Color</h4>
+                    <p><strong>Goal:</strong> Keep everything else, just change the color</p>
+                    <ol>
+                        <li>Enter Material Room</li>
+                        <li>Select material zone</li>
+                        <li>Find Diffuse_Color node (connected to root)</li>
+                        <li>If it's a Color node:
+                            <ul>
+                                <li>Click node</li>
+                                <li>Change color in color picker</li>
+                                <li>Done!</li>
+                            </ul>
+                        </li>
+                        <li>If it's an Image_Map (texture):
+                            <ul>
+                                <li>Can try color tinting (more advanced)</li>
+                                <li>Or replace with solid color node</li>
+                                <li>Or load different texture image</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><strong>Result:</strong> Same material, new color!</p>
+                </div>
+
+                <div class="card">
+                    <h4>✨ Modification 2: Adjust Shininess</h4>
+                    <p><strong>Goal:</strong> Make surface more matte or more glossy</p>
+                    <ol>
+                        <li>Find Specular_Value node/connection</li>
+                        <li>Click node or socket</li>
+                        <li>Adjust value:
+                            <ul>
+                                <li>Decrease (toward 0.0) = more matte</li>
+                                <li>Increase (toward 1.0) = more shiny</li>
+                            </ul>
+                        </li>
+                        <li>Preview to check result</li>
+                        <li>Fine-tune until perfect</li>
+                    </ol>
+                    <p><strong>Quick test values:</strong></p>
+                    <ul>
+                        <li>0.2 = Matte (fabric, stone)</li>
+                        <li>0.5 = Moderate (wood, leather)</li>
+                        <li>0.8 = Glossy (plastic, wet surfaces)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>🏔️ Modification 3: Increase/Decrease Bump</h4>
+                    <p><strong>Goal:</strong> More or less surface texture</p>
+                    <ol>
+                        <li>Find Bump channel connection</li>
+                        <li>Usually connects through a math node</li>
+                        <li>Look for "Bump_Value" or multiply node</li>
+                        <li>Adjust value:
+                            <ul>
+                                <li>Lower values (0.01-0.1) = subtle texture</li>
+                                <li>Medium values (0.1-0.3) = normal texture</li>
+                                <li>High values (0.3-0.5) = pronounced texture</li>
+                                <li>Too high (0.5+) = looks unrealistic</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><strong>Warning:</strong> Too much bump makes surfaces look wrong. Start small!</p>
+                </div>
+
+                <div class="card">
+                    <h4>🪞 Modification 4: Add/Remove Reflection</h4>
+                    <p><strong>Goal:</strong> Make surface more or less mirror-like</p>
+                    <ol>
+                        <li>Find Reflection_Value channel</li>
+                        <li>If empty (no reflection):
+                            <ul>
+                                <li>Can add by creating value node</li>
+                                <li>Connect to Reflection_Value</li>
+                                <li>Set to desired strength (0.0-1.0)</li>
+                            </ul>
+                        </li>
+                        <li>If already has reflection:
+                            <ul>
+                                <li>Adjust existing value</li>
+                                <li>Or set to 0.0 to remove completely</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><strong>Remember:</strong> Reflections slow render time!</p>
+                </div>
+
+                <h3>The Safe Modification Workflow</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ How to Modify Safely</h4>
+                    <ol>
+                        <li><strong>Save scene first</strong>
+                            <ul>
+                                <li>So you can revert if needed</li>
+                                <li>Material changes can't be undone easily</li>
+                            </ul>
+                        </li>
+                        <li><strong>Enter Material Room</strong></li>
+                        <li><strong>Select material zone to modify</strong></li>
+                        <li><strong>Take a mental note</strong> of current settings
+                            <ul>
+                                <li>Or screenshot the node network</li>
+                                <li>Helps if you want to undo changes</li>
+                            </ul>
+                        </li>
+                        <li><strong>Make ONE change at a time</strong>
+                            <ul>
+                                <li>Don't adjust multiple properties simultaneously</li>
+                                <li>Makes it easier to see what each change does</li>
+                            </ul>
+                        </li>
+                        <li><strong>Preview after each change</strong>
+                            <ul>
+                                <li>Check Material Room preview</li>
+                                <li>Return to Pose Room to see in context</li>
+                            </ul>
+                        </li>
+                        <li><strong>If you like it, save the modified material</strong>
+                            <ul>
+                                <li>Save as new preset</li>
+                                <li>Give it descriptive name</li>
+                            </ul>
+                        </li>
+                        <li><strong>If you don't like it, reload scene</strong></li>
+                    </ol>
+                </div>
+
+                <h3>Advanced: Replacing Textures</h3>
+
+                <p>
+                    Sometimes you want to keep the material structure but use different texture images.
+                </p>
+
+                <div class="card">
+                    <h4>🖼️ How to Replace a Texture Image</h4>
+                    <ol>
+                        <li><strong>Locate Image_Map node</strong>
+                            <ul>
+                                <li>Usually connected to Diffuse_Color or Bump</li>
+                            </ul>
+                        </li>
+                        <li><strong>Click the Image_Map node</strong></li>
+                        <li><strong>In properties panel, find "Image_Source"</strong> or similar</li>
+                        <li><strong>Click folder/browse button</strong></li>
+                        <li><strong>Navigate to new texture file</strong>
+                            <ul>
+                                <li>Should be same type (color texture, bump texture, etc.)</li>
+                                <li>Ideally similar resolution</li>
+                            </ul>
+                        </li>
+                        <li><strong>Select new image</strong></li>
+                        <li><strong>Node updates with new texture</strong></li>
+                        <li><strong>Preview to check result</strong></li>
+                    </ol>
+                    <p><strong>Common use:</strong> Changing wood grain, fabric pattern, skin texture</p>
+                </div>
+
+                <h3>Troubleshooting Modified Materials</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Common Issues When Modifying</h4>
+                    
+                    <p><strong>Problem: Changes don't show in preview</strong></p>
+                    <p><strong>Solution:</strong> Click "Refresh" in preview window, or toggle to Pose Room and back</p>
+                    <br>
+                    
+                    <p><strong>Problem: Material looks completely wrong after one change</strong></p>
+                    <p><strong>Solution:</strong> You may have adjusted wrong property. Reload scene and try again more carefully</p>
+                    <br>
+                    
+                    <p><strong>Problem: Texture path broken (missing image)</strong></p>
+                    <p><strong>Solution:</strong> Image_Map node can't find texture file. Browse to correct location</p>
+                    <br>
+                    
+                    <p><strong>Problem: Changed color but object still looks same</strong></p>
+                    <p><strong>Solution:</strong> May have modified wrong node. Ensure you're changing the node connected to Diffuse_Color of root</p>
+                    <br>
+                    
+                    <p><strong>Problem: Material looks good in preview but wrong in render</strong></p>
+                    <p><strong>Solution:</strong> Preview uses simplified rendering. Some properties only show in full render</p>
+                </div>
+
+                <h3>Before and After: Material Modification Examples</h3>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 Real Modification Scenarios</h4>
+                    
+                    <p><strong>Scenario 1: Too Shiny</strong></p>
+                    <ul>
+                        <li>Before: Plastic material, too glossy, looks fake</li>
+                        <li>Action: Reduce Specular_Value from 0.9 to 0.5</li>
+                        <li>After: Still has sheen but more realistic</li>
+                    </ul>
+
+                    <p><strong>Scenario 2: Wrong Color</strong></p>
+                    <ul>
+                        <li>Before: Applied "Wood" material, but it's too dark</li>
+                        <li>Action: Adjust Diffuse_Color to lighter brown</li>
+                        <li>After: Lighter wood tone, better for scene lighting</li>
+                    </ul>
+
+                    <p><strong>Scenario 3: Not Enough Texture</strong></p>
+                    <ul>
+                        <li>Before: Fabric material looks too smooth</li>
+                        <li>Action: Increase Bump value from 0.05 to 0.15</li>
+                        <li>After: Fabric has more visible weave texture</li>
+                    </ul>
+
+                    <p><strong>Scenario 4: Too Reflective</strong></p>
+                    <ul>
+                        <li>Before: Metal material reflects too much, distracting</li>
+                        <li>Action: Reduce Reflection_Value from 0.8 to 0.4</li>
+                        <li>After: Still looks metallic but less mirror-like</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>🔧 The Modification Master's Wisdom:</strong> "The best materials aren't built from scratch—they're found and tweaked. Start with a good preset, make small adjustments, and save the result. Over time, you'll build a personal library of perfect materials that you've refined to your exact taste!"</p>
+                </blockquote>
+            </section>
+
+            <section id="preview-testing" class="lesson-section">
+                <h2>👁️ Testing with Preview Renders</h2>
+                
+                <p>
+                    The Material Room preview is helpful, but to really see how your material looks, you need to test with renders.
+                </p>
+
+                <h3>Preview vs. Render</h3>
+
+                <div class="card">
+                    <h4>🖼️ Understanding the Difference</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Aspect</th>
+                                <th>Material Room Preview</th>
+                                <th>Full Render</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Speed</strong></td>
+                                <td>Fast, near-instant</td>
+                                <td>Slower, can take seconds to minutes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Quality</strong></td>
+                                <td>Simplified, approximate</td>
+                                <td>Full quality, accurate</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lighting</strong></td>
+                                <td>Simple preview lighting</td>
+                                <td>Your scene's actual lights</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Reflections</strong></td>
+                                <td>Often disabled or simplified</td>
+                                <td>Full reflections calculated</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Shadows</strong></td>
+                                <td>Basic or none</td>
+                                <td>Accurate shadows</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Purpose</strong></td>
+                                <td>Quick feedback while editing</td>
+                                <td>See true final result</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Quick Test Renders</h3>
+
+                <p>
+                    Don't wait until the end to render! Do quick test renders frequently while adjusting materials.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Quick Render Workflow</h4>
+                    <ol>
+                        <li><strong>Make material adjustment</strong> in Material Room</li>
+                        <li><strong>Return to Pose Room</strong> (click Pose tab)</li>
+                        <li><strong>Set up quick render</strong>:
+                            <ul>
+                                <li>Render → Render Settings (or Ctrl+Y / Cmd+Y)</li>
+                                <li>Choose smaller size (e.g., 800x600 instead of full size)</li>
+                                <li>Use draft quality settings</li>
+                                <li>Disable or simplify shadows if very slow</li>
+                            </ul>
+                        </li>
+                        <li><strong>Render</strong> (Render menu → Render or Ctrl+R / Cmd+R)</li>
+                        <li><strong>Check material appearance</strong> in rendered image</li>
+                        <li><strong>If needs adjustment, return to Material Room</strong></li>
+                        <li><strong>Repeat until satisfied</strong></li>
+                    </ol>
+                </div>
+
+                <h3>What to Look For in Test Renders</h3>
+
+                <div class="card">
+                    <h4>🔍 Material Evaluation Checklist</h4>
+                    
+                    <p><strong>Check Color:</strong></p>
+                    <ul>
+                        <li>Is the color what you intended?</li>
+                        <li>Does it match other elements in scene?</li>
+                        <li>Does lighting affect color appropriately?</li>
+                    </ul>
+
+                    <p><strong>Check Specularity (Shininess):</strong></p>
+                    <ul>
+                        <li>Are highlights visible where they should be?</li>
+                        <li>Too bright (over-shiny) or too dim (too matte)?</li>
+                        <li>Does shine level match material type?</li>
+                    </ul>
+
+                    <p><strong>Check Bump/Texture Detail:</strong></p>
+                    <ul>
+                        <li>Can you see surface texture?</li>
+                        <li>Is bump too subtle (barely visible) or too strong (looks weird)?</li>
+                        <li>Does texture look natural at this viewing distance?</li>
+                    </ul>
+
+                    <p><strong>Check Reflections (if applicable):</strong></p>
+                    <ul>
+                        <li>Do reflections appear?</li>
+                        <li>Are they too strong or too weak?</li>
+                        <li>Do they reflect appropriate things?</li>
+                    </ul>
+
+                    <p><strong>Check Overall Realism:</strong></p>
+                    <ul>
+                        <li>Does it look like the material you intended?</li>
+                        <li>Does it fit with the scene's style?</li>
+                        <li>Anything obviously wrong or distracting?</li>
+                    </ul>
+                </div>
+
+                <h3>Test Render Settings</h3>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>⚡ Fast Test Render Settings</h4>
+                    <p><strong>For quick material tests:</strong></p>
+                    <ul>
+                        <li><strong>Resolution:</strong> 640x480 or 800x600 (small = fast)</li>
+                        <li><strong>Render quality:</strong> Draft or Preview mode</li>
+                        <li><strong>Anti-aliasing:</strong> Off or minimal</li>
+                        <li><strong>Shadows:</strong> Simple or off (unless testing material shadows)</li>
+                        <li><strong>Ray tracing depth:</strong> 2-3 bounces (lower = faster)</li>
+                        <li><strong>Pixel samples:</strong> 2-4 (lower = faster but grainier)</li>
+                    </ul>
+                    <p><strong>Purpose:</strong> Get feedback in 10-30 seconds instead of minutes</p>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>🎨 Final Quality Render Settings</h4>
+                    <p><strong>When material is finalized:</strong></p>
+                    <ul>
+                        <li><strong>Resolution:</strong> Full size (1920x1080, 2560x1440, or higher)</li>
+                        <li><strong>Render quality:</strong> Final or Production mode</li>
+                        <li><strong>Anti-aliasing:</strong> High quality</li>
+                        <li><strong>Shadows:</strong> Full quality shadows</li>
+                        <li><strong>Ray tracing depth:</strong> 6-8 bounces</li>
+                        <li><strong>Pixel samples:</strong> 8-16 or more</li>
+                    </ul>
+                    <p><strong>Purpose:</strong> Get beautiful final image (will take longer)</p>
+                </div>
+
+                <h3>Render Region Testing</h3>
+
+                <p>
+                    Some versions of Poser allow rendering just part of the image—very useful for material testing!
+                </p>
+
+                <div class="card">
+                    <h4>🎯 Spot Rendering (if available)</h4>
+                    <ol>
+                        <li>Look for "Render Region" or "Spot Render" feature</li>
+                        <li>Select a small area around your object</li>
+                        <li>Render only that area</li>
+                        <li>Much faster than rendering entire scene</li>
+                        <li>Perfect for testing materials on specific objects</li>
+                    </ol>
+                </div>
+
+                <h3>Iterative Testing Process</h3>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Adjust Material<br/>in Material Room] --> B[Quick Test Render<br/>Low quality, small size]
+                    B --> C{Looks Good?}
+                    C -->|No| D[Identify Issue]
+                    D --> A
+                    C -->|Close| E[Tweak Settings]
+                    E --> B
+                    C -->|Yes| F[Full Quality Render<br/>High quality, full size]
+                    F --> G{Perfect?}
+                    G -->|No| H[Minor Adjustments]
+                    H --> A
+                    G -->|Yes| I[Material Complete!]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style I fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Common Render Surprises</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ "It Looked Fine in Preview!"</h4>
+                    
+                    <p><strong>Surprise 1: Reflections appear</strong></p>
+                    <ul>
+                        <li>Preview may not show reflections</li>
+                        <li>Full render calculates them</li>
+                        <li>May need to adjust Reflection_Value if too strong</li>
+                    </ul>
+
+                    <p><strong>Surprise 2: Color looks different</strong></p>
+                    <ul>
+                        <li>Scene lighting affects color differently than preview lighting</li>
+                        <li>May need to adjust Diffuse_Color slightly</li>
+                        <li>Or adjust scene lights instead</li>
+                    </ul>
+
+                    <p><strong>Surprise 3: Bump is too subtle or too strong</strong></p>
+                    <ul>
+                        <li>Bump shows differently at different resolutions</li>
+                        <li>May need to adjust bump strength</li>
+                        <li>Viewing distance also matters</li>
+                    </ul>
+
+                    <p><strong>Surprise 4: Render is very slow</strong></p>
+                    <ul>
+                        <li>Reflections and transparency slow renders dramatically</li>
+                        <li>Consider reducing Reflection_Value if not essential</li>
+                        <li>Or use faster render settings</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>🎨 The Render Reality Check:</strong> "The preview is your sketch, but the render is your final painting. Always do test renders! What looks perfect in preview might need adjusting in the final render. It's better to discover this early with a quick test than after waiting 10 minutes for a full-quality render!"</p>
+                </blockquote>
+            </section>
+
+            <section id="project" class="lesson-section">
+                <h2>🎯 Project: Apply and Customize Materials</h2>
+                
+                <p>
+                    Time to put your new Material Room knowledge into practice!
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3 style="color: white; margin-top: 0;">🎨 Project Brief</h3>
+                    <p style="color: white;">
+                        Create a simple scene with a prop, apply different materials to it, and customize those materials to achieve specific looks.
+                    </p>
+                    <p><strong style="color: white;">Requirements:</strong></p>
+                    <ul style="color: white;">
+                        <li>Load a simple prop (primitive shape or basic prop)</li>
+                        <li>Apply at least 3 different material presets</li>
+                        <li>Customize one material by adjusting color, shininess, and bump</li>
+                        <li>Create test renders showing before and after</li>
+                        <li>Save your favorite customized material as a preset</li>
+                    </ul>
+                    <p style="color: white;"><strong>Time allocation:</strong> 30-45 minutes</p>
+                </div>
+
+                <h3>Step-by-Step Project Guide</h3>
+
+                <div class="card">
+                    <h4>Phase 1: Scene Setup (5 minutes)</h4>
+                    <ol>
+                        <li><strong>Create new scene</strong> (File → New)</li>
+                        <li><strong>Load a simple prop</strong>
+                            <ul>
+                                <li>Option A: Create primitive (Props → Primitives → Ball or Box)</li>
+                                <li>Option B: Load any simple prop from library</li>
+                                <li>Suggestion: Ball/Sphere works great for showing materials</li>
+                            </ul>
+                        </li>
+                        <li><strong>Position prop</strong> in center of scene</li>
+                        <li><strong>Set up camera</strong> for good view</li>
+                        <li><strong>Add basic lighting</strong> (default lights are fine)</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 2: Apply Presets (10 minutes)</h4>
+                    <ol>
+                        <li><strong>With prop selected, open Library</strong></li>
+                        <li><strong>Navigate to Materials category</strong></li>
+                        <li><strong>Apply first preset</strong>
+                            <ul>
+                                <li>Try: A plastic material (shiny, solid color)</li>
+                                <li>Double-click to apply</li>
+                                <li>Observe result in viewport</li>
+                            </ul>
+                        </li>
+                        <li><strong>Do a quick test render</strong>
+                            <ul>
+                                <li>Small size, draft quality</li>
+                                <li>See how material looks rendered</li>
+                            </ul>
+                        </li>
+                        <li><strong>Apply second preset</strong>
+                            <ul>
+                                <li>Try: A metal material (reflective, metallic)</li>
+                                <li>Apply and test render again</li>
+                                <li>Compare to first material</li>
+                            </ul>
+                        </li>
+                        <li><strong>Apply third preset</strong>
+                            <ul>
+                                <li>Try: A textured material (wood, stone, fabric)</li>
+                                <li>Apply and test render</li>
+                                <li>Note how texture adds interest</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 3: Customize a Material (15 minutes)</h4>
+                    <ol>
+                        <li><strong>Choose one material to customize</strong>
+                            <ul>
+                                <li>Pick one of the presets you applied</li>
+                                <li>Or apply a new one to start from</li>
+                            </ul>
+                        </li>
+                        <li><strong>Enter Material Room</strong> (click Material tab)</li>
+                        <li><strong>Ensure prop's material is selected</strong></li>
+                        <li><strong>Modification 1: Change Color</strong>
+                            <ul>
+                                <li>Find Diffuse_Color node</li>
+                                <li>Change to a color you like</li>
+                                <li>Return to Pose Room and render to check</li>
+                            </ul>
+                        </li>
+                        <li><strong>Modification 2: Adjust Shininess</strong>
+                            <ul>
+                                <li>Find Specular_Value</li>
+                                <li>Try different values (0.2, 0.5, 0.8)</li>
+                                <li>Render each to see difference</li>
+                                <li>Choose the look you prefer</li>
+                            </ul>
+                        </li>
+                        <li><strong>Modification 3: Adjust Bump (if material has it)</strong>
+                            <ul>
+                                <li>Find Bump channel</li>
+                                <li>Adjust strength</li>
+                                <li>Render to see effect</li>
+                            </ul>
+                        </li>
+                        <li><strong>Fine-tune until you love it</strong></li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 4: Document and Save (10 minutes)</h4>
+                    <ol>
+                        <li><strong>Do a final quality render</strong>
+                            <ul>
+                                <li>Larger size (at least 1024x768)</li>
+                                <li>Better quality settings</li>
+                                <li>This is your "after" image</li>
+                            </ul>
+                        </li>
+                        <li><strong>Save your customized material</strong>
+                            <ul>
+                                <li>In Material Room: File → Save Material Collection</li>
+                                <li>Give it descriptive name</li>
+                                <li>Save to your library</li>
+                            </ul>
+                        </li>
+                        <li><strong>Save the scene</strong>
+                            <ul>
+                                <li>File → Save</li>
+                                <li>Name: "Material_Practice" or similar</li>
+                            </ul>
+                        </li>
+                        <li><strong>Document what you learned</strong>
+                            <ul>
+                                <li>Mental note or written: Which properties affect what?</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>Success Criteria</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Your Project Should Include:</h4>
+                    <ul>
+                        <li>□ Scene with prop (primitive or simple prop)</li>
+                        <li>□ At least 3 different materials tested</li>
+                        <li>□ One material customized with:
+                            <ul>
+                                <li>□ Changed color</li>
+                                <li>□ Adjusted specularity</li>
+                                <li>□ Modified bump (if applicable)</li>
+                            </ul>
+                        </li>
+                        <li>□ Test renders showing different materials</li>
+                        <li>□ Final quality render of best version</li>
+                        <li>□ Customized material saved as preset</li>
+                        <li>□ Understanding of how basic properties affect appearance</li>
+                    </ul>
+                </div>
+
+                <h3>Bonus Challenges</h3>
+
+                <ul>
+                    <li><strong>Multi-material scene:</strong> Add multiple props with different materials that work well together</li>
+                    <li><strong>Material matching:</strong> Create materials for a sphere that looks like: glass, gold, rubber, stone</li>
+                    <li><strong>Before/after comparison:</strong> Render same scene with default gray vs. your custom material</li>
+                    <li><strong>Texture replacement:</strong> Find a material with texture, replace texture image with different one</li>
+                    <li><strong>Material library:</strong> Create 5 custom materials (red plastic, brushed metal, etc.) and save all</li>
+                </ul>
+
+                <h3>What You're Learning</h3>
+
+                <p>
+                    This project teaches you:
+                </p>
+
+                <ul>
+                    <li><strong>Navigation:</strong> Comfort moving between Pose Room and Material Room</li>
+                    <li><strong>Preset usage:</strong> How to quickly apply materials from library</li>
+                    <li><strong>Modification:</strong> Adjusting existing materials rather than building from scratch</li>
+                    <li><strong>Testing:</strong> Importance of render tests while working</li>
+                    <li><strong>Workflow:</strong> Efficient material creation process</li>
+                    <li><strong>Property understanding:</strong> How color, specularity, and bump affect appearance</li>
+                </ul>
+
+                <blockquote>
+                    <p><strong>🎨 The Practice Philosophy:</strong> "Don't stress about creating the 'perfect' material. This project is about exploring, experimenting, and understanding cause and effect. Try extreme values! Make it too shiny, then too matte. Make colors wild! Learning what looks wrong teaches you what looks right!"</p>
+                </blockquote>
+            </section>
+
+            <section id="summary" class="lesson-section">
+                <h2>📝 Lesson Summary</h2>
+
+                <p>
+                    Congratulations! You've taken your first steps into the Material Room—one of Poser's most powerful features. Let's recap everything you've learned.
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3 style="color: white; margin-top: 0;">🎯 Key Takeaways</h3>
+                    
+                    <h4 style="color: white;">Understanding Materials</h4>
+                    <ul style="color: white;">
+                        <li><strong>Materials vs. textures:</strong> Materials are the complete surface definition; textures are images used within materials</li>
+                        <li><strong>Material properties:</strong> Diffuse (color), Specular (shininess), Bump (texture), Reflection, Transparency, Ambient</li>
+                        <li><strong>Combined effect:</strong> All properties work together to create final appearance</li>
+                    </ul>
+
+                    <h4 style="color: white;">Navigating the Material Room</h4>
+                    <ul style="color: white;">
+                        <li><strong>Four main areas:</strong> Preview window, material list, shader/node window, properties panel</li>
+                        <li><strong>Material zones:</strong> Different parts of objects can have different materials</li>
+                        <li><strong>Simple vs. advanced view:</strong> Start simple, progress to node view when comfortable</li>
+                    </ul>
+
+                    <h4 style="color: white;">Basic Properties Mastery</h4>
+                    <ul style="color: white;">
+                        <li><strong>Diffuse_Color:</strong> Base color of surface (0-1 or RGB values)</li>
+                        <li><strong>Specular_Value:</strong> Shininess level (0.0 matte → 1.0 glossy)</li>
+                        <li><strong>Bump:</strong> Surface detail illusion (0.01-0.5 typical range)</li>
+                        <li><strong>Reflection_Value:</strong> Mirror-like quality (expensive for rendering)</li>
+                        <li><strong>The 80/20 rule:</strong> These four properties handle most needs</li>
+                    </ul>
+
+                    <h4 style="color: white;">Node System Understanding</h4>
+                    <ul style="color: white;">
+                        <li><strong>Nodes as building blocks:</strong> Each performs specific function</li>
+                        <li><strong>Connections show data flow:</strong> Left to right, source to destination</li>
+                        <li><strong>Root node (PoserSurface):</strong> The final material, where everything connects</li>
+                        <li><strong>Common node types:</strong> Color, Math, Image_Map, Procedural, Utility</li>
+                        <li><strong>Complexity levels:</strong> Simple (1-3 nodes) to expert (30+ nodes)</li>
+                    </ul>
+
+                    <h4 style="color: white;">Working with Shaders</h4>
+                    <ul style="color: white;">
+                        <li><strong>PoserSurface node:</strong> Standard shader with multiple input channels</li>
+                        <li><strong>Channel types:</strong> Color/appearance, surface detail, reflection/transparency, advanced</li>
+                        <li><strong>Workflow:</strong> Identify channel, find connected node, adjust values</li>
+                        <li><strong>Common configurations:</strong> Solid color, textured, reflective metal, transparent glass</li>
+                    </ul>
+
+                    <h4 style="color: white;">Using Presets Effectively</h4>
+                    <ul style="color: white;">
+                        <li><strong>Preset advantages:</strong> Fast, professional quality, starting points for customization</li>
+                        <li><strong>Finding presets:</strong> Library → Materials category</li>
+                        <li><strong>Applying presets:</strong> Select object, double-click preset</li>
+                        <li><strong>Saving presets:</strong> File → Save Material Collection for reuse</li>
+                        <li><strong>Organization:</strong> Create folders, name clearly, backup favorites</li>
+                    </ul>
+
+                    <h4 style="color: white;">Modification Techniques</h4>
+                    <ul style="color: white;">
+                        <li><strong>Safe workflow:</strong> Save first, change one property at a time, preview often</li>
+                        <li><strong>Common modifications:</strong> Color changes, shininess adjustments, bump tweaks, reflection control</li>
+                        <li><strong>Texture replacement:</strong> Swap images in Image_Map nodes</li>
+                        <li><strong>The 90% rule:</strong> Most materials just need small tweaks from presets</li>
+                    </ul>
+
+                    <h4 style="color: white;">Testing and Rendering</h4>
+                    <ul style="color: white;">
+                        <li><strong>Preview vs. render:</strong> Preview is fast approximation, render is accurate</li>
+                        <li><strong>Quick test renders:</strong> Small size, draft quality for fast feedback</li>
+                        <li><strong>Evaluation checklist:</strong> Check color, specularity, bump, reflections, overall realism</li>
+                        <li><strong>Iterative process:</strong> Adjust → test → refine → repeat</li>
+                    </ul>
+                </div>
+
+                <h3>Skills You've Mastered</h3>
+
+                <div class="card">
+                    <h4>✅ Technical Skills Checklist</h4>
+                    <ul>
+                        <li>✅ Understand difference between materials and textures</li>
+                        <li>✅ Navigate Material Room confidently</li>
+                        <li>✅ Identify and adjust basic material properties</li>
+                        <li>✅ Understand node system fundamentals</li>
+                        <li>✅ Work with PoserSurface root node</li>
+                        <li>✅ Find and apply material presets</li>
+                        <li>✅ Modify existing materials</li>
+                        <li>✅ Replace texture images</li>
+                        <li>✅ Perform test renders</li>
+                        <li>✅ Save custom materials as presets</li>
+                    </ul>
+                </div>
+
+                <h3>Real-World Applications</h3>
+
+                <p>
+                    Material skills unlock countless possibilities:
+                </p>
+
+                <div class="card" style="background-color: #f3e5f5; border-left: 4px solid #9C27B0;">
+                    <h4>🎨 What You Can Now Create</h4>
+                    <ul>
+                        <li><strong>Realistic props:</strong> Make that wooden table actually look like wood</li>
+                        <li><strong>Varied surfaces:</strong> Distinguish between plastic, metal, fabric, stone</li>
+                        <li><strong>Custom colors:</strong> Match materials to your artistic vision</li>
+                        <li><strong>Textured details:</strong> Add surface interest with bump mapping</li>
+                        <li><strong>Believable characters:</strong> Better skin, clothing, and accessory materials</li>
+                        <li><strong>Professional renders:</strong> Materials make or break realism</li>
+                    </ul>
+                </div>
+
+                <h3>The Journey Ahead</h3>
+
+                <p>
+                    This lesson covered fundamentals—the foundation of material work. As you continue:
+                </p>
+
+                <ul>
+                    <li><strong>Practice regularly:</strong> Material work is a skill that improves with repetition</li>
+                    <li><strong>Study real materials:</strong> Observe how light interacts with different surfaces</li>
+                    <li><strong>Experiment fearlessly:</strong> Try extreme values to understand ranges</li>
+                    <li><strong>Build your library:</strong> Save good materials for reuse</li>
+                    <li><strong>Future lessons:</strong> We'll cover advanced topics like texture mapping, custom UV layouts, and procedural materials</li>
+                </ul>
+
+                <h3>What's Next</h3>
+
+                <p>
+                    In upcoming lessons in Module 4, you'll learn:
+                </p>
+
+                <ul>
+                    <li><strong>Lesson 15:</strong> Texture Maps and UV Mapping—understanding how images wrap around 3D objects</li>
+                    <li><strong>Lesson 16:</strong> Advanced Material Properties—subsurface scattering, refraction, displacement</li>
+                    <li><strong>Lesson 17:</strong> Creating Custom Textures—making your own texture images</li>
+                </ul>
+
+                <p>
+                    Each lesson builds on this foundation, taking you from basic materials to photo-realistic surfaces!
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white; text-align: center; padding: 2rem;">
+                    <h3 style="color: white; margin-top: 0;">🎉 You've Unlocked Material Power!</h3>
+                    <p style="color: white; font-size: 1.1em; margin: 1rem 0;">
+                        You can now make surfaces come alive with realistic materials. No more plastic-looking everything!
+                    </p>
+                    <p style="color: white; margin: 1rem 0;">
+                        From understanding the Material Room to applying and customizing materials, you've gained the skills that separate amateur 3D work from professional renders.
+                    </p>
+                    <p style="color: white; font-style: italic; margin-top: 1.5rem;">
+                        "Materials are the difference between a 3D model and a 3D masterpiece. You now have the keys to making surfaces that look real!" 🎨✨
+                    </p>
+                </div>
+
+            </section>
+
+        </article>
+
+        <nav class="lesson-nav" aria-label="Lesson Navigation">
+            <a href="lesson_13_conforming_items.html" class="prev-lesson">← Previous: Smart Props and Conforming Items</a>
+            <a href="index.html" class="home-link">🏠 Course Home</a>
+            <a href="lesson_15_texture_mapping.html" class="next-lesson">Next: Texture Maps and UV Mapping →</a>
+        </nav>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Poser 12 Mastery Course. All rights reserved.</p>
+            <p>Empowering aspiring 3D artists to create stunning character art.</p>
+        </div>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

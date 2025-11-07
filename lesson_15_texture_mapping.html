@@ -1,0 +1,2144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master texture maps and UV mapping in Poser 12 - understand how images wrap around 3D objects">
+    <meta name="author" content="Poser 12 Course">
+    <title>Texture Maps and UV Mapping - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Poser 12 Course Home">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect width="40" height="40" rx="8" fill="url(#gradient)"/>
+                    <path d="M12 28V12h8c3.3 0 6 2.7 6 6s-2.7 6-6 6h-5v4h-3zm3-7h5c1.7 0 3-1.3 3-3s-1.3-3-3-3h-5v6z" fill="white"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="0" y1="0" x2="40" y2="40">
+                            <stop offset="0%" stop-color="#667eea"/>
+                            <stop offset="100%" stop-color="#764ba2"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>Poser 12 Mastery</span>
+            </a>
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html#modules">Modules</a></li>
+                    <li><a href="index.html#resources">Resources</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="container">
+            <ol>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#module-4">Module 4: Materials and Textures</a></li>
+                <li><span aria-current="page">Lesson 15: Texture Maps and UV Mapping</span></li>
+            </ol>
+        </div>
+    </nav>
+
+    <main class="container">
+        <article class="lesson-content">
+            <div class="lesson-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 3rem 2rem; border-radius: 16px; margin-bottom: 3rem;">
+                <h1 style="color: white; margin-bottom: 1rem; font-size: 2.5rem;">🎨 Texture Maps and UV Mapping</h1>
+                <p class="lead" style="color: rgba(255,255,255,0.95); font-size: 1.3rem; line-height: 1.6; margin-bottom: 0;">
+                    Discover how images transform flat 2D pictures into realistic 3D surfaces—it's like gift-wrapping your digital objects, but way more technical and infinitely more powerful!
+                </p>
+            </div>
+
+            <div class="card" style="background: linear-gradient(to right, #e8f5e9, #f1f8e9); border-left: 4px solid #4CAF50; margin-bottom: 2rem;">
+                <h3>📚 What You'll Learn</h3>
+                <ul style="margin-bottom: 0;">
+                    <li><strong>Texture Fundamentals:</strong> Understand what texture maps are and how they add detail to 3D surfaces</li>
+                    <li><strong>UV Mapping Mysteries:</strong> Demystify UV coordinates and learn how 3D objects are "unwrapped" into 2D</li>
+                    <li><strong>Map Types Mastery:</strong> Explore different texture map types (diffuse, bump, specular, normal) and their purposes</li>
+                    <li><strong>Practical Application:</strong> Load, adjust, and manage texture maps in Poser's Material Room</li>
+                    <li><strong>Troubleshooting Skills:</strong> Fix common texture problems like seams, stretching, and misalignment</li>
+                    <li><strong>File Organization:</strong> Master texture file management and path relationships</li>
+                </ul>
+                <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(76, 175, 80, 0.3);">
+                    <p style="margin: 0;"><strong>⏱️ Estimated Time:</strong> 45-60 minutes</p>
+                    <p style="margin: 0.5rem 0 0 0;"><strong>🎯 Project:</strong> Apply custom texture maps to create a realistic material</p>
+                </div>
+            </div>
+
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">📑 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#what-are-texture-maps" class="toc-link">What Are Texture Maps?</a></li>
+                        <li><a href="#uv-mapping-explained" class="toc-link">UV Mapping Explained</a></li>
+                        <li><a href="#types-of-texture-maps" class="toc-link">Types of Texture Maps</a></li>
+                        <li><a href="#image-map-nodes" class="toc-link">Working with Image Map Nodes</a></li>
+                        <li><a href="#loading-textures" class="toc-link">Loading and Applying Textures</a></li>
+                        <li><a href="#texture-settings" class="toc-link">Adjusting Texture Settings</a></li>
+                        <li><a href="#common-problems" class="toc-link">Common Texture Problems</a></li>
+                        <li><a href="#file-management" class="toc-link">Texture File Management</a></li>
+                        <li><a href="#project" class="toc-link">Hands-On Project</a></li>
+                        <li><a href="#summary" class="toc-link">Lesson Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+            <section id="what-are-texture-maps">
+                <h2>🎨 What Are Texture Maps?</h2>
+                
+                <p>Imagine you're gift-wrapping a present. You have flat wrapping paper (a 2D image), and you're carefully folding and positioning it to cover a 3D box. Texture mapping works on the same principle—you're taking flat 2D images and wrapping them around 3D objects to give them color, detail, and realism.</p>
+
+                <p>Here's the thing: without texture maps, your 3D objects would just be solid colors. A character's skin would be uniform beige, a brick wall would be flat red, and a wooden table would be boring brown. Texture maps are what bring surfaces to life by adding all the subtle details that make things look <em>real</em>.</p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 Real-World Analogy</h4>
+                    <p>Think of texture maps like the decals on a model airplane. The airplane itself is just plastic, but when you carefully apply those decals—the stripes, numbers, insignia—suddenly it looks like a real aircraft. The plastic didn't change; you just added detailed imagery to its surface. That's exactly what texture maps do for 3D objects!</p>
+                </div>
+
+                <h3>The Fundamental Concept</h3>
+                
+                <p>At its core, a texture map is simply an image file—usually a JPEG, PNG, or TIFF—that gets projected onto the surface of a 3D object. But here's where it gets interesting: the magic lies in <em>how</em> that flat image wraps around your 3D shape.</p>
+
+                <p>When you apply a texture map, Poser needs to know:</p>
+                <ul>
+                    <li><strong>Which part of the image</strong> goes on which part of the 3D surface</li>
+                    <li><strong>How to stretch or compress</strong> the image to fit curved or irregular surfaces</li>
+                    <li><strong>Where seams occur</strong> when the edges of the image meet</li>
+                    <li><strong>How to handle repeating patterns</strong> if the image tiles</li>
+                </ul>
+
+                <div class="mermaid">
+                    graph LR
+                    A[2D Image File] -->|Applied via| B[UV Mapping]
+                    B -->|Projects onto| C[3D Surface]
+                    C -->|Displays as| D[Textured Object]
+                    style A fill:#f9f,stroke:#333,stroke-width:2px
+                    style B fill:#bbf,stroke:#333,stroke-width:2px
+                    style C fill:#bfb,stroke:#333,stroke-width:2px
+                    style D fill:#ffb,stroke:#333,stroke-width:2px
+                </div>
+
+                <h3>Why Texture Maps Matter</h3>
+
+                <p>You might be wondering, "Can't I just use the color settings we learned in the last lesson?" Sure, you could create a material that's brown and shiny and call it "wood." But here's the difference:</p>
+
+                <table class="lesson-table">
+                    <thead>
+                        <tr>
+                            <th>Solid Color Material</th>
+                            <th>Textured Material</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Uniform brown color</td>
+                            <td>Wood grain patterns with varying colors</td>
+                        </tr>
+                        <tr>
+                            <td>Same surface everywhere</td>
+                            <td>Knots, scratches, and age marks</td>
+                        </tr>
+                        <tr>
+                            <td>Looks computer-generated</td>
+                            <td>Looks like real wood</td>
+                        </tr>
+                        <tr>
+                            <td>No fine detail possible</td>
+                            <td>Can show cracks, dirt, wear</td>
+                        </tr>
+                        <tr>
+                            <td>Limited realism</td>
+                            <td>Photorealistic potential</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Texture maps don't just add color—they add <em>information</em>. Every pixel in a texture map can tell Poser something different about that specific spot on your 3D surface. It's like the difference between a coloring book and a photograph.</p>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Important Distinction</h4>
+                    <p><strong>Textures vs. Materials:</strong> These terms often get used interchangeably, but they mean different things! A <em>texture</em> is the image file itself. A <em>material</em> is the complete package of settings (including textures) that define how a surface looks. Think of it this way: the texture is an ingredient, and the material is the entire recipe.</p>
+                </div>
+
+                <h3>The Evolution of Detail</h3>
+
+                <p>Here's a fascinating thing about 3D graphics: as computers got more powerful, we didn't necessarily add more polygons to make things more detailed. Instead, we got better at faking detail with texture maps. This is brilliant because:</p>
+
+                <ul>
+                    <li><strong>It's more efficient:</strong> One detailed texture map is faster to render than millions of extra polygons</li>
+                    <li><strong>It's more flexible:</strong> You can swap textures instantly without remodeling</li>
+                    <li><strong>It's more realistic:</strong> Real-world surfaces have texture at a microscopic level—you can't model that with polygons</li>
+                    <li><strong>It's more artistic:</strong> You can paint and edit textures like images, which is intuitive</li>
+                </ul>
+
+                <blockquote>
+                    <p><strong>Pro Insight:</strong> In modern 3D graphics, a character might have only 20,000 polygons but use texture maps with millions of pixels of detail. The texture maps are doing most of the heavy lifting when it comes to visual fidelity!</p>
+                </blockquote>
+
+                <h3>Multiple Maps, Multiple Purposes</h3>
+
+                <p>Here's where it gets even more interesting: you don't just use one texture map per material. You typically use <em>several different maps</em>, each serving a specific purpose. It's like a layered effect in Photoshop, but for 3D surfaces:</p>
+
+                <ul>
+                    <li><strong>Color Map (Diffuse):</strong> The basic colors and patterns you see</li>
+                    <li><strong>Bump Map:</strong> Creates the illusion of surface irregularities</li>
+                    <li><strong>Specular Map:</strong> Controls where the surface is shiny or dull</li>
+                    <li><strong>Normal Map:</strong> Advanced bump mapping with directional information</li>
+                    <li><strong>Displacement Map:</strong> Actually moves the surface geometry</li>
+                    <li><strong>Transparency Map:</strong> Makes parts of the surface see-through</li>
+                </ul>
+
+                <p>Don't worry if some of these sound mysterious—we'll explore each type in detail later in this lesson. For now, just understand that texture mapping is a layered, multi-dimensional system.</p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Quick Check-In</h4>
+                    <p>Before moving on, make sure you understand these key points:</p>
+                    <ul style="margin-bottom: 0;">
+                        <li>Texture maps are 2D images applied to 3D surfaces</li>
+                        <li>They add detail, color, and realism that solid colors can't achieve</li>
+                        <li>Multiple types of maps work together to create complete materials</li>
+                        <li>Texture mapping is more efficient than modeling every detail</li>
+                    </ul>
+                </div>
+
+                <h3>The Connection to What You've Learned</h3>
+
+                <p>Remember when we explored the Material Room in the previous lesson? We looked at simple nodes and basic material properties. Well, texture maps connect into that same node system. When you understand both the <em>what</em> (material properties) and the <em>how</em> (texture mapping), you'll have complete control over the appearance of everything in your Poser scenes.</p>
+
+                <p>Think of it this way: the Material Room is your art studio, material properties are your paint types (oil, watercolor, acrylic), and texture maps are your reference photos and patterns. You're not just painting with solid colors anymore—you're creating complete, realistic surfaces with depth, detail, and character.</p>
+            </section>
+            <section id="uv-mapping-explained">
+                <h2>🗺️ UV Mapping Explained</h2>
+                
+                <p>Alright, let's tackle the mysterious world of UV mapping. I know "UV coordinates" sounds intimidating and technical, but I promise it's actually a pretty clever and logical system once you see how it works. In fact, you've been using UV mapping without even knowing it every time you've applied a material in Poser!</p>
+
+                <h3>What Are UV Coordinates?</h3>
+
+                <p>First, let's address the name. You're familiar with X, Y, and Z coordinates for 3D space, right? UV coordinates are similar, but they describe positions on a 2D surface. Think of them as a map that connects every point on your 3D object to a corresponding point on your 2D texture image.</p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 The U and V Letters</h4>
+                    <p>Why U and V instead of X and Y? Simple: in 3D graphics, we already use X, Y, and Z for 3D space. To avoid confusion, we use U and V for the 2D texture space. It's just convention—there's no deeper meaning. U goes horizontally (like X), and V goes vertically (like Y), but they describe positions on your flat texture image instead of in 3D space.</p>
+                </div>
+
+                <p>Here's how UV coordinates work:</p>
+                <ul>
+                    <li><strong>U coordinate:</strong> Goes from 0.0 (left edge) to 1.0 (right edge) of your texture image</li>
+                    <li><strong>V coordinate:</strong> Goes from 0.0 (bottom edge) to 1.0 (top edge) of your texture image</li>
+                    <li><strong>Every point on your 3D model</strong> has a UV coordinate telling it where to grab color from the texture</li>
+                </ul>
+
+                <p>Think of it like this: imagine your texture image is a pizza, and your 3D model is hungry. Every part of the 3D model needs to know which slice of pizza (which part of the texture) it gets to eat. The UV coordinates are like the serving instructions!</p>
+
+                <div class="mermaid">
+                    graph TB
+                    A[3D Object Surface Point] -->|Has UV Coordinate| B[U: 0.5, V: 0.75]
+                    B -->|Maps to| C[Texture Image Position]
+                    C -->|Reads Color| D[Specific Pixel Color]
+                    D -->|Displays on| A
+                    style A fill:#bfb,stroke:#333,stroke-width:2px
+                    style B fill:#bbf,stroke:#333,stroke-width:2px
+                    style C fill:#f9f,stroke:#333,stroke-width:2px
+                    style D fill:#ffb,stroke:#333,stroke-width:2px
+                </div>
+
+                <h3>The UV Unwrapping Process</h3>
+
+                <p>Now here's where it gets really interesting. To create UV coordinates, someone (usually the 3D modeler) has to "unwrap" the 3D object into a flat 2D layout. It's exactly like cutting apart a cardboard box and flattening it out, or unfolding an origami crane back into a flat square of paper.</p>
+
+                <p>Imagine trying to flatten an orange peel. You'd have to make some cuts and stretches to get it completely flat, right? That's what UV unwrapping does—it takes your 3D surface and intelligently flattens it into 2D space, deciding where to put seams and how to minimize distortion.</p>
+
+                <div class="card" style="background-color: #f3e5f5; border-left: 4px solid #9c27b0;">
+                    <h4>🎨 The Gift Wrap Analogy (Extended)</h4>
+                    <p>Remember our gift-wrapping analogy? UV unwrapping is like doing the reverse: taking the box, carefully unfolding it, and laying out a pattern showing exactly where each part of the wrapping paper needs to go. When texture artists create textures, they're basically painting on this unfolded pattern, knowing that it will wrap back onto the 3D shape perfectly.</p>
+                </div>
+
+                <h3>UV Layouts and Seams</h3>
+
+                <p>When a 3D object is unwrapped, the result is called a <strong>UV layout</strong> or <strong>UV map</strong>. This layout shows how the 3D surface has been flattened out. Here's what you need to know:</p>
+
+                <table class="lesson-table">
+                    <thead>
+                        <tr>
+                            <th>UV Layout Feature</th>
+                            <th>What It Means</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>UV Islands</strong></td>
+                            <td>Separate pieces of the unwrapped surface (like puzzle pieces)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Seams</strong></td>
+                            <td>Where the UV islands were "cut" apart—potential problem areas</td>
+                        </tr>
+                        <tr>
+                            <td><strong>UV Space</strong></td>
+                            <td>The 0-1 square area where the UV layout lives</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Stretching</strong></td>
+                            <td>Areas where the UV layout is distorted (like pulling taffy)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Scale</strong></td>
+                            <td>How much texture detail different parts get (texture density)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Professional 3D models (like the figures that come with Poser) have UV layouts created by expert artists. They've carefully planned where seams go—usually in places you won't notice, like under arms or along the back of the head. But understanding UV layouts helps you troubleshoot problems and create better custom textures.</p>
+
+                <blockquote>
+                    <p><strong>The Good News:</strong> You almost never have to create UV layouts yourself in Poser! The figures and props you use already have professional UV layouts built in. You're using these layouts every time you apply a texture—you just don't have to think about them. But understanding <em>how</em> they work helps you use them more effectively.</p>
+                </blockquote>
+
+                <h3>Why UV Mapping Matters to You</h3>
+
+                <p>You might be thinking, "Okay, interesting theory, but why do I need to know this?" Great question! Understanding UV mapping helps you:</p>
+
+                <ul>
+                    <li><strong>Choose the right textures:</strong> You'll know if a texture is designed for a specific figure or prop</li>
+                    <li><strong>Troubleshoot problems:</strong> When textures look weird or stretched, you'll understand why</li>
+                    <li><strong>Create custom textures:</strong> If you want to paint your own textures, you need to know the UV layout</li>
+                    <li><strong>Adjust texture positioning:</strong> You can tile, offset, and scale textures intelligently</li>
+                    <li><strong>Mix and match:</strong> You'll know when you can use textures from different sources together</li>
+                </ul>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Try It Now: Visualize UV Space</h4>
+                    <p>Grab a piece of paper and draw a square. Label the corners: bottom-left is (0,0), bottom-right is (1,0), top-right is (1,1), and top-left is (0,1). This is UV space! Now imagine your texture image fits perfectly inside this square. Every pixel in your texture has a UV coordinate from 0 to 1. When Poser needs to color a point on your 3D model, it checks that point's UV coordinate and looks up the corresponding pixel in your texture.</p>
+                </div>
+
+                <h3>Tiling and Repeating</h3>
+
+                <p>Here's a cool feature of UV mapping: coordinates don't have to stay between 0 and 1. What happens if a point on your 3D model has a UV coordinate of (2.5, 1.5)? Well, Poser can handle this in different ways:</p>
+
+                <ul>
+                    <li><strong>Repeat (Tiling):</strong> The texture repeats like wallpaper. UV 2.5 wraps around and becomes 0.5, so the texture shows 2.5 times</li>
+                    <li><strong>Clamp:</strong> Coordinates outside 0-1 just use the edge pixels, stretching them</li>
+                    <li><strong>Mirror:</strong> The texture flips and mirrors when it repeats</li>
+                </ul>
+
+                <p>This is super useful for surfaces like floors, walls, or fabric where you want a pattern to repeat seamlessly. Think of bathroom tiles—you don't need a unique texture image for each tile, you just tile one texture map many times!</p>
+
+                <div class="mermaid">
+                    graph LR
+                    A[UV 0.0 - 1.0] -->|First Copy| B[Shows Texture Once]
+                    C[UV 1.0 - 2.0] -->|Second Copy| D[Texture Repeats]
+                    E[UV 2.0 - 3.0] -->|Third Copy| F[Texture Repeats Again]
+                    style A fill:#bfb,stroke:#333,stroke-width:2px
+                    style C fill:#bfb,stroke:#333,stroke-width:2px
+                    style E fill:#bfb,stroke:#333,stroke-width:2px
+                    style B fill:#bbf,stroke:#333,stroke-width:2px
+                    style D fill:#bbf,stroke:#333,stroke-width:2px
+                    style F fill:#bbf,stroke:#333,stroke-width:2px
+                </div>
+
+                <h3>UV Mapping in Context</h3>
+
+                <p>Different types of objects use UV mapping differently:</p>
+
+                <ul>
+                    <li><strong>Character Figures:</strong> Complex UV layouts with minimal seams, optimized for face and body textures</li>
+                    <li><strong>Hard-Surface Props:</strong> Often use simpler box or planar UV mappings</li>
+                    <li><strong>Organic Objects:</strong> May use more complex unwrapping to handle curves and details</li>
+                    <li><strong>Simple Geometry:</strong> Might use automatic or procedural UV mapping</li>
+                </ul>
+
+                <p>The key takeaway? Different objects need different UV approaches, but they all follow the same basic principle: connecting 3D surfaces to 2D texture space through coordinates.</p>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Common Misconception</h4>
+                    <p><strong>"UV mapping is too technical for artists."</strong> Not true! UV mapping is actually a bridge between technical and artistic. Yes, there's math involved behind the scenes, but using UV-mapped textures is as intuitive as coloring in a coloring book once you understand the basics. You don't need to be a mathematician—you just need to understand the concept.</p>
+                </div>
+
+                <h3>The Practical Reality</h3>
+
+                <p>Here's the bottom line: in Poser, you're almost always working with pre-made figures and props that already have UV mapping set up. Your job is to <em>use</em> those UV maps by applying appropriate textures. It's like being a chef using a well-organized kitchen—you don't need to design the kitchen, but you need to know where everything is and how it works.</p>
+
+                <p>When you load a character and apply a skin texture, that texture was painted to match the UV layout of that specific character. The texture artist literally painted on an image that matches the unfolded UV layout, knowing exactly where the eyes would be, where the nose is, and how it would all wrap around the 3D head.</p>
+
+                <p>Pretty amazing when you think about it, right?</p>
+            </section>
+            <section id="types-of-texture-maps">
+                <h2>🎭 Types of Texture Maps</h2>
+                
+                <p>Now that you understand the basics of texture mapping and UV coordinates, let's explore the different <em>types</em> of texture maps you'll encounter. This is where texture mapping really shows its power—by using multiple map types together, you can create incredibly realistic and detailed materials.</p>
+
+                <p>Think of it like layering in Photoshop or creating a piece of music. Each map type is like a separate instrument or layer, and when they work together, they create something much more complex and interesting than any single element could achieve alone.</p>
+
+                <h3>Diffuse Maps (Color Maps)</h3>
+
+                <p>The <strong>diffuse map</strong> is the most fundamental texture type—it's the base color of your surface. When people say "texture," they usually mean the diffuse map. This is the image that provides the basic color and pattern you see when you look at an object.</p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 Understanding "Diffuse"</h4>
+                    <p>The term "diffuse" comes from how light scatters (diffuses) off a matte surface. It's the color you see under even, non-reflective lighting—like looking at something on a cloudy day. A diffuse map shows the intrinsic color of the material, not its shininess or reflections.</p>
+                </div>
+
+                <p><strong>What diffuse maps include:</strong></p>
+                <ul>
+                    <li>Base colors and hues</li>
+                    <li>Patterns (like wood grain, fabric weave, or skin tones)</li>
+                    <li>Large-scale details (like logos, tattoos, or printed designs)</li>
+                    <li>Painted-on shadows and highlights (sometimes)</li>
+                    <li>Dirt, stains, and discoloration</li>
+                </ul>
+
+                <p><strong>Real-world examples:</strong> The wood grain pattern on a table, the fabric pattern on clothing, the color variation in skin, the rust on metal, the labels on a can—all of these come from diffuse maps.</p>
+
+                <h3>Specular Maps</h3>
+
+                <p>While diffuse maps control color, <strong>specular maps</strong> control <em>shininess</em>. They're grayscale images where white means "very shiny" and black means "not shiny at all." Shades of gray give you varying levels of shine.</p>
+
+                <p>This is brilliant because it lets different parts of the same object have different levels of shininess. Think about a leather jacket: the worn areas might be matte (black in the specular map), while the new areas are glossy (white in the specular map), and the edges might be somewhere in between (gray).</p>
+
+                <blockquote>
+                    <p><strong>Pro Tip:</strong> Specular maps are often created by desaturating (removing color from) the diffuse map and adjusting the brightness. Dark areas in the diffuse map often correspond to less shiny areas, and vice versa. But not always—sometimes you want contrasting specularity for artistic effect!</p>
+                </blockquote>
+
+                <p><strong>Specular map use cases:</strong></p>
+                <ul>
+                    <li>Worn vs. new areas (like scuffed metal or faded paint)</li>
+                    <li>Wet vs. dry areas (puddles on pavement)</li>
+                    <li>Different materials in one texture (plastic buttons on fabric clothing)</li>
+                    <li>Dirt and grime (which reduces shine)</li>
+                    <li>Polish and wax (which increases shine)</li>
+                </ul>
+
+                <h3>Bump Maps</h3>
+
+                <p><strong>Bump maps</strong> create the illusion of surface detail without actually changing the geometry. They're grayscale images where brightness represents height—white areas appear raised, black areas appear recessed, and gray is neutral.</p>
+
+                <p>Here's the magic: bump maps don't actually move any vertices. They just trick the lighting calculations to make the surface <em>appear</em> bumpy. It's like those 3D sidewalk chalk drawings that look like holes in the ground—they're flat, but your eye interprets them as having depth.</p>
+
+                <div class="card" style="background-color: #f3e5f5; border-left: 4px solid #9c27b0;">
+                    <h4>🎨 The Illusion of Depth</h4>
+                    <p>Imagine looking at a textured wall under a spotlight. The high points catch more light and the low points fall into shadow. Bump maps simulate this by adjusting how the surface reflects light at each point. To the lighting calculations, it looks like the surface has actual bumps and valleys, even though the geometry is perfectly smooth!</p>
+                </div>
+
+                <p><strong>What bump maps excel at:</strong></p>
+                <ul>
+                    <li>Fine surface texture (pores in skin, fabric weave, paper grain)</li>
+                    <li>Small imperfections (scratches, dents, wrinkles)</li>
+                    <li>Engraved or embossed details (text on signs, patterns on coins)</li>
+                    <li>Natural irregularities (stone texture, tree bark, rough metal)</li>
+                </ul>
+
+                <p><strong>Bump map limitations:</strong> Because they don't actually change geometry, bump maps can't create silhouette changes. The edge of your object will still be smooth even if the bump map shows texture. For extreme height differences, you'd need actual geometry or a displacement map (which we'll discuss next).</p>
+
+                <h3>Normal Maps</h3>
+
+                <p><strong>Normal maps</strong> are like bump maps on steroids. Instead of just storing height information, they store directional information—which way the surface is "facing" at each point. This gives more sophisticated and realistic results than simple bump maps.</p>
+
+                <p>Normal maps look distinctive—they're typically bluish-purple images with swirls of red and green. This weird coloration isn't random; it's actually encoding 3D direction information using RGB color channels:</p>
+
+                <ul>
+                    <li><strong>Red channel:</strong> Left-right direction</li>
+                    <li><strong>Green channel:</strong> Up-down direction</li>
+                    <li><strong>Blue channel:</strong> In-out direction (depth)</li>
+                </ul>
+
+                <p>Don't worry about creating normal maps yourself—they're usually generated from high-resolution 3D models or from bump maps using special software. As a Poser user, you'll mostly just be <em>using</em> normal maps that come with your materials.</p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Bump vs. Normal: When to Use Which</h4>
+                    <p><strong>Use bump maps when:</strong> You have a simple grayscale height map, you need basic surface detail, or you're working with older content.</p>
+                    <p style="margin-bottom: 0;"><strong>Use normal maps when:</strong> You need detailed, directional surface information, you're aiming for maximum realism, or you're using modern, high-quality content that includes them.</p>
+                </div>
+
+                <h3>Displacement Maps</h3>
+
+                <p>Unlike bump and normal maps which only <em>fake</em> surface detail, <strong>displacement maps</strong> actually move the geometry. They physically push and pull vertices to create real height variations on your model's surface.</p>
+
+                <p>Displacement maps use the same grayscale format as bump maps (white = high, black = low), but the effect is completely different. Where a bump map might fake a rough stone texture, a displacement map would actually make the surface geometrically rough.</p>
+
+                <p><strong>Advantages of displacement:</strong></p>
+                <ul>
+                    <li>Creates real geometry changes that affect the silhouette</li>
+                    <li>Produces realistic shadows and light interaction</li>
+                    <li>Works correctly from any angle</li>
+                    <li>Can create dramatic surface variations</li>
+                </ul>
+
+                <p><strong>Disadvantages of displacement:</strong></p>
+                <ul>
+                    <li>Requires sufficient underlying geometry (vertices to move)</li>
+                    <li>Significantly increases render time</li>
+                    <li>Can create mesh artifacts if not set up carefully</li>
+                    <li>More complex to control and adjust</li>
+                </ul>
+
+                <blockquote>
+                    <p><strong>Real-World Decision:</strong> For subtle surface texture like skin pores or fabric weave, use bump or normal maps. For dramatic surface changes like rocky terrain, deep wrinkles, or carved details, consider displacement maps. Many professional materials use both—displacement for the big picture and bump/normal for the fine details.</p>
+                </blockquote>
+
+                <h3>Transparency/Opacity Maps</h3>
+
+                <p><strong>Transparency maps</strong> (also called alpha maps or opacity maps) control which parts of your surface are visible and which are transparent. Like specular maps, they're grayscale images, but here white means "fully visible" and black means "completely transparent."</p>
+
+                <p>This is how you create things like:</p>
+                <ul>
+                    <li>Chain-link fences (solid where the metal is, transparent where the holes are)</li>
+                    <li>Leaves (solid where the leaf material is, transparent around the edges)</li>
+                    <li>Lace or net fabric (solid threads, transparent gaps)</li>
+                    <li>Windows with dirt or frost (partially transparent)</li>
+                    <li>Decals that blend into surfaces</li>
+                </ul>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Performance Note</h4>
+                    <p>Transparency maps can significantly increase render time because the renderer has to calculate what's behind the transparent areas. Use them when necessary for realism, but don't add them "just because"—if a surface is fully opaque, don't give it a transparency map!</p>
+                </div>
+
+                <h3>Reflection/Environment Maps</h3>
+
+                <p><strong>Reflection maps</strong> control how much a surface reflects its environment. Some materials use them to vary reflection across the surface—making some areas mirror-like and others matte.</p>
+
+                <p><strong>Environment maps</strong> are special images that represent the surrounding environment (like a panoramic photo). When a surface is reflective, it can use the environment map to show realistic reflections without actually calculating reflections of other objects in the scene.</p>
+
+                <p>This is particularly useful for things like:</p>
+                <ul>
+                    <li>Metallic surfaces showing the room around them</li>
+                    <li>Glass or water reflecting the sky</li>
+                    <li>Shiny objects showing realistic environmental reflections</li>
+                </ul>
+
+                <h3>Additional Map Types</h3>
+
+                <p>Depending on the rendering engine and material system, you might also encounter:</p>
+
+                <table class="lesson-table">
+                    <thead>
+                        <tr>
+                            <th>Map Type</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Ambient Occlusion</strong></td>
+                            <td>Darkens areas where light would have trouble reaching (crevices, corners)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Roughness Maps</strong></td>
+                            <td>Similar to specular, but controls surface micro-texture (for PBR materials)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Metalness Maps</strong></td>
+                            <td>Designates which parts of a surface are metallic (for PBR workflows)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Emission Maps</strong></td>
+                            <td>Makes parts of the surface glow or emit light</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Subsurface Scattering</strong></td>
+                            <td>Controls how light penetrates and scatters through translucent materials</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Putting It All Together</h3>
+
+                <p>A professional material typically uses several maps working in harmony:</p>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Complete Material] --> B[Diffuse Map<br/>Base Color]
+                    A --> C[Specular Map<br/>Shininess]
+                    A --> D[Bump/Normal Map<br/>Surface Detail]
+                    A --> E[Additional Maps<br/>Special Properties]
+                    
+                    B --> F[Realistic Surface]
+                    C --> F
+                    D --> F
+                    E --> F
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:3px,color:#fff
+                    style F fill:#4CAF50,stroke:#333,stroke-width:3px,color:#fff
+                </div>
+
+                <p>Each map contributes its specific information, and the render engine combines them all to create the final appearance. It's like instruments in an orchestra—each plays its part, and together they create something beautiful!</p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Quick Reference: Map Type Summary</h4>
+                    <ul style="margin-bottom: 0;">
+                        <li><strong>Diffuse:</strong> What color is it? (Full color)</li>
+                        <li><strong>Specular:</strong> How shiny is it? (Grayscale)</li>
+                        <li><strong>Bump:</strong> Is it rough or smooth? (Grayscale, fake geometry)</li>
+                        <li><strong>Normal:</strong> Which way is it facing? (RGB directional)</li>
+                        <li><strong>Displacement:</strong> Move the actual surface (Grayscale, real geometry)</li>
+                        <li><strong>Transparency:</strong> Can you see through it? (Grayscale)</li>
+                    </ul>
+                </div>
+            </section>
+            <section id="image-map-nodes">
+                <h2>🔗 Working with Image Map Nodes</h2>
+                
+                <p>Alright, let's get hands-on! You understand what texture maps are and the different types. Now let's learn how to actually use them in Poser's Material Room. This is where theory meets practice, and it's honestly pretty straightforward once you see it in action.</p>
+
+                <h3>The Material Room Node System</h3>
+
+                <p>Remember from the last lesson that Poser's Material Room uses a node-based system? Well, texture maps are added to materials through <strong>Image Map nodes</strong> (also called Texture Map nodes). These are special nodes that load image files and feed that data into your material.</p>
+
+                <p>Think of image map nodes like picture frames in your material—they hold images and display them on your 3D surface. The node system lets you connect these "picture frames" to different material properties, controlling how they affect the final appearance.</p>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Image File<br/>on Hard Drive] -->|Loaded by| B[Image Map Node]
+                    B -->|Connected to| C[Material Property]
+                    C -->|Applied to| D[3D Surface]
+                    style A fill:#f9f,stroke:#333,stroke-width:2px
+                    style B fill:#bbf,stroke:#333,stroke-width:2px
+                    style C fill:#bfb,stroke:#333,stroke-width:2px
+                    style D fill:#ffb,stroke:#333,stroke-width:2px
+                </div>
+
+                <h3>Anatomy of an Image Map Node</h3>
+
+                <p>When you look at an Image Map node in the Material Room, you'll see several components:</p>
+
+                <ul>
+                    <li><strong>Preview Thumbnail:</strong> A small preview of the loaded image</li>
+                    <li><strong>File Path:</strong> Shows where the image file is located on your computer</li>
+                    <li><strong>Output Connector:</strong> The "plug" you connect to other nodes</li>
+                    <li><strong>Settings Panel:</strong> Various options for controlling how the image is applied</li>
+                </ul>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 The Connection Concept</h4>
+                    <p>In node-based systems, data flows through connections (sometimes called "wires" or "noodles"). An Image Map node outputs the color information from its image, and you connect that output to an input on another node—like the Diffuse_Color input on your material's root node. The data flows from left to right: Image → Image Map Node → Material Property → Final Surface.</p>
+                </div>
+
+                <h3>Finding Image Map Nodes</h3>
+
+                <p>In Poser's Material Room, you'll typically encounter Image Map nodes in two ways:</p>
+
+                <ol>
+                    <li><strong>Pre-existing nodes:</strong> When you load a material that uses textures, the Image Map nodes are already there, connected and configured</li>
+                    <li><strong>Creating new nodes:</strong> When you want to add a texture to a material, you create a new Image Map node and connect it yourself</li>
+                </ol>
+
+                <p>Most of the time, you'll be working with pre-existing nodes—loading character textures, prop materials, or downloaded content. These materials come with all the Image Map nodes already set up. Your job is usually to understand what they're doing and maybe tweak the settings.</p>
+
+                <h3>Image Map Node Settings</h3>
+
+                <p>Let's explore the key settings you'll find in Image Map nodes. Don't worry about memorizing everything—you'll learn through use!</p>
+
+                <table class="lesson-table">
+                    <thead>
+                        <tr>
+                            <th>Setting</th>
+                            <th>What It Does</th>
+                            <th>Typical Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Image Source</strong></td>
+                            <td>The file path to your texture image</td>
+                            <td>Click to browse and select a different image file</td>
+                        </tr>
+                        <tr>
+                            <td><strong>U_Scale / V_Scale</strong></td>
+                            <td>How many times the texture repeats horizontally/vertically</td>
+                            <td>Scale of 2 means texture repeats twice; 0.5 means it's stretched to twice its size</td>
+                        </tr>
+                        <tr>
+                            <td><strong>U_Offset / V_Offset</strong></td>
+                            <td>Shifts the texture position horizontally/vertically</td>
+                            <td>Useful for aligning repeating patterns or adjusting placement</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Texture Strength</strong></td>
+                            <td>How strongly the texture affects the material</td>
+                            <td>Lower values make the texture more subtle; higher values make it more prominent</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Filter Type</strong></td>
+                            <td>How the image is filtered when displayed at different distances</td>
+                            <td>Usually leave at default; "Crisp" for sharp edges, "Smooth" for softer look</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <blockquote>
+                    <p><strong>Pro Tip:</strong> The U and V scale/offset settings directly relate to the UV coordinates we discussed earlier. When you change U_Scale to 2, you're telling Poser to let the U coordinates go from 0 to 2 instead of 0 to 1, which makes the texture repeat twice. It's all connected!</p>
+                </blockquote>
+
+                <h3>Image Formats and Specifications</h3>
+
+                <p>Poser can work with several image formats, each with its own characteristics:</p>
+
+                <ul>
+                    <li><strong>JPEG (.jpg, .jpeg):</strong> Compressed, smaller file sizes, no transparency. Great for diffuse maps where file size matters.</li>
+                    <li><strong>PNG (.png):</strong> Lossless compression, supports transparency. Excellent for all map types, especially transparency maps.</li>
+                    <li><strong>TIFF (.tif, .tiff):</strong> High quality, large files, supports transparency. Often used for high-end production work.</li>
+                    <li><strong>BMP (.bmp):</strong> Uncompressed, very large files. Rarely used anymore, but supported.</li>
+                    <li><strong>TGA (.tga):</strong> Supports transparency, good quality. Common in game textures.</li>
+                </ul>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Important: Color Space</h4>
+                    <p>Most diffuse maps should be in sRGB color space (the standard for images). However, maps that store data rather than color (like bump maps, normal maps, or specular maps) should ideally be in linear color space. Many texture sets handle this automatically, but if colors look washed out or too saturated, color space might be the culprit. When in doubt, stick with the textures as provided—the creator usually set them up correctly.</p>
+                </div>
+
+                <h3>Connecting Nodes: The Basics</h3>
+
+                <p>When you need to connect an Image Map node to a material property (which we'll do in detail next section), here's the concept:</p>
+
+                <ol>
+                    <li><strong>Find the output:</strong> Look for the connector on the right side of your Image Map node</li>
+                    <li><strong>Find the input:</strong> Locate the property you want to affect (like Diffuse_Color on the root PoserSurface node)</li>
+                    <li><strong>Click and drag:</strong> Click on the output, drag to the input, and release to create the connection</li>
+                    <li><strong>The wire appears:</strong> You'll see a line (wire) connecting the nodes, showing data flow</li>
+                </ol>
+
+                <p>It's like plugging a guitar into an amplifier—you're routing the signal from one place to another!</p>
+
+                <h3>Multiple Maps in One Material</h3>
+
+                <p>Here's where the node system really shines: you can have multiple Image Map nodes in a single material, each controlling different properties. A professional character material might look like this:</p>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Diffuse Map Node] --> E[PoserSurface<br/>Root Node]
+                    B[Specular Map Node] --> E
+                    C[Bump Map Node] --> E
+                    D[Normal Map Node] --> E
+                    
+                    E --> F[Final Material<br/>on Surface]
+                    
+                    style A fill:#ffb3ba,stroke:#333,stroke-width:2px
+                    style B fill:#bae1ff,stroke:#333,stroke-width:2px
+                    style C fill:#ffffba,stroke:#333,stroke-width:2px
+                    style D fill:#baffc9,stroke:#333,stroke-width:2px
+                    style E fill:#667eea,stroke:#333,stroke-width:3px,color:#fff
+                    style F fill:#4CAF50,stroke:#333,stroke-width:3px,color:#fff
+                </div>
+
+                <p>Each Image Map node is loading a different texture file, and each is connected to a different input on the root material node. They all work together to create the complete surface appearance.</p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Key Insight: Modularity</h4>
+                    <p>The beauty of this system is modularity. Want to change just the color pattern? Replace only the diffuse map. Want to make it shinier? Adjust only the specular map or connection. Want to add surface detail? Add a new bump map without touching the others. Each aspect of the appearance is controlled independently, giving you incredible flexibility.</p>
+                </div>
+
+                <h3>Image Map Node Efficiency</h3>
+
+                <p>A few technical notes about performance and memory:</p>
+
+                <ul>
+                    <li><strong>Texture resolution matters:</strong> Higher resolution images look better but use more memory and render slower</li>
+                    <li><strong>Reuse when possible:</strong> If multiple surfaces use the same texture, Poser loads it into memory only once</li>
+                    <li><strong>Smaller for distant objects:</strong> Objects far from the camera don't need ultra-high-res textures</li>
+                    <li><strong>Texture sets are optimized:</strong> Professional content usually provides appropriately sized textures for each purpose</li>
+                </ul>
+
+                <blockquote>
+                    <p><strong>Real-World Guideline:</strong> For character face textures, 4096×4096 pixels is common for close-ups. For body textures, 4096×4096 or 2048×2048. For props and environment items, it varies based on how close they'll be to camera. When in doubt, use what the content creator provided—they've usually optimized it well.</p>
+                </blockquote>
+
+                <h3>Understanding Node Networks</h3>
+
+                <p>Sometimes you'll see Image Map nodes connected to other nodes besides the root material node. For example:</p>
+
+                <ul>
+                    <li><strong>Color Math nodes:</strong> To adjust brightness or contrast of a texture</li>
+                    <li><strong>Mixer nodes:</strong> To blend multiple textures together</li>
+                    <li><strong>Math nodes:</strong> To multiply or add texture values</li>
+                    <li><strong>Procedural nodes:</strong> To combine image textures with generated patterns</li>
+                </ul>
+
+                <p>These intermediate nodes let you process the texture data before it reaches the final material property. It's like running a photo through filters before posting it—the same image, but modified for a specific look.</p>
+
+                <p>Don't feel overwhelmed by complex node networks! Most of the time you'll work with simpler setups. But understanding that nodes can be chained together helps you make sense of professional materials and gives you ideas for your own custom creations.</p>
+            </section>
+            <section id="loading-textures">
+                <h2>📂 Loading and Applying Textures</h2>
+                
+                <p>Theory time is over—let's get practical! In this section, you'll learn the actual steps to load and apply texture maps in Poser. This is where you'll start seeing your materials come to life with real detail and character.</p>
+
+                <h3>Method 1: Loading Complete Material Presets</h3>
+
+                <p>The easiest way to apply textures is to use pre-made material presets. These are complete packages that include all the texture maps already configured and connected. Here's how it works:</p>
+
+                <ol>
+                    <li><strong>Select your object:</strong> Click on the figure, prop, or body part you want to texture</li>
+                    <li><strong>Open the library:</strong> Go to the Materials library (usually found with the other library categories)</li>
+                    <li><strong>Navigate to the right section:</strong> Find the materials that match your object (character skins, prop materials, etc.)</li>
+                    <li><strong>Double-click to apply:</strong> Click on the material thumbnail, and boom—all the textures load and connect automatically</li>
+                </ol>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 Material Collections</h4>
+                    <p>When you download or purchase content, it usually comes with material presets. These are organized by character or prop, and they're designed to work together as a set. For example, a character might come with multiple skin tones, each as a separate material preset. They all use the same UV layout but different color images.</p>
+                </div>
+
+                <p><strong>Why this method is awesome:</strong></p>
+                <ul>
+                    <li>Zero setup required—everything is pre-configured</li>
+                    <li>All maps are correctly connected and scaled</li>
+                    <li>Texture files are in the right locations</li>
+                    <li>Created by professionals who know what they're doing</li>
+                    <li>You can study how they're built to learn</li>
+                </ul>
+
+                <p><strong>When to use this method:</strong> Whenever you're using content from the library, start with the provided material presets. You can always modify them afterward if needed!</p>
+
+                <h3>Method 2: Loading Individual Texture Maps</h3>
+
+                <p>Sometimes you want to replace just one texture in an existing material, or you want to build a material from scratch. Here's how to load individual texture maps:</p>
+
+                <h4>Step-by-Step Process:</h4>
+
+                <ol>
+                    <li><strong>Enter the Material Room:</strong>
+                        <ul>
+                            <li>Click the "Material" tab at the top of the Poser interface</li>
+                            <li>Or use the Window menu → Material Room</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Select the surface to texture:</strong>
+                        <ul>
+                            <li>Use the Object dropdown to choose your figure or prop</li>
+                            <li>Use the Material dropdown to choose the specific surface (like "Face" or "Torso")</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Locate the Image Map node (or create one):</strong>
+                        <ul>
+                            <li>Look in the Advanced tab's node view</li>
+                            <li>Find an existing Image Map node, or create a new one if needed</li>
+                            <li>To create: right-click in empty space → Insert Node → 2D Textures → Image Map</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Load your texture image:</strong>
+                        <ul>
+                            <li>Click on the Image Map node to select it</li>
+                            <li>In the node's parameters, find the "Image_Source" or "Texture" field</li>
+                            <li>Click the folder icon to browse for your image file</li>
+                            <li>Navigate to your texture file and select it</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Connect the node (if needed):</strong>
+                        <ul>
+                            <li>If creating a new node, drag from its output to the appropriate input on the root material node</li>
+                            <li>For a diffuse map: connect to Diffuse_Color</li>
+                            <li>For a bump map: connect to Bump or Normal_Map</li>
+                            <li>For a specular map: connect to Specular_Color or Specular_Value</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <blockquote>
+                    <p><strong>Pro Tip:</strong> When browsing for texture files, Poser starts looking in your Textures folder (usually inside your Poser Runtime). It's a good habit to keep all your texture files organized in this location or subfolders within it. This makes them easier to find and helps prevent broken file path problems later.</p>
+                </blockquote>
+
+                <h3>Method 3: Using the Simple Material Editor</h3>
+
+                <p>For basic texture loading, Poser offers a simpler interface that doesn't require understanding nodes:</p>
+
+                <ol>
+                    <li><strong>Select your object and material</strong> (same as before)</li>
+                    <li><strong>In the Material Room, click the "Simple" tab</strong> (instead of Advanced)</li>
+                    <li><strong>Look for texture slots:</strong> You'll see preview boxes labeled "Diffuse," "Bump," "Specular," etc.</li>
+                    <li><strong>Click on a texture slot</strong> to see options:
+                        <ul>
+                            <li>"Browse" to load a new texture file</li>
+                            <li>"Clear" to remove the current texture</li>
+                            <li>Sliders to adjust strength and other settings</li>
+                        </ul>
+                    </li>
+                    <li><strong>The texture loads automatically</strong> into the appropriate nodes behind the scenes</li>
+                </ol>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Simple vs. Advanced Tab</h4>
+                    <p><strong>Simple Tab:</strong> Easy, intuitive interface. Great for basic texture loading and quick adjustments. Limited control over advanced features.</p>
+                    <p style="margin-bottom: 0;"><strong>Advanced Tab:</strong> Full node network view. Complete control over everything. Steeper learning curve but much more powerful. Most professionals work here.</p>
+                </div>
+
+                <h3>Applying Textures to Multiple Surfaces</h3>
+
+                <p>Many objects have multiple material zones (like a character with separate face, body, arms, legs materials). Here's how to handle this:</p>
+
+                <h4>Option 1: Apply to Each Surface Individually</h4>
+                <ul>
+                    <li>Select the first material zone</li>
+                    <li>Load your textures</li>
+                    <li>Move to the next material zone</li>
+                    <li>Load the appropriate textures for that zone</li>
+                    <li>Repeat for all zones</li>
+                </ul>
+
+                <p><strong>Best for:</strong> When each surface needs completely different textures (like a character wearing clothes—skin on exposed parts, fabric on clothed parts).</p>
+
+                <h4>Option 2: Use a Material Collection</h4>
+                <ul>
+                    <li>Load a material preset that covers all zones at once</li>
+                    <li>These are designed to apply consistent materials across the entire object</li>
+                    <li>Much faster and ensures everything matches</li>
+                </ul>
+
+                <p><strong>Best for:</strong> Character skins, uniforms, or any situation where surfaces should match or coordinate.</p>
+
+                <h4>Option 3: Copy and Paste Materials</h4>
+                <ul>
+                    <li>Set up your material on one surface</li>
+                    <li>Right-click on the material in the list</li>
+                    <li>Select "Copy Material"</li>
+                    <li>Select another surface</li>
+                    <li>Right-click and select "Paste Material"</li>
+                </ul>
+
+                <p><strong>Best for:</strong> When you want the same material settings on multiple surfaces but loading them individually.</p>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Common Mistake: Wrong UV Layout</h4>
+                    <p>The biggest mistake beginners make is applying textures designed for one UV layout to an object with a different UV layout. For example, trying to use a texture made for "Genesis 3 Female" on a "Victoria 4" figure. The textures won't line up correctly because the UV unwrapping is different. <strong>Always use textures designed for your specific character or prop</strong>, or be prepared to see weird results!</p>
+                </div>
+
+                <h3>Texture File Paths: Understanding the Connection</h3>
+
+                <p>When you load a texture, Poser stores the file path—the location of the image on your hard drive. This is important to understand:</p>
+
+                <ul>
+                    <li><strong>Absolute paths:</strong> The complete path from your drive root (like C:\Users\YourName\Documents\Poser\Textures\skin.jpg)</li>
+                    <li><strong>Relative paths:</strong> A path relative to your Poser Runtime folder (like :Runtime:Textures:skin.jpg)</li>
+                </ul>
+
+                <p>Poser prefers relative paths because they work even if you move your content to a different location. Professional content creators always use relative paths.</p>
+
+                <blockquote>
+                    <p><strong>Real-World Scenario:</strong> You download a character and install it. The material presets use relative paths pointing to texture files in the Runtime. Later, you move your entire Poser library to a new hard drive. Because the paths are relative, everything still works! If they were absolute paths, you'd have broken links and missing textures.</p>
+                </blockquote>
+
+                <h3>Previewing Your Textures</h3>
+
+                <p>After loading textures, you'll want to see what they look like. Poser gives you several preview options:</p>
+
+                <ul>
+                    <li><strong>Document Window Preview:</strong> The main viewport shows a quick preview (may not be fully accurate)</li>
+                    <li><strong>Texture Shaded mode:</strong> In the Document Display Style menu, choose "Texture Shaded" to see textures</li>
+                    <li><strong>OpenGL lights:</strong> Turn on lights in the viewport for better preview</li>
+                    <li><strong>Quick render:</strong> Do a small test render to see the actual result</li>
+                </ul>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Workflow Tip: The Preview-Adjust Loop</h4>
+                    <p>Professional workflow: Load texture → Preview in viewport → Make small adjustment → Preview again → Do quick test render → Make final adjustments → Do full quality render. Don't try to perfect everything before seeing any results. Iterate!</p>
+                </div>
+
+                <h3>Loading Texture Sets vs. Individual Maps</h3>
+
+                <p>When you download or purchase content, you might get textures packaged in different ways:</p>
+
+                <table class="lesson-table">
+                    <thead>
+                        <tr>
+                            <th>Package Type</th>
+                            <th>What You Get</th>
+                            <th>How to Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Material Presets</strong></td>
+                            <td>Pre-configured materials with all textures linked</td>
+                            <td>Just double-click in the Materials library</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Texture Sets</strong></td>
+                            <td>Multiple image files (diffuse, bump, specular, etc.)</td>
+                            <td>Load each map manually to appropriate channel</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Character Packages</strong></td>
+                            <td>Both presets and texture files included</td>
+                            <td>Use presets for convenience, or customize from files</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Procedural Materials</strong></td>
+                            <td>No texture files—generated mathematically</td>
+                            <td>Load preset and adjust node parameters</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Most professional content comes as material presets pointing to texture files. This gives you the convenience of presets with the flexibility to modify individual textures if needed.</p>
+
+                <h3>Quick Start: Your First Custom Texture</h3>
+
+                <p>Let's put this all together with a simple exercise. Try this now if you have Poser open:</p>
+
+                <ol>
+                    <li>Load a simple prop (like a primitive sphere or box) into your scene</li>
+                    <li>Enter the Material Room</li>
+                    <li>Select your prop in the Object list</li>
+                    <li>In the Simple tab, find the Diffuse texture slot</li>
+                    <li>Click Browse and select any image file on your computer (a photo, anything!)</li>
+                    <li>Watch as your image wraps around the object</li>
+                    <li>Go back to the Pose Room and do a quick render to see the result</li>
+                </ol>
+
+                <p>Congratulations! You've just applied your first custom texture map. It might not be a professional-quality material, but you've just experienced the fundamental process. Everything else builds on this basic concept.</p>
+            </section>
+            <section id="texture-settings">
+                <h2>⚙️ Adjusting Texture Settings</h2>
+                
+                <p>Loading textures is just the beginning. The real power comes from adjusting and fine-tuning how those textures behave on your surfaces. This is where you take a good material and make it <em>perfect</em> for your specific scene and artistic vision.</p>
+
+                <h3>Texture Scale and Tiling</h3>
+
+                <p>Remember our discussion of UV coordinates? The U_Scale and V_Scale settings let you control how many times a texture repeats across the surface. This is incredibly useful, especially for surfaces that tile naturally.</p>
+
+                <h4>Understanding Scale Values:</h4>
+                <ul>
+                    <li><strong>Scale of 1.0:</strong> Texture appears once across the UV space (default)</li>
+                    <li><strong>Scale of 2.0:</strong> Texture repeats twice (good for patterns that should be smaller)</li>
+                    <li><strong>Scale of 0.5:</strong> Texture appears at double size (good for closeups where you want more detail visible)</li>
+                    <li><strong>Different U and V scales:</strong> You can stretch textures in one direction—useful for wood grain or fabric weaves</li>
+                </ul>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 When to Adjust Scale</h4>
+                    <p><strong>Increase scale (2.0, 3.0, etc.):</strong> When textures look too stretched or you want a finer, more detailed appearance. Perfect for brick walls, floor tiles, or repeated patterns.</p>
+                    <p style="margin-bottom: 0;"><strong>Decrease scale (0.5, 0.25, etc.):</strong> When textures look too small and you want them to cover more area. Good for close-up shots where you want to see more of the texture detail.</p>
+                </div>
+
+                <h4>Practical Example: Tile Floor</h4>
+                <p>Imagine you have a floor prop with a single tile texture. At scale 1.0, the entire floor might look like one giant tile. By setting U_Scale and V_Scale to 10.0, you'd see 10 tiles in each direction, creating a realistic tiled floor appearance. The texture file stays the same, but your surface now shows a realistic pattern!</p>
+
+                <h3>Texture Offset and Position</h3>
+
+                <p>The U_Offset and V_Offset settings let you slide your texture around on the surface without changing the scale. Think of it like adjusting a tablecloth—you're not changing its size, just repositioning it.</p>
+
+                <p><strong>Offset values work like this:</strong></p>
+                <ul>
+                    <li><strong>0.0:</strong> No offset (default position)</li>
+                    <li><strong>0.5:</strong> Shifts the texture halfway across the surface</li>
+                    <li><strong>1.0:</strong> Shifts the texture one complete cycle (looks the same as 0.0 for repeating textures)</li>
+                    <li><strong>Negative values:</strong> Shifts in the opposite direction</li>
+                </ul>
+
+                <blockquote>
+                    <p><strong>Real-World Use Case:</strong> You've applied a wood grain texture to a table top, but the grain pattern is running the wrong direction for one leg. Instead of loading a different texture or rotating the prop, you can offset the texture by 0.25 or 0.5 to shift the grain to a better position. Quick and non-destructive!</p>
+                </blockquote>
+
+                <h3>Texture Strength and Blending</h3>
+
+                <p>Most texture connections let you control the strength or intensity of the effect. This is like a volume knob for your texture—it controls how much the texture influences the material.</p>
+
+                <table class="lesson-table">
+                    <thead>
+                        <tr>
+                            <th>Strength Setting</th>
+                            <th>Effect on Different Map Types</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Diffuse Color Strength</strong></td>
+                            <td>Lower = more of the base material color shows through<br>Higher = texture colors are more prominent</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bump Strength</strong></td>
+                            <td>Lower = surface appears smoother<br>Higher = bumps and texture are more pronounced</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Specular Strength</strong></td>
+                            <td>Lower = more uniform shininess<br>Higher = texture has more influence on shine variation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Transparency Strength</strong></td>
+                            <td>Lower = more opaque overall<br>Higher = transparency map has full effect</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Adjusting strength is often how you fine-tune a material to match your lighting and scene. A bump map that looks perfect in bright light might be too subtle in dim lighting, so you increase its strength. Context matters!</p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Pro Technique: Subtle is Better</h4>
+                    <p>Beginners often crank texture settings to maximum, thinking "more must be better." But professional materials usually use subtle strengths. A bump map strength of 0.1-0.3 often looks more realistic than 1.0. Specular variations of 0.2-0.5 work better than extremes. Start subtle and increase only if needed. You can always add more; it's harder to dial back from excessive.</p>
+                </div>
+
+                <h3>Filter Types and Quality Settings</h3>
+
+                <p>When Poser displays a texture at different distances or angles, it needs to filter the image to prevent artifacts. The filter type determines how this happens:</p>
+
+                <ul>
+                    <li><strong>Bilinear:</strong> Fast, slightly softer. Good for most purposes.</li>
+                    <li><strong>Bicubic:</strong> Higher quality, slightly slower. Better for close-ups.</li>
+                    <li><strong>Crisp:</strong> Sharp edges preserved. Good for text or geometric patterns.</li>
+                    <li><strong>Gaussian:</strong> Smooth blur. Good for soft, organic textures.</li>
+                </ul>
+
+                <p>Honestly? Most of the time you can leave this at the default. Change it only if you notice specific problems like overly blurry textures (try Crisp) or jagged edges (try Bicubic).</p>
+
+                <h3>Working with Texture Coordinates</h3>
+
+                <p>Some advanced materials let you choose which UV set to use. Many professional figures have multiple UV layouts—like one for the standard Poser mapping and another for DAZ compatibility. If you see a UV_Type or Texture_Coordinate setting, here's what it means:</p>
+
+                <ul>
+                    <li><strong>Default UV:</strong> The standard UV layout for that object</li>
+                    <li><strong>Alternative UVs:</strong> Might be labeled as "UV_2," "DAZ_UV," "Game_UV," etc.</li>
+                    <li><strong>Spherical/Cylindrical/Planar:</strong> Procedural projection methods (not UV-based)</li>
+                </ul>
+
+                <p>Use the UV set that matches your textures. If you have textures designed for a specific UV layout, make sure that UV set is selected!</p>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Troubleshooting: Textures Look Wrong</h4>
+                    <p>If textures are misaligned or stretched oddly, first check: (1) Are you using textures designed for this object's UV layout? (2) Is the correct UV set selected? (3) Are U_Scale and V_Scale both at 1.0? (4) Are U_Offset and V_Offset both at 0.0? Start with these defaults and adjust from there.</p>
+                </div>
+
+                <h3>Color Space and Gamma Corrections</h3>
+
+                <p>This gets a bit technical, but it's important: computers can interpret the brightness of images in different ways. This is the color space issue we mentioned earlier.</p>
+
+                <p><strong>Key concepts:</strong></p>
+                <ul>
+                    <li><strong>sRGB (Gamma):</strong> How images look on your monitor. Used for diffuse color maps.</li>
+                    <li><strong>Linear:</strong> Mathematically accurate brightness. Used for data maps (bump, specular, etc.).</li>
+                    <li><strong>Gamma Correction:</strong> Adjusts how brightness is interpreted.</li>
+                </ul>
+
+                <p>In modern Poser versions, this is mostly handled automatically. But if you're working with advanced materials or creating your own textures, you might need to specify:</p>
+
+                <ul>
+                    <li><strong>Color maps:</strong> Set to sRGB or check "Use Gamma Correction"</li>
+                    <li><strong>Data maps:</strong> Set to Linear or uncheck "Use Gamma Correction"</li>
+                </ul>
+
+                <blockquote>
+                    <p><strong>Simplified Rule:</strong> If humans look at the image and expect to see specific colors (like a photo or painting), use sRGB. If the image is storing information rather than color (like a bump map or specular map), use Linear. When in doubt, check how the material was set up by its creator and follow that pattern.</p>
+                </blockquote>
+
+                <h3>Mixing Textures with Solid Colors</h3>
+
+                <p>Sometimes you want to blend a texture with a solid color. Maybe you want a character's skin to be slightly warmer, or you want to tint a texture without editing the image file. Here's how:</p>
+
+                <ol>
+                    <li><strong>Connect your texture</strong> to the material property as normal</li>
+                    <li><strong>Adjust the texture strength</strong> to less than 1.0 (like 0.7)</li>
+                    <li><strong>The base material color</strong> will now blend with the texture</li>
+                    <li><strong>Change the base color</strong> to tint the overall result</li>
+                </ol>
+
+                <p>Or, for more control, use a Color_Math node or Blender node to mathematically combine the texture with a solid color. This gives you more precise control over how they mix.</p>
+
+                <h3>Animated Textures (Brief Introduction)</h3>
+
+                <p>Did you know textures can change over time? By animating the U_Offset or V_Offset values, you can make textures slide across surfaces—perfect for conveyor belts, flowing water, or scrolling displays.</p>
+
+                <p>We won't dive deep into animation in this lesson, but just know the possibility exists. Every parameter you see in the Material Room can potentially be keyframed and animated!</p>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Frame 1<br/>Offset: 0.0] --> B[Frame 30<br/>Offset: 0.5]
+                    B --> C[Frame 60<br/>Offset: 1.0]
+                    
+                    A2[Texture Position<br/>Start] --> B2[Texture Position<br/>Halfway]
+                    B2 --> C2[Texture Position<br/>Complete Cycle]
+                    
+                    style A fill:#ffb,stroke:#333,stroke-width:2px
+                    style B fill:#ffb,stroke:#333,stroke-width:2px
+                    style C fill:#ffb,stroke:#333,stroke-width:2px
+                </div>
+
+                <h3>Saving Your Adjusted Materials</h3>
+
+                <p>Once you've tweaked a material to perfection, you'll want to save it for future use:</p>
+
+                <ol>
+                    <li><strong>In the Material Room,</strong> select the material you've been working on</li>
+                    <li><strong>Click the small "+" icon</strong> or choose "Add to Library" from the menu</li>
+                    <li><strong>Choose a category</strong> or create a new one</li>
+                    <li><strong>Name your material</strong> descriptively</li>
+                    <li><strong>Choose single or multi-material:</strong>
+                        <ul>
+                            <li>Single Material: Saves just this one surface's settings</li>
+                            <li>Multi-Material: Saves settings for all surfaces on the object</li>
+                        </ul>
+                    </li>
+                    <li><strong>The material preset</strong> is now in your library, ready to apply to other objects!</li>
+                </ol>
+
+                <p>This is how you build your personal library of go-to materials. Over time, you'll accumulate a collection of perfectly adjusted materials for different situations.</p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Experimentation is Key</h4>
+                    <p>The best way to understand texture settings is to play with them! Load a simple material, then systematically adjust each setting one at a time and render to see the result. Change U_Scale from 1 to 5—what happens? Adjust bump strength from 0.1 to 0.5—how does it look? This hands-on experimentation builds intuition that no amount of reading can replace.</p>
+                </div>
+            </section>
+            <section id="common-problems">
+                <h2>🔧 Common Texture Problems and Solutions</h2>
+                
+                <p>Even with perfect understanding of texture mapping theory, you'll inevitably encounter problems. That's not failure—it's part of the learning process! Let's tackle the most common texture issues you'll face and, more importantly, how to fix them quickly.</p>
+
+                <h3>Problem: Missing Textures (Pink or Gray Surfaces)</h3>
+
+                <p>You load a material and instead of beautiful textures, you see solid pink, gray, or magenta surfaces. This is Poser's way of saying, "I can't find the texture file!"</p>
+
+                <h4>Why This Happens:</h4>
+                <ul>
+                    <li>Texture files were moved or deleted after the material was created</li>
+                    <li>Material was created on another computer with different file paths</li>
+                    <li>Content wasn't installed correctly</li>
+                    <li>External Runtime library isn't connected</li>
+                </ul>
+
+                <h4>How to Fix It:</h4>
+                <ol>
+                    <li><strong>Open the Material Room</strong> and select the problematic surface</li>
+                    <li><strong>Click on the Image Map node</strong> that's showing the broken link</li>
+                    <li><strong>Look at the Image_Source path</strong>—it'll show a file path that doesn't exist</li>
+                    <li><strong>Click the folder icon</strong> and manually navigate to where the texture file actually is</li>
+                    <li><strong>Select the correct file</strong>—the texture should load immediately</li>
+                    <li><strong>Save the material</strong> if you want to preserve the fix</li>
+                </ol>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Prevention Strategy</h4>
+                    <p>Keep your Poser content organized! Install everything into your main Runtime folder or linked Additional Runtimes. Avoid moving texture files after materials are created. When you download content, follow the installation instructions exactly—don't try to reorganize files into your own system.</p>
+                </div>
+
+                <h3>Problem: Visible Seams in Textures</h3>
+
+                <p>You apply a texture and see an obvious line or seam where the texture edges meet. This is especially noticeable on characters' faces or bodies.</p>
+
+                <h4>Why This Happens:</h4>
+                <ul>
+                    <li>The texture wasn't painted to match the UV seams</li>
+                    <li>You're using a texture designed for a different UV layout</li>
+                    <li>The texture doesn't tile seamlessly (for repeating patterns)</li>
+                    <li>Compression artifacts at image edges</li>
+                </ul>
+
+                <h4>How to Fix It:</h4>
+                <p><strong>For character textures:</strong></p>
+                <ul>
+                    <li>Make sure you're using textures specifically designed for your figure's UV layout</li>
+                    <li>Check if there's an updated version of the texture available</li>
+                    <li>Consider using a different texture set altogether</li>
+                    <li>If you're creating custom textures, paint carefully across UV seams</li>
+                </ul>
+
+                <p><strong>For tiling textures:</strong></p>
+                <ul>
+                    <li>Use texture images specifically designed to tile seamlessly</li>
+                    <li>In image editing software, create seamless tiles using the Offset filter</li>
+                    <li>Adjust U_Offset and V_Offset to shift the seam to a less visible location</li>
+                    <li>Increase scale to make individual tiles smaller (seams become less obvious)</li>
+                </ul>
+
+                <blockquote>
+                    <p><strong>Professional Tip:</strong> For characters, seams often run along natural body creases (underarms, neck, etc.) where they're less noticeable. Good UV layouts place seams strategically. If seams are visible in prominent places, you might be using textures meant for a different figure.</p>
+                </blockquote>
+
+                <h3>Problem: Stretched or Distorted Textures</h3>
+
+                <p>Your texture looks pinched, stretched, or warped in certain areas, like a fun-house mirror effect.</p>
+
+                <h4>Why This Happens:</h4>
+                <ul>
+                    <li>UV layout has natural stretching in curved areas</li>
+                    <li>Using wrong textures for the UV layout</li>
+                    <li>U_Scale and V_Scale are set to dramatically different values</li>
+                    <li>Procedural projection (spherical, cylindrical) mismatched to object shape</li>
+                </ul>
+
+                <h4>How to Fix It:</h4>
+                <ol>
+                    <li><strong>Check texture compatibility:</strong> Verify the texture was made for this object's UV layout</li>
+                    <li><strong>Reset scale values:</strong> Set U_Scale and V_Scale both to 1.0 to see the base mapping</li>
+                    <li><strong>Check UV settings:</strong> Make sure the correct UV set is selected</li>
+                    <li><strong>Adjust individual scales:</strong> If texture looks stretched horizontally, increase U_Scale. If stretched vertically, increase V_Scale</li>
+                    <li><strong>Consider different textures:</strong> Some stretching is inherent to the UV layout—you might need textures painted with that in mind</li>
+                </ol>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 Understanding "Texture Space"</h4>
+                    <p>Some UV layouts deliberately stretch certain areas to give them more texture resolution. For example, a character's face might get more UV space (and thus more texture detail) than the back. This means textures for these objects are pre-distorted to compensate. Using a "normal" texture on such a UV layout will look stretched because it's not pre-distorted to match!</p>
+                </div>
+
+                <h3>Problem: Textures Look Washed Out or Too Dark</h3>
+
+                <p>The colors in your texture look wrong—either faded and pale or too dark and murky.</p>
+
+                <h4>Why This Happens:</h4>
+                <ul>
+                    <li>Gamma correction issues (color space mismatch)</li>
+                    <li>Texture strength set too low or too high</li>
+                    <li>Base material color is affecting the texture</li>
+                    <li>Lighting in your scene is too bright or too dim</li>
+                </ul>
+
+                <h4>How to Fix It:</h4>
+                <ol>
+                    <li><strong>Check gamma settings:</strong>
+                        <ul>
+                            <li>For diffuse/color maps, enable gamma correction (sRGB)</li>
+                            <li>For data maps, disable gamma correction (Linear)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Adjust texture strength:</strong> In the texture connection, make sure strength is set to 1.0 for full intensity</li>
+                    <li><strong>Check base material color:</strong> Set it to white (255, 255, 255) to not influence the texture</li>
+                    <li><strong>Test with different lighting:</strong> Add a light temporarily to see if it's a lighting issue rather than a texture issue</li>
+                    <li><strong>Check render settings:</strong> Some render engines have gamma settings that affect overall brightness</li>
+                </ol>
+
+                <blockquote>
+                    <p><strong>Quick Test:</strong> If you suspect color space issues, render the same material in both Firefly and SuperFly. If it looks correct in one but not the other, it's likely a gamma/color space setting that needs adjustment for that specific render engine.</p>
+                </blockquote>
+
+                <h3>Problem: Low-Resolution or Blurry Textures</h3>
+
+                <p>Your textures look pixelated or blurry, lacking the crisp detail you expected.</p>
+
+                <h4>Why This Happens:</h4>
+                <ul>
+                    <li>The texture image resolution is too low for your needs</li>
+                    <li>Filter type is set to create blur</li>
+                    <li>Camera is closer than textures were designed for</li>
+                    <li>Texture compression artifacts</li>
+                </ul>
+
+                <h4>How to Fix It:</h4>
+                <ol>
+                    <li><strong>Check source resolution:</strong> Open the texture image file—what's its pixel dimensions? For close-ups, you want 2K (2048×2048) or 4K (4096×4096)</li>
+                    <li><strong>Find higher-res versions:</strong> Check if the content creator offers HD texture packs</li>
+                    <li><strong>Adjust filter type:</strong> Try changing from Gaussian to Crisp or Bicubic</li>
+                    <li><strong>Move camera back:</strong> If possible, compose your shot from slightly farther away</li>
+                    <li><strong>Use detail maps:</strong> Some materials support additional detail maps that add microscopic texture</li>
+                </ol>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Resolution Guidelines</h4>
+                    <ul style="margin-bottom: 0;">
+                        <li><strong>Character faces (close-ups):</strong> 4K (4096×4096)</li>
+                        <li><strong>Character bodies:</strong> 4K or 2K</li>
+                        <li><strong>Props (medium distance):</strong> 2K (2048×2048)</li>
+                        <li><strong>Background elements:</strong> 1K (1024×1024) is often sufficient</li>
+                        <li><strong>Tiling textures:</strong> Can be smaller since they repeat (512×512 to 1K)</li>
+                    </ul>
+                </div>
+
+                <h3>Problem: Texture Shows Repeating Patterns (Tiling Artifacts)</h3>
+
+                <p>On surfaces where textures tile, you can see an obvious repeating pattern that looks artificial.</p>
+
+                <h4>Why This Happens:</h4>
+                <ul>
+                    <li>The texture has distinctive features that repeat obviously</li>
+                    <li>High contrast elements in the texture create recognizable patterns</li>
+                    <li>Small scale value creates too many repetitions</li>
+                </ul>
+
+                <h4>How to Fix It:</h4>
+                <ol>
+                    <li><strong>Use better tiling textures:</strong> Choose textures specifically designed to tile without obvious repetition</li>
+                    <li><strong>Adjust scale:</strong> Lower U_Scale and V_Scale values (like 0.5) to show less repetition in the frame</li>
+                    <li><strong>Add variation nodes:</strong> Use noise or procedural nodes to break up the pattern</li>
+                    <li><strong>Mix multiple textures:</strong> Blend two or three similar textures at different scales</li>
+                    <li><strong>Use dirt/wear maps:</strong> Add overlay textures that break up the regularity</li>
+                </ol>
+
+                <h3>Problem: Normal Maps Look Wrong or Don't Work</h3>
+
+                <p>You apply a normal map but it either has no effect or makes the surface look strange.</p>
+
+                <h4>Why This Happens:</h4>
+                <ul>
+                    <li>Normal map is in the wrong format (tangent space vs. object space)</li>
+                    <li>Normal map strength is set too high or too low</li>
+                    <li>Connected to wrong input (bump instead of normal)</li>
+                    <li>Gamma correction applied to normal map (should be linear)</li>
+                </ul>
+
+                <h4>How to Fix It:</h4>
+                <ol>
+                    <li><strong>Check the connection:</strong> Normal maps should connect to the Normal or Normal_Map input, not the Bump input</li>
+                    <li><strong>Verify format:</strong> Most normal maps are tangent space (the bluish-purple ones). Make sure your material is expecting that format</li>
+                    <li><strong>Disable gamma:</strong> Normal maps should NOT have gamma correction—they're data, not colors</li>
+                    <li><strong>Adjust strength:</strong> Normal map strength often needs to be 0.1-0.5, not 1.0</li>
+                    <li><strong>Check normal map settings:</strong> Some render engines have specific normal map setup requirements</li>
+                </ol>
+
+                <h3>Problem: Render Looks Different from Viewport Preview</h3>
+
+                <p>The texture looks great in the Poser viewport but wrong when you render.</p>
+
+                <h4>Why This Happens:</h4>
+                <ul>
+                    <li>Viewport uses simplified preview rendering</li>
+                    <li>Different render engines (Firefly vs. SuperFly) interpret materials differently</li>
+                    <li>Some texture features only work in final renders</li>
+                    <li>Lighting affects textures differently in preview vs. render</li>
+                </ul>
+
+                <h4>How to Fix It:</h4>
+                <ol>
+                    <li><strong>Do test renders early:</strong> Don't rely solely on viewport preview</li>
+                    <li><strong>Use preview renders:</strong> Quick, low-quality renders to check textures without waiting</li>
+                    <li><strong>Check render engine compatibility:</strong> Some materials are designed for specific render engines</li>
+                    <li><strong>Adjust based on render results:</strong> Use the actual renders to judge your texture adjustments, not the preview</li>
+                </ol>
+
+                <div class="card" style="background-color: #f3e5f5; border-left: 4px solid #9c27b0;">
+                    <h4>🎨 The Golden Rule of Texture Troubleshooting</h4>
+                    <p>When textures aren't working right, start by checking the basics: (1) Is it the right texture for this UV layout? (2) Are the file paths correct? (3) Are scale and offset at defaults (1.0 and 0.0)? (4) Is strength at 1.0? Fix the basics first before diving into advanced settings. Most problems are simple issues, not complex technical glitches!</p>
+                </div>
+            </section>
+            <section id="file-management">
+                <h2>📁 Texture File Management</h2>
+                
+                <p>Let's talk about something that sounds boring but will save you <em>hours</em> of frustration: organizing your texture files. Professional 3D artists spend almost as much time on file management as they do on creative work—not because they're obsessed with organization, but because chaos in your files creates chaos in your workflow.</p>
+
+                <h3>The Poser Content Structure</h3>
+
+                <p>Poser uses a specific folder structure for content, and understanding this structure is crucial for texture management:</p>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Poser Runtime] --> B[Textures Folder]
+                    A --> C[Geometries Folder]
+                    A --> D[Libraries Folder]
+                    
+                    B --> E[Character Subfolder]
+                    B --> F[Props Subfolder]
+                    B --> G[Vendor/Product Subfolders]
+                    
+                    D --> H[Materials]
+                    D --> I[Characters]
+                    D --> J[Props]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:3px,color:#fff
+                    style B fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <p>The <strong>Textures folder</strong> (inside Runtime) is where all your texture image files should live. When you install content properly, textures go here automatically. When you create custom textures, put them here too.</p>
+
+                <h3>Organizing Your Texture Files</h3>
+
+                <p>Here's a smart organizational system that professional content creators use:</p>
+
+                <h4>Method 1: By Product/Character</h4>
+                <pre style="background: #f5f5f5; padding: 1rem; border-radius: 8px; border-left: 4px solid #667eea;"><code>Runtime/Textures/
+├── MyCustomCharacter/
+│   ├── Face_Diffuse.jpg
+│   ├── Face_Bump.jpg
+│   ├── Face_Specular.jpg
+│   ├── Body_Diffuse.jpg
+│   └── Body_Bump.jpg
+├── VictoriaRealisticSkin/
+│   ├── V_Face_D.jpg
+│   ├── V_Face_N.png
+│   └── V_Body_D.jpg
+└── PropCollection/
+    ├── Chair_Wood.jpg
+    └── Table_Metal.jpg</code></pre>
+
+                <p><strong>Advantages:</strong> Everything for one character or prop is together. Easy to find related textures. Easy to back up or share complete sets.</p>
+
+                <h4>Method 2: By Type and Function</h4>
+                <pre style="background: #f5f5f5; padding: 1rem; border-radius: 8px; border-left: 4px solid #667eea;"><code>Runtime/Textures/
+├── Characters/
+│   ├── Female/
+│   ├── Male/
+│   └── Fantasy/
+├── Props/
+│   ├── Furniture/
+│   ├── Vehicles/
+│   └── Architecture/
+└── Environments/
+    ├── Skies/
+    └── Backgrounds/</code></pre>
+
+                <p><strong>Advantages:</strong> Logical categorization. Similar items grouped together. Good for large libraries with many products.</p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 The Best Approach</h4>
+                    <p>For most users, Method 1 (by product) works best. It matches how content vendors organize their products, makes it easy to manage complete sets, and reduces the chance of file conflicts. Follow the structure that downloaded content uses, and maintain that pattern for your custom textures.</p>
+                </div>
+
+                <h3>Naming Conventions</h3>
+
+                <p>How you name your texture files matters more than you might think. Good names help you and Poser find files quickly. Here's a proven naming system:</p>
+
+                <p><strong>Format: [Object]_[Surface]_[MapType].[extension]</strong></p>
+
+                <p><strong>Examples:</strong></p>
+                <ul>
+                    <li><code>Victoria_Face_Diffuse.jpg</code> - Clear and descriptive</li>
+                    <li><code>V8_Face_D.jpg</code> - Abbreviated but still understandable</li>
+                    <li><code>Table01_Wood_Bump.png</code> - Includes variant number</li>
+                    <li><code>Shirt_Fabric_Normal.png</code> - Identifies the map type</li>
+                </ul>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Naming Don'ts</h4>
+                    <ul style="margin-bottom: 0;">
+                        <li><strong>Avoid spaces:</strong> Use underscores or dashes instead (safer for file paths)</li>
+                        <li><strong>Avoid special characters:</strong> Stick to letters, numbers, underscores, and dashes</li>
+                        <li><strong>Avoid extremely long names:</strong> Keep under 50 characters when possible</li>
+                        <li><strong>Avoid generic names:</strong> "texture.jpg" tells you nothing—be specific!</li>
+                        <li><strong>Avoid version numbers in names:</strong> Use folders for different versions instead</li>
+                    </ul>
+                </div>
+
+                <h3>File Formats: When to Use What</h3>
+
+                <p>We touched on this earlier, but let's be more specific about format choices:</p>
+
+                <table class="lesson-table">
+                    <thead>
+                        <tr>
+                            <th>Format</th>
+                            <th>Best For</th>
+                            <th>Why</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>JPEG</strong></td>
+                            <td>Diffuse/Color Maps</td>
+                            <td>Good compression, small files, widely supported. No transparency.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PNG</strong></td>
+                            <td>All Map Types</td>
+                            <td>Lossless, supports transparency, excellent quality. Larger files than JPEG.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>TIFF</strong></td>
+                            <td>High-End Production</td>
+                            <td>Maximum quality, supports layers and channels. Very large files.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>TGA</strong></td>
+                            <td>Game Textures, Legacy</td>
+                            <td>Good quality, transparency support. Less common now.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Professional recommendation:</strong> Use JPEG for diffuse maps where file size matters and you don't need transparency. Use PNG for everything else (bump, specular, normal, transparency maps). This gives you the best balance of quality and file size.</p>
+
+                <h3>Relative vs. Absolute Paths</h3>
+
+                <p>This is crucial for sharing materials or moving your content library. When Poser saves a material, it stores texture file paths in one of two ways:</p>
+
+                <h4>Absolute Path (Bad for Portability):</h4>
+                <pre style="background: #ffebee; padding: 1rem; border-radius: 8px; border-left: 4px solid #f44336;"><code>C:\Users\YourName\Documents\Poser 12\Runtime\Textures\Character\Face.jpg</code></pre>
+
+                <p><strong>Problem:</strong> If you move files, change computers, or share with others, this path breaks.</p>
+
+                <h4>Relative Path (Good for Portability):</h4>
+                <pre style="background: #e8f5e9; padding: 1rem; border-radius: 8px; border-left: 4px solid #4CAF50;"><code>:Runtime:Textures:Character:Face.jpg</code></pre>
+
+                <p><strong>Advantage:</strong> Works anywhere as long as files stay in the same relative position within Runtime.</p>
+
+                <blockquote>
+                    <p><strong>Pro Tip:</strong> When saving custom materials, Poser should automatically use relative paths if your textures are in the Runtime/Textures folder. If you store textures elsewhere, Poser might save absolute paths, making your materials less portable. Keep textures in Runtime!</p>
+                </blockquote>
+
+                <h3>Backing Up Texture Files</h3>
+
+                <p>Texture files represent hours of work (whether you created them or purchased them). Back them up regularly:</p>
+
+                <ul>
+                    <li><strong>Include in scene file backups:</strong> When backing up a Poser scene, include the Runtime/Textures folder</li>
+                    <li><strong>Separate texture archives:</strong> Keep copies of purchased texture packs in their original downloaded form</li>
+                    <li><strong>Version control for custom textures:</strong> If you create textures, save versions as you work (v01, v02, etc.)</li>
+                    <li><strong>Cloud storage:</strong> Consider storing texture libraries in cloud-synced folders for automatic backup</li>
+                </ul>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ The 3-2-1 Backup Rule</h4>
+                    <ul style="margin-bottom: 0;">
+                        <li><strong>3 copies:</strong> Original + 2 backups</li>
+                        <li><strong>2 different media:</strong> Hard drive + external drive or cloud</li>
+                        <li><strong>1 offsite copy:</strong> Cloud storage or physical backup at another location</li>
+                    </ul>
+                </div>
+
+                <h3>Managing Large Texture Collections</h3>
+
+                <p>As you accumulate content, texture management becomes more challenging. Here are strategies for large collections:</p>
+
+                <ul>
+                    <li><strong>Use external Runtimes:</strong> Poser can access multiple Runtime folders. Organize by content type or vendor.</li>
+                    <li><strong>Document your library:</strong> Keep a spreadsheet or text file noting what's where</li>
+                    <li><strong>Regular cleanup:</strong> Periodically remove unused content (archive rather than delete)</li>
+                    <li><strong>Smart linking:</strong> Some users create junction links (Windows) or symbolic links (Mac) to organize without moving files</li>
+                    <li><strong>Tag and search:</strong> Use file system tags or a asset management tool to categorize content</li>
+                </ul>
+
+                <h3>Sharing Materials and Scenes</h3>
+
+                <p>When you want to share a scene or material with others (or move to another computer), you need to include texture files. Here's how to do it right:</p>
+
+                <h4>Method 1: Using Poser's Collect Files Feature</h4>
+                <ol>
+                    <li>Open your scene in Poser</li>
+                    <li>Go to File → Collect Files</li>
+                    <li>Poser will copy all used textures to a single location</li>
+                    <li>Zip this folder for sharing</li>
+                </ol>
+
+                <h4>Method 2: Manual Collection</h4>
+                <ol>
+                    <li>Note which textures your scene uses (check Material Room)</li>
+                    <li>Copy those texture files to a new folder</li>
+                    <li>Include the scene file (.pz3 or .pzz)</li>
+                    <li>Include instructions for where textures should go</li>
+                </ol>
+
+                <h4>Method 3: Embed Textures in Scene File</h4>
+                <p>When saving a scene, you can choose to embed textures directly in the scene file. This makes a larger file but ensures everything is together.</p>
+
+                <blockquote>
+                    <p><strong>Sharing Etiquette:</strong> If textures are from commercial products, check the license! Many content vendors don't allow redistribution of their textures, even as part of a scene. When sharing, include only textures you created or have explicit permission to distribute.</p>
+                </blockquote>
+
+                <h3>Texture Resolution Management</h3>
+
+                <p>High-resolution textures eat disk space and memory. Here's a strategy for managing multiple resolutions:</p>
+
+                <ul>
+                    <li><strong>Keep originals at maximum quality:</strong> Store your master textures at the highest resolution</li>
+                    <li><strong>Create working copies:</strong> Downscale for everyday work (2K is good for most purposes)</li>
+                    <li><strong>Scene-specific optimization:</strong> For final renders, use full resolution on close objects, lower on distant ones</li>
+                    <li><strong>Folder organization:</strong> Keep different resolutions in labeled subfolders (4K, 2K, 1K)</li>
+                </ul>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Original 8K<br/>Master Files] --> B[4K Working<br/>Copies]
+                    B --> C[2K Everyday<br/>Versions]
+                    B --> D[1K Preview<br/>Versions]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style B fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Archiving Old Projects</h3>
+
+                <p>When a project is complete, archive it properly to save disk space:</p>
+
+                <ol>
+                    <li><strong>Create a project folder</strong> containing the scene file and all used textures</li>
+                    <li><strong>Include a readme file</strong> documenting any special requirements or notes</li>
+                    <li><strong>Create a low-res thumbnail</strong> render so you remember what the project was</li>
+                    <li><strong>Compress the folder</strong> (ZIP or 7Z) to save space</li>
+                    <li><strong>Store in your archive location</strong> (external drive or cloud storage)</li>
+                    <li><strong>Delete the local working files</strong> to free up space</li>
+                </ol>
+
+                <p>This way, you can restore any project completely if needed, but you're not keeping everything active on your working drive.</p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ File Management Best Practices Summary</h4>
+                    <ul style="margin-bottom: 0;">
+                        <li>Keep textures in Runtime/Textures with logical subfolders</li>
+                        <li>Use clear, descriptive file names without spaces or special characters</li>
+                        <li>Choose PNG for quality, JPEG for smaller diffuse maps</li>
+                        <li>Maintain relative paths for portability</li>
+                        <li>Back up regularly using the 3-2-1 rule</li>
+                        <li>Archive completed projects to free working space</li>
+                        <li>Document your library organization</li>
+                    </ul>
+                </div>
+            </section>
+            <section id="project">
+                <h2>🎯 Hands-On Project: Create a Custom Textured Material</h2>
+                
+                <p>Time to put everything you've learned into practice! In this project, you'll take a simple prop, load texture maps, adjust settings, and create a realistic material. This exercise will solidify your understanding of the entire texture mapping workflow.</p>
+
+                <h3>Project Goal</h3>
+                <p>Create a realistic wooden surface material using multiple texture maps, demonstrating your understanding of diffuse, specular, and bump mapping.</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; margin: 2rem 0;">
+                    <h3 style="color: white; margin-top: 0;">📋 Project Requirements</h3>
+                    <ul style="color: rgba(255,255,255,0.95); margin-bottom: 0;">
+                        <li>Use at least three different texture map types</li>
+                        <li>Adjust scale and offset settings to optimize the appearance</li>
+                        <li>Fine-tune texture strengths for realistic results</li>
+                        <li>Save your custom material to the library</li>
+                        <li>Create a final render showing your textured object</li>
+                    </ul>
+                </div>
+
+                <h3>Step 1: Prepare Your Scene</h3>
+                
+                <ol>
+                    <li><strong>Load a prop to texture:</strong>
+                        <ul>
+                            <li>Open Poser and start a new scene</li>
+                            <li>Load a simple prop (like a primitive box, cylinder, or a table from your library)</li>
+                            <li>Position it nicely in the camera view</li>
+                            <li>Add basic lighting (three-point setup if you remember from earlier lessons)</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Gather your texture images:</strong>
+                        <ul>
+                            <li>You'll need a wood texture (diffuse color map)</li>
+                            <li>Ideally, find a matching bump or normal map</li>
+                            <li>Optional: A specular map if available</li>
+                            <li><em>Resource tip:</em> Search for "free seamless wood texture" online, or use textures from your Poser library</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Step 2: Apply the Diffuse Map</h3>
+                
+                <ol>
+                    <li><strong>Enter the Material Room</strong></li>
+                    
+                    <li><strong>Select your prop's material</strong>
+                        <ul>
+                            <li>Choose your object from the Object dropdown</li>
+                            <li>Select the material/surface to texture</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Load the diffuse texture:</strong>
+                        <ul>
+                            <li>In the Simple tab: Click the Diffuse texture slot → Browse</li>
+                            <li>Or in Advanced tab: Click the Image Map node connected to Diffuse_Color</li>
+                            <li>Navigate to your wood texture file and select it</li>
+                            <li>The texture should immediately appear on your object</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Adjust the scale:</strong>
+                        <ul>
+                            <li>Look at your object—does the wood grain look right?</li>
+                            <li>If the grain is too large, increase U_Scale and V_Scale (try 2.0 or 3.0)</li>
+                            <li>If too small, decrease scale (try 0.5)</li>
+                            <li>Remember: scale determines how many times the texture repeats</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Do a quick preview render</strong> to see how it looks with lighting</li>
+                </ol>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 Quick Tip</h4>
+                    <p>Wood grain should have a direction! If your object is a table, the grain should run along the length, not across it. Use U_Offset and V_Offset to shift the texture if needed, or adjust the scale values differently (like U_Scale: 2.0, V_Scale: 4.0) to stretch the grain in one direction.</p>
+                </div>
+
+                <h3>Step 3: Add Surface Detail with Bump Mapping</h3>
+                
+                <ol>
+                    <li><strong>Locate or create a bump map:</strong>
+                        <ul>
+                            <li>If you downloaded a texture set, it likely includes a bump map</li>
+                            <li>If not, you can use the diffuse map itself (Poser will interpret brightness as height)</li>
+                            <li>Or convert your diffuse map to grayscale in an image editor</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Load the bump map:</strong>
+                        <ul>
+                            <li>Simple tab: Click the Bump texture slot → Browse</li>
+                            <li>Advanced tab: Find or create an Image Map node, load your bump texture, connect to Bump input</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Adjust bump strength:</strong>
+                        <ul>
+                            <li>Start with a low strength (0.1 to 0.3)</li>
+                            <li>Do a test render</li>
+                            <li>Increase if you want more pronounced texture</li>
+                            <li>Remember: subtle is usually more realistic than extreme</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Match the bump map scale:</strong>
+                        <ul>
+                            <li>Set the bump map's U_Scale and V_Scale to the same values as your diffuse map</li>
+                            <li>This ensures the bump details align with the color details</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Step 4: Control Shininess with Specular</h3>
+                
+                <ol>
+                    <li><strong>Prepare a specular map:</strong>
+                        <ul>
+                            <li>If you have a specular map in your texture set, use it</li>
+                            <li>Otherwise, use your bump map (it often works well as a specular map)</li>
+                            <li>Or desaturate your diffuse map to grayscale</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Load the specular map:</strong>
+                        <ul>
+                            <li>Simple tab: Click the Specular texture slot</li>
+                            <li>Advanced tab: Connect an Image Map node to Specular_Color or PoserSurface's specular input</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Adjust specularity:</strong>
+                        <ul>
+                            <li>For wood, you want slight variation in shininess</li>
+                            <li>Set Specular_Value to medium (0.3 to 0.5)</li>
+                            <li>The map will make some areas shinier (where the wood is polished or has natural oils)</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Step 5: Fine-Tune and Perfect</h3>
+                
+                <ol>
+                    <li><strong>Do a quality test render:</strong>
+                        <ul>
+                            <li>Set render size to medium (800×600 or similar)</li>
+                            <li>Use decent quality settings</li>
+                            <li>Evaluate the result critically</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Make adjustments based on render:</strong>
+                        <ul>
+                            <li>Is the wood color right? Adjust diffuse map strength or add a color tint</li>
+                            <li>Is the surface too rough or too smooth? Adjust bump strength</li>
+                            <li>Is it too shiny or not shiny enough? Adjust specular values</li>
+                            <li>Does the grain pattern look natural? Adjust scale and offset</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Iterate:</strong>
+                        <ul>
+                            <li>Adjust → Render → Evaluate → Adjust again</li>
+                            <li>Don't expect perfection on the first try</li>
+                            <li>Small changes can make big differences</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Common Project Pitfalls</h4>
+                    <ul style="margin-bottom: 0;">
+                        <li><strong>Over-bumping:</strong> Don't make bump strength too high—real wood is subtly textured</li>
+                        <li><strong>Wrong scale:</strong> Make sure all maps use the same scale values so they align</li>
+                        <li><strong>Ignoring direction:</strong> Wood grain has direction—make sure it flows naturally</li>
+                        <li><strong>Too shiny:</strong> Most wood is matte or satin, not glossy like plastic</li>
+                    </ul>
+                </div>
+
+                <h3>Step 6: Save Your Material</h3>
+                
+                <ol>
+                    <li><strong>In the Material Room,</strong> with your perfected material selected</li>
+                    
+                    <li><strong>Add to library:</strong>
+                        <ul>
+                            <li>Click the "+" icon or choose File → Save Material</li>
+                            <li>Choose a category or create a new one (like "My Custom Materials")</li>
+                            <li>Name it descriptively: "Walnut_Wood_Realistic" or similar</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Choose save options:</strong>
+                        <ul>
+                            <li>Single Material: Just this one surface</li>
+                            <li>Multi-Material: All surfaces on the object</li>
+                            <li>For this project, single material is fine</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Verify it saved:</strong>
+                        <ul>
+                            <li>Open the Materials library</li>
+                            <li>Navigate to where you saved it</li>
+                            <li>You should see a thumbnail of your material</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Step 7: Create Your Final Render</h3>
+                
+                <ol>
+                    <li><strong>Compose a nice shot:</strong>
+                        <ul>
+                            <li>Adjust camera angle to show the texture clearly</li>
+                            <li>Make sure lighting shows the material well</li>
+                            <li>Consider adding a simple background</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Render at good quality:</strong>
+                        <ul>
+                            <li>Use a reasonable resolution (1920×1080 or similar)</li>
+                            <li>Set quality settings to high</li>
+                            <li>Enable shadows for realism</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Save your render:</strong>
+                        <ul>
+                            <li>Save as PNG or JPEG</li>
+                            <li>Name it clearly ("Lesson15_Wood_Material_Final.png")</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Project Success Checklist</h4>
+                    <p>Before considering your project complete, verify:</p>
+                    <ul style="margin-bottom: 0;">
+                        <li>☐ Diffuse map loaded and scaled appropriately</li>
+                        <li>☐ Bump map applied with subtle strength</li>
+                        <li>☐ Specular settings adjusted for realistic shininess</li>
+                        <li>☐ All maps using consistent scale values</li>
+                        <li>☐ Texture direction looks natural for the object</li>
+                        <li>☐ Material saved to library with clear name</li>
+                        <li>☐ Final render completed and saved</li>
+                        <li>☐ You understand what each setting does and why you chose those values</li>
+                    </ul>
+                </div>
+
+                <h3>Bonus Challenges</h3>
+                
+                <p>If you finish the main project and want to go further, try these variations:</p>
+
+                <ol>
+                    <li><strong>Create three variations:</strong> Make polished wood, weathered wood, and painted wood versions using the same base textures but different settings</li>
+                    
+                    <li><strong>Texture multiple objects:</strong> Apply your wood material to several different props to see how it looks on different shapes</li>
+                    
+                    <li><strong>Try other materials:</strong> Repeat the process with a metal texture, fabric texture, or stone texture</li>
+                    
+                    <li><strong>Create a material library:</strong> Make 5-10 custom materials (different woods, metals, etc.) and organize them in your library</li>
+                    
+                    <li><strong>Compare render engines:</strong> Render the same material in both Firefly and SuperFly to see the differences</li>
+                </ol>
+
+                <h3>What You've Accomplished</h3>
+                
+                <p>By completing this project, you've demonstrated:</p>
+                <ul>
+                    <li>Understanding of texture map types and their purposes</li>
+                    <li>Ability to load and apply textures in the Material Room</li>
+                    <li>Skill in adjusting scale, offset, and strength settings</li>
+                    <li>Knowledge of how multiple maps work together</li>
+                    <li>Experience with the iterative refinement process</li>
+                    <li>Capability to save and organize custom materials</li>
+                </ul>
+
+                <p>More importantly, you've developed a workflow you can use for <em>any</em> texture application task. Whether you're texturing a character, a prop, or an entire environment, the process is the same: load appropriate maps, adjust settings, test render, refine, and save. You've got this!</p>
+            </section>
+            <section id="summary">
+                <h2>🎓 Lesson Summary</h2>
+                
+                <p>Congratulations! You've just completed one of the most important technical lessons in the entire course. Texture mapping is fundamental to creating realistic 3D art, and you now have the knowledge to use it effectively.</p>
+
+                <div class="card" style="background: linear-gradient(to right, #e3f2fd, #f3e5f5); border-left: 4px solid #667eea; margin: 2rem 0;">
+                    <h3>🌟 Key Takeaways</h3>
+                    <ul style="margin-bottom: 0; line-height: 1.8;">
+                        <li><strong>Texture maps are 2D images</strong> applied to 3D surfaces to add color, detail, and realism that solid colors can't achieve</li>
+                        <li><strong>UV mapping connects 3D surfaces to 2D textures</strong> through coordinates that range from 0 to 1, like a map</li>
+                        <li><strong>Different map types serve different purposes:</strong> diffuse for color, bump for surface detail, specular for shininess, normal for advanced detail</li>
+                        <li><strong>Image Map nodes load textures</strong> into materials and can be adjusted with scale, offset, and strength settings</li>
+                        <li><strong>Multiple maps work together</strong> to create complete, realistic materials with depth and character</li>
+                        <li><strong>File management matters:</strong> Keep textures organized, use relative paths, and back up your work</li>
+                        <li><strong>Troubleshooting is part of the process:</strong> Most texture problems have simple solutions if you check the basics first</li>
+                    </ul>
+                </div>
+
+                <h3>What You Can Do Now</h3>
+                
+                <p>With the skills from this lesson, you can:</p>
+                
+                <ul>
+                    <li>✅ Apply professional texture materials to any figure or prop</li>
+                    <li>✅ Understand and modify existing material presets</li>
+                    <li>✅ Load individual texture maps for custom materials</li>
+                    <li>✅ Adjust texture scale, offset, and strength for optimal appearance</li>
+                    <li>✅ Troubleshoot common texture problems confidently</li>
+                    <li>✅ Organize and manage texture file libraries</li>
+                    <li>✅ Create and save custom materials to your library</li>
+                    <li>✅ Understand how UV mapping connects textures to surfaces</li>
+                </ul>
+
+                <h3>Building on This Foundation</h3>
+                
+                <p>Texture mapping is a gateway skill that opens up advanced techniques:</p>
+                
+                <table class="lesson-table">
+                    <thead>
+                        <tr>
+                            <th>What's Next</th>
+                            <th>How This Lesson Helps</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Skin Materials (Lesson 16)</strong></td>
+                            <td>You'll apply these texture mapping skills to create realistic character skin with subsurface scattering</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Custom Materials (Lesson 17)</strong></td>
+                            <td>You'll build complex materials from scratch using multiple texture types and advanced nodes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lighting Techniques</strong></td>
+                            <td>Understanding how textures interact with light helps you light scenes more effectively</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Creating Custom Textures</strong></td>
+                            <td>Knowing UV layouts lets you paint textures that wrap correctly around your models</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Optimization</strong></td>
+                            <td>Understanding texture resolution and file management helps you optimize render times</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <blockquote>
+                    <p><strong>Remember:</strong> Texture mapping is like learning to read music. At first, the notation seems complex and technical. But once you understand it, you realize it's just a system for communicating visual information. The more you practice, the more intuitive it becomes until you're not even thinking about UVs and image maps—you're just creating beautiful materials that bring your scenes to life.</p>
+                </blockquote>
+
+                <h3>Practice Recommendations</h3>
+                
+                <p>To reinforce what you've learned, try these exercises over the next few days:</p>
+                
+                <ol>
+                    <li><strong>The Daily Texture Challenge:</strong>
+                        <ul>
+                            <li>Each day, load a different prop and apply a new material</li>
+                            <li>Try different texture types: wood, metal, fabric, stone, plastic</li>
+                            <li>Focus on getting the scale and settings right</li>
+                            <li>Save your best materials to your library</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>The Comparison Study:</strong>
+                        <ul>
+                            <li>Take one object and apply three different materials</li>
+                            <li>Render all three in the same lighting</li>
+                            <li>Compare how different textures change the appearance</li>
+                            <li>Note which map types made the biggest difference</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>The Troubleshooting Exercise:</strong>
+                        <ul>
+                            <li>Deliberately break a material (wrong scale, missing maps, etc.)</li>
+                            <li>Practice fixing it using the troubleshooting steps</li>
+                            <li>This builds confidence for when real problems occur</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>The Library Exploration:</strong>
+                        <ul>
+                            <li>Browse through your Materials library</li>
+                            <li>Load different materials and examine them in the Material Room</li>
+                            <li>Study how professionals set up their materials</li>
+                            <li>Take notes on interesting techniques you discover</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="card" style="background-color: #f3e5f5; border-left: 4px solid #9c27b0;">
+                    <h4>🎨 The Artist's Perspective</h4>
+                    <p>You might be feeling like this lesson was very technical—and it was! But here's the artist's truth: texture mapping is fundamentally about <em>seeing</em>. It's about observing how real materials look—the way wood grain flows, how metal reflects light, where surfaces get shiny from wear. The technical knowledge of UVs and nodes is just the tool. The art is in using those tools to recreate the beauty and reality you observe in the world around you.</p>
+                    <p style="margin-bottom: 0;">Start looking at everything differently now. That coffee table? Notice the wood grain direction. That leather jacket? See how wear patterns affect the shininess. That brick wall? Observe the color variation and surface texture. The world is your texture reference library!</p>
+                </div>
+
+                <h3>Resources for Continued Learning</h3>
+                
+                <ul>
+                    <li><strong>Free Texture Resources:</strong>
+                        <ul>
+                            <li>Textures.com (formerly CGTextures) - Huge library of textures</li>
+                            <li>Poly Haven - Free PBR textures and materials</li>
+                            <li>3DTotal Textures - Commercial and free options</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Learning Resources:</strong>
+                        <ul>
+                            <li>Renderosity forums - Active Poser community with texture tips</li>
+                            <li>YouTube tutorials on texture painting</li>
+                            <li>Poser's official documentation on material system</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Software Tools:</strong>
+                        <ul>
+                            <li>GIMP or Photoshop - For creating and editing textures</li>
+                            <li>Substance Painter - Professional texture painting (advanced)</li>
+                            <li>Quixel Mixer - Free texture mixing and creation</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>Looking Ahead</h3>
+                
+                <p>In the next lesson, we'll take your texture mapping skills and apply them to one of the most challenging materials: human skin. You'll learn about subsurface scattering, skin layer systems, and how to create believable character skin materials that look alive and realistic.</p>
+
+                <p>But you'll approach that lesson with confidence now, because you understand the foundation—how textures work, how they're applied, and how to adjust them. The technical knowledge you gained today will make the artistic choices in the next lesson much clearer.</p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem;">
+                    <h3 style="color: white; margin-top: 0;">🌟 You've Leveled Up!</h3>
+                    <p style="color: rgba(255,255,255,0.95); font-size: 1.1rem; line-height: 1.6;">
+                        Texture mapping is one of those skills that separates hobbyists from serious 3D artists. The fact that you worked through this lesson—with all its technical detail and hands-on practice—shows real commitment to mastering Poser. Every material you apply from now on, you'll understand what's happening behind the scenes. That understanding gives you power to customize, troubleshoot, and create exactly the look you're imagining.
+                    </p>
+                    <p style="color: rgba(255,255,255,0.95); font-size: 1.1rem; margin-bottom: 0;">
+                        Keep exploring, keep experimenting, and most importantly, keep creating. The materials you save to your library today will be the foundation of amazing art you'll create tomorrow!
+                    </p>
+                </div>
+            </section>
+
+            <nav class="lesson-nav" aria-label="Lesson Navigation" style="margin-top: 4rem;">
+                <a href="lesson_14_material_room.html" class="prev-lesson">← Previous: Introduction to the Material Room</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_16_skin_materials.html" class="next-lesson">Next: Skin Materials and Realism →</a>
+            </nav>
+
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Poser 12 Mastery Course. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>
