@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master natural and outdoor lighting in Poser 12 - learn to simulate sunlight, different times of day, and create realistic outdoor scenes">
+    <meta name="author" content="Poser 12 Course">
+    <title>Lesson 21: Natural and Outdoor Lighting - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+
+<nav class="main-nav" aria-label="Main Navigation">
+    <a href="index.html" class="nav-home">🏠 Course Home</a>
+    <span class="nav-separator">|</span>
+    <a href="#module-5" class="nav-module">Module 5: Lighting Fundamentals</a>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a> &gt; 
+    <a href="#module-5">Module 5</a> &gt; 
+    <span>Lesson 21</span>
+</nav>
+
+<main>
+    <header class="lesson-header">
+        <h1>🌅 Lesson 21: Natural and Outdoor Lighting</h1>
+        <p class="lesson-subtitle">Simulate Realistic Sunlight and Outdoor Environments</p>
+    </header>
+
+    <section id="introduction">
+        <p class="lead">Welcome to outdoor lighting! Now that you've mastered three-point lighting, it's time to apply those skills to one of the most common and beautiful lighting scenarios – outdoor scenes lit by natural sunlight.</p>
+
+        <p>Outdoor lighting presents unique challenges and opportunities. Unlike studio lighting where you control everything, outdoor scenes require you to simulate natural phenomena like the sun, sky, and atmospheric effects. But once you understand the principles, you can create stunningly realistic outdoor renders.</p>
+
+        <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <h3>🎯 Why This Lesson Matters</h3>
+            <ul style="color: white;">
+                <li><strong>Most common scenario:</strong> Many 3D scenes are outdoor or have outdoor elements</li>
+                <li><strong>Natural beauty:</strong> Sunlight creates gorgeous, realistic lighting</li>
+                <li><strong>Time of day control:</strong> Change mood by changing the "time"</li>
+                <li><strong>Foundation for environments:</strong> Essential for landscape and architectural work</li>
+                <li><strong>IBL mastery:</strong> Learn to use HDRIs effectively</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="learning-objectives">
+        <div class="card">
+            <h2>📋 What You'll Learn</h2>
+            <ul>
+                <li>✅ Simulate realistic sunlight with Infinite Lights</li>
+                <li>✅ Create lighting for different times of day</li>
+                <li>✅ Use IBL for natural outdoor lighting</li>
+                <li>✅ Combine traditional lights with IBL</li>
+                <li>✅ Control atmospheric effects</li>
+                <li>✅ Handle outdoor shadows effectively</li>
+                <li>✅ Create weather-based lighting (sunny, overcast, stormy)</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>⏱️ Estimated Time:</strong> 60-90 minutes</p>
+                <p><strong>📁 Project:</strong> Create day/sunset outdoor scenes</p>
+                <p><strong>💡 Difficulty:</strong> Intermediate</p>
+                <p><strong>🎓 Prerequisites:</strong> Lessons 19-20</p>
+            </div>
+        </div>
+    </section>
+
+<!-- Table of Contents -->
+<details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+    <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+        <h2 style="display: inline; margin: 0;">📑 In This Lesson</h2>
+    </summary>
+    <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+        <ol>
+            <li><a href="#understanding-sunlight" class="toc-link">Understanding Natural Sunlight</a></li>
+            <li><a href="#time-of-day" class="toc-link">Lighting by Time of Day</a></li>
+            <li><a href="#using-ibl" class="toc-link">Using IBL for Outdoor Scenes</a></li>
+            <li><a href="#traditional-sun" class="toc-link">Traditional Sun Lighting Setup</a></li>
+            <li><a href="#weather-conditions" class="toc-link">Weather and Atmospheric Effects</a></li>
+            <li><a href="#hybrid-approach" class="toc-link">Hybrid: Combining IBL and Lights</a></li>
+            <li><a href="#project" class="toc-link">Project: Day and Sunset Scenes</a></li>
+            <li><a href="#summary" class="toc-link">Summary and Next Steps</a></li>
+        </ol>
+    </nav>
+</details>
+
+<!-- Lesson 21, Part 02: Understanding Natural Sunlight -->
+
+<section id="understanding-sunlight">
+    <h2>☀️ Understanding Natural Sunlight</h2>
+    
+    <p>Before we start creating outdoor lighting, let's understand what makes natural sunlight unique and how to recreate its characteristics in Poser.</p>
+
+    <h3>🌍 How Sunlight Actually Works</h3>
+    
+    <div class="card">
+        <h4>Key Characteristics of Sunlight</h4>
+        <ul>
+            <li><strong>Parallel rays:</strong> Sun is so far away, rays are effectively parallel (no falloff)</li>
+            <li><strong>Single direction:</strong> All shadows point the same way</li>
+            <li><strong>Very bright:</strong> Much brighter than artificial lights</li>
+            <li><strong>Color changes:</strong> Varies from cool (noon) to warm (sunrise/sunset)</li>
+            <li><strong>Sharp shadows:</strong> Creates defined shadows (on clear days)</li>
+            <li><strong>Sky light fill:</strong> Blue sky acts as natural fill light</li>
+        </ul>
+    </div>
+
+    <div class="mermaid">
+        graph TD
+        A[Natural Outdoor Lighting] --> B[Direct Sunlight]
+        A --> C[Sky Light Blue Fill]
+        A --> D[Atmospheric Effects]
+        
+        B --> E[Infinite Light in Poser]
+        C --> F[Cool Point/IBL]
+        D --> G[Fog/Depth Cue]
+        
+        style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+        style E fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+        style F fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+        style G fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+    </div>
+
+    <h3>🎨 Sun Color Temperature by Time of Day</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Time of Day</th>
+                <th>Color Temperature</th>
+                <th>RGB Values</th>
+                <th>Mood</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Sunrise (5-7 AM)</strong></td>
+                <td>Warm orange-pink</td>
+                <td>255, 180, 150</td>
+                <td>Peaceful, fresh, hopeful</td>
+            </tr>
+            <tr>
+                <td><strong>Morning (7-10 AM)</strong></td>
+                <td>Warm white</td>
+                <td>255, 240, 220</td>
+                <td>Clear, energetic, bright</td>
+            </tr>
+            <tr>
+                <td><strong>Noon (10 AM-2 PM)</strong></td>
+                <td>Cool white/neutral</td>
+                <td>255, 255, 250</td>
+                <td>Harsh, bright, neutral</td>
+            </tr>
+            <tr>
+                <td><strong>Afternoon (2-5 PM)</strong></td>
+                <td>Warm white</td>
+                <td>255, 245, 230</td>
+                <td>Pleasant, warm, comfortable</td>
+            </tr>
+            <tr>
+                <td><strong>Golden Hour (5-7 PM)</strong></td>
+                <td>Golden orange</td>
+                <td>255, 200, 140</td>
+                <td>Romantic, warm, beautiful</td>
+            </tr>
+            <tr>
+                <td><strong>Sunset (7-8 PM)</strong></td>
+                <td>Deep orange-red</td>
+                <td>255, 140, 100</td>
+                <td>Dramatic, nostalgic, intense</td>
+            </tr>
+            <tr>
+                <td><strong>Twilight (8-9 PM)</strong></td>
+                <td>Deep blue</td>
+                <td>180, 200, 255</td>
+                <td>Mysterious, calm, transitional</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>🔆 Sun Angle Throughout the Day</h3>
+    
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h4>Sun Position Guidelines</h4>
+        <ul>
+            <li><strong>Sunrise/Sunset:</strong> 5-15° above horizon (very low angle)</li>
+            <li><strong>Early Morning/Late Afternoon:</strong> 20-40° above horizon</li>
+            <li><strong>Mid-Morning/Mid-Afternoon:</strong> 45-60° above horizon</li>
+            <li><strong>Noon (summer):</strong> 60-80° above horizon (nearly overhead)</li>
+        </ul>
+        <p><strong>Rule of thumb:</strong> Lower sun = longer shadows and warmer colors. Higher sun = shorter shadows and cooler colors.</p>
+    </div>
+
+</section>
+
+<section id="time-of-day">
+    <h2>🕐 Lighting by Time of Day</h2>
+    
+    <p>Let's learn to create lighting for different times of day. Each time has its own character and mood.</p>
+
+    <h3>☀️ Midday Sun (Noon)</h3>
+    
+    <div class="card">
+        <h4>Setup for Bright Daylight</h4>
+        <p><strong>Sun (Infinite Light):</strong></p>
+        <ul>
+            <li>Angle: 70-80° above horizon (nearly overhead)</li>
+            <li>Color: Cool white (255, 255, 250)</li>
+            <li>Intensity: 120-150%</li>
+            <li>Shadows: Hard, short</li>
+        </ul>
+        
+        <p><strong>Sky Fill (Point Light or IBL):</strong></p>
+        <ul>
+            <li>Cool blue (180, 210, 255)</li>
+            <li>Intensity: 30-40% of sun</li>
+            <li>No shadows</li>
+        </ul>
+
+        <p><strong>Mood:</strong> Bright, neutral, sometimes harsh. Good for clear, well-lit scenes but can be unflattering for portraits.</p>
+    </div>
+
+    <h3>🌅 Golden Hour</h3>
+    
+    <div class="card">
+        <h4>Setup for Magic Hour Lighting</h4>
+        <p><strong>Sun (Infinite Light):</strong></p>
+        <ul>
+            <li>Angle: 10-20° above horizon (low angle)</li>
+            <li>Color: Golden orange (255, 200, 140)</li>
+            <li>Intensity: 100-130%</li>
+            <li>Shadows: Long, warm</li>
+        </ul>
+        
+        <p><strong>Sky Fill (Point Light):</strong></p>
+        <ul>
+            <li>Warm pink/orange (255, 220, 200)</li>
+            <li>Intensity: 30-40% of sun</li>
+            <li>From opposite side of sun</li>
+        </ul>
+
+        <p><strong>Mood:</strong> Romantic, beautiful, warm. The most flattering natural light. Perfect for portraits and emotional scenes.</p>
+    </div>
+
+    <h3>🌇 Sunset</h3>
+    
+    <div class="card">
+        <h4>Setup for Dramatic Sunset</h4>
+        <p><strong>Sun (Infinite Light):</strong></p>
+        <ul>
+            <li>Angle: 0-10° above horizon (at horizon level)</li>
+            <li>Color: Deep orange-red (255, 140, 100)</li>
+            <li>Intensity: 80-100%</li>
+            <li>Shadows: Very long, dramatic</li>
+        </ul>
+        
+        <p><strong>Sky Fill (Point Light):</strong></p>
+        <ul>
+            <li>Purple-blue (200, 180, 255)</li>
+            <li>Intensity: 20-30% of sun</li>
+            <li>Creates color contrast</li>
+        </ul>
+
+        <p><strong>Mood:</strong> Dramatic, intense, nostalgic. Creates strong color contrasts. Great for silhouettes.</p>
+    </div>
+
+    <h3>🌤️ Overcast Day</h3>
+    
+    <div class="card">
+        <h4>Setup for Cloudy/Diffused Light</h4>
+        <p><strong>Option 1 - Soft Infinite Light:</strong></p>
+        <ul>
+            <li>No specific sun position (clouds diffuse it)</li>
+            <li>Color: Cool neutral (240, 245, 250)</li>
+            <li>Intensity: 80-100%</li>
+            <li>Shadows: Very soft or disabled</li>
+            <li>Shadow blur: 20-30 if enabled</li>
+        </ul>
+        
+        <p><strong>Option 2 - IBL Only:</strong></p>
+        <ul>
+            <li>Use overcast sky HDRI</li>
+            <li>No additional lights needed</li>
+            <li>Creates perfectly diffused, natural light</li>
+        </ul>
+
+        <p><strong>Mood:</strong> Soft, even, neutral. Minimizes shadows. Good for preventing harsh lighting, revealing detail in shadows.</p>
+    </div>
+
+</section>
+<!-- Lesson 21, Part 03: Using IBL for Outdoor Scenes -->
+
+<section id="using-ibl">
+    <h2>🌍 Using IBL for Outdoor Scenes</h2>
+    
+    <p>IBL (Image-Based Lighting) is often the best choice for outdoor scenes because it captures the complete natural environment – sun, sky, atmospheric effects, and all.</p>
+
+    <h3>✅ Advantages of IBL for Outdoors</h3>
+    
+    <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+        <ul>
+            <li><strong>Instant realism:</strong> Automatically captures natural light distribution</li>
+            <li><strong>Complete environment:</strong> Sun + sky + ambient in one</li>
+            <li><strong>Authentic colors:</strong> Real-world color temperature baked in</li>
+            <li><strong>Natural reflections:</strong> Figures reflect actual environment</li>
+            <li><strong>Time-saving:</strong> One light does everything</li>
+        </ul>
+    </div>
+
+    <h3>🎯 IBL Setup for Outdoor Scenes</h3>
+    
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h4>Step-by-Step IBL Outdoor Setup</h4>
+        <ol>
+            <li><strong>Choose appropriate HDRI:</strong>
+                <ul>
+                    <li>Sunny day: "outdoor_sunny" HDRIs</li>
+                    <li>Golden hour: "sunset" or "golden_hour" HDRIs</li>
+                    <li>Overcast: "overcast" or "cloudy" HDRIs</li>
+                </ul>
+            </li>
+            <li><strong>Load in Material Room:</strong>
+                <ul>
+                    <li>Material Room → Background → Background Color</li>
+                    <li>Add Image Map node → Load .hdr file</li>
+                </ul>
+            </li>
+            <li><strong>Enable IBL rendering:</strong>
+                <ul>
+                    <li>Render Settings → Use Background Picture: ON</li>
+                    <li>Render Settings → Image Based Lighting: ON</li>
+                    <li>IBL Quality: Medium for tests, High for finals</li>
+                </ul>
+            </li>
+            <li><strong>Adjust intensity:</strong>
+                <ul>
+                    <li>Sunny day: 1.2-1.5</li>
+                    <li>Golden hour: 1.0-1.3</li>
+                    <li>Overcast: 0.8-1.2</li>
+                </ul>
+            </li>
+            <li><strong>Rotate for best angle:</strong>
+                <ul>
+                    <li>Rotate HDRI to position sun optimally</li>
+                    <li>Front-side lighting usually most flattering</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <h3>📦 Recommended Free HDRIs</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Time/Mood</th>
+                <th>HDRI Name (Polyhaven)</th>
+                <th>Best For</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Bright Day</strong></td>
+                <td>kiara_1_dawn, sunny_vondelpark</td>
+                <td>General outdoor, clear day scenes</td>
+            </tr>
+            <tr>
+                <td><strong>Golden Hour</strong></td>
+                <td>golden_bay, venice_sunset</td>
+                <td>Romantic, warm evening scenes</td>
+            </tr>
+            <tr>
+                <td><strong>Overcast</strong></td>
+                <td>kloppenheim_06, hilly_terrain</td>
+                <td>Soft, even lighting</td>
+            </tr>
+            <tr>
+                <td><strong>Forest/Nature</strong></td>
+                <td>forest_slope, green_point_park</td>
+                <td>Natural settings, dappled light</td>
+            </tr>
+        </tbody>
+    </table>
+
+</section>
+
+<section id="traditional-sun">
+    <h2>☀️ Traditional Sun Lighting Setup</h2>
+    
+    <p>Sometimes you want more control than IBL offers. Here's how to create outdoor lighting with traditional lights.</p>
+
+    <h3>🔆 The Two-Light Outdoor System</h3>
+    
+    <div class="card">
+        <h4>Light 1: The Sun (Infinite Light)</h4>
+        <ul>
+            <li><strong>Type:</strong> Infinite Light</li>
+            <li><strong>Position:</strong> Doesn't matter (only rotation)</li>
+            <li><strong>Angle:</strong> Based on time of day (see earlier section)</li>
+            <li><strong>Color:</strong> Based on time of day</li>
+            <li><strong>Intensity:</strong> 120-150% for daytime</li>
+            <li><strong>Shadows:</strong> ON, blur 5-8</li>
+        </ul>
+
+        <h4>Light 2: Sky Fill (Point Light)</h4>
+        <ul>
+            <li><strong>Type:</strong> Point Light</li>
+            <li><strong>Position:</strong> Above scene, opposite side from sun</li>
+            <li><strong>Color:</strong> Cool blue (180, 210, 255) for daytime</li>
+            <li><strong>Intensity:</strong> 30-40% of sun</li>
+            <li><strong>Shadows:</strong> OFF</li>
+        </ul>
+    </div>
+
+    <div class="mermaid">
+        graph TD
+        A[Outdoor Scene] --> B[Sun Infinite Light]
+        A --> C[Sky Fill Point Light]
+        A --> D[Optional Rim]
+        
+        B --> E[Main illumination<br/>Creates shadows]
+        C --> F[Softens shadows<br/>Adds sky color]
+        D --> G[Extra separation<br/>if needed]
+        
+        style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+        style E fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+        style F fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+    </div>
+
+</section>
+
+<section id="weather-conditions">
+    <h2>🌦️ Weather and Atmospheric Effects</h2>
+    
+    <h3>☀️ Clear Sunny Day</h3>
+    <div class="card">
+        <ul>
+            <li>Strong sun (Infinite 130-150%)</li>
+            <li>Weak cool fill (30-40%)</li>
+            <li>Hard shadows (blur 5-8)</li>
+            <li>High contrast</li>
+        </ul>
+    </div>
+
+    <h3>⛅ Partly Cloudy</h3>
+    <div class="card">
+        <ul>
+            <li>Moderate sun (100-120%)</li>
+            <li>Stronger fill (40-50%)</li>
+            <li>Medium shadows (blur 10-12)</li>
+            <li>Balanced look</li>
+        </ul>
+    </div>
+
+    <h3>☁️ Overcast/Cloudy</h3>
+    <div class="card">
+        <ul>
+            <li>Soft sun or no sun (80-100%)</li>
+            <li>Strong fill (60-80%)</li>
+            <li>Very soft shadows (blur 20-30) or no shadows</li>
+            <li>Low contrast, even light</li>
+        </ul>
+    </div>
+
+</section>
+
+<section id="hybrid-approach">
+    <h2>🔀 Hybrid: Combining IBL and Lights</h2>
+    
+    <p>The most powerful approach: use IBL for realism, add lights for control.</p>
+
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h3>💡 The Hybrid Setup</h3>
+        <ol style="color: white;">
+            <li><strong>Base: IBL</strong> (intensity 0.8-1.0)
+                <ul>
+                    <li>Provides realistic environment lighting</li>
+                    <li>Natural reflections and ambient</li>
+                </ul>
+            </li>
+            <li><strong>Enhancement: Spotlight</strong> (intensity 0.5-1.0)
+                <ul>
+                    <li>Adds extra emphasis on face</li>
+                    <li>Gives you artistic control</li>
+                    <li>Position as you would key light</li>
+                </ul>
+            </li>
+            <li><strong>Result:</strong> Realistic base + artistic control</li>
+        </ol>
+    </div>
+
+</section>
+
+<section id="project">
+    <h2>🎨 Project: Day and Sunset Scenes</h2>
+    
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h3>🎯 Project Goal</h3>
+        <p style="color: white;">Create two outdoor portraits showing same figure in different lighting conditions.</p>
+    </div>
+
+    <h3>Scene 1: Bright Daytime</h3>
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h4>Setup</h4>
+        <ol>
+            <li>Load figure outdoors</li>
+            <li><strong>Method A - IBL:</strong> Use sunny day HDRI at 1.2-1.5 intensity</li>
+            <li><strong>Method B - Traditional:</strong> 
+                <ul>
+                    <li>Sun: Infinite, 45° angle, cool white, 130%</li>
+                    <li>Sky: Point, cool blue, 40%</li>
+                </ul>
+            </li>
+            <li>Render and save as "Outdoor_Day.png"</li>
+        </ol>
+    </div>
+
+    <h3>Scene 2: Golden Hour Sunset</h3>
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h4>Setup</h4>
+        <ol>
+            <li>Same figure, same pose</li>
+            <li><strong>Method A - IBL:</strong> Use golden hour/sunset HDRI at 1.0-1.3</li>
+            <li><strong>Method B - Traditional:</strong>
+                <ul>
+                    <li>Sun: Infinite, 15° angle, orange (255,200,140), 100%</li>
+                    <li>Sky: Point, warm pink (255,220,200), 30%</li>
+                </ul>
+            </li>
+            <li>Render and save as "Outdoor_Sunset.png"</li>
+        </ol>
+    </div>
+
+    <h3>Compare Results</h3>
+    <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+        <p>Notice how:</p>
+        <ul>
+            <li>Color temperature completely changes mood</li>
+            <li>Sun angle affects shadow length</li>
+            <li>Golden hour is more flattering</li>
+            <li>IBL vs traditional both work (choose based on needs)</li>
+        </ul>
+    </div>
+
+</section>
+
+<section id="summary">
+    <h2>🎓 Summary</h2>
+    
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h3>Key Takeaways</h3>
+        <ul style="color: white;">
+            <li>✅ Sun = Infinite Light (parallel rays)</li>
+            <li>✅ Time of day = sun angle + color</li>
+            <li>✅ IBL = easiest realistic outdoor lighting</li>
+            <li>✅ Traditional = more control, faster renders</li>
+            <li>✅ Hybrid = best of both worlds</li>
+            <li>✅ Lower sun = warmer, more dramatic</li>
+        </ul>
+    </div>
+
+    <h3>Quick Reference</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Goal</th>
+                <th>Best Approach</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Maximum realism</td>
+                <td>IBL only</td>
+            </tr>
+            <tr>
+                <td>Fast renders + control</td>
+                <td>Traditional lights</td>
+            </tr>
+            <tr>
+                <td>Best quality + control</td>
+                <td>Hybrid (IBL + Spotlight)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+        <h4>✅ Before Moving On</h4>
+        <p>Make sure you can:</p>
+        <ul>
+            <li>☐ Set up sunlight for different times of day</li>
+            <li>☐ Use IBL for outdoor scenes</li>
+            <li>☐ Create realistic outdoor lighting with traditional lights</li>
+            <li>☐ Understand how sun angle and color affect mood</li>
+        </ul>
+    </div>
+</section>
+
+<nav class="lesson-nav" aria-label="Lesson Navigation">
+    <a href="lesson_20_three_point_lighting.html" class="prev-lesson">← Previous: Three-Point Lighting</a>
+    <a href="index.html" class="home-link">🏠 Course Home</a>
+    <a href="lesson_22_dramatic_lighting.html" class="next-lesson">Next: Indoor and Dramatic Lighting →</a>
+</nav>
+
+<footer>
+    <p>&copy; 2024 Poser 12 Mastery Course. All rights reserved.</p>
+    <p>Lesson 21: Natural and Outdoor Lighting | Module 5: Lighting Fundamentals</p>
+</footer>
+
+<script src="js/clipboard.js"></script>
+<script src="js/course-enhancements.js"></script>
+
+</body>
+</html>

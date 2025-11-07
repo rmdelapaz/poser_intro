@@ -36,29 +36,34 @@ This is a comprehensive Poser 12 course for absolute beginners. The course teach
 17. ✅ Lesson 17 - Creating and Editing Simple Materials
 18. ✅ Lesson 18 - Material Collections and Efficiency
 
-### 🔄 MODULE 5: Lighting Fundamentals (IN PROGRESS)
-19. 🔄 **Lesson 19 - Understanding Light Types** (IN PROGRESS - 50% complete)
-    - ✅ Parts 01-06 created:
-      - Part 01: Header, introduction, learning objectives
-      - Part 02: Table of Contents, Why lighting matters
-      - Part 03: Light Fundamentals and Properties (intensity, color, shadows, falloff)
-      - Part 04: Infinite Lights (Directional) - Complete section
-      - Part 05: Point Lights (Omnidirectional) - Complete section
-      - Part 06: Spotlights (Focused Beams) - Complete section
-    - 📍 **CONTINUE FROM PART 07**
-    - Remaining topics to complete:
-      - Part 07: Image-Based Lighting (IBL)
-      - Part 08: Comparing Light Types Side by Side
-      - Part 09: Choosing the Right Light Type
-      - Part 10-11: Project - Light Type Comparison Scene (2 parts)
-      - Part 12: Summary, wrap-up, navigation, footer
+### ✅ MODULE 5: Lighting Fundamentals (COMPLETE)
+19. ✅ Lesson 19 - Understanding Light Types
+20. ✅ Lesson 20 - Three-Point Lighting Fundamentals
+21. ✅ Lesson 21 - Natural and Outdoor Lighting
+22. ✅ Lesson 22 - Indoor and Dramatic Lighting
 
-20. ⏳ Lesson 20 - Three-Point Lighting Fundamentals (NOT STARTED)
-21. ⏳ Lesson 21 - Natural and Outdoor Lighting (NOT STARTED)
-22. ⏳ Lesson 22 - Indoor and Dramatic Lighting (NOT STARTED)
+### 🔄 MODULE 6: Rendering Your Work (IN PROGRESS)
+23. ✅ **Lesson 23 - Render Settings Overview** (COMPLETE - All 12 parts)
+    - ✅ Part 01: Header, intro, learning objectives
+    - ✅ Part 02: Table of Contents, What is Rendering?
+    - ✅ Part 03: Firefly vs. SuperFly - Choosing Your Engine
+    - ✅ Part 04: Basic Render Settings Explained
+    - ✅ Part 05: Resolution and Image Dimensions
+    - ✅ Part 06: Quality Settings and Trade-offs
+    - ✅ Part 07: Anti-Aliasing and Sampling
+    - ✅ Part 08: Understanding Render Time
+    - ✅ Part 09: Preview Renders vs. Final Renders
+    - ✅ Part 10: Output Formats and File Types
+    - ✅ Part 11: Project: Render Quality Comparison Tests
+    - ✅ Part 12: Summary, Key Takeaways, Navigation, Footer
+
+24. ⏳ Lesson 24 - Firefly Rendering (NOT STARTED)
+25. ⏳ Lesson 25 - SuperFly (Cycles) Rendering (NOT STARTED)
+26. ⏳ Lesson 26 - Render Optimization and Troubleshooting (NOT STARTED)
+27. ⏳ Lesson 27 - Post-Render Processing (NOT STARTED)
 
 ### 📍 NEXT ACTION
-**Continue Lesson 19, Part 07** - Image-Based Lighting (IBL) section
+**Start Lesson 24** - Firefly Rendering (Poser's traditional render engine)
 
 ## File Creation Guidelines
 
@@ -321,28 +326,39 @@ Before considering a lesson complete:
 - Facial expressions
 - Full body action poses
 
-### Module 3: Working with Props and Scenes (Lessons 10-13) 🔄 IN PROGRESS
-- Understanding props vs. figures ✅
-- Building your first scene (IN PROGRESS)
+### Module 3: Working with Props and Scenes (Lessons 10-13) ✅ COMPLETE
+- Understanding props vs. figures
+- Building your first scene
 - Working with multiple figures
 - Smart props and conforming items
 
-### Module 4: Materials and Textures
+### Module 4: Materials and Textures (Lessons 14-18) ✅ COMPLETE
 - Introduction to Material Room
-- Basic materials and shaders
-- Texture mapping
-- Advanced materials
+- Texture Maps and UV Mapping
+- Skin Materials and Realism
+- Creating and Editing Simple Materials
+- Material Collections and Efficiency
 
-### Module 5: Lighting and Atmosphere
-- Lighting fundamentals
-- Advanced lighting techniques
-- Atmospheric effects
+### Module 5: Lighting Fundamentals (Lessons 19-22) ✅ COMPLETE
+- Understanding Light Types
+- Three-Point Lighting Fundamentals
+- Natural and Outdoor Lighting
+- Indoor and Dramatic Lighting
+
+### Module 6: Rendering Your Work (Lessons 23-27) 🔄 IN PROGRESS
+- Render Settings Overview ✅
+- Firefly Rendering (NEXT)
+- SuperFly (Cycles) Rendering
+- Render Optimization and Troubleshooting
+- Post-Render Processing
 
 ### Future Modules
-- Rendering and optimization
-- Advanced techniques
-- Animation basics
-- Final projects
+- Module 7: Animation Basics
+- Module 8: Hair and Cloth
+- Module 9: Advanced Techniques
+- Module 10: Character Design
+- Module 11: Scene Composition
+- Module 12: Final Projects and Portfolio
 
 ## Important Reminders
 
@@ -356,23 +372,20 @@ Before considering a lesson complete:
 
 ## Next Steps
 
-**Status Check:**
-- Check if Lesson 11 parts need to be completed (parts 05-17)
-- OR if Lesson 11 is complete, move to Lesson 12
-
-**Next Lesson: Lesson 12 - Working with Multiple Figures**
+**Next Lesson: Lesson 24 - Firefly Rendering**
 
 Topics to cover:
-- Loading and managing multiple figures in one scene
-- Figure naming and organization strategies
-- Creating natural interactions between figures
-- Avoiding figure interpenetration (poke-through)
-- Group posing techniques
-- Managing camera angles for multiple figures
-- Project: Create a scene with two figures interacting (handshake, conversation, etc.)
+- Firefly render engine features and philosophy
+- Firefly-specific settings (raytrace, ambient occlusion)
+- Material optimization for Firefly
+- Lighting strategies for Firefly
+- Firefly render passes and layers
+- Advanced Firefly techniques
+- Common Firefly problems and solutions
+- Project: Create a high-quality Firefly render
 
 ---
 
-**Status: 18 lessons complete | Modules 1-4 finished | Module 5 in progress (Lesson 19 at 50%)**
+**Status: 23 lessons complete | Modules 1-5 finished | Module 6 in progress (Lesson 23 complete)**
 
-**Total Progress: 19 out of 54 planned lessons (35% complete)**
+**Total Progress: 23 out of 54 planned lessons (43% complete)**

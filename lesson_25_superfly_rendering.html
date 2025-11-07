@@ -1,0 +1,2742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master SuperFly rendering in Poser 12 - Learn Poser's physically-based Cycles render engine, create photorealistic materials, and produce stunning, accurate renders with advanced lighting techniques.">
+    <meta name="author" content="Poser 12 Course">
+    <title>SuperFly Rendering - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav" aria-label="Main Navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">🎨 Poser 12 Mastery</a>
+            <button class="nav-toggle" aria-label="Toggle Navigation">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Course Home</a></li>
+                <li><a href="lesson_24_firefly_rendering.html">← Previous</a></li>
+                <li><a href="lesson_26_render_optimization.html">Next →</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> &gt; 
+        <a href="index.html#module6">Module 6: Rendering Your Work</a> &gt; 
+        <span>Lesson 25: SuperFly Rendering</span>
+    </nav>
+
+    <main class="container">
+        <!-- Lesson Header -->
+        <article class="lesson-content">
+            <header class="lesson-header">
+                <div class="lesson-number">Lesson 25</div>
+                <h1>🚀 SuperFly Rendering: Photorealistic Power with Cycles</h1>
+                <p class="lead">
+                    SuperFly is Poser's physically-based render engine built on Blender's powerful Cycles technology. Think of SuperFly as a scientific simulator—instead of taking artistic shortcuts like Firefly, it actually calculates how light behaves in the real world. The result? Stunningly realistic renders with accurate materials, natural lighting, and photographic quality. SuperFly requires more patience and render time, but delivers images that look like they were photographed rather than rendered. In this lesson, we'll harness SuperFly's power to create professional, photorealistic renders that push your work to the next level.
+                </p>
+            </header>
+
+            <!-- Learning Objectives -->
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin: 2rem 0;">
+                <h2 style="color: white; margin-top: 0;">🎯 What You'll Learn</h2>
+                <ul style="color: white;">
+                    <li><strong>SuperFly vs Firefly:</strong> Understand the fundamental differences and when to use each engine</li>
+                    <li><strong>Physically-Based Rendering:</strong> Learn what PBR means and why it creates realistic images</li>
+                    <li><strong>SuperFly Materials:</strong> Master the Cycles shader nodes for photorealistic surfaces</li>
+                    <li><strong>HDR Lighting:</strong> Use environment maps and image-based lighting effectively</li>
+                    <li><strong>Sample Settings:</strong> Balance noise reduction with render times</li>
+                    <li><strong>Denoising:</strong> Get clean renders faster with AI denoising</li>
+                    <li><strong>Advanced Techniques:</strong> Explore caustics, volumetrics, and complex materials</li>
+                </ul>
+                <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                    <p style="margin: 0; color: white;"><strong>⚡ Estimated Time:</strong> 70-90 minutes</p>
+                    <p style="margin: 0.5rem 0 0 0; color: white;"><strong>🔧 Project:</strong> Create a photorealistic product render using SuperFly with HDR lighting</p>
+                </div>
+            </div>
+            <!-- Table of Contents -->
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">🔑 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#what-is-superfly" class="toc-link">What is SuperFly and Physically-Based Rendering?</a></li>
+                        <li><a href="#firefly-vs-superfly" class="toc-link">FireFly vs SuperFly: Choosing the Right Engine</a></li>
+                        <li><a href="#superfly-settings" class="toc-link">Essential SuperFly Render Settings</a></li>
+                        <li><a href="#pbr-materials" class="toc-link">Creating Physical Surface Materials</a></li>
+                        <li><a href="#hdr-lighting" class="toc-link">HDR and Environment-Based Lighting</a></li>
+                        <li><a href="#noise-and-samples" class="toc-link">Understanding Noise, Samples, and Denoising</a></li>
+                        <li><a href="#advanced-superfly" class="toc-link">Advanced SuperFly Techniques</a></li>
+                        <li><a href="#workflow-tips" class="toc-link">SuperFly Workflow and Optimization</a></li>
+                        <li><a href="#troubleshooting" class="toc-link">Troubleshooting SuperFly Renders</a></li>
+                        <li><a href="#project" class="toc-link">Project: Photorealistic Product Render</a></li>
+                        <li><a href="#summary" class="toc-link">Summary and Key Takeaways</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Section 1: What is SuperFly? -->
+            <section id="what-is-superfly" class="content-section">
+                <h2>🚀 What is SuperFly and Physically-Based Rendering?</h2>
+                
+                <p>
+                    SuperFly is Poser's implementation of <strong>Cycles</strong>, the same powerful render engine used in Blender. Unlike Firefly's artistic approach, SuperFly is a <strong>physically-based path tracer</strong> that simulates how light actually works in the real world. It's the difference between painting a picture of an apple and actually photographing one.
+                </p>
+
+                <h3>What is Physically-Based Rendering?</h3>
+
+                <p>
+                    <strong>Physically-Based Rendering (PBR)</strong> means the render engine follows the laws of physics when calculating how light behaves. Every ray of light in your scene bounces around realistically, interacts with materials according to real-world properties, and produces results that match what a camera would capture.
+                </p>
+
+                <div class="card">
+                    <h3>The Path Tracing Process</h3>
+                    <p>
+                        Imagine you're trying to figure out what a photographer's camera sees. SuperFly shoots millions of "rays" backward from the camera into the scene. Each ray bounces off surfaces, absorbing some colors and reflecting others, until it either hits a light source or gets lost in the void. By averaging millions of these paths, SuperFly builds up an accurate image of what the camera sees—just like real photography captures accumulated photons.
+                    </p>
+                </div>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Camera/Eye] -->|Ray 1| B[Surface]
+                    B -->|Bounce| C[Another Surface]
+                    C -->|Bounce| D[Light Source]
+                    
+                    A -->|Ray 2| E[Glossy Surface]
+                    E -->|Scattered Rays| F[Multiple Directions]
+                    F --> G[Eventually Hit Lights]
+                    
+                    A -->|Ray 3| H[Glass]
+                    H -->|Refraction + Reflection| I[Split Paths]
+                    I --> J[Complex Light Interaction]
+                    
+                    D --> K[Color Calculated]
+                    G --> K
+                    J --> K
+                    K --> A
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style D fill:#FFC107,stroke:#333,stroke-width:2px
+                    style K fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Why SuperFly Creates Realistic Images</h3>
+
+                <p>
+                    Because SuperFly follows physics, several things happen automatically that you'd have to fake in Firefly:
+                </p>
+
+                <div class="card">
+                    <h4>🌈 Automatic Color Bleeding</h4>
+                    <p>
+                        Place a red ball next to a white wall, and the wall naturally picks up a red tint. In the real world, red light bounces off the ball and illuminates nearby surfaces. SuperFly simulates this automatically—no special setup needed.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>💎 Natural Caustics</h4>
+                    <p>
+                        Caustics are those beautiful light patterns you see through glass or water—like the dancing light at the bottom of a swimming pool. SuperFly calculates these naturally because it traces how light refracts through transparent materials.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>🔆 Realistic Indirect Lighting</h4>
+                    <p>
+                        Light doesn't just come from light sources—it bounces off every surface, filling in shadows naturally. In a room lit by a window, SuperFly automatically calculates how light bounces off floors, walls, and furniture to illuminate the whole space. No manual fill lights needed!
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>✨ Accurate Material Interactions</h4>
+                    <p>
+                        When light hits a shiny metal, some reflects sharply while some absorbs into the material. When it hits frosted glass, it scatters. SuperFly handles all these interactions physically, so materials behave like they do in real life.
+                    </p>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>The Trade-Off:</strong> SuperFly's realism comes at a cost—<em>time</em>. Because it's calculating millions of light paths, SuperFly renders take significantly longer than Firefly. A Firefly render that takes 3 minutes might take 20-30 minutes in SuperFly. But that extra time buys you physical accuracy and photorealism that's nearly impossible to achieve any other way.
+                    </p>
+                </blockquote>
+
+                <h3>SuperFly's Philosophy</h3>
+
+                <div class="card">
+                    <h4>The SuperFly Approach</h4>
+                    <p>
+                        SuperFly says: <em>"Give me accurate material properties and realistic lighting, and I'll give you a physically accurate image."</em> You're not manually painting with light and shadow—you're setting up a virtual photography studio and letting physics do the work. This requires a different mindset than Firefly, but the results speak for themselves.
+                    </p>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Firefly Approach</th>
+                            <th>SuperFly Approach</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Philosophy</strong></td>
+                            <td>Artistic control through manual lighting</td>
+                            <td>Simulation of physical reality</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Light Behavior</strong></td>
+                            <td>Calculated with shortcuts and approximations</td>
+                            <td>Traced according to physics</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Materials</strong></td>
+                            <td>Artistic parameters (specular, diffuse, etc.)</td>
+                            <td>Physical properties (roughness, metalness, IOR)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Indirect Light</strong></td>
+                            <td>Optional feature (IDL) you enable manually</td>
+                            <td>Automatic and always accurate</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Caustics</strong></td>
+                            <td>Difficult to achieve, requires special setup</td>
+                            <td>Automatic when using refractive materials</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Render Time</strong></td>
+                            <td>Fast (minutes)</td>
+                            <td>Slow (potentially hours for high quality)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 Key Insight</h4>
+                    <p>
+                        SuperFly isn't "better" than Firefly—it's <em>different</em>. It's better for photorealism, architectural visualization, product renders, and situations where physical accuracy matters. But Firefly is better for character work, stylized art, animation (due to speed), and when you need total artistic control. Professional Poser artists use both engines strategically, choosing the right tool for each project.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 2: Firefly vs SuperFly -->
+            <section id="firefly-vs-superfly" class="content-section">
+                <h2>⚖️ Firefly vs SuperFly: Choosing the Right Engine</h2>
+                
+                <p>
+                    Understanding when to use Firefly versus SuperFly is crucial for working efficiently in Poser. Let's break down the practical differences and help you make the right choice for each project.
+                </p>
+
+                <h3>Direct Comparison</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Firefly</th>
+                            <th>SuperFly</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Render Method</strong></td>
+                            <td>Scanline + Raytracing</td>
+                            <td>Path Tracing (Cycles)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Speed</strong></td>
+                            <td>Fast (2-10 minutes typical)</td>
+                            <td>Slow (15-60+ minutes typical)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Realism</strong></td>
+                            <td>Good with proper setup</td>
+                            <td>Excellent, photorealistic</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Material System</strong></td>
+                            <td>Poser nodes (traditional)</td>
+                            <td>Cycles nodes (PBR-based)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lighting Complexity</strong></td>
+                            <td>Manual multi-light setups</td>
+                            <td>Simpler (often one HDR enough)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Indirect Lighting</strong></td>
+                            <td>Optional (IDL), slower</td>
+                            <td>Automatic, included</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Caustics</strong></td>
+                            <td>Limited, difficult</td>
+                            <td>Automatic, natural</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Best For</strong></td>
+                            <td>Characters, stylized art, animation</td>
+                            <td>Products, architecture, photorealism</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Learning Curve</strong></td>
+                            <td>Moderate</td>
+                            <td>Steep (PBR concepts)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Noise/Grain</strong></td>
+                            <td>Generally clean results</td>
+                            <td>Can be noisy, requires samples/denoising</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>When to Use Firefly</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #FFC107;">
+                    <h4>🔥 Choose Firefly For:</h4>
+                    <ul>
+                        <li><strong>Character Portraits:</strong> Fast iterations, artistic control over skin and hair</li>
+                        <li><strong>Animation:</strong> Much faster per-frame renders (crucial for animations)</li>
+                        <li><strong>Quick Previews:</strong> Testing poses, compositions, camera angles</li>
+                        <li><strong>Stylized Art:</strong> Non-photorealistic looks, artistic lighting</li>
+                        <li><strong>Tight Deadlines:</strong> When you need good results quickly</li>
+                        <li><strong>Controlled Studio Lighting:</strong> When you want precise manual control</li>
+                        <li><strong>Simpler Scenes:</strong> Characters on simple backgrounds</li>
+                    </ul>
+                </div>
+
+                <h3>When to Use SuperFly</h3>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>🚀 Choose SuperFly For:</h4>
+                    <ul>
+                        <li><strong>Product Visualization:</strong> Jewelry, watches, bottles—anything needing photorealistic materials</li>
+                        <li><strong>Architectural Renders:</strong> Interior and exterior spaces with natural lighting</li>
+                        <li><strong>Complex Materials:</strong> Glass, metals, subsurface scattering (like wax or jade)</li>
+                        <li><strong>Natural Lighting:</strong> Outdoor scenes, HDR-lit environments</li>
+                        <li><strong>Portfolio Pieces:</strong> When quality matters more than speed</li>
+                        <li><strong>Refractive Effects:</strong> Scenes with glass, water, or other transparent materials</li>
+                        <li><strong>Environmental Shots:</strong> Character in realistic environments</li>
+                    </ul>
+                </div>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Choose Render Engine] --> B{What's the Project?}
+                    
+                    B -->|Character Portrait| C{Need Speed?}
+                    C -->|Yes| D[Firefly]
+                    C -->|No, need photo-quality| E[SuperFly]
+                    
+                    B -->|Product Render| F[SuperFly]
+                    B -->|Architecture| F
+                    B -->|Animation| D
+                    B -->|Stylized Art| D
+                    
+                    B -->|Glass/Refraction Heavy| F
+                    B -->|Natural/HDR Lighting| F
+                    B -->|Multiple Characters| D
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:3px,color:#fff
+                    style D fill:#FF9800,stroke:#333,stroke-width:2px,color:#fff
+                    style F fill:#2196F3,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Hybrid Workflow: Using Both</h3>
+
+                <p>
+                    Many professional Poser artists don't choose one engine over the other—they use <strong>both strategically</strong>:
+                </p>
+
+                <div class="card">
+                    <h4>The Smart Hybrid Approach</h4>
+                    <ol>
+                        <li><strong>Compose in Firefly:</strong> Test poses, camera angles, and basic lighting quickly</li>
+                        <li><strong>Make decisions fast:</strong> Get client approval or make creative choices with fast Firefly renders</li>
+                        <li><strong>Switch to SuperFly for finals:</strong> Once everything is locked in, convert materials to PBR and render in SuperFly for maximum quality</li>
+                        <li><strong>Or split the scene:</strong> Render character in Firefly, environment/props in SuperFly, composite together</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Pro Example Workflow</h4>
+                    <p><strong>Project:</strong> Character wearing a diamond necklace in front of city skyline</p>
+                    <ul>
+                        <li><strong>Test render:</strong> Everything in Firefly (2 minutes) to verify pose and composition</li>
+                        <li><strong>Character:</strong> Render in Firefly (5 minutes)—fast, great skin, good hair</li>
+                        <li><strong>Diamond necklace:</strong> Render separately in SuperFly (20 minutes)—needs caustics and realistic refraction</li>
+                        <li><strong>Background:</strong> Render in SuperFly with HDR (15 minutes)—natural lighting</li>
+                        <li><strong>Composite:</strong> Combine in Photoshop, adjust blending</li>
+                        <li><strong>Total time:</strong> ~45 minutes vs 60+ minutes if all SuperFly, with better results!</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>The Golden Rule:</strong> Use Firefly for everything until you have a specific reason to use SuperFly. SuperFly's power comes with complexity and time costs—only pay those costs when you actually need what SuperFly offers. Don't use a sledgehammer when a regular hammer will do!
+                    </p>
+                </blockquote>
+
+                <h3>Material Conversion Between Engines</h3>
+
+                <p>
+                    One important note: <strong>Firefly materials don't automatically work in SuperFly</strong>. They use different material systems:
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Material Compatibility</h4>
+                    <ul>
+                        <li><strong>Poser Surface (Firefly materials):</strong> Won't render correctly in SuperFly</li>
+                        <li><strong>Cycles Surface (SuperFly materials):</strong> Won't show in Firefly renders</li>
+                        <li><strong>Solution:</strong> Content needs separate material setups for each engine, or you manually convert</li>
+                        <li><strong>Some vendors:</strong> Provide both Firefly and SuperFly versions of materials</li>
+                    </ul>
+                </div>
+
+                <p>
+                    Don't worry—we'll cover how to create proper SuperFly materials from scratch in the next sections. Once you understand the principles, material setup becomes straightforward.
+                </p>
+
+            </section>
+            <!-- Section 3: Essential SuperFly Render Settings -->
+            <section id="superfly-settings" class="content-section">
+                <h2>⚙️ Essential SuperFly Render Settings</h2>
+                
+                <p>
+                    SuperFly's render settings are simpler than Firefly's in some ways, but understanding them is crucial for balancing quality with render time. Let's master the core settings that control SuperFly's behavior.
+                </p>
+
+                <h3>Accessing SuperFly Settings</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Setting Up SuperFly</h4>
+                    <ol>
+                        <li>Go to <strong>Render &gt; Render Settings</strong> (Ctrl+Y / Cmd+Y)</li>
+                        <li>At the top, change render engine from <strong>Firefly</strong> to <strong>SuperFly</strong></li>
+                        <li>The settings interface will change to show SuperFly-specific options</li>
+                        <li>You'll see tabs for different setting categories</li>
+                    </ol>
+                </div>
+
+                <h3>The Core SuperFly Settings</h3>
+
+                <p>
+                    SuperFly's quality is primarily controlled by <strong>samples</strong>—how many light paths are calculated per pixel. More samples = cleaner image, but also longer render times.
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Setting</th>
+                            <th>What It Does</th>
+                            <th>Recommended Starting Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Max Samples</strong></td>
+                            <td>Maximum number of light paths per pixel</td>
+                            <td>500-1000 preview, 2000-5000 final</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Min Samples</strong></td>
+                            <td>Minimum samples before adaptive sampling can stop</td>
+                            <td>0 (let adaptive sampling work)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Adaptive Threshold</strong></td>
+                            <td>Noise level where rendering can stop (lower = cleaner)</td>
+                            <td>0.01-0.05 for most renders</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Max Bounces</strong></td>
+                            <td>Total light bounces before stopping</td>
+                            <td>8-12 for most scenes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Diffuse Bounces</strong></td>
+                            <td>How many times light can bounce off matte surfaces</td>
+                            <td>4-6</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Glossy Bounces</strong></td>
+                            <td>How many times light can bounce off shiny surfaces</td>
+                            <td>4-6</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Transmission Bounces</strong></td>
+                            <td>How many times light can pass through transparent objects</td>
+                            <td>8-12 (important for glass)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Understanding Samples</h3>
+
+                <p>
+                    <strong>Samples</strong> are the heart of SuperFly rendering. Think of each sample as SuperFly shooting one ray from the camera through a pixel and tracing where it goes. The more rays you trace, the more accurate your average becomes, and the less noise you see.
+                </p>
+
+                <div class="card">
+                    <h4>How Samples Work</h4>
+                    <p>Imagine you're trying to figure out the average height of people in a crowd:</p>
+                    <ul>
+                        <li><strong>100 samples:</strong> You measure 100 random people. Your average is rough—lots of variation possible.</li>
+                        <li><strong>1000 samples:</strong> You measure 1000 people. Your average is much more accurate.</li>
+                        <li><strong>5000 samples:</strong> You measure 5000 people. Your average is very accurate, but it took 50x longer than 100 samples.</li>
+                    </ul>
+                    <p>
+                        Same principle in SuperFly. Each pixel needs enough samples to get an accurate color average. Complex lighting needs more samples than simple lighting.
+                    </p>
+                </div>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Pixel] --> B[100 Samples]
+                    A --> C[1000 Samples]
+                    A --> D[5000 Samples]
+                    
+                    B --> B1[Grainy/Noisy]
+                    C --> C1[Good Quality]
+                    D --> D1[Very Clean]
+                    
+                    B --> B2[Fast Render]
+                    C --> C2[Medium Render]
+                    D --> D2[Slow Render]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style C fill:#4CAF50,stroke:#333,stroke-width:2px
+                    style C1 fill:#4CAF50,stroke:#333,stroke-width:2px
+                    style C2 fill:#4CAF50,stroke:#333,stroke-width:2px
+                </div>
+
+                <h3>Sample Count Guidelines</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sample Count</th>
+                            <th>Quality Level</th>
+                            <th>When to Use</th>
+                            <th>Typical Render Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>50-100</td>
+                            <td>Very rough</td>
+                            <td>Composition tests only</td>
+                            <td>2-5 minutes</td>
+                        </tr>
+                        <tr>
+                            <td>200-500</td>
+                            <td>Preview</td>
+                            <td>Lighting and material tests</td>
+                            <td>5-15 minutes</td>
+                        </tr>
+                        <tr>
+                            <td>1000-2000</td>
+                            <td>Good</td>
+                            <td>Working renders, some noise acceptable</td>
+                            <td>15-30 minutes</td>
+                        </tr>
+                        <tr>
+                            <td>2000-5000</td>
+                            <td>Excellent</td>
+                            <td>Final renders, portfolio work</td>
+                            <td>30-90 minutes</td>
+                        </tr>
+                        <tr>
+                            <td>5000+</td>
+                            <td>Ultra clean</td>
+                            <td>Print work, extreme quality needs</td>
+                            <td>1-3+ hours</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 The Sample Sweet Spot</h4>
+                    <p>
+                        For most work, <strong>1500-2500 samples</strong> with denoising gives you professional results in reasonable time. Going beyond 3000 samples often doesn't improve quality enough to justify the extra render time—especially if you're using denoising (which we'll cover soon).
+                    </p>
+                </div>
+
+                <h3>Adaptive Sampling</h3>
+
+                <p>
+                    <strong>Adaptive Sampling</strong> is a smart feature that stops calculating samples in areas that are already clean enough. Think of it like this: a bright blue sky converges quickly (becomes noise-free), but complex glass refractions take many more samples to clean up.
+                </p>
+
+                <div class="card">
+                    <h4>How Adaptive Sampling Helps</h4>
+                    <ul>
+                        <li><strong>Simple areas:</strong> Stop at 500 samples when they're clean</li>
+                        <li><strong>Complex areas:</strong> Keep going up to max samples (2000) until clean</li>
+                        <li><strong>Result:</strong> You get clean renders faster because you're not wasting samples on already-converged areas</li>
+                        <li><strong>Adaptive Threshold:</strong> Lower values (0.01) are stricter, higher values (0.1) stop sooner</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Recommended Adaptive Settings</h4>
+                    <ul>
+                        <li><strong>Adaptive Threshold:</strong> 0.01-0.02 for final renders</li>
+                        <li><strong>Min Samples:</strong> 0 (let it adapt from the start)</li>
+                        <li><strong>Max Samples:</strong> 2000-3000 (the ceiling it can reach)</li>
+                    </ul>
+                </div>
+
+                <h3>Bounce Settings Explained</h3>
+
+                <p>
+                    Each type of light interaction gets its own bounce limit. This gives you fine control over render time versus quality for different effects.
+                </p>
+
+                <div class="card">
+                    <h4>Diffuse Bounces</h4>
+                    <p>
+                        Controls light bouncing off matte surfaces (walls, fabric, skin). Each bounce brightens the scene slightly as light fills in indirect areas. <strong>Recommendation:</strong> 4-6 bounces for interior scenes, 2-3 for simple outdoor scenes.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>Glossy Bounces</h4>
+                    <p>
+                        Controls reflections bouncing between shiny surfaces. Important for scenes with mirrors or polished metal. <strong>Recommendation:</strong> 4-6 bounces for most scenes, 8+ if you have mirrors reflecting mirrors.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>Transmission Bounces</h4>
+                    <p>
+                        Controls light passing through transparent materials like glass or water. Critical for realistic glass rendering. <strong>Recommendation:</strong> 8-12 bounces (glass needs multiple passes), reduce to 4-6 if you don't have transparent objects.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>Max Bounces (Total)</h4>
+                    <p>
+                        The absolute maximum bounces for any light path regardless of type. Should be equal to or higher than your highest individual bounce setting. <strong>Recommendation:</strong> Set to 12 and let the individual bounce types control behavior.
+                    </p>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Bounce strategy:</strong> Start with everything at 4 bounces. If glass looks wrong, increase transmission bounces. If indirect lighting seems weak, increase diffuse bounces. If reflections cut off in mirrors, increase glossy bounces. Target the problem rather than raising everything!
+                    </p>
+                </blockquote>
+
+                <h3>Recommended SuperFly Presets</h3>
+
+                <p>Here are proven setting combinations for different scenarios:</p>
+
+                <div class="card">
+                    <h4>🚀 Fast Preview</h4>
+                    <ul>
+                        <li><strong>Max Samples:</strong> 200</li>
+                        <li><strong>Adaptive Threshold:</strong> 0.1</li>
+                        <li><strong>Max Bounces:</strong> 4</li>
+                        <li><strong>All Bounce Types:</strong> 2</li>
+                        <li><strong>Use:</strong> Quick composition and lighting checks</li>
+                        <li><strong>Typical Time:</strong> 5-10 minutes (will be noisy)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>⚖️ Balanced Quality</h4>
+                    <ul>
+                        <li><strong>Max Samples:</strong> 1500</li>
+                        <li><strong>Adaptive Threshold:</strong> 0.015</li>
+                        <li><strong>Max Bounces:</strong> 12</li>
+                        <li><strong>Diffuse/Glossy:</strong> 4</li>
+                        <li><strong>Transmission:</strong> 8</li>
+                        <li><strong>Enable Denoising:</strong> Yes</li>
+                        <li><strong>Use:</strong> Most final renders</li>
+                        <li><strong>Typical Time:</strong> 20-40 minutes</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>🌟 Maximum Quality</h4>
+                    <ul>
+                        <li><strong>Max Samples:</strong> 3000-5000</li>
+                        <li><strong>Adaptive Threshold:</strong> 0.01</li>
+                        <li><strong>Max Bounces:</strong> 12</li>
+                        <li><strong>Diffuse/Glossy:</strong> 6</li>
+                        <li><strong>Transmission:</strong> 12</li>
+                        <li><strong>Enable Denoising:</strong> Yes (or no if you want pure samples)</li>
+                        <li><strong>Use:</strong> Portfolio pieces, print work</li>
+                        <li><strong>Typical Time:</strong> 1-3+ hours</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Common Mistakes</h4>
+                    <ul>
+                        <li><strong>Too few samples:</strong> Extremely noisy renders even with denoising. Start at 1000 minimum for finals.</li>
+                        <li><strong>Too many bounces everywhere:</strong> Set transmission to 12 even for scenes with no glass. Wasteful!</li>
+                        <li><strong>Ignoring adaptive sampling:</strong> Not using it means you render at max samples everywhere, even where it's not needed.</li>
+                        <li><strong>No denoising:</strong> Modern SuperFly includes AI denoising—use it! We'll cover this in detail soon.</li>
+                    </ul>
+                </div>
+
+            </section>
+            <!-- Section 4: Creating Physically-Based Surface Materials -->
+            <section id="pbr-materials" class="content-section">
+                <h2>🎨 Creating Physically-Based Surface Materials</h2>
+                
+                <p>
+                    SuperFly materials work fundamentally differently than Firefly materials. Instead of artistic parameters like "specular value," you use <strong>physical properties</strong> like "roughness" and "metalness" that describe how the material actually behaves in the real world. Let's learn how to create realistic PBR materials.
+                </p>
+
+                <h3>The PBR Material Model</h3>
+
+                <p>
+                    Physically-Based Rendering uses a standard approach to materials that every surface in the real world can be described with just a few key properties:
+                </p>
+
+                <div class="card">
+                    <h4>Core PBR Properties</h4>
+                    <ul>
+                        <li><strong>Base Color (Albedo):</strong> The true color of the material without lighting</li>
+                        <li><strong>Roughness:</strong> How smooth (0.0) or rough (1.0) the surface is</li>
+                        <li><strong>Metallic:</strong> Whether it's a metal (1.0) or non-metal (0.0)</li>
+                        <li><strong>Specular/Reflectivity:</strong> How reflective the surface is (for non-metals)</li>
+                        <li><strong>Normal Map:</strong> Surface detail and texture</li>
+                        <li><strong>Emission:</strong> If the material glows or emits light</li>
+                    </ul>
+                </div>
+
+                <div class="mermaid">
+                    graph TD
+                    A[PBR Material] --> B[Base Color]
+                    A --> C[Roughness]
+                    A --> D[Metallic]
+                    A --> E[Normal/Bump]
+                    
+                    B --> B1[Surface Color]
+                    C --> C1[Smooth vs Rough]
+                    D --> D1[Metal vs Non-Metal]
+                    E --> E1[Surface Detail]
+                    
+                    C1 --> F[Controls Reflection Blur]
+                    D1 --> G[Controls Reflection Type]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:3px,color:#fff
+                    style B fill:#4CAF50,stroke:#333,stroke-width:2px
+                    style C fill:#FFC107,stroke:#333,stroke-width:2px
+                    style D fill:#2196F3,stroke:#333,stroke-width:2px
+                    style E fill:#9C27B0,stroke:#333,stroke-width:2px
+                </div>
+
+                <h3>Accessing the Material Room for SuperFly</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Setting Up SuperFly Materials</h4>
+                    <ol>
+                        <li>Go to <strong>Window &gt; Material Room</strong> (or press Ctrl+M / Cmd+M)</li>
+                        <li>Select the object/material you want to edit</li>
+                        <li>In the <strong>Shader</strong> dropdown, look for <strong>Cycles</strong> shaders:
+                            <ul>
+                                <li><strong>Principled BSDF:</strong> The all-in-one shader (use this 90% of the time!)</li>
+                                <li><strong>Diffuse BSDF:</strong> Matte surfaces only</li>
+                                <li><strong>Glossy BSDF:</strong> Shiny surfaces only</li>
+                                <li><strong>Glass BSDF:</strong> Transparent materials</li>
+                                <li><strong>Mix Shader:</strong> Combine multiple shaders</li>
+                            </ul>
+                        </li>
+                        <li>For most work, use <strong>Principled BSDF</strong>—it's the Swiss Army knife of PBR materials</li>
+                    </ol>
+                </div>
+
+                <h3>The Principled BSDF Shader</h3>
+
+                <p>
+                    The <strong>Principled BSDF</strong> (Bidirectional Scattering Distribution Function) is your one-stop-shop for creating any material. It combines all the common material types—metal, plastic, glass, skin, fabric—into one flexible shader.
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>What It Controls</th>
+                            <th>Typical Values</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Base Color</strong></td>
+                            <td>The diffuse/albedo color of the material</td>
+                            <td>0.0-1.0 RGB (connect texture map here)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Roughness</strong></td>
+                            <td>Surface smoothness (0=mirror, 1=matte)</td>
+                            <td>0.1-0.2 polished, 0.5 satin, 0.8-1.0 rough</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Metallic</strong></td>
+                            <td>Is it metal? (binary choice usually)</td>
+                            <td>0.0 for non-metals, 1.0 for metals</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Specular</strong></td>
+                            <td>Reflection strength for non-metals</td>
+                            <td>0.5 default (leave it unless special case)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Specular Tint</strong></td>
+                            <td>Tint reflections with base color</td>
+                            <td>0.0 usually, higher for special effects</td>
+                        </tr>
+                        <tr>
+                            <td><strong>IOR (Index of Refraction)</strong></td>
+                            <td>How light bends through material</td>
+                            <td>1.45 plastic, 1.5 glass, 1.33 water</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Transmission</strong></td>
+                            <td>Transparency amount</td>
+                            <td>0.0 opaque, 1.0 fully transparent</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Subsurface</strong></td>
+                            <td>Light scattering inside material</td>
+                            <td>0.0 none, 0.3-0.6 skin, 0.8+ wax/jade</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Emission</strong></td>
+                            <td>How much the material glows/emits light</td>
+                            <td>0.0 no glow, 1.0+ for lights</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Creating Common Materials</h3>
+
+                <p>Let's build several common material types from scratch using Principled BSDF:</p>
+
+                <div class="card">
+                    <h4>🪨 Rough Plastic (Like LEGO)</h4>
+                    <ul>
+                        <li><strong>Base Color:</strong> Your plastic color (e.g., red RGB: 0.8, 0.1, 0.1)</li>
+                        <li><strong>Roughness:</strong> 0.4-0.5</li>
+                        <li><strong>Metallic:</strong> 0.0</li>
+                        <li><strong>Specular:</strong> 0.5</li>
+                        <li><strong>IOR:</strong> 1.45</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>✨ Polished Metal (Chrome, Steel)</h4>
+                    <ul>
+                        <li><strong>Base Color:</strong> White or slight tint (RGB: 0.95, 0.95, 0.95)</li>
+                        <li><strong>Roughness:</strong> 0.05-0.1 (very smooth)</li>
+                        <li><strong>Metallic:</strong> 1.0</li>
+                        <li><strong>Specular:</strong> Doesn't matter (metallic overrides)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>🥇 Gold</h4>
+                    <ul>
+                        <li><strong>Base Color:</strong> Gold color (RGB: 1.0, 0.78, 0.34)</li>
+                        <li><strong>Roughness:</strong> 0.1-0.2</li>
+                        <li><strong>Metallic:</strong> 1.0</li>
+                        <li><strong>Note:</strong> Metal color comes from Base Color, not specularity!</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>🪟 Clear Glass</h4>
+                    <ul>
+                        <li><strong>Base Color:</strong> White (RGB: 1.0, 1.0, 1.0)</li>
+                        <li><strong>Roughness:</strong> 0.0</li>
+                        <li><strong>Metallic:</strong> 0.0</li>
+                        <li><strong>Transmission:</strong> 1.0</li>
+                        <li><strong>IOR:</strong> 1.5 (glass)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>🧱 Rough Wood</h4>
+                    <ul>
+                        <li><strong>Base Color:</strong> Wood color or texture map</li>
+                        <li><strong>Roughness:</strong> 0.7-0.9</li>
+                        <li><strong>Metallic:</strong> 0.0</li>
+                        <li><strong>Normal Map:</strong> Wood grain texture</li>
+                        <li><strong>Specular:</strong> 0.3-0.4 (wood isn't very shiny)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>👕 Fabric (Cotton T-Shirt)</h4>
+                    <ul>
+                        <li><strong>Base Color:</strong> Fabric color or texture</li>
+                        <li><strong>Roughness:</strong> 0.9-1.0 (very matte)</li>
+                        <li><strong>Metallic:</strong> 0.0</li>
+                        <li><strong>Specular:</strong> 0.2-0.3 (minimal shine)</li>
+                        <li><strong>Normal Map:</strong> Fabric weave texture</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>🧴 Skin (Human)</h4>
+                    <ul>
+                        <li><strong>Base Color:</strong> Skin color or texture map</li>
+                        <li><strong>Roughness:</strong> 0.3-0.5</li>
+                        <li><strong>Metallic:</strong> 0.0</li>
+                        <li><strong>Subsurface:</strong> 0.3-0.5</li>
+                        <li><strong>Subsurface Color:</strong> Reddish tint (blood under skin)</li>
+                        <li><strong>Subsurface Radius:</strong> RGB: (1.0, 0.3, 0.3) - red penetrates deepest</li>
+                        <li><strong>Specular:</strong> 0.5</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>The PBR Golden Rule:</strong> Most non-metals should have Metallic = 0.0 and most metals should have Metallic = 1.0. There are very few materials that are "half metal." Roughness is where you control most of the look—smooth for polished, rough for matte.
+                    </p>
+                </blockquote>
+
+                <h3>Understanding Roughness</h3>
+
+                <p>
+                    <strong>Roughness</strong> is arguably the most important parameter in PBR. It controls how blurry reflections are:
+                </p>
+
+                <div class="card">
+                    <h4>Roughness Values and Their Effects</h4>
+                    <ul>
+                        <li><strong>0.0-0.1:</strong> Mirror-like, perfect reflections (chrome, polished metal, water)</li>
+                        <li><strong>0.1-0.3:</strong> Glossy, sharp reflections with slight blur (polished wood, car paint)</li>
+                        <li><strong>0.3-0.5:</strong> Semi-glossy, noticeable reflection blur (new plastic, satin fabric)</li>
+                        <li><strong>0.5-0.7:</strong> Matte with hints of reflection (painted walls, some stones)</li>
+                        <li><strong>0.7-0.9:</strong> Very matte, minimal reflection (concrete, old fabric, unfinished wood)</li>
+                        <li><strong>0.9-1.0:</strong> Completely matte, no visible reflection (chalk, rough fabric, clay)</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 Pro Tip: Roughness Maps</h4>
+                    <p>
+                        Real surfaces have <strong>varying roughness</strong>. A scratched phone screen isn't uniformly glossy—scratches are rough, the rest is smooth. Use a <strong>roughness map</strong> (grayscale texture) where black = smooth (0.0) and white = rough (1.0). This adds incredible realism by varying roughness across the surface.
+                    </p>
+                </div>
+
+                <h3>The Metallic Parameter</h3>
+
+                <p>
+                    <strong>Metallic</strong> fundamentally changes how materials reflect light. This is a binary choice in most cases:
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Material Type</th>
+                            <th>Metallic Value</th>
+                            <th>Reflection Behavior</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Metals</strong> (gold, silver, copper, iron)</td>
+                            <td>1.0</td>
+                            <td>Reflections are tinted by base color</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Non-Metals</strong> (plastic, wood, skin, stone)</td>
+                            <td>0.0</td>
+                            <td>Reflections are neutral, base color only affects diffuse</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Edge Cases</strong> (oxidized metal, metallic paint)</td>
+                            <td>0.5-0.9</td>
+                            <td>Partial metallic behavior (rare)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Common Metal Mistakes</h4>
+                    <ul>
+                        <li><strong>Dark metal base color:</strong> Metals should have bright base colors! Dark chrome looks dull because metal reflections carry the base color tint.</li>
+                        <li><strong>Too rough for polished metal:</strong> Polished chrome should be 0.05-0.1 roughness, not 0.5</li>
+                        <li><strong>Forgetting color tint:</strong> Gold is GOLD-COLORED in base color (RGB: 1.0, 0.78, 0.34), not white!</li>
+                    </ul>
+                </div>
+
+                <h3>Texture Maps in PBR</h3>
+
+                <p>
+                    PBR materials typically use multiple texture maps to create realistic surfaces:
+                </p>
+
+                <div class="card">
+                    <h4>Essential PBR Texture Maps</h4>
+                    <ul>
+                        <li><strong>Base Color / Albedo Map:</strong> The diffuse color texture (connect to Base Color)</li>
+                        <li><strong>Roughness Map:</strong> Grayscale map controlling smoothness variation (connect to Roughness)</li>
+                        <li><strong>Normal Map:</strong> Surface detail and bumps (connect to Normal input)</li>
+                        <li><strong>Metallic Map:</strong> Which parts are metal (usually black/white, connect to Metallic)</li>
+                        <li><strong>Ambient Occlusion (AO):</strong> Baked shadows in crevices (multiply with Base Color)</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Connecting Texture Maps</h4>
+                    <ol>
+                        <li>In the Material Room, add an <strong>Image Map</strong> node</li>
+                        <li>Click the node, browse to your texture file</li>
+                        <li>Connect the <strong>Color output</strong> to the appropriate shader input:
+                            <ul>
+                                <li>Color texture → Base Color</li>
+                                <li>Roughness texture → Roughness (use grayscale)</li>
+                                <li>Normal map → Normal (make sure it's marked as Normal Map)</li>
+                            </ul>
+                        </li>
+                        <li>Adjust any multiplier values if the effect is too strong/weak</li>
+                    </ol>
+                </div>
+
+                <h3>Quick Material Conversion: Firefly to SuperFly</h3>
+
+                <p>
+                    If you have a Firefly material and want to approximate it in SuperFly:
+                </p>
+
+                <div class="card">
+                    <h4>Rough Conversion Guide</h4>
+                    <ul>
+                        <li><strong>Diffuse Color</strong> → <strong>Base Color</strong></li>
+                        <li><strong>Specular Value</strong> → Use to estimate <strong>Roughness</strong>:
+                            <ul>
+                                <li>Low specular (0.1-0.3) = Rough (0.7-0.9)</li>
+                                <li>Medium specular (0.4-0.6) = Medium (0.4-0.6)</li>
+                                <li>High specular (0.7-1.0) = Smooth (0.1-0.3)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Reflection Value</strong> → If high, consider metal (Metallic = 1.0) or glass (Transmission)</li>
+                        <li><strong>Bump Map</strong> → <strong>Normal Map</strong> (may need conversion)</li>
+                        <li><strong>Translucence</strong> → <strong>Subsurface Scattering</strong></li>
+                    </ul>
+                </div>
+
+                <p>
+                    Note: This is just a starting point. SuperFly materials work differently, so you'll need to tweak values by eye to match the look you want.
+                </p>
+
+            </section>
+            <!-- Section 5: HDR and Environment-Based Lighting -->
+            <section id="hdr-lighting" class="content-section">
+                <h2>🌅 HDR and Environment-Based Lighting</h2>
+                
+                <p>
+                    One of SuperFly's greatest strengths is <strong>Image-Based Lighting (IBL)</strong> using <strong>High Dynamic Range (HDR)</strong> environment maps. Instead of manually placing multiple lights, you wrap your scene in a 360-degree photograph that provides realistic, natural lighting from all directions. It's like teleporting your 3D scene into a real-world location.
+                </p>
+
+                <h3>What is HDR Environment Lighting?</h3>
+
+                <p>
+                    An <strong>HDR image</strong> is a special photograph that captures the full range of light in a scene—from deep shadows to bright sunlight—far beyond what a regular image can store. When you use an HDR as an environment map, SuperFly uses the brightness information in that image to light your scene realistically.
+                </p>
+
+                <div class="card">
+                    <h4>How IBL Works</h4>
+                    <p>
+                        Imagine wrapping your 3D scene in a giant sphere that has a photograph printed on the inside. Every pixel in that photograph acts as a tiny light source. Bright areas (like the sun in the photo) emit strong light. Dark areas (like shadows under trees) emit weak light. The result? Your 3D object is lit exactly as if it were photographed in that real location.
+                    </p>
+                </div>
+
+                <div class="mermaid">
+                    graph TD
+                    A[HDR Environment Map] --> B[Sphere Around Scene]
+                    B --> C[Every Pixel = Light Source]
+                    
+                    C --> D[Bright Pixels]
+                    C --> E[Medium Pixels]
+                    C --> F[Dark Pixels]
+                    
+                    D --> G[Strong Illumination]
+                    E --> H[Medium Illumination]
+                    F --> I[Weak Illumination]
+                    
+                    G --> J[3D Scene Lit Realistically]
+                    H --> J
+                    I --> J
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:3px,color:#fff
+                    style J fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Why HDR is Perfect for SuperFly</h3>
+
+                <div class="card">
+                    <h4>🌟 Benefits of HDR Lighting</h4>
+                    <ul>
+                        <li><strong>Instant Realism:</strong> Natural, believable lighting in seconds without manual light placement</li>
+                        <li><strong>Accurate Reflections:</strong> Shiny objects reflect the actual environment, not empty space</li>
+                        <li><strong>Color Accuracy:</strong> Lighting color matches real-world conditions (warm sunset, cool overcast, etc.)</li>
+                        <li><strong>Global Illumination:</strong> Light bounces naturally from all directions, filling in shadows realistically</li>
+                        <li><strong>Consistent Results:</strong> Same HDR = consistent lighting across multiple renders</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>The HDR Advantage:</strong> With Firefly, you might spend 30 minutes setting up a three-point light rig, tweaking intensities, and adjusting shadow softness. With SuperFly + HDR, you load one HDR file and get instant, photorealistic lighting. That's the power of environment-based lighting!
+                    </p>
+                </blockquote>
+
+                <h3>Setting Up HDR Lighting in Poser</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Basic HDR Setup</h4>
+                    <ol>
+                        <li>Make sure you're using <strong>SuperFly</strong> as your render engine</li>
+                        <li>Go to <strong>Render &gt; Render Settings</strong></li>
+                        <li>Look for the <strong>Environment</strong> or <strong>Background</strong> section</li>
+                        <li>Enable <strong>IBL (Image-Based Lighting)</strong></li>
+                        <li>Click <strong>Browse</strong> and select your HDR file (.hdr or .exr format)</li>
+                        <li>Adjust <strong>IBL Intensity</strong> (start at 1.0, adjust to taste)</li>
+                        <li>Optional: Enable <strong>Background Visibility</strong> if you want the HDR visible as backdrop</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Alternative Method: Environment Sphere</h4>
+                    <ol>
+                        <li>Create an <strong>Environment Sphere</strong> prop (usually in Poser's props library)</li>
+                        <li>Scale it large enough to encompass your entire scene</li>
+                        <li>Apply your HDR image as a texture to the sphere's material</li>
+                        <li>In Material Room, set the sphere material to <strong>emit light</strong>:
+                            <ul>
+                                <li>Use <strong>Emission</strong> shader or set Emission value in Principled BSDF</li>
+                                <li>Connect HDR texture to emission color</li>
+                            </ul>
+                        </li>
+                        <li>This gives you more control over HDR rotation and brightness</li>
+                    </ol>
+                </div>
+
+                <h3>Finding and Using HDR Files</h3>
+
+                <p>
+                    HDR environment maps come in several formats and from various sources:
+                </p>
+
+                <div class="card">
+                    <h4>HDR File Formats</h4>
+                    <ul>
+                        <li><strong>.HDR (Radiance):</strong> Most common, widely supported</li>
+                        <li><strong>.EXR (OpenEXR):</strong> High-quality, used in film/VFX</li>
+                        <li><strong>.PNG (32-bit):</strong> Sometimes used, less ideal than HDR/EXR</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Where to Get HDR Maps</h4>
+                    <ul>
+                        <li><strong>Polyhaven (formerly HDRI Haven):</strong> Free, high-quality HDRs (polyhaven.com)</li>
+                        <li><strong>HDRIHaven:</strong> Large collection of free 360° HDRs</li>
+                        <li><strong>Commercial Libraries:</strong> CGTrader, TurboSquid, Evermotion</li>
+                        <li><strong>Poser Content:</strong> Some Poser content packs include HDR environments</li>
+                        <li><strong>Create Your Own:</strong> Use special 360° cameras or software like HDR Light Studio</li>
+                    </ul>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Environment Type</th>
+                            <th>When to Use</th>
+                            <th>Lighting Characteristics</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Outdoor/Sky</strong></td>
+                            <td>Product renders, natural lighting</td>
+                            <td>Bright sun, soft sky fill, long shadows</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Studio</strong></td>
+                            <td>Product photography look</td>
+                            <td>Controlled, even lighting, minimal shadows</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Interior</strong></td>
+                            <td>Rooms, architectural vis</td>
+                            <td>Window light, soft indirect bounces</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Urban</strong></td>
+                            <td>Street scenes, characters in cities</td>
+                            <td>Mixed direct/indirect, varied color temps</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nature</strong></td>
+                            <td>Forest, beach, mountain scenes</td>
+                            <td>Dappled light, natural colors, atmospheric</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sunset/Sunrise</strong></td>
+                            <td>Dramatic, warm lighting</td>
+                            <td>Strong directional warm light, long shadows</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Controlling HDR Intensity and Rotation</h3>
+
+                <p>
+                    Two key controls let you adjust HDR lighting to match your needs:
+                </p>
+
+                <div class="card">
+                    <h4>🔆 HDR Intensity</h4>
+                    <p>
+                        Controls how bright the environment lighting is. Think of it like a dimmer switch for the entire environment.
+                    </p>
+                    <ul>
+                        <li><strong>0.5-0.8:</strong> Subtle, soft ambient lighting</li>
+                        <li><strong>1.0:</strong> Standard, natural lighting (default)</li>
+                        <li><strong>1.5-2.0:</strong> Bright, high-key lighting</li>
+                        <li><strong>3.0+:</strong> Very bright, almost overexposed (use for special effects)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>🔄 HDR Rotation</h4>
+                    <p>
+                        Rotates the environment map around your scene. This is crucial for positioning the sun or brightest area exactly where you want it.
+                    </p>
+                    <ul>
+                        <li>Rotate until the sun/bright spot hits your subject from the desired angle</li>
+                        <li>Check reflections on shiny objects—the environment should look natural</li>
+                        <li>Small rotation changes can dramatically affect the lighting mood</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 Pro Tip: Preview HDR Rotation</h4>
+                    <p>
+                        Enable <strong>Background Visibility</strong> temporarily so you can see the HDR in your viewport. Rotate it until the lighting looks good, then disable background visibility if you want a different background in your final render. This lets you use the HDR for lighting only, not as a visible backdrop.
+                    </p>
+                </div>
+
+                <h3>Combining HDR with Additional Lights</h3>
+
+                <p>
+                    While HDR alone can light an entire scene, sometimes you want to add extra lights for specific effects:
+                </p>
+
+                <div class="card">
+                    <h4>HDR + Supplemental Lighting</h4>
+                    <ul>
+                        <li><strong>Rim Light:</strong> Add a spotlight behind the subject to create edge definition</li>
+                        <li><strong>Fill Light:</strong> If HDR leaves shadows too dark, add a soft fill light</li>
+                        <li><strong>Accent Light:</strong> Highlight specific features (eyes, jewelry, product details)</li>
+                        <li><strong>Practical Lights:</strong> Visible light sources in the scene (lamp, candle, screen glow)</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Don't Over-Light!</h4>
+                    <p>
+                        One common mistake is adding too many lights on top of HDR. The HDR already provides comprehensive lighting from all directions. Adding multiple bright lights often creates conflicting shadows and unnatural results. Start with HDR alone, then add <em>one or two</em> subtle accent lights if needed.
+                    </p>
+                </div>
+
+                <h3>Creating Your Own Simple HDR Alternatives</h3>
+
+                <p>
+                    If you don't have HDR files, you can create simple environment lighting using emissive geometry:
+                </p>
+
+                <div class="card">
+                    <h4>DIY Environment Lighting</h4>
+                    <ol>
+                        <li><strong>Create a large sphere</strong> or dome around your scene</li>
+                        <li><strong>Apply a gradient or color</strong> to simulate sky (blue top, lighter horizon)</li>
+                        <li><strong>Set material to emit light:</strong> Use Emission shader or Principled BSDF with Emission value</li>
+                        <li><strong>Adjust emission strength:</strong> Start around 1.0-3.0</li>
+                        <li><strong>Optional:</strong> Add a small bright sphere above (sun) with high emission (10-50)</li>
+                    </ol>
+                    <p>
+                        This won't be as realistic as a proper HDR, but it's a good way to get started with IBL concepts!
+                    </p>
+                </div>
+
+                <h3>HDR Lighting Workflow</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Recommended Workflow</h4>
+                    <ol>
+                        <li><strong>Start with HDR:</strong> Load an appropriate HDR for your scene type</li>
+                        <li><strong>Test render at low samples (200):</strong> Check lighting direction and mood</li>
+                        <li><strong>Rotate HDR:</strong> Position the brightest area where you want key light</li>
+                        <li><strong>Adjust intensity:</strong> Brighten or darken to match your vision</li>
+                        <li><strong>Evaluate shadows and reflections:</strong> Make sure they look natural</li>
+                        <li><strong>Add supplemental lights (optional):</strong> Only if HDR alone isn't enough</li>
+                        <li><strong>Final render at high samples:</strong> Once lighting is locked, render quality</li>
+                    </ol>
+                </div>
+
+                <h3>Common HDR Lighting Scenarios</h3>
+
+                <div class="card">
+                    <h4>🎁 Product on Pedestal (Studio Look)</h4>
+                    <ul>
+                        <li><strong>HDR:</strong> Studio environment (soft, even lighting)</li>
+                        <li><strong>Intensity:</strong> 1.0-1.5</li>
+                        <li><strong>Additional Lights:</strong> Maybe one rim light</li>
+                        <li><strong>Result:</strong> Clean, commercial photography look</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>🌄 Character in Outdoor Scene</h4>
+                    <ul>
+                        <li><strong>HDR:</strong> Outdoor sky with visible sun</li>
+                        <li><strong>Intensity:</strong> 1.0-2.0</li>
+                        <li><strong>Rotation:</strong> Position sun as key light</li>
+                        <li><strong>Additional Lights:</strong> Fill light on shadow side if needed</li>
+                        <li><strong>Result:</strong> Natural outdoor portrait</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>💎 Jewelry Close-Up</h4>
+                    <ul>
+                        <li><strong>HDR:</strong> High-contrast studio or outdoor</li>
+                        <li><strong>Intensity:</strong> 1.5-3.0 (jewelry needs bright lighting)</li>
+                        <li><strong>Rotation:</strong> Test different angles for best sparkle</li>
+                        <li><strong>Additional Lights:</strong> Small point light for extra sparkle</li>
+                        <li><strong>Result:</strong> Brilliant, eye-catching gems</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>The HDR Philosophy:</strong> HDR lighting isn't about perfection—it's about <em>plausibility</em>. Does your render look like it could have been photographed in that environment? If yes, your HDR lighting is working. Don't overthink it; trust your eyes and use HDRs that match the mood you're going for.
+                    </p>
+                </blockquote>
+
+            </section>
+            <!-- Section 6: Understanding Noise, Samples, and Denoising -->
+            <section id="noise-and-samples" class="content-section">
+                <h2>🎯 Understanding Noise, Samples, and Denoising</h2>
+                
+                <p>
+                    One of the biggest challenges with SuperFly (and path tracing in general) is <strong>noise</strong>—that grainy, speckled appearance in renders. Understanding why noise happens and how to control it is essential for getting clean, professional SuperFly renders without waiting days for a single image.
+                </p>
+
+                <h3>What is Render Noise?</h3>
+
+                <p>
+                    <strong>Noise</strong> (also called grain or fireflies) is the random speckled pattern you see in undersampled renders. It happens because SuperFly is using random sampling to calculate lighting—like polling random people to predict an election. Too few samples = inaccurate prediction = noise.
+                </p>
+
+                <div class="card">
+                    <h4>Why Path Tracing Creates Noise</h4>
+                    <p>
+                        Remember, SuperFly shoots random rays from the camera into the scene. Each ray bounces randomly until it hits a light or gets absorbed. With only a few rays per pixel, you get wildly different results for neighboring pixels—hence the speckled look. More rays = more consistent results = less noise.
+                    </p>
+                </div>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Low Samples] --> B[Few Rays per Pixel]
+                    B --> C[High Variance]
+                    C --> D[Visible Noise/Grain]
+                    
+                    E[High Samples] --> F[Many Rays per Pixel]
+                    F --> G[Low Variance]
+                    G --> H[Clean Image]
+                    
+                    I[Denoising] --> J[AI Smooths Noise]
+                    D --> I
+                    J --> H
+                    
+                    style A fill:#FF9800,stroke:#333,stroke-width:2px,color:#fff
+                    style E fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style I fill:#2196F3,stroke:#333,stroke-width:2px,color:#fff
+                    style H fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Types of Noise and Their Causes</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Noise Type</th>
+                            <th>Appearance</th>
+                            <th>Common Cause</th>
+                            <th>Solution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>General Grain</strong></td>
+                            <td>Overall speckled texture</td>
+                            <td>Too few samples everywhere</td>
+                            <td>Increase max samples to 1500-3000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fireflies</strong></td>
+                            <td>Bright white/colored dots</td>
+                            <td>Caustics, small bright lights</td>
+                            <td>Increase samples, clamp fireflies, or use denoising</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Shadow Noise</strong></td>
+                            <td>Grainy dark areas</td>
+                            <td>Indirect lighting in shadows</td>
+                            <td>Increase diffuse bounces, more samples</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Glossy Noise</strong></td>
+                            <td>Speckles on shiny surfaces</td>
+                            <td>Blurry reflections</td>
+                            <td>Increase glossy bounces or reduce roughness</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Volume Noise</strong></td>
+                            <td>Grainy fog/smoke</td>
+                            <td>Volumetric effects undersampled</td>
+                            <td>Increase volume bounces and samples</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>The Sample Count Trade-off</h3>
+
+                <p>
+                    Here's the fundamental challenge: more samples = cleaner image, but exponentially longer render times.
+                </p>
+
+                <div class="card">
+                    <h4>Sample Count vs Render Time</h4>
+                    <ul>
+                        <li><strong>100 samples:</strong> Very noisy, but renders in 5 minutes</li>
+                        <li><strong>500 samples:</strong> Noticeable noise reduced, 15-20 minutes</li>
+                        <li><strong>1000 samples:</strong> Good quality with some grain, 25-35 minutes</li>
+                        <li><strong>2000 samples:</strong> Very clean, 45-70 minutes</li>
+                        <li><strong>5000 samples:</strong> Almost perfect, 2-3 hours</li>
+                        <li><strong>10000 samples:</strong> Diminishing returns, 4-6+ hours</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>The Law of Diminishing Returns:</strong> Going from 100 to 500 samples dramatically improves quality. Going from 2000 to 5000 samples gives minimal visible improvement but triples render time. There's a sweet spot around 1500-2500 samples where quality is excellent and time is reasonable—especially with denoising.
+                    </p>
+                </blockquote>
+
+                <h3>Strategies for Reducing Noise</h3>
+
+                <div class="card">
+                    <h4>📈 Increase Samples (Brute Force)</h4>
+                    <p><strong>Method:</strong> Raise max samples to 2000-5000</p>
+                    <ul>
+                        <li><strong>Pros:</strong> Guaranteed to work, mathematically perfect result</li>
+                        <li><strong>Cons:</strong> Very slow, time-consuming</li>
+                        <li><strong>When to use:</strong> Final portfolio pieces where time doesn't matter</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>🎛️ Adjust Light Paths</h4>
+                    <p><strong>Method:</strong> Increase bounce counts for problem areas</p>
+                    <ul>
+                        <li>Grainy shadows? Increase <strong>diffuse bounces</strong> to 6-8</li>
+                        <li>Noisy reflections? Increase <strong>glossy bounces</strong> to 8</li>
+                        <li>Grain on glass? Increase <strong>transmission bounces</strong> to 12</li>
+                        <li><strong>Pros:</strong> Targeted fix, doesn't waste samples everywhere</li>
+                        <li><strong>Cons:</strong> Still increases render time</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>💡 Simplify Lighting</h4>
+                    <p><strong>Method:</strong> Make your lighting easier to sample</p>
+                    <ul>
+                        <li>Use <strong>larger light sources</strong> (easier to hit with rays)</li>
+                        <li>Avoid tiny, intense lights (create fireflies)</li>
+                        <li>Use <strong>simpler HDRs</strong> without extreme bright spots</li>
+                        <li><strong>Pros:</strong> Can dramatically reduce noise at same sample count</li>
+                        <li><strong>Cons:</strong> May limit artistic choices</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>🎨 Reduce Material Complexity</h4>
+                    <p><strong>Method:</strong> Make materials easier to calculate</p>
+                    <ul>
+                        <li>Reduce <strong>roughness variation</strong> (fewer blurry reflections)</li>
+                        <li>Limit <strong>subsurface scattering</strong> (computationally expensive)</li>
+                        <li>Simplify <strong>glass and refraction</strong> where not critical</li>
+                        <li><strong>Pros:</strong> Faster convergence, less noise</li>
+                        <li><strong>Cons:</strong> Reduces realism slightly</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>🤖 Use Denoising (The Smart Way)</h4>
+                    <p><strong>Method:</strong> Let AI remove noise from lower-sample renders</p>
+                    <ul>
+                        <li>Render at moderate samples (1000-2000)</li>
+                        <li>Enable <strong>AI denoising</strong> in SuperFly settings</li>
+                        <li>Get clean results in fraction of the time</li>
+                        <li><strong>Pros:</strong> Massive time savings, excellent results</li>
+                        <li><strong>Cons:</strong> Can soften fine details if overused</li>
+                        <li><strong>Best practice:</strong> This is the modern standard for SuperFly!</li>
+                    </ul>
+                </div>
+
+                <h3>AI Denoising: The Game Changer</h3>
+
+                <p>
+                    <strong>Denoising</strong> uses artificial intelligence to analyze your noisy render and intelligently remove grain while preserving detail. It's like magic—you can get clean results at 1500 samples that would normally require 5000+ samples without denoising.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Enabling Denoising in SuperFly</h4>
+                    <ol>
+                        <li>Go to <strong>Render Settings</strong> (SuperFly mode)</li>
+                        <li>Look for <strong>Denoising</strong> section (location varies by Poser version)</li>
+                        <li>Enable <strong>Denoising</strong></li>
+                        <li>Choose denoiser type:
+                            <ul>
+                                <li><strong>OpenImageDenoise (OIDN):</strong> Intel's AI denoiser, excellent quality</li>
+                                <li><strong>OptiX:</strong> NVIDIA's denoiser (requires NVIDIA GPU)</li>
+                                <li><strong>NLM (Non-Local Means):</strong> Older, less effective</li>
+                            </ul>
+                        </li>
+                        <li>Recommended: <strong>OpenImageDenoise</strong> works great on all hardware</li>
+                        <li>Render normally—denoising applies automatically</li>
+                    </ol>
+                </div>
+
+                <h3>How Denoising Works</h3>
+
+                <p>
+                    AI denoisers are trained on millions of images to recognize what's "real detail" versus "noise." They analyze patterns in your render:
+                </p>
+
+                <div class="card">
+                    <h4>What Denoising Preserves</h4>
+                    <ul>
+                        <li><strong>Edges:</strong> Sharp boundaries between objects</li>
+                        <li><strong>Textures:</strong> Consistent patterns like fabric weave</li>
+                        <li><strong>Detail:</strong> Fine features with structure</li>
+                        <li><strong>Gradients:</strong> Smooth color transitions</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>What Denoising Removes</h4>
+                    <ul>
+                        <li><strong>Random grain:</strong> Speckled noise with no pattern</li>
+                        <li><strong>Fireflies:</strong> Bright anomalous pixels</li>
+                        <li><strong>Color splotches:</strong> Random color variation</li>
+                        <li><strong>Shadow noise:</strong> Grain in dark areas</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Denoising Limitations</h4>
+                    <ul>
+                        <li><strong>Can soften extreme detail:</strong> Very fine textures might blur slightly</li>
+                        <li><strong>Requires minimum samples:</strong> Below ~500 samples, denoising can create artifacts</li>
+                        <li><strong>Can't fix everything:</strong> Severe fireflies or structural problems need more samples</li>
+                        <li><strong>Not magic:</strong> Garbage in = garbage out. Start with reasonable sample count!</li>
+                    </ul>
+                </div>
+
+                <h3>Optimal Workflow: Samples + Denoising</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ The Modern SuperFly Workflow</h4>
+                    <ol>
+                        <li><strong>Start with preview (200 samples, no denoising):</strong> Test composition and lighting fast</li>
+                        <li><strong>Test render (500-1000 samples, denoising on):</strong> Check if materials and lighting work</li>
+                        <li><strong>Final render (1500-2500 samples, denoising on):</strong> Professional quality in reasonable time</li>
+                        <li><strong>Ultra quality (3000-5000 samples, denoising on or off):</strong> Only for portfolio showcase pieces</li>
+                    </ol>
+                    <p>
+                        This workflow gives you 90% of the quality in 30% of the time compared to traditional "render at 10,000 samples" approach.
+                    </p>
+                </div>
+
+                <h3>Dealing with Fireflies</h3>
+
+                <p>
+                    <strong>Fireflies</strong> are those annoying bright white or colored pixels that show up randomly, especially around glass, caustics, or small bright lights. They're caused by rare, extremely bright light paths that got lucky.
+                </p>
+
+                <div class="card">
+                    <h4>Firefly Solutions</h4>
+                    <ul>
+                        <li><strong>Clamp fireflies:</strong> In render settings, enable "Clamp Indirect" and set to 3-10 (limits brightness of indirect lighting)</li>
+                        <li><strong>Increase samples:</strong> More samples average out the extreme values</li>
+                        <li><strong>Enable denoising:</strong> Denoisers are good at removing fireflies</li>
+                        <li><strong>Simplify caustics:</strong> Reduce glass complexity or transmission bounces</li>
+                        <li><strong>Enlarge small lights:</strong> Tiny, intense lights cause more fireflies than larger, dimmer lights</li>
+                    </ul>
+                </div>
+
+                <h3>Sample Count Recommendations by Scene Type</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Scene Type</th>
+                            <th>Complexity</th>
+                            <th>Recommended Samples</th>
+                            <th>With Denoising</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Simple Product</strong> (object + studio HDR)</td>
+                            <td>Low</td>
+                            <td>1000-1500</td>
+                            <td>✅ Yes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Character Portrait</strong> (HDR lighting, simple background)</td>
+                            <td>Low-Medium</td>
+                            <td>1500-2000</td>
+                            <td>✅ Yes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Interior Scene</strong> (room with windows, indirect light)</td>
+                            <td>Medium-High</td>
+                            <td>2000-3000</td>
+                            <td>✅ Yes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Complex Glass</strong> (jewelry, bottles, caustics)</td>
+                            <td>High</td>
+                            <td>2500-5000</td>
+                            <td>✅ Yes, helps a lot</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Outdoor Environment</strong> (character in nature, HDR)</td>
+                            <td>Medium</td>
+                            <td>1500-2500</td>
+                            <td>✅ Yes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Night Scene</strong> (multiple small lights, complex shadows)</td>
+                            <td>High</td>
+                            <td>3000-5000</td>
+                            <td>⚠️ Yes, but may need more samples</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Noise Reduction Checklist</h3>
+
+                <div class="card">
+                    <h4>If Your Render is Too Noisy:</h4>
+                    <ol>
+                        <li>✓ <strong>Is denoising enabled?</strong> Turn it on if not!</li>
+                        <li>✓ <strong>Are you at least 1000 samples?</strong> Go higher if below</li>
+                        <li>✓ <strong>Is adaptive sampling working?</strong> Check adaptive threshold (should be 0.01-0.05)</li>
+                        <li>✓ <strong>Any fireflies?</strong> Enable firefly clamping</li>
+                        <li>✓ <strong>Specific noise type?</strong> Increase relevant bounce count (diffuse, glossy, transmission)</li>
+                        <li>✓ <strong>Complex lighting?</strong> Simplify HDR or use larger light sources</li>
+                        <li>✓ <strong>Still noisy?</strong> Increase max samples to 2500-3000</li>
+                        <li>✓ <strong>STILL noisy?</strong> Your scene is genuinely complex—go to 4000-5000 samples</li>
+                    </ol>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>The Golden Rule of Noise:</strong> Don't fight the render engine by using extreme sample counts if your scene is inherently difficult to sample. Instead, simplify the problem—larger lights, simpler materials, cleaner HDRs. A well-designed scene at 1500 samples will look better than a problematic scene at 5000 samples.
+                    </p>
+                </blockquote>
+
+            </section>
+            <!-- Section 7: Advanced SuperFly Techniques -->
+            <section id="advanced-superfly" class="content-section">
+                <h2>⚡ Advanced SuperFly Techniques</h2>
+                
+                <p>
+                    Once you've mastered the fundamentals, SuperFly offers several advanced features that can take your renders to the next level. These techniques leverage SuperFly's physically-based nature to create effects that are difficult or impossible in Firefly.
+                </p>
+
+                <h3>Subsurface Scattering (SSS)</h3>
+
+                <p>
+                    <strong>Subsurface Scattering</strong> simulates light penetrating into a material, scattering inside it, and exiting at a different point. This is essential for realistic skin, wax, marble, jade, milk, and other translucent materials.
+                </p>
+
+                <div class="card">
+                    <h4>How SSS Works</h4>
+                    <p>
+                        Think of holding a flashlight against your hand in a dark room. You see a red glow around the light—that's subsurface scattering. Light enters your skin, bounces around through blood and tissue, and exits nearby, creating that characteristic glow. SuperFly simulates this naturally.
+                    </p>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Setting Up Subsurface Scattering</h4>
+                    <ol>
+                        <li>Use <strong>Principled BSDF</strong> shader</li>
+                        <li>Set <strong>Subsurface</strong> value:
+                            <ul>
+                                <li>0.0 = No SSS (opaque material)</li>
+                                <li>0.3-0.5 = Skin (subtle translucency)</li>
+                                <li>0.6-0.8 = Wax, jade (more translucent)</li>
+                                <li>0.9-1.0 = Very translucent (thin wax, backlit ears)</li>
+                            </ul>
+                        </li>
+                        <li>Set <strong>Subsurface Color</strong>:
+                            <ul>
+                                <li>Skin: Reddish tint (blood color)</li>
+                                <li>Wax: Yellowish/warm tint</li>
+                                <li>Marble: White or material color</li>
+                            </ul>
+                        </li>
+                        <li>Set <strong>Subsurface Radius</strong> (RGB):
+                            <ul>
+                                <li>Controls how far each color penetrates</li>
+                                <li>Red penetrates deepest, blue least</li>
+                                <li>Skin example: (1.0, 0.2, 0.1)</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>SSS Applications</h4>
+                    <ul>
+                        <li><strong>Realistic Skin:</strong> Gives that living, luminous quality to characters</li>
+                        <li><strong>Ears:</strong> When backlit, ears should glow red—SSS creates this automatically</li>
+                        <li><strong>Candles/Wax:</strong> Light glows through the material</li>
+                        <li><strong>Jade and Marble:</strong> Subtle internal depth and translucency</li>
+                        <li><strong>Food:</strong> Fruit, grapes, translucent vegetables</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ SSS Performance Impact</h4>
+                    <p>
+                        Subsurface scattering is computationally expensive. It can significantly increase render times (20-50% longer). Use it only where it matters—visible skin, translucent objects. Don't enable SSS on materials that won't show the effect (clothing, opaque objects).
+                    </p>
+                </div>
+
+                <h3>Volumetric Effects (Fog, Smoke, Atmosphere)</h3>
+
+                <p>
+                    SuperFly can render <strong>volumetric effects</strong>—participating media like fog, smoke, clouds, and atmospheric haze. These add depth and atmosphere to your scenes.
+                </p>
+
+                <div class="card">
+                    <h4>Types of Volumetric Effects</h4>
+                    <ul>
+                        <li><strong>Homogeneous Volume:</strong> Uniform density (like fog in a room)</li>
+                        <li><strong>Heterogeneous Volume:</strong> Varying density (like clouds or smoke)</li>
+                        <li><strong>Emission Volume:</strong> Glowing volumes (like nebulae or magical effects)</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Creating Simple Fog</h4>
+                    <ol>
+                        <li>Create a <strong>large cube or sphere</strong> to contain the volume</li>
+                        <li>In Material Room, apply a <strong>Volume Shader</strong></li>
+                        <li>Or use <strong>Principled Volume</strong> (easier option)</li>
+                        <li>Set <strong>Density</strong>:
+                            <ul>
+                                <li>0.01-0.05 = Light fog/haze</li>
+                                <li>0.1-0.3 = Medium fog</li>
+                                <li>0.5-1.0 = Dense fog/clouds</li>
+                            </ul>
+                        </li>
+                        <li>Set <strong>Color</strong> (white for fog, gray for smoke, colored for effects)</li>
+                        <li>Optional: Add <strong>texture</strong> for varying density (noise texture works great)</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Volumetric Rendering Warnings</h4>
+                    <ul>
+                        <li><strong>Very slow:</strong> Volumetrics can double or triple render times</li>
+                        <li><strong>Noisy:</strong> Requires high sample counts (2000-5000) for clean results</li>
+                        <li><strong>Increase volume bounces:</strong> Set to 2-4 or higher for proper volume rendering</li>
+                        <li><strong>Use sparingly:</strong> Only when the effect is central to the image</li>
+                    </ul>
+                </div>
+
+                <h3>Caustics: Light Through Glass and Water</h3>
+
+                <p>
+                    <strong>Caustics</strong> are those beautiful patterns of focused light created when light passes through or reflects off curved surfaces—like the dancing light patterns at the bottom of a swimming pool, or the bright spots under a glass of water.
+                </p>
+
+                <div class="card">
+                    <h4>Why SuperFly Does Caustics Naturally</h4>
+                    <p>
+                        Because SuperFly traces light paths physically, caustics happen automatically when you have refractive or reflective materials. No special setup needed—just use proper glass materials (high transmission, correct IOR) and sufficient samples.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>Optimizing for Caustics</h4>
+                    <ul>
+                        <li><strong>Increase transmission bounces:</strong> 12-16 for complex glass</li>
+                        <li><strong>High sample count:</strong> Caustics are noisy, need 2500-5000 samples</li>
+                        <li><strong>Caustic photon mapping:</strong> Some Cycles versions support this for faster caustics</li>
+                        <li><strong>Bright lighting:</strong> Caustics need strong directional light to be visible</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Caustics Example:</strong> Wine glass on a table with sunlight streaming through it. The focused light creates bright patterns on the table surface. In Firefly, this is nearly impossible. In SuperFly, it just works—but requires patience for the samples to converge.
+                    </p>
+                </blockquote>
+
+                <h3>Displacement Mapping</h3>
+
+                <p>
+                    <strong>Displacement</strong> actually moves the geometry of your mesh based on a texture map, creating real 3D detail. Unlike bump/normal maps which fake the appearance of depth, displacement creates genuine geometry.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Setting Up Displacement in SuperFly</h4>
+                    <ol>
+                        <li>Your object needs <strong>high subdivision</strong> (low poly won't work)</li>
+                        <li>In Material Room, connect a <strong>displacement map</strong> to the <strong>Displacement</strong> input</li>
+                        <li>Use a <strong>Math node</strong> to control displacement strength:
+                            <ul>
+                                <li>Multiply displacement texture by 0.01-0.1 for subtle effects</li>
+                                <li>Higher values = more extreme displacement</li>
+                            </ul>
+                        </li>
+                        <li>Set displacement <strong>Method</strong> to "Displacement" (not "Bump")</li>
+                        <li>Adjust <strong>midpoint</strong> if needed (0.5 = neutral gray doesn't displace)</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>When to Use Displacement</h4>
+                    <ul>
+                        <li><strong>Terrain:</strong> Mountains, landscapes, ground detail</li>
+                        <li><strong>Skin pores:</strong> Extreme close-ups where bump isn't enough</li>
+                        <li><strong>Fabric weave:</strong> Actual raised threads in cloth</li>
+                        <li><strong>Rough surfaces:</strong> Concrete, stucco, bark</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Displacement Cautions</h4>
+                    <ul>
+                        <li><strong>Requires high geometry:</strong> Low-poly models will look faceted</li>
+                        <li><strong>Slow rendering:</strong> More geometry = longer render times</li>
+                        <li><strong>Memory intensive:</strong> Subdivided geometry uses lots of RAM</li>
+                        <li><strong>Can break silhouettes:</strong> Objects may extend beyond original boundaries</li>
+                    </ul>
+                </div>
+
+                <h3>Shader Mixing: Combining Multiple Materials</h3>
+
+                <p>
+                    SuperFly lets you <strong>mix shaders</strong> to create complex materials that combine properties. For example: metal with a layer of dust, car paint with metallic flakes, or wet surfaces with both matte and glossy properties.
+                </p>
+
+                <div class="card">
+                    <h4>Mix Shader Node</h4>
+                    <p>
+                        The <strong>Mix Shader</strong> node blends two shaders together based on a factor (0.0 = shader 1, 1.0 = shader 2, 0.5 = 50/50 mix).
+                    </p>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Creating a Dusty Metal Surface</h4>
+                    <ol>
+                        <li>Create two shaders:
+                            <ul>
+                                <li><strong>Shader 1:</strong> Principled BSDF with Metallic = 1.0 (clean metal)</li>
+                                <li><strong>Shader 2:</strong> Principled BSDF with Roughness = 0.9 (dust/dirt)</li>
+                            </ul>
+                        </li>
+                        <li>Add a <strong>Mix Shader</strong> node</li>
+                        <li>Connect both shaders to the Mix node inputs</li>
+                        <li>Use a <strong>texture map</strong> as the mix factor:
+                            <ul>
+                                <li>Black areas = clean metal shows through</li>
+                                <li>White areas = dust covers surface</li>
+                            </ul>
+                        </li>
+                        <li>Connect Mix Shader output to final Surface output</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Shader Mixing Applications</h4>
+                    <ul>
+                        <li><strong>Weathered materials:</strong> Mix clean and worn shaders with a dirt mask</li>
+                        <li><strong>Layered paint:</strong> Combine base paint with chipped/worn areas</li>
+                        <li><strong>Wet surfaces:</strong> Mix dry shader with glossy wet shader</li>
+                        <li><strong>Rust:</strong> Mix metal shader with rough rusty shader</li>
+                        <li><strong>Frosted glass:</strong> Mix clear glass with translucent rough glass</li>
+                    </ul>
+                </div>
+
+                <h3>Camera Effects: Depth of Field</h3>
+
+                <p>
+                    SuperFly supports <strong>true camera depth of field</strong> that simulates real lens behavior, creating beautiful bokeh (out-of-focus blur) effects.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Enabling Depth of Field</h4>
+                    <ol>
+                        <li>Select your <strong>camera</strong> in the scene</li>
+                        <li>In camera properties, enable <strong>Depth of Field</strong></li>
+                        <li>Set <strong>f-Stop</strong>:
+                            <ul>
+                                <li>f/1.4-f/2.8 = Very shallow DOF (portrait look)</li>
+                                <li>f/4-f/8 = Moderate DOF (standard)</li>
+                                <li>f/11-f/22 = Deep DOF (landscape)</li>
+                            </ul>
+                        </li>
+                        <li>Set <strong>Focus Distance</strong>:
+                            <ul>
+                                <li>Use "Point At" to focus on subject</li>
+                                <li>Or manually set distance in Poser units</li>
+                            </ul>
+                        </li>
+                        <li>Render—DOF is calculated automatically in SuperFly</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 DOF Pro Tip</h4>
+                    <p>
+                        SuperFly's DOF creates realistic lens blur with proper bokeh shapes. For beauty shots of products or character portraits, use f/2.8-f/4 to create separation from the background while keeping the subject sharp. The out-of-focus areas will have that creamy, photographic quality.
+                    </p>
+                </div>
+
+                <h3>Light Portals for Indoor Scenes</h3>
+
+                <p>
+                    When rendering interior scenes with window lighting, <strong>light portals</strong> can dramatically reduce noise and speed up rendering. They tell SuperFly where light is entering the scene.
+                </p>
+
+                <div class="card">
+                    <h4>Setting Up Light Portals</h4>
+                    <ol>
+                        <li>Create a <strong>plane</strong> object at each window</li>
+                        <li>In Material Room, set plane material to <strong>Portal</strong> shader (if available) or use a special setup</li>
+                        <li>Portal planes should face <em>into</em> the room</li>
+                        <li>Render—SuperFly concentrates samples on portal areas, reducing noise</li>
+                    </ol>
+                    <p><em>Note: Portal implementation varies by Poser version. Check your specific version's documentation.</em></p>
+                </div>
+
+                <h3>Render Passes in SuperFly</h3>
+
+                <p>
+                    Like Firefly, SuperFly supports <strong>render passes</strong> (also called AOVs - Arbitrary Output Variables) for advanced compositing:
+                </p>
+
+                <div class="card">
+                    <h4>Available SuperFly Passes</h4>
+                    <ul>
+                        <li><strong>Combined:</strong> Final beauty render</li>
+                        <li><strong>Diffuse:</strong> Diffuse lighting only</li>
+                        <li><strong>Glossy:</strong> Specular/reflections only</li>
+                        <li><strong>Transmission:</strong> Light passing through transparent objects</li>
+                        <li><strong>Emission:</strong> Self-illuminated materials</li>
+                        <li><strong>Environment:</strong> Background/HDR contribution</li>
+                        <li><strong>Normal:</strong> Surface normal information</li>
+                        <li><strong>Depth/Z:</strong> Distance from camera (for DOF in post)</li>
+                        <li><strong>Object ID:</strong> Masks for individual objects</li>
+                    </ul>
+                </div>
+
+                <p>
+                    Enable passes in render settings to output separate layers for compositing in Photoshop, After Effects, or other software.
+                </p>
+
+                <h3>Advanced Workflow Tips</h3>
+
+                <div class="card">
+                    <h4>Hybrid Rendering</h4>
+                    <p>
+                        Render different elements separately and composite:
+                    </p>
+                    <ul>
+                        <li><strong>Character:</strong> High sample count with SSS</li>
+                        <li><strong>Background:</strong> Separate render, can be lower quality</li>
+                        <li><strong>Glass objects:</strong> Render separately with high transmission bounces</li>
+                        <li><strong>Volumetrics:</strong> Render fog/atmosphere as separate pass</li>
+                    </ul>
+                    <p>
+                        This lets you optimize settings per element instead of compromising on a one-size-fits-all render.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>Progressive Refining</h4>
+                    <p>
+                        SuperFly renders progressively—you can stop early if quality is acceptable:
+                    </p>
+                    <ul>
+                        <li>Set max samples high (5000)</li>
+                        <li>Watch render progress</li>
+                        <li>If it looks clean at 2000 samples, stop early</li>
+                        <li>Saves time without quality loss</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Advanced SuperFly Mastery:</strong> These techniques are powerful but not always necessary. Master the fundamentals first—clean materials, good lighting, proper sample counts. Then add advanced features like SSS, caustics, and volumetrics when they truly enhance your image. Don't use complexity for its own sake!
+                    </p>
+                </blockquote>
+
+            </section>
+            <!-- Section 8: SuperFly Workflow and Optimization -->
+            <section id="workflow-tips" class="content-section">
+                <h2>🔧 SuperFly Workflow and Optimization</h2>
+                
+                <p>
+                    Working efficiently with SuperFly requires a different approach than Firefly. Since renders take longer, smart workflow habits save you hours of wasted time. Let's explore strategies for maximizing quality while minimizing frustration.
+                </p>
+
+                <h3>The SuperFly Production Workflow</h3>
+
+                <p>
+                    Professional SuperFly artists follow a systematic workflow that front-loads creative decisions and delays expensive rendering until everything is locked in:
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Recommended SuperFly Workflow</h4>
+                    <ol>
+                        <li><strong>Stage 1: Composition (Firefly, 2-5 minutes)</strong>
+                            <ul>
+                                <li>Use Firefly for initial pose, camera, composition tests</li>
+                                <li>Make all major creative decisions here</li>
+                                <li>Get composition approved before moving forward</li>
+                            </ul>
+                        </li>
+                        <li><strong>Stage 2: Material Setup (No rendering, 10-20 minutes)</strong>
+                            <ul>
+                                <li>Convert/create SuperFly PBR materials</li>
+                                <li>Set up base colors, roughness, metalness</li>
+                                <li>Connect texture maps</li>
+                            </ul>
+                        </li>
+                        <li><strong>Stage 3: Lighting Test (Low samples, 5-10 minutes)</strong>
+                            <ul>
+                                <li>Render at 100-200 samples, no denoising</li>
+                                <li>Test HDR lighting, rotation, intensity</li>
+                                <li>Will be noisy—that's okay for testing</li>
+                            </ul>
+                        </li>
+                        <li><strong>Stage 4: Material Refinement (Medium samples, 15-20 minutes)</strong>
+                            <ul>
+                                <li>Render at 500-1000 samples with denoising</li>
+                                <li>Evaluate materials—do they look right?</li>
+                                <li>Adjust roughness, metalness, subsurface if needed</li>
+                            </ul>
+                        </li>
+                        <li><strong>Stage 5: Final Render (High samples, 30-90 minutes)</strong>
+                            <ul>
+                                <li>Everything locked: pose, camera, materials, lighting</li>
+                                <li>Render at 1500-3000 samples with denoising</li>
+                                <li>Go have coffee/lunch—don't watch it render!</li>
+                            </ul>
+                        </li>
+                        <li><strong>Stage 6: Post-Processing (Optional, 5-15 minutes)</strong>
+                            <ul>
+                                <li>Minor adjustments in Photoshop</li>
+                                <li>Color grading, subtle sharpening</li>
+                                <li>Compositing if using multiple passes</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Start Project] --> B[Firefly Composition]
+                    B --> C{Composition Good?}
+                    C -->|No| B
+                    C -->|Yes| D[Setup SuperFly Materials]
+                    D --> E[Low Sample Test 200]
+                    E --> F{Lighting Good?}
+                    F -->|No| G[Adjust HDR/Lights]
+                    G --> E
+                    F -->|Yes| H[Medium Sample Test 1000]
+                    H --> I{Materials Good?}
+                    I -->|No| J[Tweak Materials]
+                    J --> H
+                    I -->|Yes| K[Final Render 2000-3000]
+                    K --> L[Post-Processing]
+                    L --> M[Complete!]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style K fill:#FFC107,stroke:#333,stroke-width:2px
+                    style M fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Time-Saving Strategies</h3>
+
+                <div class="card">
+                    <h4>⚡ Render Region</h4>
+                    <p>
+                        Instead of rendering the entire image, use <strong>Render Region</strong> to test just a small area:
+                    </p>
+                    <ul>
+                        <li>In render settings, enable <strong>Border</strong> or <strong>Render Region</strong></li>
+                        <li>Define a small rectangle around your subject</li>
+                        <li>Render tests 10x faster by only calculating that region</li>
+                        <li>Perfect for testing material changes or lighting tweaks</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>🎯 Preview Resolution</h4>
+                    <p>
+                        Render at lower resolution for tests:
+                    </p>
+                    <ul>
+                        <li><strong>25% resolution:</strong> For composition and lighting tests (4x faster)</li>
+                        <li><strong>50% resolution:</strong> For material evaluation (2x faster)</li>
+                        <li><strong>100% resolution:</strong> Only for final renders</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>💾 Save Render Settings Presets</h4>
+                    <p>
+                        Create named presets for different quality levels:
+                    </p>
+                    <ul>
+                        <li><strong>"Quick Test":</strong> 100 samples, low bounces, 50% resolution</li>
+                        <li><strong>"Material Check":</strong> 500 samples, denoising, 75% resolution</li>
+                        <li><strong>"Final Quality":</strong> 2500 samples, full bounces, denoising, 100% resolution</li>
+                        <li>One-click switching between quality levels!</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>🔄 Iterative Material Testing</h4>
+                    <p>
+                        Test materials on simple objects before applying to complex scenes:
+                    </p>
+                    <ol>
+                        <li>Create a <strong>test scene</strong> with simple geometry (sphere, cube)</li>
+                        <li>Add basic HDR lighting</li>
+                        <li>Test your materials here at low samples</li>
+                        <li>Once perfect, apply to actual scene</li>
+                        <li>Saves hours compared to testing materials in the final scene</li>
+                    </ol>
+                </div>
+
+                <h3>Performance Optimization</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Optimization</th>
+                            <th>Speed Improvement</th>
+                            <th>Quality Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Reduce unnecessary bounces</strong></td>
+                            <td>20-40% faster</td>
+                            <td>Minimal if targeted correctly</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lower resolution for tests</strong></td>
+                            <td>50-75% faster (at 50% res)</td>
+                            <td>None for testing phase</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Use render regions</strong></td>
+                            <td>80-95% faster (small region)</td>
+                            <td>None—same quality, smaller area</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Simplify HDR maps</strong></td>
+                            <td>10-20% faster</td>
+                            <td>Slight—use lower-res HDR for tests</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Disable SSS when not needed</strong></td>
+                            <td>20-30% faster</td>
+                            <td>None if SSS isn't visible anyway</td>
+                        </tr>
+                        <tr>
+                            <td><strong>GPU rendering (if available)</strong></td>
+                            <td>300-500% faster</td>
+                            <td>None—same algorithm, faster hardware</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>GPU vs CPU Rendering</h3>
+
+                <p>
+                    If your Poser version supports it, <strong>GPU rendering</strong> can dramatically speed up SuperFly renders:
+                </p>
+
+                <div class="card">
+                    <h4>GPU Rendering Advantages</h4>
+                    <ul>
+                        <li><strong>3-5x faster:</strong> Modern GPUs are much faster than CPUs for path tracing</li>
+                        <li><strong>Same quality:</strong> Results are identical (or nearly so) to CPU rendering</li>
+                        <li><strong>Interactive preview:</strong> Some versions show progressive updates faster</li>
+                        <li><strong>Requirements:</strong> NVIDIA or AMD graphics card with sufficient VRAM</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ GPU Limitations</h4>
+                    <ul>
+                        <li><strong>VRAM limits:</strong> Complex scenes may not fit in GPU memory</li>
+                        <li><strong>Feature support:</strong> Some advanced features may be CPU-only</li>
+                        <li><strong>Hardware dependent:</strong> Performance varies greatly by GPU model</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Enabling GPU Rendering</h4>
+                    <ol>
+                        <li>Go to <strong>Render Settings</strong> (SuperFly)</li>
+                        <li>Look for <strong>Device</strong> or <strong>Compute Device</strong> setting</li>
+                        <li>Change from <strong>CPU</strong> to <strong>GPU</strong> or <strong>CUDA/OpenCL</strong></li>
+                        <li>Your GPU should be detected automatically</li>
+                        <li>Render—enjoy the speed boost!</li>
+                    </ol>
+                    <p><em>Note: Availability depends on your Poser version and hardware.</em></p>
+                </div>
+
+                <h3>Scene Complexity Management</h3>
+
+                <div class="card">
+                    <h4>Reducing Scene Complexity</h4>
+                    <ul>
+                        <li><strong>Hide invisible objects:</strong> Objects behind camera or out of frame still get calculated</li>
+                        <li><strong>Reduce polygon counts:</strong> Use lower-resolution models for distant objects</li>
+                        <li><strong>Limit subdivision:</strong> Don't subdivide geometry that won't be visible</li>
+                        <li><strong>Optimize textures:</strong> Use appropriate resolution textures (don't use 8K textures on small objects)</li>
+                        <li><strong>Instance duplicates:</strong> Instancing is faster than individual objects</li>
+                    </ul>
+                </div>
+
+                <h3>Common SuperFly Workflow Mistakes</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Don't Do This!</h4>
+                    <ul>
+                        <li><strong>Starting with final render settings:</strong> Testing at 3000 samples wastes hours. Start low!</li>
+                        <li><strong>Changing multiple things at once:</strong> Can't tell what fixed or broke the render. Change one thing at a time.</li>
+                        <li><strong>Not saving render settings:</strong> Accidentally render at wrong settings and waste time</li>
+                        <li><strong>Ignoring denoising:</strong> Rendering at 5000 samples without denoising when 1500 + denoise would look the same</li>
+                        <li><strong>No render region for tests:</strong> Rendering entire image when only testing one material</li>
+                        <li><strong>Not watching first 100 samples:</strong> If it looks wrong early, it won't magically fix itself at 2000 samples—stop and fix it!</li>
+                    </ul>
+                </div>
+
+                <h3>Batch Rendering and Animation</h3>
+
+                <p>
+                    If you need to render multiple images or animation frames:
+                </p>
+
+                <div class="card">
+                    <h4>Batch Rendering Tips</h4>
+                    <ul>
+                        <li><strong>Render overnight:</strong> Queue up multiple renders to complete while you sleep</li>
+                        <li><strong>Lower samples for animation:</strong> 500-1000 samples with denoising is often acceptable for moving images</li>
+                        <li><strong>Lock all settings:</strong> Consistent render settings across all frames</li>
+                        <li><strong>Test one frame first:</strong> Make sure settings work before rendering 100 frames</li>
+                        <li><strong>Use network rendering:</strong> If available, distribute across multiple computers</li>
+                    </ul>
+                </div>
+
+                <h3>File Management</h3>
+
+                <div class="card">
+                    <h4>Organizing Your Renders</h4>
+                    <ul>
+                        <li><strong>Name systematically:</strong> "ProjectName_Scene01_v01_1500samples.png"</li>
+                        <li><strong>Save versions:</strong> Keep test renders so you can compare</li>
+                        <li><strong>Note render settings:</strong> Include sample count, denoising on/off in filename</li>
+                        <li><strong>Separate folders:</strong> Tests/, Finals/, Passes/ for organization</li>
+                        <li><strong>Back up scene files:</strong> Before major changes, save a new version</li>
+                    </ul>
+                </div>
+
+                <h3>Troubleshooting Slow Renders</h3>
+
+                <div class="card">
+                    <h4>If Renders Take Forever:</h4>
+                    <ol>
+                        <li>✓ <strong>Check sample count:</strong> Accidentally set to 50,000 samples?</li>
+                        <li>✓ <strong>Check bounces:</strong> All bounce types set to 16+? Lower them!</li>
+                        <li>✓ <strong>Disable SSS:</strong> Turn off subsurface on materials that don't need it</li>
+                        <li>✓ <strong>Simplify volumetrics:</strong> Remove or reduce density of fog/smoke</li>
+                        <li>✓ <strong>Check texture resolution:</strong> 8K textures on small objects waste time</li>
+                        <li>✓ <strong>Hide unnecessary objects:</strong> Objects not in frame should be hidden</li>
+                        <li>✓ <strong>Check displacement:</strong> Extremely high subdivision can slow things dramatically</li>
+                        <li>✓ <strong>Use render region:</strong> Test small areas to diagnose issues</li>
+                    </ol>
+                </div>
+
+                <h3>Quality Checklist Before Final Render</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Pre-Final Render Checklist</h4>
+                    <ol>
+                        <li>☐ <strong>Composition finalized:</strong> No more camera or pose changes</li>
+                        <li>☐ <strong>Materials tested:</strong> All materials look correct at medium samples</li>
+                        <li>☐ <strong>Lighting verified:</strong> HDR rotation and intensity are perfect</li>
+                        <li>☐ <strong>Samples set correctly:</strong> 1500-3000 for final quality</li>
+                        <li>☐ <strong>Bounces optimized:</strong> Not excessive, but sufficient for scene</li>
+                        <li>☐ <strong>Denoising enabled:</strong> Unless you specifically want pure samples</li>
+                        <li>☐ <strong>Resolution correct:</strong> 100% final resolution</li>
+                        <li>☐ <strong>Output format chosen:</strong> PNG for quality, JPG for smaller files</li>
+                        <li>☐ <strong>Render passes if needed:</strong> Enable any AOVs for compositing</li>
+                        <li>☐ <strong>Scene saved:</strong> Save before starting long render!</li>
+                    </ol>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>The SuperFly Workflow Mantra:</strong> "Test cheap, render expensive." Spend 80% of your time making decisions at low sample counts, and only 20% rendering final quality. The difference between a novice and a pro isn't render quality—it's how efficiently they get there.
+                    </p>
+                </blockquote>
+
+                <h3>Realistic Time Expectations</h3>
+
+                <p>
+                    Set realistic expectations for SuperFly render times based on scene complexity:
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Scene Type</th>
+                            <th>Test Render (200 samples)</th>
+                            <th>Quality Render (1500 samples)</th>
+                            <th>Final Render (2500 samples)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Simple Product</strong></td>
+                            <td>3-5 minutes</td>
+                            <td>15-25 minutes</td>
+                            <td>30-45 minutes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Character Portrait</strong></td>
+                            <td>5-8 minutes</td>
+                            <td>25-40 minutes</td>
+                            <td>45-75 minutes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Full Scene with Multiple Figures</strong></td>
+                            <td>10-15 minutes</td>
+                            <td>45-90 minutes</td>
+                            <td>1.5-3 hours</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Complex Interior</strong></td>
+                            <td>15-25 minutes</td>
+                            <td>1-2 hours</td>
+                            <td>2-4 hours</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Scene with Volumetrics</strong></td>
+                            <td>20-30 minutes</td>
+                            <td>1.5-3 hours</td>
+                            <td>3-6 hours</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    <em>Note: Times assume modern hardware (mid-range CPU or GPU). Older hardware will be slower, high-end hardware faster.</em>
+                </p>
+
+            </section>
+            <!-- Section 9: Troubleshooting SuperFly Renders -->
+            <section id="troubleshooting" class="content-section">
+                <h2>🔧 Troubleshooting SuperFly Renders</h2>
+                
+                <p>
+                    SuperFly's physically-based approach can sometimes produce unexpected results. Let's troubleshoot the most common issues and their solutions so you can diagnose and fix problems quickly.
+                </p>
+
+                <h3>Image Quality Problems</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Extremely noisy/grainy render even at high samples</h4>
+                    <p><strong>Symptoms:</strong> Render still looks speckled after 2000+ samples</p>
+                    <p><strong>Common Causes & Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Denoising not enabled:</strong> Turn on AI denoising in render settings</li>
+                        <li><strong>Difficult lighting:</strong> Tiny bright lights or complex HDR with extreme contrasts. Use larger, softer lights or simpler HDRs</li>
+                        <li><strong>Complex materials:</strong> Too much roughness variation or glossy reflections. Simplify materials or increase glossy bounces</li>
+                        <li><strong>Indirect lighting issues:</strong> Increase diffuse bounces to 6-8</li>
+                        <li><strong>Volumetrics present:</strong> Fog/smoke needs extremely high samples (3000-5000+)</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Bright white/colored dots everywhere (fireflies)</h4>
+                    <p><strong>Symptoms:</strong> Random bright pixels scattered across image</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Enable firefly clamping:</strong> In render settings, set "Clamp Indirect" to 3-10</li>
+                        <li><strong>Increase samples:</strong> Fireflies average out with more samples</li>
+                        <li><strong>Enable denoising:</strong> AI denoisers remove most fireflies</li>
+                        <li><strong>Check for caustics:</strong> Glass with strong light sources creates fireflies. Increase transmission bounces or simplify glass</li>
+                        <li><strong>Reduce small bright lights:</strong> Replace tiny intense lights with larger softer ones</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Render is completely black</h4>
+                    <p><strong>Symptoms:</strong> Nothing visible, just black image</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>No light sources:</strong> Add HDR environment or lights to the scene</li>
+                        <li><strong>HDR not loading:</strong> Check HDR path, make sure file exists</li>
+                        <li><strong>IBL intensity too low:</strong> Increase HDR/environment intensity to 1.0+</li>
+                        <li><strong>Camera inside geometry:</strong> Move camera outside objects</li>
+                        <li><strong>All materials black:</strong> Check base colors aren't set to pure black</li>
+                        <li><strong>Emission strength zero:</strong> If using emissive materials for lighting, increase emission value</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Render is extremely bright/washed out</h4>
+                    <p><strong>Symptoms:</strong> Overexposed, blown-out highlights, no detail</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>HDR too intense:</strong> Lower environment/IBL intensity to 0.5-1.0</li>
+                        <li><strong>Too many lights:</strong> Reduce number or intensity of additional lights</li>
+                        <li><strong>Emission too high:</strong> If materials emit light, reduce emission values</li>
+                        <li><strong>Materials too bright:</strong> Check base colors—should be 0.2-0.8 range, not pure white</li>
+                        <li><strong>No tone mapping:</strong> Enable tone mapping/exposure control if available</li>
+                    </ul>
+                </div>
+
+                <h3>Material Problems</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Materials look flat/unrealistic</h4>
+                    <p><strong>Symptoms:</strong> No depth, everything looks like plastic or painted surfaces</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Missing roughness variation:</strong> Use roughness maps, not uniform values</li>
+                        <li><strong>No normal maps:</strong> Add normal/bump maps for surface detail</li>
+                        <li><strong>Wrong roughness values:</strong> Most real materials are 0.3-0.7, not 0.0 or 1.0 extremes</li>
+                        <li><strong>Missing AO:</strong> Ambient occlusion adds depth—use it or bake it into textures</li>
+                        <li><strong>Poor lighting:</strong> Flat lighting creates flat-looking materials. Add directional light</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Glass appears opaque or black</h4>
+                    <p><strong>Symptoms:</strong> Glass doesn't look transparent, appears as solid black or white</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Transmission not set:</strong> Set Transmission to 1.0 in Principled BSDF</li>
+                        <li><strong>IOR incorrect:</strong> Set IOR to 1.5 (glass) or 1.33 (water)</li>
+                        <li><strong>Not enough transmission bounces:</strong> Increase to 8-12 in render settings</li>
+                        <li><strong>Roughness too high:</strong> Clear glass should have roughness near 0.0</li>
+                        <li><strong>Nothing to refract:</strong> Glass needs objects/environment behind it to show transparency</li>
+                        <li><strong>Base color too dark:</strong> Use white or very light color for glass base</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Metals look wrong/like plastic</h4>
+                    <p><strong>Symptoms:</strong> Metal surfaces don't reflect properly, look fake</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Metallic not set to 1.0:</strong> Metals need Metallic = 1.0</li>
+                        <li><strong>Base color too dark:</strong> Metals need bright base colors (0.8-1.0), not dark</li>
+                        <li><strong>Roughness too high:</strong> Polished metal should be 0.05-0.2, not 0.5+</li>
+                        <li><strong>No environment to reflect:</strong> Add HDR for realistic metal reflections</li>
+                        <li><strong>Wrong color for metal type:</strong> Gold = gold color, not white! Use proper metal colors</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Subsurface scattering looks wrong</h4>
+                    <p><strong>Symptoms:</strong> Skin looks waxy, glowing, or completely opaque</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>SSS value too high:</strong> Keep subsurface at 0.3-0.5 for skin, not 1.0</li>
+                        <li><strong>Wrong subsurface color:</strong> Should be reddish for skin (blood tint)</li>
+                        <li><strong>Radius values incorrect:</strong> Red should penetrate deepest: try (1.0, 0.2, 0.1)</li>
+                        <li><strong>Not enough light:</strong> SSS needs strong backlight or sidelight to be visible</li>
+                        <li><strong>Too many samples needed:</strong> SSS requires 2000+ samples to look clean</li>
+                    </ul>
+                </div>
+
+                <h3>Lighting Issues</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: HDR not lighting the scene</h4>
+                    <p><strong>Symptoms:</strong> Scene is dark even with HDR loaded</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>IBL not enabled:</strong> Enable Image-Based Lighting in render settings</li>
+                        <li><strong>HDR intensity too low:</strong> Increase to 1.0 or higher</li>
+                        <li><strong>Wrong file format:</strong> Make sure you're using .hdr or .exr, not regular .jpg</li>
+                        <li><strong>HDR not applied correctly:</strong> Check that HDR is connected to environment/background</li>
+                        <li><strong>Environment sphere inverted:</strong> If using manual sphere, make sure normals face inward</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Indirect lighting too weak/strong</h4>
+                    <p><strong>Symptoms:</strong> Shadows too dark or scene unnaturally bright from bounced light</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Too weak:</strong> Increase diffuse bounces to 6-8</li>
+                        <li><strong>Too strong:</strong> Reduce HDR intensity or decrease diffuse bounces</li>
+                        <li><strong>Color bleeding excessive:</strong> Reduce saturation of bright colored surfaces</li>
+                        <li><strong>Not enough samples:</strong> Indirect lighting needs adequate samples to converge</li>
+                    </ul>
+                </div>
+
+                <h3>Performance Problems</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Render takes hours or never completes</h4>
+                    <p><strong>Symptoms:</strong> Render progress is extremely slow or appears stuck</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Sample count too high:</strong> Check if accidentally set to 50,000+. Use 1500-3000 for finals</li>
+                        <li><strong>Adaptive threshold too low:</strong> Set to 0.01-0.02, not 0.0001</li>
+                        <li><strong>All bounces maxed out:</strong> Don't need 16 bounces everywhere—use 4-8</li>
+                        <li><strong>Heavy displacement:</strong> Displacement with high subdivision is very slow</li>
+                        <li><strong>Complex volumetrics:</strong> Reduce volume density or simplify volume shader</li>
+                        <li><strong>Too many polygons:</strong> Simplify geometry or use lower subdivision</li>
+                        <li><strong>Giant textures:</strong> 8K+ textures on everything wastes memory and time</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Out of memory errors/crashes</h4>
+                    <p><strong>Symptoms:</strong> Poser crashes during render or shows memory errors</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Reduce texture resolution:</strong> Use 2K or 4K max, not 8K everywhere</li>
+                        <li><strong>Lower displacement subdivision:</strong> Extremely high subdivision uses massive memory</li>
+                        <li><strong>Reduce scene complexity:</strong> Hide objects not in camera view</li>
+                        <li><strong>Close other programs:</strong> Free up system RAM</li>
+                        <li><strong>Switch to CPU if using GPU:</strong> GPU VRAM may be insufficient</li>
+                        <li><strong>Render at lower resolution:</strong> Reduce final output size</li>
+                        <li><strong>Render in tiles:</strong> Use render region to render parts separately, then combine</li>
+                    </ul>
+                </div>
+
+                <h3>Unexpected Visual Artifacts</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Black spots or patches on surfaces</h4>
+                    <p><strong>Symptoms:</strong> Random black areas that shouldn't be there</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Incorrect normals:</strong> Normals facing wrong way. Recalculate or flip normals</li>
+                        <li><strong>Self-intersection:</strong> Overlapping geometry. Fix mesh or separate objects</li>
+                        <li><strong>Light leaks:</strong> In interior scenes, gaps in walls let light escape. Seal geometry</li>
+                        <li><strong>Not enough bounces:</strong> Light can't reach certain areas. Increase diffuse bounces</li>
+                        <li><strong>Ambient occlusion too strong:</strong> If using AO shader, reduce strength</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Objects casting no shadows</h4>
+                    <p><strong>Symptoms:</strong> Objects appear to float, no shadow contact with ground</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>SuperFly calculates shadows automatically:</strong> Unlike Firefly, you don't enable/disable per light</li>
+                        <li><strong>Not enough light contrast:</strong> Increase HDR intensity or add directional light</li>
+                        <li><strong>Ground plane missing:</strong> Objects need surfaces to cast shadows on</li>
+                        <li><strong>Materials too bright:</strong> Overexposed scene washes out shadows</li>
+                        <li><strong>All lights too diffuse:</strong> Need some directional lighting for visible shadows</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Splotchy colors or incorrect color rendering</h4>
+                    <p><strong>Symptoms:</strong> Colors look wrong, splotchy, or shift unexpectedly</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Not enough samples:</strong> Color needs samples to converge. Increase to 1500+</li>
+                        <li><strong>Extreme color bleeding:</strong> Bright colored surfaces bounce color onto neighbors. Reduce saturation</li>
+                        <li><strong>Incorrect color space:</strong> Check if textures are in correct color space (sRGB vs Linear)</li>
+                        <li><strong>HDR color temperature wrong:</strong> Try different HDR or adjust white balance in post</li>
+                    </ul>
+                </div>
+
+                <h3>Denoising Issues</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Denoising makes image blurry or removes detail</h4>
+                    <p><strong>Symptoms:</strong> Textures look soft, fine detail is lost</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Too few samples:</strong> Denoising works best at 1000+ samples. Below 500 creates artifacts</li>
+                        <li><strong>Denoiser too aggressive:</strong> Try different denoiser type (OIDN vs OptiX)</li>
+                        <li><strong>Render without denoising:</strong> Increase samples to 3000-5000 instead</li>
+                        <li><strong>Sharpen in post:</strong> Add slight sharpening in Photoshop after denoising</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Denoising creates weird artifacts or patterns</h4>
+                    <p><strong>Symptoms:</strong> Strange blotches, smudges, or unnatural patterns after denoising</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Sample count too low:</strong> Denoisers need minimum ~500 samples to work properly</li>
+                        <li><strong>Extreme noise:</strong> Scene is too difficult. Simplify lighting or increase samples first</li>
+                        <li><strong>Try different denoiser:</strong> Switch between OIDN, OptiX, or NLM options</li>
+                        <li><strong>Disable and re-render:</strong> Sometimes bugs occur—try rendering again</li>
+                    </ul>
+                </div>
+
+                <h3>Diagnostic Workflow</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Systematic Troubleshooting Process</h4>
+                    <ol>
+                        <li><strong>Isolate the problem:</strong> Render a small region around the issue</li>
+                        <li><strong>Check render settings:</strong>
+                            <ul>
+                                <li>Sample count reasonable? (1000-3000)</li>
+                                <li>Bounces appropriate? (4-8 for most types)</li>
+                                <li>Denoising enabled?</li>
+                            </ul>
+                        </li>
+                        <li><strong>Test materials:</strong>
+                            <ul>
+                                <li>Apply simple test material (gray, roughness 0.5)</li>
+                                <li>If problem persists, it's not the material</li>
+                                <li>If problem disappears, diagnose material settings</li>
+                            </ul>
+                        </li>
+                        <li><strong>Test lighting:</strong>
+                            <ul>
+                                <li>Replace complex lighting with simple HDR</li>
+                                <li>Remove all additional lights temporarily</li>
+                                <li>Gradually add complexity back to find culprit</li>
+                            </ul>
+                        </li>
+                        <li><strong>Simplify geometry:</strong>
+                            <ul>
+                                <li>Hide objects one by one to find problematic mesh</li>
+                                <li>Check for overlapping geometry or inverted normals</li>
+                            </ul>
+                        </li>
+                        <li><strong>Check for user error:</strong>
+                            <ul>
+                                <li>Are you in SuperFly mode, not Firefly?</li>
+                                <li>Is the correct camera selected?</li>
+                                <li>Are objects on invisible layers?</li>
+                            </ul>
+                        </li>
+                        <li><strong>Render log:</strong> Check console/log for error messages or warnings</li>
+                    </ol>
+                </div>
+
+                <h3>Quick Fixes Reference</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Symptom</th>
+                            <th>Quick Fix</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Too noisy</td>
+                            <td>Increase samples + enable denoising</td>
+                        </tr>
+                        <tr>
+                            <td>Too slow</td>
+                            <td>Lower samples, reduce bounces, simplify scene</td>
+                        </tr>
+                        <tr>
+                            <td>Black image</td>
+                            <td>Check lighting (HDR enabled and loaded?)</td>
+                        </tr>
+                        <tr>
+                            <td>Too bright</td>
+                            <td>Lower HDR/light intensity</td>
+                        </tr>
+                        <tr>
+                            <td>Flat materials</td>
+                            <td>Add roughness/normal maps, improve lighting</td>
+                        </tr>
+                        <tr>
+                            <td>Glass opaque</td>
+                            <td>Set Transmission=1.0, increase transmission bounces</td>
+                        </tr>
+                        <tr>
+                            <td>Metal looks plastic</td>
+                            <td>Set Metallic=1.0, brighten base color, lower roughness</td>
+                        </tr>
+                        <tr>
+                            <td>Fireflies</td>
+                            <td>Enable clamping, increase samples, use denoising</td>
+                        </tr>
+                        <tr>
+                            <td>Out of memory</td>
+                            <td>Reduce texture sizes, lower subdivision, hide objects</td>
+                        </tr>
+                        <tr>
+                            <td>Blurry denoising</td>
+                            <td>Increase samples to 1500+, or disable denoising</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <blockquote>
+                    <p>
+                        <strong>Troubleshooting Philosophy:</strong> SuperFly problems are almost always about one of three things: not enough samples (noise), incorrect material setup (physical properties wrong), or problematic lighting (too complex or intense). Fix these fundamentals before diving into obscure settings!
+                    </p>
+                </blockquote>
+
+            </section>

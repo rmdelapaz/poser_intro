@@ -1,0 +1,2544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master indoor and dramatic lighting techniques in Poser 12 - Learn to create cinematic, moody scenes with practical lights, dramatic shadows, and atmospheric effects">
+    <meta name="author" content="Poser 12 Course">
+    <title>Indoor and Dramatic Lighting - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <nav class="main-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-logo">🎨 Poser 12 Mastery</a>
+        <div class="nav-links">
+            <a href="index.html#modules">📚 Modules</a>
+            <a href="index.html#resources">🔧 Resources</a>
+            <a href="index.html#about">ℹ️ About</a>
+        </div>
+    </nav>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> â€º
+        <a href="index.html#module5">Module 5: Lighting Fundamentals</a> â€º
+        <span>Lesson 22: Indoor and Dramatic Lighting</span>
+    </nav>
+
+    <main class="lesson-content">
+        <article>
+            <header class="lesson-header">
+                <h1>🎭 Indoor and Dramatic Lighting</h1>
+                <p class="lesson-subtitle">Creating Cinematic Moods and Atmospheric Interior Scenes</p>
+            </header>
+
+            <p class="lead-text">
+                Welcome to one of the most creative and expressive aspects of lighting in Poser 12! While outdoor lighting is about replicating nature, indoor and dramatic lighting is where you become a cinematographer—using light and shadow to create mood, tell stories, and evoke powerful emotions. Whether you're recreating the mystery of film noir, the warmth of a candlelit dinner, or the tension of a shadowy thriller, mastering dramatic lighting transforms your scenes from simple renders into captivating visual narratives.
+            </p>
+
+            <p>
+                Think about your favorite movie scenes. What makes them memorable isn't just what you can see—it's what you can't see. It's the interplay of light and shadow, the pools of darkness that create mystery, the strategic placement of light that draws your eye exactly where the director wants it. That's the power of dramatic lighting, and by the end of this lesson, you'll be wielding it like a pro.
+            </p>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; margin: 2rem 0;">
+                <h3 style="color: white; margin-top: 0;">💡 What You'll Learn</h3>
+                <ul style="color: white;">
+                    <li><strong>Interior Lighting Strategies:</strong> How to light indoor spaces realistically while maintaining artistic control</li>
+                    <li><strong>Practical Lights:</strong> Simulating real-world light sources like lamps, candles, and windows</li>
+                    <li><strong>Dramatic Shadow Techniques:</strong> Using darkness as a creative tool to create tension and focus</li>
+                    <li><strong>Color and Mood:</strong> How color temperature and tinting affect emotional response</li>
+                    <li><strong>Low-Light Scenes:</strong> Creating convincing nighttime and dimly-lit environments</li>
+                    <li><strong>Film Noir and Cinematic Styles:</strong> Techniques from classic cinema for maximum drama</li>
+                </ul>
+                <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                    <p style="margin: 0; color: white;"><strong>⏱️ Estimated Time:</strong> 60-75 minutes</p>
+                    <p style="margin: 0.5rem 0 0 0; color: white;"><strong>🎯 Project:</strong> Create a dramatically lit indoor scene in film noir or mystery style</p>
+                </div>
+            </div>
+
+            <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107; margin: 2rem 0;">
+                <h4>🎬 Why Dramatic Lighting Matters</h4>
+                <p>
+                    In film, television, and visual storytelling, lighting does far more than make things visible—it's an emotional language. A brightly lit scene feels open, honest, safe. A dimly lit scene with strong shadows creates mystery, danger, intimacy. The same character in the same room can appear heroic or sinister depending entirely on how they're lit. Professional 3D artists know that great lighting can make even a simple scene compelling, while poor lighting can ruin an otherwise perfect render.
+                </p>
+                <p style="margin-bottom: 0;">
+                    This lesson teaches you to think like a cinematographer, using light as a storytelling tool rather than just a technical necessity.
+                </p>
+            </div>
+            <!-- Table of Contents -->
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">📑 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#interior-fundamentals" class="toc-link">Understanding Interior Light Behavior</a></li>
+                        <li><a href="#practical-lights" class="toc-link">Practical Lights - Lamps, Windows, and Real Sources</a></li>
+                        <li><a href="#dramatic-shadows" class="toc-link">Creating Dramatic Shadows</a></li>
+                        <li><a href="#color-mood" class="toc-link">Color Temperature and Mood Lighting</a></li>
+                        <li><a href="#low-light" class="toc-link">Low-Light and Night Scene Techniques</a></li>
+                        <li><a href="#film-noir" class="toc-link">Film Noir and Cinematic Lighting Styles</a></li>
+                        <li><a href="#advanced-techniques" class="toc-link">Advanced Dramatic Lighting Techniques</a></li>
+                        <li><a href="#common-mistakes" class="toc-link">Common Mistakes to Avoid</a></li>
+                        <li><a href="#project" class="toc-link">Project: Film Noir Scene</a></li>
+                        <li><a href="#summary" class="toc-link">Summary and Key Takeaways</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Section 1: Understanding Interior Light Behavior -->
+            <section id="interior-fundamentals">
+                <h2>🏠 Understanding Interior Light Behavior</h2>
+                
+                <p>
+                    Before we dive into creating dramatic effects, let's understand how light actually behaves indoors. Indoor lighting is fundamentally different from outdoor lighting, and grasping these differences is key to creating believable interior scenes.
+                </p>
+
+                <h3>The Physics of Indoor Light</h3>
+
+                <p>
+                    In the real world, indoor spaces have unique lighting characteristics that make them distinctly different from outdoor environments:
+                </p>
+
+                <div class="card">
+                    <h4>🔍 Key Differences: Indoor vs. Outdoor</h4>
+                    
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                        <thead>
+                            <tr style="background: #f8f9fa;">
+                                <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Characteristic</th>
+                                <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Outdoor</th>
+                                <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Indoor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Light Source</strong></td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Single dominant source (sun)</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Multiple smaller sources (lamps, windows)</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Light Intensity</strong></td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Very bright, consistent</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Dimmer, variable</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Light Direction</strong></td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Parallel rays from one direction</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Multiple directions, bouncing</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Shadow Quality</strong></td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Sharp, defined edges</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Softer, multiple overlapping</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Color Temperature</strong></td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Neutral to cool (daylight)</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Varies (warm to cool depending on source)</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Bounce Light</strong></td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Minimal (open space)</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Significant (walls reflect light)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>The Concept of "Motivation"</h3>
+
+                <p>
+                    In cinematography, there's a critical concept called <strong>motivated lighting</strong>—every light in your scene should have a logical source. Even in highly stylized or dramatic scenes, the best lighting still feels like it could come from somewhere real. This doesn't mean your lighting has to be realistic, but it should be <em>believable</em>.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ The Golden Rule of Interior Lighting</h4>
+                    <p style="margin-bottom: 0;">
+                        <strong>"Where would this light come from in real life?"</strong> Even when creating dramatic or stylized lighting, always start by asking this question. Your lights should feel motivated by practical sources—a window, a lamp, a fireplace, a doorway. You can then exaggerate, enhance, or stylize from there, but having that foundation keeps your scene grounded and believable.
+                    </p>
+                </div>
+
+                <h3>Bounce Light and Ambient Illumination</h3>
+
+                <p>
+                    One of the most important—and often overlooked—aspects of indoor lighting is <strong>bounce light</strong>. In a real room, light doesn't just travel from source to subject. It bounces off walls, ceilings, floors, and furniture, creating a subtle ambient illumination that fills in shadows and adds realism.
+                </p>
+
+                <p>
+                    Think of a room with white walls versus a room with dark wood paneling. The white-walled room will be significantly brighter with the same light source because light bounces around more effectively. This is why photographers love white walls and ceilings—they act as giant reflectors!
+                </p>
+
+                <blockquote>
+                    <p>
+                        <strong>Real-World Example:</strong> Stand in your bathroom with a single light bulb on. Notice how even though there's only one light source, the entire room is relatively well-lit? That's bounce light in action. Now imagine the same bulb in a cavern—you'd have a bright spot around the bulb and deep darkness everywhere else. Rooms naturally create fill light through reflection.
+                    </p>
+                </blockquote>
+
+                <h3>Light Falloff in Enclosed Spaces</h3>
+
+                <p>
+                    Indoor lighting follows the <strong>inverse square law</strong> more obviously than outdoor lighting. As distance from a light source doubles, the intensity decreases to one-quarter. In practical terms: a lamp that's two feet away is four times brighter than the same lamp four feet away.
+                </p>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Light Source] -->|Full Intensity| B[1 meter]
+                    A -->|25% Intensity| C[2 meters]
+                    A -->|11% Intensity| D[3 meters]
+                    A -->|6% Intensity| E[4 meters]
+                    style A fill:#ffd700,stroke:#333,stroke-width:2px
+                    style B fill:#ffed4e,stroke:#333,stroke-width:2px
+                    style C fill:#ffffb3,stroke:#333,stroke-width:2px
+                    style D fill:#ffffd9,stroke:#333,stroke-width:2px
+                    style E fill:#fffff0,stroke:#333,stroke-width:2px
+                </div>
+
+                <p>
+                    This creates natural gradients of light and shadow that are perfect for dramatic lighting. Objects close to your light source will be brightly lit, while objects further away naturally fall into shadow—no extra work required!
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Common Mistake: Overlighting Interiors</h4>
+                    <p style="margin-bottom: 0;">
+                        Beginners often make interior scenes too bright, thinking they need to see everything clearly. In reality, real indoor spaces have pockets of darkness, and that's what makes them feel natural and interesting. Don't be afraid of shadows—embrace them! They're your tools for creating depth, focus, and drama.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 2: Practical Lights -->
+            <section id="practical-lights">
+                <h2>💡 Practical Lights - Lamps, Windows, and Real Sources</h2>
+                
+                <p>
+                    <strong>Practical lights</strong> are visible light sources within your scene—the lamps, candles, windows, and other objects that characters and viewers can see producing light. They're called "practical" because they're practical elements of the set, not hidden lighting rigs. In 3D, we need to simulate both the visible practical element (the lamp itself) and the light it casts.
+                </p>
+
+                <h3>The Two-Part System</h3>
+
+                <p>
+                    Creating convincing practical lights requires understanding a fundamental technique: you almost always need <strong>two elements</strong>:
+                </p>
+
+                <div class="card">
+                    <h4>🔧 The Practical Light Formula</h4>
+                    <ol>
+                        <li><strong>The Visible Prop:</strong> The physical object (lamp, window, candle) that the camera can see</li>
+                        <li><strong>The Hidden Light:</strong> The actual Poser light positioned near the prop to simulate its illumination</li>
+                    </ol>
+                    <p style="margin-bottom: 0;">
+                        Why separate? Because the visible prop rarely emits enough light on its own (unless using advanced material settings), and you need precise control over the light's properties—intensity, color, falloff, and shadow quality—that the prop itself can't provide.
+                    </p>
+                </div>
+
+                <h3>Window Lighting</h3>
+
+                <p>
+                    Windows are one of the most common and effective practical light sources for interior scenes. They bring in natural light and create beautiful, motivated lighting that instantly makes your scene feel grounded in reality.
+                </p>
+
+                <h4>Setting Up Window Light</h4>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <h4>📝 Window Light Setup Steps</h4>
+                    <ol>
+                        <li>
+                            <strong>Position Your Window Prop:</strong>
+                            <p>Place a window prop in your scene. If you don't have a window prop, even a simple rectangular prop or plane can work—it's the light that matters most.</p>
+                        </li>
+                        <li>
+                            <strong>Add a Spotlight or Area Light:</strong>
+                            <p>Position it just outside the window, angled into the room. Spotlights work great because you can control the cone angle to match the window size.</p>
+                        </li>
+                        <li>
+                            <strong>Adjust Color Temperature:</strong>
+                            <p>Daytime windows should have cool, slightly blue-white light (RGB around 240, 245, 255). This mimics natural skylight.</p>
+                        </li>
+                        <li>
+                            <strong>Control the Spread:</strong>
+                            <p>Real window light spreads as it enters a room. Use a wider cone angle or reduce edge sharpness to create this natural diffusion.</p>
+                        </li>
+                        <li>
+                            <strong>Add Bounce Light:</strong>
+                            <p>Place a dim, blue-tinted point light or infinite light in the room to simulate bounce light from the floor and walls. Keep it subtle—around 20-30% intensity of the window light.</p>
+                        </li>
+                    </ol>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Cinematographer's Trick:</strong> In film, windows are often the hero light source for indoor scenes. They provide natural, directional light that's easy to work with. Notice in movies how characters often stand or sit near windows during important dialogue scenes? That's no accident—it's beautiful, motivated lighting that's easy to control.
+                    </p>
+                </blockquote>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✨ Pro Tip: The "Dirty Window" Effect</h4>
+                    <p style="margin-bottom: 0;">
+                        Real windows aren't perfectly clean. For extra realism, you can give your window light a slightly textured quality by adjusting shadow softness or by placing a semi-transparent texture map on a plane in front of the light. This creates subtle variation in the light pattern, just like dust particles and imperfections on real glass would create.
+                    </p>
+                </div>
+
+                <h3>Lamp Lighting</h3>
+
+                <p>
+                    Table lamps, floor lamps, and overhead fixtures are the bread and butter of interior lighting. They're everywhere in real life, and they should be in your scenes too.
+                </p>
+
+                <h4>Table Lamp Setup</h4>
+
+                <div class="card">
+                    <h4>🛋️ Creating Convincing Lamp Light</h4>
+                    
+                    <p><strong>Step 1: Load the Lamp Prop</strong></p>
+                    <p>Place your lamp prop in the scene where you want it. Position it on a table, desk, or floor depending on the lamp type.</p>
+
+                    <p><strong>Step 2: Add a Point Light</strong></p>
+                    <p>Create a point light and position it at the bulb location within the lamp. If the lamp has a shade, position the light just below the shade's bottom edge.</p>
+
+                    <p><strong>Step 3: Set Warm Color</strong></p>
+                    <p>Most indoor lamps use incandescent or warm LED bulbs. Set your light color to a warm yellow-orange (RGB around 255, 230, 190). This creates that cozy, inviting indoor feeling.</p>
+
+                    <p><strong>Step 4: Adjust Falloff</strong></p>
+                    <p>Lamps don't light entire rooms—they create pools of light. Reduce the light's range or increase falloff so it illuminates the immediate area (table surface, nearby chair) but fades naturally into shadow beyond that.</p>
+
+                    <p><strong>Step 5: Enable Shadows</strong></p>
+                    <p>Make sure shadows are enabled, but use soft shadows. Lamp shades diffuse light, creating soft-edged shadows rather than sharp ones.</p>
+                </div>
+
+                <h4>Lamp Shade Considerations</h4>
+
+                <p>
+                    Real lamp shades affect how light disperses. A solid, opaque shade directs light up and down but not through the sides. A translucent fabric shade glows and spreads light in all directions. You can simulate this in two ways:
+                </p>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <h4>Two Approaches to Lamp Shades</h4>
+                    
+                    <p><strong>Approach 1: Single Point Light (Simple)</strong></p>
+                    <ul>
+                        <li>Use one point light positioned at the bulb</li>
+                        <li>Accept that it will illuminate in all directions</li>
+                        <li>Fastest and easiest method</li>
+                        <li>Works well for translucent shades</li>
+                    </ul>
+
+                    <p><strong>Approach 2: Multiple Lights (Realistic)</strong></p>
+                    <ul>
+                        <li>Use one spotlight pointing up (toward ceiling)</li>
+                        <li>Use another spotlight pointing down (toward table)</li>
+                        <li>Exclude the lamp shade from casting shadows (in light properties)</li>
+                        <li>More complex but accurate for opaque shades</li>
+                    </ul>
+                </div>
+
+                <h3>Overhead Lighting</h3>
+
+                <p>
+                    Ceiling fixtures—chandeliers, recessed lights, fluorescent panels—are common in real interiors. They provide general ambient illumination but can also be used for dramatic effects.
+                </p>
+
+                <div class="card">
+                    <h4>💡 Overhead Light Types</h4>
+                    
+                    <p><strong>Recessed Ceiling Lights:</strong></p>
+                    <ul>
+                        <li>Use spotlights pointed straight down</li>
+                        <li>Keep cone angle narrow (60-75 degrees)</li>
+                        <li>Position multiple lights for even coverage</li>
+                        <li>Use cool white color (RGB 255, 255, 255 or slightly blue)</li>
+                    </ul>
+
+                    <p><strong>Chandeliers/Pendant Lights:</strong></p>
+                    <ul>
+                        <li>Point light positioned at the fixture center</li>
+                        <li>Warm color (255, 240, 200)</li>
+                        <li>Medium intensity—not too bright</li>
+                        <li>Creates nice highlights on reflective surfaces</li>
+                    </ul>
+
+                    <p><strong>Fluorescent Panels:</strong></p>
+                    <ul>
+                        <li>Area lights work best for these</li>
+                        <li>Rectangle shape matching panel size</li>
+                        <li>Cool white or slightly green-tinted (255, 255, 250)</li>
+                        <li>Very soft shadows</li>
+                        <li>Great for office or industrial scenes</li>
+                    </ul>
+                </div>
+
+                <h3>Candles and Fire</h3>
+
+                <p>
+                    Candles and fireplaces provide warm, flickering light that's perfect for intimate or medieval scenes. While animating flickering is advanced, even static candle light adds atmosphere.
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>🕯️ Candlelight Characteristics</h4>
+                    <ul>
+                        <li><strong>Color:</strong> Very warm orange-yellow (255, 200, 120)</li>
+                        <li><strong>Intensity:</strong> Low—candles are dim compared to electric lights</li>
+                        <li><strong>Falloff:</strong> Rapid—light fades quickly with distance</li>
+                        <li><strong>Range:</strong> Small—typically illuminates only 2-3 feet effectively</li>
+                        <li><strong>Position:</strong> Point light at the flame tip</li>
+                    </ul>
+                    <p style="margin-bottom: 0;">
+                        <strong>Important:</strong> Candles are much dimmer than people expect. In renders, they create small pools of warm light, not room-filling illumination. You usually need multiple candles or supplementary lights to make a scene bright enough.
+                    </p>
+                </div>
+
+                <h3>Practical Light Intensity Guidelines</h3>
+
+                <p>
+                    Getting the relative brightness right between different practical sources is crucial for realism:
+                </p>
+
+                <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+                    <thead>
+                        <tr style="background: #f8f9fa;">
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Light Source</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Relative Intensity</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Color Temp</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Best Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Window (daytime)</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">100% (baseline)</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Cool white-blue</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Key light for daytime interiors</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Overhead ceiling light</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">70-80%</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Cool white</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">General ambient, offices</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Table lamp</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">40-60%</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Warm yellow</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Local task lighting, mood</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Floor lamp</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">50-70%</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Warm yellow</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Area lighting, corners</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Computer monitor</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">15-25%</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Cool blue-white</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Face lighting in dark rooms</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Candle</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">10-20%</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Very warm orange</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Intimate scenes, accents</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Fireplace</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">60-80%</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Warm orange-red</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Focal point, dramatic</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Quick Setup Checklist for Practical Lights</h4>
+                    <ul style="margin-bottom: 0;">
+                        <li>Place the visible prop first, position it properly in the scene</li>
+                        <li>Add the hidden Poser light near the prop</li>
+                        <li>Set appropriate color temperature for the light type</li>
+                        <li>Adjust intensity relative to other lights in scene</li>
+                        <li>Enable soft shadows (except for candles—those can be sharper)</li>
+                        <li>Test render and adjust—practical lights often need fine-tuning</li>
+                        <li>Consider adding subtle fill light for bounce illumination</li>
+                    </ul>
+                </div>
+
+            </section>
+<!-- Section 3: Creating Dramatic Shadows -->
+<section id="dramatic-shadows">
+  <h2>🌑 Creating Dramatic Shadows</h2>
+
+  <p>
+    In dramatic lighting, shadows aren't something to avoid—they're your most
+    powerful creative tool. The interplay between light and shadow creates
+    depth, focus, mystery, and emotion. Mastering dramatic shadows means
+    learning to see darkness as a positive element of composition, not just the
+    absence of light.
+  </p>
+
+  <h3>Why Shadows Matter</h3>
+
+  <blockquote>
+    <p>
+      <strong>"Shadows are where stories hide."</strong> — Every film noir
+      cinematographer ever
+    </p>
+  </blockquote>
+
+  <p>
+    Think about how you feel when entering a brightly lit space versus a dimly
+    lit one. Bright, even lighting feels safe, open, public. Deep shadows feel
+    intimate, mysterious, potentially dangerous. Neither is inherently
+    better—they serve different storytelling purposes. Your job is to use
+    shadows intentionally to create the mood and focus your scene needs.
+  </p>
+
+  <div class="card">
+    <h4>🎯 What Dramatic Shadows Accomplish</h4>
+    <ul>
+      <li>
+        <strong>Focus Attention:</strong> By leaving some areas in shadow, you
+        draw the eye to lit areas
+      </li>
+      <li>
+        <strong>Create Depth:</strong> Light-to-dark gradients make flat 3D
+        renders feel three-dimensional
+      </li>
+      <li>
+        <strong>Hide and Reveal:</strong> Partial shadow creates mystery and
+        intrigue
+      </li>
+      <li>
+        <strong>Sculpt Faces:</strong> Shadow defines facial structure and
+        creates character
+      </li>
+      <li>
+        <strong>Establish Mood:</strong> More shadow = more tension, drama, or
+        intimacy
+      </li>
+      <li>
+        <strong>Simplify Composition:</strong> Shadows remove visual clutter,
+        making images cleaner
+      </li>
+    </ul>
+  </div>
+
+  <h3>The Shadow Ratio</h3>
+
+  <p>
+    One of the most important concepts in dramatic lighting is the
+    <strong>shadow ratio</strong>—the relationship between the brightest areas
+    and the darkest areas in your scene. This ratio dramatically affects the
+    mood and style of your image.
+  </p>
+
+  <div class="card" style="background: #f8f9fa">
+    <h4>📊 Shadow Ratio Guide</h4>
+
+    <p><strong>Low Contrast (2:1 to 3:1)</strong></p>
+    <ul>
+      <li>
+        <strong>Look:</strong> Bright, evenly lit, shadows are visible but light
+      </li>
+      <li><strong>Mood:</strong> Cheerful, safe, comfortable, public</li>
+      <li>
+        <strong>Use for:</strong> Comedy, family scenes, bright daytime
+        interiors, corporate settings
+      </li>
+      <li>
+        <strong>Shadow appearance:</strong> Soft, transparent, detail still
+        visible
+      </li>
+    </ul>
+
+    <p><strong>Medium Contrast (4:1 to 6:1)</strong></p>
+    <ul>
+      <li>
+        <strong>Look:</strong> Balanced light and shadow, clear separation
+      </li>
+      <li><strong>Mood:</strong> Neutral, natural, dramatic but not extreme</li>
+      <li>
+        <strong>Use for:</strong> Drama, action, general storytelling, most
+        scenarios
+      </li>
+      <li>
+        <strong>Shadow appearance:</strong> Defined but not deep black, some
+        texture visible
+      </li>
+    </ul>
+
+    <p><strong>High Contrast (8:1 and above)</strong></p>
+    <ul>
+      <li>
+        <strong>Look:</strong> Strong light-to-dark transitions, deep shadows
+      </li>
+      <li><strong>Mood:</strong> Intense, mysterious, dangerous, intimate</li>
+      <li>
+        <strong>Use for:</strong> Film noir, horror, thriller, romantic
+        candlelight
+      </li>
+      <li>
+        <strong>Shadow appearance:</strong> Deep black or near-black, little to
+        no detail visible
+      </li>
+    </ul>
+  </div>
+
+  <h3>The Key-to-Fill Relationship</h3>
+
+  <p>
+    The amount of shadow in your scene is primarily controlled by the
+    relationship between your <strong>key light</strong> (main light) and your
+    <strong>fill light</strong> (shadow-filling light). In dramatic lighting,
+    you deliberately reduce or eliminate fill light to let shadows deepen.
+  </p>
+
+  <div class="mermaid">
+graph TD
+  A[Key Light Only] -->|Results in| B[Maximum Shadow]
+  C[Key + Strong Fill] -->|Results in| D[Minimal Shadow]
+  E[Key + Weak Fill] -->|Results in| F[Dramatic Shadow]
+
+  style A fill:#ffd700,stroke:#333,stroke-width:2px
+  style B fill:#2c3e50,stroke:#333,stroke-width:2px,color:#fff
+  style C fill:#ffd700,stroke:#333,stroke-width:2px
+  style D fill:#ecf0f1,stroke:#333,stroke-width:2px
+  style E fill:#ffd700,stroke:#333,stroke-width:2px
+  style F fill:#34495e,stroke:#333,stroke-width:2px,color:#fff
+</div>
+
+
+  <h4>Creating Deep Shadows</h4>
+
+  <div class="card">
+    <h4>🛠️ Techniques for Deeper, More Dramatic Shadows</h4>
+
+    <p><strong>1. Reduce or Remove Fill Light</strong></p>
+    <p>
+      The most direct approach: simply don't add fill light, or reduce its
+      intensity to 10-20% of your key light. This allows shadows to fall
+      naturally without being softened.
+    </p>
+
+    <p><strong>2. Use Single-Source Lighting</strong></p>
+    <p>
+      One light creates the most dramatic shadows. Additional lights dilute the
+      effect. For maximum drama, use only one strong light source and let
+      everything else fall into shadow.
+    </p>
+
+    <p><strong>3. Increase Light-to-Subject Distance</strong></p>
+    <p>
+      Moving your light further from the subject creates harder shadow edges and
+      stronger contrast. Light falloff becomes more pronounced, creating
+      dramatic bright-to-dark transitions.
+    </p>
+
+    <p><strong>4. Use Hard Light Sources</strong></p>
+    <p>
+      Point lights and spotlights create harder shadows than area lights. For
+      classic film noir shadows with sharp edges, use point lights or spotlights
+      with higher shadow sharpness settings.
+    </p>
+
+    <p><strong>5. Position Lights Strategically</strong></p>
+    <p>
+      Side lighting (90° from camera) creates maximum shadow depth on faces.
+      Backlighting creates silhouettes. Top-down lighting creates dramatic
+      shadows under eyes and chin.
+    </p>
+
+    <p><strong>6. Block Light Intentionally</strong></p>
+    <p>
+      Place objects between light and subject to create shadow patterns. Window
+      blinds, tree branches, doorways—these create interesting shadow shapes
+      that add visual interest.
+    </p>
+  </div>
+
+  <h3>Shadow Patterns and Shapes</h3>
+
+  <p>
+    Shadows don't have to be uniform darkness. Some of the most compelling
+    dramatic lighting uses <strong>patterned shadows</strong>—shadows with
+    shapes and textures that add visual interest and storytelling depth.
+  </p>
+
+  <div class="card" style="background: #e8f5e9; border-left: 4px solid #4caf50">
+    <h4>🎨 Popular Shadow Pattern Sources</h4>
+    <ul>
+      <li>
+        <strong>Window Blinds (Venetian):</strong> Classic horizontal bars
+        across face or wall—instantly recognizable noir aesthetic
+      </li>
+      <li>
+        <strong>Window Panes:</strong> Rectangular grid pattern, suggests indoor
+        setting
+      </li>
+      <li>
+        <strong>Tree Branches:</strong> Organic, natural patterns, outdoor
+        feeling indoors
+      </li>
+      <li><strong>Fabric/Curtains:</strong> Soft, flowing shadow shapes</li>
+      <li><strong>Doorways:</strong> Rectangle or arc of light in darkness</li>
+      <li>
+        <strong>Furniture:</strong> Chair backs, table edges create interesting
+        profiles
+      </li>
+      <li>
+        <strong>Architectural Elements:</strong> Beams, columns, railings cast
+        linear shadows
+      </li>
+    </ul>
+  </div>
+
+  <p>
+    To create these patterns in Poser, position a prop (like window blinds)
+    between your light source and your subject. The prop will cast its shadow
+    shape onto your character. Make sure the light has shadows enabled and
+    experiment with shadow sharpness to get the look you want.
+  </p>
+
+  <h3>Lighting Angles for Maximum Drama</h3>
+
+  <p>
+    The direction your light comes from determines what shadows appear and
+    where. Different angles create vastly different moods:
+  </p>
+
+  <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0">
+    <thead>
+      <tr style="background: #f8f9fa">
+        <th
+          style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6"
+        >
+          Light Position
+        </th>
+        <th
+          style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6"
+        >
+          Shadow Effect
+        </th>
+        <th
+          style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6"
+        >
+          Mood/Feeling
+        </th>
+        <th
+          style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6"
+        >
+          Best For
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+          <strong>Side Light (90°)</strong>
+        </td>
+        <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+          Half face lit, half in shadow
+        </td>
+        <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+          Dramatic, mysterious, reveals character duality
+        </td>
+        <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+          Character portraits, moral complexity
+        </td>
+      </tr>
+      <tr style="background: #f8f9fa">
+        <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+          <strong>Under Light</strong>
+        </td>
+        <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+          Shadows cast upward
+        </td>
+        <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+          Unnatural, unsettling, monstrous
+        </td>
+        <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+          Horror, villains, campfire tales
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+          <strong>Top Light</strong>
+        </td>
+        <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+          Deep eye sockets, under-chin shadows
+        </td>
+        <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+          Ominous, isolated, noir detective
+        </td>
+        <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+          Interrogation, lone figure
+        </td>
+      </tr>
+      <tr style="background: #f8f9fa">
+        <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+          <strong>Back Light</strong>
+        </td>
+        <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+          Silhouette, halo edge light
+        </td>
+        <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+          Mysterious, anonymous, dramatic
+        </td>
+        <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+          Reveals, mysterious figures
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+          <strong>45° Side/Above</strong>
+        </td>
+        <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+          Partial shadow, sculptural
+        </td>
+        <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+          Dramatic but natural, classic
+        </td>
+        <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+          Most versatile, standard drama
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107">
+    <h4>⚠️ Watch Out: The "Too Dark" Problem</h4>
+    <p>
+      There's a fine line between "dramatic shadow" and "can't see anything."
+      Your goal isn't to make the image difficult to view—it's to use shadow
+      creatively while maintaining visibility where needed. Here's the test: can
+      you still see important details (facial expressions, key props) even in
+      shadowed areas? If not, add a tiny bit of fill light or ambient
+      illumination. Dramatic doesn't mean invisible!
+    </p>
+    <p style="margin-bottom: 0">
+      <strong>The Rule:</strong> Shadows should have <em>some</em> detail
+      visible, even if subtle. Pure black silhouettes are a specific stylistic
+      choice, not the default for dramatic lighting.
+    </p>
+  </div>
+
+  <h3>Negative Fill: The Advanced Technique</h3>
+
+  <p>
+    Here's a professional secret: sometimes the best way to create deeper
+    shadows is with <strong>negative fill</strong>—actually blocking reflected
+    light that would otherwise lighten your shadows. In real-world photography,
+    this is done with black flags or fabric. In 3D, we can either:
+  </p>
+
+  <div class="card">
+    <ol>
+      <li>
+        <strong>Reduce ambient light:</strong> Lower any global ambient settings
+        to near zero
+      </li>
+      <li>
+        <strong>Place dark objects:</strong> Position props with dark materials
+        near your subject to absorb light instead of reflecting it
+      </li>
+      <li>
+        <strong>Use negative lights:</strong> Some render engines allow negative
+        intensity lights that actually subtract illumination (check if Poser
+        supports this in your render engine)
+      </li>
+    </ol>
+  </div>
+
+  <blockquote>
+    <p>
+      <strong>Real-World Example:</strong> Portrait photographers often place
+      black boards opposite the key light to prevent light from bouncing back
+      into shadows. This keeps the shadow side of the face darker and more
+      dramatic. You can do the same in Poser by strategically placing
+      dark-surfaced props.
+    </p>
+  </blockquote>
+</section>
+            <!-- Section 4: Color Temperature and Mood Lighting -->
+            <section id="color-mood">
+                <h2>🎨 Color Temperature and Mood Lighting</h2>
+                
+                <p>
+                    Color isn't just decorative in lighting—it's deeply emotional. The color temperature and tint of your lights profoundly affect how viewers feel about your scene, often on a subconscious level. Understanding color psychology in lighting transforms you from someone who makes scenes visible into someone who creates emotional experiences.
+                </p>
+
+                <h3>Color Temperature Basics</h3>
+
+                <p>
+                    <strong>Color temperature</strong> is measured in Kelvin (K) in the real world, but in Poser we work with RGB values or color pickers. However, understanding the temperature scale helps you choose the right colors:
+                </p>
+
+                <div class="card">
+                    <h4>🌡️ The Color Temperature Scale</h4>
+                    
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                        <thead>
+                            <tr style="background: #f8f9fa;">
+                                <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Source</th>
+                                <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Kelvin</th>
+                                <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">RGB Approximation</th>
+                                <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Feeling</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Candlelight</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">1800-2000K</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">(255, 180, 100)</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Very warm, intimate, romantic</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Incandescent bulb</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">2700-3000K</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">(255, 230, 190)</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Warm, cozy, homelike</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Sunrise/Sunset</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">3000-3500K</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">(255, 220, 180)</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Golden, nostalgic, peaceful</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Warm white LED</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">3500-4000K</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">(255, 240, 210)</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Neutral warm, comfortable</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Neutral white</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">4500-5000K</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">(255, 255, 255)</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Clean, neutral, balanced</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Daylight</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">5500-6500K</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">(245, 250, 255)</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Cool, natural, energetic</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Overcast sky</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">6500-7500K</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">(235, 245, 255)</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Cool, somber, melancholy</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Blue sky</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">8000-12000K</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">(220, 235, 255)</td>
+                                <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Very cool, clinical, distant</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>The Warm/Cool Emotional Response</h3>
+
+                <p>
+                    Humans have deep psychological associations with color temperature, rooted in evolution and culture:
+                </p>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <h4>🔥 Warm Light (Yellow-Orange-Red)</h4>
+                    <p><strong>Psychological Associations:</strong></p>
+                    <ul>
+                        <li>Fire, sun, safety, warmth</li>
+                        <li>Home, comfort, intimacy</li>
+                        <li>Energy, passion, excitement</li>
+                    </ul>
+                    <p><strong>Use For:</strong></p>
+                    <ul>
+                        <li>Romantic scenes</li>
+                        <li>Cozy, intimate interiors</li>
+                        <li>Nostalgic or vintage looks</li>
+                        <li>Desert or sunset settings</li>
+                    </ul>
+                    <p style="margin-bottom: 0;"><strong>Warning:</strong> Too warm can feel oppressive, dated, or artificially orange</p>
+                </div>
+
+                <div class="card" style="background: #f8f9fa; margin-top: 1rem;">
+                    <h4>❄️ Cool Light (Blue-Cyan-White)</h4>
+                    <p><strong>Psychological Associations:</strong></p>
+                    <ul>
+                        <li>Sky, water, ice, technology</li>
+                        <li>Cleanliness, precision, modernity</li>
+                        <li>Sadness, isolation, cold</li>
+                    </ul>
+                    <p><strong>Use For:</strong></p>
+                    <ul>
+                        <li>Science fiction and futuristic settings</li>
+                        <li>Hospitals, laboratories</li>
+                        <li>Sadness, loneliness, depression</li>
+                        <li>Winter or night scenes</li>
+                        <li>Thriller and horror atmospheres</li>
+                    </ul>
+                    <p style="margin-bottom: 0;"><strong>Warning:</strong> Too cool can feel sterile, lifeless, or depressing</p>
+                </div>
+
+                <h3>Color Contrast for Drama</h3>
+
+                <p>
+                    One of the most powerful dramatic lighting techniques is <strong>color contrast</strong>—using opposing warm and cool lights in the same scene. This is everywhere in modern cinematography and creates instant visual interest and depth.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>🎬 The Hollywood Warm/Cool Technique</h4>
+                    <p><strong>The Classic Setup:</strong></p>
+                    <ul>
+                        <li><strong>Key Light:</strong> Warm (orange-yellow) from one side</li>
+                        <li><strong>Fill/Rim Light:</strong> Cool (blue) from the opposite side or back</li>
+                        <li><strong>Result:</strong> Subject has warm and cool sides, creating visual separation and depth</li>
+                    </ul>
+                    <p><strong>Why It Works:</strong></p>
+                    <p>Complementary colors (orange and blue) create maximum visual contrast. The warm side feels active, alive, present. The cool side feels distant, shadowed, or melancholic. The contrast makes the subject "pop" from the background and creates a three-dimensional quality.</p>
+                    <p style="margin-bottom: 0;">
+                        <strong>Common Usage:</strong> Action movies, sci-fi, modern dramas, music videos. Look for it in any recent blockbuster—it's everywhere once you know to look for it!
+                    </p>
+                </div>
+
+                <h4>Setting Up Color Contrast</h4>
+
+                <div class="card">
+                    <h4>🎨 Color Contrast Lighting Recipes</h4>
+                    
+                    <p><strong>Recipe 1: Classic Warm/Cool</strong></p>
+                    <ul>
+                        <li>Key Light: RGB (255, 220, 180) - warm yellow-orange</li>
+                        <li>Rim/Back Light: RGB (180, 200, 255) - cool blue</li>
+                        <li>Best for: Drama, action, modern look</li>
+                    </ul>
+
+                    <p><strong>Recipe 2: Sunset Interior</strong></p>
+                    <ul>
+                        <li>Window Light: RGB (255, 200, 150) - golden sunset</li>
+                        <li>Room Shadows: RGB (150, 180, 220) - cool blue shadows</li>
+                        <li>Best for: Nostalgic, bittersweet, end-of-day scenes</li>
+                    </ul>
+
+                    <p><strong>Recipe 3: Tech/Sci-Fi</strong></p>
+                    <ul>
+                        <li>Main Light: RGB (200, 220, 255) - cool white-blue</li>
+                        <li>Accent Light: RGB (255, 100, 100) - red or cyan (0, 255, 255)</li>
+                        <li>Best for: Cyberpunk, sci-fi, futuristic settings</li>
+                    </ul>
+
+                    <p><strong>Recipe 4: Fire and Ice</strong></p>
+                    <ul>
+                        <li>Warm Side: RGB (255, 150, 80) - deep orange (firelight)</li>
+                        <li>Cool Side: RGB (150, 200, 255) - strong blue (moonlight)</li>
+                        <li>Best for: Fantasy, extreme drama, symbolic contrast</li>
+                    </ul>
+                </div>
+
+                <h3>Monochromatic Mood Lighting</h3>
+
+                <p>
+                    While color contrast is powerful, sometimes the most effective approach is <strong>monochromatic</strong>—using variations of a single color for unified, cohesive mood. This creates strong atmosphere but requires more careful shadow work to maintain interest.
+                </p>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <h4>🎭 Monochromatic Mood Palettes</h4>
+                    
+                    <p><strong>All Warm (Orange/Yellow/Red tones)</strong></p>
+                    <ul>
+                        <li><strong>Feeling:</strong> Cozy, intimate, passionate, or oppressive</li>
+                        <li><strong>Perfect for:</strong> Candlelit dinners, campfires, western saloons, tropical heat</li>
+                        <li><strong>Technique:</strong> Use varying intensities of warm light; darker warm tones for shadows</li>
+                    </ul>
+
+                    <p><strong>All Cool (Blue/Cyan tones)</strong></p>
+                    <ul>
+                        <li><strong>Feeling:</strong> Cold, isolated, melancholy, or futuristic</li>
+                        <li><strong>Perfect for:</strong> Night scenes, sad moments, hospitals, underwater</li>
+                        <li><strong>Technique:</strong> Bright blue for moonlight, darker blue-grey for shadows</li>
+                    </ul>
+
+                    <p><strong>All Green</strong></p>
+                    <ul>
+                        <li><strong>Feeling:</strong> Unnatural, sickly, toxic, or matrix-like</li>
+                        <li><strong>Perfect for:</strong> Sci-fi, horror, toxic environments, computer screens</li>
+                        <li><strong>Technique:</strong> Use sparingly; easily becomes garish</li>
+                    </ul>
+
+                    <p><strong>All Purple/Magenta</strong></p>
+                    <ul>
+                        <li><strong>Feeling:</strong> Mysterious, magical, luxurious, or nightclub-like</li>
+                        <li><strong>Perfect for:</strong> Fantasy, upscale clubs, neo-noir, synthwave aesthetic</li>
+                        <li><strong>Technique:</strong> Combine with darkness for best effect; avoid too bright</li>
+                    </ul>
+                </div>
+
+                <h3>Color Motivation and Realism</h3>
+
+                <p>
+                    Just like with light position, color should be <strong>motivated</strong>—it should make sense for the scene. Even in highly stylized scenes, the colors should feel like they come from somewhere:
+                </p>
+
+                <blockquote>
+                    <p>
+                        <strong>Examples of Motivated Color:</strong><br>
+                        • Blue light motivated by moonlight through a window<br>
+                        • Green light motivated by a computer screen or aquarium<br>
+                        • Red light motivated by neon signs or emergency lights<br>
+                        • Orange light motivated by sunset, fire, or warm lamps<br>
+                        • Purple light motivated by neon, stage lights, or alien technology
+                    </p>
+                </blockquote>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Don't Overdo Color</h4>
+                    <p>
+                        A little color goes a long way. Beginners often make lights too saturated, creating unrealistic, garish results. In most cases, your colored lights should be subtle—a hint of warmth or coolness, not pure orange or blue. Pure white light is often fine for some lights in your scene!
+                    </p>
+                    <p style="margin-bottom: 0;">
+                        <strong>Rule of Thumb:</strong> Start with white or near-white light, then add just a hint of color. You can always increase it, but it's hard to recover from "too colorful."
+                    </p>
+                </div>
+
+                <h3>Testing Color Combinations</h3>
+
+                <p>
+                    The best way to learn color lighting is experimentation. Try this exercise:
+                </p>
+
+                <div class="card">
+                    <h4>🧪 Color Combination Exercise</h4>
+                    <ol>
+                        <li>Set up a simple scene with one figure</li>
+                        <li>Add two lights—one from left, one from right</li>
+                        <li>Try these combinations and render each:
+                            <ul>
+                                <li>Warm left, cool right</li>
+                                <li>Cool left, warm right</li>
+                                <li>Warm left, white right</li>
+                                <li>Cool left, white right</li>
+                                <li>Red left, cyan right</li>
+                                <li>All warm</li>
+                                <li>All cool</li>
+                            </ul>
+                        </li>
+                        <li>Compare renders and note how each feels emotionally</li>
+                    </ol>
+                </div>
+
+            </section>
+            <!-- Section 5: Low-Light and Night Scene Techniques -->
+            <section id="low-light">
+                <h2>🌙 Low-Light and Night Scene Techniques</h2>
+                
+                <p>
+                    Night scenes and low-light environments present unique challenges and opportunities. They require a different mindset: instead of lighting everything, you're creating carefully placed pools of light in darkness. The darkness becomes your canvas, and light becomes your paint. Master this, and you can create some of the most atmospheric and memorable images possible.
+                </p>
+
+                <h3>Understanding Low-Light Reality</h3>
+
+                <p>
+                    Real nighttime and low-light scenes are much darker than most people realize. Our eyes are remarkably good at adapting to darkness, and our memory "brightens" what we actually saw. When lighting night scenes in 3D, you need to resist the temptation to make things too bright, or you'll lose the atmospheric magic of darkness.
+                </p>
+
+                <div class="card">
+                    <h4>🌃 The "Day for Night" Problem</h4>
+                    <p>
+                        In early filmmaking, there was a technique called "day for night"—shooting during the day but using filters to make it look like night. It never looked quite right. Modern filmmakers learned to embrace actual darkness, and 3D artists need to do the same. Your night scene should feel genuinely dark, with limited visibility and high contrast between light and shadow.
+                    </p>
+                    <p style="margin-bottom: 0;">
+                        <strong>The Rule:</strong> Most of your scene should be in deep shadow or darkness. Light should be precious, appearing only where motivated by sources. If your night scene is bright enough to see everything clearly, it's too bright.
+                    </p>
+                </div>
+
+                <h3>Night Scene Light Sources</h3>
+
+                <p>
+                    In night scenes, every light source needs strong motivation. Here are the most common and effective sources:
+                </p>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <h4>🏮 Common Night Light Sources</h4>
+                    
+                    <p><strong>Moonlight</strong></p>
+                    <ul>
+                        <li><strong>Color:</strong> Cool blue-white (RGB 180, 200, 230)</li>
+                        <li><strong>Type:</strong> Infinite light or strong spotlight</li>
+                        <li><strong>Intensity:</strong> Low—moon is much dimmer than sun</li>
+                        <li><strong>Character:</strong> Creates cool, ethereal atmosphere</li>
+                        <li><strong>Best for:</strong> Outdoor night scenes, window light indoors</li>
+                    </ul>
+
+                    <p><strong>Street Lights</strong></p>
+                    <ul>
+                        <li><strong>Color:</strong> Warm yellow-orange (sodium vapor) or cool white (modern LED)</li>
+                        <li><strong>Type:</strong> Point lights or spotlights with wide cone</li>
+                        <li><strong>Intensity:</strong> Medium—creates pools of light on ground</li>
+                        <li><strong>Character:</strong> Creates distinct circles of light with dark spaces between</li>
+                        <li><strong>Best for:</strong> Urban exteriors, alley scenes</li>
+                    </ul>
+
+                    <p><strong>Neon Signs</strong></p>
+                    <ul>
+                        <li><strong>Color:</strong> Saturated colors (pure red, blue, pink, green)</li>
+                        <li><strong>Type:</strong> Point lights or area lights</li>
+                        <li><strong>Intensity:</strong> Medium to high for close areas</li>
+                        <li><strong>Character:</strong> Creates colorful, stylized lighting</li>
+                        <li><strong>Best for:</strong> Cyberpunk, neo-noir, urban nights</li>
+                    </ul>
+
+                    <p><strong>Vehicle Headlights</strong></p>
+                    <ul>
+                        <li><strong>Color:</strong> Bright white or slightly yellow</li>
+                        <li><strong>Type:</strong> Spotlights with narrow cone</li>
+                        <li><strong>Intensity:</strong> High—headlights are very bright</li>
+                        <li><strong>Character:</strong> Creates dramatic beams of light</li>
+                        <li><strong>Best for:</strong> Street scenes, dramatic reveals</li>
+                    </ul>
+
+                    <p><strong>Flashlights/Torches</strong></p>
+                    <ul>
+                        <li><strong>Color:</strong> Slightly warm white (RGB 255, 250, 240)</li>
+                        <li><strong>Type:</strong> Spotlight with medium cone</li>
+                        <li><strong>Intensity:</strong> Medium—concentrated beam</li>
+                        <li><strong>Character:</strong> Creates focused, handheld feel</li>
+                        <li><strong>Best for:</strong> Horror, exploration, search scenes</li>
+                    </ul>
+
+                    <p><strong>Candles/Lanterns</strong></p>
+                    <ul>
+                        <li><strong>Color:</strong> Very warm orange (RGB 255, 180, 100)</li>
+                        <li><strong>Type:</strong> Point lights</li>
+                        <li><strong>Intensity:</strong> Low—very limited range</li>
+                        <li><strong>Character:</strong> Creates intimate, small pools of warm light</li>
+                        <li><strong>Best for:</strong> Historic, fantasy, or intimate scenes</li>
+                    </ul>
+
+                    <p><strong>Computer/TV Screens</strong></p>
+                    <ul>
+                        <li><strong>Color:</strong> Cool blue-white (RGB 200, 220, 255)</li>
+                        <li><strong>Type:</strong> Area light (rectangular)</li>
+                        <li><strong>Intensity:</strong> Medium—illuminates nearby face/walls</li>
+                        <li><strong>Character:</strong> Creates modern, tech-focused feeling</li>
+                        <li><strong>Best for:</strong> Modern interiors, tech-focused scenes</li>
+                    </ul>
+                </div>
+
+                <h3>The Key Principles of Night Lighting</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Core Night Lighting Rules</h4>
+                    
+                    <p><strong>1. Start Dark, Add Light Selectively</strong></p>
+                    <p>Begin with no lights or very minimal ambient light. Then add only the lights you need, placing them where real sources would exist. Don't try to "light the scene"—try to "place light sources in darkness."</p>
+
+                    <p><strong>2. Use Light Falloff Aggressively</strong></p>
+                    <p>Night lights should have limited range. A street lamp lights the area under it, not the entire street. A candle lights the table, not the room. Use rapid falloff to create distinct light pools surrounded by darkness.</p>
+
+                    <p><strong>3. Embrace Deep Shadows</strong></p>
+                    <p>In night scenes, shadows should be nearly black. Don't add fill light to "bring up" the shadows—that's what makes night scenes look fake. Let large areas of your frame be in deep shadow or complete darkness.</p>
+
+                    <p><strong>4. Use Color for Separation</strong></p>
+                    <p>With limited light, color contrast becomes even more important. Cool moonlight vs. warm street light helps separate elements and creates visual interest even in darkness.</p>
+
+                    <p><strong>5. Less is More</strong></p>
+                    <p style="margin-bottom: 0;">Resist the urge to add "just one more light" to make things visible. If something needs to be seen, strengthen an existing motivated light rather than adding unmotivated fill. Darkness is not a problem to solve—it's an asset to use.</p>
+                </div>
+
+                <h3>Setting Up a Classic Night Interior</h3>
+
+                <p>
+                    Let's walk through setting up a classic night interior scene—a figure in a room at night with one window and one lamp:
+                </p>
+
+                <div class="card">
+                    <h4>🏡 Night Interior Lighting Recipe</h4>
+                    
+                    <p><strong>Step 1: Set the Base Darkness</strong></p>
+                    <ul>
+                        <li>Start with no lights</li>
+                        <li>Set ambient light to zero or near-zero</li>
+                        <li>Test render—it should be completely or nearly black</li>
+                    </ul>
+
+                    <p><strong>Step 2: Add Moonlight Through Window</strong></p>
+                    <ul>
+                        <li>Spotlight positioned outside window, angling in</li>
+                        <li>Color: Cool blue (RGB 180, 200, 230)</li>
+                        <li>Intensity: 40-60% (dimmer than daylight)</li>
+                        <li>Creates rectangular light pattern on floor/wall</li>
+                    </ul>
+
+                    <p><strong>Step 3: Add Practical Lamp</strong></p>
+                    <ul>
+                        <li>Point light at lamp position</li>
+                        <li>Color: Warm yellow (RGB 255, 230, 190)</li>
+                        <li>Intensity: 60-80% (should be brighter than moonlight)</li>
+                        <li>Limited falloff—lights only nearby area</li>
+                    </ul>
+
+                    <p><strong>Step 4: Test and Adjust</strong></p>
+                    <ul>
+                        <li>Render and check balance</li>
+                        <li>Moonlight should create cool blue areas</li>
+                        <li>Lamp should create warm yellow pool</li>
+                        <li>Most of room should be in deep shadow</li>
+                        <li>Figure should be partially lit, partially shadowed</li>
+                    </ul>
+
+                    <p><strong>Step 5: Add Subtle Bounce (Optional)</strong></p>
+                    <ul>
+                        <li>Very dim, warm point light (10-15% intensity) in room center</li>
+                        <li>Simulates light bouncing off walls</li>
+                        <li>Should be barely noticeable—prevents pure black shadows</li>
+                        <li>This is optional—many night scenes look better without it</li>
+                    </ul>
+                </div>
+
+                <h3>The "Underexposed Look"</h3>
+
+                <p>
+                    Professional night photography and cinematography often uses what's called the <strong>"underexposed look"</strong>—the image is darker than what would be technically "correct," creating a moody, authentic night feeling. This is intentional and effective.
+                </p>
+
+                <blockquote>
+                    <p>
+                        <strong>Think about it:</strong> When you're in a dimly lit room at night, you can't see everything clearly. Your eyes adjust, but details in shadows remain hidden. That's the feeling you want to recreate—not "nighttime that's bright enough to see everything" but "nighttime where visibility is limited and atmospheric."
+                    </p>
+                </blockquote>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The Monitor Brightness Trap</h4>
+                    <p>
+                        Here's a critical warning: your monitor may be too bright, making you think your night scene needs more light. Computer monitors are typically set brighter than they should be for viewing photos. When working on night scenes:
+                    </p>
+                    <ul>
+                        <li>View your work in a darkened room</li>
+                        <li>Reduce monitor brightness temporarily</li>
+                        <li>Compare your work to professional night photography</li>
+                        <li>Trust your artistic instinct—if it feels like night, it probably is</li>
+                    </ul>
+                    <p style="margin-bottom: 0;">
+                        What looks "too dark" on your bright monitor may look perfect when viewed properly.
+                    </p>
+                </div>
+
+                <h3>Advanced Night Techniques</h3>
+
+                <h4>Rim Lighting in Darkness</h4>
+
+                <p>
+                    One of the most effective night scene techniques is <strong>rim lighting</strong>—a light positioned behind your subject, creating a bright outline that separates them from the dark background. This is especially effective when your subject is backlit by a window, doorway, or street light.
+                </p>
+
+                <div class="card">
+                    <p><strong>Rim Light Setup:</strong></p>
+                    <ul>
+                        <li>Position spotlight or point light behind subject, above eye level</li>
+                        <li>Angle it to graze the edges of shoulders, head, and arms</li>
+                        <li>Use high intensity—rim should be brighter than front light</li>
+                        <li>Creates luminous outline that pops against darkness</li>
+                        <li>Subject's face can be in partial shadow—rim provides separation</li>
+                    </ul>
+                </div>
+
+                <h4>Atmospheric Fog/Haze</h4>
+
+                <p>
+                    Night scenes benefit enormously from subtle atmospheric effects. Fog, mist, or haze makes light beams visible (god rays) and adds depth. In Poser, you can add this through atmosphere settings or by using semi-transparent plane props:
+                </p>
+
+                <div class="card">
+                    <ul>
+                        <li>Renders light beams from spotlights and windows</li>
+                        <li>Creates depth through atmospheric perspective</li>
+                        <li>Makes distant objects hazier than near objects</li>
+                        <li>Adds mystery and mood</li>
+                        <li>Especially effective with strong directional lights</li>
+                    </ul>
+                </div>
+
+                <h4>The Silhouette Technique</h4>
+
+                <p>
+                    Sometimes the most dramatic night images show your subject as a pure silhouette against a lit background:
+                </p>
+
+                <div class="card">
+                    <p><strong>Creating Strong Silhouettes:</strong></p>
+                    <ol>
+                        <li>Place strong light behind subject (window, doorway, etc.)</li>
+                        <li>Remove or minimize front lighting on subject</li>
+                        <li>Subject appears as dark shape against bright background</li>
+                        <li>Very dramatic and mysterious</li>
+                        <li>Great for reveals, anonymous figures, or dramatic moments</li>
+                    </ol>
+                </div>
+
+            </section>
+            <!-- Section 6: Film Noir and Cinematic Lighting Styles -->
+            <section id="film-noir">
+                <h2>🎬 Film Noir and Cinematic Lighting Styles</h2>
+                
+                <p>
+                    Now we arrive at one of the most iconic and influential lighting styles in visual media: <strong>film noir</strong>. Born in 1940s Hollywood crime films, noir lighting has become synonymous with dramatic, high-contrast, shadow-heavy cinematography. Understanding noir techniques gives you a toolkit for creating some of the most visually striking and emotionally powerful images possible.
+                </p>
+
+                <h3>What is Film Noir Lighting?</h3>
+
+                <p>
+                    Film noir (French for "black film") refers to both a genre and a visual style. The lighting style emerged from practical constraints—many noir films were low-budget and shot quickly on confined sets—but it created a distinctive aesthetic that's celebrated today:
+                </p>
+
+                <div class="card">
+                    <h4>🎭 Film Noir Lighting Characteristics</h4>
+                    <ul>
+                        <li><strong>High Contrast:</strong> Deep blacks and bright whites with minimal mid-tones</li>
+                        <li><strong>Hard Light:</strong> Sharp-edged shadows from undiffused light sources</li>
+                        <li><strong>Dramatic Shadows:</strong> Large areas of the frame in deep shadow</li>
+                        <li><strong>Low-Key Lighting:</strong> Most of the frame is dark; light draws attention to key areas</li>
+                        <li><strong>Chiaroscuro:</strong> Strong light-dark contrasts reminiscent of Baroque painting</li>
+                        <li><strong>Selective Visibility:</strong> Not everything is meant to be seen clearly</li>
+                        <li><strong>Psychological Darkness:</strong> Shadows represent moral ambiguity, danger, secrets</li>
+                    </ul>
+                </div>
+
+                <h3>The Psychology of Noir Lighting</h3>
+
+                <p>
+                    Noir lighting isn't just visually striking—it's psychologically loaded. The high contrast, deep shadows, and selective illumination create feelings of:
+                </p>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <ul>
+                        <li><strong>Mystery and Uncertainty:</strong> Hidden areas suggest secrets, danger lurking</li>
+                        <li><strong>Moral Ambiguity:</strong> Characters partially in light, partially in shadow reflect their moral complexity</li>
+                        <li><strong>Isolation:</strong> Figures spotlit in darkness appear alone, vulnerable</li>
+                        <li><strong>Tension:</strong> High contrast creates visual intensity that translates to emotional intensity</li>
+                        <li><strong>Fatalism:</strong> Darkness overwhelming light suggests inevitability, doom</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Classic Film Noir:</strong> Watch movies like "The Maltese Falcon" (1941), "Double Indemnity" (1944), "The Third Man" (1949), or "Touch of Evil" (1958). Study how they use light and shadow. Notice how much of each frame is in darkness, how faces are half-lit, how shadow patterns create visual interest. This is your masterclass in dramatic lighting.
+                    </p>
+                </blockquote>
+
+                <h3>Key Noir Lighting Techniques</h3>
+
+                <h4>1. The Venetian Blind Effect</h4>
+
+                <p>
+                    Perhaps the most iconic noir technique: horizontal bars of shadow across a face or wall, simulating light coming through venetian blinds. This instantly signals noir atmosphere.
+                </p>
+
+                <div class="card">
+                    <h4>🛠️ Creating the Venetian Blind Effect</h4>
+                    <ol>
+                        <li>Position a strong spotlight to one side of your subject</li>
+                        <li>Load or create a prop with horizontal slats (venetian blind, ladder, grating)</li>
+                        <li>Place the prop between light and subject</li>
+                        <li>Adjust spotlight angle to cast shadow pattern across face/wall</li>
+                        <li>Use hard shadows (high shadow sharpness) for crisp lines</li>
+                        <li>Adjust spacing by moving prop closer/further from light</li>
+                    </ol>
+                    <p style="margin-bottom: 0;">
+                        <strong>Variation:</strong> You can also create this effect using a spotlight with a negative spotlight overlaid with a stripe pattern, or by using texture maps, but the physical prop method is most straightforward.
+                    </p>
+                </div>
+
+                <h4>2. Single Source, Hard Light</h4>
+
+                <p>
+                    Classic noir often uses a single, hard light source (like a bare bulb or window) as the key light, with minimal to no fill. This creates maximum shadow depth and contrast.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Classic Noir Single-Light Setup</h4>
+                    <ul>
+                        <li><strong>Light Type:</strong> Point light or spotlight (no area lights—too soft)</li>
+                        <li><strong>Position:</strong> 45-90° to the side and above subject</li>
+                        <li><strong>Intensity:</strong> High—create strong highlights</li>
+                        <li><strong>Shadow Settings:</strong> Hard shadows, high sharpness</li>
+                        <li><strong>Fill Light:</strong> None, or extremely weak (10-15% if absolutely needed)</li>
+                        <li><strong>Color:</strong> Neutral white or very slightly cool</li>
+                    </ul>
+                    <p style="margin-bottom: 0;">
+                        <strong>Result:</strong> Half the face in bright light, half in deep shadow. Sharp shadow edge across the face. Dramatic, uncompromising look.
+                    </p>
+                </div>
+
+                <h4>3. Overhead/Top-Down Lighting</h4>
+
+                <p>
+                    Lighting from directly above creates mysterious shadows in eye sockets, under the nose, and under the chin. It's unnatural and slightly unsettling—perfect for noir's atmosphere of unease.
+                </p>
+
+                <div class="card">
+                    <p><strong>The Overhead Setup:</strong></p>
+                    <ul>
+                        <li>Position spotlight directly above subject's head</li>
+                        <li>Angle slightly forward (not perfectly vertical) to illuminate face somewhat</li>
+                        <li>Creates dark eye sockets, elongated downward shadows</li>
+                        <li>Add very weak fill from camera direction to prevent complete darkness in eyes</li>
+                        <li>Creates isolated, dramatic, almost interrogation-like feeling</li>
+                    </ul>
+                </div>
+
+                <h4>4. Silhouette and Backlighting</h4>
+
+                <p>
+                    Noir frequently uses silhouettes and strong backlighting to create mysterious, anonymous figures—perfect for femme fatales, suspicious strangers, or dramatic reveals.
+                </p>
+
+                <div class="card">
+                    <p><strong>Noir Silhouette Technique:</strong></p>
+                    <ol>
+                        <li>Position bright light behind subject (doorway, window, etc.)</li>
+                        <li>Ensure front of subject is unlit or very dimly lit</li>
+                        <li>Subject appears as dark shape against bright background</li>
+                        <li>Can add just a hint of rim light to define edges if needed</li>
+                        <li>Perfect for mysterious entrances, anonymous figures, dramatic moments</li>
+                    </ol>
+                </div>
+
+                <h4>5. The Slash of Light</h4>
+
+                <p>
+                    A narrow beam of light cutting through darkness, illuminating only part of a subject or scene. Often created by light through a barely-opened door, a gap, or a narrow window.
+                </p>
+
+                <div class="card">
+                    <ul>
+                        <li>Use spotlight with very narrow cone angle (20-40 degrees)</li>
+                        <li>Position to create thin beam across dark scene</li>
+                        <li>Can illuminate just the eyes, just the hands, or just an object</li>
+                        <li>Everything else in deep shadow</li>
+                        <li>Creates extreme focus and tension</li>
+                    </ul>
+                </div>
+
+                <h3>Noir Composition Principles</h3>
+
+                <p>
+                    Noir lighting works hand-in-hand with compositional choices. Here are key principles that enhance noir's dramatic effect:
+                </p>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <h4>📐 Noir Composition Rules</h4>
+                    
+                    <p><strong>Dutch Angles (Tilted Camera)</strong></p>
+                    <ul>
+                        <li>Camera tilted off horizontal axis</li>
+                        <li>Creates psychological unease, instability</li>
+                        <li>Use during moments of tension, moral compromise, or danger</li>
+                    </ul>
+
+                    <p><strong>Low Angles Looking Up</strong></p>
+                    <ul>
+                        <li>Camera positioned low, looking up at subject</li>
+                        <li>Makes character appear powerful, threatening, dominant</li>
+                        <li>Combined with top-down light creates strong shadows</li>
+                    </ul>
+
+                    <p><strong>High Angles Looking Down</strong></p>
+                    <ul>
+                        <li>Camera positioned high, looking down at subject</li>
+                        <li>Makes character appear vulnerable, trapped, powerless</li>
+                        <li>Often used for victims or defeated characters</li>
+                    </ul>
+
+                    <p><strong>Negative Space</strong></p>
+                    <ul>
+                        <li>Large areas of pure black or deep shadow</li>
+                        <li>Subject occupies small portion of frame</li>
+                        <li>Darkness feels oppressive, isolating</li>
+                    </ul>
+
+                    <p><strong>Strong Diagonals</strong></p>
+                    <ul>
+                        <li>Lines cutting diagonally across frame</li>
+                        <li>Shadow edges, architectural elements, light beams</li>
+                        <li>Creates dynamic tension and visual interest</li>
+                    </ul>
+                </div>
+
+                <h3>Modern Neo-Noir</h3>
+
+                <p>
+                    Contemporary films continue noir traditions while adding modern elements. Neo-noir keeps the dramatic shadows and high contrast but often adds:
+                </p>
+
+                <div class="card">
+                    <h4>🎨 Neo-Noir Additions</h4>
+                    <ul>
+                        <li><strong>Color:</strong> While classic noir was black-and-white, neo-noir adds deep, saturated colors—reds, blues, greens, purples</li>
+                        <li><strong>Neon:</strong> Urban neon signs, colored lighting from technology</li>
+                        <li><strong>Reflections:</strong> Wet streets, chrome, glass—multiplying light sources</li>
+                        <li><strong>Cyberpunk Influence:</strong> High-tech light sources, holographic effects</li>
+                        <li><strong>Maintained:</strong> High contrast, dramatic shadows, low-key lighting, psychological darkness</li>
+                    </ul>
+                    <p style="margin-bottom: 0;">
+                        <strong>Examples:</strong> "Blade Runner" (1982), "Sin City" (2005), "Drive" (2011), "Blade Runner 2049" (2017)
+                    </p>
+                </div>
+
+                <h3>Creating a Noir Portrait</h3>
+
+                <p>
+                    Let's put it all together with a classic noir portrait setup:
+                </p>
+
+                <div class="card">
+                    <h4>🎭 Step-by-Step Noir Portrait</h4>
+                    
+                    <p><strong>Setup:</strong></p>
+                    <ol>
+                        <li>Load figure, pose with slight tension (hand on chin, looking away, etc.)</li>
+                        <li>Position camera at eye level or slightly below (empowering angle)</li>
+                        <li>Set background to dark or black</li>
+                        <li>Remove all default lights</li>
+                    </ol>
+
+                    <p><strong>Key Light:</strong></p>
+                    <ul>
+                        <li>Point light or spotlight at 45° to side and 45° above</li>
+                        <li>High intensity (80-100%)</li>
+                        <li>Hard shadows enabled (max sharpness)</li>
+                        <li>Neutral white color</li>
+                    </ul>
+
+                    <p><strong>Optional Rim Light:</strong></p>
+                    <ul>
+                        <li>Point light behind and opposite key light</li>
+                        <li>Medium intensity (40-60%)</li>
+                        <li>Creates edge definition separating from background</li>
+                    </ul>
+
+                    <p><strong>No Fill Light:</strong></p>
+                    <ul>
+                        <li>Let shadows fall naturally into deep black</li>
+                        <li>Resist urge to add fill</li>
+                    </ul>
+
+                    <p><strong>Optional Pattern (Venetian Blinds):</strong></p>
+                    <ul>
+                        <li>Place slat prop between key light and subject</li>
+                        <li>Adjust distance to control shadow stripe width</li>
+                    </ul>
+
+                    <p><strong>Final Touches:</strong></p>
+                    <ul>
+                        <li>Ensure significant portion of face is in shadow</li>
+                        <li>Check that shadows are near-black, not grey</li>
+                        <li>Verify high contrast between lit and shadowed areas</li>
+                        <li>Render and adjust light intensity if needed</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✨ Pro Tip: Convert to Black and White</h4>
+                    <p style="margin-bottom: 0;">
+                        Noir lighting often looks even more dramatic in black and white. After rendering, try converting your image to grayscale (or render in grayscale if Poser allows). This removes color distractions and lets you focus purely on the interplay of light and shadow. It's also great for studying your lighting technique without color clouding your judgment.
+                    </p>
+                </div>
+
+            </section>
+            <!-- Section 7: Advanced Dramatic Lighting Techniques -->
+            <section id="advanced-techniques">
+                <h2>⚡ Advanced Dramatic Lighting Techniques</h2>
+                
+                <p>
+                    Now that you've mastered the fundamentals, let's explore some advanced techniques that professional cinematographers and 3D artists use to create truly extraordinary dramatic lighting. These techniques require more setup but can elevate your work from good to exceptional.
+                </p>
+
+                <h3>Gobo Lighting (Shadow Projection)</h3>
+
+                <p>
+                    A <strong>gobo</strong> (short for "goes before optics") is a physical template placed in front of a light to create shadow patterns. In real filmmaking, gobos create effects like dappled sunlight through leaves, window shadows, or abstract patterns. In Poser, we simulate this by placing patterned objects between lights and subjects.
+                </p>
+
+                <div class="card">
+                    <h4>🌿 Popular Gobo Patterns</h4>
+                    <ul>
+                        <li><strong>Window Frames:</strong> Rectangular panes creating grid shadows</li>
+                        <li><strong>Tree Branches:</strong> Organic, natural patterns suggesting outdoor light through foliage</li>
+                        <li><strong>Venetian Blinds:</strong> Horizontal stripes (classic noir)</li>
+                        <li><strong>Geometric Patterns:</strong> Circles, triangles, or abstract shapes for stylized effects</li>
+                        <li><strong>Architectural Elements:</strong> Columns, arches, grating</li>
+                        <li><strong>Rain/Water Patterns:</strong> Irregular lines suggesting water on glass</li>
+                        <li><strong>Fire Escape/Staircase:</strong> Angular shadows creating urban atmosphere</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <h4>🛠️ Creating Custom Gobos in Poser</h4>
+                    
+                    <p><strong>Method 1: Physical Props</strong></p>
+                    <ol>
+                        <li>Load or create a prop with the desired pattern (actual blinds, lattice, branches)</li>
+                        <li>Position between light source and subject</li>
+                        <li>Ensure light has shadows enabled with appropriate sharpness</li>
+                        <li>Adjust distance to control shadow size and sharpness</li>
+                    </ol>
+
+                    <p><strong>Method 2: Plane with Transparency Map</strong></p>
+                    <ol>
+                        <li>Create a simple plane prop</li>
+                        <li>Position between light and subject</li>
+                        <li>Apply a material with transparency map (black = opaque, white = transparent)</li>
+                        <li>This allows very precise, custom patterns</li>
+                        <li>You can create custom patterns in image editing software</li>
+                    </ol>
+
+                    <p><strong>Pro Technique: Multiple Gobos</strong></p>
+                    <p>Layer multiple patterned shadows for complex, realistic effects. For example, combine window frame shadows with tree branch shadows to suggest a window view of a garden. Each pattern adds depth and realism.</p>
+                </div>
+
+                <h3>Motivated Practical Light Enhancement</h3>
+
+                <p>
+                    This advanced technique involves not just placing lights near practical sources, but <strong>enhancing</strong> those practicals with hidden accent lights to create more dynamic results than the practical alone could provide.
+                </p>
+
+                <div class="card">
+                    <h4>💡 Enhanced Practical Technique</h4>
+                    
+                    <p><strong>The Setup:</strong></p>
+                    <ol>
+                        <li><strong>Base Practical Light:</strong> Normal point light at the practical location (lamp, candle, etc.)</li>
+                        <li><strong>Accent Light 1:</strong> Additional spotlight aimed specifically at subject's face from practical direction</li>
+                        <li><strong>Accent Light 2:</strong> Rim light on opposite side of practical for separation</li>
+                        <li><strong>Result:</strong> Looks motivated by practical, but has better sculpting and drama than practical alone would create</li>
+                    </ol>
+
+                    <p><strong>The Concept:</strong></p>
+                    <p>In real cinematography, a table lamp on camera might only provide 50% of the actual light hitting the actor—hidden film lights provide the rest, positioned to look like they're from the lamp. You can do the same in Poser: the visible practical motivates the lighting direction, but hidden lights do most of the actual work.</p>
+
+                    <p style="margin-bottom: 0;"><strong>Key Rule:</strong> All lights should appear to come from the general direction of the practical source. Don't place accent lights where they'd contradict the practical's location.</p>
+                </div>
+
+                <h3>Light Layers and Passes</h3>
+
+                <p>
+                    Professional 3D artists often render multiple lighting passes—different renders with different lights active—then composite them together in post-processing. While this is advanced, understanding the concept helps you think about lighting in layers.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>🎨 Thinking in Light Layers</h4>
+                    
+                    <p><strong>Key Light Layer:</strong> Your main dramatic light</p>
+                    <p><strong>Fill Light Layer:</strong> Subtle shadow filling (can be added/adjusted separately)</p>
+                    <p><strong>Rim/Accent Layer:</strong> Edge lights for separation</p>
+                    <p><strong>Practical Light Layer:</strong> Visible light sources</p>
+                    <p><strong>Ambient/Bounce Layer:</strong> Environmental illumination</p>
+                    
+                    <p>Even if you're not rendering separate passes, thinking this way helps you organize your lighting setup. Each "layer" has a specific purpose and can be adjusted independently to balance the final result.</p>
+                </div>
+
+                <h3>Negative Space and Intentional Darkness</h3>
+
+                <p>
+                    Advanced dramatic lighting isn't about adding more lights—it's about knowing where <em>not</em> to put light. Negative space (areas of darkness) is as important as the lit areas.
+                </p>
+
+                <div class="card">
+                    <h4>🖤 Using Darkness as a Compositional Element</h4>
+                    
+                    <p><strong>Frame Within a Frame:</strong></p>
+                    <ul>
+                        <li>Create area of light surrounded by darkness</li>
+                        <li>Subject in lit area, darkness around them like a vignette</li>
+                        <li>Focuses attention, creates isolation</li>
+                    </ul>
+
+                    <p><strong>Graduated Darkness:</strong></p>
+                    <ul>
+                        <li>Light fades gradually from bright area to complete darkness</li>
+                        <li>Creates depth and mystery</li>
+                        <li>Suggests space beyond what's visible</li>
+                    </ul>
+
+                    <p><strong>Asymmetric Darkness:</strong></p>
+                    <ul>
+                        <li>Large dark area balanced against smaller lit area</li>
+                        <li>Creates visual tension and weight</li>
+                        <li>Subject "pushed" to one side of frame by darkness</li>
+                    </ul>
+
+                    <p><strong>Selective Revelation:</strong></p>
+                    <ul>
+                        <li>Light reveals only essential elements</li>
+                        <li>Eyes, hands, or key props illuminated while rest is in shadow</li>
+                        <li>Viewer's imagination fills in shadowed areas</li>
+                    </ul>
+                </div>
+
+                <h3>Color Accent Lighting</h3>
+
+                <p>
+                    While dramatic lighting often uses neutral colors, strategic use of colored accent lights can create powerful effects. The key is restraint—color accents work best when most of your lighting is neutral.
+                </p>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <h4>🌈 Strategic Color Accent Techniques</h4>
+                    
+                    <p><strong>Single Color Pop:</strong></p>
+                    <ul>
+                        <li>Most lighting neutral white/warm</li>
+                        <li>One accent light with saturated color (red, blue, purple)</li>
+                        <li>Used sparingly—rim light, small area, specific object</li>
+                        <li>Creates focal point and visual interest</li>
+                    </ul>
+
+                    <p><strong>Emotional Color Temperature:</strong></p>
+                    <ul>
+                        <li>Slightly shift main light temperature based on emotion</li>
+                        <li>Warm (yellow) for hope, comfort, safety</li>
+                        <li>Cool (blue) for sadness, isolation, technology</li>
+                        <li>Don't overdo—subtle is powerful</li>
+                    </ul>
+
+                    <p><strong>Complementary Color Drama:</strong></p>
+                    <ul>
+                        <li>Two lights with complementary colors (orange/blue, red/cyan, yellow/purple)</li>
+                        <li>One dominant, one accent</li>
+                        <li>Creates maximum color separation and vibrancy</li>
+                        <li>Modern, stylized look</li>
+                    </ul>
+
+                    <p><strong>Color Motivation:</strong></p>
+                    <ul>
+                        <li>Color should be motivated by scene elements</li>
+                        <li>Red from neon sign, blue from TV screen, green from aquarium</li>
+                        <li>Purple from stage lights, orange from fire</li>
+                        <li>Even when stylized, having source motivation makes it feel intentional</li>
+                    </ul>
+                </div>
+
+                <h3>Depth Through Light Layers</h3>
+
+                <p>
+                    Creating a sense of depth is crucial in 3D rendering. Strategic lighting of foreground, mid-ground, and background at different intensities creates this depth naturally.
+                </p>
+
+                <div class="card">
+                    <h4>🎭 Depth Lighting Strategy</h4>
+                    
+                    <p><strong>Foreground Elements:</strong></p>
+                    <ul>
+                        <li>Usually darkest or in silhouette</li>
+                        <li>Creates framing for main subject</li>
+                        <li>Adds depth through overlap</li>
+                    </ul>
+
+                    <p><strong>Main Subject (Mid-ground):</strong></p>
+                    <ul>
+                        <li>Brightest and most detailed lighting</li>
+                        <li>Focal point of dramatic lighting</li>
+                        <li>Where viewer's eye is drawn</li>
+                    </ul>
+
+                    <p><strong>Background:</strong></p>
+                    <ul>
+                        <li>Dimmer than subject, but not black</li>
+                        <li>Enough detail to establish environment</li>
+                        <li>Can have separate, motivated lighting (window, doorway)</li>
+                        <li>Creates context without competing with subject</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Cinema Technique:</strong> Legendary cinematographer Gordon Willis (The Godfather trilogy) was famous for lighting in layers. He'd light the foreground, middle ground, and background separately, each with its own intensity and quality. This created tremendous depth and atmosphere. Study The Godfather's interior scenes to see this technique in action—few films demonstrate layered dramatic lighting better.
+                    </p>
+                </blockquote>
+
+                <h3>The Chiaroscuro Technique</h3>
+
+                <p>
+                    <strong>Chiaroscuro</strong> (Italian for "light-dark") is a painting technique from the Renaissance and Baroque periods that uses strong contrasts between light and dark to create volume and drama. This same principle applies to 3D lighting.
+                </p>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <h4>🎨 Chiaroscuro Lighting Principles</h4>
+                    <ul>
+                        <li><strong>Strong Directional Light:</strong> Single primary light source creating clear light direction</li>
+                        <li><strong>Gradual Transitions:</strong> Light fades gradually into shadow (not abrupt unless intentional)</li>
+                        <li><strong>Form Revelation:</strong> Light reveals three-dimensional form through highlight and shadow</li>
+                        <li><strong>Selective Illumination:</strong> Only portions of subject fully lit</li>
+                        <li><strong>Deep Shadows:</strong> Shadows are rich and dark, not grey</li>
+                        <li><strong>Minimal Fill:</strong> Shadows remain dark to maintain contrast</li>
+                    </ul>
+                    <p style="margin-bottom: 0;">
+                        Study paintings by Caravaggio and Rembrandt to see chiaroscuro mastery. Notice how single light sources create drama and reveal form through the interplay of light and shadow.
+                    </p>
+                </div>
+
+            </section>
+            <!-- Section 8: Common Mistakes to Avoid -->
+            <section id="common-mistakes">
+                <h2>⚠️ Common Mistakes to Avoid</h2>
+                
+                <p>
+                    Even experienced artists make these mistakes when working with dramatic lighting. Being aware of them helps you avoid frustration and achieve better results faster. Let's look at the most common pitfalls and how to sidestep them.
+                </p>
+
+                <h3>Mistake #1: Overlighting the Scene</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>The Problem:</h4>
+                    <p>Adding too many lights or making lights too bright, eliminating the dramatic shadows that create mood and focus.</p>
+                    
+                    <h4>Why It Happens:</h4>
+                    <p>The instinct is to "make sure everything is visible." We're trained to think good lighting means we can see everything clearly. But dramatic lighting is about selective visibility.</p>
+                    
+                    <h4>The Fix:</h4>
+                    <ul>
+                        <li>Start with one light and only add more if absolutely necessary</li>
+                        <li>Each additional light should have a specific purpose</li>
+                        <li>If you can't explain why a light is there, remove it</li>
+                        <li>Remember: darkness is not a mistake—it's a feature</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 0;"><strong>Test:</strong> Turn off all lights except one. Does the scene still have impact? Good dramatic lighting often works with just one or two lights.</p>
+                </div>
+
+                <h3>Mistake #2: Adding Fill Light Too Early</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>The Problem:</h4>
+                    <p>Adding fill light before establishing the key light and shadows, which dilutes the dramatic effect.</p>
+                    
+                    <h4>Why It Happens:</h4>
+                    <p>Shadows look "too dark" initially, triggering the impulse to fill them in immediately. But you need to see what the key light creates first before deciding if fill is even needed.</p>
+                    
+                    <h4>The Fix:</h4>
+                    <ul>
+                        <li>Perfect your key light first—get the main dramatic lighting right</li>
+                        <li>Live with the deep shadows for a while; they might be perfect as-is</li>
+                        <li>Only add fill if shadows are <em>too</em> dark (completely black with no detail)</li>
+                        <li>When adding fill, use very low intensity—10-20% of key light maximum</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 0;"><strong>Remember:</strong> Fill light is optional in dramatic lighting. Many iconic images use none at all.</p>
+                </div>
+
+                <h3>Mistake #3: Using Soft Light When Hard Light is Needed</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>The Problem:</h4>
+                    <p>Using area lights or low shadow sharpness settings, creating soft-edged shadows when dramatic lighting needs hard, crisp shadow edges.</p>
+                    
+                    <h4>Why It Happens:</h4>
+                    <p>Soft light is more forgiving and "prettier" for beauty lighting. But dramatic lighting specifically needs the intensity of hard light and sharp shadows.</p>
+                    
+                    <h4>The Fix:</h4>
+                    <ul>
+                        <li>Use point lights or spotlights, not area lights (unless specifically going for soft dramatic)</li>
+                        <li>Set shadow sharpness to maximum or near-maximum</li>
+                        <li>Position lights further from subject to increase shadow hardness</li>
+                        <li>Save soft light for different types of scenes—drama needs hard</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 0;"><strong>Exception:</strong> Some dramatic lighting uses soft shadows (like overcast noir), but this is an intentional choice, not the default.</p>
+                </div>
+
+                <h3>Mistake #4: Unmotivated Light Placement</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>The Problem:</h4>
+                    <p>Placing lights purely for visual effect without considering where the light would realistically come from in the scene.</p>
+                    
+                    <h4>Why It Happens:</h4>
+                    <p>We focus on lighting the subject well and forget that lights should appear to have sources within the scene's reality.</p>
+                    
+                    <h4>The Fix:</h4>
+                    <ul>
+                        <li>For every light, ask: "What is this light supposed to be?"</li>
+                        <li>Position lights near logical sources (windows, lamps, doorways)</li>
+                        <li>Light direction should make sense for the supposed source</li>
+                        <li>Even stylized lighting should feel motivated by <em>something</em></li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 0;"><strong>Remember:</strong> Motivated doesn't mean realistic—it means believable. Even in fantasy scenes, lights should feel like they come from somewhere.</p>
+                </div>
+
+                <h3>Mistake #5: Ignoring Color Temperature</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>The Problem:</h4>
+                    <p>Using pure white (RGB 255, 255, 255) for all lights, missing the emotional impact and realism that color temperature provides.</p>
+                    
+                    <h4>Why It Happens:</h4>
+                    <p>White feels "neutral" and "safe." But real light sources have color temperature, and that color communicates emotion and realism.</p>
+                    
+                    <h4>The Fix:</h4>
+                    <ul>
+                        <li>Interior lamps: warm yellow-orange (255, 230, 190)</li>
+                        <li>Moonlight/windows: cool blue-white (180, 200, 230)</li>
+                        <li>Candles: very warm orange (255, 180, 100)</li>
+                        <li>Mixed lighting: warm key light + cool rim light creates depth</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 0;"><strong>Exception:</strong> Pure white can work for certain effects (clinical, sterile, alien), but it should be a choice, not the default.</p>
+                </div>
+
+                <h3>Mistake #6: Fighting the Render Engine</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>The Problem:</h4>
+                    <p>Not understanding how your render engine (Firefly vs. SuperFly) handles light and shadows, leading to unexpected results.</p>
+                    
+                    <h4>Why It Happens:</h4>
+                    <p>Different render engines calculate light differently. Settings that work in one may not work in another.</p>
+                    
+                    <h4>The Fix:</h4>
+                    <ul>
+                        <li>Learn your chosen render engine's light properties</li>
+                        <li>Understand how it handles shadows, falloff, and bounce light</li>
+                        <li>Adjust settings for dramatic effects (disable ambient occlusion if it's filling shadows, etc.)</li>
+                        <li>Preview renders frequently while lighting—don't assume preview matches final</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 0;"><strong>Tip:</strong> For dramatic lighting, you often want to disable or minimize ambient lighting and global illumination settings that automatically fill shadows.</p>
+                </div>
+
+                <h3>Mistake #7: Inconsistent Shadow Quality</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>The Problem:</h4>
+                    <p>Having some lights cast sharp shadows and others soft shadows without intentional reason, creating visual confusion.</p>
+                    
+                    <h4>Why It Happens:</h4>
+                    <p>Leaving shadow settings at defaults for different lights, or not thinking about shadow consistency across the scene.</p>
+                    
+                    <h4>The Fix:</h4>
+                    <ul>
+                        <li>Make a conscious choice: hard shadows or soft shadows for this scene?</li>
+                        <li>Most dramatic lighting uses consistent hard shadows across all lights</li>
+                        <li>If mixing, have a clear reason (practical light = soft, dramatic accent = hard)</li>
+                        <li>Check all light shadow settings, don't leave any at default</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 0;"><strong>Consistency Rule:</strong> All lights in a scene should cast shadows of similar quality unless there's a specific dramatic reason for difference.</p>
+                </div>
+
+                <h3>Mistake #8: Neglecting the Background</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>The Problem:</h4>
+                    <p>Focusing entirely on lighting the subject while leaving the background either completely black or inconsistently lit.</p>
+                    
+                    <h4>Why It Happens:</h4>
+                    <p>We naturally focus on the character/subject and forget that the environment needs consideration too.</p>
+                    
+                    <h4>The Fix:</h4>
+                    <ul>
+                        <li>Background should be darker than subject, but not pure black (unless intentional)</li>
+                        <li>Add subtle background lighting that feels motivated (window, door light spill)</li>
+                        <li>Background lights can be very dim—just enough for depth</li>
+                        <li>If background is pure black, ensure it's an intentional artistic choice</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 0;"><strong>Goal:</strong> Create separation between subject and background through lighting, not just by making background invisible.</p>
+                </div>
+
+                <h3>Mistake #9: Over-Saturating Colored Lights</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>The Problem:</h4>
+                    <p>Using pure, fully saturated colors (pure red, pure blue) for dramatic lighting, creating garish, unrealistic results.</p>
+                    
+                    <h4>Why It Happens:</h4>
+                    <p>When learning about color in lighting, beginners often think "more color = more drama" and push saturation too far.</p>
+                    
+                    <h4>The Fix:</h4>
+                    <ul>
+                        <li>Start with subtle color tints, not pure hues</li>
+                        <li>Warm light: mostly white with hint of orange/yellow</li>
+                        <li>Cool light: mostly white with hint of blue</li>
+                        <li>Only use highly saturated color for specific motivated sources (neon signs, colored stage lights)</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 0;"><strong>Test:</strong> If your light color looks "wrong" or "artificial," it's probably too saturated. Reduce saturation until it feels natural.</p>
+                </div>
+
+                <h3>Mistake #10: Not Studying Reference</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>The Problem:</h4>
+                    <p>Trying to create dramatic lighting from imagination without studying how professional cinematographers actually light scenes.</p>
+                    
+                    <h4>Why It Happens:</h4>
+                    <p>We assume we know how dramatic lighting looks from seeing movies, but memory is imperfect and misses crucial details.</p>
+                    
+                    <h4>The Fix:</h4>
+                    <ul>
+                        <li>Watch film noir classics and take screenshots of lighting you like</li>
+                        <li>Analyze: Where are the lights? What colors? How much shadow?</li>
+                        <li>Try to recreate specific movie shots in Poser as learning exercises</li>
+                        <li>Build a reference library of dramatic lighting examples</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 0;"><strong>Recommended Study:</strong> Pause any film noir or thriller during a dramatic scene. Sketch where you think the lights are positioned. This trains your eye to deconstruct professional lighting.</p>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ The Core Principle</h4>
+                    <p style="margin-bottom: 0;">
+                        All these mistakes share a common theme: <strong>adding too much, too soon, without intention.</strong> Dramatic lighting is the art of restraint. Start minimal (one light, deep shadows) and only add what's absolutely necessary. Every light, every adjustment should have a clear purpose. When in doubt, simplify. The best dramatic lighting often uses less, not more.
+                    </p>
+                </div>
+
+            </section>
+            <!-- Section 9: Project -->
+            <section id="project">
+                <h2>🎯 Project: Create a Film Noir Scene</h2>
+                
+                <p>
+                    Time to put everything together! For this project, you'll create a dramatically lit indoor scene in classic film noir or mystery style. This project synthesizes all the techniques we've covered: practical lights, dramatic shadows, color temperature, low-light techniques, and noir aesthetics.
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem;">
+                    <h3 style="color: white; margin-top: 0;">🎬 Project Goal</h3>
+                    <p style="color: white;">
+                        Create a moody, atmospheric indoor scene that tells a story through lighting alone. Your scene should feature a single figure in a dramatically lit environment that evokes mystery, tension, or intrigue. Think detective's office, smoky nightclub, or shadowy apartment—the kind of scene you'd see in a classic noir film.
+                    </p>
+                </div>
+
+                <h3>Project Requirements</h3>
+
+                <div class="card">
+                    <h4>✅ Must Include</h4>
+                    <ul>
+                        <li><strong>One Figure:</strong> Posed to suggest character and mood</li>
+                        <li><strong>Indoor Setting:</strong> Room with walls, floor, minimal furniture/props</li>
+                        <li><strong>At Least One Practical Light:</strong> Lamp, window, or other visible light source</li>
+                        <li><strong>High Contrast:</strong> Deep shadows and bright highlights</li>
+                        <li><strong>Motivated Lighting:</strong> All lights should have logical sources</li>
+                        <li><strong>Dramatic Shadow:</strong> At least 50% of frame in shadow or near-darkness</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <h4>🎨 Suggested Elements (Choose 2-3)</h4>
+                    <ul>
+                        <li>Venetian blind shadow pattern across face or wall</li>
+                        <li>Window as key light source with moonlight color</li>
+                        <li>Table lamp creating warm pool of light</li>
+                        <li>Silhouette or strong backlighting</li>
+                        <li>Rim light separating figure from background</li>
+                        <li>Color contrast (warm/cool) between two light sources</li>
+                        <li>Gobo shadows (window frame, tree branches, etc.)</li>
+                        <li>Low angle camera looking up at subject</li>
+                    </ul>
+                </div>
+
+                <h3>Step-by-Step Guide</h3>
+
+                <div class="card">
+                    <h4>Phase 1: Scene Setup (15-20 minutes)</h4>
+                    
+                    <p><strong>1. Load Your Figure</strong></p>
+                    <ul>
+                        <li>Choose any figure from your library</li>
+                        <li>Pose with subtle tension: hand on chin, looking away, leaning on desk, sitting pensively</li>
+                        <li>Avoid energetic or happy poses—go for contemplative, mysterious, or troubled</li>
+                    </ul>
+
+                    <p><strong>2. Build Basic Environment</strong></p>
+                    <ul>
+                        <li>Add walls to create a room (or use room prop if available)</li>
+                        <li>Add a few props: desk, chair, maybe a window prop</li>
+                        <li>Keep it simple—noir is about shadows, not cluttered scenes</li>
+                        <li>Position props to frame your figure or create interesting shadow-casting elements</li>
+                    </ul>
+
+                    <p><strong>3. Set Camera</strong></p>
+                    <ul>
+                        <li>Try a low angle (below eye level) for drama, or straight-on for mystery</li>
+                        <li>Frame figure with some negative space around them</li>
+                        <li>Leave room for shadows to be part of composition</li>
+                        <li>Consider slightly off-center composition (rule of thirds)</li>
+                    </ul>
+
+                    <p><strong>4. Remove Default Lights</strong></p>
+                    <ul>
+                        <li>Delete all existing scene lights</li>
+                        <li>Start with complete darkness—you'll build from here</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 2: Main Dramatic Lighting (20-30 minutes)</h4>
+                    
+                    <p><strong>1. Choose Your Main Light Source Motivation</strong></p>
+                    <p>Pick one of these as your key light motivation:</p>
+                    <ul>
+                        <li><strong>Option A: Window Light</strong> - Cool blue, spotlight from side angled in</li>
+                        <li><strong>Option B: Desk Lamp</strong> - Warm yellow, point light low and to side</li>
+                        <li><strong>Option C: Overhead Light</strong> - Spotlight from above, creating deep eye shadows</li>
+                    </ul>
+
+                    <p><strong>2. Create and Position Key Light</strong></p>
+                    <ul>
+                        <li>Add appropriate light type for your chosen source</li>
+                        <li>Position it where the practical source would be</li>
+                        <li>Set high intensity (70-100%)</li>
+                        <li>Enable hard shadows (maximum sharpness)</li>
+                        <li>Set appropriate color temperature</li>
+                    </ul>
+
+                    <p><strong>3. Test Render</strong></p>
+                    <ul>
+                        <li>Render just with key light</li>
+                        <li>Check: Is half or more of the figure in shadow? Good!</li>
+                        <li>Is the contrast strong? If not, increase light intensity or reduce any ambient</li>
+                        <li>Are shadows deep and dark? Perfect!</li>
+                    </ul>
+
+                    <p><strong>4. Add Practical Props</strong></p>
+                    <ul>
+                        <li>If using lamp, add visible lamp prop near light</li>
+                        <li>If using window, add window prop where light comes from</li>
+                        <li>These props motivate your lighting and add realism</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 3: Enhancing the Drama (15-20 minutes)</h4>
+                    
+                    <p><strong>1. Add Shadow Pattern (Optional but Recommended)</strong></p>
+                    <ul>
+                        <li>Position venetian blind prop, window frame, or similar between light and figure</li>
+                        <li>Adjust distance to control shadow stripe width</li>
+                        <li>Ensure shadows fall across face or wall for maximum effect</li>
+                        <li>Test render to check pattern</li>
+                    </ul>
+
+                    <p><strong>2. Add Rim/Separation Light (Optional)</strong></p>
+                    <ul>
+                        <li>Point light positioned behind figure, opposite key light</li>
+                        <li>Medium intensity (40-60%)</li>
+                        <li>Creates edge definition against dark background</li>
+                        <li>Can use contrasting color temperature from key light</li>
+                    </ul>
+
+                    <p><strong>3. Check Your Contrast</strong></p>
+                    <ul>
+                        <li>Render full quality</li>
+                        <li>Examine: Are highlights bright? Are shadows deep?</li>
+                        <li>At least 50% of image should be in strong shadow</li>
+                        <li>If too bright overall, reduce light intensity</li>
+                        <li>If too flat, increase key light and remove any fill</li>
+                    </ul>
+
+                    <p><strong>4. Resist the Urge to Fill Shadows</strong></p>
+                    <ul>
+                        <li>Those deep shadows are your dramatic effect—keep them!</li>
+                        <li>Only add minimal fill (10-15% intensity) if shadows are completely black with zero detail</li>
+                        <li>Most noir scenes need NO fill light at all</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 4: Final Polish (10-15 minutes)</h4>
+                    
+                    <p><strong>1. Background Consideration</strong></p>
+                    <ul>
+                        <li>Is background completely black or does it have subtle detail?</li>
+                        <li>If too dark, add very dim light in background area (20-30% intensity)</li>
+                        <li>Background should be darker than subject but not void</li>
+                    </ul>
+
+                    <p><strong>2. Fine-Tune Light Positions</strong></p>
+                    <ul>
+                        <li>Small adjustments to light angles can significantly change shadow patterns</li>
+                        <li>Move lights incrementally and test render</li>
+                        <li>Look for dramatic shadow edges across face, especially nose and cheekbone shadows</li>
+                    </ul>
+
+                    <p><strong>3. Color Temperature Check</strong></p>
+                    <ul>
+                        <li>Is your color temperature appropriate for light source?</li>
+                        <li>Consider adding subtle color contrast between lights</li>
+                        <li>Even small color shifts add emotional depth</li>
+                    </ul>
+
+                    <p><strong>4. Composition Review</strong></p>
+                    <ul>
+                        <li>Does negative space balance the lit areas?</li>
+                        <li>Does the eye go to your subject despite darkness?</li>
+                        <li>Do shadows enhance rather than hide important elements?</li>
+                    </ul>
+                </div>
+
+                <h3>Success Checklist</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Your Scene is Successful If...</h4>
+                    <ul>
+                        <li>⬜ Scene immediately reads as "dramatic" or "mysterious"</li>
+                        <li>⬜ High contrast between light and shadow is obvious</li>
+                        <li>⬜ At least 50% of the image is in strong shadow</li>
+                        <li>⬜ Lighting appears motivated by visible or logical sources</li>
+                        <li>⬜ Figure is partially in light, partially in shadow</li>
+                        <li>⬜ Shadow edges are sharp and defined (unless soft is intentional)</li>
+                        <li>⬜ Color temperature feels appropriate for light sources</li>
+                        <li>⬜ Scene tells a mood or story through lighting alone</li>
+                        <li>⬜ You resisted the urge to "fix" dramatic shadows with fill light</li>
+                        <li>⬜ The overall effect is cinematic and intentional</li>
+                    </ul>
+                </div>
+
+                <h3>Troubleshooting</h3>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <h4>❓ Common Issues and Solutions</h4>
+                    
+                    <p><strong>Problem: Scene looks too bright and flat</strong></p>
+                    <p><strong>Solution:</strong> Reduce light intensity by 30-50%. Remove any ambient lighting. Ensure you don't have hidden lights still active.</p>
+
+                    <p><strong>Problem: Can't see subject's face at all</strong></p>
+                    <p><strong>Solution:</strong> Increase key light intensity or reposition it to catch more of the face. Alternatively, add very weak rim light from front (10-15% intensity).</p>
+
+                    <p><strong>Problem: Shadows are grey, not black</strong></p>
+                    <p><strong>Solution:</strong> Increase shadow intensity. Check for ambient lighting or global illumination settings that might be filling shadows. Disable indirect lighting if necessary.</p>
+
+                    <p><strong>Problem: Shadow patterns aren't showing up</strong></p>
+                    <p><strong>Solution:</strong> Increase shadow sharpness to maximum. Move pattern object closer to subject. Ensure light has shadows enabled and object is between light and subject.</p>
+
+                    <p><strong>Problem: Scene feels empty or boring despite good lighting</strong></p>
+                    <p><strong>Solution:</strong> Add one more element: a shadow pattern, a rim light, or a subtle background light. Sometimes one additional element transforms the scene.</p>
+                </div>
+
+                <h3>Bonus Challenges</h3>
+
+                <div class="card">
+                    <h4>🌟 Take It Further (Optional)</h4>
+                    
+                    <p><strong>Challenge 1: Create Variations</strong></p>
+                    <p>Create three versions of your scene with different colored lighting: one neutral, one warm-dominant, one cool-dominant. Compare the emotional differences.</p>
+
+                    <p><strong>Challenge 2: Add Atmospheric Fog</strong></p>
+                    <p>If your render engine supports it, add subtle atmospheric fog to make light beams visible. This creates beautiful god rays through windows or doors.</p>
+
+                    <p><strong>Challenge 3: The Pure Silhouette</strong></p>
+                    <p>Create a second render with all front lighting removed, showing your figure as a pure silhouette against a lit background. Compare the dramatic difference.</p>
+
+                    <p><strong>Challenge 4: Study a Film Frame</strong></p>
+                    <p>Find a still from a noir film you admire. Try to recreate its lighting setup in Poser as accurately as possible. This reverse-engineering teaches you professional techniques.</p>
+
+                    <p><strong>Challenge 5: Tell a Story</strong></p>
+                    <p>Add a second prop or element that suggests a story: a gun on the desk, a phone receiver hanging off-hook, a shadow of another figure on the wall. Let lighting and staging tell a narrative without words.</p>
+                </div>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem;">
+                    <h4 style="color: white; margin-top: 0;">💡 Remember</h4>
+                    <p style="color: white; margin-bottom: 0;">
+                        The goal isn't photorealism—it's creating a dramatic, emotional experience through light and shadow. Don't be afraid of darkness. Don't try to fix what isn't broken. Trust your dramatic lighting. Some of the most iconic images in film history are mostly shadow with strategic pools of light. Embrace the darkness—it's where the drama lives!
+                    </p>
+                </div>
+
+            </section>
+            <!-- Section 10: Summary and Key Takeaways -->
+            <section id="summary">
+                <h2>📚 Summary and Key Takeaways</h2>
+                
+                <p>
+                    Congratulations! You've just completed one of the most creatively powerful lessons in this course. Dramatic lighting isn't just a technical skill—it's an artistic language that lets you create mood, tell stories, and evoke powerful emotions through the interplay of light and shadow.
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem;">
+                    <h3 style="color: white; margin-top: 0;">🎯 What You've Mastered</h3>
+                    <ul style="color: white;">
+                        <li><strong>Interior Light Behavior:</strong> You understand how light works differently indoors—multiple sources, bounce light, falloff, and motivation</li>
+                        <li><strong>Practical Lights:</strong> You can simulate real light sources like lamps, windows, and candles convincingly</li>
+                        <li><strong>Dramatic Shadows:</strong> You've learned to use darkness as a creative tool, creating depth, focus, and emotional impact</li>
+                        <li><strong>Color Temperature:</strong> You understand how warm and cool light affects mood and can use color strategically</li>
+                        <li><strong>Low-Light Techniques:</strong> You can create convincing night scenes with limited visibility and atmospheric darkness</li>
+                        <li><strong>Film Noir Style:</strong> You've learned the iconic techniques of high-contrast, dramatic cinematography</li>
+                        <li><strong>Advanced Techniques:</strong> Gobos, layered lighting, chiaroscuro, and professional enhancement methods are now in your toolkit</li>
+                    </ul>
+                </div>
+
+                <h3>Core Principles to Remember</h3>
+
+                <div class="card">
+                    <h4>💡 The Essential Rules of Dramatic Lighting</h4>
+                    
+                    <p><strong>1. Less is More</strong></p>
+                    <p>One well-placed light often creates more drama than multiple lights. Start minimal and only add what's necessary.</p>
+
+                    <p><strong>2. Darkness is Not a Problem</strong></p>
+                    <p>Shadows and darkness are your creative tools, not issues to fix. Embrace them.</p>
+
+                    <p><strong>3. Motivation Matters</strong></p>
+                    <p>Every light should appear to come from somewhere real, even in highly stylized scenes.</p>
+
+                    <p><strong>4. Contrast Creates Drama</strong></p>
+                    <p>The difference between light and dark—whether through intensity or color—generates emotional impact.</p>
+
+                    <p><strong>5. Hard Light for Intensity</strong></p>
+                    <p>Sharp-edged shadows create more dramatic effects than soft shadows in most cases.</p>
+
+                    <p><strong>6. Color Tells Story</strong></p>
+                    <p>Warm light feels intimate and safe; cool light feels isolated or modern. Use this deliberately.</p>
+
+                    <p><strong>7. Study the Masters</strong></p>
+                    <p>Film noir, classic cinema, and master painters all teach us how light and shadow create drama.</p>
+
+                    <p><strong>8. Resist Overlighting</strong></p>
+                    <p>Your instinct will be to make everything visible. Resist. Selective visibility is the point.</p>
+                </div>
+
+                <h3>Lighting Techniques Quick Reference</h3>
+
+                <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+                    <thead>
+                        <tr style="background: #f8f9fa;">
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Technique</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Effect</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">When to Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Single hard light, no fill</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Maximum drama, deep shadows</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Noir, intense moments, mystery</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Venetian blind pattern</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Iconic noir aesthetic</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Instantly signals noir style</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Warm/cool contrast</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Depth, visual interest</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Modern drama, separation</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Backlight/rim light</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Separation from background</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Dark backgrounds, mystery</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Top-down lighting</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Ominous, isolated</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Interrogation, lone figures</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Silhouette</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Mystery, anonymity</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Reveals, suspicious figures</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Gobo patterns</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Visual interest, realism</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Windows, trees, texture</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Monochromatic color</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Strong unified mood</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Stylized scenes, emphasis</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Common Practical Light Colors</h3>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <td style="padding: 0.5rem; border-bottom: 1px solid #dee2e6;"><strong>Candle/Fire:</strong></td>
+                            <td style="padding: 0.5rem; border-bottom: 1px solid #dee2e6;">RGB (255, 180, 100)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.5rem; border-bottom: 1px solid #dee2e6;"><strong>Incandescent Lamp:</strong></td>
+                            <td style="padding: 0.5rem; border-bottom: 1px solid #dee2e6;">RGB (255, 230, 190)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.5rem; border-bottom: 1px solid #dee2e6;"><strong>Moonlight:</strong></td>
+                            <td style="padding: 0.5rem; border-bottom: 1px solid #dee2e6;">RGB (180, 200, 230)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.5rem; border-bottom: 1px solid #dee2e6;"><strong>Computer Screen:</strong></td>
+                            <td style="padding: 0.5rem; border-bottom: 1px solid #dee2e6;">RGB (200, 220, 255)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.5rem; border-bottom: 1px solid #dee2e6;"><strong>Fluorescent:</strong></td>
+                            <td style="padding: 0.5rem; border-bottom: 1px solid #dee2e6;">RGB (255, 255, 250)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.5rem;"><strong>Neutral/Daylight Window:</strong></td>
+                            <td style="padding: 0.5rem;">RGB (240, 245, 255)</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h3>Moving Forward</h3>
+
+                <p>
+                    Dramatic lighting is a skill that improves with practice. Every time you light a scene, you're training your eye to see the interplay of light and shadow. Don't be discouraged if your first attempts don't match your vision—even professional cinematographers spend years mastering these techniques.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✨ Practice Suggestions</h4>
+                    <ul>
+                        <li>Light the same scene multiple ways: noir, natural, dramatic, flat. Compare results.</li>
+                        <li>Find a film scene you love. Screenshot it. Try to recreate the lighting in Poser.</li>
+                        <li>Challenge yourself: create a compelling image with only ONE light source.</li>
+                        <li>Experiment with color: remake a scene you've already lit but change all the colors.</li>
+                        <li>Study shadows: spend a week noticing shadows in real life, in movies, in photos. Train your eye.</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Final Thought:</strong> The difference between an amateur and professional 3D artist isn't modeling skill or texture quality—it's often lighting. Great lighting elevates even simple scenes into art. Poor lighting ruins even beautiful models. You now have the knowledge to be a lighting artist, not just a 3D user. Use this power wisely and creatively!
+                    </p>
+                </blockquote>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem;">
+                    <h3 style="color: white; margin-top: 0;">🎬 What's Next?</h3>
+                    <p style="color: white;">
+                        With dramatic lighting mastered, you've completed the core lighting fundamentals in Module 5. You now understand light types, three-point lighting, outdoor lighting, and dramatic indoor lighting—the complete lighting toolkit! 
+                    </p>
+                    <p style="color: white; margin-bottom: 0;">
+                        Next, we move into <strong>Module 6: Rendering Your Work</strong>, where you'll learn to turn your beautifully lit scenes into final, high-quality images. You'll explore render settings, engine choices (Firefly vs. SuperFly), optimization techniques, and post-processing—everything you need to produce professional-quality final renders that showcase all the hard work you've put into lighting, posing, and scene building.
+                    </p>
+                </div>
+
+            </section>
+
+            <!-- Navigation -->
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_21_outdoor_lighting.html" class="prev-lesson">← Previous: Natural and Outdoor Lighting</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_23_render_settings.html" class="next-lesson">Next: Render Settings Overview →</a>
+            </nav>
+
+        </article>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 Poser 12 Mastery Course. All rights reserved.</p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

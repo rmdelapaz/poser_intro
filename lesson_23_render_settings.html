@@ -1,0 +1,2728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master render settings in Poser 12 - Learn to choose between Firefly and SuperFly engines, optimize quality and speed, and produce professional final images">
+    <meta name="author" content="Poser 12 Course">
+    <title>Render Settings Overview - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <nav class="main-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-logo">🎨 Poser 12 Mastery</a>
+        <div class="nav-links">
+            <a href="index.html#modules">📚 Modules</a>
+            <a href="index.html#resources">🔧 Resources</a>
+            <a href="index.html#about">ℹ️ About</a>
+        </div>
+    </nav>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> ›
+        <a href="index.html#module6">Module 6: Rendering Your Work</a> ›
+        <span>Lesson 23: Render Settings Overview</span>
+    </nav>
+
+    <main class="lesson-content">
+        <article>
+            <header class="lesson-header">
+                <h1>🖼️ Render Settings Overview</h1>
+                <p class="lesson-subtitle">Understanding the Foundation of High-Quality Final Images</p>
+            </header>
+
+            <p class="lead-text">
+                Welcome to Module 6! You've spent hours creating the perfect scene—posing your figures, building your environment, carefully lighting every element. Now comes the moment of truth: transforming that 3D scene into a final, high-quality image. This is where <strong>rendering</strong> comes in, and understanding render settings is the difference between a mediocre output and a professional, portfolio-worthy result.
+            </p>
+
+            <p>
+                Think of rendering like photography. You can have a beautiful subject, perfect lighting, and great composition, but if your camera settings are wrong—shutter speed too fast, aperture incorrect, ISO too high—your photo will be disappointing. The same is true in 3D. Your scene might be perfect, but if your render settings aren't optimized, you won't capture that perfection in the final image. This lesson teaches you to be a master of both the scene creation <em>and</em> the capture process.
+            </p>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; margin: 2rem 0;">
+                <h3 style="color: white; margin-top: 0;">💡 What You'll Learn</h3>
+                <ul style="color: white;">
+                    <li><strong>Understanding Render Engines:</strong> The crucial differences between Firefly and SuperFly (Cycles)</li>
+                    <li><strong>Render Quality Settings:</strong> How to balance speed versus quality for different purposes</li>
+                    <li><strong>Resolution and Dimensions:</strong> Choosing the right size for web, print, and portfolio use</li>
+                    <li><strong>Anti-Aliasing and Sampling:</strong> Eliminating jagged edges and achieving smooth results</li>
+                    <li><strong>Render Time Management:</strong> Understanding what affects speed and how to optimize</li>
+                    <li><strong>Preview vs. Final Renders:</strong> When to use quick previews and when to go full quality</li>
+                    <li><strong>Output Formats:</strong> Choosing between PNG, JPEG, TIFF, and other file types</li>
+                </ul>
+                <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                    <p style="margin: 0; color: white;"><strong>⏱️ Estimated Time:</strong> 45-60 minutes</p>
+                    <p style="margin: 0.5rem 0 0 0; color: white;"><strong>🎯 Project:</strong> Render test comparisons at different quality settings</p>
+                </div>
+            </div>
+
+            <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107; margin: 2rem 0;">
+                <h4>🎬 Why Render Settings Matter</h4>
+                <p>
+                    You could have the most beautifully crafted scene in the world, but poor render settings will ruin it. Jagged edges, noise, banding, artifacts, incorrect exposure—these technical flaws distract from your artistic vision and mark your work as amateur. Professional 3D artists know that mastering render settings is just as important as mastering modeling, texturing, or lighting. It's the final step that makes or breaks the image.
+                </p>
+                <p style="margin-bottom: 0;">
+                    Moreover, understanding render settings means you can work efficiently—using fast preview renders while working, then switching to high-quality settings only for finals. This saves hours of time while maintaining professional results.
+                </p>
+            </div>
+            <!-- Table of Contents -->
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">📑 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#what-is-rendering" class="toc-link">What is Rendering?</a></li>
+                        <li><a href="#firefly-vs-superfly" class="toc-link">Firefly vs. SuperFly - Choosing Your Engine</a></li>
+                        <li><a href="#basic-settings" class="toc-link">Basic Render Settings Explained</a></li>
+                        <li><a href="#resolution-dimensions" class="toc-link">Resolution and Image Dimensions</a></li>
+                        <li><a href="#quality-settings" class="toc-link">Quality Settings and Trade-offs</a></li>
+                        <li><a href="#anti-aliasing" class="toc-link">Anti-Aliasing and Sampling</a></li>
+                        <li><a href="#render-time" class="toc-link">Understanding Render Time</a></li>
+                        <li><a href="#preview-vs-final" class="toc-link">Preview Renders vs. Final Renders</a></li>
+                        <li><a href="#output-formats" class="toc-link">Output Formats and File Types</a></li>
+                        <li><a href="#project" class="toc-link">Project: Render Quality Comparison Tests</a></li>
+                        <li><a href="#summary" class="toc-link">Summary and Key Takeaways</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Section 1: What is Rendering? -->
+            <section id="what-is-rendering">
+                <h2>🎨 What is Rendering?</h2>
+                
+                <p>
+                    Before diving into settings, let's make sure we understand what rendering actually is. When you're working in Poser, you're looking at a <strong>viewport preview</strong>—a simplified, real-time display of your scene. This preview is fast but not accurate. It shows rough approximations of materials, simplified lighting, and no advanced effects like shadows, reflections, or subsurface scattering.
+                </p>
+
+                <p>
+                    <strong>Rendering</strong> is the process of calculating the final image with all the detail, accuracy, and realism that your settings demand. The render engine traces light paths, calculates shadows, applies materials correctly, handles reflections and refractions, and produces a photorealistic (or stylized) final image.
+                </p>
+
+                <div class="card">
+                    <h4>🔍 The Rendering Process</h4>
+                    
+                    <p>When you hit "Render," Poser goes through several steps:</p>
+                    
+                    <ol>
+                        <li><strong>Scene Analysis:</strong> The engine examines all objects, lights, materials, and camera settings</li>
+                        <li><strong>Light Calculations:</strong> For each pixel, it calculates how light interacts with surfaces</li>
+                        <li><strong>Material Application:</strong> It applies textures, shaders, and material properties accurately</li>
+                        <li><strong>Shadow Casting:</strong> It determines which areas are in light and which are in shadow</li>
+                        <li><strong>Reflection/Refraction:</strong> If applicable, it calculates mirrors, glass, and other optical effects</li>
+                        <li><strong>Sampling:</strong> It may calculate multiple samples per pixel for smoothness (anti-aliasing)</li>
+                        <li><strong>Post-Processing:</strong> Final effects like depth of field, motion blur, or atmosphere</li>
+                        <li><strong>Output:</strong> The final image is saved to a file</li>
+                    </ol>
+                </div>
+
+                <div class="mermaid">
+                    graph LR
+                    A[3D Scene] --> B[Render Engine]
+                    B --> C[Light Calculation]
+                    B --> D[Material Processing]
+                    B --> E[Shadow Casting]
+                    C --> F[Final Image]
+                    D --> F
+                    E --> F
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style B fill:#f39c12,stroke:#333,stroke-width:2px
+                    style F fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Why Rendering Takes Time</h3>
+
+                <p>
+                    Unlike the instant viewport preview, rendering can take anywhere from seconds to hours (or even days for complex animations). This is because the render engine is doing <em>massive</em> amounts of calculation:
+                </p>
+
+                <blockquote>
+                    <p>
+                        <strong>Consider this:</strong> A modest 1920×1080 HD image contains 2,073,600 pixels. For each pixel, the render engine might need to calculate lighting from multiple sources, trace reflection rays, apply complex materials, and determine shadows. If you're using high sampling (say, 256 samples per pixel for smoothness), that's over half a billion calculations. No wonder it takes time!
+                    </p>
+                </blockquote>
+
+                <h3>Viewport Preview vs. Render</h3>
+
+                <p>
+                    It's crucial to understand the difference between what you see in the viewport and what you get when you render:
+                </p>
+
+                <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+                    <thead>
+                        <tr style="background: #f8f9fa;">
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Aspect</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Viewport Preview</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Final Render</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Speed</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Real-time (instant)</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Seconds to hours</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Quality</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Simplified, approximate</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Accurate, detailed</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Shadows</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">None or basic</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Accurate, ray-traced</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Materials</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Simplified</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Full complexity</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Reflections</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Usually none</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Accurate ray-tracing</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Anti-aliasing</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Minimal or none</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">High quality</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Purpose</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Working, posing, setup</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Final output, sharing</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ The Golden Rule</h4>
+                    <p style="margin-bottom: 0;">
+                        <strong>Never judge your scene by the viewport preview alone.</strong> Always do test renders to see how your lighting, materials, and composition actually look. What appears perfect in the viewport might have problems in the render, and vice versa. Think of the viewport as a rough sketch and the render as the final painting.
+                    </p>
+                </div>
+
+                <h3>Types of Renders</h3>
+
+                <p>
+                    Not all renders are created equal. Understanding the different types helps you choose the right approach for each situation:
+                </p>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <h4>🎯 Render Types and Their Uses</h4>
+                    
+                    <p><strong>Preview Render (Draft Quality)</strong></p>
+                    <ul>
+                        <li><strong>Speed:</strong> Very fast (seconds)</li>
+                        <li><strong>Quality:</strong> Low—lots of noise, jagged edges</li>
+                        <li><strong>Use for:</strong> Checking composition, lighting placement, pose</li>
+                        <li><strong>When:</strong> During scene setup, frequently</li>
+                    </ul>
+
+                    <p><strong>Test Render (Medium Quality)</strong></p>
+                    <ul>
+                        <li><strong>Speed:</strong> Moderate (30 seconds to few minutes)</li>
+                        <li><strong>Quality:</strong> Decent—some noise, acceptable detail</li>
+                        <li><strong>Use for:</strong> Checking materials, shadow quality, overall look</li>
+                        <li><strong>When:</strong> Before final render, to verify settings</li>
+                    </ul>
+
+                    <p><strong>Final Render (High Quality)</strong></p>
+                    <ul>
+                        <li><strong>Speed:</strong> Slow (minutes to hours)</li>
+                        <li><strong>Quality:</strong> Excellent—smooth, detailed, professional</li>
+                        <li><strong>Use for:</strong> Final image for sharing, portfolio, print</li>
+                        <li><strong>When:</strong> Scene is complete and tested, ready for output</li>
+                    </ul>
+
+                    <p><strong>Production Render (Ultra Quality)</strong></p>
+                    <ul>
+                        <li><strong>Speed:</strong> Very slow (hours to days)</li>
+                        <li><strong>Quality:</strong> Perfect—no noise, maximum detail</li>
+                        <li><strong>Use for:</strong> Print publication, professional client work</li>
+                        <li><strong>When:</strong> Only when ultimate quality is required</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Pro Workflow:</strong> Professional 3D artists typically do dozens of preview renders while setting up a scene, a handful of test renders to check quality, and only one or two final renders once everything is perfect. This saves enormous amounts of time compared to doing high-quality renders for every little adjustment.
+                    </p>
+                </blockquote>
+
+            </section>
+            <!-- Section 2: Firefly vs SuperFly -->
+            <section id="firefly-vs-superfly">
+                <h2>⚡ Firefly vs. SuperFly - Choosing Your Engine</h2>
+                
+                <p>
+                    Poser 12 includes two powerful render engines: <strong>Firefly</strong> and <strong>SuperFly</strong>. Understanding the differences between them is crucial because they work quite differently, have different strengths, and require different approaches. Think of them as two different cameras with different capabilities—each excellent for certain types of photography.
+                </p>
+
+                <h3>Meet the Engines</h3>
+
+                <div class="card">
+                    <h4>🔥 Firefly - The Traditional Renderer</h4>
+                    <p><strong>Technology:</strong> Biased ray-tracing renderer</p>
+                    <p><strong>Philosophy:</strong> Fast, predictable, artist-controlled</p>
+                    
+                    <p><strong>Strengths:</strong></p>
+                    <ul>
+                        <li>Faster render times for equivalent quality</li>
+                        <li>More predictable results—what you set is what you get</li>
+                        <li>Better for toon/cel-shaded and stylized looks</li>
+                        <li>Lower memory requirements</li>
+                        <li>Easier to learn for beginners</li>
+                        <li>Fine-grained control over every aspect</li>
+                        <li>Excellent for scenes with lots of lights</li>
+                    </ul>
+
+                    <p><strong>Weaknesses:</strong></p>
+                    <ul>
+                        <li>Less physically accurate lighting</li>
+                        <li>Requires more manual tweaking for photorealism</li>
+                        <li>Global illumination is approximate</li>
+                        <li>Material setup can be complex for realistic results</li>
+                    </ul>
+
+                    <p><strong>Best For:</strong> Illustrations, stylized work, character portraits, scenes with complex lighting setups, when speed is important</p>
+                </div>
+
+                <div class="card" style="margin-top: 1.5rem;">
+                    <h4>🚀 SuperFly - The Physically-Based Renderer</h4>
+                    <p><strong>Technology:</strong> Unbiased path-tracing (based on Cycles from Blender)</p>
+                    <p><strong>Philosophy:</strong> Physically accurate, photorealistic, simulates real light</p>
+                    
+                    <p><strong>Strengths:</strong></p>
+                    <ul>
+                        <li>True physically-based rendering (PBR)</li>
+                        <li>Photorealistic results with less manual tweaking</li>
+                        <li>Accurate global illumination automatically</li>
+                        <li>Beautiful subsurface scattering (skin, wax, etc.)</li>
+                        <li>GPU acceleration available (much faster with good GPU)</li>
+                        <li>Better for architectural visualization</li>
+                        <li>Industry-standard approach used in many tools</li>
+                    </ul>
+
+                    <p><strong>Weaknesses:</strong></p>
+                    <ul>
+                        <li>Slower render times (especially CPU-only)</li>
+                        <li>Can be noisy at lower sample counts</li>
+                        <li>Requires more powerful hardware (especially for GPU)</li>
+                        <li>Different material system—Firefly materials need conversion</li>
+                        <li>Less control over "cheating" for artistic effects</li>
+                        <li>Steeper learning curve for settings optimization</li>
+                    </ul>
+
+                    <p><strong>Best For:</strong> Photorealistic renders, product visualization, architectural scenes, when ultimate realism is the goal, if you have a good GPU</p>
+                </div>
+
+                <h3>The Key Philosophical Difference</h3>
+
+                <p>
+                    The fundamental difference between these engines goes beyond speed or quality—it's about how they approach light:
+                </p>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <p><strong>Firefly (Biased):</strong> Says "I'll calculate light in ways that give you fast, controllable results, even if they're not perfectly physically accurate." You tell it how much light to use, how far to bounce, etc. It's like a skilled painter who interprets reality rather than photocopying it.</p>
+
+                    <p style="margin-bottom: 0;"><strong>SuperFly (Unbiased):</strong> Says "I'll simulate exactly how light behaves in the real world, calculating every photon path until I converge on the true solution." It's less about control and more about accuracy. It's like a camera that captures reality precisely as it is.</p>
+                </div>
+
+                <h3>Comparing Results</h3>
+
+                <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+                    <thead>
+                        <tr style="background: #f8f9fa;">
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Aspect</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Firefly</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">SuperFly</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Render Speed</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Faster (seconds to minutes)</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Slower (minutes to hours)</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Lighting Accuracy</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Approximate, controllable</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Physically accurate</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Global Illumination</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Optional, approximate</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Automatic, accurate</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Materials</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Poser Shader Tree</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Cycles Nodes (PBR)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Skin Rendering</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Good with setup</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Excellent, automatic SSS</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Noise</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Generally clean</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Can be noisy (low samples)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>GPU Support</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Limited</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Yes (significant speedup)</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Learning Curve</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Easier for beginners</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Steeper, more settings</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Artistic Control</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">High (can "cheat")</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Lower (physics-based)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Which Should You Use?</h3>
+
+                <p>
+                    The answer isn't "one is better"—it's "which is better for <em>this</em> project?" Here's a decision guide:
+                </p>
+
+                <div class="card">
+                    <h4>🎯 Choose Firefly When...</h4>
+                    <ul>
+                        <li>You're learning 3D rendering and want faster feedback</li>
+                        <li>Creating illustrations, comics, or stylized artwork</li>
+                        <li>Working on a slower computer without a good GPU</li>
+                        <li>You need many lights in your scene</li>
+                        <li>Time is limited and you need quick results</li>
+                        <li>Creating toon-shaded or non-photorealistic renders</li>
+                        <li>You want precise, manual control over every aspect</li>
+                        <li>Working with older Poser materials and content</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>🎯 Choose SuperFly When...</h4>
+                    <ul>
+                        <li>Photorealism is your primary goal</li>
+                        <li>Creating product visualization or architectural renders</li>
+                        <li>You have a powerful GPU (NVIDIA or AMD)</li>
+                        <li>Accurate subsurface scattering (skin) is important</li>
+                        <li>You want realistic global illumination automatically</li>
+                        <li>Time isn't critical (you can let it render overnight)</li>
+                        <li>Working with PBR materials and modern content</li>
+                        <li>You prefer physics-based workflows used in industry</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ My Recommendation for Beginners</h4>
+                    <p>
+                        Start with <strong>Firefly</strong>. It's faster, more forgiving, and easier to learn. You'll get better feedback while learning because renders are quicker. Once you're comfortable with rendering concepts, experiment with SuperFly for projects where photorealism is critical. Many professional artists use both—Firefly for quick work and SuperFly for showcase pieces.
+                    </p>
+                    <p style="margin-bottom: 0;">
+                        Remember: The best renderer is the one that gets you the results you need in the time you have available. Don't let render engine debates distract you from creating great art!
+                    </p>
+                </div>
+
+                <h3>Can You Switch Between Them?</h3>
+
+                <p>
+                    Yes! You can render the same scene in either engine. However, there are important considerations:
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Switching Engine Considerations</h4>
+                    <ul>
+                        <li><strong>Materials:</strong> Firefly and SuperFly use different material systems. Materials optimized for one may not work well in the other.</li>
+                        <li><strong>Lighting:</strong> Light intensities and colors may need adjustment when switching.</li>
+                        <li><strong>Exposure:</strong> SuperFly often requires different exposure settings than Firefly.</li>
+                        <li><strong>Time:</strong> The same scene will take very different amounts of time in each engine.</li>
+                        <li><strong>Quality:</strong> Settings optimized for one engine won't translate directly to the other.</li>
+                    </ul>
+                    <p style="margin-bottom: 0;">
+                        <strong>Best Practice:</strong> Choose your render engine early in the project and optimize for that engine. Switching mid-project means re-optimizing everything.
+                    </p>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Industry Parallel:</strong> In professional 3D work, different tools are used for different purposes. Pixar uses RenderMan, ILM uses Arnold, architectural firms might use V-Ray. Each has strengths. Similarly, Firefly and SuperFly are tools in your toolkit—use the right tool for the job!
+                    </p>
+                </blockquote>
+
+            </section>
+            <!-- Section 3: Basic Render Settings Explained -->
+            <section id="basic-settings">
+                <h2>⚙️ Basic Render Settings Explained</h2>
+                
+                <p>
+                    Now that you understand the engines, let's explore the fundamental settings that control how your renders look. Whether you're using Firefly or SuperFly, these core concepts apply, though the specific controls may differ. Think of these as the "exposure triangle" of 3D rendering—understanding them gives you power over your results.
+                </p>
+
+                <h3>Accessing Render Settings</h3>
+
+                <p>
+                    In Poser 12, render settings are found in the <strong>Render Settings</strong> panel/window. You'll typically access this through:
+                </p>
+
+                <div class="card">
+                    <ul>
+                        <li><strong>Menu:</strong> Render → Render Settings</li>
+                        <li><strong>Or:</strong> Click the Render Settings button (gear icon) in the render area</li>
+                        <li><strong>Or:</strong> Keyboard shortcut: Ctrl+Y (Windows) or Cmd+Y (Mac)</li>
+                    </ul>
+                    <p style="margin-bottom: 0;">The settings panel will show different options depending on which render engine (Firefly or SuperFly) is currently selected.</p>
+                </div>
+
+                <h3>Core Settings That Affect Every Render</h3>
+
+                <h4>1. Render Engine Selection</h4>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <p><strong>What It Is:</strong> The dropdown or button that lets you choose between Firefly and SuperFly.</p>
+                    <p><strong>Where:</strong> Usually at the top of the render settings panel.</p>
+                    <p><strong>Impact:</strong> This single choice determines everything else—available settings, render speed, and quality characteristics.</p>
+                    <p style="margin-bottom: 0;"><strong>Tip:</strong> Make this choice first, before adjusting any other settings. Switching engines mid-setup means starting over with settings.</p>
+                </div>
+
+                <h4>2. Render Dimensions (Resolution)</h4>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <p><strong>What It Is:</strong> The width and height of your output image in pixels.</p>
+                    <p><strong>Common Sizes:</strong></p>
+                    <ul>
+                        <li>Preview: 640×480 or 800×600</li>
+                        <li>HD: 1920×1080 (Full HD)</li>
+                        <li>4K: 3840×2160 (Ultra HD)</li>
+                        <li>Print: 3000×4000+ (depending on print size)</li>
+                    </ul>
+                    <p><strong>Impact on Speed:</strong> Doubling resolution = 4× longer render time! A 4K render takes 4 times longer than HD.</p>
+                    <p style="margin-bottom: 0;"><strong>Strategy:</strong> Use small dimensions (800×600) for test renders, switch to full size only for finals.</p>
+                </div>
+
+                <h4>3. Aspect Ratio</h4>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <p><strong>What It Is:</strong> The proportional relationship between width and height.</p>
+                    <p><strong>Common Ratios:</strong></p>
+                    <ul>
+                        <li>16:9 - Widescreen (most common for web/video)</li>
+                        <li>4:3 - Traditional (older standard)</li>
+                        <li>1:1 - Square (Instagram, profile pics)</li>
+                        <li>2.35:1 - Cinematic (ultra-wide)</li>
+                    </ul>
+                    <p style="margin-bottom: 0;"><strong>Tip:</strong> Choose your aspect ratio based on final use. Most modern work uses 16:9.</p>
+                </div>
+
+                <h4>4. Render Quality Preset</h4>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <p><strong>What It Is:</strong> Pre-configured quality levels that adjust multiple settings simultaneously.</p>
+                    <p><strong>Common Presets:</strong></p>
+                    <ul>
+                        <li><strong>Draft/Preview:</strong> Very fast, low quality—for checking composition</li>
+                        <li><strong>Low/Fast:</strong> Quick renders with acceptable quality for tests</li>
+                        <li><strong>Medium:</strong> Balanced quality and speed—good for near-final checks</li>
+                        <li><strong>High:</strong> Slow but excellent quality—for final outputs</li>
+                        <li><strong>Final/Production:</strong> Very slow, maximum quality—for critical work</li>
+                    </ul>
+                    <p style="margin-bottom: 0;"><strong>What It Changes:</strong> These presets adjust sampling rates, ray bounces, shadow quality, and other technical settings all at once. They're great starting points that you can then fine-tune.</p>
+                </div>
+
+                <h4>5. Sampling / Samples Per Pixel</h4>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <p><strong>What It Is:</strong> How many times the renderer calculates each pixel to smooth out noise and jaggedness.</p>
+                    <p><strong>Firefly:</strong> Called "Anti-aliasing" or "Min Shading Rate"</p>
+                    <p><strong>SuperFly:</strong> Called "Samples" or "Max Samples"</p>
+                    
+                    <p><strong>Values and Results:</strong></p>
+                    <ul>
+                        <li><strong>Low (1-4 samples):</strong> Very fast, very noisy/jagged</li>
+                        <li><strong>Medium (16-64 samples):</strong> Balanced, some noise but acceptable</li>
+                        <li><strong>High (128-256 samples):</strong> Slow, smooth and clean</li>
+                        <li><strong>Ultra (512+ samples):</strong> Very slow, perfect smoothness</li>
+                    </ul>
+                    
+                    <p><strong>The Trade-off:</strong> Higher samples = smoother image but exponentially longer render time.</p>
+                    <p style="margin-bottom: 0;"><strong>Sweet Spot:</strong> For most work, 64-128 samples provides excellent quality without excessive render time.</p>
+                </div>
+
+                <h4>6. Shadow Quality</h4>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <p><strong>What It Is:</strong> How accurately and smoothly shadows are rendered.</p>
+                    <p><strong>Settings Affecting Shadows:</strong></p>
+                    <ul>
+                        <li><strong>Shadow Samples:</strong> Higher = smoother soft shadow edges</li>
+                        <li><strong>Ray Depth:</strong> How many times shadow rays bounce (for colored shadows, transparency)</li>
+                        <li><strong>Shadow Blur:</strong> Artificial softening of shadow edges</li>
+                    </ul>
+                    <p style="margin-bottom: 0;"><strong>Impact:</strong> Shadows are expensive to calculate. High-quality shadows can significantly increase render time, but they're crucial for realism.</p>
+                </div>
+
+                <h4>7. Ray Tracing Settings</h4>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <p><strong>What It Is:</strong> Controls for reflections, refractions, and how many times light bounces.</p>
+                    
+                    <p><strong>Key Settings:</strong></p>
+                    <ul>
+                        <li><strong>Max Ray Depth:</strong> Total bounces allowed (typically 4-8)</li>
+                        <li><strong>Reflection Bounces:</strong> For mirrors, chrome, water</li>
+                        <li><strong>Refraction Bounces:</strong> For glass, transparency</li>
+                        <li><strong>Diffuse Bounces:</strong> For global illumination, color bleeding</li>
+                    </ul>
+                    
+                    <p><strong>Balance:</strong> More bounces = more accuracy but slower rendering. If your scene has no mirrors or glass, you can reduce these for faster renders.</p>
+                    <p style="margin-bottom: 0;"><strong>Rule of Thumb:</strong> Start with 4-6 bounces. Only increase if you see black artifacts in reflections or transparency.</p>
+                </div>
+
+                <h4>8. Global Illumination (GI)</h4>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <p><strong>What It Is:</strong> Simulates indirect lighting—light bouncing off surfaces to illuminate other surfaces.</p>
+                    <p><strong>Firefly:</strong> Optional, enabled via Indirect Light settings</p>
+                    <p><strong>SuperFly:</strong> Always on by default (path tracing includes it automatically)</p>
+                    
+                    <p><strong>Effects:</strong></p>
+                    <ul>
+                        <li>Color bleeding (red wall tints nearby white surface)</li>
+                        <li>Soft ambient illumination in shadowed areas</li>
+                        <li>More natural, realistic lighting overall</li>
+                    </ul>
+                    
+                    <p><strong>Cost:</strong> Significantly increases render time, especially in Firefly</p>
+                    <p style="margin-bottom: 0;"><strong>When to Use:</strong> For photorealistic renders, especially interiors. Can skip for stylized work or if time is critical.</p>
+                </div>
+
+                <h3>Understanding Render Time Impacts</h3>
+
+                <p>
+                    Every setting choice affects render time. Here's a rough guide to what slows renders down most:
+                </p>
+
+                <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+                    <thead>
+                        <tr style="background: #f8f9fa;">
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Setting</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Impact on Speed</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Impact on Quality</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Resolution</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Very High (quadratic)</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">High (more detail)</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Samples</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Very High (linear)</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Very High (smoothness)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Ray Bounces</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">High (per bounce)</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Medium (accuracy)</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Global Illumination</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Very High</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">High (realism)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Shadow Quality</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Medium</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">High (definition)</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Transparency</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Medium</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Medium</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Number of Lights</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Medium (Firefly) / Low (SuperFly)</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Varies</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Smart Workflow Strategy</h4>
+                    <p><strong>For Test Renders:</strong></p>
+                    <ul>
+                        <li>Small resolution (800×600 or less)</li>
+                        <li>Low samples (4-16)</li>
+                        <li>Minimal ray bounces (2-3)</li>
+                        <li>Global illumination OFF (Firefly) or low samples (SuperFly)</li>
+                        <li>Result: Fast feedback for composition and lighting checks</li>
+                    </ul>
+                    
+                    <p><strong>For Final Renders:</strong></p>
+                    <ul>
+                        <li>Full resolution (1920×1080 or higher)</li>
+                        <li>High samples (128-256)</li>
+                        <li>Adequate ray bounces (4-6)</li>
+                        <li>Global illumination ON with good settings</li>
+                        <li>Result: Professional quality worth the wait</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Pro Tip:</strong> Create and save multiple render setting presets: "Quick Test," "Medium Check," and "Final High Quality." This way you can switch between them instantly without manually adjusting every setting each time. It's a huge time-saver!
+                    </p>
+                </blockquote>
+
+            </section>
+            <!-- Section 4: Resolution and Image Dimensions -->
+            <section id="resolution-dimensions">
+                <h2>📐 Resolution and Image Dimensions</h2>
+                
+                <p>
+                    Resolution is one of the most critical render settings, yet it's often misunderstood or overlooked. Choosing the right resolution means understanding your final output needs—web display, print publication, portfolio presentation—and balancing quality with render time. Let's demystify resolution once and for all.
+                </p>
+
+                <h3>What Resolution Really Means</h3>
+
+                <p>
+                    <strong>Resolution</strong> refers to the number of pixels in your image, typically expressed as width × height (e.g., 1920×1080). More pixels means more detail and the ability to display or print larger, but also means longer render times and larger file sizes.
+                </p>
+
+                <div class="card">
+                    <h4>🔢 The Math of Resolution</h4>
+                    <p>A 1920×1080 image contains 2,073,600 pixels. Each pixel must be individually calculated during rendering. When you double the resolution to 3840×2160 (4K), you now have 8,294,400 pixels—four times as many! This is why resolution has such a dramatic impact on render time.</p>
+                    <p style="margin-bottom: 0;"><strong>Key Insight:</strong> Resolution doesn't scale linearly. Doubling width and height = 4× the pixels = approximately 4× the render time.</p>
+                </div>
+
+                <h3>Common Resolution Standards</h3>
+
+                <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+                    <thead>
+                        <tr style="background: #f8f9fa;">
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Name</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Resolution</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Total Pixels</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Best For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>SD (Standard)</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">640×480</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">307K</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Quick tests only</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>HD Ready</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">1280×720</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">922K</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Web, social media, test renders</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Full HD</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">1920×1080</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">2.1M</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Web portfolio, most online use</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>2K</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">2048×1080</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">2.2M</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Professional video, small prints</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>4K (UHD)</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">3840×2160</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">8.3M</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Large displays, medium prints</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>5K</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">5120×2880</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">14.7M</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">High-end displays, larger prints</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>8K</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">7680×4320</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">33.2M</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Professional prints, billboard</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Choosing Resolution by Purpose</h3>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <h4>🌐 Web and Social Media</h4>
+                    <p><strong>Recommended: 1920×1080 (Full HD)</strong></p>
+                    <ul>
+                        <li>Most computer monitors are 1920×1080 or similar</li>
+                        <li>Social media will compress/resize anything larger anyway</li>
+                        <li>File sizes remain manageable for uploading</li>
+                        <li>Renders in reasonable time</li>
+                    </ul>
+                    <p><strong>Alternative: 2560×1440</strong> if targeting high-res displays</p>
+                    <p style="margin-bottom: 0;"><strong>Avoid:</strong> 4K or higher for web—unnecessarily slow, and viewers won't see the difference on typical screens</p>
+                </div>
+
+                <div class="card" style="background: #f8f9fa; margin-top: 1rem;">
+                    <h4>🖼️ Portfolio and Professional Display</h4>
+                    <p><strong>Recommended: 2560×1440 to 3840×2160</strong></p>
+                    <ul>
+                        <li>Shows you can produce high-quality work</li>
+                        <li>Allows zooming in to see detail</li>
+                        <li>Suitable for large monitors and presentations</li>
+                        <li>Professional standard for portfolio sites</li>
+                    </ul>
+                    <p style="margin-bottom: 0;"><strong>Tip:</strong> For ArtStation, Behance, or professional portfolios, 4K (3840×2160) is becoming the standard.</p>
+                </div>
+
+                <div class="card" style="background: #f8f9fa; margin-top: 1rem;">
+                    <h4>🖨️ Print Publication</h4>
+                    <p><strong>Recommended: Calculate based on print size and DPI</strong></p>
+                    <p><strong>Formula:</strong> (Width in inches × DPI) × (Height in inches × DPI)</p>
+                    
+                    <p><strong>Standard Print DPI:</strong></p>
+                    <ul>
+                        <li><strong>300 DPI:</strong> High-quality prints (books, magazines)</li>
+                        <li><strong>150-200 DPI:</strong> Acceptable for larger prints</li>
+                        <li><strong>72-96 DPI:</strong> Screen display only</li>
+                    </ul>
+
+                    <p><strong>Examples:</strong></p>
+                    <ul>
+                        <li>8×10" at 300 DPI = 2400×3000 pixels</li>
+                        <li>11×14" at 300 DPI = 3300×4200 pixels</li>
+                        <li>16×20" at 300 DPI = 4800×6000 pixels</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 0;"><strong>Important:</strong> Always render larger than your minimum print size. You can always downsize, but you can't add detail that wasn't rendered.</p>
+                </div>
+
+                <div class="card" style="background: #f8f9fa; margin-top: 1rem;">
+                    <h4>⚡ Test Renders and Work-in-Progress</h4>
+                    <p><strong>Recommended: 800×600 to 1280×720</strong></p>
+                    <ul>
+                        <li>Renders in seconds instead of minutes</li>
+                        <li>Good enough to check composition and lighting</li>
+                        <li>Allows rapid iteration</li>
+                        <li>Saves time while developing scene</li>
+                    </ul>
+                    <p style="margin-bottom: 0;"><strong>Strategy:</strong> Do all your testing at low resolution, switch to final resolution only when everything is perfect.</p>
+                </div>
+
+                <h3>Aspect Ratios Explained</h3>
+
+                <p>
+                    The <strong>aspect ratio</strong> is the proportional relationship between width and height, independent of actual pixel count. Different uses call for different ratios:
+                </p>
+
+                <div class="card">
+                    <h4>📱 Common Aspect Ratios</h4>
+                    
+                    <p><strong>16:9 (Widescreen)</strong></p>
+                    <ul>
+                        <li>Most common modern standard</li>
+                        <li>HD TV, YouTube, most computer monitors</li>
+                        <li>Examples: 1920×1080, 3840×2160</li>
+                        <li><strong>Use for:</strong> General purpose, web, video</li>
+                    </ul>
+
+                    <p><strong>4:3 (Traditional)</strong></p>
+                    <ul>
+                        <li>Older TV and monitor standard</li>
+                        <li>More square, less cinematic</li>
+                        <li>Examples: 1024×768, 1600×1200</li>
+                        <li><strong>Use for:</strong> Retro aesthetics, specific client requirements</li>
+                    </ul>
+
+                    <p><strong>1:1 (Square)</strong></p>
+                    <ul>
+                        <li>Instagram posts, profile pictures</li>
+                        <li>Equal width and height</li>
+                        <li>Examples: 1080×1080, 2000×2000</li>
+                        <li><strong>Use for:</strong> Social media, icons, avatars</li>
+                    </ul>
+
+                    <p><strong>9:16 (Vertical)</strong></p>
+                    <ul>
+                        <li>Mobile-first, stories format</li>
+                        <li>Instagram/TikTok/YouTube stories</li>
+                        <li>Examples: 1080×1920, 2160×3840</li>
+                        <li><strong>Use for:</strong> Mobile content, vertical video</li>
+                    </ul>
+
+                    <p><strong>21:9 or 2.35:1 (Cinematic)</strong></p>
+                    <ul>
+                        <li>Ultra-wide, movie theater feel</li>
+                        <li>Dramatic, letterboxed look</li>
+                        <li>Examples: 2560×1080, 3440×1440</li>
+                        <li><strong>Use for:</strong> Cinematic art, dramatic compositions</li>
+                    </ul>
+                </div>
+
+                <h3>Custom Sizes and Constraints</h3>
+
+                <p>
+                    Sometimes you need non-standard dimensions. Here are some special cases:
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>📏 Special Size Considerations</h4>
+                    
+                    <p><strong>Book Covers:</strong></p>
+                    <ul>
+                        <li>Vary by format (hardback, paperback, ebook)</li>
+                        <li>Typically 6×9" to 8.5×11" at 300 DPI</li>
+                        <li>Always check publisher specifications</li>
+                    </ul>
+
+                    <p><strong>Posters and Large Format:</strong></p>
+                    <ul>
+                        <li>18×24", 24×36", or larger</li>
+                        <li>Can use lower DPI (150-200) for viewing distance</li>
+                        <li>Still requires very large pixel dimensions</li>
+                    </ul>
+
+                    <p><strong>Website Headers/Banners:</strong></p>
+                    <ul>
+                        <li>Often wide and short (e.g., 1920×400)</li>
+                        <li>Check site specifications</li>
+                        <li>Usually lower resolution suffices</li>
+                    </ul>
+
+                    <p style="margin-bottom: 0;"><strong>Always Ask:</strong> If creating work for a client or specific purpose, get exact dimension requirements before rendering. Re-rendering at a different size wastes time.</p>
+                </div>
+
+                <h3>The Resolution-Time Trade-Off</h3>
+
+                <p>
+                    Understanding how resolution affects render time helps you make smart choices:
+                </p>
+
+                <div class="card">
+                    <h4>⏱️ Approximate Render Time Scaling</h4>
+                    <p>If an 800×600 render takes 1 minute:</p>
+                    <ul>
+                        <li>1280×720 (HD) ≈ 2.4 minutes (2.4× pixels)</li>
+                        <li>1920×1080 (Full HD) ≈ 5.4 minutes (5.4× pixels)</li>
+                        <li>3840×2160 (4K) ≈ 21.6 minutes (21.6× pixels)</li>
+                        <li>7680×4320 (8K) ≈ 86 minutes (86× pixels)</li>
+                    </ul>
+                    <p style="margin-bottom: 0;"><strong>Takeaway:</strong> Resolution has exponential impact. Choose wisely based on actual need, not "bigger is better" thinking.</p>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Smart Resolution Strategy</h4>
+                    <ol>
+                        <li><strong>Determine Final Use:</strong> Where will this image appear? Web, print, portfolio?</li>
+                        <li><strong>Calculate Minimum Required:</strong> What's the smallest resolution that meets quality needs?</li>
+                        <li><strong>Add Safety Margin:</strong> Render 20-30% larger for flexibility</li>
+                        <li><strong>Test at Low Res First:</strong> Perfect your scene at 800×600</li>
+                        <li><strong>Switch to Final Size:</strong> Only change to full resolution for the final render</li>
+                    </ol>
+                    <p style="margin-bottom: 0;"><strong>Remember:</strong> You can always downsize a high-res image, but you can't add detail to a low-res one. When in doubt, render slightly larger.</p>
+                </div>
+
+            </section>
+            <!-- Section 5: Quality Settings and Trade-offs -->
+            <section id="quality-settings">
+                <h2>⚖️ Quality Settings and Trade-offs</h2>
+                
+                <p>
+                    Quality in 3D rendering isn't a simple on/off switch—it's a spectrum of choices, each with benefits and costs. Professional artists understand that "maximum quality" isn't always the right answer. The key is matching quality level to purpose while managing render time effectively. Let's explore the quality spectrum and learn to make smart choices.
+                </p>
+
+                <h3>The Quality Spectrum</h3>
+
+                <p>
+                    Think of render quality as a slider from "draft" to "perfect." Moving along this slider affects multiple aspects of the final image:
+                </p>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Draft Quality] -->|Increase Settings| B[Preview Quality]
+                    B -->|Increase Settings| C[Production Quality]
+                    C -->|Increase Settings| D[Perfect Quality]
+                    
+                    A2[Seconds] -.->|Render Time|A
+                    B2[Minutes] -.->|Render Time|B
+                    C2[Hours] -.->|Render Time|C
+                    D2[Days] -.->|Render Time|D
+                    
+                    style A fill:#ff6b6b,stroke:#333,stroke-width:2px
+                    style B fill:#f9ca24,stroke:#333,stroke-width:2px
+                    style C fill:#6ab04c,stroke:#333,stroke-width:2px
+                    style D fill:#4834d4,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>What "Quality" Actually Controls</h3>
+
+                <p>
+                    When we talk about render quality, we're really talking about several interrelated factors:
+                </p>
+
+                <div class="card">
+                    <h4>🎯 Components of Render Quality</h4>
+                    
+                    <p><strong>1. Smoothness (Anti-Aliasing)</strong></p>
+                    <ul>
+                        <li>Elimination of jagged edges on diagonal lines and curves</li>
+                        <li>Controlled by sampling rate / samples per pixel</li>
+                        <li>Most visible quality factor to average viewers</li>
+                    </ul>
+
+                    <p><strong>2. Noise Reduction</strong></p>
+                    <ul>
+                        <li>Elimination of grainy, speckled appearance (especially in SuperFly)</li>
+                        <li>Controlled by total samples calculated</li>
+                        <li>More noticeable in shadows and indirect lighting</li>
+                    </ul>
+
+                    <p><strong>3. Shadow Quality</strong></p>
+                    <ul>
+                        <li>Sharpness and accuracy of shadow edges</li>
+                        <li>Smoothness of soft shadows</li>
+                        <li>Absence of shadow artifacts or banding</li>
+                    </ul>
+
+                    <p><strong>4. Reflection/Refraction Accuracy</strong></p>
+                    <ul>
+                        <li>Clarity and detail in mirrors, glass, chrome</li>
+                        <li>Number of bounces calculated</li>
+                        <li>Absence of black artifacts in reflections</li>
+                    </ul>
+
+                    <p><strong>5. Light Interaction</strong></p>
+                    <ul>
+                        <li>Accuracy of global illumination (bounce light)</li>
+                        <li>Color bleeding between surfaces</li>
+                        <li>Subtle lighting details</li>
+                    </ul>
+
+                    <p><strong>6. Material Detail</strong></p>
+                    <ul>
+                        <li>Texture clarity and sharpness</li>
+                        <li>Subsurface scattering accuracy (skin, wax)</li>
+                        <li>Complex shader calculations</li>
+                    </ul>
+                </div>
+
+                <h3>Quality Presets Explained</h3>
+
+                <p>
+                    Both Firefly and SuperFly offer quality presets. Understanding what each does helps you choose appropriately:
+                </p>
+
+                <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+                    <thead>
+                        <tr style="background: #f8f9fa;">
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Preset</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Characteristics</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Time</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Best For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Draft</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Very jagged, noisy, minimal shadows, rough materials</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Fastest</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Quick composition checks only</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Preview/Low</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Some jaggies, noticeable noise, basic shadows, simplified materials</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Very Fast</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Lighting tests, pose checks</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Medium</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Acceptable smoothness, some noise, good shadows, decent materials</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Moderate</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Final checks before high-quality render</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>High</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Smooth edges, low noise, excellent shadows, full materials</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Slow</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Final renders for web, portfolio</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Final/Production</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Perfect smoothness, no noise, pristine shadows, maximum material detail</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Very Slow</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Print, client work, showcase pieces</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>The 80/20 Rule of Render Quality</h3>
+
+                <p>
+                    Here's a crucial insight that will save you countless hours: <strong>The last 20% of quality improvement takes 80% of the render time.</strong>
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚖️ Understanding Diminishing Returns</h4>
+                    <p>
+                        Going from Draft to Medium quality might take 5× longer but delivers massive visible improvement. Going from High to Production might take another 5× longer but the improvement is subtle—visible only on close inspection or large prints.
+                    </p>
+                    <p><strong>Example Scenario:</strong></p>
+                    <ul>
+                        <li>Draft render: 10 seconds, barely usable</li>
+                        <li>Medium render: 2 minutes, looks pretty good</li>
+                        <li>High render: 10 minutes, looks excellent</li>
+                        <li>Production render: 60 minutes, looks marginally better than High</li>
+                    </ul>
+                    <p style="margin-bottom: 0;">
+                        <strong>Question to ask:</strong> Does your audience need to see that last 5% improvement? For web posting, probably not. For a print ad campaign, absolutely.
+                    </p>
+                </div>
+
+                <h3>When to Use Each Quality Level</h3>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <h4>🎯 Quality Level Decision Guide</h4>
+                    
+                    <p><strong>Use Draft/Preview When:</strong></p>
+                    <ul>
+                        <li>Checking camera angles and composition</li>
+                        <li>Testing lighting placement and intensity</li>
+                        <li>Verifying poses and expressions</li>
+                        <li>Making rapid iterations during scene development</li>
+                        <li>You need results in seconds, not minutes</li>
+                    </ul>
+
+                    <p><strong>Use Medium When:</strong></p>
+                    <ul>
+                        <li>Doing your final check before the high-quality render</li>
+                        <li>Sharing work-in-progress with clients for approval</li>
+                        <li>Creating thumbnails or contact sheets</li>
+                        <li>Generating multiple angle views quickly</li>
+                        <li>You want a good sense of the final without full wait time</li>
+                    </ul>
+
+                    <p><strong>Use High When:</strong></p>
+                    <ul>
+                        <li>Creating final images for web portfolios</li>
+                        <li>Posting to social media or art sites</li>
+                        <li>Most professional online uses</li>
+                        <li>Client presentations and approvals</li>
+                        <li>This is your "default final quality" for most work</li>
+                    </ul>
+
+                    <p><strong>Use Production/Final When:</strong></p>
+                    <ul>
+                        <li>Creating prints 11×14" or larger</li>
+                        <li>Professional publication (magazines, books)</li>
+                        <li>Portfolio showcase pieces you'll display prominently</li>
+                        <li>Client work with strict quality requirements</li>
+                        <li>Competition entries where quality matters most</li>
+                        <li>You have time and it's genuinely worth the wait</li>
+                    </ul>
+                </div>
+
+                <h3>Custom Quality: Fine-Tuning Beyond Presets</h3>
+
+                <p>
+                    Sometimes presets aren't quite right. You can customize individual quality parameters:
+                </p>
+
+                <div class="card">
+                    <h4>🔧 Key Parameters to Adjust</h4>
+                    
+                    <p><strong>Samples/Anti-Aliasing (Biggest Impact)</strong></p>
+                    <ul>
+                        <li>Draft: 1-4 samples</li>
+                        <li>Preview: 8-16 samples</li>
+                        <li>Medium: 32-64 samples</li>
+                        <li>High: 128-256 samples</li>
+                        <li>Production: 512+ samples</li>
+                    </ul>
+                    <p><strong>Tip:</strong> If you're tight on time, reduce samples here first. Going from 256 to 128 cuts time in half with minimal quality loss for web use.</p>
+
+                    <p><strong>Ray Bounces</strong></p>
+                    <ul>
+                        <li>Draft: 1-2 bounces</li>
+                        <li>Medium: 3-4 bounces</li>
+                        <li>High: 6-8 bounces</li>
+                    </ul>
+                    <p><strong>Tip:</strong> More bounces only matter if you have mirrors, glass, or need accurate global illumination. Simple scenes can use 3-4 even for final renders.</p>
+
+                    <p><strong>Shadow Samples</strong></p>
+                    <ul>
+                        <li>Draft: 1 sample (hard shadows only)</li>
+                        <li>Medium: 4-8 samples</li>
+                        <li>High: 16-32 samples</li>
+                    </ul>
+                    <p><strong>Tip:</strong> If your scene uses mostly hard shadows (dramatic lighting), you can keep this low even for high-quality renders.</p>
+
+                    <p><strong>Global Illumination Quality</strong></p>
+                    <ul>
+                        <li>Off: Fastest, no bounce light (Firefly only)</li>
+                        <li>Low: Basic GI, some artifacts</li>
+                        <li>Medium: Good GI, acceptable quality</li>
+                        <li>High: Excellent GI, slow</li>
+                    </ul>
+                    <p><strong>Tip:</strong> GI is expensive. Turn it off for test renders. For finals, medium GI is usually sufficient.</p>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Smart Quality Workflow</h4>
+                    <ol>
+                        <li><strong>Start at Draft</strong> - Get composition and poses right (seconds per render)</li>
+                        <li><strong>Move to Preview/Low</strong> - Refine lighting and materials (under a minute)</li>
+                        <li><strong>Test at Medium</strong> - Verify everything looks good (few minutes)</li>
+                        <li><strong>Render at High</strong> - Final output for most purposes (acceptable wait)</li>
+                        <li><strong>Use Production sparingly</strong> - Only when truly necessary (long wait, limited use)</li>
+                    </ol>
+                    <p style="margin-bottom: 0;"><strong>Time-Saver:</strong> Never jump straight to high quality. Always test at lower quality first. Finding problems in a 2-minute render is much better than finding them after a 2-hour render!</p>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Professional Perspective:</strong> Hollywood VFX studios rendering for films don't always use "maximum quality." They use the quality level needed to achieve the desired result. A background element might be Draft quality while the hero character is Production quality. Smart resource allocation, not blanket "max everything," is the professional approach.
+                    </p>
+                </blockquote>
+
+            </section>
+            <!-- Section 6: Anti-Aliasing and Sampling -->
+            <section id="anti-aliasing">
+                <h2>🔍 Anti-Aliasing and Sampling</h2>
+                
+                <p>
+                    One of the most visible quality factors in any render is <strong>anti-aliasing</strong>—the smoothness of edges and the absence of jagged, stair-stepped artifacts. Understanding how anti-aliasing works and how to control it gives you power over one of the most important aspects of image quality. Let's dive into the technical details that make or break visual smoothness.
+                </p>
+
+                <h3>What Are Jaggies?</h3>
+
+                <p>
+                    Before we can fix them, we need to understand the problem. <strong>"Jaggies"</strong> (also called aliasing) are those stair-stepped, pixelated edges you see on diagonal lines and curves in low-quality renders. They happen because we're trying to represent smooth, continuous shapes using a grid of square pixels.
+                </p>
+
+                <div class="card">
+                    <h4>🔲 The Pixel Grid Problem</h4>
+                    <p>
+                        Imagine drawing a perfectly smooth diagonal line on graph paper. You can only fill in complete squares, so your "smooth" line becomes a series of steps. That's exactly what happens when rendering—perfectly smooth 3D edges get translated into a pixel grid, creating visible stair-stepping.
+                    </p>
+                    <p style="margin-bottom: 0;">
+                        <strong>The solution?</strong> Anti-aliasing techniques that blend edge pixels with background colors, creating the illusion of smoothness even though we're still limited to square pixels.
+                    </p>
+                </div>
+
+                <h3>How Anti-Aliasing Works</h3>
+
+                <p>
+                    The core concept of anti-aliasing is <strong>sampling</strong>—calculating more data points than we have pixels, then averaging the results. Here's the process:
+                </p>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <h4>📊 The Sampling Process</h4>
+                    <ol>
+                        <li><strong>Supersampling:</strong> Instead of calculating one color value per pixel, calculate multiple samples within or around each pixel</li>
+                        <li><strong>Ray Casting:</strong> For each sample point, trace a ray into the scene to determine what color it should be</li>
+                        <li><strong>Averaging:</strong> Take all the sample values for that pixel and average them together</li>
+                        <li><strong>Result:</strong> Edge pixels become intermediate colors, creating smooth gradients instead of hard steps</li>
+                    </ol>
+                    
+                    <p><strong>Example:</strong> A pixel at the edge of a white object on black background might sample:</p>
+                    <ul>
+                        <li>Sample 1: White (object)</li>
+                        <li>Sample 2: White (object)</li>
+                        <li>Sample 3: Black (background)</li>
+                        <li>Sample 4: Black (background)</li>
+                        <li><strong>Result:</strong> 50% gray pixel = smooth edge appearance</li>
+                    </ul>
+                </div>
+
+                <h3>Sampling Rates Explained</h3>
+
+                <p>
+                    The <strong>sampling rate</strong> determines how many calculations are done per pixel. Higher rates = smoother results but longer render times.
+                </p>
+
+                <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+                    <thead>
+                        <tr style="background: #f8f9fa;">
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Samples</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Visual Result</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Render Time</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>1-2</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Very jagged, heavy stair-stepping</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Baseline (fastest)</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Quick tests only</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>4-8</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Noticeable jaggies, rough edges</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">4-8× baseline</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Preview renders</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>16-32</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Some visible jaggies on close inspection</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">16-32× baseline</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Test renders, drafts</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>64-128</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Smooth, minimal jaggies</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">64-128× baseline</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Final renders for web</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>256-512</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Very smooth, excellent quality</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">256-512× baseline</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Print, showcase work</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>1024+</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Perfect smoothness</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">1000+× baseline</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Extreme quality needs only</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Firefly vs. SuperFly Anti-Aliasing</h3>
+
+                <p>
+                    The two render engines handle anti-aliasing differently, which affects how you set them up:
+                </p>
+
+                <div class="card">
+                    <h4>🔥 Firefly Anti-Aliasing</h4>
+                    <p><strong>Method:</strong> Traditional supersampling with adaptive refinement</p>
+                    <p><strong>Settings:</strong></p>
+                    <ul>
+                        <li><strong>Min Shading Rate:</strong> Controls sample density (lower = more samples)</li>
+                        <li><strong>Pixel Samples:</strong> Additional samples per pixel</li>
+                        <li><strong>Filter Type:</strong> How samples are combined (Gaussian, Box, etc.)</li>
+                    </ul>
+                    <p><strong>Behavior:</strong> Firefly can adapt sampling—using more samples where needed (edges) and fewer where not (flat areas). This "smart sampling" saves time.</p>
+                    <p style="margin-bottom: 0;"><strong>Typical Settings:</strong> Min Shading Rate of 0.5-0.25 with 3-5 pixel samples for good quality</p>
+                </div>
+
+                <div class="card" style="margin-top: 1rem;">
+                    <h4>🚀 SuperFly Anti-Aliasing</h4>
+                    <p><strong>Method:</strong> Monte Carlo path tracing with progressive sampling</p>
+                    <p><strong>Settings:</strong></p>
+                    <ul>
+                        <li><strong>Samples:</strong> Total samples per pixel (direct control)</li>
+                        <li><strong>Preview Samples:</strong> Lower sample count for viewport preview</li>
+                        <li><strong>Seed:</strong> Randomization seed (changes noise pattern)</li>
+                    </ul>
+                    <p><strong>Behavior:</strong> SuperFly calculates samples progressively—you see the image gradually refine from noisy to smooth. More samples = smoother edges AND less noise in shadows/GI.</p>
+                    <p style="margin-bottom: 0;"><strong>Typical Settings:</strong> 128-256 samples for final quality, 16-32 for tests</p>
+                </div>
+
+                <h3>Noise vs. Aliasing</h3>
+
+                <p>
+                    Especially in SuperFly, it's important to distinguish between two types of visual problems:
+                </p>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <p><strong>Aliasing (Jaggies):</strong></p>
+                    <ul>
+                        <li>Stair-stepped edges on objects</li>
+                        <li>Appears at geometry boundaries</li>
+                        <li>Most visible on diagonal lines and curves</li>
+                        <li><strong>Fix:</strong> Increase sampling/anti-aliasing</li>
+                    </ul>
+
+                    <p><strong>Noise (Graininess):</strong></p>
+                    <ul>
+                        <li>Speckled, grainy appearance across surfaces</li>
+                        <li>Most visible in shadows and indirect lighting</li>
+                        <li>More common in physically-based renderers (SuperFly)</li>
+                        <li><strong>Fix:</strong> Increase total samples or use denoising</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 0;"><strong>Key Point:</strong> In SuperFly, increasing samples helps BOTH issues. In Firefly, they're controlled by different settings.</p>
+                </div>
+
+                <h3>Adaptive Sampling</h3>
+
+                <p>
+                    Modern render engines can be "smart" about where they spend computation time:
+                </p>
+
+                <div class="card">
+                    <h4>🧠 How Adaptive Sampling Works</h4>
+                    <p>The renderer analyzes the image and determines which areas need more samples:</p>
+                    <ul>
+                        <li><strong>High-Detail Areas:</strong> Edges, fine details, complex materials get more samples</li>
+                        <li><strong>Flat Areas:</strong> Solid colors, empty backgrounds get fewer samples</li>
+                        <li><strong>Result:</strong> Same perceived quality with less total computation</li>
+                    </ul>
+                    <p><strong>SuperFly:</strong> Has adaptive sampling option—enable "Adaptive Sampling" and set a threshold</p>
+                    <p><strong>Firefly:</strong> Built into its sampling algorithm automatically</p>
+                    <p style="margin-bottom: 0;"><strong>Benefit:</strong> Can reduce render time by 30-50% with minimal quality impact</p>
+                </div>
+
+                <h3>Denoising</h3>
+
+                <p>
+                    A newer approach to handling noise: instead of calculating more samples, use AI algorithms to clean up noise in post-processing:
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>🎯 Denoising Technology</h4>
+                    <p><strong>What It Is:</strong> AI-powered algorithms that analyze renders and remove noise while preserving detail</p>
+                    <p><strong>How It Works:</strong> Uses machine learning trained on millions of images to distinguish signal (real detail) from noise (random artifacts)</p>
+                    <p><strong>Benefits:</strong></p>
+                    <ul>
+                        <li>Can achieve clean results with 1/4 to 1/10 the samples</li>
+                        <li>Dramatically reduces render time</li>
+                        <li>Especially effective for path-traced renders (SuperFly)</li>
+                    </ul>
+                    <p><strong>Limitations:</strong></p>
+                    <ul>
+                        <li>Can soften fine details if too aggressive</li>
+                        <li>May introduce artifacts in some cases</li>
+                        <li>Works best with at least moderate sample counts (not ultra-low)</li>
+                    </ul>
+                    <p style="margin-bottom: 0;"><strong>In Poser:</strong> SuperFly may have built-in denoising options, or you can use external tools like OptiX denoiser or Intel's denoiser on exported images.</p>
+                </div>
+
+                <h3>Practical Sampling Strategies</h3>
+
+                <div class="card">
+                    <h4>⚡ Speed vs. Quality Balance</h4>
+                    
+                    <p><strong>For Fast Iteration (Testing Phase):</strong></p>
+                    <ul>
+                        <li>Firefly: Min Shading Rate 1.0, Pixel Samples 2-3</li>
+                        <li>SuperFly: 8-16 samples</li>
+                        <li>Accept jaggies and noise—focus on composition and lighting</li>
+                        <li>Render time: seconds</li>
+                    </ul>
+
+                    <p><strong>For Quality Check (Near-Final Phase):</strong></p>
+                    <ul>
+                        <li>Firefly: Min Shading Rate 0.5, Pixel Samples 4</li>
+                        <li>SuperFly: 64 samples</li>
+                        <li>Acceptable quality for verification</li>
+                        <li>Render time: minutes</li>
+                    </ul>
+
+                    <p><strong>For Final Output (Web/Portfolio):</strong></p>
+                    <ul>
+                        <li>Firefly: Min Shading Rate 0.25, Pixel Samples 5-6</li>
+                        <li>SuperFly: 128-256 samples</li>
+                        <li>Professional smoothness, minimal artifacts</li>
+                        <li>Render time: 10-30 minutes</li>
+                    </ul>
+
+                    <p><strong>For Print/Showcase (Maximum Quality):</strong></p>
+                    <ul>
+                        <li>Firefly: Min Shading Rate 0.1, Pixel Samples 8-10</li>
+                        <li>SuperFly: 512-1024 samples</li>
+                        <li>Perfect smoothness, zero artifacts</li>
+                        <li>Render time: hours</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Common Sampling Mistakes</h4>
+                    <ul>
+                        <li><strong>Using too many samples too early:</strong> Wasting time on test renders that don't need perfection</li>
+                        <li><strong>Inconsistent sampling:</strong> High pixel samples but low shadow samples creates uneven quality</li>
+                        <li><strong>Ignoring adaptive sampling:</strong> Missing out on 30-50% render time savings</li>
+                        <li><strong>Not considering denoising:</strong> Could get same results with fewer samples</li>
+                        <li><strong>Maxing out settings by default:</strong> "More is better" wastes time without benefit</li>
+                    </ul>
+                    <p style="margin-bottom: 0;"><strong>Remember:</strong> Match your sampling to your output needs. Web images don't need print-quality sampling.</p>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Pro Tip:</strong> When evaluating sampling quality, zoom your image to 100% (actual pixels) and look at diagonal edges and fine details. If jaggies are visible at 100% but not at 50% zoom, you probably have adequate sampling for most uses. Perfect at 100% is often overkill unless printing large.
+                    </p>
+                </blockquote>
+
+            </section>
+            <!-- Section 7: Understanding Render Time -->
+            <section id="render-time">
+                <h2>⏱️ Understanding Render Time</h2>
+                
+                <p>
+                    Render time is the ultimate constraint in 3D work. You could create an infinitely detailed, perfectly lit scene, but if it takes a week to render, it's impractical. Understanding what affects render time and how to optimize it is essential for productive 3D work. Let's explore the factors that slow renders down and strategies to speed them up without sacrificing quality.
+                </p>
+
+                <h3>What Makes Renders Slow?</h3>
+
+                <p>
+                    Rendering is computationally expensive because of the sheer amount of calculation required. Understanding which factors have the biggest impact helps you make smart optimization choices:
+                </p>
+
+                <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+                    <thead>
+                        <tr style="background: #f8f9fa;">
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Factor</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Impact Level</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Why It's Expensive</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Resolution</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">VERY HIGH</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Quadratic scaling—double dimensions = 4× pixels</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Samples/AA</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">VERY HIGH</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Linear but multiplies everything—256 samples = 256× calculations per pixel</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Global Illumination</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">VERY HIGH</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Simulating light bouncing requires exponentially more rays</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Ray Depth</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">HIGH</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Each bounce multiplies calculations—8 bounces much slower than 4</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Geometry Complexity</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">MEDIUM</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">More polygons = more ray intersection tests</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Transparency</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">MEDIUM</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Rays must continue through surfaces, not stop</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Number of Lights</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">MEDIUM (Firefly)<br>LOW (SuperFly)</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Firefly calculates each light separately; SuperFly samples all together</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Texture Resolution</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">LOW</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">More memory usage but minimal calculation impact</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Motion Blur/DOF</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">HIGH</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Requires multiple samples per pixel at different times/focuses</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>The Compound Effect</h3>
+
+                <p>
+                    Here's where it gets tricky: these factors don't just add up—they <strong>multiply</strong>. A scene that takes 1 minute at 1920×1080 with 64 samples might take 16 minutes at 3840×2160 (4K) with 256 samples. That's 4× the pixels × 4× the samples = 16× longer!
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The Render Time Multiplication Effect</h4>
+                    <p><strong>Scenario Example:</strong></p>
+                    <ul>
+                        <li>Base scene at 1280×720, 32 samples, 4 bounces: <strong>2 minutes</strong></li>
+                        <li>Same scene at 1920×1080 (2.25× pixels): <strong>4.5 minutes</strong></li>
+                        <li>At 1920×1080 with 128 samples (4× samples): <strong>18 minutes</strong></li>
+                        <li>Add GI and 8 bounces: <strong>54+ minutes</strong></li>
+                    </ul>
+                    <p style="margin-bottom: 0;">
+                        <strong>Key Insight:</strong> Small changes to multiple settings create exponential time increases. Always test at low settings first!
+                    </p>
+                </div>
+
+                <h3>Estimating Render Time</h3>
+
+                <p>
+                    How can you predict how long a render will take? Here are practical strategies:
+                </p>
+
+                <div class="card">
+                    <h4>🔮 Render Time Estimation Methods</h4>
+                    
+                    <p><strong>Method 1: Test Strip Render</strong></p>
+                    <ol>
+                        <li>Render a small region (like a 200×200 pixel square) at full quality settings</li>
+                        <li>Note the time (e.g., 30 seconds)</li>
+                        <li>Calculate: (Full Resolution Pixels ÷ Test Strip Pixels) × Test Time</li>
+                        <li>Example: (2,073,600 ÷ 40,000) × 30 seconds = ~25 minutes</li>
+                    </ol>
+
+                    <p><strong>Method 2: Low-Res Extrapolation</strong></p>
+                    <ol>
+                        <li>Render at 25% resolution (half width/height) with full quality</li>
+                        <li>Note the time</li>
+                        <li>Multiply by 4 to estimate full-res time</li>
+                        <li>Example: 800×450 takes 5 minutes → 1920×1080 will take ~20 minutes</li>
+                    </ol>
+
+                    <p><strong>Method 3: Sampling Math</strong></p>
+                    <ul>
+                        <li>If you know render time at one sample level, you can estimate others</li>
+                        <li>32 samples takes 5 minutes → 128 samples ≈ 20 minutes (4× longer)</li>
+                        <li>Works for linear relationships but less accurate with GI or complex materials</li>
+                    </ul>
+
+                    <p style="margin-bottom: 0;"><strong>Pro Tip:</strong> These are estimates, not guarantees. Complex scenes with GI, transparency, or SSS may scale non-linearly. Always add a safety margin (1.5-2×) to your estimates.</p>
+                </div>
+
+                <h3>Optimization Strategies</h3>
+
+                <p>
+                    When renders are too slow, you have two choices: wait it out or optimize. Here's how to speed things up:
+                </p>
+
+                <h4>Quick Wins (Biggest Time Savers)</h4>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Top 5 Render Speed Improvements</h4>
+                    
+                    <p><strong>1. Reduce Resolution (50-75% time saving)</strong></p>
+                    <ul>
+                        <li>Render at 1280×720 instead of 1920×1080 saves 40%+ time</li>
+                        <li>Question: Does your output really need full resolution?</li>
+                        <li>For web, 1080p is often overkill—720p looks fine and renders much faster</li>
+                    </ul>
+
+                    <p><strong>2. Lower Sample Count (30-75% time saving)</strong></p>
+                    <ul>
+                        <li>128 samples instead of 256 cuts time in half</li>
+                        <li>64 instead of 256 is 4× faster</li>
+                        <li>Consider: Is that extra smoothness visible at your display size?</li>
+                    </ul>
+
+                    <p><strong>3. Disable or Reduce Global Illumination (40-70% time saving)</strong></p>
+                    <ul>
+                        <li>Firefly: Turn GI off or reduce quality</li>
+                        <li>SuperFly: Can't fully disable but reduce diffuse bounces to 2-3</li>
+                        <li>Question: Does your scene really benefit from bounce light? Outdoor scenes often don't need it</li>
+                    </ul>
+
+                    <p><strong>4. Reduce Ray Depth (20-40% time saving)</strong></p>
+                    <ul>
+                        <li>4 bounces instead of 8 can halve rendering time</li>
+                        <li>Question: Do you have mirrors or glass? If not, 3-4 bounces is plenty</li>
+                    </ul>
+
+                    <p><strong>5. Simplify Scene Geometry (10-30% time saving)</strong></p>
+                    <ul>
+                        <li>Remove objects not visible to camera</li>
+                        <li>Use lower-poly versions of background objects</li>
+                        <li>Hide unnecessary prop details</li>
+                    </ul>
+                </div>
+
+                <h4>Advanced Optimization Techniques</h4>
+
+                <div class="card">
+                    <h4>🎯 Professional Speed Techniques</h4>
+                    
+                    <p><strong>Use Render Layers/Passes:</strong></p>
+                    <ul>
+                        <li>Render foreground and background separately at different quality</li>
+                        <li>Hero character at high quality, background at medium</li>
+                        <li>Composite together in post-processing</li>
+                        <li>Overall time savings: 30-50%</li>
+                    </ul>
+
+                    <p><strong>Enable GPU Rendering (SuperFly):</strong></p>
+                    <ul>
+                        <li>If you have NVIDIA or AMD GPU, enable GPU rendering</li>
+                        <li>Can be 5-20× faster than CPU depending on scene</li>
+                        <li>Check GPU memory—complex scenes may not fit</li>
+                    </ul>
+
+                    <p><strong>Use Render Region:</strong></p>
+                    <ul>
+                        <li>Only render the part of image that changed</li>
+                        <li>Testing lighting on character? Render just character region</li>
+                        <li>Can reduce test render times by 75%+</li>
+                    </ul>
+
+                    <p><strong>Optimize Light Count (Firefly):</strong></p>
+                    <ul>
+                        <li>Firefly calculates each light separately—fewer lights = faster</li>
+                        <li>Combine multiple weak lights into one stronger light where possible</li>
+                        <li>5 lights instead of 10 can halve render time</li>
+                    </ul>
+
+                    <p><strong>Use Denoising:</strong></p>
+                    <ul>
+                        <li>Render at 1/4 samples with denoising = similar quality, 75% less time</li>
+                        <li>64 samples + denoiser ≈ quality of 256 samples without</li>
+                        <li>Works best with SuperFly renders</li>
+                    </ul>
+                </div>
+
+                <h3>Hardware Impact on Render Speed</h3>
+
+                <p>
+                    Your computer's hardware significantly affects render times:
+                </p>
+
+                <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+                    <thead>
+                        <tr style="background: #f8f9fa;">
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Component</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Impact</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>CPU (Processor)</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">HIGH (Firefly & CPU SuperFly)</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">More cores = faster. 8+ cores ideal</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>GPU (Graphics Card)</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">VERY HIGH (GPU SuperFly)</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">NVIDIA RTX or AMD with 8GB+ VRAM recommended</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>RAM (Memory)</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">MEDIUM</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">16GB minimum, 32GB+ ideal. Prevents slowdowns</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>Storage (SSD vs HDD)</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">LOW</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">SSD faster for loading, minimal rendering impact</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <h4>💻 Hardware Upgrade Priority</h4>
+                    <p>If you're looking to speed up renders through hardware upgrades:</p>
+                    <ol>
+                        <li><strong>First Priority:</strong> Strong GPU (for SuperFly GPU rendering) - biggest impact</li>
+                        <li><strong>Second Priority:</strong> More CPU cores (for Firefly or CPU SuperFly)</li>
+                        <li><strong>Third Priority:</strong> More RAM (if you're maxing out current RAM)</li>
+                        <li><strong>Fourth Priority:</strong> SSD (helps loading, not rendering much)</li>
+                    </ol>
+                </div>
+
+                <h3>The Time-Quality Decision Matrix</h3>
+
+                <p>
+                    When facing long render times, ask yourself these questions:
+                </p>
+
+                <div class="card">
+                    <h4>🤔 Decision Framework</h4>
+                    <ol>
+                        <li><strong>What's the final use?</strong> Web posting needs less quality than print</li>
+                        <li><strong>What's my deadline?</strong> If limited time, reduce quality strategically</li>
+                        <li><strong>What will viewers see?</strong> Phone screen or 4K monitor? Adjust accordingly</li>
+                        <li><strong>Can I render overnight?</strong> If yes, high quality is feasible</li>
+                        <li><strong>Is this a learning project?</strong> Use lower quality to iterate faster</li>
+                    </ol>
+                    <p style="margin-bottom: 0;"><strong>Remember:</strong> A finished render at medium quality beats a never-completed render at maximum quality. Done is better than perfect.</p>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Professional Wisdom:</strong> In commercial 3D work, render time is literally money. Studios optimize ruthlessly, using the minimum quality needed to achieve the desired result. They don't use maximum settings by default—they use appropriate settings for the specific output. Adopt this mindset and you'll be more productive.
+                    </p>
+                </blockquote>
+
+            </section>
+            <!-- Section 8: Preview Renders vs Final Renders -->
+            <section id="preview-vs-final">
+                <h2>👁️ Preview Renders vs. Final Renders</h2>
+                
+                <p>
+                    One of the most important workflow skills in 3D is knowing when to use preview renders and when to commit to final quality. Professional artists spend 90% of their time working with fast previews and only 10% on final renders. Mastering this workflow dramatically improves your productivity and creative process.
+                </p>
+
+                <h3>The Preview-Heavy Workflow</h3>
+
+                <p>
+                    Think of 3D rendering like writing. You wouldn't write a novel in perfect calligraphy from the start—you'd draft, revise, edit, and only format perfectly at the end. The same principle applies to rendering:
+                </p>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Scene Setup] -->|Preview Renders| B[Composition & Pose]
+                    B -->|Preview Renders| C[Lighting Setup]
+                    C -->|Preview Renders| D[Material Refinement]
+                    D -->|Test Render| E[Quality Check]
+                    E -->|Final Render| F[High-Quality Output]
+                    
+                    style A fill:#f8f9fa,stroke:#333,stroke-width:2px
+                    style B fill:#fff3cd,stroke:#333,stroke-width:2px
+                    style C fill:#fff3cd,stroke:#333,stroke-width:2px
+                    style D fill:#fff3cd,stroke:#333,stroke-width:2px
+                    style E fill:#e8f5e9,stroke:#333,stroke-width:2px
+                    style F fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Preview Renders: Your Creative Playground</h3>
+
+                <p>
+                    Preview renders are your workspace—where you make creative decisions, test ideas, and refine your vision. They should be fast enough to not interrupt your flow.
+                </p>
+
+                <div class="card">
+                    <h4>⚡ Preview Render Guidelines</h4>
+                    
+                    <p><strong>Settings for Preview Renders:</strong></p>
+                    <ul>
+                        <li><strong>Resolution:</strong> 640×480 to 1280×720 (never more)</li>
+                        <li><strong>Samples:</strong> 4-16 (accept jaggies and noise)</li>
+                        <li><strong>Ray Depth:</strong> 2-3 bounces (minimal)</li>
+                        <li><strong>Global Illumination:</strong> OFF (Firefly) or low samples (SuperFly)</li>
+                        <li><strong>Shadow Quality:</strong> Low (rough shadows acceptable)</li>
+                        <li><strong>Target Time:</strong> 5-30 seconds maximum</li>
+                    </ul>
+
+                    <p><strong>What You CAN See in Previews:</strong></p>
+                    <ul>
+                        <li>✅ Composition and framing</li>
+                        <li>✅ Pose and body language</li>
+                        <li>✅ Lighting placement and direction</li>
+                        <li>✅ Approximate color and tone</li>
+                        <li>✅ Material choices (rough appearance)</li>
+                        <li>✅ Shadow placement</li>
+                        <li>✅ Object relationships and spacing</li>
+                    </ul>
+
+                    <p><strong>What You CAN'T See in Previews:</strong></p>
+                    <ul>
+                        <li>❌ Edge smoothness (will be jaggy)</li>
+                        <li>❌ Fine material details</li>
+                        <li>❌ Subtle lighting nuances</li>
+                        <li>❌ Exact shadow quality</li>
+                        <li>❌ Noise levels (will be noisy)</li>
+                        <li>❌ Perfect exposure</li>
+                    </ul>
+                </div>
+
+                <h3>Test Renders: Your Quality Check</h3>
+
+                <p>
+                    Once your scene is close to final, you need a test render—better than preview but not full quality. This is your verification step before committing to the long final render.
+                </p>
+
+                <div class="card">
+                    <h4>🔍 Test Render Guidelines</h4>
+                    
+                    <p><strong>Settings for Test Renders:</strong></p>
+                    <ul>
+                        <li><strong>Resolution:</strong> 50-75% of final (e.g., 1280×720 for 1920×1080 final)</li>
+                        <li><strong>Samples:</strong> 32-64 (good smoothness, some noise acceptable)</li>
+                        <li><strong>Ray Depth:</strong> 4-6 bounces (closer to final)</li>
+                        <li><strong>Global Illumination:</strong> ON but medium quality</li>
+                        <li><strong>Shadow Quality:</strong> Medium (should look good)</li>
+                        <li><strong>Target Time:</strong> 2-10 minutes</li>
+                    </ul>
+
+                    <p><strong>What You're Checking:</strong></p>
+                    <ul>
+                        <li>Overall quality assessment—is this render-worthy?</li>
+                        <li>Material appearance at better quality</li>
+                        <li>Shadow quality and accuracy</li>
+                        <li>Lighting balance and exposure</li>
+                        <li>Any unexpected artifacts or problems</li>
+                        <li>Whether final settings will work or need adjustment</li>
+                    </ul>
+
+                    <p style="margin-bottom: 0;"><strong>Decision Point:</strong> If the test render looks good, proceed to final. If problems exist, fix them and do another test. Never go to final quality with known issues.</p>
+                </div>
+
+                <h3>Final Renders: Your Deliverable</h3>
+
+                <p>
+                    Final renders are what you share, post, print, or deliver to clients. These should be perfect—or as close as your settings allow.
+                </p>
+
+                <div class="card">
+                    <h4>🎯 Final Render Guidelines</h4>
+                    
+                    <p><strong>Settings for Final Renders:</strong></p>
+                    <ul>
+                        <li><strong>Resolution:</strong> Full intended output resolution</li>
+                        <li><strong>Samples:</strong> 128-256+ (smooth and clean)</li>
+                        <li><strong>Ray Depth:</strong> 6-8 bounces (full accuracy)</li>
+                        <li><strong>Global Illumination:</strong> ON at high quality</li>
+                        <li><strong>Shadow Quality:</strong> High (pristine shadows)</li>
+                        <li><strong>Target Time:</strong> Whatever it takes (typically 15-120 minutes)</li>
+                    </ul>
+
+                    <p><strong>Before Clicking Final Render:</strong></p>
+                    <ul>
+                        <li>✅ Scene is completely finished—no more changes planned</li>
+                        <li>✅ Test render at medium quality looked good</li>
+                        <li>✅ All settings verified and appropriate</li>
+                        <li>✅ Output path and filename are correct</li>
+                        <li>✅ You have time to wait (or can render overnight)</li>
+                        <li>✅ Computer won't be needed for other tasks during render</li>
+                    </ul>
+
+                    <p style="margin-bottom: 0;"><strong>Pro Tip:</strong> Save your scene file immediately before final rendering. If the render fails or crashes, you can restart without losing work.</p>
+                </div>
+
+                <h3>The Iterative Workflow in Action</h3>
+
+                <p>
+                    Here's how a professional might approach a typical project:
+                </p>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <h4>📋 Complete Workflow Example</h4>
+                    
+                    <p><strong>Phase 1: Setup (15-20 preview renders)</strong></p>
+                    <ul>
+                        <li>Load figure, basic pose</li>
+                        <li>Preview render: Check pose → adjust</li>
+                        <li>Preview render: Check camera angle → adjust</li>
+                        <li>Preview render: Check composition → adjust</li>
+                        <li>Add props and environment</li>
+                        <li>Multiple preview renders testing placement</li>
+                        <li><strong>Time spent:</strong> 30-45 minutes work, ~10 minutes total rendering</li>
+                    </ul>
+
+                    <p><strong>Phase 2: Lighting (10-15 preview renders)</strong></p>
+                    <ul>
+                        <li>Add key light</li>
+                        <li>Preview render: Check direction and intensity</li>
+                        <li>Add fill and rim lights</li>
+                        <li>Multiple preview renders testing different intensities and colors</li>
+                        <li>Fine-tune lighting angles</li>
+                        <li><strong>Time spent:</strong> 30 minutes work, ~8 minutes total rendering</li>
+                    </ul>
+
+                    <p><strong>Phase 3: Materials (5-8 preview renders)</strong></p>
+                    <ul>
+                        <li>Apply and adjust materials</li>
+                        <li>Preview renders checking material appearance</li>
+                        <li>Tweak colors, specularity, bump</li>
+                        <li><strong>Time spent:</strong> 20 minutes work, ~5 minutes total rendering</li>
+                    </ul>
+
+                    <p><strong>Phase 4: Quality Check (2-3 test renders)</strong></p>
+                    <ul>
+                        <li>First test render at medium quality</li>
+                        <li>Spot issues, make final adjustments</li>
+                        <li>Second test render to verify fixes</li>
+                        <li><strong>Time spent:</strong> 15 minutes work, ~15 minutes total rendering</li>
+                    </ul>
+
+                    <p><strong>Phase 5: Final (1 render)</strong></p>
+                    <ul>
+                        <li>One final render at full quality</li>
+                        <li><strong>Time spent:</strong> Setup 2 minutes, render 45 minutes</li>
+                    </ul>
+
+                    <p style="margin-bottom: 0;">
+                        <strong>Total:</strong> ~2 hours of active work, ~1.5 hours of rendering time (mostly in background). Compare this to someone who uses high-quality settings for every adjustment—they'd spend 8+ hours waiting for renders!
+                    </p>
+                </div>
+
+                <h3>Common Preview/Final Mistakes</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Workflow Errors to Avoid</h4>
+                    
+                    <p><strong>Mistake 1: Using Final Settings Too Early</strong></p>
+                    <ul>
+                        <li>Problem: Spending 30 minutes on a high-quality render to check a simple pose adjustment</li>
+                        <li>Solution: Use preview renders for all creative decisions—only final render when everything is perfect</li>
+                    </ul>
+
+                    <p><strong>Mistake 2: Skipping the Test Render</strong></p>
+                    <ul>
+                        <li>Problem: Going straight from preview to final, discovering problems after 2 hours of rendering</li>
+                        <li>Solution: Always do a medium-quality test render before the final. It's worth the 5-10 minutes</li>
+                    </ul>
+
+                    <p><strong>Mistake 3: Not Saving Test Settings</strong></p>
+                    <ul>
+                        <li>Problem: Manually re-entering preview, test, and final settings every time</li>
+                        <li>Solution: Save render presets for each quality level—switch with one click</li>
+                    </ul>
+
+                    <p><strong>Mistake 4: Judging Quality from Previews</strong></p>
+                    <ul>
+                        <li>Problem: Thinking low-quality preview represents final quality, making unnecessary "fixes"</li>
+                        <li>Solution: Understand what previews can and can't show. Trust the process</li>
+                    </ul>
+
+                    <p><strong>Mistake 5: Rendering While Still Experimenting</strong></p>
+                    <ul>
+                        <li>Problem: Starting a final render when you're not sure about the composition/lighting</li>
+                        <li>Solution: Only commit to final renders when you're 100% satisfied with test results</li>
+                    </ul>
+                </div>
+
+                <h3>Setting Up Render Presets</h3>
+
+                <p>
+                    Save yourself time by creating and saving render presets for each quality level:
+                </p>
+
+                <div class="card">
+                    <h4>💾 Creating Efficient Presets</h4>
+                    
+                    <p><strong>Create These Three Presets:</strong></p>
+                    
+                    <p><strong>1. "Quick Preview"</strong></p>
+                    <ul>
+                        <li>800×600 resolution</li>
+                        <li>8 samples</li>
+                        <li>2 ray bounces</li>
+                        <li>No GI or minimal</li>
+                        <li>Use for: Creative work, constant adjustments</li>
+                    </ul>
+
+                    <p><strong>2. "Test Quality"</strong></p>
+                    <ul>
+                        <li>1280×720 resolution (or 75% of final)</li>
+                        <li>64 samples</li>
+                        <li>4 ray bounces</li>
+                        <li>Medium GI</li>
+                        <li>Use for: Verification before final</li>
+                    </ul>
+
+                    <p><strong>3. "Final High Quality"</strong></p>
+                    <ul>
+                        <li>Full intended resolution</li>
+                        <li>256 samples</li>
+                        <li>6-8 ray bounces</li>
+                        <li>Full GI</li>
+                        <li>Use for: Final output only</li>
+                    </ul>
+
+                    <p style="margin-bottom: 0;"><strong>How to Save:</strong> Most render engines have a "Save Preset" or "Save Settings" option. Name them clearly and you can switch instantly.</p>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ The Preview-First Mindset</h4>
+                    <p>
+                        Successful 3D artists think: <strong>"How can I see this idea with the minimum render time?"</strong> rather than "Let me render this at maximum quality to see if I like it." This mindset shift alone can increase your productivity 5-10×.
+                    </p>
+                    <p style="margin-bottom: 0;">
+                        Remember: The goal is creating great art, not waiting for renders. Preview-heavy workflow keeps you in the creative flow, not the waiting room.
+                    </p>
+                </div>
+
+            </section>
+            <!-- Section 9: Output Formats and File Types -->
+            <section id="output-formats">
+                <h2>💾 Output Formats and File Types</h2>
+                
+                <p>
+                    After all the work of creating and rendering your scene, choosing the right file format for your final output is the last critical decision. Different formats have different strengths, and using the wrong one can compromise quality, create unnecessarily large files, or limit your options for post-processing. Let's explore the most common formats and when to use each.
+                </p>
+
+                <h3>Understanding Image File Formats</h3>
+
+                <p>
+                    Image formats differ in three key ways: <strong>compression</strong> (file size), <strong>quality</strong> (loss of detail), and <strong>features</strong> (transparency, layers, bit depth). Understanding these trade-offs helps you choose wisely.
+                </p>
+
+                <h3>Common Render Output Formats</h3>
+
+                <div class="card">
+                    <h4>📁 PNG (Portable Network Graphics)</h4>
+                    
+                    <p><strong>Compression:</strong> Lossless (no quality loss)</p>
+                    <p><strong>Bit Depth:</strong> 8-bit or 16-bit per channel</p>
+                    <p><strong>Transparency:</strong> Yes (full alpha channel support)</p>
+                    <p><strong>File Size:</strong> Medium to large</p>
+                    
+                    <p><strong>Strengths:</strong></p>
+                    <ul>
+                        <li>Perfect quality preservation—no artifacts</li>
+                        <li>Supports transparency (essential for compositing)</li>
+                        <li>Widely supported across all platforms and software</li>
+                        <li>Can save in 16-bit for maximum quality</li>
+                        <li>No generational loss (re-saving doesn't degrade quality)</li>
+                    </ul>
+
+                    <p><strong>Weaknesses:</strong></p>
+                    <ul>
+                        <li>Larger file sizes than JPEG</li>
+                        <li>No built-in metadata support like JPEG</li>
+                    </ul>
+
+                    <p style="margin-bottom: 0;"><strong>Best For:</strong> Final renders, portfolio work, any image needing transparency, images for further editing, professional archiving. This is the most versatile choice for 3D renders.</p>
+                </div>
+
+                <div class="card" style="margin-top: 1rem;">
+                    <h4>📁 JPEG / JPG (Joint Photographic Experts Group)</h4>
+                    
+                    <p><strong>Compression:</strong> Lossy (some quality loss for smaller files)</p>
+                    <p><strong>Bit Depth:</strong> 8-bit per channel only</p>
+                    <p><strong>Transparency:</strong> No</p>
+                    <p><strong>File Size:</strong> Small to medium</p>
+                    
+                    <p><strong>Strengths:</strong></p>
+                    <ul>
+                        <li>Much smaller file sizes than PNG</li>
+                        <li>Universal compatibility—works everywhere</li>
+                        <li>Adjustable quality levels (control size vs. quality)</li>
+                        <li>Faster uploads/downloads due to smaller size</li>
+                        <li>Good for photographic/complex images</li>
+                    </ul>
+
+                    <p><strong>Weaknesses:</strong></p>
+                    <ul>
+                        <li>Lossy compression creates artifacts (especially at low quality)</li>
+                        <li>No transparency support</li>
+                        <li>Degrades with each re-save (generational loss)</li>
+                        <li>Not ideal for images with hard edges or text</li>
+                        <li>8-bit only (less color precision than PNG)</li>
+                    </ul>
+
+                    <p style="margin-bottom: 0;"><strong>Best For:</strong> Web posting where file size matters, social media, email attachments, when transparency isn't needed. Use 85-95% quality for good balance.</p>
+                </div>
+
+                <div class="card" style="margin-top: 1rem;">
+                    <h4>📁 TIFF / TIF (Tagged Image File Format)</h4>
+                    
+                    <p><strong>Compression:</strong> Lossless or uncompressed</p>
+                    <p><strong>Bit Depth:</strong> 8-bit, 16-bit, or 32-bit per channel</p>
+                    <p><strong>Transparency:</strong> Yes</p>
+                    <p><strong>File Size:</strong> Large to very large</p>
+                    
+                    <p><strong>Strengths:</strong></p>
+                    <ul>
+                        <li>Maximum quality and precision</li>
+                        <li>Supports 16-bit and 32-bit (HDR) images</li>
+                        <li>Can store layers and channels</li>
+                        <li>Industry standard for print and professional work</li>
+                        <li>Extensive metadata support</li>
+                    </ul>
+
+                    <p><strong>Weaknesses:</strong></p>
+                    <ul>
+                        <li>Very large file sizes</li>
+                        <li>Limited web browser support</li>
+                        <li>Slower to load and save</li>
+                        <li>Overkill for most web uses</li>
+                    </ul>
+
+                    <p style="margin-bottom: 0;"><strong>Best For:</strong> Print publication, professional archiving, when you need maximum quality and precision, HDR workflows, images requiring 16-bit color depth.</p>
+                </div>
+
+                <div class="card" style="margin-top: 1rem;">
+                    <h4>📁 EXR (OpenEXR)</h4>
+                    
+                    <p><strong>Compression:</strong> Lossless or lossy options</p>
+                    <p><strong>Bit Depth:</strong> 16-bit or 32-bit floating point</p>
+                    <p><strong>Transparency:</strong> Yes</p>
+                    <p><strong>File Size:</strong> Medium to large (with compression)</p>
+                    
+                    <p><strong>Strengths:</strong></p>
+                    <ul>
+                        <li>True HDR support with floating point precision</li>
+                        <li>Can store multiple render passes/layers in one file</li>
+                        <li>Industry standard for VFX and film work</li>
+                        <li>Excellent for compositing workflows</li>
+                        <li>Preserves full dynamic range</li>
+                    </ul>
+
+                    <p><strong>Weaknesses:</strong></p>
+                    <ul>
+                        <li>Not suitable for web or social media</li>
+                        <li>Requires specialized software to view/edit</li>
+                        <li>Overkill for most hobbyist uses</li>
+                        <li>Large file sizes even with compression</li>
+                    </ul>
+
+                    <p style="margin-bottom: 0;"><strong>Best For:</strong> Professional VFX work, compositing multiple passes, HDR workflows, when you need to preserve full render data for post-processing.</p>
+                </div>
+
+                <h3>Which Format Should You Use?</h3>
+
+                <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+                    <thead>
+                        <tr style="background: #f8f9fa;">
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Purpose</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Recommended Format</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Settings</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Portfolio / ArtStation</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">PNG or high-quality JPEG</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">PNG for best quality, JPEG 90-95% if size matters</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Social Media (Instagram, Twitter)</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">JPEG</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">85-90% quality (they'll compress further anyway)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Print (magazines, posters)</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">TIFF or high-quality PNG</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">16-bit if possible, 300 DPI</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Personal Archive / Master Files</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">PNG or TIFF</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Full resolution, 16-bit</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Compositing / Further Editing</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">PNG or EXR</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">16-bit, with alpha if needed</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Quick Sharing / Email</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">JPEG</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">80-85% quality for small file size</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Transparency Required</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">PNG</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">8-bit usually sufficient</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Professional VFX</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">EXR</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">32-bit float, multiple passes</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Understanding Bit Depth</h3>
+
+                <p>
+                    <strong>Bit depth</strong> determines how many colors each pixel can represent. Higher bit depth = more color precision but larger files.
+                </p>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <h4>🎨 Bit Depth Explained</h4>
+                    
+                    <p><strong>8-bit per Channel (24-bit RGB)</strong></p>
+                    <ul>
+                        <li>256 levels per color channel (red, green, blue)</li>
+                        <li>16.7 million total colors</li>
+                        <li>Standard for web, social media, most displays</li>
+                        <li>Sufficient for final output in most cases</li>
+                        <li>Smallest file sizes</li>
+                    </ul>
+
+                    <p><strong>16-bit per Channel (48-bit RGB)</strong></p>
+                    <ul>
+                        <li>65,536 levels per color channel</li>
+                        <li>281 trillion total colors</li>
+                        <li>Better for heavy editing (prevents banding)</li>
+                        <li>Required for some print workflows</li>
+                        <li>Approximately 2× file size of 8-bit</li>
+                    </ul>
+
+                    <p><strong>32-bit per Channel (HDR/Floating Point)</strong></p>
+                    <ul>
+                        <li>Billions of levels per channel</li>
+                        <li>Unlimited color precision</li>
+                        <li>Stores values beyond normal 0-1 range (HDR)</li>
+                        <li>Professional compositing and VFX only</li>
+                        <li>Very large file sizes</li>
+                    </ul>
+
+                    <p style="margin-bottom: 0;"><strong>Recommendation:</strong> Use 8-bit for final output. Use 16-bit if you'll be doing heavy post-processing or printing. Only use 32-bit for professional VFX workflows.</p>
+                </div>
+
+                <h3>JPEG Quality Levels</h3>
+
+                <p>
+                    When using JPEG, the quality setting makes a huge difference. Here's what different quality levels mean:
+                </p>
+
+                <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+                    <thead>
+                        <tr style="background: #f8f9fa;">
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Quality %</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">File Size</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Visual Quality</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>100%</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Very Large</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Near-lossless</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Archiving (but PNG is better)</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>90-95%</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Large</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Excellent, minimal artifacts</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Portfolio, high-quality web</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>85%</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Medium</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Very good, barely noticeable artifacts</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Social media, general web use</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>70-80%</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Small</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Good, some artifacts visible on close inspection</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Email, quick sharing</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;"><strong>60% or below</strong></td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Very Small</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Poor, obvious compression artifacts</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Avoid for final renders</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Recommended Workflow Strategy</h4>
+                    <ol>
+                        <li><strong>Render to PNG:</strong> Always render your scene to PNG format first (lossless preservation)</li>
+                        <li><strong>Save Master Copy:</strong> Keep this PNG as your master archive file</li>
+                        <li><strong>Export Variations:</strong> From the PNG, create JPEGs or other formats as needed for different uses</li>
+                        <li><strong>Never Re-Render:</strong> If you need different formats later, convert from the master PNG—don't re-render</li>
+                    </ol>
+                    <p style="margin-bottom: 0;"><strong>Why:</strong> This gives you maximum flexibility. You have the perfect-quality master and can create optimized versions for any purpose without losing quality or having to re-render.</p>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Common Format Mistakes</h4>
+                    <ul>
+                        <li><strong>Using JPEG as working format:</strong> Each time you edit and re-save a JPEG, quality degrades. Use PNG for editing.</li>
+                        <li><strong>Rendering to JPEG directly:</strong> You can't go back to lossless later. Always render to PNG first.</li>
+                        <li><strong>Using massive TIFFs for web:</strong> No one needs 200MB files for web viewing. Convert to web-appropriate formats.</li>
+                        <li><strong>Not archiving master renders:</strong> Keep your original PNG renders. Storage is cheap; re-rendering is expensive.</li>
+                        <li><strong>Wrong quality JPEG:</strong> 60% looks terrible, 100% is wasteful. Use 85-95% for the sweet spot.</li>
+                    </ul>
+                </div>
+
+            </section>
+            <!-- Section 10: Project -->
+            <section id="project">
+                <h2>🎯 Project: Render Quality Comparison Tests</h2>
+                
+                <p>
+                    The best way to truly understand render settings is through hands-on experimentation. For this project, you'll create a series of test renders at different quality levels, comparing the results to see firsthand how settings affect both quality and render time. This exercise will calibrate your eye and help you make informed decisions about settings in future projects.
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem;">
+                    <h3 style="color: white; margin-top: 0;">🎬 Project Goal</h3>
+                    <p style="color: white;">
+                        Create a comparison sheet showing the same scene rendered at five different quality levels, documenting render times and visible quality differences. You'll learn to identify what each quality level looks like and develop an intuition for which settings are appropriate for different uses.
+                    </p>
+                </div>
+
+                <h3>Project Setup</h3>
+
+                <div class="card">
+                    <h4>📋 Prerequisites</h4>
+                    <ul>
+                        <li>Choose ONE scene you've already created (any lesson project works great)</li>
+                        <li>Scene should be completely finished—no more changes needed</li>
+                        <li>Scene should include: figure, some props, lighting, materials</li>
+                        <li>Complexity level: doesn't matter—simple or complex both work</li>
+                    </ul>
+                    <p style="margin-bottom: 0;"><strong>Tip:</strong> If you don't have a finished scene, quickly create a simple one: figure on ground plane with 2-3 lights and one prop. This project is about render settings, not scene creation.</p>
+                </div>
+
+                <h3>The Five Quality Levels to Test</h3>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <h4>🎯 Render Settings for Each Test</h4>
+                    
+                    <p><strong>Test 1: Draft Preview</strong></p>
+                    <ul>
+                        <li><strong>Resolution:</strong> 640×480</li>
+                        <li><strong>Firefly:</strong> Min Shading Rate 1.0, Pixel Samples 2</li>
+                        <li><strong>SuperFly:</strong> 4 samples</li>
+                        <li><strong>Ray Depth:</strong> 2 bounces</li>
+                        <li><strong>GI:</strong> OFF</li>
+                        <li><strong>Label:</strong> "Draft - Testing Only"</li>
+                    </ul>
+
+                    <p><strong>Test 2: Low Preview</strong></p>
+                    <ul>
+                        <li><strong>Resolution:</strong> 800×600</li>
+                        <li><strong>Firefly:</strong> Min Shading Rate 0.5, Pixel Samples 3</li>
+                        <li><strong>SuperFly:</strong> 16 samples</li>
+                        <li><strong>Ray Depth:</strong> 3 bounces</li>
+                        <li><strong>GI:</strong> Low/Minimal</li>
+                        <li><strong>Label:</strong> "Low - Quick Tests"</li>
+                    </ul>
+
+                    <p><strong>Test 3: Medium Quality</strong></p>
+                    <ul>
+                        <li><strong>Resolution:</strong> 1280×720</li>
+                        <li><strong>Firefly:</strong> Min Shading Rate 0.25, Pixel Samples 4</li>
+                        <li><strong>SuperFly:</strong> 64 samples</li>
+                        <li><strong>Ray Depth:</strong> 4 bounces</li>
+                        <li><strong>GI:</strong> Medium</li>
+                        <li><strong>Label:</strong> "Medium - Final Tests"</li>
+                    </ul>
+
+                    <p><strong>Test 4: High Quality</strong></p>
+                    <ul>
+                        <li><strong>Resolution:</strong> 1920×1080</li>
+                        <li><strong>Firefly:</strong> Min Shading Rate 0.1, Pixel Samples 6</li>
+                        <li><strong>SuperFly:</strong> 128 samples</li>
+                        <li><strong>Ray Depth:</strong> 6 bounces</li>
+                        <li><strong>GI:</strong> High</li>
+                        <li><strong>Label:</strong> "High - Web Portfolio"</li>
+                    </ul>
+
+                    <p><strong>Test 5: Production Quality</strong></p>
+                    <ul>
+                        <li><strong>Resolution:</strong> 1920×1080 (or higher if you want)</li>
+                        <li><strong>Firefly:</strong> Min Shading Rate 0.05, Pixel Samples 8</li>
+                        <li><strong>SuperFly:</strong> 256 samples</li>
+                        <li><strong>Ray Depth:</strong> 8 bounces</li>
+                        <li><strong>GI:</strong> Maximum</li>
+                        <li><strong>Label:</strong> "Production - Print/Showcase"</li>
+                    </ul>
+                </div>
+
+                <h3>Step-by-Step Instructions</h3>
+
+                <div class="card">
+                    <h4>Phase 1: Preparation (5 minutes)</h4>
+                    <ol>
+                        <li>Open your chosen scene in Poser</li>
+                        <li>Verify everything is finalized—no more changes needed</li>
+                        <li>Save the scene file</li>
+                        <li>Create a folder for test renders (e.g., "render_tests")</li>
+                        <li>Have a way to record render times (stopwatch, phone, paper)</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 2: Rendering Tests (Time varies)</h4>
+                    <p><strong>For Each of the Five Quality Levels:</strong></p>
+                    <ol>
+                        <li>Open Render Settings</li>
+                        <li>Configure settings according to the test specifications above</li>
+                        <li>Set output filename to include quality level (e.g., "scene_draft.png")</li>
+                        <li>Note the exact time when you start rendering</li>
+                        <li>Click Render</li>
+                        <li>Note the exact time when rendering completes</li>
+                        <li>Calculate and record render time</li>
+                        <li>Save the rendered image</li>
+                        <li>Write down any observations about quality</li>
+                    </ol>
+                    
+                    <p><strong>Important:</strong> Don't change the scene between renders! The only thing that should change is the render settings. This ensures a fair comparison.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 3: Comparison Analysis (15 minutes)</h4>
+                    <ol>
+                        <li>Open all five rendered images side-by-side (use image viewer or editing software)</li>
+                        <li>View them at 100% zoom (actual pixels)</li>
+                        <li>Examine edges—where do jaggies become unacceptable?</li>
+                        <li>Look at shadows—where is quality good enough?</li>
+                        <li>Check materials—where do they look right?</li>
+                        <li>Compare render times—what's the time jump between each level?</li>
+                    </ol>
+                </div>
+
+                <h3>Data Recording Template</h3>
+
+                <p>
+                    Use this template to record your findings:
+                </p>
+
+                <div class="card" style="background: #f8f9fa;">
+                    <h4>📊 Render Test Results</h4>
+                    
+                    <p><strong>Draft Preview:</strong></p>
+                    <ul>
+                        <li>Render Time: _______</li>
+                        <li>Edge Quality: (Terrible / Poor / Acceptable / Good / Excellent)</li>
+                        <li>Shadow Quality: (Terrible / Poor / Acceptable / Good / Excellent)</li>
+                        <li>Overall Appearance: (Terrible / Poor / Acceptable / Good / Excellent)</li>
+                        <li>Would I show this to anyone? (Yes / No)</li>
+                        <li>Good for: _______________</li>
+                    </ul>
+
+                    <p><em>Repeat for each quality level...</em></p>
+
+                    <p><strong>Conclusions:</strong></p>
+                    <ul>
+                        <li>Minimum acceptable quality for my work: _______</li>
+                        <li>Best balance of speed/quality for testing: _______</li>
+                        <li>Best setting for final web work: _______</li>
+                        <li>Biggest quality jump between levels: _______ to _______</li>
+                        <li>Biggest time jump between levels: _______ to _______</li>
+                        <li>Surprising finding: _______</li>
+                    </ul>
+                </div>
+
+                <h3>Analysis Questions</h3>
+
+                <p>
+                    After completing all renders, answer these questions:
+                </p>
+
+                <div class="card">
+                    <h4>🤔 Critical Thinking Questions</h4>
+                    
+                    <ol>
+                        <li>At what quality level did edges become acceptably smooth for web posting?</li>
+                        <li>How much did render time increase from Test 2 to Test 3? Was the quality improvement worth it?</li>
+                        <li>Could you tell the difference between High and Production quality when viewed at 50% zoom?</li>
+                        <li>If you were posting to Instagram, which quality level would you actually use?</li>
+                        <li>For your personal test renders, which level is fast enough to not interrupt your workflow?</li>
+                        <li>Did any quality level surprise you (better or worse than expected)?</li>
+                        <li>What's the maximum time you're willing to wait for a test render?</li>
+                        <li>What's the maximum time you're willing to wait for a final render?</li>
+                        <li>Based on these tests, would you ever use Production quality? When?</li>
+                        <li>Did you see visible differences in Global Illumination between levels?</li>
+                    </ol>
+                </div>
+
+                <h3>Bonus Challenges</h3>
+
+                <div class="card">
+                    <h4>🌟 Go Further (Optional)</h4>
+                    
+                    <p><strong>Challenge 1: Engine Comparison</strong></p>
+                    <p>If you have time, render the same scene in both Firefly and SuperFly at the same quality level. Compare speed and quality differences.</p>
+
+                    <p><strong>Challenge 2: Resolution Impact</strong></p>
+                    <p>Render at Medium settings but try three different resolutions: 1280×720, 1920×1080, and 3840×2160. See how resolution alone affects time.</p>
+
+                    <p><strong>Challenge 3: Sampling Sweep</strong></p>
+                    <p>In SuperFly, render the same scene at 8, 16, 32, 64, 128, 256, 512 samples. Plot render time vs. quality. Where's the sweet spot?</p>
+
+                    <p><strong>Challenge 4: Create a Comparison Sheet</strong></p>
+                    <p>Use image editing software to create a single comparison image with all five renders arranged in a grid, labeled with settings and render times. This becomes a great reference!</p>
+
+                    <p><strong>Challenge 5: GI Isolated Test</strong></p>
+                    <p>Render the same scene with GI ON and OFF (all other settings identical). How much time does GI add? Is the quality difference worth it for your scene?</p>
+                </div>
+
+                <h3>What You Should Learn</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Key Takeaways from This Project</h4>
+                    <ul>
+                        <li>You now have firsthand experience seeing what different quality levels actually look like</li>
+                        <li>You understand the time cost of quality improvements</li>
+                        <li>You can identify the minimum acceptable quality for different uses</li>
+                        <li>You've calibrated your eye to recognize render artifacts</li>
+                        <li>You know which settings are worth the time investment and which aren't</li>
+                        <li>You have documented data to reference in future projects</li>
+                        <li>You understand that "maximum quality" isn't always necessary or even noticeable</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem;">
+                    <h4 style="color: white; margin-top: 0;">💡 The Real Lesson</h4>
+                    <p style="color: white; margin-bottom: 0;">
+                        The goal of this project isn't just to create five renders—it's to develop wisdom about render settings. You're training your judgment. In future projects, when you're deciding between "one more test render" and "commit to final quality," you'll have the experience to make that call confidently. That's the mark of a professional: knowing when good enough is truly good enough, and when it's worth waiting for perfection.
+                    </p>
+                </div>
+
+            </section>
+            <!-- Section 11: Summary and Key Takeaways -->
+            <section id="summary">
+                <h2>📚 Summary and Key Takeaways</h2>
+                
+                <p>
+                    Congratulations! You've completed the foundation lesson on render settings—one of the most technically important topics in 3D work. Understanding how to control render quality, balance speed with results, and choose appropriate settings for different purposes is what separates efficient professionals from frustrated beginners. Let's review what you've mastered.
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem;">
+                    <h3 style="color: white; margin-top: 0;">🎯 What You've Mastered</h3>
+                    <ul style="color: white;">
+                        <li><strong>Rendering Fundamentals:</strong> You understand what rendering is, how it differs from viewport preview, and why it takes time</li>
+                        <li><strong>Render Engines:</strong> You know the differences between Firefly and SuperFly and when to use each</li>
+                        <li><strong>Core Settings:</strong> You understand the key settings that control every render—resolution, samples, ray depth, GI, shadows</li>
+                        <li><strong>Resolution Strategy:</strong> You can choose appropriate dimensions for web, print, portfolio, and testing</li>
+                        <li><strong>Quality Levels:</strong> You understand the quality spectrum and the 80/20 rule of diminishing returns</li>
+                        <li><strong>Anti-Aliasing:</strong> You know how sampling eliminates jaggies and how much is enough</li>
+                        <li><strong>Time Management:</strong> You understand what slows renders down and how to optimize for speed</li>
+                        <li><strong>Workflow Efficiency:</strong> You've learned the preview-heavy approach that professionals use</li>
+                        <li><strong>File Formats:</strong> You can choose the right output format for any purpose</li>
+                    </ul>
+                </div>
+
+                <h3>Essential Principles to Remember</h3>
+
+                <div class="card">
+                    <h4>💡 The Core Truths of Rendering</h4>
+                    
+                    <p><strong>1. Match Quality to Purpose</strong></p>
+                    <p>Web posts don't need print quality. Test renders don't need final quality. Always ask: "What will this image be used for?" and render accordingly.</p>
+
+                    <p><strong>2. Preview-Heavy Workflow is Professional</strong></p>
+                    <p>Pros spend 90% of time on fast previews, 10% on finals. This keeps you in creative flow rather than waiting for renders.</p>
+
+                    <p><strong>3. The 80/20 Rule is Real</strong></p>
+                    <p>The last 20% of quality improvement costs 80% of render time. Know when to stop chasing perfection.</p>
+
+                    <p><strong>4. Resolution Compounds Everything</strong></p>
+                    <p>Double your resolution = 4× the pixels = 4× the render time. Test at low resolution, render final at full resolution.</p>
+
+                    <p><strong>5. Settings Multiply, Not Add</strong></p>
+                    <p>2× resolution + 2× samples + GI = 8-10× longer renders. Small changes compound quickly.</p>
+
+                    <p><strong>6. Always Test Before Final</strong></p>
+                    <p>A 5-minute medium-quality test saves you from discovering problems after a 2-hour final render.</p>
+
+                    <p><strong>7. File Format Matters</strong></p>
+                    <p>Always render to PNG for masters. Create JPEGs and other formats from the master as needed.</p>
+
+                    <p style="margin-bottom: 0;"><strong>8. Hardware Has Limits</strong></p>
+                    <p>Understand your computer's capabilities and work within them. Overnight renders are fine; week-long renders aren't practical.</p>
+                </div>
+
+                <h3>Quick Reference: Settings Cheat Sheet</h3>
+
+                <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+                    <thead>
+                        <tr style="background: #f8f9fa;">
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Purpose</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Resolution</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Samples (SF) / MSR (FF)</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Time Target</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Quick Preview</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">640-800px</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">8-16 / 1.0</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">10-30 sec</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Test Render</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">1280×720</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">64 / 0.25</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">2-10 min</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Web Final</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">1920×1080</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">128 / 0.1</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">15-45 min</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Print Quality</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">3000×4000+</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">256 / 0.05</td>
+                            <td style="padding: 0.75rem; border: 1px solid #dee2e6;">1-4 hours</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Common Pitfalls to Avoid</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Don't Make These Mistakes</h4>
+                    <ul>
+                        <li>Using final-quality settings during creative work (massive time waste)</li>
+                        <li>Skipping test renders and going straight to final (risky, inefficient)</li>
+                        <li>Rendering to JPEG instead of PNG (can't recover lossless quality later)</li>
+                        <li>Not saving render presets (wasting time reconfiguring settings every time)</li>
+                        <li>Judging scene quality from low-quality previews (preview ≠ final)</li>
+                        <li>Using maximum settings by default (diminishing returns, wasted time)</li>
+                        <li>Not matching resolution to final use (4K for Instagram is overkill)</li>
+                        <li>Forgetting to save before final render (crashes happen)</li>
+                    </ul>
+                </div>
+
+                <h3>Your Action Plan</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Next Steps to Master Rendering</h4>
+                    <ol>
+                        <li><strong>Complete the Project:</strong> Do the render quality comparison tests—firsthand experience is invaluable</li>
+                        <li><strong>Create Render Presets:</strong> Set up "Quick Preview," "Test Quality," and "Final Quality" presets in Poser</li>
+                        <li><strong>Document Your Computer's Speed:</strong> Know how long typical renders take on your hardware</li>
+                        <li><strong>Choose Your Default Engine:</strong> Decide whether Firefly or SuperFly fits your workflow better</li>
+                        <li><strong>Practice the Workflow:</strong> Force yourself to use preview renders for all creative work, final only when done</li>
+                        <li><strong>Build a Reference Library:</strong> Keep examples of different quality levels for future reference</li>
+                        <li><strong>Test, Don't Guess:</strong> When unsure about settings, do a quick test render—it's faster than guessing wrong</li>
+                    </ol>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Final Wisdom:</strong> Rendering is where many beginners get frustrated and give up. They set maximum quality, wait hours, and when problems appear, they have to start over. You now know better. You understand that rendering is a strategic process, not just clicking a button. Preview renders keep you creative. Test renders verify your approach. Final renders are rare, deliberate events. This knowledge alone will make you more productive than most 3D hobbyists.
+                    </p>
+                </blockquote>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem;">
+                    <h3 style="color: white; margin-top: 0;">🎬 What's Next?</h3>
+                    <p style="color: white;">
+                        You've learned the foundation of render settings, covering the universal concepts that apply to all rendering. In the next lessons, we'll dive deeper into each render engine specifically:
+                    </p>
+                    <ul style="color: white;">
+                        <li><strong>Lesson 24: Firefly Rendering</strong> - Master Poser's traditional render engine with its unique features</li>
+                        <li><strong>Lesson 25: SuperFly (Cycles) Rendering</strong> - Unlock physically-based rendering for photorealism</li>
+                        <li><strong>Lesson 26: Render Optimization</strong> - Advanced techniques for speed without sacrificing quality</li>
+                        <li><strong>Lesson 27: Post-Render Processing</strong> - Finishing touches and output preparation</li>
+                    </ul>
+                    <p style="color: white; margin-bottom: 0;">
+                        With your foundation in render settings established, you're ready to explore the specific capabilities and optimizations of each rendering system. Module 6 will transform you from someone who clicks "Render" and hopes for the best into someone who commands the rendering process with confidence and efficiency!
+                    </p>
+                </div>
+
+            </section>
+
+            <!-- Navigation -->
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_22_dramatic_lighting.html" class="prev-lesson">← Previous: Indoor and Dramatic Lighting</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_24_firefly_rendering.html" class="next-lesson">Next: Firefly Rendering →</a>
+            </nav>
+
+        </article>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 Poser 12 Mastery Course. All rights reserved.</p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

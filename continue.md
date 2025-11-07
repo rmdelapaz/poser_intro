@@ -6,34 +6,54 @@ This is a comprehensive Poser 12 course for absolute beginners. The course teach
 ## Project Location
 - **Working Directory:** `\\wsl$\Ubuntu\home\practicalace\projects\poser_course`
 - **Template Reference:** `\\wsl$\Ubuntu\home\practicalace\projects\course_template`
-- **Lesson Plan:** `course_lesson_plan.json` (in poser_course directory - if available)
-
+- **Lesson Plan:** `course_lesson_plan.json`
 ## Current Progress
 
-### ✅ Completed Lessons (Module 1: Getting Started)
-1. ✅ **Lesson 01** - `lesson_01_welcome_to_poser.html` - Welcome to Poser 12
-2. ✅ **Lesson 02** - `lesson_02_interface_tour.html` - The Poser Interface Tour
-3. ✅ **Lesson 03** - `lesson_03_first_figure.html` - Your First Figure
-4. ✅ **Lesson 04** - `lesson_04_cameras_and_views.html` - Cameras and Views
+### ✅ MODULE 1: Getting Started (COMPLETE)
+1. ✅ Lesson 01 - Welcome to Poser 12
+2. ✅ Lesson 02 - The Poser Interface Tour
+3. ✅ Lesson 03 - Your First Figure
+4. ✅ Lesson 04 - Cameras and Views
 
-### ✅ Completed Lessons (Module 2: Essential Posing Techniques)
-5. ✅ **Lesson 05** - `lesson_05_figure_hierarchy.html` - Understanding the Figure Hierarchy
-6. ✅ **Lesson 06** - `lesson_06_natural_poses.html` - Creating Natural Poses
-7. ✅ **Lesson 07** - `lesson_07_hand_posing.html` - Advanced Hand Posing
-8. ✅ **Lesson 08** - `lesson_08_facial_expressions.html` - Facial Expressions and Emotion
+### ✅ MODULE 2: Essential Posing Techniques (COMPLETE)
+5. ✅ Lesson 05 - Understanding the Figure Hierarchy
+6. ✅ Lesson 06 - Creating Natural Poses
+7. ✅ Lesson 07 - Advanced Hand Posing
+8. ✅ Lesson 08 - Facial Expressions and Emotion
+9. ✅ Lesson 09 - Full Body Poses - Walking and Action
 
-### ✅ Completed Lessons (Module 3: Working with Props and Scenes)
-9. ✅ **Lesson 09** - `lesson_09_props_scenes.html` - Working with Props and Building Scenes
-10. ✅ **Lesson 10** - `lesson_10_multiple_figures.html` - Working with Multiple Figures
-11. ✅ **Lesson 11** - `lesson_11_scene_composition.html` - Scene Composition and Visual Storytelling
+### ✅ MODULE 3: Working with Props and Scenes (COMPLETE)
+10. ✅ Lesson 10 - Understanding Props vs. Figures
+11. ✅ Lesson 11 - Building Your First Scene
+12. ✅ Lesson 12 - Working with Multiple Figures
+13. ✅ Lesson 13 - Smart Props and Conforming Items
 
-### ✅ Completed Lessons (Module 4: Lighting and Atmosphere)
-12. ✅ **Lesson 12** - `lesson_12_lighting_basics.html` - Lighting Fundamentals
+### ✅ MODULE 4: Materials and Textures (COMPLETE)
+14. ✅ Lesson 14 - Introduction to the Material Room
+15. ✅ Lesson 15 - Texture Maps and UV Mapping
+16. ✅ Lesson 16 - Skin Materials and Realism
+17. ✅ Lesson 17 - Creating and Editing Simple Materials
+18. ✅ Lesson 18 - Material Collections and Efficiency
+
+### ✅ MODULE 5: Lighting Fundamentals (COMPLETE)
+19. ✅ Lesson 19 - Understanding Light Types
+20. ✅ Lesson 20 - Three-Point Lighting Fundamentals
+21. ✅ Lesson 21 - Natural and Outdoor Lighting
+22. ✅ Lesson 22 - Indoor and Dramatic Lighting
+
+### 🔄 MODULE 6: Rendering Your Work (IN PROGRESS)
+23. ✅ **Lesson 23 - Render Settings Overview** (COMPLETE - All 12 parts)
+    - ✅ Part 01-12: Complete coverage of render settings, engines, quality, optimization
+
+24. ⏳ Lesson 24 - Firefly Rendering (NOT STARTED)
+25. ⏳ Lesson 25 - SuperFly (Cycles) Rendering (NOT STARTED)
+26. ⏳ Lesson 26 - Render Optimization and Troubleshooting (NOT STARTED)
+27. ⏳ Lesson 27 - Post-Render Processing (NOT STARTED)
 
 ### 📍 Next Lesson to Create
-- **Lesson 13** - Advanced Lighting Techniques
-  - Topics: HDR lighting, global illumination, bounce light, caustics, atmospheric effects
-  - Focus: Professional lighting techniques for stunning renders
+- **Lesson 24** - Firefly Rendering
+  - Topics: Firefly engine features, raytrace settings, ambient occlusion, render passes
+  - Focus: Mastering Poser's traditional render engine
 
 ## File Creation Guidelines
 
@@ -293,22 +313,39 @@ Before considering a lesson complete:
 - Hand posing
 - Facial expressions
 
-### Module 3: Working with Props and Scenes (Lessons 9-11) ✅ COMPLETE
-- Props and environment building
-- Multiple figures
-- Scene composition and visual storytelling
+### Module 3: Working with Props and Scenes (Lessons 10-13) ✅ COMPLETE
+- Understanding props vs. figures
+- Building your first scene
+- Working with multiple figures
+- Smart props and conforming items
 
-### Module 4: Lighting and Atmosphere (Starting with Lesson 12) 🔄 IN PROGRESS
-- Lighting fundamentals ✅
-- Advanced lighting techniques
-- Materials and textures
-- Atmospheric effects
+### Module 4: Materials and Textures (Lessons 14-18) ✅ COMPLETE
+- Introduction to Material Room
+- Texture Maps and UV Mapping
+- Skin Materials and Realism
+- Creating and Editing Simple Materials
+- Material Collections and Efficiency
+
+### Module 5: Lighting Fundamentals (Lessons 19-22) ✅ COMPLETE
+- Understanding Light Types
+- Three-Point Lighting Fundamentals
+- Natural and Outdoor Lighting
+- Indoor and Dramatic Lighting
+
+### Module 6: Rendering Your Work (Lessons 23-27) 🔄 IN PROGRESS
+- Render Settings Overview ✅
+- Firefly Rendering (NEXT)
+- SuperFly (Cycles) Rendering
+- Render Optimization and Troubleshooting
+- Post-Render Processing
 
 ### Future Modules
-- Rendering and optimization
-- Advanced techniques
-- Animation basics
-- Final projects
+- Module 7: Animation Basics
+- Module 8: Hair and Cloth
+- Module 9: Advanced Techniques
+- Module 10: Character Design
+- Module 11: Scene Composition
+- Module 12: Final Projects and Portfolio
 
 ## Important Reminders
 
@@ -322,17 +359,21 @@ Before considering a lesson complete:
 
 ## Next Steps
 
-**Ready to continue Module 4!** 
-Next up: **Lesson 13: Advanced Lighting Techniques**
+**Ready to continue Module 6!** 
+Next up: **Lesson 24: Firefly Rendering**
 
 Topics to cover:
-- HDR lighting and image-based lighting
-- Global illumination and bounce light
-- Advanced shadow techniques
-- Caustics and special lighting effects
-- Atmospheric effects (fog, volumetric lighting)
-- Professional lighting workflows
+- Firefly render engine features and philosophy
+- Firefly-specific settings (raytrace, ambient occlusion)
+- Material optimization for Firefly
+- Lighting strategies for Firefly
+- Firefly render passes and layers
+- Advanced Firefly techniques
+- Common Firefly problems and solutions
+- Project: Create a high-quality Firefly render
 
 ---
 
-**Status: 12 lessons complete | Module 3 finished | Module 4 in progress**
+**Status: 23 lessons complete | Modules 1-5 finished | Module 6 in progress (Lesson 23 complete)**
+
+**Total Progress: 23 out of 54 planned lessons (43% complete)**

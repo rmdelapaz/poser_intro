@@ -1,0 +1,2286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master Firefly rendering in Poser 12 - Learn Poser's traditional render engine, optimize settings, and create stunning photorealistic renders with raytracing and advanced techniques.">
+    <meta name="author" content="Poser 12 Course">
+    <title>Firefly Rendering - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav" aria-label="Main Navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">🎨 Poser 12 Mastery</a>
+            <button class="nav-toggle" aria-label="Toggle Navigation">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Course Home</a></li>
+                <li><a href="lesson_23_render_settings.html">← Previous</a></li>
+                <li><a href="lesson_25_superfly_rendering.html">Next →</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> &gt; 
+        <a href="index.html#module6">Module 6: Rendering Your Work</a> &gt; 
+        <span>Lesson 24: Firefly Rendering</span>
+    </nav>
+
+    <main class="container">
+        <!-- Lesson Header -->
+        <article class="lesson-content">
+            <header class="lesson-header">
+                <div class="lesson-number">Lesson 24</div>
+                <h1>🔥 Firefly Rendering: Mastering Poser's Traditional Render Engine</h1>
+                <p class="lead">
+                    Firefly is Poser's original render engine—a powerful, versatile tool that's been refined over years to deliver stunning results. Think of Firefly as your trusty workhorse: it's fast, reliable, and produces beautiful renders with predictable results. Whether you're creating character portraits, full scenes, or complex compositions, Firefly gives you the control and quality you need. In this lesson, we'll unlock Firefly's full potential and learn how to create professional-grade renders that bring your 3D scenes to life.
+                </p>
+            </header>
+
+            <!-- Learning Objectives -->
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin: 2rem 0;">
+                <h2 style="color: white; margin-top: 0;">🎯 What You'll Learn</h2>
+                <ul style="color: white;">
+                    <li><strong>Firefly's Philosophy:</strong> Understand what makes Firefly unique and when to use it</li>
+                    <li><strong>Core Settings:</strong> Master raytrace depth, shadows, and ambient occlusion</li>
+                    <li><strong>Material Optimization:</strong> Configure materials for optimal Firefly rendering</li>
+                    <li><strong>Advanced Techniques:</strong> Explore indirect lighting, depth of field, and render passes</li>
+                    <li><strong>Quality vs Speed:</strong> Balance render times with image quality</li>
+                    <li><strong>Troubleshooting:</strong> Solve common Firefly rendering issues</li>
+                </ul>
+                <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                    <p style="margin: 0; color: white;"><strong>⚡ Estimated Time:</strong> 60-75 minutes</p>
+                    <p style="margin: 0.5rem 0 0 0; color: white;"><strong>🔧 Project:</strong> Create a high-quality Firefly character portrait with advanced lighting</p>
+                </div>
+            </div>
+            <!-- Table of Contents -->
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">🔑 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#what-is-firefly" class="toc-link">What is Firefly?</a></li>
+                        <li><a href="#render-settings" class="toc-link">Essential Firefly Render Settings</a></li>
+                        <li><a href="#raytracing" class="toc-link">Raytracing: The Heart of Firefly</a></li>
+                        <li><a href="#ambient-occlusion" class="toc-link">Ambient Occlusion for Realism</a></li>
+                        <li><a href="#material-optimization" class="toc-link">Optimizing Materials for Firefly</a></li>
+                        <li><a href="#lighting-strategies" class="toc-link">Lighting Strategies for Firefly</a></li>
+                        <li><a href="#advanced-features" class="toc-link">Advanced Firefly Features</a></li>
+                        <li><a href="#render-passes" class="toc-link">Working with Render Passes</a></li>
+                        <li><a href="#troubleshooting" class="toc-link">Troubleshooting Common Issues</a></li>
+                        <li><a href="#project" class="toc-link">Project: Professional Character Portrait</a></li>
+                        <li><a href="#summary" class="toc-link">Summary and Key Takeaways</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Section 1: What is Firefly? -->
+            <section id="what-is-firefly" class="content-section">
+                <h2>🔥 What is Firefly?</h2>
+                
+                <p>
+                    Firefly is Poser's classic render engine—think of it as the original artist that's been painting digital scenes since Poser's early days. It's a <strong>scanline renderer with raytracing capabilities</strong>, which means it combines speed with realism. Unlike physically-based renderers that simulate every photon, Firefly uses smart shortcuts to create beautiful images faster.
+                </p>
+
+                <div class="card">
+                    <h3>The Firefly Philosophy</h3>
+                    <p>
+                        Firefly was designed with a simple goal: <em>create stunning renders quickly and predictably</em>. It's like comparing a skilled portrait photographer with professional studio lighting to someone using a light meter and mathematical calculations for every shot. Both can create beautiful images, but the photographer relies on experience and proven techniques—just like Firefly.
+                    </p>
+                </div>
+
+                <h3>When to Choose Firefly</h3>
+                
+                <p>Firefly excels in specific situations:</p>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Choose Firefly When...] --> B[Speed is Important]
+                    A --> C[Stylized Rendering]
+                    A --> D[Character Focus]
+                    A --> E[Predictable Results]
+                    
+                    B --> B1[Fast iterations needed]
+                    B --> B2[Preview renders]
+                    C --> C1[Artistic control valued]
+                    C --> C2[Non-photorealistic look]
+                    D --> D1[Portrait work]
+                    D --> D2[Character close-ups]
+                    E --> E1[Consistent workflow]
+                    E --> E2[Proven techniques]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:3px,color:#fff
+                    style B fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style C fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style D fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style E fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Scenario</th>
+                            <th>Why Firefly Works Well</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Character Portraits</strong></td>
+                            <td>Fast render times, excellent skin rendering, predictable results</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Stylized Art</strong></td>
+                            <td>More artistic control, easier to achieve non-photorealistic looks</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Quick Iterations</strong></td>
+                            <td>Renders faster than SuperFly, perfect for testing poses and compositions</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Simple Scenes</strong></td>
+                            <td>Less complex setup, straightforward lighting control</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Animation</strong></td>
+                            <td>Faster render times per frame, more predictable results</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 Pro Insight</h4>
+                    <p>
+                        Many professional Poser artists use <strong>both</strong> engines strategically: Firefly for character work and quick iterations, SuperFly for architectural renders and photorealistic environments. There's no "better" engine—only the right tool for each job.
+                    </p>
+                </div>
+
+                <h3>Firefly's Core Strengths</h3>
+
+                <p>Let's look at what makes Firefly special:</p>
+
+                <div class="card">
+                    <h4>⚡ Speed and Efficiency</h4>
+                    <p>
+                        Firefly renders significantly faster than physically-based engines. Where SuperFly might take 10 minutes for a clean render, Firefly can deliver similar quality in 2-3 minutes. For animators rendering hundreds of frames, this difference is massive.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>🎨 Artistic Control</h4>
+                    <p>
+                        Firefly gives you more direct control over the final image. You can "cheat" reality for artistic effect—making shadows darker than physically accurate, boosting specular highlights, or adjusting colors in ways that wouldn't occur naturally but look better.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>🔮 Predictable Results</h4>
+                    <p>
+                        Firefly's behavior is consistent and well-documented. Once you learn its quirks, you'll know exactly what settings to adjust for specific effects. It's like learning a musical instrument—the learning curve is steeper at first, but you gain precision and control.
+                    </p>
+                </div>
+
+                <blockquote>
+                    <p><strong>Think of it this way:</strong> SuperFly is like shooting with natural light and relying on the camera's auto settings—it handles the physics for you. Firefly is like being a studio photographer with full control over every light, every shadow, every reflection. More work upfront, but total creative control.</p>
+                </blockquote>
+            </section>
+
+            <!-- Section 2: Essential Firefly Render Settings -->
+            <section id="render-settings" class="content-section">
+                <h2>⚙️ Essential Firefly Render Settings</h2>
+                
+                <p>
+                    Before we dive into advanced techniques, let's master the core settings that control Firefly's behavior. Think of these as the foundation of your rendering workflow—get these right, and everything else falls into place.
+                </p>
+
+                <h3>Accessing Firefly Settings</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Quick Access</h4>
+                    <ol>
+                        <li>Go to <strong>Render &gt; Render Settings</strong> (Ctrl+Y / Cmd+Y)</li>
+                        <li>Make sure <strong>Firefly</strong> is selected as your render engine</li>
+                        <li>You'll see tabs for different setting categories</li>
+                    </ol>
+                </div>
+
+                <h3>The Essential Settings</h3>
+
+                <p>Let's break down the most important Firefly settings and what they actually do:</p>
+
+                <h4>Manual Settings Tab</h4>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Setting</th>
+                            <th>What It Does</th>
+                            <th>Recommended Starting Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Pixel Samples</strong></td>
+                            <td>Controls anti-aliasing quality (smoothness of edges)</td>
+                            <td>4-6 for preview, 8-12 for final</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Min Shading Rate</strong></td>
+                            <td>How finely textures and materials are calculated (lower = better)</td>
+                            <td>0.5 for preview, 0.1-0.2 for final</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Max Texture Res</strong></td>
+                            <td>Maximum texture size used (higher uses more memory)</td>
+                            <td>2048-4096 for most scenes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Raytrace Bounces</strong></td>
+                            <td>How many times light bounces between surfaces</td>
+                            <td>2-4 for most scenes</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Render Quality] --> B[Pixel Samples]
+                    A --> C[Min Shading Rate]
+                    A --> D[Texture Resolution]
+                    
+                    B --> B1[Higher = Smoother]
+                    C --> C1[Lower = Sharper]
+                    D --> D1[Bigger = Clearer]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style B fill:#4CAF50,stroke:#333,stroke-width:2px
+                    style C fill:#4CAF50,stroke:#333,stroke-width:2px
+                    style D fill:#4CAF50,stroke:#333,stroke-width:2px
+                </div>
+
+                <h3>Understanding Pixel Samples</h3>
+
+                <p>
+                    <strong>Pixel Samples</strong> is one of the most important settings for quality. Think of it like taking multiple photos and blending them together—each "sample" is a slightly different calculation of the same pixel, and averaging them together eliminates jagged edges and noise.
+                </p>
+
+                <div class="card">
+                    <h4>How Pixel Samples Work</h4>
+                    <p>Imagine you're painting a fence post in your image:</p>
+                    <ul>
+                        <li><strong>1 sample:</strong> The computer looks at the center of each pixel and decides: "Is this fence or background?" Result: jagged edges.</li>
+                        <li><strong>4 samples:</strong> The computer checks 4 points within each pixel. "Two hit fence, two hit background? Make it 50% fence." Result: slightly smoother edges.</li>
+                        <li><strong>12 samples:</strong> The computer checks 12 points, getting a much more accurate blend. Result: smooth, professional edges.</li>
+                    </ul>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pixel Sample Value</th>
+                            <th>Quality Level</th>
+                            <th>When to Use</th>
+                            <th>Render Time Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1-2</td>
+                            <td>Draft</td>
+                            <td>Quick composition checks only</td>
+                            <td>Baseline (fastest)</td>
+                        </tr>
+                        <tr>
+                            <td>4-6</td>
+                            <td>Preview</td>
+                            <td>Lighting tests, pose reviews</td>
+                            <td>2-3x baseline</td>
+                        </tr>
+                        <tr>
+                            <td>8-10</td>
+                            <td>Good</td>
+                            <td>Most final renders</td>
+                            <td>4-5x baseline</td>
+                        </tr>
+                        <tr>
+                            <td>12-16</td>
+                            <td>Excellent</td>
+                            <td>Portfolio pieces, close-ups</td>
+                            <td>6-8x baseline</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Common Mistake</h4>
+                    <p>
+                        Many beginners crank Pixel Samples up to 16 or higher thinking "more is always better." But beyond 12 samples, you see diminishing returns—render times double while quality improvements become barely noticeable. Save that time and use it for better lighting or composition!
+                    </p>
+                </div>
+
+                <h3>Min Shading Rate Explained</h3>
+
+                <p>
+                    <strong>Min Shading Rate</strong> controls how detailed your material calculations are. This is less intuitive than pixel samples, so let's use an analogy:
+                </p>
+
+                <blockquote>
+                    <p>
+                        Imagine painting a landscape. Min Shading Rate is like deciding how often you step back to evaluate your work. A value of 1.0 means you step back after every foot of canvas. A value of 0.1 means you step back after every inch. You catch more detail, but it takes longer to paint.
+                    </p>
+                </blockquote>
+
+                <div class="card">
+                    <h4>What Min Shading Rate Controls</h4>
+                    <ul>
+                        <li><strong>Texture detail:</strong> Lower values calculate textures more accurately</li>
+                        <li><strong>Specular highlights:</strong> Affects how smooth specular reflections look</li>
+                        <li><strong>Shadow quality:</strong> Influences shadow edge softness and accuracy</li>
+                        <li><strong>Material transitions:</strong> How smoothly materials blend or change</li>
+                    </ul>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Value</th>
+                            <th>Use Case</th>
+                            <th>Visual Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1.0</td>
+                            <td>Very rough preview</td>
+                            <td>Blocky textures, rough highlights</td>
+                        </tr>
+                        <tr>
+                            <td>0.5</td>
+                            <td>Standard preview</td>
+                            <td>Acceptable for testing poses</td>
+                        </tr>
+                        <tr>
+                            <td>0.2</td>
+                            <td>Good quality</td>
+                            <td>Smooth textures, clean highlights</td>
+                        </tr>
+                        <tr>
+                            <td>0.1</td>
+                            <td>High quality</td>
+                            <td>Professional results, fine detail</td>
+                        </tr>
+                        <tr>
+                            <td>0.05 or lower</td>
+                            <td>Extreme detail</td>
+                            <td>Negligible improvement, huge time cost</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 Pro Tip: The Golden Ratio</h4>
+                    <p>
+                        For balanced quality and speed, use this formula: <strong>Min Shading Rate should be roughly 1/20th of your Pixel Samples</strong>. So if you're using 8 pixel samples, try a min shading rate of 0.4. Using 10 samples? Try 0.2. This keeps both anti-aliasing and material quality in harmony.
+                    </p>
+                </div>
+                <h3>Recommended Firefly Presets</h3>
+
+                <p>Here are proven setting combinations for different scenarios:</p>
+
+                <div class="card">
+                    <h4>🚀 Fast Preview Render</h4>
+                    <ul>
+                        <li><strong>Pixel Samples:</strong> 4</li>
+                        <li><strong>Min Shading Rate:</strong> 0.5</li>
+                        <li><strong>Raytrace:</strong> OFF</li>
+                        <li><strong>Shadows:</strong> Depth map shadows</li>
+                        <li><strong>Use:</strong> Pose testing, composition planning</li>
+                        <li><strong>Typical Time:</strong> 30 seconds - 2 minutes</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>âš–ï¸ Balanced Quality</h4>
+                    <ul>
+                        <li><strong>Pixel Samples:</strong> 8</li>
+                        <li><strong>Min Shading Rate:</strong> 0.2</li>
+                        <li><strong>Raytrace:</strong> ON (4 bounces)</li>
+                        <li><strong>Shadows:</strong> Raytraced</li>
+                        <li><strong>Use:</strong> Most final renders, client work</li>
+                        <li><strong>Typical Time:</strong> 3-8 minutes</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>🌟 Maximum Quality</h4>
+                    <ul>
+                        <li><strong>Pixel Samples:</strong> 12</li>
+                        <li><strong>Min Shading Rate:</strong> 0.1</li>
+                        <li><strong>Raytrace:</strong> ON (6 bounces)</li>
+                        <li><strong>Shadows:</strong> Raytraced with soft shadows</li>
+                        <li><strong>Ambient Occlusion:</strong> ON</li>
+                        <li><strong>Use:</strong> Portfolio pieces, print work</li>
+                        <li><strong>Typical Time:</strong> 10-30 minutes</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅Try It Now</h4>
+                    <p>
+                        Open a simple scene with a character and a light. Render it three times using each preset above. Compare the results and render times. You'll quickly develop an intuition for which preset to start with for different projects.
+                    </p>
+                </div>
+
+            </section>
+
+            <!-- Section 3: Raytracing -->
+            <section id="raytracing" class="content-section">
+                <h2>âœ¨ Raytracing: The Heart of Firefly</h2>
+                
+                <p>
+                    Raytracing is where Firefly really shines. It's the feature that transforms good renders into great ones by accurately simulating how light bounces around your scene. Let's understand what raytracing actually does and how to use it effectively.
+                </p>
+
+                <h3>What is Raytracing?</h3>
+
+                <p>
+                    Imagine you're standing in a room with mirrors. When you look at a mirror, you don't just see the mirror's surface—you see reflections of everything around you, including other mirrors. Those reflections contain their own reflections, and so on. <strong>Raytracing</strong> is how the computer calculates all those reflections, refractions, and light bounces.
+                </p>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Camera] -->|Ray 1| B[Glass Object]
+                    B -->|Refraction| C[Inside Glass]
+                    C -->|Exit Ray| D[Background]
+                    
+                    A -->|Ray 2| E[Mirror Surface]
+                    E -->|Reflection| F[Other Object]
+                    F -->|Light Bounce| G[Final Color]
+                    
+                    A -->|Ray 3| H[Character Skin]
+                    H -->|Subsurface Scatter| I[Skin Layers]
+                    I -->|Scattered Light| J[Skin Glow]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style B fill:#FFC107,stroke:#333,stroke-width:2px
+                    style E fill:#FFC107,stroke:#333,stroke-width:2px
+                    style H fill:#FFC107,stroke:#333,stroke-width:2px
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Simple analogy:</strong> Without raytracing, your render is like a photograph taken through a dirty window—you see the main subjects clearly, but reflections and light interactions are missing or wrong. With raytracing, it's like having crystal-clear glass—everything reflects and refracts properly.
+                    </p>
+                </blockquote>
+
+                <h3>Enabling Raytracing</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅How to Turn On Raytracing</h4>
+                    <ol>
+                        <li>Go to <strong>Render &gt; Render Settings</strong></li>
+                        <li>In the <strong>Manual Settings</strong> tab, check <strong>Enable Raytracing</strong></li>
+                        <li>Set <strong>Raytrace Bounces</strong> to 4 as a starting point</li>
+                        <li>Check <strong>Raytrace Shadows</strong> for accurate shadow calculations</li>
+                    </ol>
+                </div>
+
+                <h3>Understanding Raytrace Bounces</h3>
+
+                <p>
+                    The <strong>number of bounces</strong> determines how many times light can reflect or refract before Firefly gives up calculating. Think of it like playing pool—each bounce is another ricochet of the ball (or light ray) off a surface.
+                </p>
+
+                <div class="card">
+                    <h4>What Each Bounce Level Gives You</h4>
+                    <ul>
+                        <li><strong>0 bounces (raytracing OFF):</strong> No reflections or refractions. Fast but unrealistic for glass, metal, or wet surfaces.</li>
+                        <li><strong>2 bounces:</strong> Basic reflections and refractions. Good for simple scenes with minimal reflective surfaces.</li>
+                        <li><strong>4 bounces:</strong> Most realistic lighting. Reflections can reflect other reflections. This is the sweet spot for quality.</li>
+                        <li><strong>6 bounces:</strong> Very accurate lighting, including subtle indirect light bounces. Slow but beautiful.</li>
+                        <li><strong>8+ bounces:</strong> Usually overkill. Diminishing visual returns with exponential time costs.</li>
+                    </ul>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Bounce Count</th>
+                            <th>Visual Features</th>
+                            <th>Best For</th>
+                            <th>Time Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0 (OFF)</td>
+                            <td>No reflections, no refractions, flat materials</td>
+                            <td>Very rough previews only</td>
+                            <td>Fastest</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Basic reflections on one surface</td>
+                            <td>Simple scenes, minimal glass/metal</td>
+                            <td>+20-40% time</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Reflections of reflections, proper glass</td>
+                            <td>Most character and scene work</td>
+                            <td>+50-100% time</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Complex light interactions, mirrors</td>
+                            <td>Scenes with many reflective objects</td>
+                            <td>+100-200% time</td>
+                        </tr>
+                        <tr>
+                            <td>8+</td>
+                            <td>Marginal improvements in complex scenes</td>
+                            <td>Rarely necessary</td>
+                            <td>+200%+ time</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Performance Warning</h4>
+                    <p>
+                        Each additional bounce roughly <strong>doubles your render time</strong> for reflective surfaces. Going from 4 to 6 bounces might only add subtle improvements but could double your render time. Always ask: "Do I really need this extra accuracy?"
+                    </p>
+                </div>
+
+                <h3>When You Need Higher Bounces</h3>
+
+                <p>Here are scenarios where you'll want to increase raytrace bounces:</p>
+
+                <div class="card">
+                    <h4>ðŸ'Ž Scenes with Mirrors</h4>
+                    <p>
+                        If your scene has mirrors reflecting other mirrors, you need at least <strong>4-6 bounces</strong>. Otherwise, mirrors will go black where they should reflect other mirrors.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>🌊 Multiple Glass Surfaces</h4>
+                    <p>
+                        Glass requires at least <strong>2 bounces per layer</strong> (one entering, one exiting). Multiple glass panes, like windows or glasses on a table, need <strong>4-6 bounces</strong>.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>💫 Complex Metal Reflections</h4>
+                    <p>
+                        Chrome balls reflecting chrome balls, or jewelry with many facets, benefit from <strong>6+ bounces</strong> to capture all the complex light paths.
+                    </p>
+                </div>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 Pro Strategy</h4>
+                    <p>
+                        Start with <strong>2 bounces</strong> for preview renders to see how your materials look. Bump up to <strong>4 bounces</strong> for your working renders. Only go to <strong>6 bounces</strong> when you're doing final, portfolio-quality renders of scenes with significant reflective elements.
+                    </p>
+                </div>
+                <h3>Raytraced Shadows</h3>
+
+                <p>
+                    When raytracing is enabled, you can also use <strong>raytraced shadows</strong> instead of depth map shadows. The difference is significant:
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Shadow Type</th>
+                            <th>How It Works</th>
+                            <th>Pros</th>
+                            <th>Cons</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Depth Map Shadows</strong></td>
+                            <td>Pre-calculates shadow maps from light's perspective</td>
+                            <td>Very fast, soften-able edges</td>
+                            <td>Can be inaccurate, requires map size settings</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Raytraced Shadows</strong></td>
+                            <td>Calculates if light reaches each surface point</td>
+                            <td>Perfectly accurate, crisp edges, handles transparency</td>
+                            <td>Slower, harder to soften</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card">
+                    <h4>When to Use Raytraced Shadows</h4>
+                    <ul>
+                        <li><strong>Complex geometry:</strong> Hair, lace, intricate details</li>
+                        <li><strong>Transparent objects:</strong> Glass, windows—raytraced shadows handle these perfectly</li>
+                        <li><strong>Final renders:</strong> When accuracy matters more than speed</li>
+                        <li><strong>Small shadow details:</strong> When depth map shadows look blobby or imprecise</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>When to Use Depth Map Shadows</h4>
+                    <ul>
+                        <li><strong>Preview renders:</strong> Much faster, good enough to judge composition</li>
+                        <li><strong>Soft, diffused lighting:</strong> When you want naturally soft shadow edges</li>
+                        <li><strong>Animation:</strong> Raytraced shadows can flicker; depth maps are more stable</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Rule of thumb:</strong> Use depth map shadows for previews and soft lighting scenarios. Switch to raytraced shadows for final renders when accuracy and detail matter.
+                    </p>
+                </blockquote>
+
+            </section>
+
+            <!-- Section 4: Ambient Occlusion -->
+            <section id="ambient-occlusion" class="content-section">
+                <h2>🌑 Ambient Occlusion for Realism</h2>
+                
+                <p>
+                    <strong>Ambient Occlusion (AO)</strong> is one of those "secret sauce" features that can transform a decent render into a stunning one. It adds subtle shadows in crevices, corners, and where objects meet—places where light has a hard time reaching. Think of it as the visual equivalent of adding depth and grounding to your scene.
+                </p>
+
+                <h3>What is Ambient Occlusion?</h3>
+
+                <p>
+                    Imagine you're in a well-lit room. Most surfaces are bright, but look at the corner where the wall meets the floor, or where a book sits on a table. These areas are slightly darker because ambient light from the room can't fully reach into those tight spaces. That subtle darkening is what ambient occlusion simulates.
+                </p>
+
+                <div class="card">
+                    <h4>Why AO Matters</h4>
+                    <p>
+                        Without ambient occlusion, renders can look "floaty"—characters don't seem firmly planted on the ground, objects don't quite touch, and everything feels slightly disconnected. AO adds those crucial contact shadows and depth cues that tell our brains "yes, this object is really sitting on that surface."
+                    </p>
+                </div>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Ambient Occlusion] --> B[Contact Shadows]
+                    A --> C[Depth in Crevices]
+                    A --> D[Surface Details]
+                    
+                    B --> B1[Ground Contact]
+                    B --> B2[Object Intersections]
+                    C --> C1[Wrinkles & Folds]
+                    C --> C2[Corner Darkening]
+                    D --> D1[Surface Texture Depth]
+                    D --> D2[Fine Detail Enhancement]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:3px,color:#fff
+                    style B fill:#4CAF50,stroke:#333,stroke-width:2px
+                    style C fill:#4CAF50,stroke:#333,stroke-width:2px
+                    style D fill:#4CAF50,stroke:#333,stroke-width:2px
+                </div>
+
+                <h3>Enabling Ambient Occlusion</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅How to Turn On AO</h4>
+                    <ol>
+                        <li>Go to <strong>Render &gt; Render Settings</strong></li>
+                        <li>Navigate to the <strong>Advanced</strong> tab (or wherever AO settings appear in your Poser version)</li>
+                        <li>Check <strong>Enable Ambient Occlusion</strong></li>
+                        <li>Start with these settings:
+                            <ul>
+                                <li><strong>Strength:</strong> 1.0</li>
+                                <li><strong>Max Distance:</strong> 5-10 PNU (Poser Native Units)</li>
+                                <li><strong>Samples:</strong> 32-64</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>AO Settings Explained</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Setting</th>
+                            <th>What It Does</th>
+                            <th>Typical Values</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Strength</strong></td>
+                            <td>How dark the AO shadows are</td>
+                            <td>0.8-1.2 (1.0 is neutral)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Max Distance</strong></td>
+                            <td>How far away surfaces can be to affect each other</td>
+                            <td>5-10 for character scale, 20-50 for room scale</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Samples</strong></td>
+                            <td>Quality of AO calculation (more = cleaner but slower)</td>
+                            <td>32 preview, 64 good, 128 excellent</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bias</strong></td>
+                            <td>Prevents self-shadowing artifacts</td>
+                            <td>0.01-0.1 (adjust if you see spotting)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Understanding Max Distance</h3>
+
+                <p>
+                    <strong>Max Distance</strong> is crucial and often misunderstood. It determines how far away objects can be while still affecting each other's ambient occlusion. Too low, and you miss important shadows. Too high, and everything gets too dark.
+                </p>
+
+                <div class="card">
+                    <h4>Max Distance Guidelines</h4>
+                    <ul>
+                        <li><strong>Character close-ups:</strong> 3-5 PNU (just enough to capture face crevices and contact points)</li>
+                        <li><strong>Full character shots:</strong> 5-10 PNU (capture ground contact and where arms meet body)</li>
+                        <li><strong>Interior scenes:</strong> 20-50 PNU (let walls and furniture interact)</li>
+                        <li><strong>Large environments:</strong> 50-100 PNU (though this gets expensive; consider using AO selectively)</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Think of Max Distance as a bubble:</strong> Each point on a surface has an invisible sphere around it. If another surface enters that sphere, it creates an ambient occlusion shadow. Bigger sphere = more interaction but also more calculation time.
+                    </p>
+                </blockquote>
+
+                <h3>Sample Count and Quality</h3>
+
+                <p>
+                    The <strong>Samples</strong> setting controls how many rays Firefly shoots out to calculate ambient occlusion. More samples = cleaner result, but also longer render times. Too few samples create a grainy, spotty appearance.
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sample Count</th>
+                            <th>Quality</th>
+                            <th>When to Use</th>
+                            <th>Visual Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>16</td>
+                            <td>Draft</td>
+                            <td>Very rough preview</td>
+                            <td>Heavily noisy, just for testing</td>
+                        </tr>
+                        <tr>
+                            <td>32</td>
+                            <td>Preview</td>
+                            <td>Checking AO effect</td>
+                            <td>Some noise but effect visible</td>
+                        </tr>
+                        <tr>
+                            <td>64</td>
+                            <td>Good</td>
+                            <td>Most final renders</td>
+                            <td>Clean, professional look</td>
+                        </tr>
+                        <tr>
+                            <td>128</td>
+                            <td>Excellent</td>
+                            <td>High-end portfolio work</td>
+                            <td>Perfectly smooth AO</td>
+                        </tr>
+                        <tr>
+                            <td>256+</td>
+                            <td>Overkill</td>
+                            <td>Rarely needed</td>
+                            <td>Marginal improvement, huge time cost</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 Pro Tip: Speed vs Quality</h4>
+                    <p>
+                        For preview renders, use <strong>32 samples</strong>—yes, it'll be grainy, but you'll see where AO is working. For final renders, <strong>64 samples</strong> hits the sweet spot. Only go to 128+ if you're doing extreme close-ups where AO noise would be visible.
+                    </p>
+                </div>
+                <h3>When to Use Ambient Occlusion</h3>
+
+                <div class="card">
+                    <h4>✅Perfect for AO</h4>
+                    <ul>
+                        <li><strong>Character portraits:</strong> Adds depth to facial features, eye sockets, ear crevices</li>
+                        <li><strong>Ground contact:</strong> Makes feet look like they're actually standing on the floor</li>
+                        <li><strong>Interior scenes:</strong> Adds realism to corner shadows and furniture contact</li>
+                        <li><strong>Clothing and fabric:</strong> Emphasizes folds, wrinkles, and texture</li>
+                        <li><strong>Complex geometry:</strong> Reveals detail in hair, jewelry, intricate props</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>❌ Skip AO When</h4>
+                    <ul>
+                        <li><strong>Already using IDL:</strong> Indirect lighting includes AO-like effects; double AO can be too dark</li>
+                        <li><strong>Very bright outdoor scenes:</strong> Strong sun washes out subtle AO effects</li>
+                        <li><strong>Distant shots:</strong> AO won't be visible; save the render time</li>
+                        <li><strong>Stylized, flat looks:</strong> Some art styles intentionally avoid realistic shadow depth</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Common AO Mistakes</h4>
+                    <ul>
+                        <li><strong>Too strong:</strong> If your render looks muddy or overly dark, reduce AO strength to 0.7-0.8</li>
+                        <li><strong>Wrong distance:</strong> Dark halos around objects? Max distance is too high. Reduce it.</li>
+                        <li><strong>Grainy results:</strong> Bump up sample count—graininess means you need more rays</li>
+                        <li><strong>Spotting on surfaces:</strong> Increase the bias setting slightly (try 0.05-0.1)</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>The AO philosophy:</strong> When used correctly, ambient occlusion should be <em>invisible but essential</em>. Viewers shouldn't notice it consciously, but without it, the render feels "off." It's the salt of 3D rendering—you don't taste it directly, but it makes everything better.
+                    </p>
+                </blockquote>
+
+            </section>
+
+            <!-- Section 5: Material Optimization -->
+            <section id="material-optimization" class="content-section">
+                <h2>🎨 Optimizing Materials for Firefly</h2>
+                
+                <p>
+                    Firefly interprets materials differently than SuperFly. While SuperFly uses physically-based shaders, Firefly uses Poser's traditional shader system—which gives you more artistic control but requires understanding how to optimize materials for best results.
+                </p>
+
+                <h3>Key Material Settings for Firefly</h3>
+
+                <p>
+                    When working with Firefly, certain material properties have outsized impact on your render quality. Let's focus on the most important ones:
+                </p>
+
+                <h4>Specular Settings</h4>
+
+                <p>
+                    <strong>Specular</strong> controls how shiny a surface appears—basically, how much it reflects light sources as bright highlights. Think of it as the difference between matte paper and glossy photo paper.
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Material Type</th>
+                            <th>Specular Value</th>
+                            <th>Specular Color</th>
+                            <th>Real-World Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Skin</td>
+                            <td>0.15-0.3</td>
+                            <td>Warm white or skin tone</td>
+                            <td>Natural skin has subtle sheen</td>
+                        </tr>
+                        <tr>
+                            <td>Fabric (matte)</td>
+                            <td>0.05-0.15</td>
+                            <td>Fabric color, desaturated</td>
+                            <td>Cotton t-shirt</td>
+                        </tr>
+                        <tr>
+                            <td>Fabric (satin)</td>
+                            <td>0.4-0.7</td>
+                            <td>White</td>
+                            <td>Silk blouse, satin dress</td>
+                        </tr>
+                        <tr>
+                            <td>Plastic</td>
+                            <td>0.5-0.8</td>
+                            <td>White</td>
+                            <td>Toy, bottle</td>
+                        </tr>
+                        <tr>
+                            <td>Metal</td>
+                            <td>0.8-1.0</td>
+                            <td>Metal color (gold, silver)</td>
+                            <td>Jewelry, chrome</td>
+                        </tr>
+                        <tr>
+                            <td>Glass</td>
+                            <td>1.0</td>
+                            <td>White</td>
+                            <td>Window, drinking glass</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 Pro Insight: Colored Speculars</h4>
+                    <p>
+                        One of Firefly's artistic superpowers is <strong>colored specular highlights</strong>. In the real world, speculars usually match the light color (white indoors, yellow-orange in sunset). But Firefly lets you tint speculars—making skin glow warmly or giving fabric an iridescent sheen. It's not physically accurate, but it can look amazing. Just keep it subtle!
+                    </p>
+                </div>
+
+                <h4>Bump and Displacement</h4>
+
+                <p>
+                    <strong>Bump maps</strong> create the illusion of surface detail without changing geometry. <strong>Displacement</strong> actually moves the geometry. Both are powerful in Firefly, but need careful setup:
+                </p>
+
+                <div class="card">
+                    <h4>Bump Map Best Practices</h4>
+                    <ul>
+                        <li><strong>Strength:</strong> Start with 0.01-0.03 for subtle detail. Over 0.1 often looks exaggerated.</li>
+                        <li><strong>Negative values:</strong> Invert the bump map effect (valleys become peaks)</li>
+                        <li><strong>Combine with normal maps:</strong> For even better surface detail, use both bump and normal maps</li>
+                        <li><strong>Quality setting:</strong> Bump maps need lower Min Shading Rate to look crisp (0.1-0.2)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Displacement Guidelines</h4>
+                    <ul>
+                        <li><strong>Subdivision required:</strong> You need SubD or high polygon counts for displacement to work</li>
+                        <li><strong>Displacement bounds:</strong> Set these correctly or you'll get clipping artifacts</li>
+                        <li><strong>Render time:</strong> Displacement adds significant calculation time</li>
+                        <li><strong>When to use:</strong> Close-ups where actual geometry changes matter (wrinkled skin, rocky terrain)</li>
+                    </ul>
+                </div>
+
+                <h3>Reflection Settings</h3>
+
+                <p>
+                    Firefly handles reflections through <strong>raytracing</strong> (covered earlier) or through <strong>reflection maps</strong>. Here's how to make reflective materials work beautifully:
+                </p>
+
+                <div class="card">
+                    <h4>Setting Up Reflections</h4>
+                    <ol>
+                        <li>Set <strong>Reflection Value</strong>:
+                            <ul>
+                                <li>0.1-0.2 for subtle reflections (wet surface)</li>
+                                <li>0.3-0.6 for clear reflections (polished wood)</li>
+                                <li>0.8-1.0 for mirror-like reflections (chrome, glass)</li>
+                            </ul>
+                        </li>
+                        <li>Choose <strong>Reflection Color</strong>:
+                            <ul>
+                                <li>White for neutral reflections</li>
+                                <li>Material color for colored metals (gold, copper)</li>
+                            </ul>
+                        </li>
+                        <li>Enable <strong>Raytraced Reflections</strong> in render settings</li>
+                        <li>For blurry reflections, use reflection blur maps (advanced technique)</li>
+                    </ol>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Material</th>
+                            <th>Reflection Value</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Matte finish</td>
+                            <td>0.0-0.1</td>
+                            <td>Most fabrics, rough stone</td>
+                        </tr>
+                        <tr>
+                            <td>Satin/glossy</td>
+                            <td>0.2-0.4</td>
+                            <td>Polished wood, satin fabric</td>
+                        </tr>
+                        <tr>
+                            <td>Wet surface</td>
+                            <td>0.3-0.5</td>
+                            <td>Wet skin, wet pavement</td>
+                        </tr>
+                        <tr>
+                            <td>Glass</td>
+                            <td>0.6-0.8</td>
+                            <td>Plus refraction settings</td>
+                        </tr>
+                        <tr>
+                            <td>Chrome/mirror</td>
+                            <td>0.9-1.0</td>
+                            <td>Metal, perfect mirrors</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Translucency and Transparency</h3>
+
+                <p>
+                    Firefly handles see-through materials in two ways: <strong>transparency</strong> (for glass and clear objects) and <strong>translucency</strong> (for materials that let light pass through but scatter it, like skin or wax).
+                </p>
+
+                <div class="card">
+                    <h4>Transparency Setup (Glass, Windows)</h4>
+                    <ul>
+                        <li><strong>Transparency:</strong> 0.8-1.0</li>
+                        <li><strong>Transparency Edge:</strong> 0.0 (for non-physical control)</li>
+                        <li><strong>Refraction:</strong> Enable, set IOR to 1.5 (glass) or 1.33 (water)</li>
+                        <li><strong>Reflection:</strong> 0.6-0.8 (glass reflects a lot!)</li>
+                        <li><strong>Specular:</strong> 1.0</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Translucency Setup (Skin, Wax, Jade)</h4>
+                    <ul>
+                        <li><strong>Translucence:</strong> Enable in material settings</li>
+                        <li><strong>Translucence Value:</strong> 0.3-0.6 for skin, 0.6-0.9 for wax</li>
+                        <li><strong>Scatter Distance:</strong> Controls how far light penetrates (0.5-2.0 for skin)</li>
+                        <li><strong>Backlit areas:</strong> Ears, fingers, thin fabric look luminous when lit from behind</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Remember:</strong> Translucency adds significant render time because Firefly needs to calculate light passing through surfaces. Use it where it matters (skin, ears, fingers) but don't enable it on every material just because you can.
+                    </p>
+                </blockquote>
+                <h3>Firefly-Specific Material Tweaks</h3>
+
+                <p>Here are some quick tweaks that make a huge difference in Firefly renders:</p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅Quick Wins for Better Materials</h4>
+                    <ul>
+                        <li><strong>Reduce ambient color:</strong> Set ambient to black or very dark. Let your lights do the work!</li>
+                        <li><strong>Slight diffuse color adjustment:</strong> If materials look too saturated, reduce diffuse color saturation by 10-20%</li>
+                        <li><strong>Add subtle specularity everywhere:</strong> Even "matte" objects have a tiny specular (0.05-0.1)</li>
+                        <li><strong>Use texture maps fully:</strong> Connect diffuse, bump, and specular maps for rich detail</li>
+                        <li><strong>Enable reflection falloff:</strong> For realistic reflections that fade with angle</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Common Material Mistakes in Firefly</h4>
+                    <ul>
+                        <li><strong>Too much ambient:</strong> Materials look flat and washed out. Keep ambient at 0 or very low.</li>
+                        <li><strong>Wrong reflection values:</strong> Everything looks like plastic. Match reflection to material type!</li>
+                        <li><strong>Ignoring specular color:</strong> White specular on everything looks artificial. Tint it appropriately.</li>
+                        <li><strong>Over-strong bump maps:</strong> Surfaces look lumpy or exaggerated. Start subtle and increase gradually.</li>
+                        <li><strong>Not testing with lights:</strong> Materials look different under different lighting. Always test!</li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <!-- Section 6: Lighting Strategies -->
+            <section id="lighting-strategies" class="content-section">
+                <h2>💡 Lighting Strategies for Firefly</h2>
+                
+                <p>
+                    Firefly gives you incredible control over lighting—but that freedom means you need to light thoughtfully. Unlike physically-based renderers that handle indirect lighting automatically, Firefly requires you to <em>design</em> your lighting setup. Let's explore strategies that produce beautiful Firefly renders.
+                </p>
+
+                <h3>The Three-Light Foundation</h3>
+
+                <p>
+                    We covered three-point lighting in an earlier lesson, but it's worth revisiting how Firefly interprets these lights:
+                </p>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Three-Point Lighting in Firefly] --> B[Key Light]
+                    A --> C[Fill Light]
+                    A --> D[Rim Light]
+                    
+                    B --> B1[Strong shadows]
+                    B --> B2[Main illumination]
+                    C --> C1[Soften shadows]
+                    C --> C2[Control contrast]
+                    D --> D1[Edge definition]
+                    D --> D2[Separation from background]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:3px,color:#fff
+                    style B fill:#FFC107,stroke:#333,stroke-width:2px
+                    style C fill:#4CAF50,stroke:#333,stroke-width:2px
+                    style D fill:#2196F3,stroke:#333,stroke-width:2px
+                </div>
+
+                <div class="card">
+                    <h4>Key Light Configuration for Firefly</h4>
+                    <ul>
+                        <li><strong>Type:</strong> Infinite light or spotlight</li>
+                        <li><strong>Intensity:</strong> 80-120%</li>
+                        <li><strong>Shadow type:</strong> Raytraced for final, depth map for preview</li>
+                        <li><strong>Color:</strong> Warm white (255, 250, 240) or cool white (240, 245, 255)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Fill Light Configuration for Firefly</h4>
+                    <ul>
+                        <li><strong>Type:</strong> Infinite light (broad coverage) or point light</li>
+                        <li><strong>Intensity:</strong> 30-50% (about 1/3 of key light)</li>
+                        <li><strong>Shadows:</strong> Usually OFF (let key light handle shadows)</li>
+                        <li><strong>Color:</strong> Slightly cooler than key light, or match ambient color</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Rim Light Configuration for Firefly</h4>
+                    <ul>
+                        <li><strong>Type:</strong> Spotlight or infinite light</li>
+                        <li><strong>Intensity:</strong> 70-100%</li>
+                        <li><strong>Shadows:</strong> Usually OFF</li>
+                        <li><strong>Color:</strong> White or slightly colored for artistic effect</li>
+                        <li><strong>Specular only:</strong> Consider disabling diffuse, enable only specular for pure edge lighting</li>
+                    </ul>
+                </div>
+
+                <h3>Firefly Light Types and When to Use Them</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Light Type</th>
+                            <th>Firefly Behavior</th>
+                            <th>Best For</th>
+                            <th>Performance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Infinite Light</strong></td>
+                            <td>Parallel rays, like sun. Casts uniform shadows.</td>
+                            <td>Outdoor scenes, main key lights, consistent illumination</td>
+                            <td>Fast</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Point Light</strong></td>
+                            <td>Radiates from a point. Shadows diverge from source.</td>
+                            <td>Light bulbs, candles, practical lights in scene</td>
+                            <td>Medium</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Spotlight</strong></td>
+                            <td>Cone of light with controllable spread. Directional.</td>
+                            <td>Focused lighting, dramatic effects, rim lights</td>
+                            <td>Medium-Slow</td>
+                        </tr>
+                        <tr>
+                            <td><strong>IBL (Image-Based)</strong></td>
+                            <td>Environment map provides lighting from all directions.</td>
+                            <td>Outdoor environments, complex ambient lighting</td>
+                            <td>Slow</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Area Light</strong></td>
+                            <td>Large emissive surface. Soft, realistic shadows.</td>
+                            <td>Window light, softboxes, natural soft lighting</td>
+                            <td>Very Slow</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 Pro Strategy: Light Hierarchy</h4>
+                    <p>
+                        In Firefly, establish a <strong>light hierarchy</strong>: one strong key light (with shadows), a softer fill light (no shadows), and accent lights for details (no shadows). This keeps render times manageable while maintaining visual interest.
+                    </p>
+                </div>
+
+                <h3>Shadow Strategies</h3>
+
+                <p>
+                    Shadows are expensive in terms of render time. Here's how to be strategic about them:
+                </p>
+
+                <div class="card">
+                    <h4>Shadow Best Practices</h4>
+                    <ul>
+                        <li><strong>One shadow caster:</strong> Usually only your key light needs shadows. Fill and rim lights often work better without.</li>
+                        <li><strong>Shadow map size:</strong> For depth map shadows, 1024-2048 is usually sufficient. Higher = slower, not always better.</li>
+                        <li><strong>Shadow blur:</strong> Add slight blur to depth map shadows (0.5-2.0) for more natural look.</li>
+                        <li><strong>Shadow bias:</strong> If shadows look detached, reduce bias. If you see artifacts, increase it.</li>
+                    </ul>
+                </div>
+
+                <h3>Indirect Lighting (IDL) in Firefly</h3>
+
+                <p>
+                    <strong>Indirect Lighting</strong> simulates light bouncing off surfaces. It's like how a white wall in your room reflects sunlight and illuminates the rest of the space. IDL can add tremendous realism but comes with a render time cost.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅Enabling Indirect Lighting</h4>
+                    <ol>
+                        <li>Go to <strong>Render Settings &gt; Manual Settings</strong></li>
+                        <li>Check <strong>Enable Indirect Lighting</strong></li>
+                        <li>Set <strong>Number of Bounces</strong> to 1 or 2</li>
+                        <li>Start with <strong>16-32 samples</strong> for quality</li>
+                    </ol>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>IDL Bounces</th>
+                            <th>Effect</th>
+                            <th>When to Use</th>
+                            <th>Render Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0 (OFF)</td>
+                            <td>No indirect lighting</td>
+                            <td>Most character work, when you're lighting manually</td>
+                            <td>Baseline</td>
+                        </tr>
+                        <tr>
+                            <td>1 bounce</td>
+                            <td>Light reflects once off surfaces</td>
+                            <td>Interior scenes, subtle ambient light</td>
+                            <td>+100-200%</td>
+                        </tr>
+                        <tr>
+                            <td>2 bounces</td>
+                            <td>Light bounces twice, more realistic</td>
+                            <td>Complex interiors, realistic lighting setups</td>
+                            <td>+300-500%</td>
+                        </tr>
+                        <tr>
+                            <td>3+ bounces</td>
+                            <td>Diminishing returns</td>
+                            <td>Rarely worth it in Firefly</td>
+                            <td>Exponential increase</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ IDL Considerations</h4>
+                    <ul>
+                        <li><strong>Render time:</strong> IDL can double or triple your render times. Use strategically!</li>
+                        <li><strong>Noise:</strong> Low sample counts create grainy indirect lighting. Balance quality vs. time.</li>
+                        <li><strong>Color bleed:</strong> Colored surfaces will tint nearby objects (red wall makes nearby objects slightly red). This is realistic but can be surprising!</li>
+                        <li><strong>With AO:</strong> IDL and AO together can make things too dark. Reduce AO strength if using IDL.</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>When to use IDL:</strong> Interior scenes where you want realistic light bouncing off walls. <strong>When to skip it:</strong> Character portraits with controlled studio lighting—you're manually placing fill lights anyway, so IDL is redundant.
+                    </p>
+                </blockquote>
+            </section>
+
+            <!-- Section 7: Advanced Features -->
+            <section id="advanced-features" class="content-section">
+                <h2>âš¡ Advanced Firefly Features</h2>
+                
+                <p>
+                    Once you've mastered the fundamentals, Firefly offers several advanced features that can take your renders to the next level. These techniques require more setup and render time, but the results can be stunning.
+                </p>
+
+                <h3>Depth of Field</h3>
+
+                <p>
+                    <strong>Depth of Field (DOF)</strong> mimics how real cameras work—keeping the subject in focus while blurring the foreground and background. It's one of the most cinematic effects you can add to a render.
+                </p>
+
+                <div class="card">
+                    <h4>Why Use Depth of Field?</h4>
+                    <ul>
+                        <li><strong>Focus attention:</strong> Viewer's eye goes to the sharp area</li>
+                        <li><strong>Cinematic look:</strong> Mimics photography and film</li>
+                        <li><strong>Hide background:</strong> Blur distracting background elements</li>
+                        <li><strong>Add depth:</strong> Emphasizes distance and spatial relationships</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅Enabling Depth of Field</h4>
+                    <ol>
+                        <li>Select your camera in the scene</li>
+                        <li>In camera <strong>Properties</strong>, enable <strong>Depth of Field</strong></li>
+                        <li>Set <strong>f-Stop</strong>:
+                            <ul>
+                                <li>f/1.4-f/2.8: Very shallow DOF (portrait)</li>
+                                <li>f/4-f/8: Moderate DOF (standard)</li>
+                                <li>f/11-f/22: Deep DOF (landscape)</li>
+                            </ul>
+                        </li>
+                        <li>Set <strong>Focus Distance</strong>: Point to your subject</li>
+                        <li>In <strong>Render Settings</strong>, increase DOF samples (16-32)</li>
+                    </ol>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>f-Stop Value</th>
+                            <th>Depth of Field</th>
+                            <th>Best For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>f/1.4 - f/2.0</td>
+                            <td>Very shallow (dreamy look)</td>
+                            <td>Extreme close-ups, artistic portraits</td>
+                        </tr>
+                        <tr>
+                            <td>f/2.8 - f/4</td>
+                            <td>Shallow (subject focus)</td>
+                            <td>Portrait photography look</td>
+                        </tr>
+                        <tr>
+                            <td>f/5.6 - f/8</td>
+                            <td>Moderate (balanced)</td>
+                            <td>Full character shots, environmental portraits</td>
+                        </tr>
+                        <tr>
+                            <td>f/11 - f/16</td>
+                            <td>Deep (most in focus)</td>
+                            <td>Group shots, product photography</td>
+                        </tr>
+                        <tr>
+                            <td>f/22+</td>
+                            <td>Everything sharp</td>
+                            <td>Landscape scenes, architectural renders</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 Pro Tip: Finding Focus Distance</h4>
+                    <p>
+                        Use the <strong>Point At</strong> feature in camera properties. Select your camera, then point it at the character's eyes (or your focus subject). This automatically sets the correct focus distance. You can also use the camera's <strong>Display Guides</strong> to visualize the focus plane.
+                    </p>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ DOF Render Time Warning</h4>
+                    <p>
+                        Depth of field significantly increases render time because Firefly needs to sample multiple times per pixel to create smooth blur. Use fewer DOF samples (16) for tests, increase to 32+ for finals. And remember: DOF is a <em>finishing touch</em>. Get your pose, lighting, and composition right first!
+                    </p>
+                </div>
+
+                <h3>Motion Blur</h3>
+
+                <p>
+                    <strong>Motion Blur</strong> is primarily used in animation, but can add dynamism even to still renders. It simulates the blur that occurs when objects move during a camera exposure.
+                </p>
+
+                <div class="card">
+                    <h4>When to Use Motion Blur</h4>
+                    <ul>
+                        <li><strong>Animation frames:</strong> Essential for smooth-looking animation</li>
+                        <li><strong>Action shots:</strong> Character mid-punch, jumping, running</li>
+                        <li><strong>Spinning objects:</strong> Wheels, propellers, rotating machinery</li>
+                        <li><strong>Camera movement:</strong> Panning shots where background blurs</li>
+                    </ul>
+                </div>
+
+                <p>
+                    Motion blur requires keyframe animation data, so for static renders, it's rarely used. But if you're rendering animation, enable it in <strong>Render Settings &gt; Manual Settings &gt; Motion Blur</strong>.
+                </p>
+
+                <h3>Volumetric Effects</h3>
+
+                <p>
+                    <strong>Volumetric lighting</strong> (also called "god rays" or "crepuscular rays") creates visible light beams—like sunbeams streaming through a window. It's dramatic and atmospheric but render-intensive.
+                </p>
+
+                <div class="card">
+                    <h4>Creating Volumetric Effects</h4>
+                    <ol>
+                        <li>Use a <strong>spotlight</strong> (volumetrics don't work with infinite lights)</li>
+                        <li>In the light's properties, enable <strong>Volume</strong></li>
+                        <li>Adjust <strong>Volume Quality</strong> (start with medium)</li>
+                        <li>Add slight <strong>Volume Turbulence</strong> for more realism</li>
+                        <li>Render—expect significant time increase!</li>
+                    </ol>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Pro wisdom:</strong> Volumetric effects look amazing but are slow. Use them <em>only</em> when they're the hero of the shot—dusty warehouse shafts of light, misty forest with light beams, etc. Don't enable them on every light "just because"!
+                    </p>
+                </blockquote>
+
+                <h3>Post Effects and Tone Mapping</h3>
+
+                <p>
+                    Firefly includes some basic post-processing effects you can enable directly in the render settings:
+                </p>
+
+                <div class="card">
+                    <h4>Available Post Effects</h4>
+                    <ul>
+                        <li><strong>Gamma Correction:</strong> Adjusts overall brightness curve (typically 2.2 for correct display)</li>
+                        <li><strong>Bloom/Glow:</strong> Makes bright areas "glow" outward (subtle use recommended!)</li>
+                        <li><strong>Tone Mapping:</strong> Compresses high dynamic range into displayable range</li>
+                        <li><strong>Color Management:</strong> Ensures colors render accurately on different displays</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 Gamma Correction Explained</h4>
+                    <p>
+                        Your monitor displays images differently than they're calculated. <strong>Gamma correction</strong> fixes this. Most monitors expect gamma 2.2. If your renders look too dark, you might need to enable gamma correction. If they look washed out, gamma might be applied twice (once in Poser, once by your image viewer). Test and adjust!
+                    </p>
+                </div>
+
+                <h3>Toon and NPR Rendering</h3>
+
+                <p>
+                    Firefly includes options for <strong>non-photorealistic rendering (NPR)</strong>, including toon shading. This creates a cartoon or comic book look.
+                </p>
+
+                <div class="card">
+                    <h4>Toon Render Setup</h4>
+                    <ol>
+                        <li>In materials, switch to <strong>Toon shader</strong></li>
+                        <li>Adjust number of <strong>toon bands</strong> (fewer = more stylized)</li>
+                        <li>Enable <strong>edge lines</strong> in render settings</li>
+                        <li>Adjust line width and color</li>
+                        <li>Render with cartoon-like flatness</li>
+                    </ol>
+                </div>
+
+                <p>
+                    Toon rendering is a specialized technique. Most users stick with photorealistic Firefly rendering, but it's worth knowing this capability exists for stylized projects.
+                </p>
+
+            </section>
+
+            <!-- Section 8: Render Passes -->
+            <section id="render-passes" class="content-section">
+                <h2>ðŸŽ¬ Working with Render Passes</h2>
+                
+                <p>
+                    <strong>Render passes</strong> (also called render layers or AOVs - Arbitrary Output Variables) let you render different aspects of your scene separately. Think of it like building a sandwich—instead of one final image, you get the bread, lettuce, tomato, and cheese as separate layers you can reassemble and adjust in post-production.
+                </p>
+
+                <h3>What Are Render Passes?</h3>
+
+                <p>
+                    Imagine you render a character portrait. Normally, you get one final image with everything baked together. With render passes, you could get:
+                </p>
+
+                <ul>
+                    <li>A <strong>beauty pass</strong>: The full final image</li>
+                    <li>A <strong>diffuse pass</strong>: Just the base colors, no lighting</li>
+                    <li>A <strong>specular pass</strong>: Just the shiny highlights</li>
+                    <li>A <strong>shadow pass</strong>: Just the shadows</li>
+                    <li>A <strong>reflection pass</strong>: Just the reflections</li>
+                    <li>A <strong>depth pass</strong>: Grayscale based on distance from camera</li>
+                </ul>
+
+                <div class="card">
+                    <h4>Why Use Render Passes?</h4>
+                    <ul>
+                        <li><strong>Flexibility:</strong> Adjust individual elements (brighten shadows, reduce specular) without re-rendering</li>
+                        <li><strong>Problem solving:</strong> If skin is too shiny, reduce specular pass opacity in Photoshop</li>
+                        <li><strong>Compositing:</strong> Build complex images from separate elements</li>
+                        <li><strong>Art direction:</strong> Client wants different lighting? Remix passes instead of re-rendering!</li>
+                        <li><strong>Special effects:</strong> Depth pass enables realistic DOF in post, selection masks, etc.</li>
+                    </ul>
+                </div>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Render Passes] --> B[Beauty/Color]
+                    A --> C[Diffuse]
+                    A --> D[Specular]
+                    A --> E[Shadow]
+                    A --> F[Reflection]
+                    A --> G[Depth/Z]
+                    
+                    B --> B1[Final combined image]
+                    C --> C1[Base color info]
+                    D --> D1[Highlight adjustments]
+                    E --> E1[Shadow tweaking]
+                    F --> F1[Reflection control]
+                    G --> G1[DOF & selection masks]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:3px,color:#fff
+                    style B fill:#4CAF50,stroke:#333,stroke-width:2px
+                    style C fill:#FFC107,stroke:#333,stroke-width:2px
+                    style D fill:#2196F3,stroke:#333,stroke-width:2px
+                </div>
+                <h3>Setting Up Render Passes in Firefly</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅How to Enable Render Passes</h4>
+                    <ol>
+                        <li>Go to <strong>Render &gt; Render Settings</strong></li>
+                        <li>Look for the <strong>Render Passes</strong> or <strong>AOV</strong> section (location varies by Poser version)</li>
+                        <li>Check the passes you want to output:
+                            <ul>
+                                <li><strong>Diffuse:</strong> Base color information</li>
+                                <li><strong>Specular:</strong> Shiny highlights only</li>
+                                <li><strong>Shadow:</strong> Shadow information</li>
+                                <li><strong>Reflection:</strong> Reflective surfaces only</li>
+                                <li><strong>Depth/Z:</strong> Distance from camera (grayscale)</li>
+                            </ul>
+                        </li>
+                        <li>Set output location and naming convention</li>
+                        <li>Render normally—passes save as separate image files</li>
+                    </ol>
+                </div>
+
+                <h3>Essential Render Passes</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pass Name</th>
+                            <th>What It Contains</th>
+                            <th>Post-Production Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Beauty/RGB</strong></td>
+                            <td>Full final render with all effects</td>
+                            <td>Starting point for compositing, reference image</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Diffuse</strong></td>
+                            <td>Base colors without lighting effects</td>
+                            <td>Adjust base color, remove lighting issues</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Specular</strong></td>
+                            <td>Only specular highlights</td>
+                            <td>Reduce shine, adjust highlight color</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Shadow</strong></td>
+                            <td>Only shadow information</td>
+                            <td>Darken/lighten shadows independently</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Reflection</strong></td>
+                            <td>Only reflective surfaces</td>
+                            <td>Adjust reflection strength or blur</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ambient Occlusion</strong></td>
+                            <td>AO pass only</td>
+                            <td>Add or reduce contact shadows</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Depth/Z-Depth</strong></td>
+                            <td>Grayscale distance map</td>
+                            <td>Create DOF in post, selection masks, atmospheric effects</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Working with Render Passes in Photoshop</h3>
+
+                <p>
+                    Once you have your passes, you'll composite them in image editing software. Here's a basic workflow:
+                </p>
+
+                <div class="card">
+                    <h4>Basic Compositing Workflow</h4>
+                    <ol>
+                        <li><strong>Start with beauty pass:</strong> Open your full render as the base layer</li>
+                        <li><strong>Add specular layer:</strong> Place specular pass above, set to <strong>Add</strong> or <strong>Screen</strong> blend mode
+                            <ul>
+                                <li>Lower opacity to reduce shine (try 50-70%)</li>
+                                <li>Mask specific areas if needed</li>
+                            </ul>
+                        </li>
+                        <li><strong>Add shadow layer:</strong> Place shadow pass, set to <strong>Multiply</strong> blend mode
+                            <ul>
+                                <li>Adjust opacity to control shadow darkness</li>
+                                <li>Can blur slightly for softer shadows</li>
+                            </ul>
+                        </li>
+                        <li><strong>Use depth pass:</strong> Load Z-depth pass, use for:
+                            <ul>
+                                <li><strong>Lens Blur filter:</strong> Creates DOF in Photoshop</li>
+                                <li><strong>Selections:</strong> Quick select foreground or background</li>
+                                <li><strong>Atmospheric effects:</strong> Add fog or haze based on distance</li>
+                            </ul>
+                        </li>
+                        <li><strong>Fine-tune:</strong> Adjust each layer's opacity, blur, color until perfect</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 Pro Compositing Tip</h4>
+                    <p>
+                        The power of passes is <strong>non-destructive editing</strong>. Don't like how shiny the skin is? Reduce specular pass opacity. Shadows too harsh? Soften or reduce the shadow layer. You can make these adjustments hours, days, or weeks later without touching the 3D scene or re-rendering. This flexibility is gold when working with clients!
+                    </p>
+                </div>
+
+                <h3>When to Use Render Passes</h3>
+
+                <div class="card">
+                    <h4>✅Great Candidates for Passes</h4>
+                    <ul>
+                        <li><strong>Client work:</strong> When revisions are likely and you want flexibility</li>
+                        <li><strong>Complex scenes:</strong> Lots of elements that might need individual adjustment</li>
+                        <li><strong>Long renders:</strong> When re-rendering would cost hours, passes give you adjustment room</li>
+                        <li><strong>Portfolio pieces:</strong> Where you want ultimate control and perfection</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>❌ Skip Passes When</h4>
+                    <ul>
+                        <li><strong>Quick previews:</strong> No point for throwaway test renders</li>
+                        <li><strong>Simple scenes:</strong> Single character, good lighting—easier to just re-render if needed</li>
+                        <li><strong>Learning/practice:</strong> Focus on getting it right in-render first</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Learning path:</strong> Master creating great single-render images first. Once you're consistently getting good results, <em>then</em> explore render passes as a way to add that final 10% of polish or save time on revisions. Passes are a professional tool, not a crutch for poor lighting!
+                    </p>
+                </blockquote>
+
+            </section>
+
+            <!-- Section 9: Troubleshooting -->
+            <section id="troubleshooting" class="content-section">
+                <h2>🔧 Troubleshooting Common Issues</h2>
+                
+                <p>
+                    Even with proper setup, you'll occasionally encounter issues with Firefly renders. Let's troubleshoot the most common problems and their solutions.
+                </p>
+
+                <h3>Image Quality Issues</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Jagged edges (aliasing)</h4>
+                    <p><strong>Symptoms:</strong> Stair-stepping on edges, rough outlines, pixelated look</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Increase <strong>Pixel Samples</strong> to 8-12</li>
+                        <li>Enable <strong>Raytracing</strong> if it's off</li>
+                        <li>Check that you're rendering at full resolution, not a small preview size</li>
+                        <li>Make sure anti-aliasing isn't disabled in render settings</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Blotchy, grainy textures</h4>
+                    <p><strong>Symptoms:</strong> Materials look spotty, noisy, or have visible artifacts</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Lower <strong>Min Shading Rate</strong> to 0.2 or 0.1</li>
+                        <li>Increase <strong>Texture Resolution</strong> in render settings</li>
+                        <li>If using AO, increase AO sample count</li>
+                        <li>Check material nodes—ensure texture maps are connected properly</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Black or missing reflections</h4>
+                    <p><strong>Symptoms:</strong> Mirrors show black, glass looks opaque, reflective surfaces don't reflect</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Enable <strong>Raytracing</strong> in render settings</li>
+                        <li>Increase <strong>Raytrace Bounces</strong> to at least 2, preferably 4</li>
+                        <li>Check material settings—reflection value should be above 0</li>
+                        <li>Make sure there's something <em>to</em> reflect (environment, other objects)</li>
+                    </ul>
+                </div>
+
+                <h3>Shadow Problems</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: No shadows at all</h4>
+                    <p><strong>Symptoms:</strong> Figures look like they're floating, no contact shadows</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Select each light, enable <strong>Cast Shadows</strong></li>
+                        <li>In render settings, make sure shadows aren't disabled globally</li>
+                        <li>Check ground plane is present (figures need something to cast shadows <em>on</em>)</li>
+                        <li>If using depth map shadows, increase shadow map size to 1024 or 2048</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Blocky or pixelated shadows</h4>
+                    <p><strong>Symptoms:</strong> Shadow edges look like stair-steps, shadows have visible pixels</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>If using depth map shadows, increase <strong>Shadow Map Size</strong></li>
+                        <li>Switch to <strong>Raytraced Shadows</strong> for perfect accuracy</li>
+                        <li>Add slight <strong>Shadow Blur</strong> (0.5-2.0) to soften depth map edges</li>
+                        <li>Reduce <strong>Shadow Bias</strong> if shadows look detached from objects</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Shadows with weird artifacts or spots</h4>
+                    <p><strong>Symptoms:</strong> Black spots on surfaces, shadow acne, flickering in animations</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Increase <strong>Shadow Bias</strong> slightly (try 0.05-0.2)</li>
+                        <li>If using raytraced shadows with AO, increase AO bias setting</li>
+                        <li>Check for overlapping geometry (two surfaces occupying same space)</li>
+                        <li>For animation, switch to depth map shadows (more stable)</li>
+                    </ul>
+                </div>
+                <h3>Material and Texture Issues</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Materials look too shiny or plastic</h4>
+                    <p><strong>Symptoms:</strong> Everything looks like glossy plastic, excessive highlights</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Reduce <strong>Specular Value</strong> in material settings (try 0.2-0.4)</li>
+                        <li>Increase <strong>Specular Color</strong> saturation or tint toward material color</li>
+                        <li>Add a <strong>specular map</strong> to vary shininess across surface</li>
+                        <li>Check lighting—too much specular light makes everything shiny</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Materials look flat or lifeless</h4>
+                    <p><strong>Symptoms:</strong> No depth, no detail, everything looks painted-on</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Add <strong>bump maps</strong> for surface detail (start with 0.01-0.02)</li>
+                        <li>Increase <strong>specular highlights</strong> slightly (they add life!)</li>
+                        <li>Lower <strong>Min Shading Rate</strong> for better texture detail (try 0.2 or 0.1)</li>
+                        <li>Make sure <strong>texture maps</strong> are connected in material room</li>
+                        <li>Check lighting—flat lighting creates flat-looking materials</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Textures look blurry or low-resolution</h4>
+                    <p><strong>Symptoms:</strong> Details in texture maps aren't visible, everything looks soft</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Increase <strong>Max Texture Resolution</strong> in render settings (try 4096)</li>
+                        <li>Lower <strong>Min Shading Rate</strong> to 0.1 for sharper texture calculation</li>
+                        <li>Check source texture files—are they high enough resolution?</li>
+                        <li>In material room, verify <strong>Texture Filtering</strong> isn't too aggressive</li>
+                    </ul>
+                </div>
+
+                <h3>Performance and Render Time Issues</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Render takes forever (hours for one image)</h4>
+                    <p><strong>Symptoms:</strong> Render progress bar barely moves, estimated time is astronomical</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Disable <strong>Indirect Lighting (IDL)</strong> unless absolutely necessary</li>
+                        <li>Reduce <strong>Raytrace Bounces</strong> to 2-4 (do you really need 8?)</li>
+                        <li>Lower <strong>Pixel Samples</strong> to 6-8 for testing</li>
+                        <li>Turn off <strong>Ambient Occlusion</strong> or reduce AO samples</li>
+                        <li>Disable <strong>Depth of Field</strong> and <strong>Volumetric Effects</strong> for preview renders</li>
+                        <li>Check for <strong>area lights</strong>—they're slow; use spots/points instead</li>
+                        <li>Reduce render resolution for tests (render at 50% size)</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Render crashes or Poser freezes</h4>
+                    <p><strong>Symptoms:</strong> Poser stops responding, render window closes, out of memory errors</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Reduce <strong>Max Texture Resolution</strong> (try 2048 instead of 8192)</li>
+                        <li>Close other programs to free up RAM</li>
+                        <li>Check for <strong>huge texture files</strong> (20+ MB PNGs)—resize them</li>
+                        <li>Disable <strong>displacement</strong> on high-poly objects</li>
+                        <li>Try rendering at lower resolution first to test</li>
+                        <li>Save scene, restart Poser, try again (clears memory leaks)</li>
+                    </ul>
+                </div>
+
+                <h3>Color and Exposure Problems</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Render too dark</h4>
+                    <p><strong>Symptoms:</strong> Everything in shadow, can barely see details</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Increase <strong>light intensity</strong> (try 100-150% on key light)</li>
+                        <li>Add a <strong>fill light</strong> to brighten shadow areas</li>
+                        <li>Check <strong>Gamma Correction</strong>—might be too low or disabled</li>
+                        <li>Reduce <strong>Ambient Occlusion strength</strong> if using AO</li>
+                        <li>Verify materials don't have dark <strong>diffuse colors</strong></li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Render too bright or washed out</h4>
+                    <p><strong>Symptoms:</strong> Overexposed look, blown-out highlights, no contrast</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Reduce <strong>light intensity</strong> (try 70-90% on lights)</li>
+                        <li>Lower <strong>ambient color</strong> in materials to black</li>
+                        <li>Check if <strong>Gamma Correction</strong> is being applied twice</li>
+                        <li>Disable or reduce <strong>Indirect Lighting</strong> if it's too bright</li>
+                        <li>Adjust <strong>Tone Mapping</strong> settings if available</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>❌ Problem: Colors look wrong or washed out</h4>
+                    <p><strong>Symptoms:</strong> Skin tones off, colors don't match what you see in preview</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Check <strong>light colors</strong>—colored lights tint everything</li>
+                        <li>Verify <strong>Color Management</strong> settings in render options</li>
+                        <li>Look at <strong>ambient light color</strong>—should usually be very dark or match environment</li>
+                        <li>Check <strong>material diffuse colors</strong> in Material Room</li>
+                        <li>Test render with <strong>neutral white lights</strong> to isolate the issue</li>
+                    </ul>
+                </div>
+
+                <h3>Quick Diagnostic Checklist</h3>
+
+                <p>When something goes wrong, run through this checklist:</p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅Firefly Troubleshooting Checklist</h4>
+                    <ol>
+                        <li>Is <strong>Firefly</strong> selected as render engine? (Not Sketch or SuperFly)</li>
+                        <li>Are <strong>lights present</strong> in the scene? (At least one light)</li>
+                        <li>Do lights have <strong>shadows enabled</strong> if you want shadows?</li>
+                        <li>Is <strong>raytracing</strong> enabled if you need reflections/refractions?</li>
+                        <li>Are <strong>Pixel Samples</strong> high enough? (Minimum 4, ideally 6-8)</li>
+                        <li>Is <strong>Min Shading Rate</strong> low enough? (0.5 or lower for quality)</li>
+                        <li>Are materials properly configured? (Check diffuse, specular, reflection)</li>
+                        <li>Is render resolution correct? (Not accidentally at 10% preview size)</li>
+                        <li>Have you <strong>saved and restarted</strong> Poser? (Fixes weird glitches)</li>
+                    </ol>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Pro troubleshooting tip:</strong> When something looks wrong, simplify first. Render with just one light, no fancy settings. Does that work? Great—add complexity back one feature at a time until you find the culprit. It's like debugging code: isolate the problem before trying random solutions.
+                    </p>
+                </blockquote>
+
+            </section>
+            <!-- Section 10: Project -->
+            <section id="project" class="content-section">
+                <h2>ðŸŽ¯ Project: Professional Character Portrait with Firefly</h2>
+                
+                <p>
+                    Now let's put everything together! You're going to create a high-quality character portrait using all the Firefly techniques we've covered. This project will give you hands-on experience with Firefly's key features and result in a portfolio-worthy image.
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3 style="color: white;">🎨 Project Goal</h3>
+                    <p style="color: white; margin: 0;">
+                        Create a professional character portrait render using Firefly with proper lighting, materials, raytracing, and ambient occlusion. The final image should showcase depth, realistic materials, and polished quality suitable for a portfolio.
+                    </p>
+                </div>
+
+                <h3>Project Setup</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅Step 1: Scene Setup</h4>
+                    <ol>
+                        <li>Load a character figure (any character—use what you have available)</li>
+                        <li>Apply a neutral pose—standing or slight turn works well</li>
+                        <li>Position camera for a <strong>medium close-up</strong> (chest and head visible)</li>
+                        <li>Camera angle: slightly above eye level, looking down subtly at subject</li>
+                        <li>Add a simple ground plane or backdrop prop</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅Step 2: Configure Render Settings</h4>
+                    <ol>
+                        <li>Open <strong>Render Settings</strong> (Ctrl+Y / Cmd+Y)</li>
+                        <li>Select <strong>Firefly</strong> as render engine</li>
+                        <li>Manual Settings tab:
+                            <ul>
+                                <li><strong>Pixel Samples:</strong> 10</li>
+                                <li><strong>Min Shading Rate:</strong> 0.2</li>
+                                <li><strong>Max Texture Res:</strong> 4096</li>
+                            </ul>
+                        </li>
+                        <li>Enable <strong>Raytracing</strong> with <strong>4 bounces</strong></li>
+                        <li>Enable <strong>Raytraced Shadows</strong></li>
+                        <li>Set resolution to at least <strong>1920x1080</strong> (or your preferred size)</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅Step 3: Enable Ambient Occlusion</h4>
+                    <ol>
+                        <li>In Render Settings, find <strong>Ambient Occlusion</strong> section</li>
+                        <li>Enable <strong>Ambient Occlusion</strong></li>
+                        <li>Settings:
+                            <ul>
+                                <li><strong>Strength:</strong> 1.0</li>
+                                <li><strong>Max Distance:</strong> 5-7 PNU</li>
+                                <li><strong>Samples:</strong> 64</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>Lighting Setup</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅Step 4: Create Three-Point Lighting</h4>
+                    <ol>
+                        <li><strong>Key Light:</strong>
+                            <ul>
+                                <li>Add an <strong>Infinite Light</strong></li>
+                                <li>Position: 45 degrees to the left, 30 degrees above</li>
+                                <li>Intensity: 100%</li>
+                                <li>Color: Warm white (RGB: 255, 250, 240)</li>
+                                <li>Enable <strong>Cast Shadows</strong></li>
+                                <li>Shadow type: <strong>Raytraced</strong></li>
+                            </ul>
+                        </li>
+                        <li><strong>Fill Light:</strong>
+                            <ul>
+                                <li>Add another <strong>Infinite Light</strong></li>
+                                <li>Position: 45 degrees to the right, at eye level</li>
+                                <li>Intensity: 40%</li>
+                                <li>Color: Slightly cooler (RGB: 240, 245, 255)</li>
+                                <li><strong>Disable shadows</strong> for this light</li>
+                            </ul>
+                        </li>
+                        <li><strong>Rim Light:</strong>
+                            <ul>
+                                <li>Add a <strong>Spotlight</strong></li>
+                                <li>Position: Behind character, high and to one side</li>
+                                <li>Intensity: 80%</li>
+                                <li>Angle: narrow cone, aimed at character's shoulder/hair</li>
+                                <li>Color: White or very subtle warm tint</li>
+                                <li><strong>Disable shadows</strong> for this light</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>Material Optimization</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅Step 5: Optimize Skin Material</h4>
+                    <ol>
+                        <li>Go to <strong>Material Room</strong></li>
+                        <li>Select character's skin material (face or body)</li>
+                        <li>Adjust these settings:
+                            <ul>
+                                <li><strong>Diffuse Color:</strong> Check it looks natural (slightly desaturate if too vibrant)</li>
+                                <li><strong>Specular Value:</strong> 0.2-0.25</li>
+                                <li><strong>Specular Color:</strong> Warm white or slight skin tint</li>
+                                <li><strong>Bump:</strong> If bump map present, strength 0.01-0.02</li>
+                                <li><strong>Translucence:</strong> Enable with value 0.3-0.4 (for realistic skin glow)</li>
+                                <li><strong>Ambient Color:</strong> Set to black or very dark</li>
+                            </ul>
+                        </li>
+                        <li>Apply similar settings to all visible skin surfaces</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅Step 6: Check Other Materials</h4>
+                    <ol>
+                        <li><strong>Hair:</strong> 
+                            <ul>
+                                <li>Reduce specular to 0.3-0.5 (hair shouldn't be too shiny)</li>
+                                <li>Add slight transparency (0.1-0.2) for realistic edge softness</li>
+                            </ul>
+                        </li>
+                        <li><strong>Clothing:</strong>
+                            <ul>
+                                <li>Fabric: Low specular (0.1-0.15), good bump maps</li>
+                                <li>Leather/Satin: Higher specular (0.4-0.6)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Eyes:</strong>
+                            <ul>
+                                <li>Cornea: High specular (0.9), reflection (0.4-0.6)</li>
+                                <li>Enable transparency and refraction (IOR 1.4)</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>Test and Refine</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅Step 7: Preview Render</h4>
+                    <ol>
+                        <li>Before final render, do a <strong>preview render</strong>:
+                            <ul>
+                                <li>Temporarily reduce Pixel Samples to 4</li>
+                                <li>Set Min Shading Rate to 0.5</li>
+                                <li>Reduce AO samples to 32</li>
+                                <li>Render at 50% size</li>
+                            </ul>
+                        </li>
+                        <li>Evaluate the preview:
+                            <ul>
+                                <li>Is the lighting flattering?</li>
+                                <li>Are shadows too harsh or too soft?</li>
+                                <li>Does AO add good depth to the face?</li>
+                                <li>Do materials look believable?</li>
+                            </ul>
+                        </li>
+                        <li>Make adjustments:
+                            <ul>
+                                <li>Tweak light positions and intensities</li>
+                                <li>Adjust material specularity</li>
+                                <li>Fine-tune AO distance if needed</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅Step 8: Final Render</h4>
+                    <ol>
+                        <li>Restore quality settings:
+                            <ul>
+                                <li>Pixel Samples: 10</li>
+                                <li>Min Shading Rate: 0.2</li>
+                                <li>AO Samples: 64</li>
+                                <li>Full resolution</li>
+                            </ul>
+                        </li>
+                        <li>Optional enhancements:
+                            <ul>
+                                <li>Add <strong>Depth of Field</strong> if desired (f/4-f/5.6)</li>
+                                <li>Enable <strong>render passes</strong> for post-production flexibility</li>
+                            </ul>
+                        </li>
+                        <li>Click <strong>Render</strong> and let it cook!</li>
+                        <li>Render time estimate: 5-15 minutes depending on your hardware</li>
+                    </ol>
+                </div>
+
+                <h3>Success Checklist</h3>
+
+                <div class="card">
+                    <h4>Your final render should have:</h4>
+                    <ul>
+                        <li>✓ <strong>Clean, smooth edges</strong> (no jagged aliasing)</li>
+                        <li>✓ <strong>Well-defined shadows</strong> that enhance depth</li>
+                        <li>✓ <strong>Realistic skin</strong> with subtle specular highlights</li>
+                        <li>✓ <strong>Good tonal range</strong> from highlights to shadows</li>
+                        <li>✓ <strong>Contact shadows</strong> from ambient occlusion</li>
+                        <li>✓ <strong>Rim lighting</strong> defining edges and separating subject from background</li>
+                        <li>✓ <strong>Sharp details</strong> in textures and materials</li>
+                        <li>✓ <strong>Proper exposure</strong> (not too dark or too bright)</li>
+                    </ul>
+                </div>
+
+                <h3>Bonus Challenges</h3>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 Take It Further (Optional)</h4>
+                    <ul>
+                        <li><strong>Experiment with color temperature:</strong> Try a warmer sunset look or cooler moonlight by adjusting light colors</li>
+                        <li><strong>Add props:</strong> Place a simple prop in the scene (hat, glasses, book) and make it interact with lighting</li>
+                        <li><strong>Compare render engines:</strong> Render the same scene in SuperFly—what differences do you notice?</li>
+                        <li><strong>Create render passes:</strong> Output diffuse, specular, and shadow passes, then composite in Photoshop</li>
+                        <li><strong>Experiment with dramatic lighting:</strong> Try a single key light from the side for a moody, dramatic portrait</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p>
+                        <strong>Remember:</strong> This project isn't about getting it perfect on the first try. It's about <em>understanding the process</em>. If your first render isn't great, adjust and try again. Each iteration teaches you more about how Firefly interprets your settings. That's the real skill—knowing what to adjust when results aren't quite right.
+                    </p>
+                </blockquote>
+
+            </section>
+            <!-- Section 11: Summary -->
+            <section id="summary" class="content-section">
+                <h2>📝 Summary and Key Takeaways</h2>
+                
+                <p>
+                    Congratulations! You've now mastered Firefly rendering in Poser. Let's review the essential concepts and techniques you've learned in this lesson.
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white; padding: 1.5rem;">
+                    <h3 style="color: white; margin-top: 0;">🎓 Key Takeaways</h3>
+                    <ul style="color: white;">
+                        <li><strong>Firefly Philosophy:</strong> It's a fast, predictable render engine that prioritizes artistic control and efficiency over pure physical accuracy</li>
+                        <li><strong>Core Settings Matter:</strong> Pixel Samples and Min Shading Rate are your two most important quality controls</li>
+                        <li><strong>Raytracing Enables Realism:</strong> Without it, you lose reflections and accurate light behavior—4 bounces is the sweet spot</li>
+                        <li><strong>Ambient Occlusion Adds Depth:</strong> Those subtle contact shadows make renders feel grounded and realistic</li>
+                        <li><strong>Material Optimization is Essential:</strong> Properly configured materials make or break Firefly renders</li>
+                        <li><strong>Strategic Lighting:</strong> One good key light with shadows, fill and rim lights without—keep it simple but effective</li>
+                        <li><strong>Performance vs Quality:</strong> Know when to use preview settings and when to push for maximum quality</li>
+                    </ul>
+                </div>
+
+                <h3>Essential Settings Summary</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Setting</th>
+                            <th>Preview Value</th>
+                            <th>Final Render Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pixel Samples</td>
+                            <td>4-6</td>
+                            <td>8-12</td>
+                        </tr>
+                        <tr>
+                            <td>Min Shading Rate</td>
+                            <td>0.5</td>
+                            <td>0.1-0.2</td>
+                        </tr>
+                        <tr>
+                            <td>Raytrace Bounces</td>
+                            <td>2</td>
+                            <td>4-6</td>
+                        </tr>
+                        <tr>
+                            <td>AO Samples</td>
+                            <td>32</td>
+                            <td>64-128</td>
+                        </tr>
+                        <tr>
+                            <td>Shadow Type</td>
+                            <td>Depth Map</td>
+                            <td>Raytraced</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>The Firefly Workflow</h3>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Start with Scene] --> B[Configure Core Settings]
+                    B --> C[Enable Raytracing]
+                    C --> D[Add Ambient Occlusion]
+                    D --> E[Optimize Materials]
+                    E --> F[Set Up Lighting]
+                    F --> G[Preview Render]
+                    G --> H{Good Result?}
+                    H -->|No| I[Adjust Settings]
+                    I --> G
+                    H -->|Yes| J[Increase Quality Settings]
+                    J --> K[Final Render]
+                    K --> L[Save and Export]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style K fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style L fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Common Firefly Mistakes to Avoid</h3>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <ul>
+                        <li>❌ Cranking all settings to maximum—diminishing returns waste time</li>
+                        <li>❌ Forgetting to enable raytracing when using reflective materials</li>
+                        <li>❌ Using too many shadow-casting lights—one is usually enough</li>
+                        <li>❌ Enabling IDL when manual lighting would be faster and better</li>
+                        <li>❌ Ignoring material optimization—relying on render settings alone</li>
+                        <li>❌ Not doing preview renders—wasting hours on bad composition</li>
+                        <li>❌ Setting AO distance too high—creates weird dark halos</li>
+                    </ul>
+                </div>
+
+                <h3>When to Choose Firefly</h3>
+
+                <div class="card">
+                    <h4>✅Use Firefly When You Need:</h4>
+                    <ul>
+                        <li>Fast iteration times for testing poses and compositions</li>
+                        <li>Character portraits and figure-focused work</li>
+                        <li>Artistic control over lighting and materials</li>
+                        <li>Predictable, consistent results</li>
+                        <li>Animation renders (faster per frame)</li>
+                        <li>Stylized or non-photorealistic looks</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>🔄 Consider SuperFly Instead When You Need:</h4>
+                    <ul>
+                        <li>Photorealistic architectural or product renders</li>
+                        <li>Complex indirect lighting and caustics</li>
+                        <li>Physically accurate material behavior</li>
+                        <li>You have time for longer render times</li>
+                    </ul>
+                </div>
+
+                <h3>What's Next?</h3>
+
+                <p>
+                    In the next lesson, we'll explore <strong>SuperFly Rendering</strong>—Poser's physically-based render engine. You'll learn how SuperFly differs from Firefly, when to use it, and how to leverage its photorealistic capabilities. Understanding both engines makes you a more versatile Poser artist!
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3 style="color: white;">🎨 Your Firefly Journey</h3>
+                    <p style="color: white;">
+                        Mastering Firefly is a journey, not a destination. The more you render, the more you'll develop an intuition for which settings to adjust in different scenarios. Save your successful scenes as templates. Keep notes on what works. Build a library of go-to lighting setups. Over time, you'll work faster and get better results because you've internalized how Firefly thinks.
+                    </p>
+                    <p style="color: white; margin-bottom: 0;">
+                        Now get out there and create something amazing! Your renders will only get better from here. 🌟
+                    </p>
+                </div>
+
+            </section>
+
+        </article>
+
+        <!-- Lesson Navigation -->
+        <nav class="lesson-nav" aria-label="Lesson Navigation">
+            <a href="lesson_23_render_settings.html" class="prev-lesson">← Previous: Render Settings Overview</a>
+            <a href="index.html" class="home-link">ðŸ  Course Home</a>
+            <a href="lesson_25_superfly_rendering.html" class="next-lesson">Next: SuperFly Rendering →</a>
+        </nav>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <p>&copy; 2024 Poser 12 Mastery Course. All rights reserved.</p>
+            <p>Lesson 24: Firefly Rendering | Module 6: Rendering Your Work</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>
