@@ -1,0 +1,3219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0">
+    <meta name="description" content="Master post-render processing in Poser 12 - Learn professional techniques for color correction, compositing, effects, and final polish to transform good renders into stunning finished artwork.">
+    <meta name="author" content="Poser 12 Course">
+    <title>Post-Render Processing - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav" aria-label="Main Navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">🎨 Poser 12 Mastery</a>
+            <button class="nav-toggle" aria-label="Toggle Navigation">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Course Home</a></li>
+                <li><a href="lesson_26_render_optimization.html">← Previous</a></li>
+                <li><a href="lesson_28_animation_basics.html">Next →</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> &gt; 
+        <a href="index.html#module6">Module 6: Rendering Your Work</a> &gt; 
+        <span>Lesson 27: Post-Render Processing</span>
+    </nav>
+
+    <main class="container">
+        <!-- Lesson Header -->
+        <article class="lesson-content">
+            <header class="lesson-header">
+                <div class="lesson-number">Lesson 27</div>
+                <h1>🎨 Post-Render Processing: From Good to Spectacular</h1>
+                <p class="lead">
+                    The render button doesn't create finished artwork—it creates raw material. Professional 3D artists know that post-render processing is where good renders become spectacular images. Whether you're adjusting colors, adding atmospheric effects, compositing multiple renders, or applying final polish, post-processing gives you creative control that's simply impossible to achieve in-renderer. In this lesson, you'll learn the complete professional workflow for taking your Poser renders from "straight out of the renderer" to "portfolio-ready masterpieces." We'll cover color correction, compositing, effects, and all the finishing touches that separate amateur work from professional presentations.
+                </p>
+            </header>
+
+            <!-- Learning Objectives -->
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin: 2rem 0;">
+                <h2 style="color: white; margin-top: 0;">🎯 What You'll Learn</h2>
+                <ul style="color: white;">
+                    <li><strong>Post-Processing Workflow:</strong> Professional pipeline from render to final image</li>
+                    <li><strong>Color Correction:</strong> Levels, curves, color balance, and mood creation</li>
+                    <li><strong>Compositing Techniques:</strong> Combining multiple renders and render passes</li>
+                    <li><strong>Atmospheric Effects:</strong> Fog, glow, depth of field, light effects</li>
+                    <li><strong>Detail Enhancement:</strong> Sharpening, clarity, and texture emphasis</li>
+                    <li><strong>Creative Effects:</strong> Vignettes, film grain, color grading</li>
+                    <li><strong>Non-Destructive Workflow:</strong> Layer-based editing and flexibility</li>
+                    <li><strong>Output Optimization:</strong> Preparing images for different uses</li>
+                </ul>
+                <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                    <p style="margin: 0; color: white;"><strong>⏱️ Estimated Time:</strong> 60-75 minutes</p>
+                    <p style="margin: 0.5rem 0 0 0; color: white;"><strong>🎨 Project:</strong> Transform a raw render into a polished final image</p>
+                </div>
+            </div>
+            <!-- Sticky Table of Contents -->
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">📑 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#understanding-post-processing" class="toc-link">Understanding Post-Processing</a></li>
+                        <li><a href="#software-tools" class="toc-link">Software Tools and Setup</a></li>
+                        <li><a href="#color-correction" class="toc-link">Color Correction Fundamentals</a></li>
+                        <li><a href="#compositing-techniques" class="toc-link">Compositing and Layer Techniques</a></li>
+                        <li><a href="#atmospheric-effects" class="toc-link">Atmospheric Effects and Enhancements</a></li>
+                        <li><a href="#detail-enhancement" class="toc-link">Detail Enhancement and Sharpening</a></li>
+                        <li><a href="#creative-effects" class="toc-link">Creative Effects and Stylization</a></li>
+                        <li><a href="#output-preparation" class="toc-link">Output Preparation and Delivery</a></li>
+                        <li><a href="#project" class="toc-link">Project: Complete Post-Processing Workflow</a></li>
+                        <li><a href="#summary" class="toc-link">Summary and Key Takeaways</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Section 1: Understanding Post-Processing -->
+            <section id="understanding-post-processing">
+                <h2>🎬 Understanding Post-Processing: The Professional Advantage</h2>
+                
+                <p>
+                    If you look at professional 3D artwork in games, films, advertising, or galleries, virtually none of it is "straight from the renderer." Post-processing is the secret sauce that transforms technically correct renders into emotionally compelling images. Think of rendering like shooting RAW photos with a camera—you've captured all the information, but the real artistry happens in development. Let's explore why post-processing is essential and how it fits into the professional workflow.
+                </p>
+
+                <h3>Why Post-Process? The Professional Reality</h3>
+                
+                <p>
+                    Many beginners think they should be able to get perfect results directly from their renderer. This is a misconception that holds people back. Professional artists intentionally render with post-processing in mind, because it offers control, flexibility, and creative options that are impossible or impractical during rendering.
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3 style="color: white;">💡 Why Professionals Always Post-Process</h3>
+                    <ol style="color: white;">
+                        <li>
+                            <strong style="color: white;">Non-Destructive Workflow:</strong> Make changes without re-rendering (saves hours to days)
+                        </li>
+                        <li>
+                            <strong style="color: white;">Creative Flexibility:</strong> Try multiple color grades, moods, and styles instantly
+                        </li>
+                        <li>
+                            <strong style="color: white;">Render Time Savings:</strong> Effects that take minutes in Photoshop might add hours to render time
+                        </li>
+                        <li>
+                            <strong style="color: white;">Compositing Power:</strong> Combine multiple renders, add elements, fix problems
+                        </li>
+                        <li>
+                            <strong style="color: white;">Client Revisions:</strong> Make requested changes in minutes instead of re-rendering
+                        </li>
+                        <li>
+                            <strong style="color: white;">Artistic Control:</strong> Fine-tune mood, atmosphere, and emotion beyond renderer capabilities
+                        </li>
+                        <li>
+                            <strong style="color: white;">Output Optimization:</strong> Prepare different versions for different uses from one render
+                        </li>
+                    </ol>
+                </div>
+
+                <blockquote>
+                    <p><strong>🎨 Industry Standard:</strong></p>
+                    <p>In professional VFX and animation studios, the render is considered "60% finished" when it comes out of the renderer. The remaining 40% happens in compositing and post-processing. Major studios like Pixar, ILM, and Weta Digital have entire departments dedicated to post-processing—it's that important!</p>
+                </blockquote>
+
+                <h3>The Post-Processing Pipeline</h3>
+                
+                <p>
+                    Professional post-processing follows a structured workflow. Just like you wouldn't randomly adjust sliders in your renderer, you don't randomly apply filters in post. Here's the standard pipeline used by working professionals:
+                </p>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Raw Render] --> B[Technical Corrections]
+                    B --> C[Color Correction]
+                    C --> D[Compositing & Effects]
+                    D --> E[Detail Enhancement]
+                    E --> F[Creative Grading]
+                    F --> G[Output Optimization]
+                    G --> H[Final Image]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style B fill:#FFC107,stroke:#333,stroke-width:2px
+                    style C fill:#FFC107,stroke:#333,stroke-width:2px
+                    style D fill:#FF9800,stroke:#333,stroke-width:2px
+                    style E fill:#FF9800,stroke:#333,stroke-width:2px
+                    style F fill:#FF5722,stroke:#333,stroke-width:2px
+                    style G fill:#FF5722,stroke:#333,stroke-width:2px
+                    style H fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <div class="card">
+                    <h4>📋 The Seven-Stage Post-Processing Workflow</h4>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Stage</th>
+                                <th>Purpose</th>
+                                <th>Typical Actions</th>
+                                <th>Time Investment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1. Technical Corrections</strong></td>
+                                <td>Fix problems, clean up</td>
+                                <td>Remove artifacts, fix edges, clean background</td>
+                                <td>5-10 minutes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2. Color Correction</strong></td>
+                                <td>Balance and normalize</td>
+                                <td>Levels, curves, white balance, exposure</td>
+                                <td>5-15 minutes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3. Compositing</strong></td>
+                                <td>Combine elements</td>
+                                <td>Layer multiple renders, add backgrounds</td>
+                                <td>10-30 minutes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4. Effects</strong></td>
+                                <td>Add atmosphere</td>
+                                <td>Glow, fog, depth blur, light effects</td>
+                                <td>10-20 minutes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>5. Detail Enhancement</strong></td>
+                                <td>Emphasize important areas</td>
+                                <td>Sharpening, clarity, local adjustments</td>
+                                <td>5-10 minutes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>6. Creative Grading</strong></td>
+                                <td>Set mood and style</td>
+                                <td>Color grading, vignette, film look</td>
+                                <td>10-20 minutes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>7. Output Optimization</strong></td>
+                                <td>Prepare for delivery</td>
+                                <td>Resize, sharpen, format conversion</td>
+                                <td>5 minutes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p style="margin-top: 1rem;"><strong>Total Time:</strong> 50-120 minutes for comprehensive post-processing vs. hours or days of re-rendering!</p>
+                </div>
+
+                <h3>What Can (and Should) Be Done in Post</h3>
+                
+                <p>
+                    Understanding what's appropriate for post-processing versus what should be fixed in the render is crucial. Here's the professional decision matrix:
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Excellent Candidates for Post-Processing</h4>
+                    <ul>
+                        <li><strong>Color and Tone:</strong> Everything related to color, brightness, contrast, mood</li>
+                        <li><strong>Atmospheric Effects:</strong> Fog, haze, glow, lens effects, depth of field</li>
+                        <li><strong>Minor Fixes:</strong> Small artifacts, edge cleanup, minor object removal</li>
+                        <li><strong>Stylization:</strong> Film grain, vignettes, color grading, artistic looks</li>
+                        <li><strong>Compositing:</strong> Combining renders, adding backgrounds, layering elements</li>
+                        <li><strong>Detail Work:</strong> Sharpening, clarity, selective adjustments</li>
+                        <li><strong>Text and Graphics:</strong> Titles, watermarks, logos</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>🟡 Can Be Done, But Carefully</h4>
+                    <ul>
+                        <li><strong>Lighting Adjustments:</strong> Small tweaks okay, major changes better in renderer</li>
+                        <li><strong>Shadow Enhancement:</strong> Minor fixes work, but major shadow issues need re-render</li>
+                        <li><strong>Object Removal:</strong> Simple objects okay, complex ones problematic</li>
+                        <li><strong>Depth of Field:</strong> Post-process DOF can look good but lacks true optical quality</li>
+                        <li><strong>Perspective Correction:</strong> Minor adjustments fine, major changes create distortion</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #ffebee; border-left: 4px solid #f44336;">
+                    <h4>❌ Should Be Fixed in Renderer</h4>
+                    <ul>
+                        <li><strong>Major Lighting Problems:</strong> Wrong direction, intensity, or quality of light</li>
+                        <li><strong>Geometry Issues:</strong> Wrong poses, positioning, or proportions</li>
+                        <li><strong>Texture Problems:</strong> Missing, wrong, or low-quality textures</li>
+                        <li><strong>Material Errors:</strong> Incorrect materials or shader issues</li>
+                        <li><strong>Resolution Issues:</strong> Render at correct resolution from start</li>
+                        <li><strong>Major Composition Changes:</strong> Camera angle, framing fundamentals</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>⚖️ The Golden Rule:</strong></p>
+                    <p>If fixing it in post takes longer than re-rendering, re-render. If it would take multiple re-renders to try different options, do it in post. The goal is efficiency and creative freedom, not avoiding re-renders at all costs!</p>
+                </blockquote>
+
+                <h3>The Render-to-Post Mindset Shift</h3>
+                
+                <p>
+                    Professionals render differently when they know post-processing is part of the workflow. This mindset shift actually makes rendering faster and more efficient:
+                </p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>🧠 Professional Rendering Philosophy</h4>
+                    
+                    <p><strong>Amateur Mindset:</strong> "I need to get everything perfect in the render."</p>
+                    <ul>
+                        <li>Spends hours tweaking lights for perfect mood</li>
+                        <li>Re-renders multiple times for color variations</li>
+                        <li>Tries to add all effects in-renderer (slow!)</li>
+                        <li>Gets frustrated when client wants changes</li>
+                        <li>Total time: Days of rendering iterations</li>
+                    </ul>
+                    
+                    <p style="margin-top: 1rem;"><strong>Professional Mindset:</strong> "I need to get a clean, well-lit, high-quality render that I can finish in post."</p>
+                    <ul>
+                        <li>Renders with neutral good lighting</li>
+                        <li>Focuses on getting geometry, textures, and technical quality right</li>
+                        <li>Renders faster by skipping expensive in-renderer effects</li>
+                        <li>Creates multiple mood variations in post (minutes each)</li>
+                        <li>Makes client changes quickly without re-rendering</li>
+                        <li>Total time: One render + flexible post-processing</li>
+                    </ul>
+                </div>
+
+                <h3>When to Skip Post-Processing</h3>
+                
+                <p>
+                    Post-processing isn't always necessary or appropriate. Here's when you can skip it:
+                </p>
+
+                <div class="card">
+                    <h4>⚡ When Raw Renders Are Sufficient</h4>
+                    <ul>
+                        <li>
+                            <strong>Quick Tests and Previews:</strong> No need to polish work-in-progress renders
+                        </li>
+                        <li>
+                            <strong>Technical Documentation:</strong> Product manuals, assembly instructions need accuracy, not artistry
+                        </li>
+                        <li>
+                            <strong>Animation Frames:</strong> Individual frames rarely get post-processing (do it on final video instead)
+                        </li>
+                        <li>
+                            <strong>Reference Images:</strong> Material tests, lighting studies, technical reference
+                        </li>
+                        <li>
+                            <strong>Time Constraints:</strong> If deadline is immediate and render looks good enough
+                        </li>
+                        <li>
+                            <strong>Batch Workflows:</strong> Rendering 100 variations? Process in batch later, not one-by-one
+                        </li>
+                    </ul>
+                    
+                    <p style="margin-top: 1rem;"><strong>The 80/20 Rule:</strong> Reserve detailed post-processing for your best 20% of renders—the ones for portfolio, clients, or publication. The other 80% might need only quick adjustments or none at all.</p>
+                </div>
+
+                <h3>Building Your Post-Processing Toolkit</h3>
+                
+                <p>
+                    Before diving into techniques, let's discuss what tools you'll need. The good news? You can do professional-quality post-processing with free software:
+                </p>
+
+                <div class="card">
+                    <h4>🛠️ Software Options by Budget</h4>
+                    
+                    <p><strong>Free Options (Excellent Quality):</strong></p>
+                    <ul>
+                        <li><strong>GIMP:</strong> Full-featured, Photoshop-like interface, all tools needed</li>
+                        <li><strong>Krita:</strong> Painting-focused but excellent for illustration-style post-processing</li>
+                        <li><strong>Photopea:</strong> Web-based, no installation, reads PSD files</li>
+                        <li><strong>RawTherapee:</strong> Powerful RAW processor (yes, works on PNG/TIFF too!)</li>
+                        <li><strong>darktable:</strong> Professional color grading and adjustment</li>
+                    </ul>
+                    
+                    <p style="margin-top: 1rem;"><strong>Paid Options (Industry Standard):</strong></p>
+                    <ul>
+                        <li><strong>Adobe Photoshop:</strong> Industry standard, most tutorials available ($10-55/month)</li>
+                        <li><strong>Affinity Photo:</strong> One-time purchase (~$70), nearly all Photoshop features</li>
+                        <li><strong>Corel PaintShop Pro:</strong> Windows-focused, good value (~$80)</li>
+                        <li><strong>Capture One:</strong> Professional color work, excellent for 3D renders (~$30/month)</li>
+                    </ul>
+                    
+                    <p style="margin-top: 1rem;"><strong>Our Lesson Focus:</strong> We'll use Photoshop examples, but all techniques apply to GIMP and other layer-based editors. Concepts are universal—tools are interchangeable!</p>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Tool Independence:</strong></p>
+                    <p>Professional post-processing skills are software-agnostic. Once you understand layers, masks, blend modes, and adjustment layers, you can work in any image editor. Don't get hung up on "needing Photoshop"—GIMP is completely capable of professional work. Focus on learning the concepts, not memorizing button locations!</p>
+                </blockquote>
+
+            </section>
+            <!-- Section 2: Software Tools and Setup -->
+            <section id="software-tools">
+                <h2>🖥️ Software Tools and Setup: Building Your Post-Processing Studio</h2>
+                
+                <p>
+                    Having the right tools properly configured makes post-processing faster, easier, and more enjoyable. While you can technically edit images in any software, professional workflows require specific capabilities: non-destructive editing, layer management, adjustment layers, and masking. Let's set up your post-processing environment for maximum efficiency and explore the essential features you'll use daily.
+                </p>
+
+                <h3>Essential Software Features</h3>
+                
+                <p>
+                    Not all image editors are created equal for post-processing work. Here are the must-have features for professional 3D render post-processing:
+                </p>
+
+                <div class="card">
+                    <h4>✅ Required Features Checklist</h4>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Why Essential</th>
+                                <th>Professional Use</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Layers</strong></td>
+                                <td>Non-destructive workflow foundation</td>
+                                <td>Separate elements, try variations, maintain flexibility</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Adjustment Layers</strong></td>
+                                <td>Non-destructive color/tone changes</td>
+                                <td>Edit corrections anytime without degrading image</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Layer Masks</strong></td>
+                                <td>Selective editing control</td>
+                                <td>Apply effects to specific areas only</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Blend Modes</strong></td>
+                                <td>Advanced compositing</td>
+                                <td>Combine layers creatively, add effects</td>
+                            </tr>
+                            <tr>
+                                <td><strong>16-bit Support</strong></td>
+                                <td>Quality preservation</td>
+                                <td>Heavy editing without banding/artifacts</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Smart Objects</strong></td>
+                                <td>Preserve original quality</td>
+                                <td>Scale, transform without quality loss</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Selection Tools</strong></td>
+                                <td>Precise editing control</td>
+                                <td>Isolate areas for targeted adjustments</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Filters</strong></td>
+                                <td>Effects and enhancements</td>
+                                <td>Blur, sharpen, stylize, artistic effects</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>📊 Software Comparison for 3D Post-Processing</h4>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Software</th>
+                                <th>Layers</th>
+                                <th>Adj. Layers</th>
+                                <th>16-bit</th>
+                                <th>Smart Objects</th>
+                                <th>Learning Curve</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Photoshop</strong></td>
+                                <td>✅ Excellent</td>
+                                <td>✅ Full</td>
+                                <td>✅ Yes</td>
+                                <td>✅ Yes</td>
+                                <td>Medium</td>
+                            </tr>
+                            <tr>
+                                <td><strong>GIMP</strong></td>
+                                <td>✅ Excellent</td>
+                                <td>🟡 Limited</td>
+                                <td>✅ Yes</td>
+                                <td>❌ No</td>
+                                <td>Medium-High</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Affinity Photo</strong></td>
+                                <td>✅ Excellent</td>
+                                <td>✅ Full</td>
+                                <td>✅ Yes</td>
+                                <td>✅ Yes</td>
+                                <td>Medium</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Krita</strong></td>
+                                <td>✅ Excellent</td>
+                                <td>✅ Good</td>
+                                <td>✅ Yes</td>
+                                <td>❌ No</td>
+                                <td>Low-Medium</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Photopea</strong></td>
+                                <td>✅ Good</td>
+                                <td>✅ Good</td>
+                                <td>🟡 Limited</td>
+                                <td>✅ Yes</td>
+                                <td>Low</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p style="margin-top: 1rem;"><strong>Recommendation:</strong> If you're just starting, try <strong>GIMP</strong> (free) or <strong>Photopea</strong> (web-based). If you're serious about 3D art professionally, invest in <strong>Photoshop</strong> or <strong>Affinity Photo</strong>. All techniques in this lesson work in any of these tools!</p>
+                </div>
+
+                <h3>Workspace Setup and Organization</h3>
+                
+                <p>
+                    A well-organized workspace makes post-processing faster and less frustrating. Here's how to set up your image editor for optimal 3D post-processing work:
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>🎨 Optimal Workspace Configuration</h4>
+                    
+                    <p><strong>Panel Layout (Photoshop/Affinity/GIMP):</strong></p>
+                    <ul>
+                        <li>
+                            <strong>Left Side:</strong>
+                            <ul>
+                                <li>Tools panel (always visible)</li>
+                                <li>History panel (track your steps)</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Center:</strong>
+                            <ul>
+                                <li>Main canvas (maximize space)</li>
+                                <li>Multiple document tabs if working on series</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Right Side:</strong>
+                            <ul>
+                                <li>Layers panel (most important!)</li>
+                                <li>Adjustments panel (quick access)</li>
+                                <li>Properties panel (adjustment settings)</li>
+                                <li>Histogram (monitor tonal distribution)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <p style="margin-top: 1rem;"><strong>Display Settings:</strong></p>
+                    <ul>
+                        <li><strong>Color Management:</strong> Enable color management, use sRGB for web work</li>
+                        <li><strong>Proof Setup:</strong> Set to "Internet Standard RGB (sRGB)" for accurate preview</li>
+                        <li><strong>View:</strong> 100% zoom for detail work, fit-to-screen for overall assessment</li>
+                        <li><strong>Background:</strong> Medium gray background (helps judge colors/tones accurately)</li>
+                    </ul>
+                    
+                    <p style="margin-top: 1rem;"><strong>Performance Settings:</strong></p>
+                    <ul>
+                        <li>Allocate 70-80% of RAM to your image editor</li>
+                        <li>Set history states to 50-100 (more undo levels)</li>
+                        <li>Use GPU acceleration if available</li>
+                        <li>Set cache levels to 6-8 for large files</li>
+                        <li>Enable scratch disk on fast SSD</li>
+                    </ul>
+                </div>
+
+                <h3>File Format Strategy</h3>
+                
+                <p>
+                    Choosing the right file formats at each stage of post-processing is crucial for maintaining quality and workflow efficiency:
+                </p>
+
+                <div class="card">
+                    <h4>📁 File Format Workflow</h4>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Stage</th>
+                                <th>Format</th>
+                                <th>Bit Depth</th>
+                                <th>Why</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Render Output</strong></td>
+                                <td>PNG or TIFF</td>
+                                <td>16-bit</td>
+                                <td>Maximum quality preservation, no compression artifacts</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Working File</strong></td>
+                                <td>PSD, XCF, or native</td>
+                                <td>16-bit</td>
+                                <td>Preserves layers, adjustments, full editing capability</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Archive/Backup</strong></td>
+                                <td>PSD or TIFF</td>
+                                <td>16-bit</td>
+                                <td>Long-term storage, re-editing capability</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Web/Social</strong></td>
+                                <td>JPEG or PNG</td>
+                                <td>8-bit</td>
+                                <td>Small file size, universal compatibility</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Print</strong></td>
+                                <td>TIFF or PSD</td>
+                                <td>16-bit</td>
+                                <td>Maximum quality for reproduction</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Portfolio</strong></td>
+                                <td>PNG or JPEG</td>
+                                <td>8-bit</td>
+                                <td>Quality + reasonable file size balance</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p style="margin-top: 1rem;"><strong>File Size Comparison (4K image):</strong></p>
+                    <ul>
+                        <li>16-bit TIFF (uncompressed): ~180MB</li>
+                        <li>16-bit PNG: ~80MB</li>
+                        <li>PSD with layers: ~200-500MB (varies by layer count)</li>
+                        <li>8-bit PNG: ~40MB</li>
+                        <li>8-bit JPEG (high quality): ~5-15MB</li>
+                        <li>8-bit JPEG (web optimized): ~1-3MB</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The 16-bit Advantage</h4>
+                    <p>
+                        Always render in 16-bit and work in 16-bit until final output. Here's why:
+                    </p>
+                    <ul>
+                        <li><strong>8-bit images:</strong> 256 tones per channel = 16.7 million possible colors</li>
+                        <li><strong>16-bit images:</strong> 65,536 tones per channel = 281 trillion possible colors</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>Practical Impact:</strong></p>
+                    <ul>
+                        <li>Heavy color correction in 8-bit → visible banding in gradients</li>
+                        <li>Same correction in 16-bit → smooth, professional results</li>
+                        <li>8-bit recovers ~2 stops of exposure latitude</li>
+                        <li>16-bit recovers ~5+ stops of exposure latitude</li>
+                    </ul>
+                    <p style="margin-top: 1rem;">
+                        <strong>Workflow:</strong> Render 16-bit → Edit 16-bit → Convert to 8-bit only for final output. This single practice prevents 90% of quality issues in post-processing!
+                    </p>
+                </div>
+
+                <h3>Color Management Fundamentals</h3>
+                
+                <p>
+                    Color management ensures your images look consistent across different devices and applications. This is technical but essential—ignore it and your carefully color-graded images will look wrong on other screens:
+                </p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>🎨 Color Management Setup</h4>
+                    
+                    <p><strong>Understanding Color Spaces:</strong></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Color Space</th>
+                                <th>Gamut Size</th>
+                                <th>Best For</th>
+                                <th>When to Use</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>sRGB</strong></td>
+                                <td>Small</td>
+                                <td>Web, social media</td>
+                                <td>95% of use cases</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Adobe RGB</strong></td>
+                                <td>Medium</td>
+                                <td>Print, professional work</td>
+                                <td>When printer supports it</td>
+                            </tr>
+                            <tr>
+                                <td><strong>ProPhoto RGB</strong></td>
+                                <td>Large</td>
+                                <td>High-end photography</td>
+                                <td>Rarely needed for 3D</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p style="margin-top: 1rem;"><strong>Recommended Workflow Settings:</strong></p>
+                    <ol>
+                        <li>
+                            <strong>Render from Poser:</strong>
+                            <ul>
+                                <li>Enable color management in Poser</li>
+                                <li>Set output to sRGB (or embed profile)</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Image Editor Color Settings:</strong>
+                            <ul>
+                                <li>Working Space: sRGB IEC61966-2.1</li>
+                                <li>Color Management Policies: "Preserve Embedded Profiles"</li>
+                                <li>Profile Mismatches: Ask when opening</li>
+                                <li>Missing Profiles: Ask when opening</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Display Calibration:</strong>
+                            <ul>
+                                <li>Calibrate monitor monthly (use hardware calibrator if available)</li>
+                                <li>Or use OS calibration tools (better than nothing)</li>
+                                <li>Set monitor to ~120 cd/m² brightness</li>
+                                <li>6500K color temperature (D65 standard)</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 The sRGB Rule:</strong></p>
+                    <p>When in doubt, use sRGB. It's the standard for web, social media, and most displays. Adobe RGB's wider gamut sounds appealing, but if your output isn't going to a professional print shop, those extra colors just get clipped anyway. 95% of 3D artists should work in sRGB 100% of the time!</p>
+                </blockquote>
+
+                <h3>Essential Keyboard Shortcuts</h3>
+                
+                <p>
+                    Learning keyboard shortcuts dramatically speeds up post-processing. Here are the essential ones that every 3D artist should memorize (Photoshop shortcuts, but most work in other editors):
+                </p>
+
+                <div class="card">
+                    <h4>⌨️ Critical Shortcuts for Post-Processing</h4>
+                    
+                    <p><strong>Navigation & View:</strong></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>Windows</th>
+                                <th>Mac</th>
+                                <th>Usage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Zoom to 100%</td>
+                                <td>Ctrl + Alt + 0</td>
+                                <td>Cmd + Opt + 0</td>
+                                <td>Check details at actual pixels</td>
+                            </tr>
+                            <tr>
+                                <td>Fit to screen</td>
+                                <td>Ctrl + 0</td>
+                                <td>Cmd + 0</td>
+                                <td>See full image</td>
+                            </tr>
+                            <tr>
+                                <td>Zoom in/out</td>
+                                <td>Ctrl + / Ctrl -</td>
+                                <td>Cmd + / Cmd -</td>
+                                <td>Quick zoom</td>
+                            </tr>
+                            <tr>
+                                <td>Pan (Hand tool)</td>
+                                <td>Hold Space</td>
+                                <td>Hold Space</td>
+                                <td>Move around image</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p style="margin-top: 1rem;"><strong>Layers & Adjustments:</strong></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>Windows</th>
+                                <th>Mac</th>
+                                <th>Usage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>New layer</td>
+                                <td>Ctrl + Shift + N</td>
+                                <td>Cmd + Shift + N</td>
+                                <td>Create blank layer</td>
+                            </tr>
+                            <tr>
+                                <td>Duplicate layer</td>
+                                <td>Ctrl + J</td>
+                                <td>Cmd + J</td>
+                                <td>Safety copy</td>
+                            </tr>
+                            <tr>
+                                <td>Merge layers</td>
+                                <td>Ctrl + E</td>
+                                <td>Cmd + E</td>
+                                <td>Combine selected layers</td>
+                            </tr>
+                            <tr>
+                                <td>Levels</td>
+                                <td>Ctrl + L</td>
+                                <td>Cmd + L</td>
+                                <td>Quick tonal adjustment</td>
+                            </tr>
+                            <tr>
+                                <td>Curves</td>
+                                <td>Ctrl + M</td>
+                                <td>Cmd + M</td>
+                                <td>Advanced tonal control</td>
+                            </tr>
+                            <tr>
+                                <td>Hue/Saturation</td>
+                                <td>Ctrl + U</td>
+                                <td>Cmd + U</td>
+                                <td>Color adjustments</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p style="margin-top: 1rem;"><strong>Essential Tools:</strong></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tool</th>
+                                <th>Key</th>
+                                <th>Usage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Move tool</td>
+                                <td>V</td>
+                                <td>Reposition layers</td>
+                            </tr>
+                            <tr>
+                                <td>Brush tool</td>
+                                <td>B</td>
+                                <td>Painting, masking</td>
+                            </tr>
+                            <tr>
+                                <td>Eraser</td>
+                                <td>E</td>
+                                <td>Remove pixels</td>
+                            </tr>
+                            <tr>
+                                <td>Lasso tool</td>
+                                <td>L</td>
+                                <td>Freehand selections</td>
+                            </tr>
+                            <tr>
+                                <td>Magic Wand</td>
+                                <td>W</td>
+                                <td>Select similar colors</td>
+                            </tr>
+                            <tr>
+                                <td>Clone Stamp</td>
+                                <td>S</td>
+                                <td>Fix artifacts, clone areas</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p style="margin-top: 1rem;"><strong>Workflow Essentials:</strong></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>Windows</th>
+                                <th>Mac</th>
+                                <th>Usage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Undo</td>
+                                <td>Ctrl + Z</td>
+                                <td>Cmd + Z</td>
+                                <td>Step back one action</td>
+                            </tr>
+                            <tr>
+                                <td>Step backward</td>
+                                <td>Ctrl + Alt + Z</td>
+                                <td>Cmd + Opt + Z</td>
+                                <td>Multiple undo steps</td>
+                            </tr>
+                            <tr>
+                                <td>Save</td>
+                                <td>Ctrl + S</td>
+                                <td>Cmd + S</td>
+                                <td>Save working file</td>
+                            </tr>
+                            <tr>
+                                <td>Save As</td>
+                                <td>Ctrl + Shift + S</td>
+                                <td>Cmd + Shift + S</td>
+                                <td>Save version or format</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Quick Win: Create a Custom Workspace</h4>
+                    <p>
+                        Save yourself setup time on every project:
+                    </p>
+                    <ol>
+                        <li>Arrange your panels optimally for post-processing</li>
+                        <li>Window → Workspace → New Workspace</li>
+                        <li>Name it "3D Post-Processing" or similar</li>
+                        <li>Now you can switch to this layout anytime with one click!</li>
+                    </ol>
+                    <p style="margin-top: 1rem;">
+                        <strong>Pro Tip:</strong> Create different workspaces for different tasks—one for color correction, one for compositing, one for detail work. Switch between them as needed!
+                    </p>
+                </div>
+
+            </section>
+            <!-- Section 3: Color Correction Fundamentals -->
+            <section id="color-correction">
+                <h2>🎨 Color Correction Fundamentals: Mastering Tone and Color</h2>
+                
+                <p>
+                    Color correction is the foundation of professional post-processing. Before you add effects or get creative, you need to ensure your render has proper exposure, balanced colors, and good tonal distribution. Think of it like tuning an instrument before playing—everything else depends on getting this right first. Unlike creative color grading (which comes later), color correction is about achieving technical excellence: proper blacks, proper whites, neutral midtones, and balanced colors. Let's master the tools and techniques that professionals use daily.
+                </p>
+
+                <h3>Understanding the Histogram</h3>
+                
+                <p>
+                    The histogram is your most important diagnostic tool—it shows the tonal distribution of your image at a glance. Learning to read histograms is like learning to read sheet music: once you understand it, you can "see" problems without even looking at the image.
+                </p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>📊 Reading the Histogram</h4>
+                    
+                    <p><strong>What the Histogram Shows:</strong></p>
+                    <ul>
+                        <li><strong>Horizontal Axis:</strong> Tones from pure black (left) to pure white (right)</li>
+                        <li><strong>Vertical Axis:</strong> Number of pixels at each tone level</li>
+                        <li><strong>Left Side:</strong> Shadows and blacks</li>
+                        <li><strong>Middle:</strong> Midtones</li>
+                        <li><strong>Right Side:</strong> Highlights and whites</li>
+                    </ul>
+                    
+                    <p style="margin-top: 1rem;"><strong>Common Histogram Patterns:</strong></p>
+                    
+                    <div style="background: #fff; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <p><strong>✅ Well-Exposed Render:</strong></p>
+                        <ul>
+                            <li>Data distributed across full range (left to right)</li>
+                            <li>Peak in midtones (center)</li>
+                            <li>Tapering at both ends (not cut off)</li>
+                            <li>No large gaps in distribution</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #fff; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <p><strong>⚠️ Underexposed (Too Dark):</strong></p>
+                        <ul>
+                            <li>Data clustered on left side</li>
+                            <li>Little to no data on right side</li>
+                            <li>Histogram "climbs the left wall"</li>
+                            <li><strong>Fix:</strong> Increase overall brightness, lift shadows</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #fff; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <p><strong>⚠️ Overexposed (Too Bright):</strong></p>
+                        <ul>
+                            <li>Data clustered on right side</li>
+                            <li>Histogram "climbs the right wall" (clipping)</li>
+                            <li>Lost highlight detail (pure white areas)</li>
+                            <li><strong>Fix:</strong> Decrease brightness, recover highlights</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #fff; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <p><strong>⚠️ Low Contrast (Flat):</strong></p>
+                        <ul>
+                            <li>Data concentrated in middle</li>
+                            <li>No true blacks or whites</li>
+                            <li>Image looks washed out, foggy</li>
+                            <li><strong>Fix:</strong> Increase contrast, set black/white points</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #fff; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <p><strong>⚠️ High Contrast (Crushed):</strong></p>
+                        <ul>
+                            <li>Data at both extremes, gap in middle</li>
+                            <li>Heavy shadows, blown highlights</li>
+                            <li>Loss of midtone detail</li>
+                            <li><strong>Fix:</strong> Decrease contrast, recover midtones</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <blockquote>
+                    <p><strong>👁️ The Histogram Never Lies:</strong></p>
+                    <p>Your eyes can be fooled by monitor brightness, room lighting, or adjacent colors. The histogram shows mathematical truth. If you think your render looks good but the histogram shows problems, trust the histogram! It's especially critical when working on different monitors or preparing work for print.</p>
+                </blockquote>
+
+                <h3>The Levels Adjustment</h3>
+                
+                <p>
+                    Levels is the most fundamental and powerful color correction tool. It lets you set black points, white points, and adjust midtone brightness. Master levels and you've mastered 70% of color correction work.
+                </p>
+
+                <div class="card">
+                    <h4>⚡ Levels Adjustment Workflow</h4>
+                    
+                    <p><strong>The Three Sliders:</strong></p>
+                    <ol>
+                        <li>
+                            <strong>Black Point (Left Slider):</strong>
+                            <ul>
+                                <li>Move right to make shadows darker</li>
+                                <li>Everything to the left becomes pure black</li>
+                                <li>Use to establish true blacks in image</li>
+                                <li><strong>Rule of Thumb:</strong> Slide to where histogram data begins</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Midtone (Middle Slider):</strong>
+                            <ul>
+                                <li>Move left to brighten midtones</li>
+                                <li>Move right to darken midtones</li>
+                                <li>Adjusts overall brightness without crushing blacks/whites</li>
+                                <li><strong>Most Used:</strong> This slider does 80% of the work</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>White Point (Right Slider):</strong>
+                            <ul>
+                                <li>Move left to make highlights brighter</li>
+                                <li>Everything to the right becomes pure white</li>
+                                <li>Use to establish true whites and brightest tones</li>
+                                <li><strong>Rule of Thumb:</strong> Slide to where histogram data ends</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    
+                    <p style="margin-top: 1rem;"><strong>Output Sliders (Bottom):</strong></p>
+                    <ul>
+                        <li><strong>Left Output:</strong> Lightens blacks (for artistic fade effect)</li>
+                        <li><strong>Right Output:</strong> Darkens whites (for matte finish effect)</li>
+                        <li><strong>Note:</strong> Rarely needed for technical correction, more for creative looks</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Step-by-Step Levels Correction</h4>
+                    <ol>
+                        <li>
+                            <strong>Open Levels:</strong> Ctrl/Cmd + L (or Image → Adjustments → Levels)
+                        </li>
+                        <li>
+                            <strong>Analyze Histogram:</strong> Look for gaps at left or right edges
+                        </li>
+                        <li>
+                            <strong>Set Black Point:</strong>
+                            <ul>
+                                <li>Move left slider to where histogram data begins</li>
+                                <li>Alt/Option-drag slider to see clipping preview</li>
+                                <li>Stop when you start seeing colored pixels (those areas become pure black)</li>
+                                <li>Goal: Have true blacks without crushing shadow detail</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Set White Point:</strong>
+                            <ul>
+                                <li>Move right slider to where histogram data ends</li>
+                                <li>Alt/Option-drag to see clipping preview</li>
+                                <li>Stop when you start seeing colored pixels</li>
+                                <li>Goal: Have true whites without blowing out highlights</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Adjust Midtones:</strong>
+                            <ul>
+                                <li>Move middle slider until overall brightness looks correct</li>
+                                <li>Left = brighter, Right = darker</li>
+                                <li>This is subjective—trust your eye</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Optional - Per Channel:</strong>
+                            <ul>
+                                <li>Use channel dropdown (RGB → Red/Green/Blue)</li>
+                                <li>Adjust each channel separately to fix color casts</li>
+                                <li>More on this in color balance section</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    
+                    <p style="margin-top: 1rem;"><strong>Result:</strong> Your render now has proper tonal range with true blacks, true whites, and well-distributed midtones!</p>
+                </div>
+
+                <h3>The Curves Adjustment</h3>
+                
+                <p>
+                    Curves is the most powerful and flexible color correction tool. While Levels gives you three control points, Curves gives you unlimited control over every tonal value in your image. It's more complex than Levels but offers vastly more creative control.
+                </p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>📈 Understanding Curves</h4>
+                    
+                    <p><strong>The Curves Interface:</strong></p>
+                    <ul>
+                        <li><strong>Diagonal Line:</strong> Represents input (horizontal) to output (vertical) mapping</li>
+                        <li><strong>Straight Diagonal:</strong> No change (input = output)</li>
+                        <li><strong>Bottom-Left:</strong> Shadows and blacks</li>
+                        <li><strong>Middle:</strong> Midtones</li>
+                        <li><strong>Top-Right:</strong> Highlights and whites</li>
+                        <li><strong>Click to Add Points:</strong> Control specific tonal ranges</li>
+                        <li><strong>Drag Points:</strong> Up = brighter, Down = darker</li>
+                    </ul>
+                    
+                    <p style="margin-top: 1rem;"><strong>Common Curve Adjustments:</strong></p>
+                    
+                    <div style="background: #fff; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <p><strong>S-Curve (Increase Contrast):</strong></p>
+                        <ul>
+                            <li>Pull up on highlights (upper right)</li>
+                            <li>Pull down on shadows (lower left)</li>
+                            <li>Creates gentle S-shape</li>
+                            <li><strong>Effect:</strong> Increases contrast, makes image "pop"</li>
+                            <li><strong>Use:</strong> Flat, low-contrast renders</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #fff; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <p><strong>Inverted S-Curve (Decrease Contrast):</strong></p>
+                        <ul>
+                            <li>Pull down on highlights</li>
+                            <li>Pull up on shadows</li>
+                            <li>Creates inverted S-shape</li>
+                            <li><strong>Effect:</strong> Reduces contrast, softens image</li>
+                            <li><strong>Use:</strong> Harsh, high-contrast renders</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #fff; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <p><strong>Brighten/Darken Specific Tones:</strong></p>
+                        <ul>
+                            <li>Click on curve where you want to adjust</li>
+                            <li>Drag up to brighten those tones</li>
+                            <li>Drag down to darken those tones</li>
+                            <li><strong>Effect:</strong> Targeted tonal adjustment</li>
+                            <li><strong>Use:</strong> Fix specific problem areas</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #fff; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <p><strong>Color Correction:</strong></p>
+                        <ul>
+                            <li>Switch to individual color channels (Red, Green, Blue)</li>
+                            <li>Adjust curves per channel</li>
+                            <li><strong>Effect:</strong> Remove color casts, shift color balance</li>
+                            <li><strong>Use:</strong> Fix color temperature issues</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>🎯 Curves Best Practices</h4>
+                    <ul>
+                        <li>
+                            <strong>Gentle Curves:</strong> Avoid extreme bends—subtle adjustments look natural
+                        </li>
+                        <li>
+                            <strong>Few Points:</strong> Use 2-4 control points maximum for most adjustments
+                        </li>
+                        <li>
+                            <strong>Lock Endpoints:</strong> Click on corners to prevent accidental crushing of blacks/whites
+                        </li>
+                        <li>
+                            <strong>Use Presets:</strong> Save your favorite curve adjustments as presets
+                        </li>
+                        <li>
+                            <strong>Preview Toggle:</strong> Click preview checkbox on/off to compare before/after
+                        </li>
+                        <li>
+                            <strong>Per-Channel Work:</strong> For color issues, work in individual RGB channels
+                        </li>
+                    </ul>
+                </div>
+
+                <h3>Color Balance and Temperature</h3>
+                
+                <p>
+                    Even with perfect tonal distribution, your render might have a color cast—an overall tint that makes the image look too warm (orange/yellow) or too cool (blue). Color balance tools let you fix these issues quickly.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>🌡️ Understanding Color Temperature</h4>
+                    
+                    <p><strong>The Color Temperature Scale:</strong></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Color Cast</th>
+                                <th>Appears As</th>
+                                <th>Common Cause</th>
+                                <th>Fix Direction</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Too Warm</strong></td>
+                                <td>Orange/yellow tint</td>
+                                <td>Incandescent lights, sunset lighting</td>
+                                <td>Add cyan/blue</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Too Cool</strong></td>
+                                <td>Blue tint</td>
+                                <td>Overcast sky, fluorescent lights</td>
+                                <td>Add yellow/red</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Magenta Cast</strong></td>
+                                <td>Pink/purple tint</td>
+                                <td>Certain fluorescent lights</td>
+                                <td>Add green</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Green Cast</strong></td>
+                                <td>Sickly green tint</td>
+                                <td>LED lights, underwater scenes</td>
+                                <td>Add magenta</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <h4>⚖️ Color Balance Tool Workflow</h4>
+                    
+                    <p><strong>Access:</strong> Image → Adjustments → Color Balance (Ctrl/Cmd + B)</p>
+                    
+                    <p style="margin-top: 1rem;"><strong>The Three Tonal Ranges:</strong></p>
+                    <ol>
+                        <li>
+                            <strong>Shadows:</strong>
+                            <ul>
+                                <li>Affects darkest areas of image</li>
+                                <li>Adjust to fix color casts in dark areas</li>
+                                <li>Example: Blue shadows in warm-lit scenes</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Midtones:</strong>
+                            <ul>
+                                <li>Affects middle tones (most visible area)</li>
+                                <li>This is where most color correction happens</li>
+                                <li>Has biggest visual impact</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Highlights:</strong>
+                            <ul>
+                                <li>Affects brightest areas</li>
+                                <li>Adjust to fix blown-out or tinted highlights</li>
+                                <li>Example: Yellow-tinted light sources</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    
+                    <p style="margin-top: 1rem;"><strong>The Three Sliders:</strong></p>
+                    <ul>
+                        <li><strong>Cyan ↔ Red:</strong> Move left for cooler (cyan), right for warmer (red)</li>
+                        <li><strong>Magenta ↔ Green:</strong> Move left for magenta, right for green</li>
+                        <li><strong>Yellow ↔ Blue:</strong> Move left for warmer (yellow), right for cooler (blue)</li>
+                    </ul>
+                    
+                    <p style="margin-top: 1rem;"><strong>Strategy:</strong></p>
+                    <ol>
+                        <li>Start with Midtones (affects most of image)</li>
+                        <li>Make small adjustments (5-15 points usually sufficient)</li>
+                        <li>Toggle preview on/off to see changes</li>
+                        <li>Adjust Shadows if needed (for shadow color issues)</li>
+                        <li>Adjust Highlights if needed (for light source issues)</li>
+                    </ol>
+                </div>
+
+                <h3>Saturation and Vibrance</h3>
+                
+                <p>
+                    Saturation controls color intensity. Too little = washed out, too much = garish and oversaturated. The trick is finding the sweet spot that makes colors pop without looking fake.
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>🎨 Saturation vs Vibrance</h4>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tool</th>
+                                <th>Effect</th>
+                                <th>When to Use</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Saturation</strong></td>
+                                <td>Increases ALL colors equally</td>
+                                <td>When entire image needs more color intensity</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Vibrance</strong></td>
+                                <td>Increases muted colors, protects already-saturated colors and skin tones</td>
+                                <td>Almost always better for character renders</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p style="margin-top: 1rem;"><strong>Why Vibrance is Usually Better:</strong></p>
+                    <ul>
+                        <li>Prevents skin tones from becoming orange or oversaturated</li>
+                        <li>Protects colors that are already vivid</li>
+                        <li>Brings up dull colors without pushing everything too far</li>
+                        <li>More forgiving—harder to overdo</li>
+                        <li>Result looks more natural and professional</li>
+                    </ul>
+                    
+                    <p style="margin-top: 1rem;"><strong>Recommended Settings:</strong></p>
+                    <ul>
+                        <li><strong>Vibrance:</strong> +10 to +30 for most renders</li>
+                        <li><strong>Saturation:</strong> -5 to +10 (subtle adjustment only)</li>
+                        <li><strong>Never:</strong> Saturation above +20 (screams "amateur")</li>
+                    </ul>
+                </div>
+
+                <h3>Selective Color Correction</h3>
+                
+                <p>
+                    Sometimes you don't want to adjust the entire image—you need to fix or enhance specific color ranges. Selective Color and Hue/Saturation tools let you target individual colors:
+                </p>
+
+                <div class="card">
+                    <h4>🎯 Hue/Saturation Selective Adjustment</h4>
+                    
+                    <p><strong>Access:</strong> Image → Adjustments → Hue/Saturation (Ctrl/Cmd + U)</p>
+                    
+                    <p style="margin-top: 1rem;"><strong>Color Range Selection:</strong></p>
+                    <ul>
+                        <li><strong>Master:</strong> Affects all colors equally</li>
+                        <li><strong>Reds:</strong> Skin tones, warm colors</li>
+                        <li><strong>Yellows:</strong> Warm highlights, gold materials</li>
+                        <li><strong>Greens:</strong> Vegetation, certain materials</li>
+                        <li><strong>Cyans:</strong> Water, sky elements</li>
+                        <li><strong>Blues:</strong> Sky, cool tones</li>
+                        <li><strong>Magentas:</strong> Purple tones, certain lights</li>
+                    </ul>
+                    
+                    <p style="margin-top: 1rem;"><strong>The Three Sliders:</strong></p>
+                    <ol>
+                        <li>
+                            <strong>Hue:</strong> Shifts the color (changes reds to oranges, blues to cyans, etc.)
+                            <ul>
+                                <li>Use: Fix incorrect color temperatures in specific hues</li>
+                                <li>Example: Make overly orange skin more natural</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Saturation:</strong> Increases/decreases intensity of selected color range
+                            <ul>
+                                <li>Use: Make specific colors more/less vibrant</li>
+                                <li>Example: Boost blue sky without affecting skin</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Lightness:</strong> Makes selected colors lighter/darker
+                            <ul>
+                                <li>Use: Brighten/darken specific color ranges</li>
+                                <li>Example: Darken overly bright yellow tones</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Common Selective Color Fixes</h4>
+                    
+                    <p><strong>Oversaturated Skin:</strong></p>
+                    <ul>
+                        <li>Select "Reds" channel</li>
+                        <li>Reduce Saturation by 10-20</li>
+                        <li>Optionally shift Hue slightly toward yellow for more natural tone</li>
+                    </ul>
+                    
+                    <p style="margin-top: 1rem;"><strong>Dull Sky:</strong></p>
+                    <ul>
+                        <li>Select "Blues" or "Cyans" channel</li>
+                        <li>Increase Saturation by 20-40</li>
+                        <li>Optionally decrease Lightness by 5-10 for deeper sky</li>
+                    </ul>
+                    
+                    <p style="margin-top: 1rem;"><strong>Green Color Cast:</strong></p>
+                    <ul>
+                        <li>Select "Greens" channel</li>
+                        <li>Shift Hue toward yellow or cyan</li>
+                        <li>Reduce Saturation by 20-40</li>
+                    </ul>
+                    
+                    <p style="margin-top: 1rem;"><strong>Yellow Lighting Issues:</strong></p>
+                    <ul>
+                        <li>Select "Yellows" channel</li>
+                        <li>Shift Hue slightly toward red or green (depending on desired warmth)</li>
+                        <li>Adjust Saturation to taste</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>🎨 Professional Color Correction Workflow:</strong></p>
+                    <p>Always follow this order: 1) Fix tonal issues (Levels/Curves) → 2) Fix color casts (Color Balance) → 3) Adjust saturation (Vibrance) → 4) Fine-tune specific colors (Hue/Saturation). This sequence prevents you from fighting yourself—fixing tones first ensures your color adjustments work on a proper foundation!</p>
+                </blockquote>
+
+            </section>
+            <!-- Section 4: Compositing and Layer Techniques -->
+            <section id="compositing-techniques">
+                <h2>🎬 Compositing and Layer Techniques: Building Complex Images</h2>
+                
+                <p>
+                    Compositing is the art of combining multiple images or elements into a single cohesive scene. In professional 3D work, final images are rarely single renders—they're carefully constructed from multiple layers, each rendered or created separately for maximum control. Whether you're adding backgrounds, combining character renders, mixing different lighting passes, or building complex scenes piece by piece, compositing gives you creative power that's impossible to achieve in-renderer. Let's explore the techniques that professionals use to build stunning composite images.
+                </p>
+
+                <h3>Understanding Layers and Layer Management</h3>
+                
+                <p>
+                    Layers are the foundation of non-destructive compositing. Think of them like transparent sheets of acetate stacked on top of each other—each layer can contain different content, and you see the combined result looking down through the stack.
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3 style="color: white;">💡 Layer Hierarchy Concepts</h3>
+                    <ul style="color: white;">
+                        <li><strong style="color: white;">Stack Order:</strong> Top layers appear in front of lower layers</li>
+                        <li><strong style="color: white;">Opacity:</strong> Each layer can be partially transparent (0-100%)</li>
+                        <li><strong style="color: white;">Blend Modes:</strong> Control how layers interact mathematically</li>
+                        <li><strong style="color: white;">Layer Masks:</strong> Hide parts of a layer without deleting pixels</li>
+                        <li><strong style="color: white;">Layer Groups:</strong> Organize related layers into folders</li>
+                        <li><strong style="color: white;">Adjustment Layers:</strong> Apply corrections to layers below</li>
+                        <li><strong style="color: white;">Smart Objects:</strong> Embedded layers that preserve quality</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>📚 Professional Layer Naming Strategy</h4>
+                    
+                    <p>Good layer organization saves hours of frustration. Here's a professional naming convention:</p>
+                    
+                    <p><strong>Layer Naming Format:</strong> <code>[Category]_[Description]_[Number]</code></p>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Category Prefix</th>
+                                <th>Use For</th>
+                                <th>Example Names</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>BG_</strong></td>
+                                <td>Backgrounds</td>
+                                <td>BG_Sky_01, BG_Mountains_02</td>
+                            </tr>
+                            <tr>
+                                <td><strong>CHAR_</strong></td>
+                                <td>Characters</td>
+                                <td>CHAR_Hero_Main, CHAR_Villain_01</td>
+                            </tr>
+                            <tr>
+                                <td><strong>PROP_</strong></td>
+                                <td>Props/Objects</td>
+                                <td>PROP_Sword, PROP_Table_01</td>
+                            </tr>
+                            <tr>
+                                <td><strong>FX_</strong></td>
+                                <td>Effects</td>
+                                <td>FX_Glow, FX_Particles, FX_Fog</td>
+                            </tr>
+                            <tr>
+                                <td><strong>ADJ_</strong></td>
+                                <td>Adjustments</td>
+                                <td>ADJ_ColorGrade, ADJ_Curves</td>
+                            </tr>
+                            <tr>
+                                <td><strong>MASK_</strong></td>
+                                <td>Masks/Mattes</td>
+                                <td>MASK_Character, MASK_Depth</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TXT_</strong></td>
+                                <td>Text/Graphics</td>
+                                <td>TXT_Title, TXT_Watermark</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p style="margin-top: 1rem;"><strong>Layer Groups:</strong></p>
+                    <ul>
+                        <li><strong>📁 Background:</strong> All background elements</li>
+                        <li><strong>📁 Main Scene:</strong> Primary render elements</li>
+                        <li><strong>📁 Foreground:</strong> Elements in front of main scene</li>
+                        <li><strong>📁 Effects:</strong> All atmospheric/visual effects</li>
+                        <li><strong>📁 Adjustments:</strong> All adjustment layers</li>
+                        <li><strong>📁 Finals:</strong> Text, watermarks, final touches</li>
+                    </ul>
+                </div>
+
+                <h3>Blend Modes: The Secret to Professional Compositing</h3>
+                
+                <p>
+                    Blend modes control how layers mathematically interact with layers below them. They're incredibly powerful for compositing effects, lighting adjustments, and creative looks. Understanding blend modes transforms you from "stacking images" to "artistically combining elements."
+                </p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>🎨 Essential Blend Modes for 3D Compositing</h4>
+                    
+                    <p><strong>NORMAL GROUP (Building Blocks):</strong></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Blend Mode</th>
+                                <th>Effect</th>
+                                <th>Common Uses</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Normal</strong></td>
+                                <td>No blending, simple replacement</td>
+                                <td>Default mode, standard layering</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dissolve</strong></td>
+                                <td>Random pixel replacement</td>
+                                <td>Texture, noise effects (rarely used)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p style="margin-top: 1.5rem;"><strong>DARKEN GROUP (Makes Things Darker):</strong></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Blend Mode</th>
+                                <th>Effect</th>
+                                <th>Common Uses</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Darken</strong></td>
+                                <td>Keeps darker pixels from both layers</td>
+                                <td>Combining shadows from multiple renders</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Multiply</strong></td>
+                                <td>Multiplies colors (always darkens)</td>
+                                <td><strong>Shadows, darkening, burn effects</strong> ⭐</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Color Burn</strong></td>
+                                <td>Darkens with increased saturation</td>
+                                <td>Dramatic shadows, intense darkening</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Linear Burn</strong></td>
+                                <td>Similar to Color Burn, less contrast</td>
+                                <td>Subtle shadow blending</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p style="margin-top: 1.5rem;"><strong>LIGHTEN GROUP (Makes Things Brighter):</strong></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Blend Mode</th>
+                                <th>Effect</th>
+                                <th>Common Uses</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Lighten</strong></td>
+                                <td>Keeps lighter pixels from both layers</td>
+                                <td>Combining highlights</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Screen</strong></td>
+                                <td>Inverse of Multiply (always lightens)</td>
+                                <td><strong>Lights, glow, highlights</strong> ⭐</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Color Dodge</strong></td>
+                                <td>Lightens with increased saturation</td>
+                                <td>Intense glow effects, light rays</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Linear Dodge (Add)</strong></td>
+                                <td>Adds brightness values</td>
+                                <td>Additive light effects, lens flares</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p style="margin-top: 1.5rem;"><strong>CONTRAST GROUP (Affects Midtones):</strong></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Blend Mode</th>
+                                <th>Effect</th>
+                                <th>Common Uses</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Overlay</strong></td>
+                                <td>Multiply dark, Screen light (increases contrast)</td>
+                                <td><strong>Texture overlays, lighting</strong> ⭐</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Soft Light</strong></td>
+                                <td>Gentle version of Overlay</td>
+                                <td><strong>Subtle texture, gentle lighting</strong> ⭐</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hard Light</strong></td>
+                                <td>Stronger version of Overlay</td>
+                                <td>Dramatic lighting, strong textures</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p style="margin-top: 1.5rem;"><strong>COMPARISON GROUP (Shows Differences):</strong></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Blend Mode</th>
+                                <th>Effect</th>
+                                <th>Common Uses</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Difference</strong></td>
+                                <td>Subtracts colors (inverts based on brightness)</td>
+                                <td>Special effects, layer alignment</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Exclusion</strong></td>
+                                <td>Softer version of Difference</td>
+                                <td>Subtle special effects</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p style="margin-top: 1rem;"><strong>⭐ = Most Used by Professionals</strong></p>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Blend Mode Quick Reference</h4>
+                    
+                    <p><strong>Adding Light/Glow:</strong></p>
+                    <ul>
+                        <li>Use <strong>Screen</strong> for natural glow</li>
+                        <li>Use <strong>Linear Dodge (Add)</strong> for intense bright effects</li>
+                        <li>Layer should be on black background (black becomes transparent)</li>
+                    </ul>
+                    
+                    <p style="margin-top: 1rem;"><strong>Adding Shadows/Darkness:</strong></p>
+                    <ul>
+                        <li>Use <strong>Multiply</strong> for natural shadows</li>
+                        <li>Use <strong>Color Burn</strong> for dramatic darkening</li>
+                        <li>Layer should be on white background (white becomes transparent)</li>
+                    </ul>
+                    
+                    <p style="margin-top: 1rem;"><strong>Adding Texture:</strong></p>
+                    <ul>
+                        <li>Use <strong>Overlay</strong> for strong texture</li>
+                        <li>Use <strong>Soft Light</strong> for subtle texture</li>
+                        <li>Adjust layer opacity for intensity control</li>
+                    </ul>
+                    
+                    <p style="margin-top: 1rem;"><strong>Color Tinting:</strong></p>
+                    <ul>
+                        <li>Fill layer with desired color</li>
+                        <li>Use <strong>Color</strong> blend mode</li>
+                        <li>Adjust opacity for intensity</li>
+                    </ul>
+                </div>
+
+                <h3>Layer Masking Techniques</h3>
+                
+                <p>
+                    Layer masks let you hide parts of a layer without deleting pixels. This is crucial for compositing because it's non-destructive—you can always adjust or restore masked areas. Masking is how you seamlessly blend elements together.
+                </p>
+
+                <div class="card">
+                    <h4>🎭 Understanding Layer Masks</h4>
+                    
+                    <p><strong>Mask Fundamentals:</strong></p>
+                    <ul>
+                        <li><strong>White Areas:</strong> Layer is fully visible</li>
+                        <li><strong>Black Areas:</strong> Layer is hidden</li>
+                        <li><strong>Gray Areas:</strong> Layer is partially visible (transparency)</li>
+                        <li><strong>Gradient Masks:</strong> Smooth transitions from visible to hidden</li>
+                    </ul>
+                    
+                    <p style="margin-top: 1rem;"><strong>Creating Layer Masks:</strong></p>
+                    <ol>
+                        <li>Select the layer to mask</li>
+                        <li>Click "Add Layer Mask" button (rectangle with circle icon)</li>
+                        <li>Paint on mask with brush tool:
+                            <ul>
+                                <li>Black brush = hide areas</li>
+                                <li>White brush = reveal areas</li>
+                                <li>Gray brush = partially hide/reveal</li>
+                            </ul>
+                        </li>
+                        <li>Use soft brushes for smooth edges, hard brushes for sharp edges</li>
+                    </ol>
+                    
+                    <p style="margin-top: 1rem;"><strong>Advanced Masking Techniques:</strong></p>
+                    <ul>
+                        <li>
+                            <strong>Gradient Mask:</strong> Select gradient tool, drag on mask for smooth fade
+                        </li>
+                        <li>
+                            <strong>Selection to Mask:</strong> Make selection, then add mask (auto-creates mask from selection)
+                        </li>
+                        <li>
+                            <strong>Refine Edge:</strong> For complex edges like hair (Select → Refine Edge)
+                        </li>
+                        <li>
+                            <strong>Luminosity Mask:</strong> Use layer's own brightness to create mask
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>🔍 Common Masking Workflows</h4>
+                    
+                    <p><strong>1. Blending Character into Background:</strong></p>
+                    <ol>
+                        <li>Place character render above background layer</li>
+                        <li>Add layer mask to character layer</li>
+                        <li>Use soft black brush at 20-30% opacity</li>
+                        <li>Paint around feet/contact areas to blend with ground</li>
+                        <li>Paint softly at top edges if needed for atmospheric perspective</li>
+                    </ol>
+                    
+                    <p style="margin-top: 1rem;"><strong>2. Creating Depth of Field Effect:</strong></p>
+                    <ol>
+                        <li>Duplicate background layer</li>
+                        <li>Apply Gaussian Blur to duplicate (Filter → Blur → Gaussian Blur)</li>
+                        <li>Add gradient mask to blurred layer</li>
+                        <li>Use linear gradient from black (foreground) to white (background)</li>
+                        <li>Result: Foreground sharp, background progressively blurred</li>
+                    </ol>
+                    
+                    <p style="margin-top: 1rem;"><strong>3. Selective Color Grading:</strong></p>
+                    <ol>
+                        <li>Add color grading adjustment layer</li>
+                        <li>Apply desired color effect to entire image</li>
+                        <li>Add layer mask to adjustment layer</li>
+                        <li>Paint black on mask over areas you DON'T want affected</li>
+                        <li>Result: Color grade only affects masked areas</li>
+                    </ol>
+                    
+                    <p style="margin-top: 1rem;"><strong>4. Removing/Hiding Elements:</strong></p>
+                    <ol>
+                        <li>Add layer mask to layer with unwanted element</li>
+                        <li>Paint black over unwanted element</li>
+                        <li>Use soft edges for natural blending</li>
+                        <li>Advantage: Element still exists, can restore if needed!</li>
+                    </ol>
+                </div>
+
+                <h3>Compositing Multiple Renders</h3>
+                
+                <p>
+                    One of the most powerful post-processing techniques is combining multiple renders of the same scene. This lets you control lighting, effects, and elements independently, achieving results impossible in a single render.
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>🎬 Multi-Pass Rendering Strategy</h4>
+                    
+                    <p><strong>Common Render Passes:</strong></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Pass Type</th>
+                                <th>What It Contains</th>
+                                <th>Composite Method</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Beauty Pass</strong></td>
+                                <td>Main render with all lighting</td>
+                                <td>Base layer (Normal blend)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ambient Only</strong></td>
+                                <td>Render with ambient light only</td>
+                                <td>Screen or Add blend</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Key Light Only</strong></td>
+                                <td>Render with just key light</td>
+                                <td>Screen blend, adjust opacity</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rim Light Only</strong></td>
+                                <td>Render with just rim light</td>
+                                <td>Screen or Linear Dodge</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Shadow Pass</strong></td>
+                                <td>Render shadows only (white bg)</td>
+                                <td>Multiply blend</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Reflection Pass</strong></td>
+                                <td>Reflections only</td>
+                                <td>Screen or Overlay</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ambient Occlusion</strong></td>
+                                <td>AO pass (contact shadows)</td>
+                                <td>Multiply blend</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p style="margin-top: 1rem;"><strong>Why Render Separate Passes?</strong></p>
+                    <ul>
+                        <li><strong>Control:</strong> Adjust intensity of each light independently after rendering</li>
+                        <li><strong>Speed:</strong> Re-render only what changed (one light vs. entire scene)</li>
+                        <li><strong>Flexibility:</strong> Try different lighting moods without re-rendering</li>
+                        <li><strong>Fixes:</strong> Replace just the problem pass, keep everything else</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>🔧 Pass Compositing Workflow</h4>
+                    
+                    <p><strong>Step-by-Step:</strong></p>
+                    <ol>
+                        <li>
+                            <strong>Render Your Passes:</strong>
+                            <ul>
+                                <li>Beauty pass with all lights</li>
+                                <li>Individual light passes (turn off all but one light each)</li>
+                                <li>Ambient occlusion pass (if not in beauty)</li>
+                                <li>Shadow pass if needed</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Import to Image Editor:</strong>
+                            <ul>
+                                <li>Open beauty pass as base document</li>
+                                <li>Place other passes as layers above (File → Place or drag/drop)</li>
+                                <li>Ensure all passes are aligned (same camera, same resolution)</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Set Blend Modes:</strong>
+                            <ul>
+                                <li>Light passes: Screen or Linear Dodge (Add)</li>
+                                <li>Shadow/AO passes: Multiply</li>
+                                <li>Reflection passes: Screen or Overlay</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Adjust Opacity:</strong>
+                            <ul>
+                                <li>Reduce opacity to control intensity of each pass</li>
+                                <li>Typical range: 30-70% depending on desired effect</li>
+                                <li>Experiment until it looks right!</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Add Masks if Needed:</strong>
+                            <ul>
+                                <li>Mask passes to affect only certain areas</li>
+                                <li>Example: Extra rim light only on character, not background</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>Background Replacement and Integration</h3>
+                
+                <p>
+                    Replacing backgrounds is one of the most common compositing tasks. Maybe you rendered your character against a simple background and want to place them in a complex environment, or you want to swap backgrounds without re-rendering.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Professional Background Integration</h4>
+                    
+                    <p><strong>Method 1: Clean Extraction (Best Quality):</strong></p>
+                    <ol>
+                        <li>
+                            <strong>Render with Alpha Channel:</strong>
+                            <ul>
+                                <li>In Poser, ensure alpha channel is enabled</li>
+                                <li>Save as PNG or TIFF (supports transparency)</li>
+                                <li>Result: Character has transparent background</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Place Character Over New Background:</strong>
+                            <ul>
+                                <li>Open new background image</li>
+                                <li>Place character render as new layer</li>
+                                <li>Character automatically composites cleanly!</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Integration Techniques:</strong>
+                            <ul>
+                                <li>Add soft glow around character edges (outer glow layer style)</li>
+                                <li>Add subtle shadows (duplicate layer, fill black, blur, Multiply blend)</li>
+                                <li>Color match: Add adjustment layer affecting only character</li>
+                                <li>Atmospheric perspective: Slight blur/desaturation for distant characters</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    
+                    <p style="margin-top: 1rem;"><strong>Method 2: Selection-Based (No Alpha Channel):</strong></p>
+                    <ol>
+                        <li>Open render in image editor</li>
+                        <li>Use selection tool to select character:
+                            <ul>
+                                <li>Quick Selection tool for fast selection</li>
+                                <li>Magic Wand for solid color backgrounds</li>
+                                <li>Pen tool for precise edges</li>
+                            </ul>
+                        </li>
+                        <li>Refine edge (Select → Refine Edge):
+                            <ul>
+                                <li>Adjust Edge Detection for complex edges (hair)</li>
+                                <li>Shift Edge inward slightly (-10% to -20%)</li>
+                                <li>Output to: Layer Mask</li>
+                            </ul>
+                        </li>
+                        <li>Copy character to new document with background</li>
+                        <li>Apply integration techniques from Method 1</li>
+                    </ol>
+                </div>
+
+                <blockquote>
+                    <p><strong>🎨 The Realism Secret:</strong></p>
+                    <p>The key to believable compositing isn't just clean edges—it's matching atmospheric conditions. If your background is hazy with atmospheric perspective, your foreground character needs a touch of that same haze. If the background lighting is warm sunset, your character needs warm rim lighting. Match color temperature, match contrast, match atmosphere. That's what makes composites look real instead of "pasted on"!</p>
+                </blockquote>
+
+            </section>
+<!-- LESSON 27 PART 6: Image Optimization and Formats -->
+
+        <section id="optimization-formats">
+            <h2>📦 Image Optimization and Formats</h2>
+            
+            <p>You've adjusted colors, sharpened details, and refined your composition. Now comes the final technical step: saving your work in the right format for its intended use. Think of this like choosing the right packaging for a gift—the same beautiful item might need different wrapping depending on whether you're mailing it across the country, handing it to someone in person, or storing it for years to come.</p>
+            
+            <p>Different image formats serve different purposes, and choosing wisely can mean the difference between a crisp, professional result and a muddy, artifact-laden disappointment. Let's explore how to optimize and save your renders for any situation.</p>
+
+            <h3 id="format-overview">Understanding Image Formats</h3>
+            
+            <p>Not all image formats are created equal. Each has strengths and weaknesses that make it perfect for some uses and terrible for others. Here's what you need to know:</p>
+
+            <div class="mermaid">
+                graph TD
+                    A[Your Finished Render] --> B{What's the Purpose?}
+                    B -->|Web Display| C[JPG or PNG]
+                    B -->|Print| D[TIFF or PNG]
+                    B -->|Further Editing| E[PSD or TIFF]
+                    B -->|Archival/Master| F[TIFF or PNG]
+                    
+                    C --> G[JPG: Small files, web-friendly]
+                    C --> H[PNG: Transparency support]
+                    D --> I[TIFF: Maximum quality]
+                    D --> J[PNG: Good alternative]
+                    E --> K[PSD: Preserves layers]
+                    E --> L[TIFF: Industry standard]
+                    F --> M[TIFF: Lossless archive]
+                    F --> N[PNG: Excellent quality]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style B fill:#764ba2,stroke:#333,stroke-width:2px,color:#fff
+            </div>
+
+            <div class="card">
+                <h4>📚 Format Quick Reference</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Format</th>
+                            <th>Compression</th>
+                            <th>Best For</th>
+                            <th>Avoid For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>JPG/JPEG</strong></td>
+                            <td>Lossy (smaller files, some quality loss)</td>
+                            <td>Web, social media, email, general sharing</td>
+                            <td>Images with text, further editing, archival</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PNG</strong></td>
+                            <td>Lossless (larger files, no quality loss)</td>
+                            <td>Web graphics, transparency needs, archival</td>
+                            <td>Very large prints, when file size is critical</td>
+                        </tr>
+                        <tr>
+                            <td><strong>TIFF</strong></td>
+                            <td>Lossless (large files, maximum quality)</td>
+                            <td>Print, archival, professional workflows</td>
+                            <td>Web display, casual sharing, email</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PSD</strong></td>
+                            <td>Lossless (preserves layers)</td>
+                            <td>Ongoing editing, layer preservation</td>
+                            <td>Final delivery, web use, print submission</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 id="jpg-optimization">JPG Optimization for Web and Social Media</h3>
+            
+            <p>JPG is the workhorse of the internet. It's everywhere because it strikes an excellent balance between quality and file size. But "JPG" isn't just one thing—there's a quality spectrum, and knowing where to land on it makes all the difference.</p>
+
+            <blockquote>
+                <p><strong>The JPG Quality Sweet Spot:</strong> For most web and social media uses, a quality setting of 80-85% is the magic zone. You get files that are 50-70% smaller than maximum quality, with quality loss that's virtually invisible to the human eye. Going above 85% increases file size dramatically with minimal visible improvement. Going below 80% starts to show visible compression artifacts.</p>
+            </blockquote>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>✅ JPG Optimization Best Practices</h4>
+                <ul>
+                    <li><strong>For Web Display:</strong> 80-85% quality, 1920px wide maximum (most monitors won't benefit from larger)</li>
+                    <li><strong>For Instagram/Facebook:</strong> 85% quality, 1080px square or 1080x1350px vertical (platform native sizes)</li>
+                    <li><strong>For Twitter:</strong> 85% quality, 1200x675px (16:9 ratio displays best)</li>
+                    <li><strong>For Email:</strong> 75-80% quality, 800-1200px wide (loads faster, looks great)</li>
+                    <li><strong>For Portfolio Thumbnails:</strong> 70-75% quality, 400-600px wide (page load speed matters)</li>
+                </ul>
+            </div>
+
+            <h4>Step-by-Step: Optimizing for Instagram</h4>
+            
+            <p>Let's walk through a real example. You've created a beautiful character portrait and want to share it on Instagram:</p>
+
+            <div class="card">
+                <h4>📱 Instagram Optimization Workflow</h4>
+                <ol>
+                    <li><strong>Crop to Instagram Aspect Ratio:</strong>
+                        <ul>
+                            <li>Square: 1080 x 1080 pixels (classic Instagram)</li>
+                            <li>Portrait: 1080 x 1350 pixels (4:5 ratio, fills mobile screens better)</li>
+                            <li>Landscape: 1080 x 566 pixels (1.91:1 ratio, if horizontal)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Sharpen Appropriately:</strong> Add a subtle sharpen (Smart Sharpen, Amount: 80%, Radius: 0.5) because Instagram applies compression</li>
+                    <li><strong>Increase Saturation Slightly:</strong> +5 to +10 vibrance helps combat Instagram's compression</li>
+                    <li><strong>Save as JPG:</strong> Quality 85%, sRGB color space, Embed Color Profile checked</li>
+                    <li><strong>Verify File Size:</strong> Target 1-2MB for best balance (Instagram will compress larger files more aggressively)</li>
+                </ol>
+            </div>
+
+            <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h4>⚠️ Common JPG Mistakes</h4>
+                <ul>
+                    <li><strong>Saving at 100% Quality:</strong> Creates massive files with no visible benefit—wastes bandwidth and storage</li>
+                    <li><strong>Multiple JPG Saves:</strong> Each time you open and re-save a JPG, quality degrades (work in PSD/TIFF, save JPG as final step)</li>
+                    <li><strong>Ignoring Color Space:</strong> Always use sRGB for web; Adobe RGB looks washed out on most screens</li>
+                    <li><strong>Wrong Aspect Ratios:</strong> Social platforms crop badly-sized images—use their native dimensions</li>
+                    <li><strong>Over-Sharpening for Web:</strong> Monitors show compression artifacts more than prints—subtle sharpening is better</li>
+                </ul>
+            </div>
+
+            <h3 id="png-when-why">PNG: When and Why to Choose It</h3>
+            
+            <p>PNG files are larger than JPGs, but they offer two huge advantages: lossless quality (no compression artifacts) and transparency support. Think of PNG as the format you choose when quality or special features matter more than file size.</p>
+
+            <h4>When PNG is Your Best Choice</h4>
+            
+            <div class="card">
+                <h4>🎯 PNG Use Cases</h4>
+                <ul>
+                    <li><strong>Images with Text:</strong> JPG compression makes text blurry and creates artifacts around letters—PNG keeps text razor-sharp</li>
+                    <li><strong>Transparency Needs:</strong> Character on transparent background for compositing? PNG is your only practical choice</li>
+                    <li><strong>Graphics with Sharp Edges:</strong> Logos, technical illustrations, hard-edged designs look muddy in JPG</li>
+                    <li><strong>Archival Quality:</strong> When you need perfect quality preservation with smaller files than TIFF</li>
+                    <li><strong>Images That May Be Edited Again:</strong> No generation loss means you can open, edit, and re-save without degradation</li>
+                </ul>
+            </div>
+
+            <h4>PNG-8 vs PNG-24</h4>
+            
+            <p>There are actually two types of PNG, and knowing the difference can save you a lot of file size:</p>
+
+            <div class="card">
+                <h4>📊 PNG Type Comparison</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>PNG-8</th>
+                            <th>PNG-24</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Colors</strong></td>
+                            <td>256 colors maximum</td>
+                            <td>16.7 million colors</td>
+                        </tr>
+                        <tr>
+                            <td><strong>File Size</strong></td>
+                            <td>Smaller (like GIF)</td>
+                            <td>Larger (full quality)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Transparency</strong></td>
+                            <td>Yes, but basic (on/off per pixel)</td>
+                            <td>Yes, full alpha channel (256 levels)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Best For</strong></td>
+                            <td>Simple graphics, logos, icons</td>
+                            <td>Photos, complex images, gradients</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gradients</strong></td>
+                            <td>May show banding</td>
+                            <td>Smooth and perfect</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <blockquote>
+                <p><strong>Quick Rule:</strong> For your Poser renders (which are photorealistic with lots of color), you'll almost always want PNG-24. PNG-8 is great for simple graphics and icons, but your character renders need that full color range.</p>
+            </blockquote>
+
+            <h3 id="tiff-print-archival">TIFF for Print and Archival</h3>
+            
+            <p>TIFF is the gold standard for professional work. It's what print shops want, what archives prefer, and what serious photographers use for masters. The files are large, but you're getting absolutely every pixel of quality.</p>
+
+            <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                <h4>💎 Why TIFF Matters</h4>
+                <p><strong>Lossless Compression:</strong> TIFF can use LZW or ZIP compression that makes files smaller without losing a single pixel of data. When you open it again, it's pixel-for-pixel identical.</p>
+                <p><strong>Professional Standard:</strong> Every print shop, publisher, and professional lab accepts TIFF. It's the universal language of high-quality printing.</p>
+                <p><strong>Flexibility:</strong> TIFF can store 8-bit, 16-bit, or even 32-bit color depth. It handles any color space. It can even store layers (though PSD is more common for that).</p>
+                <p><strong>Future-Proof:</strong> TIFF has been around since the 1980s and isn't going anywhere. Your files will be openable decades from now.</p>
+            </div>
+
+            <h4>TIFF Settings for Different Uses</h4>
+
+            <div class="card">
+                <h4>⚙️ TIFF Configuration Guide</h4>
+                <ul>
+                    <li><strong>For Print Submission:</strong>
+                        <ul>
+                            <li>Color Mode: CMYK (if printer requests) or RGB (if they handle conversion)</li>
+                            <li>Resolution: 300 PPI at final print size</li>
+                            <li>Compression: LZW (smaller file, no quality loss)</li>
+                            <li>Color Profile: Include embedded profile (usually Adobe RGB or printer-specific)</li>
+                        </ul>
+                    </li>
+                    <li><strong>For Archival/Master:</strong>
+                        <ul>
+                            <li>Color Mode: RGB, 16-bit if available (maximum color information)</li>
+                            <li>Resolution: Your original render resolution (don't downsize)</li>
+                            <li>Compression: LZW or ZIP (both are lossless)</li>
+                            <li>Color Profile: Adobe RGB or ProPhoto RGB (wider gamut preserves more color data)</li>
+                        </ul>
+                    </li>
+                    <li><strong>For Professional Delivery:</strong>
+                        <ul>
+                            <li>Color Mode: RGB, 8-bit (unless client specifies otherwise)</li>
+                            <li>Resolution: As requested by client</li>
+                            <li>Compression: LZW (widely compatible)</li>
+                            <li>Color Profile: sRGB (safest default) or Adobe RGB (if specified)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h4>⚠️ TIFF Gotchas</h4>
+                <ul>
+                    <li><strong>File Size:</strong> TIFF files are LARGE. A 4K render can easily be 50-100MB or more. Plan your storage accordingly.</li>
+                    <li><strong>Web Incompatibility:</strong> Most web browsers don't display TIFF files. Never use TIFF for websites or social media.</li>
+                    <li><strong>Compression Options:</strong> "None" creates massive files with no benefit—always use LZW or ZIP compression</li>
+                    <li><strong>Byte Order:</strong> If prompted, choose "IBM PC" (Windows standard) unless you're on Mac and staying in Mac ecosystem</li>
+                </ul>
+            </div>
+
+            <h3 id="working-files-psd">Working Files: PSD Format</h3>
+            
+            <p>PSD (Photoshop Document) files are for works-in-progress. They preserve your adjustment layers, masks, layer groups—everything you've built. Think of PSD as your "project file" while JPG/PNG/TIFF are your "export files."</p>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>✅ PSD Workflow Strategy</h4>
+                <ol>
+                    <li><strong>Save Your Work as PSD Immediately:</strong> As soon as you open your render in Photoshop, save it as PSD before doing anything else</li>
+                    <li><strong>Work Non-Destructively:</strong> Use adjustment layers instead of direct edits—you can always change your mind later</li>
+                    <li><strong>Organize Layers Sensibly:</strong> Use groups, name layers clearly (you'll thank yourself later)</li>
+                    <li><strong>Save Frequently:</strong> Use Ctrl+S (Cmd+S) often while working—don't lose hours of work</li>
+                    <li><strong>Save Final Versions Separately:</strong> When done, save PSD as your master, then export JPG/PNG/TIFF as needed</li>
+                    <li><strong>Archive PSD Files:</strong> These are your originals—back them up and keep them safe</li>
+                </ol>
+            </div>
+
+            <blockquote>
+                <p><strong>Pro Workflow Tip:</strong> Create a folder structure like this: <code>project_name/masters/</code> for PSD files, <code>project_name/exports/web/</code> for JPGs, <code>project_name/exports/print/</code> for TIFFs. This keeps everything organized and easy to find.</p>
+            </blockquote>
+
+            <h3 id="file-naming">File Naming for Organization</h3>
+            
+            <p>You'll create dozens or hundreds of renders over time. Future-you will be incredibly grateful if present-you develops a good file naming system now. Consistent, descriptive names make finding files easy; cryptic names like "render01.jpg" make it impossible.</p>
+
+            <div class="card">
+                <h4>📝 File Naming Best Practices</h4>
+                <ul>
+                    <li><strong>Be Descriptive:</strong> <code>warrior_portrait_dramatic_lighting_v3.psd</code> tells you everything; <code>render_final2_REAL.psd</code> tells you nothing</li>
+                    <li><strong>Include Project Name:</strong> <code>dragon_slayer_hero_pose_001.jpg</code> makes it easy to find related images</li>
+                    <li><strong>Use Version Numbers:</strong> <code>_v1</code>, <code>_v2</code>, <code>_v3</code> helps track iterations without overwriting</li>
+                    <li><strong>Add Date for Archives:</strong> <code>character_portrait_2025-11-07_final.tiff</code> makes chronology clear</li>
+                    <li><strong>Indicate Format Purpose:</strong> <code>_web</code>, <code>_print</code>, <code>_instagram</code> suffixes show what each file is for</li>
+                    <li><strong>No Spaces:</strong> Use underscores or hyphens: <code>hero_pose</code> not <code>hero pose</code> (avoids problems on some systems)</li>
+                    <li><strong>Lowercase Consistency:</strong> All lowercase is easier to type and more universal</li>
+                </ul>
+            </div>
+
+            <h4>Example Naming Structure</h4>
+
+            <div class="card" style="background: #f3e5f5; border-left: 4px solid #9c27b0;">
+                <h4>🗂️ Real-World File Naming Examples</h4>
+                <p><strong>Master File (PSD):</strong><br>
+                <code>fantasy_warrior_portrait_2025-11-07_v4_master.psd</code><br>
+                <em>Includes project name, date, version, and "master" to indicate it's the working file</em></p>
+                
+                <p><strong>Web Version (JPG):</strong><br>
+                <code>fantasy_warrior_portrait_web_1920px.jpg</code><br>
+                <em>Clear indication this is the web-optimized version at 1920px wide</em></p>
+                
+                <p><strong>Instagram Version (JPG):</strong><br>
+                <code>fantasy_warrior_portrait_instagram_1080sq.jpg</code><br>
+                <em>Sized specifically for Instagram's square format</em></p>
+                
+                <p><strong>Print Version (TIFF):</strong><br>
+                <code>fantasy_warrior_portrait_print_11x17_300dpi.tiff</code><br>
+                <em>Includes print dimensions and DPI for print shop</em></p>
+                
+                <p><strong>Portfolio Thumbnail (JPG):</strong><br>
+                <code>fantasy_warrior_portrait_thumb_600px.jpg</code><br>
+                <em>Small version for website portfolio page</em></p>
+            </div>
+
+            <h3 id="batch-processing">Batch Processing for Efficiency</h3>
+            
+            <p>Once you understand optimization for one image, you can apply those same settings to dozens or hundreds of images automatically. This is called batch processing, and it's a huge time-saver.</p>
+
+            <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                <h4>💪 Photoshop Actions for Batch Processing</h4>
+                <p>Actions record your steps and let you replay them on other images with one click. Here's how to create a "Save for Instagram" action:</p>
+                <ol>
+                    <li>Open the Actions panel (Window → Actions)</li>
+                    <li>Click the "Create New Action" button (folder icon with +)</li>
+                    <li>Name it "Instagram 1080 Square" and click Record</li>
+                    <li>Perform these steps:
+                        <ul>
+                            <li>Image → Image Size → 1080 x 1080 pixels</li>
+                            <li>Filter → Sharpen → Smart Sharpen (Amount: 80%, Radius: 0.5)</li>
+                            <li>Image → Adjustments → Vibrance (+10)</li>
+                            <li>File → Export → Save for Web → JPG, Quality 85%, sRGB</li>
+                        </ul>
+                    </li>
+                    <li>Click the Stop button in Actions panel</li>
+                </ol>
+                <p>Now you can run this action on any image with one click, or even batch-process entire folders!</p>
+            </div>
+
+            <h4>Batch Processing a Folder</h4>
+
+            <div class="card">
+                <h4>🔄 Batch Processing Steps</h4>
+                <ol>
+                    <li><strong>Prepare Your Action:</strong> Create and test your action on one sample image first</li>
+                    <li><strong>Organize Source Files:</strong> Put all images to process in one folder</li>
+                    <li><strong>Create Output Folder:</strong> Make a separate folder for processed results</li>
+                    <li><strong>Run Batch:</strong>
+                        <ul>
+                            <li>Go to File → Automate → Batch</li>
+                            <li>Select your action</li>
+                            <li>Choose source folder</li>
+                            <li>Choose destination folder</li>
+                            <li>Set file naming if desired</li>
+                            <li>Click OK and watch it work!</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <blockquote>
+                <p><strong>Common Batch Processing Uses:</strong> Converting a portfolio's worth of images to web-friendly JPGs, creating thumbnail versions of all your work, adding watermarks to multiple images, resizing an entire gallery for a specific platform.</p>
+            </blockquote>
+
+        </section>
+<!-- LESSON 27 PART 7: Color Management and Profiles -->
+
+        <section id="color-management">
+            <h2>🎨 Color Management and Profiles</h2>
+            
+            <p>You've spent hours perfecting your render's colors—getting the skin tone just right, balancing the lighting, adjusting the mood. Then you open it on your phone and... it looks completely different. Washed out. Or oversaturated. Or just <em>wrong</em>. What happened?</p>
+            
+            <p>Welcome to the world of color management, where understanding a few key concepts can save you from countless frustrating surprises. Think of color management as making sure everyone speaks the same language when discussing colors. Without it, what looks perfect on your screen might look terrible everywhere else.</p>
+
+            <h3 id="color-spaces-explained">Understanding Color Spaces</h3>
+            
+            <p>A color space is like a box that contains all the colors a device can display or a file can store. Some boxes are small and contain fewer colors (like a basic crayon set), while others are huge and contain millions of colors (like a professional paint store). The problem? Not all devices use the same sized box.</p>
+
+            <div class="mermaid">
+                graph TD
+                    A[Color Spaces from Smallest to Largest] --> B[sRGB]
+                    A --> C[Adobe RGB]
+                    A --> D[ProPhoto RGB]
+                    
+                    B --> B1[Small gamut]
+                    B --> B2[Web standard]
+                    B --> B3[Most monitors]
+                    
+                    C --> C1[Medium gamut]
+                    C --> C2[Printing standard]
+                    C --> C3[Professional work]
+                    
+                    D --> D1[Huge gamut]
+                    D --> D2[Archive/master files]
+                    D --> D3[Future-proofing]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style B fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style C fill:#FF9800,stroke:#333,stroke-width:2px,color:#fff
+                    style D fill:#f44336,stroke:#333,stroke-width:2px,color:#fff
+            </div>
+
+            <div class="card">
+                <h4>📊 Color Space Comparison</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Color Space</th>
+                            <th>Colors Available</th>
+                            <th>Best For</th>
+                            <th>Considerations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>sRGB</strong></td>
+                            <td>~16.7 million (smallest standard gamut)</td>
+                            <td>Web, social media, email, general viewing</td>
+                            <td>What 95% of monitors display—safe default choice</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Adobe RGB</strong></td>
+                            <td>~16.7 million (wider gamut, especially greens/cyans)</td>
+                            <td>Professional printing, photography</td>
+                            <td>Looks washed out on monitors without proper color management</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ProPhoto RGB</strong></td>
+                            <td>~1 trillion (huge gamut, includes many colors humans can't see)</td>
+                            <td>Master archives, extreme post-processing</td>
+                            <td>Too large for any display—only useful for archival</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CMYK</strong></td>
+                            <td>Device-dependent (printer-specific)</td>
+                            <td>Professional printing (offset, commercial)</td>
+                            <td>Not a viewing space—always get printer specifications</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <blockquote>
+                <p><strong>The Golden Rule:</strong> Use sRGB for anything that will be viewed on screens (web, social media, email, presentations). Use Adobe RGB only if you're printing professionally and know your printer supports it. Use ProPhoto RGB only for archival master files. When in doubt, sRGB is always the safe choice.</p>
+            </blockquote>
+
+            <h3 id="why-colors-look-different">Why Colors Look Different Everywhere</h3>
+            
+            <p>You've probably noticed this frustration: your render looks perfect on your desktop monitor, slightly different on your laptop, completely different on your phone, and weird on your TV. This isn't bad luck—it's physics and technology colliding.</p>
+
+            <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                <h4>🔍 Why Color Varies Across Devices</h4>
+                <ul>
+                    <li><strong>Different Color Gamuts:</strong> Your desktop monitor might display Adobe RGB, your phone displays sRGB, and each shows colors differently</li>
+                    <li><strong>Brightness Differences:</strong> Monitors range from dim to blindingly bright—what looks good at one brightness looks wrong at another</li>
+                    <li><strong>Screen Technology:</strong> IPS panels, TN panels, OLED screens all reproduce color differently</li>
+                    <li><strong>Calibration (or lack of it):</strong> Most monitors ship with terrible default settings and are never calibrated</li>
+                    <li><strong>Viewing Conditions:</strong> Room lighting affects perceived color—what looks right in a dark room looks different in bright office lighting</li>
+                    <li><strong>Color Profiles Missing or Ignored:</strong> Some software and devices don't respect embedded color profiles</li>
+                </ul>
+            </div>
+
+            <h4>The sRGB Safety Net</h4>
+            
+            <p>Here's why sRGB is your friend for screen viewing: it's the common denominator. Nearly every monitor, phone, tablet, and laptop can display sRGB accurately (or close enough). When you save an image in sRGB, you're speaking a universal language that almost every screen understands.</p>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>✅ sRGB Workflow for Consistent Results</h4>
+                <ol>
+                    <li><strong>Set Photoshop to sRGB:</strong> Edit → Color Settings → Working Spaces: RGB = sRGB IEC61966-2.1</li>
+                    <li><strong>Convert on Open:</strong> When opening renders, if prompted, convert to sRGB working space</li>
+                    <li><strong>Embed Profile on Save:</strong> Always check "Embed Color Profile" when saving JPGs and PNGs</li>
+                    <li><strong>Verify in Save for Web:</strong> When using Save for Web, ensure "Convert to sRGB" is checked</li>
+                    <li><strong>Test on Multiple Devices:</strong> Check your final images on at least 2-3 different screens if possible</li>
+                </ol>
+            </div>
+
+            <h3 id="monitor-calibration">Monitor Calibration Basics</h3>
+            
+            <p>If you're serious about color accuracy, monitor calibration is essential. Think of it like tuning a musical instrument—you can't create beautiful music on an out-of-tune guitar, and you can't judge colors accurately on a misconfigured monitor.</p>
+
+            <h4>What Calibration Does</h4>
+
+            <div class="card">
+                <h4>🎯 Calibration Goals</h4>
+                <ul>
+                    <li><strong>Correct Brightness:</strong> Sets monitor to standard brightness (typically 120 cd/m² for photo work)</li>
+                    <li><strong>Neutral White Point:</strong> Ensures whites are truly neutral, not bluish or yellowish (typically 6500K/D65)</li>
+                    <li><strong>Accurate Color Temperature:</strong> Matches industry standards for viewing conditions</li>
+                    <li><strong>Proper Contrast:</strong> Ensures blacks are black and whites are white, not gray</li>
+                    <li><strong>Gamma Correction:</strong> Sets proper tone curve (typically 2.2 for general work, 2.4 for print)</li>
+                    <li><strong>Color Accuracy:</strong> Ensures red is actually red, blue is actually blue, etc.</li>
+                </ul>
+            </div>
+
+            <h4>Calibration Options</h4>
+
+            <div class="card">
+                <h4>🛠️ Calibration Methods</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Cost</th>
+                            <th>Accuracy</th>
+                            <th>Best For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Hardware Calibrator</strong><br>(X-Rite ColorMunki, Datacolor SpyderX)</td>
+                            <td>$150-$500</td>
+                            <td>Excellent</td>
+                            <td>Anyone serious about color accuracy</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Visual Calibration</strong><br>(Built-in OS tools)</td>
+                            <td>Free</td>
+                            <td>Fair (better than nothing)</td>
+                            <td>Beginners, casual users, tight budgets</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Professional Service</strong></td>
+                            <td>$100-300 per visit</td>
+                            <td>Excellent</td>
+                            <td>Critical color work, professional studios</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <blockquote>
+                <p><strong>Reality Check:</strong> If you're just starting out, don't stress about calibration yet. Focus on working in sRGB and learning the fundamentals. As you progress and start printing or doing client work, investing in a hardware calibrator (like the X-Rite ColorMunki Display) becomes worthwhile.</p>
+            </blockquote>
+
+            <h4>Free Visual Calibration</h4>
+
+            <p>While not as accurate as hardware calibration, your operating system includes free tools that can help:</p>
+
+            <div class="card" style="background: #f3e5f5; border-left: 4px solid #9c27b0;">
+                <h4>🖥️ Built-In Calibration Tools</h4>
+                <p><strong>Windows:</strong></p>
+                <ol>
+                    <li>Search for "Calibrate display color" in Start menu</li>
+                    <li>Follow the wizard to adjust gamma, brightness, contrast, and color balance</li>
+                    <li>Takes 10-15 minutes and gives better results than default settings</li>
+                </ol>
+                
+                <p><strong>macOS:</strong></p>
+                <ol>
+                    <li>System Preferences → Displays → Color → Calibrate</li>
+                    <li>Display Calibrator Assistant walks you through the process</li>
+                    <li>Creates a custom color profile for your monitor</li>
+                </ol>
+            </div>
+
+            <h3 id="soft-proofing">Soft Proofing for Print</h3>
+            
+            <p>Soft proofing is a magical feature in Photoshop that shows you how your image will look when printed, right on your screen. It's like a print preview, but much more sophisticated—it simulates the specific printer, paper, and ink you'll use.</p>
+
+            <div class="card">
+                <h4>🖨️ Why Soft Proofing Matters</h4>
+                <p>Colors on screen (transmitted light through pixels) look different than colors on paper (reflected light from ink). Screens can show vibrant blues and glowing colors that no printer can reproduce. Soft proofing shows you these limitations <em>before</em> you waste time and money on a print that doesn't match your screen.</p>
+            </div>
+
+            <h4>Setting Up Soft Proofing</h4>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>✅ Soft Proofing Workflow</h4>
+                <ol>
+                    <li><strong>Get Printer Profile:</strong>
+                        <ul>
+                            <li>Professional lab: Request their ICC profile for your paper choice</li>
+                            <li>Home printer: Download from manufacturer's website</li>
+                            <li>Install profile: Copy to Windows/System32/spool/drivers/color or Mac/Library/ColorSync/Profiles</li>
+                        </ul>
+                    </li>
+                    <li><strong>Enable Soft Proofing in Photoshop:</strong>
+                        <ul>
+                            <li>View → Proof Setup → Custom</li>
+                            <li>Device to Simulate: Choose your printer profile</li>
+                            <li>Check "Simulate Paper Color" for most accurate preview</li>
+                            <li>Check "Simulate Black Ink" to see how blacks will print</li>
+                        </ul>
+                    </li>
+                    <li><strong>Toggle Proof View:</strong>
+                        <ul>
+                            <li>Ctrl+Y (Cmd+Y on Mac) to toggle soft proof on/off</li>
+                            <li>Compare screen colors vs. print simulation</li>
+                            <li>Identify out-of-gamut colors (colors printer can't reproduce)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Adjust as Needed:</strong>
+                        <ul>
+                            <li>Make corrections while viewing soft proof</li>
+                            <li>Keep adjustments subtle—proof is a simulation, not perfect</li>
+                            <li>Save your working file before converting to printer space</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <h4>Gamut Warnings</h4>
+
+            <p>Some colors exist on screen but physically can't be reproduced with printer inks. These are called "out of gamut" colors. Photoshop can show you which colors will be affected:</p>
+
+            <div class="card">
+                <h4>⚠️ Using Gamut Warnings</h4>
+                <ol>
+                    <li><strong>Enable Gamut Warning:</strong> View → Gamut Warning (Ctrl+Shift+Y / Cmd+Shift+Y)</li>
+                    <li><strong>Gray Overlay Appears:</strong> Any gray-covered area contains unprintable colors</li>
+                    <li><strong>Adjust Problem Areas:</strong>
+                        <ul>
+                            <li>Usually affects vivid blues, bright cyans, and saturated oranges</li>
+                            <li>Use Hue/Saturation to reduce intensity slightly</li>
+                            <li>Be gentle—small adjustments prevent flat, dull results</li>
+                        </ul>
+                    </li>
+                    <li><strong>Verify With Soft Proof:</strong> Toggle proof on/off to see actual difference</li>
+                </ol>
+            </div>
+
+            <h3 id="converting-to-cmyk">Converting to CMYK (When Necessary)</h3>
+            
+            <p>Most of the time, you'll send RGB files to print. Modern printers and print services prefer RGB and handle conversion themselves. But sometimes—for professional offset printing or specific client requirements—you'll need to convert to CMYK (Cyan, Magenta, Yellow, Black ink values).</p>
+
+            <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h4>⚠️ CMYK Conversion Warnings</h4>
+                <ul>
+                    <li><strong>Destructive Process:</strong> Converting RGB → CMYK → RGB loses color information permanently</li>
+                    <li><strong>Smaller Gamut:</strong> CMYK can't reproduce many RGB colors, especially bright blues and greens</li>
+                    <li><strong>Printer-Specific:</strong> Different presses need different CMYK profiles—one-size-fits-all doesn't work</li>
+                    <li><strong>File Size:</strong> CMYK files are larger (four channels instead of three)</li>
+                    <li><strong>Always Keep RGB Master:</strong> Never overwrite your RGB original with CMYK version</li>
+                </ul>
+            </div>
+
+            <h4>When to Convert to CMYK</h4>
+
+            <div class="card">
+                <h4>🖨️ CMYK Conversion Scenarios</h4>
+                <ul>
+                    <li><strong>Professional Offset Printing:</strong> Magazines, books, brochures often require CMYK</li>
+                    <li><strong>Client Specifications:</strong> Client specifically requests CMYK files</li>
+                    <li><strong>Pre-Press Requirements:</strong> Commercial printer's workflow requires it</li>
+                    <li><strong>Package Design:</strong> Product packaging typically needs CMYK (sometimes with spot colors)</li>
+                </ul>
+                
+                <p><strong>Don't Convert to CMYK For:</strong></p>
+                <ul>
+                    <li>Home inkjet printing (they prefer RGB)</li>
+                    <li>Online print services (they handle conversion)</li>
+                    <li>Photo labs (work in RGB)</li>
+                    <li>Digital displays or web use (RGB only)</li>
+                </ul>
+            </div>
+
+            <h4>Safe CMYK Conversion Process</h4>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>✅ CMYK Conversion Steps</h4>
+                <ol>
+                    <li><strong>Verify It's Necessary:</strong> Confirm with printer that CMYK is required and get their specific profile</li>
+                    <li><strong>Save RGB Master:</strong> Make sure your RGB version is safely saved first</li>
+                    <li><strong>Flatten Layers:</strong> Layer → Flatten Image (CMYK doesn't support all layer types)</li>
+                    <li><strong>Soft Proof First:</strong> View → Proof Setup → Working CMYK to see how it will look</li>
+                    <li><strong>Make RGB Adjustments:</strong> Fix any color shifts while still in RGB (easier)</li>
+                    <li><strong>Convert:</strong> Edit → Convert to Profile → CMYK Working Space (or printer-specific profile)</li>
+                    <li><strong>Save As New File:</strong> Don't overwrite your RGB file!</li>
+                    <li><strong>Delivery Format:</strong> Usually TIFF or PDF with embedded profile</li>
+                </ol>
+            </div>
+
+            <h3 id="embedded-profiles">Embedding Color Profiles</h3>
+            
+            <p>When you embed a color profile in your image file, you're including instructions that tell other programs and devices how to interpret the colors correctly. It's like including a translation guide with your image.</p>
+
+            <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                <h4>💡 Why Embed Profiles?</h4>
+                <p><strong>Without embedded profile:</strong> Software makes assumptions about your colors. These assumptions are often wrong, leading to color shifts.</p>
+                <p><strong>With embedded profile:</strong> Software knows exactly how to interpret your colors, maintaining consistency across devices and applications.</p>
+                <p><strong>The Rule:</strong> Always embed color profiles in your final files. The tiny bit of extra file size (usually just a few KB) is worth it for color accuracy.</p>
+            </div>
+
+            <h4>How to Embed Profiles</h4>
+
+            <div class="card">
+                <h4>📎 Embedding Profiles in Different Formats</h4>
+                <ul>
+                    <li><strong>JPG (Save for Web):</strong> Check "Convert to sRGB" and "Embed Color Profile"</li>
+                    <li><strong>JPG (Save As):</strong> Check "ICC Profile" in save dialog</li>
+                    <li><strong>PNG:</strong> Automatically embeds profile when you check "ICC Profile" in save options</li>
+                    <li><strong>TIFF:</strong> Check "Embed Color Profile" in save dialog (usually checked by default)</li>
+                    <li><strong>PSD:</strong> Profiles are always embedded automatically</li>
+                </ul>
+            </div>
+
+            <blockquote>
+                <p><strong>Pro Tip:</strong> Set Photoshop to always ask about profile mismatches. Edit → Color Settings → Color Management Policies: All set to "Ask When Opening." This way you'll know when images have different profiles and can make informed decisions.</p>
+            </blockquote>
+
+        </section>
+<!-- LESSON 27 PART 8: Project and Practical Exercises -->
+
+        <section id="project">
+            <h2>🎯 Project: Complete Post-Processing Workflow</h2>
+            
+            <p>Theory is great, but there's no substitute for hands-on practice. In this project, you'll take a render through a complete professional post-processing workflow—from opening the raw render to delivering multiple optimized versions for different purposes. This is the kind of workflow you'll use for every serious project.</p>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3>🎨 Project Goal</h3>
+                <p style="color: white;">Take one of your Poser renders and process it professionally for three different outputs: web portfolio, Instagram, and high-quality print. Along the way, you'll apply color correction, sharpening, composition refinement, and proper file optimization.</p>
+            </div>
+
+            <h3 id="project-setup">Project Setup</h3>
+
+            <div class="card">
+                <h4>📋 What You'll Need</h4>
+                <ul>
+                    <li><strong>One Poser Render:</strong> Choose a render you're proud of—ideally a character portrait or full scene with good lighting</li>
+                    <li><strong>Photoshop or GIMP:</strong> For your post-processing work (instructions work for both, with minor variations)</li>
+                    <li><strong>Time Required:</strong> 45-60 minutes for complete workflow</li>
+                    <li><strong>Working Space:</strong> Make sure you have at least 500MB free disk space for working files</li>
+                </ul>
+            </div>
+
+            <h3 id="project-steps">Step-by-Step Workflow</h3>
+
+            <h4>Phase 1: Initial Setup and Organization</h4>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>Step 1: Create Your Project Structure</h4>
+                <ol>
+                    <li>Create a new folder: <code>post_processing_project/</code></li>
+                    <li>Inside, create subfolders:
+                        <ul>
+                            <li><code>original/</code> - for your raw render</li>
+                            <li><code>working/</code> - for PSD/XCF working files</li>
+                            <li><code>exports/web/</code> - for web versions</li>
+                            <li><code>exports/social/</code> - for social media versions</li>
+                            <li><code>exports/print/</code> - for print versions</li>
+                        </ul>
+                    </li>
+                    <li>Copy your chosen render into the <code>original/</code> folder</li>
+                    <li>Keep this folder organized—you'll thank yourself later!</li>
+                </ol>
+            </div>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>Step 2: Open and Save Working File</h4>
+                <ol>
+                    <li>Open your render in Photoshop/GIMP</li>
+                    <li>Immediately save as PSD (Photoshop) or XCF (GIMP) in your <code>working/</code> folder</li>
+                    <li>Name it descriptively: <code>character_portrait_master_v1.psd</code></li>
+                    <li>Set your color space to sRGB: Edit → Color Settings → Working Space: sRGB</li>
+                    <li>If prompted about profile mismatch, choose "Convert to working RGB"</li>
+                </ol>
+            </div>
+
+            <h4>Phase 2: Initial Evaluation and Corrections</h4>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>Step 3: Technical Assessment</h4>
+                <ol>
+                    <li><strong>Check Your Histogram:</strong>
+                        <ul>
+                            <li>Window → Histogram (if not already visible)</li>
+                            <li>Look for clipped highlights (bunched up at right edge)</li>
+                            <li>Look for blocked shadows (bunched up at left edge)</li>
+                            <li>Note if image looks too dark, too bright, or has color cast</li>
+                        </ul>
+                    </li>
+                    <li><strong>Zoom to 100%:</strong>
+                        <ul>
+                            <li>Check for any render artifacts or noise</li>
+                            <li>Examine skin textures, fabric details, edge quality</li>
+                            <li>Note any areas that need special attention</li>
+                        </ul>
+                    </li>
+                    <li><strong>Write Down Your Goals:</strong>
+                        <ul>
+                            <li>What needs to be brighter or darker?</li>
+                            <li>What colors need adjustment?</li>
+                            <li>What areas need more contrast or saturation?</li>
+                            <li>Are there any distracting elements to remove or minimize?</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>Step 4: Levels Adjustment</h4>
+                <ol>
+                    <li>Create new Levels adjustment layer (Layer → New Adjustment Layer → Levels)</li>
+                    <li>Set your black point:
+                        <ul>
+                            <li>Hold Alt/Option and drag the left (black) slider</li>
+                            <li>Stop when you first see something appear (this is your true black)</li>
+                            <li>Usually just a few numbers in (around 10-15 on the scale)</li>
+                        </ul>
+                    </li>
+                    <li>Set your white point:
+                        <ul>
+                            <li>Hold Alt/Option and drag the right (white) slider</li>
+                            <li>Stop when you first see something appear (this is your true white)</li>
+                            <li>Usually just a few numbers in from the right (around 240-250)</li>
+                        </ul>
+                    </li>
+                    <li>Adjust midtones (middle gray slider) if image is too dark or bright</li>
+                    <li>Use layer opacity to fine-tune the effect if it's too strong</li>
+                </ol>
+            </div>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>Step 5: Color Balance</h4>
+                <ol>
+                    <li>Create Color Balance adjustment layer</li>
+                    <li>Fix any color casts:
+                        <ul>
+                            <li>If image is too blue, add yellow</li>
+                            <li>If too yellow, add blue</li>
+                            <li>If too magenta, add green</li>
+                            <li>If too green, add magenta</li>
+                        </ul>
+                    </li>
+                    <li>Work with Shadows, Midtones, and Highlights separately</li>
+                    <li>Make subtle adjustments—small changes have big impact</li>
+                    <li>Toggle the layer on/off to verify improvement</li>
+                </ol>
+            </div>
+
+            <h4>Phase 3: Creative Enhancements</h4>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>Step 6: Selective Adjustments</h4>
+                <ol>
+                    <li><strong>Dodge and Burn:</strong>
+                        <ul>
+                            <li>Create new layer, fill with 50% gray</li>
+                            <li>Set blend mode to Overlay</li>
+                            <li>Use soft brush: white to brighten (dodge), black to darken (burn)</li>
+                            <li>Low opacity (10-20%) for subtle control</li>
+                            <li>Enhance facial features, add depth to scene</li>
+                        </ul>
+                    </li>
+                    <li><strong>Vibrance/Saturation:</strong>
+                        <ul>
+                            <li>Create Vibrance adjustment layer</li>
+                            <li>Increase Vibrance: +10 to +20 (enhances muted colors)</li>
+                            <li>Adjust Saturation if needed: -5 to +10 (affects all colors equally)</li>
+                            <li>Watch skin tones—don't oversaturate them</li>
+                        </ul>
+                    </li>
+                    <li><strong>Vignette (Optional):</strong>
+                        <ul>
+                            <li>Create new layer, fill with white</li>
+                            <li>Add black layer mask</li>
+                            <li>Use large, soft brush with white paint</li>
+                            <li>Paint in center where you want viewer's eye drawn</li>
+                            <li>Set layer to Multiply or Soft Light, reduce opacity to 20-40%</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <h4>Phase 4: Sharpening and Final Polish</h4>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>Step 7: Smart Sharpening</h4>
+                <ol>
+                    <li>Create a merged copy of all visible layers:
+                        <ul>
+                            <li>Ctrl+Shift+Alt+E (PC) or Cmd+Shift+Opt+E (Mac)</li>
+                            <li>This creates new layer with everything merged</li>
+                        </ul>
+                    </li>
+                    <li>Convert to Smart Object: Right-click layer → Convert to Smart Object</li>
+                    <li>Apply Smart Sharpen: Filter → Sharpen → Smart Sharpen</li>
+                    <li>Settings for general use:
+                        <ul>
+                            <li>Amount: 100-150%</li>
+                            <li>Radius: 1.0-1.5 pixels</li>
+                            <li>Reduce Noise: 5-10%</li>
+                        </ul>
+                    </li>
+                    <li>View at 100% zoom to check results</li>
+                    <li>If too strong, adjust smart filter opacity</li>
+                </ol>
+            </div>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>Step 8: Final Review</h4>
+                <ol>
+                    <li>Toggle all adjustment layers on/off to see before/after</li>
+                    <li>Check histogram—should span full range without clipping</li>
+                    <li>Zoom to various levels: 50%, 100%, fit screen</li>
+                    <li>Check these areas carefully:
+                        <ul>
+                            <li>Skin tones (natural, not oversaturated or oddly colored)</li>
+                            <li>Eyes (clear, engaging, well-defined)</li>
+                            <li>Background (supports subject, not distracting)</li>
+                            <li>Overall mood (matches your vision)</li>
+                        </ul>
+                    </li>
+                    <li>Save your PSD with all layers: <code>character_portrait_master_v1.psd</code></li>
+                </ol>
+            </div>
+
+            <h4>Phase 5: Export for Different Uses</h4>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>Step 9: Web Portfolio Version</h4>
+                <ol>
+                    <li>Image → Image Size → Width: 1920 pixels (maintain aspect ratio)</li>
+                    <li>File → Export → Save for Web (Legacy) or Export As</li>
+                    <li>Settings:
+                        <ul>
+                            <li>Format: JPG</li>
+                            <li>Quality: 80-85</li>
+                            <li>Convert to sRGB: Checked</li>
+                            <li>Embed Color Profile: Checked</li>
+                        </ul>
+                    </li>
+                    <li>Save to: <code>exports/web/character_portrait_web_1920px.jpg</code></li>
+                    <li>Check file size: Should be under 2MB, ideally 500KB-1.5MB</li>
+                </ol>
+            </div>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>Step 10: Instagram Version</h4>
+                <ol>
+                    <li>Undo the resize (Edit → Step Backward or Ctrl+Z until back to full size)</li>
+                    <li>Decide on format:
+                        <ul>
+                            <li>Square: 1080 x 1080 px (classic Instagram)</li>
+                            <li>Portrait: 1080 x 1350 px (4:5 ratio, recommended)</li>
+                        </ul>
+                    </li>
+                    <li>Crop: Image → Canvas Size or Crop Tool (C)</li>
+                    <li>Consider composition: Is subject well-framed in this format?</li>
+                    <li>Add slight extra sharpening: Filter → Sharpen → Smart Sharpen (Amount: 80%, Radius: 0.5)</li>
+                    <li>Increase vibrance slightly: +5 to +10 (compensates for Instagram compression)</li>
+                    <li>Export:
+                        <ul>
+                            <li>Format: JPG, Quality: 85</li>
+                            <li>Convert to sRGB: Checked</li>
+                        </ul>
+                    </li>
+                    <li>Save to: <code>exports/social/character_portrait_instagram_1080sq.jpg</code></li>
+                    <li>Target file size: 1-2MB for best Instagram quality</li>
+                </ol>
+            </div>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>Step 11: Print Version</h4>
+                <ol>
+                    <li>Reopen your master PSD file (to get full resolution)</li>
+                    <li>Decide on print size: Let's say 11x17 inches</li>
+                    <li>Image → Image Size:
+                        <ul>
+                            <li>Width: 11 inches, Height: 17 inches</li>
+                            <li>Resolution: 300 pixels/inch</li>
+                            <li>Resample: Preserve Details 2.0 or Bicubic Sharper</li>
+                        </ul>
+                    </li>
+                    <li>Apply output sharpening:
+                        <ul>
+                            <li>Filter → Sharpen → Smart Sharpen</li>
+                            <li>Amount: 120%, Radius: 1.5-2.0</li>
+                            <li>Prints need more sharpening than screens</li>
+                        </ul>
+                    </li>
+                    <li>Flatten: Layer → Flatten Image</li>
+                    <li>Save As TIFF:
+                        <ul>
+                            <li>File → Save As</li>
+                            <li>Format: TIFF</li>
+                            <li>Compression: LZW (lossless, smaller file)</li>
+                            <li>Embed Color Profile: Checked (Adobe RGB or sRGB)</li>
+                        </ul>
+                    </li>
+                    <li>Save to: <code>exports/print/character_portrait_print_11x17_300dpi.tif</code></li>
+                </ol>
+            </div>
+
+            <h3 id="project-success">Success Checklist</h3>
+
+            <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                <h4>✅ Project Completion Checklist</h4>
+                <p>Verify you've completed all these elements:</p>
+                <ul>
+                    <li>☐ Organized project folder structure created</li>
+                    <li>☐ Master PSD file saved with all adjustment layers</li>
+                    <li>☐ Levels adjusted for proper black and white points</li>
+                    <li>☐ Color balance corrected (no unwanted color casts)</li>
+                    <li>☐ Selective adjustments applied (dodge/burn, vibrance)</li>
+                    <li>☐ Appropriate sharpening applied</li>
+                    <li>☐ Web version exported (1920px, JPG, 80-85 quality)</li>
+                    <li>☐ Instagram version exported (1080px, properly cropped)</li>
+                    <li>☐ Print version exported (11x17", 300 DPI, TIFF)</li>
+                    <li>☐ All files properly named with descriptive conventions</li>
+                    <li>☐ Color profiles embedded in all exports</li>
+                    <li>☐ Final images reviewed at 100% zoom</li>
+                </ul>
+            </div>
+
+            <h3 id="bonus-challenges">Bonus Challenges</h3>
+
+            <div class="card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">
+                <h4>🏆 Level Up Your Skills</h4>
+                <p style="color: white;">Ready to push further? Try these advanced challenges:</p>
+                <ol style="color: white;">
+                    <li><strong>Create a Before/After Comparison:</strong>
+                        <ul style="color: white;">
+                            <li>Place your original render and final version side by side</li>
+                            <li>Add a slider showing the transformation</li>
+                            <li>Export for social media to showcase your skills</li>
+                        </ul>
+                    </li>
+                    <li><strong>Create Multiple Mood Variations:</strong>
+                        <ul style="color: white;">
+                            <li>From your master PSD, create "cool mood" version (blue tones)</li>
+                            <li>Create "warm mood" version (orange/yellow tones)</li>
+                            <li>Create "dramatic" version (high contrast, moody)</li>
+                            <li>See how post-processing changes the emotional impact</li>
+                        </ul>
+                    </li>
+                    <li><strong>Build a Photoshop Action:</strong>
+                        <ul style="color: white;">
+                            <li>Record the steps you used most often</li>
+                            <li>Create reusable actions for future renders</li>
+                            <li>Build your own personal workflow library</li>
+                        </ul>
+                    </li>
+                    <li><strong>Print Comparison Test:</strong>
+                        <ul style="color: white;">
+                            <li>Print your image at local photo lab or home printer</li>
+                            <li>Compare print to screen version</li>
+                            <li>Learn how colors translate to physical media</li>
+                            <li>Adjust your workflow based on results</li>
+                        </ul>
+                    </li>
+                    <li><strong>Create a Contact Sheet:</strong>
+                        <ul style="color: white;">
+                            <li>Process 6-8 different renders using your new skills</li>
+                            <li>Create a professional contact sheet in Photoshop</li>
+                            <li>Show your range and consistency</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <h3 id="common-project-problems">Troubleshooting Common Issues</h3>
+
+            <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h4>⚠️ Common Problems and Solutions</h4>
+                
+                <p><strong>Problem: My adjustments look too strong</strong></p>
+                <ul>
+                    <li><strong>Solution:</strong> Reduce adjustment layer opacity to 50-70% for more subtle effect</li>
+                    <li>Remember: Small changes often look better than dramatic ones</li>
+                </ul>
+                
+                <p><strong>Problem: Skin tones look unnatural or oversaturated</strong></p>
+                <ul>
+                    <li><strong>Solution:</strong> In Vibrance adjustment, use Vibrance (not Saturation) to protect skin tones</li>
+                    <li>Use layer masks to exclude skin from color adjustments</li>
+                    <li>Check Hue/Saturation on Reds channel and reduce if needed</li>
+                </ul>
+                
+                <p><strong>Problem: Image looks too sharp/oversharpened</strong></p>
+                <ul>
+                    <li><strong>Solution:</strong> Reduce sharpening amount or radius</li>
+                    <li>For smart filters, just reduce the filter opacity</li>
+                    <li>Apply sharpening selectively using layer masks</li>
+                </ul>
+                
+                <p><strong>Problem: File sizes are too large</strong></p>
+                <ul>
+                    <li><strong>Solution:</strong> For web: reduce JPG quality to 75-80 instead of 85</li>
+                    <li>For web: reduce dimensions (1600px instead of 1920px)</li>
+                    <li>For TIFF: ensure LZW compression is enabled</li>
+                </ul>
+                
+                <p><strong>Problem: Colors look different on phone vs. computer</strong></p>
+                <ul>
+                    <li><strong>Solution:</strong> Make sure you converted to sRGB and embedded color profile</li>
+                    <li>Some variation is normal—different screens show colors differently</li>
+                    <li>Optimize for the most common viewing scenario</li>
+                </ul>
+                
+                <p><strong>Problem: Lost my work / Photoshop crashed</strong></p>
+                <ul>
+                    <li><strong>Solution:</strong> Check for auto-recovery file (Photoshop usually saves them)</li>
+                    <li><strong>Prevention:</strong> Save frequently (Ctrl+S after every few steps)</li>
+                    <li><strong>Prevention:</strong> Enable auto-save: Edit → Preferences → File Handling → Auto-save every 10 minutes</li>
+                </ul>
+            </div>
+
+        </section>
+<!-- LESSON 27 PART 9: Summary, Key Takeaways, and Wrap-Up -->
+
+        <section id="summary">
+            <h2>🎓 Wrapping Up: Your Post-Processing Mastery</h2>
+            
+            <p>Congratulations! You've just completed one of the most transformative lessons in this entire course. Post-render processing might seem technical at first, but what you've really learned is how to be the final creative voice in your artwork—how to take what Poser gives you and shape it into exactly what you envisioned.</p>
+
+            <p>Think about where you started this lesson versus where you are now. You began with the question "How do I make my renders look more professional?" and now you have a complete toolkit: color correction, composition refinement, selective adjustments, proper sharpening, and professional export workflows. These aren't just technical skills—they're your creative superpowers.</p>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>✅ What You've Accomplished</h4>
+                <p>In this lesson, you've learned to:</p>
+                <ul>
+                    <li>✓ Understand why post-processing is essential for professional results</li>
+                    <li>✓ Set up Photoshop/GIMP properly for optimal editing</li>
+                    <li>✓ Read and interpret histograms to diagnose image problems</li>
+                    <li>✓ Use Levels and Curves to perfect tonal range and contrast</li>
+                    <li>✓ Correct color casts and balance colors professionally</li>
+                    <li>✓ Apply selective adjustments with masks and blend modes</li>
+                    <li>✓ Refine composition through cropping and straightening</li>
+                    <li>✓ Remove distractions and clean up minor imperfections</li>
+                    <li>✓ Apply appropriate sharpening without overdoing it</li>
+                    <li>✓ Optimize and export images for web, social media, and print</li>
+                    <li>✓ Manage color profiles and color spaces correctly</li>
+                    <li>✓ Complete a full professional post-processing workflow</li>
+                </ul>
+            </div>
+
+            <h3 id="key-takeaways">Key Takeaways</h3>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3 style="color: white;">💡 The Essential Principles</h3>
+                
+                <h4 style="color: white;">1. Post-Processing is Collaborative, Not Corrective</h4>
+                <p style="color: white;">Post-processing isn't about "fixing" Poser's mistakes—Poser did its job perfectly. Post-processing is about adding your final creative vision, just like a photographer develops their images or a painter adds finishing touches. It's where you make deliberate artistic choices about mood, emphasis, and emotional impact.</p>
+                
+                <h4 style="color: white;">2. Subtlety is Your Secret Weapon</h4>
+                <p style="color: white;">The best post-processing is often invisible. When viewers say "Wow, amazing render!" instead of "Nice Photoshop work," you've succeeded. Small, careful adjustments compound into dramatic improvements. Don't feel pressured to use every technique in every image—use what each specific image needs.</p>
+                
+                <h4 style="color: white;">3. Non-Destructive Workflow Saves Everything</h4>
+                <p style="color: white;">Working with adjustment layers, smart objects, and layer masks means you can always change your mind, go back, and try something different. This freedom to experiment without fear is what separates amateur workflows from professional ones. Save your layered PSD files—they're your insurance policy and creative laboratory.</p>
+                
+                <h4 style="color: white;">4. Purpose Drives Process</h4>
+                <p style="color: white;">An image for Instagram needs different treatment than one for a 24x36" print. Always ask "Where will this be seen?" before you start processing. Understanding your output helps you make smart decisions about sharpening, sizing, color space, and optimization.</p>
+                
+                <h4 style="color: white;">5. Learn the Rules, Then Break Them Thoughtfully</h4>
+                <p style="color: white;">Everything in this lesson is a guideline based on what usually works. But art isn't about following rules—it's about knowing them well enough to break them intentionally. Want crushed blacks for a dramatic effect? Go for it. Want a visible color cast to create a specific mood? Do it. Just make sure it's a choice, not an accident.</p>
+            </div>
+
+            <h3 id="workflow-summary">Your Professional Workflow Recap</h3>
+
+            <div class="card">
+                <h4>🔄 The Complete Post-Processing Workflow</h4>
+                <p>Here's the professional workflow you can use for every render:</p>
+                <ol>
+                    <li><strong>Setup:</strong> Open render, immediately save as PSD/XCF, set color space to sRGB</li>
+                    <li><strong>Assessment:</strong> Review histogram, check for technical issues, identify creative goals</li>
+                    <li><strong>Technical Corrections:</strong> Fix levels (black/white points), correct color balance, adjust exposure</li>
+                    <li><strong>Creative Enhancements:</strong> Dodge and burn, selective color adjustments, composition refinement</li>
+                    <li><strong>Detail Refinement:</strong> Remove distractions, clean up small issues, add subtle vignettes if needed</li>
+                    <li><strong>Sharpening:</strong> Apply appropriate output sharpening based on final use</li>
+                    <li><strong>Final Review:</strong> Check at 100%, verify histogram, compare before/after</li>
+                    <li><strong>Export:</strong> Save optimized versions for each intended use (web, social, print)</li>
+                    <li><strong>Archive:</strong> Save master PSD with all layers for future adjustments</li>
+                </ol>
+            </div>
+
+            <h3 id="common-mistakes-recap">Common Mistakes to Avoid</h3>
+
+            <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h4>⚠️ Watch Out For These Pitfalls</h4>
+                <ul>
+                    <li><strong>Over-processing:</strong> Just because you <em>can</em> adjust every slider doesn't mean you <em>should</em>. If you find yourself with 15+ adjustment layers, you might be overdoing it.</li>
+                    <li><strong>Ignoring the Histogram:</strong> The histogram tells you objective truth. Don't ignore clipped highlights or blocked shadows just because the image "looks fine" on your screen.</li>
+                    <li><strong>Sharpening Too Early:</strong> Sharpen last, after all other adjustments. Sharpening makes future edits harder and can create artifacts.</li>
+                    <li><strong>Not Saving Your Master:</strong> Always keep your layered PSD file. JPGs with all layers flattened can't be edited properly later.</li>
+                    <li><strong>Wrong Color Space:</strong> Use sRGB for screen viewing. Adobe RGB might look more "professional," but it'll look washed out on most displays.</li>
+                    <li><strong>Oversaturating Skin:</strong> Vibrant clothing and backgrounds are great, but oversaturated skin looks unnatural. Protect skin tones in your adjustments.</li>
+                    <li><strong>Destructive Editing:</strong> Painting directly on your image layer or using Image → Adjustments menu (instead of adjustment layers) makes changes permanent.</li>
+                    <li><strong>Comparing at Different Zoom Levels:</strong> Always compare before/after at the same zoom level, preferably 100% or fit-to-screen.</li>
+                </ul>
+            </div>
+
+            <h3 id="next-steps-advice">Where to Go From Here</h3>
+
+            <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                <h4>🚀 Continuing Your Journey</h4>
+                
+                <p><strong>Practice Deliberately:</strong> Don't just process one image and move on. Take 5-10 of your favorite renders and process each one. You'll discover your personal style and develop muscle memory for the tools.</p>
+                
+                <p><strong>Study Professional Work:</strong> Look at commercial 3D art, movie posters, game character art. Try to identify what post-processing techniques were used. Can you recreate those effects?</p>
+                
+                <p><strong>Create Before/After Portfolios:</strong> Show off your post-processing skills by creating before/after comparisons. This demonstrates your eye for refinement and can be powerful portfolio pieces.</p>
+                
+                <p><strong>Develop Your Actions Library:</strong> As you find adjustments you use repeatedly, record them as Photoshop Actions. Build your personal toolkit of one-click enhancements.</p>
+                
+                <p><strong>Experiment Fearlessly:</strong> Working non-destructively means you can try wild ideas. Want to see what happens if you invert the colors? Crank the contrast to 100? Go ahead—you can always undo it. Some of your best discoveries will come from experiments.</p>
+                
+                <p><strong>Learn From Your Exports:</strong> Pay attention to how your images look on different devices and in different contexts. If something doesn't look right on Instagram, figure out why and adjust your workflow for next time.</p>
+            </div>
+
+            <h3 id="final-thoughts">Final Thoughts</h3>
+
+            <blockquote>
+                <p>"The render is just the beginning. Post-processing is where you become the artist, not just the technician. It's where good becomes great, and great becomes unforgettable."</p>
+            </blockquote>
+
+            <p>You now have professional-level post-processing skills. These same techniques are used by professional artists, photographers, and digital illustrators worldwide. The tools don't make the art—<em>you</em> do, with your creative vision and the technical skills to execute it.</p>
+
+            <p>Every render you create from now on can benefit from these skills. A few minutes of thoughtful post-processing can transform a good image into something that stops people mid-scroll, makes them pause, and makes them <em>feel</em> something. That's the power you now have.</p>
+
+            <div class="card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; text-align: center; padding: 2rem;">
+                <h3 style="color: white; margin-top: 0;">🎉 Module 6 Complete!</h3>
+                <p style="color: white; font-size: 1.1em; margin: 1rem 0;">You've finished the entire Rendering Your Work module! You now understand render settings, both Firefly and SuperFly engines, optimization techniques, and professional post-processing workflows.</p>
+                <p style="color: white; font-size: 1.1em; margin: 1rem 0;">From raw 3D scene to polished final image, you have complete control over the entire pipeline. That's a massive accomplishment!</p>
+                <p style="color: white; font-size: 1.3em; font-weight: bold; margin-top: 1.5rem;">You're not just using Poser anymore—you're creating professional art. 🎨✨</p>
+            </div>
+
+            <h3 id="whats-next">What's Next in Your Journey</h3>
+
+            <p>With Module 6 complete, you've mastered the fundamentals of Poser 12: posing, scene building, materials, lighting, and rendering. You have everything you need to create stunning still images. But your journey doesn't end here!</p>
+
+            <div class="card">
+                <h4>🔮 Looking Ahead</h4>
+                <p>The next modules in this course will expand your skills even further:</p>
+                <ul>
+                    <li><strong>Module 7: Animation Basics</strong> - Bring your characters to life with movement and storytelling</li>
+                    <li><strong>Module 8: Hair and Cloth</strong> - Add realism with dynamic hair and flowing clothing</li>
+                    <li><strong>Module 9: Advanced Techniques</strong> - Master morph creation, custom props, and advanced workflows</li>
+                    <li><strong>Module 10: Character Design</strong> - Create unique characters from the ground up</li>
+                    <li><strong>Module 11: Scene Composition</strong> - Elevate your storytelling through advanced composition</li>
+                    <li><strong>Module 12: Final Projects</strong> - Build your portfolio with guided capstone projects</li>
+                </ul>
+            </div>
+
+            <p>For now, take some time to practice what you've learned. Process your existing renders with your new skills. Create new scenes showcasing everything you know. Build your portfolio. Most importantly, enjoy the creative process—you've earned this moment of accomplishment!</p>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>💚 Thank You!</h4>
+                <p>Thank you for your dedication to learning and growing as an artist. The time and effort you've invested in this course will pay dividends in every piece you create. Keep experimenting, keep creating, and most importantly—have fun!</p>
+                <p>Remember: Every professional artist was once exactly where you are now. The only difference? They kept going. And so will you.</p>
+                <p style="font-style: italic; margin-top: 1rem;">Happy rendering! 🎨✨</p>
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+        <nav class="lesson-nav" aria-label="Lesson Navigation">
+            <a href="lesson_26_render_optimization.html" class="prev-lesson">← Previous: Lesson 26 - Render Optimization and Troubleshooting</a>
+            <a href="index.html" class="home-link">🏠 Course Home</a>
+            <span class="next-lesson" style="opacity: 0.5; cursor: not-allowed;">Next Module Coming Soon →</span>
+        </nav>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="background: var(--primary-gradient); color: white; padding: 2rem; text-align: center; margin-top: 4rem;">
+        <p>&copy; 2024 Poser 12 Mastery Course. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; opacity: 0.9;">Empowering artists to bring their creative visions to life.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>
