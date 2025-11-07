@@ -1,0 +1,863 @@
+{
+  "course": {
+    "title": "Poser 12 Mastery: From Zero to 3D Character Artist",
+    "target_audience": "Complete beginners with no prior 3D experience",
+    "duration": "12-15 weeks (self-paced)",
+    "software": "Poser 12 (Pro or standard edition)",
+    "total_modules": 12,
+    "total_lessons": 54,
+    "philosophy": "Hands-on, project-based approach. Students learn by creating actual projects, from simple posed characters to complex scenes with multiple figures, props, and custom materials."
+  },
+  "modules": [
+    {
+      "module_number": 1,
+      "module_title": "Getting Started with Poser 12",
+      "module_goal": "Install software, understand the interface, and create your first posed figure",
+      "lessons": [
+        {
+          "lesson_number": "1.1",
+          "lesson_title": "Welcome to Poser 12",
+          "filename": "lesson_01_welcome_to_poser.html",
+          "topics": [
+            "What is Poser 12 and what can you create with it?",
+            "Understanding 3D character posing vs. modeling",
+            "Real-world applications (illustration, comics, animation, visualization)",
+            "Course roadmap and what you'll be able to create",
+            "Installing Poser 12 and organizing your content library"
+          ],
+          "project": "None (orientation lesson)"
+        },
+        {
+          "lesson_number": "1.2",
+          "lesson_title": "The Poser Interface Tour",
+          "filename": "lesson_02_interface_tour.html",
+          "topics": [
+            "Understanding the workspace layout",
+            "Document window, camera controls, and navigation",
+            "The library palette and content organization",
+            "Properties panel and parameter dials",
+            "Timeline and animation controls (overview)",
+            "Customizing your workspace for efficiency"
+          ],
+          "project": "Navigate the interface and load your first figure"
+        },
+        {
+          "lesson_number": "1.3",
+          "lesson_title": "Your First Figure - Loading and Basic Posing",
+          "filename": "lesson_03_first_figure.html",
+          "topics": [
+            "Loading figures from the library",
+            "Understanding the figure hierarchy (body parts)",
+            "Basic camera navigation (orbit, pan, zoom)",
+            "Using the pose room and editing tool",
+            "Moving body parts with parameter dials",
+            "Saving your scene"
+          ],
+          "project": "Create a simple standing figure pose"
+        },
+        {
+          "lesson_number": "1.4",
+          "lesson_title": "Cameras and Views",
+          "filename": "lesson_04_cameras_and_views.html",
+          "topics": [
+            "Understanding camera types (main, auxiliary, face, etc.)",
+            "Positioning cameras for best angles",
+            "Camera controls and framing your subject",
+            "Creating and saving custom cameras",
+            "The tracking ball and dolly controls"
+          ],
+          "project": "Create three different camera angles of your posed figure"
+        }
+      ]
+    },
+    {
+      "module_number": 2,
+      "module_title": "Essential Posing Techniques",
+      "module_goal": "Master the art of creating natural, expressive character poses",
+      "lessons": [
+        {
+          "lesson_number": "2.1",
+          "lesson_title": "Understanding the Figure Hierarchy",
+          "filename": "lesson_05_figure_hierarchy.html",
+          "topics": [
+            "Body parts and their relationships",
+            "Parent-child relationships in rigging",
+            "Selecting body parts efficiently",
+            "The importance of inverse kinematics (IK)",
+            "Working with symmetry and mirroring"
+          ],
+          "project": "Explore the full body hierarchy of a figure"
+        },
+        {
+          "lesson_number": "2.2",
+          "lesson_title": "Creating Natural Poses",
+          "filename": "lesson_06_natural_poses.html",
+          "topics": [
+            "The principle of weight distribution",
+            "Creating believable standing poses",
+            "Using reference images for accuracy",
+            "The 'line of action' in dynamic poses",
+            "Breaking symmetry for natural looks",
+            "Common posing mistakes and how to avoid them"
+          ],
+          "project": "Create three poses - standing, sitting, reaching"
+        },
+        {
+          "lesson_number": "2.3",
+          "lesson_title": "Hand and Finger Posing",
+          "filename": "lesson_07_hand_posing.html",
+          "topics": [
+            "The complexity of hand posing",
+            "Using preset hand poses from the library",
+            "Fine-tuning individual fingers",
+            "Creating natural grips and gestures",
+            "Hand posing best practices"
+          ],
+          "project": "Create five different hand gestures (pointing, waving, fist, open palm, holding)"
+        },
+        {
+          "lesson_number": "2.4",
+          "lesson_title": "Facial Expressions and Head Posing",
+          "filename": "lesson_08_facial_expressions.html",
+          "topics": [
+            "Understanding face morphs and controls",
+            "Creating basic expressions (happy, sad, angry, surprised)",
+            "Eye positioning and direction",
+            "Mouth shapes for dialogue",
+            "Combining morphs for complex expressions"
+          ],
+          "project": "Create a 'mood board' - one figure with six different expressions"
+        },
+        {
+          "lesson_number": "2.5",
+          "lesson_title": "Full Body Poses - Walking and Action",
+          "filename": "lesson_09_action_poses.html",
+          "topics": [
+            "Creating a walk cycle pose",
+            "Action poses (running, jumping, fighting)",
+            "Dynamic balance and center of gravity",
+            "Using pose presets as starting points",
+            "Saving your custom poses to the library"
+          ],
+          "project": "Create an action pose of your choice (superhero landing, martial arts, dance)"
+        }
+      ]
+    },
+    {
+      "module_number": 3,
+      "module_title": "Working with Props and Scenes",
+      "module_goal": "Build complete scenes with multiple elements",
+      "lessons": [
+        {
+          "lesson_number": "3.1",
+          "lesson_title": "Understanding Props vs. Figures",
+          "filename": "lesson_10_props_vs_figures.html",
+          "topics": [
+            "What are props and how they differ from figures",
+            "Loading props from the library",
+            "Positioning, scaling, and rotating props",
+            "Parenting props to figures (holding objects)",
+            "Prop hierarchy and organization"
+          ],
+          "project": "Create a figure holding a cup and sitting on a chair"
+        },
+        {
+          "lesson_number": "3.2",
+          "lesson_title": "Building Your First Scene",
+          "filename": "lesson_11_first_scene.html",
+          "topics": [
+            "Using set props and environments",
+            "Ground plane and shadows",
+            "Arranging multiple props for composition",
+            "Scene organization best practices",
+            "Working with layers and groups"
+          ],
+          "project": "Create a simple indoor scene (figure at a desk or in a room)"
+        },
+        {
+          "lesson_number": "3.3",
+          "lesson_title": "Working with Multiple Figures",
+          "filename": "lesson_12_multiple_figures.html",
+          "topics": [
+            "Loading and managing multiple figures",
+            "Figure naming and organization",
+            "Creating interactions between figures",
+            "Avoid figure interpenetration",
+            "Group posing techniques"
+          ],
+          "project": "Create a scene with two figures interacting (handshake, conversation, etc.)"
+        },
+        {
+          "lesson_number": "3.4",
+          "lesson_title": "Smart Props and Conforming Items",
+          "filename": "lesson_13_conforming_items.html",
+          "topics": [
+            "Understanding conforming clothing",
+            "Loading and fitting conforming items",
+            "Adjusting fit with morphs",
+            "Smart props and automatic parenting",
+            "Managing clothing layers"
+          ],
+          "project": "Dress a figure in complete outfit with accessories"
+        }
+      ]
+    },
+    {
+      "module_number": 4,
+      "module_title": "Materials and Textures",
+      "module_goal": "Apply and customize materials for photorealistic results",
+      "lessons": [
+        {
+          "lesson_number": "4.1",
+          "lesson_title": "Introduction to the Material Room",
+          "filename": "lesson_14_material_room.html",
+          "topics": [
+            "Understanding materials vs. textures",
+            "The material room interface",
+            "Basic material properties (color, specularity, bump)",
+            "Simple nodes and connections",
+            "Material presets and how to use them"
+          ],
+          "project": "Apply and modify a basic material to a prop"
+        },
+        {
+          "lesson_number": "4.2",
+          "lesson_title": "Texture Maps and UV Mapping",
+          "filename": "lesson_15_texture_maps.html",
+          "topics": [
+            "What are texture maps?",
+            "Understanding UV coordinates",
+            "Loading texture maps (diffuse, bump, specular)",
+            "Image map nodes and file paths",
+            "Texture organization and management"
+          ],
+          "project": "Apply custom textures to a simple object"
+        },
+        {
+          "lesson_number": "4.3",
+          "lesson_title": "Skin Materials and Realism",
+          "filename": "lesson_16_skin_materials.html",
+          "topics": [
+            "Understanding subsurface scattering (SSS)",
+            "Skin material components",
+            "Using built-in skin shaders",
+            "Adjusting skin tone and properties",
+            "Eye materials and reflections"
+          ],
+          "project": "Customize skin materials for a character"
+        },
+        {
+          "lesson_number": "4.4",
+          "lesson_title": "Creating and Editing Simple Materials",
+          "filename": "lesson_17_simple_materials.html",
+          "topics": [
+            "The simple material room vs. advanced",
+            "Adjusting material colors",
+            "Adding bump and displacement maps",
+            "Transparency and reflection",
+            "Saving custom materials to library"
+          ],
+          "project": "Create three custom materials (metal, wood, glass)"
+        },
+        {
+          "lesson_number": "4.5",
+          "lesson_title": "Material Collections and Efficiency",
+          "filename": "lesson_18_material_collections.html",
+          "topics": [
+            "Organizing material libraries",
+            "Applying materials to multiple objects",
+            "Material groups and sets",
+            "Troubleshooting common material issues",
+            "Performance considerations"
+          ],
+          "project": "Create and save a material collection for a themed scene"
+        }
+      ]
+    },
+    {
+      "module_number": 5,
+      "module_title": "Lighting Fundamentals",
+      "module_goal": "Master lighting to create mood and enhance realism",
+      "lessons": [
+        {
+          "lesson_number": "5.1",
+          "lesson_title": "Understanding Light Types",
+          "filename": "lesson_19_light_types.html",
+          "topics": [
+            "Infinite lights (sun/directional)",
+            "Point lights (bulbs)",
+            "Spotlights and cone angles",
+            "Area lights and image-based lighting (IBL)",
+            "Light properties (color, intensity, shadows)"
+          ],
+          "project": "Create a scene lit by each light type individually"
+        },
+        {
+          "lesson_number": "5.2",
+          "lesson_title": "Three-Point Lighting Basics",
+          "filename": "lesson_20_three_point_lighting.html",
+          "topics": [
+            "Key light, fill light, and rim light",
+            "Setting up classic portrait lighting",
+            "Adjusting light ratios",
+            "Shadow control and softness",
+            "Color temperature and mood"
+          ],
+          "project": "Light a character portrait with three-point lighting"
+        },
+        {
+          "lesson_number": "5.3",
+          "lesson_title": "Natural and Outdoor Lighting",
+          "filename": "lesson_21_outdoor_lighting.html",
+          "topics": [
+            "Simulating sunlight and sky",
+            "Using IBL for environments",
+            "Time of day lighting (morning, noon, sunset)",
+            "Shadow angles and realism",
+            "Environmental lighting techniques"
+          ],
+          "project": "Create daytime and sunset versions of an outdoor scene"
+        },
+        {
+          "lesson_number": "5.4",
+          "lesson_title": "Indoor and Dramatic Lighting",
+          "filename": "lesson_22_dramatic_lighting.html",
+          "topics": [
+            "Interior lighting strategies",
+            "Practical lights (lamps, windows)",
+            "Creating dramatic shadows",
+            "Color and mood lighting",
+            "Low-light and night scenes"
+          ],
+          "project": "Create a dramatically lit indoor scene (film noir or mystery style)"
+        }
+      ]
+    },
+    {
+      "module_number": 6,
+      "module_title": "Rendering Your Work",
+      "module_goal": "Produce high-quality final images from your scenes",
+      "lessons": [
+        {
+          "lesson_number": "6.1",
+          "lesson_title": "Render Settings Overview",
+          "filename": "lesson_23_render_settings.html",
+          "topics": [
+            "Understanding render engines (Firefly vs. SuperFly)",
+            "Basic render settings and quality",
+            "Render dimensions and resolution",
+            "Anti-aliasing and sampling",
+            "Render time considerations"
+          ],
+          "project": "Render test images at different quality settings"
+        },
+        {
+          "lesson_number": "6.2",
+          "lesson_title": "Firefly Rendering",
+          "filename": "lesson_24_firefly_rendering.html",
+          "topics": [
+            "Firefly render engine features",
+            "Raytrace settings and optimization",
+            "Ambient occlusion",
+            "Depth of field effects",
+            "Render passes and layers"
+          ],
+          "project": "Create a high-quality Firefly render"
+        },
+        {
+          "lesson_number": "6.3",
+          "lesson_title": "SuperFly (Cycles) Rendering",
+          "filename": "lesson_25_superfly_rendering.html",
+          "topics": [
+            "Introduction to physically-based rendering",
+            "SuperFly render settings",
+            "Sample count and noise reduction",
+            "GPU vs. CPU rendering",
+            "SuperFly material considerations"
+          ],
+          "project": "Create a photorealistic SuperFly render"
+        },
+        {
+          "lesson_number": "6.4",
+          "lesson_title": "Render Optimization and Troubleshooting",
+          "filename": "lesson_26_render_optimization.html",
+          "topics": [
+            "Reducing render times",
+            "Managing memory and resources",
+            "Common render errors and fixes",
+            "Preview vs. final render strategies",
+            "Render queuing and batch rendering"
+          ],
+          "project": "Optimize a complex scene for faster rendering"
+        },
+        {
+          "lesson_number": "6.5",
+          "lesson_title": "Post-Render Processing",
+          "filename": "lesson_27_post_render.html",
+          "topics": [
+            "Saving renders in different formats",
+            "Basic post-processing concepts",
+            "When to use render passes",
+            "Preparing images for different uses (web, print, portfolio)",
+            "Render organization and file management"
+          ],
+          "project": "Create and save renders for multiple purposes"
+        }
+      ]
+    },
+    {
+      "module_number": 7,
+      "module_title": "Animation Basics",
+      "module_goal": "Create simple animations and understand the animation workflow",
+      "lessons": [
+        {
+          "lesson_number": "7.1",
+          "lesson_title": "Introduction to Animation in Poser",
+          "filename": "lesson_28_animation_intro.html",
+          "topics": [
+            "Understanding keyframes and timeline",
+            "Frame rate and timing",
+            "The animation palette",
+            "Simple motion examples",
+            "Animation vs. still rendering considerations"
+          ],
+          "project": "Create a simple waving animation"
+        },
+        {
+          "lesson_number": "7.2",
+          "lesson_title": "Keyframe Animation",
+          "filename": "lesson_29_keyframe_animation.html",
+          "topics": [
+            "Setting keyframes manually",
+            "Interpolation and curves",
+            "Timing and spacing principles",
+            "Working with the graph editor",
+            "Copying and pasting keyframes"
+          ],
+          "project": "Create a figure walking in place (simple walk cycle)"
+        },
+        {
+          "lesson_number": "7.3",
+          "lesson_title": "Animation with Poses",
+          "filename": "lesson_30_pose_animation.html",
+          "topics": [
+            "Using saved poses as keyframes",
+            "Blending between poses",
+            "Creating gesture animations",
+            "Facial animation timeline",
+            "Loop animations and holds"
+          ],
+          "project": "Create a short animation showing different emotions"
+        },
+        {
+          "lesson_number": "7.4",
+          "lesson_title": "Camera and Light Animation",
+          "filename": "lesson_31_camera_animation.html",
+          "topics": [
+            "Animating camera movement",
+            "Camera paths and tracking",
+            "Animated lighting effects",
+            "Creating cinematic camera moves"
+          ],
+          "project": "Create a camera fly-around of a posed figure"
+        },
+        {
+          "lesson_number": "7.5",
+          "lesson_title": "Rendering Animations",
+          "filename": "lesson_32_animation_rendering.html",
+          "topics": [
+            "Animation render settings",
+            "File formats for animation (image sequences, video)",
+            "Render time calculation",
+            "Preview animations (OpenGL)",
+            "Assembling rendered frames"
+          ],
+          "project": "Render your first complete animation"
+        }
+      ]
+    },
+    {
+      "module_number": 8,
+      "module_title": "Working with Hair and Cloth",
+      "module_goal": "Add dynamic hair and cloth simulations to your characters",
+      "lessons": [
+        {
+          "lesson_number": "8.1",
+          "lesson_title": "Hair Room Basics",
+          "filename": "lesson_33_hair_room.html",
+          "topics": [
+            "Introduction to the Hair Room",
+            "Hair growth groups",
+            "Loading hair presets",
+            "Basic hair styling",
+            "Hair material properties"
+          ],
+          "project": "Add and style hair on a figure"
+        },
+        {
+          "lesson_number": "8.2",
+          "lesson_title": "Custom Hair Styling",
+          "filename": "lesson_34_custom_hair.html",
+          "topics": [
+            "Creating custom growth groups",
+            "Hair length and density controls",
+            "Styling with pull, clump, and kink",
+            "Hair dynamics (simple)",
+            "Hair rendering considerations"
+          ],
+          "project": "Create a custom hairstyle"
+        },
+        {
+          "lesson_number": "8.3",
+          "lesson_title": "Cloth Room Introduction",
+          "filename": "lesson_35_cloth_room.html",
+          "topics": [
+            "Understanding cloth simulation",
+            "Cloth setup and properties",
+            "Draping static cloth",
+            "Collision detection",
+            "Cloth dynamics basics"
+          ],
+          "project": "Drape a tablecloth or curtain"
+        },
+        {
+          "lesson_number": "8.4",
+          "lesson_title": "Dynamic Clothing",
+          "filename": "lesson_36_dynamic_clothing.html",
+          "topics": [
+            "Simulating clothing on moving figures",
+            "Cloth constraints and choreography",
+            "Troubleshooting cloth collisions",
+            "Cloth cache and performance"
+          ],
+          "project": "Animate a figure with a flowing cape or dress"
+        }
+      ]
+    },
+    {
+      "module_number": 9,
+      "module_title": "Advanced Techniques",
+      "module_goal": "Explore advanced features for professional results",
+      "lessons": [
+        {
+          "lesson_number": "9.1",
+          "lesson_title": "Morphs and Custom Shapes",
+          "filename": "lesson_37_morphs.html",
+          "topics": [
+            "Understanding morph targets",
+            "Using existing morphs for variety",
+            "Body morphs vs. face morphs",
+            "Creating character variations",
+            "Combining morphs effectively"
+          ],
+          "project": "Create three distinct character variations from one base figure"
+        },
+        {
+          "lesson_number": "9.2",
+          "lesson_title": "The Face Room",
+          "filename": "lesson_38_face_room.html",
+          "topics": [
+            "Face Room interface and tools",
+            "Creating custom faces from photos",
+            "Face sculpting basics",
+            "Exporting custom face morphs"
+          ],
+          "project": "Create a custom face for a character"
+        },
+        {
+          "lesson_number": "9.3",
+          "lesson_title": "Content Paradise and Library Management",
+          "filename": "lesson_39_content_management.html",
+          "topics": [
+            "Browsing and purchasing content",
+            "Installing additional content",
+            "Organizing large libraries",
+            "Creating custom categories",
+            "Content file management"
+          ],
+          "project": "Install and organize new content from Content Paradise"
+        },
+        {
+          "lesson_number": "9.4",
+          "lesson_title": "Python Scripting Basics (Optional)",
+          "filename": "lesson_40_python_scripting.html",
+          "topics": [
+            "Introduction to Python in Poser",
+            "Running simple scripts",
+            "Useful scripts for workflow",
+            "Where to find Poser scripts"
+          ],
+          "project": "Use a script to automate a repetitive task"
+        },
+        {
+          "lesson_number": "9.5",
+          "lesson_title": "Working with External Applications",
+          "filename": "lesson_41_external_apps.html",
+          "topics": [
+            "Exporting to other 3D software",
+            "File formats (OBJ, FBX, Collada)",
+            "Importing assets into Poser",
+            "Integration with Photoshop/GIMP",
+            "Workflow pipelines"
+          ],
+          "project": "Export a character and import into a 2D editor"
+        }
+      ]
+    },
+    {
+      "module_number": 10,
+      "module_title": "Character Design and Customization",
+      "module_goal": "Create unique, original characters",
+      "lessons": [
+        {
+          "lesson_number": "10.1",
+          "lesson_title": "Character Concept and Planning",
+          "filename": "lesson_42_character_concept.html",
+          "topics": [
+            "Developing character concepts",
+            "Reference gathering and mood boards",
+            "Character sheets and design principles",
+            "Adapting existing figures to your vision"
+          ],
+          "project": "Create a character concept document"
+        },
+        {
+          "lesson_number": "10.2",
+          "lesson_title": "Building a Custom Character",
+          "filename": "lesson_43_custom_character.html",
+          "topics": [
+            "Combining body morphs",
+            "Custom proportions and features",
+            "Mixing clothing and accessories",
+            "Creating a signature look",
+            "Character presets and saving"
+          ],
+          "project": "Build a complete custom character from scratch"
+        },
+        {
+          "lesson_number": "10.3",
+          "lesson_title": "Character Wardrobe and Styling",
+          "filename": "lesson_44_character_wardrobe.html",
+          "topics": [
+            "Mixing and matching clothing items",
+            "Creating costume designs",
+            "Accessories and props for personality",
+            "Material variations for clothing"
+          ],
+          "project": "Create three outfit variations for your character"
+        },
+        {
+          "lesson_number": "10.4",
+          "lesson_title": "Character Expression Library",
+          "filename": "lesson_45_expression_library.html",
+          "topics": [
+            "Building a set of expressions",
+            "Personality through pose and expression",
+            "Creating character poses that tell a story",
+            "Saving character-specific presets"
+          ],
+          "project": "Create an expression and pose library for your character"
+        }
+      ]
+    },
+    {
+      "module_number": 11,
+      "module_title": "Scene Composition and Storytelling",
+      "module_goal": "Create compelling scenes that tell stories",
+      "lessons": [
+        {
+          "lesson_number": "11.1",
+          "lesson_title": "Composition Principles for 3D",
+          "filename": "lesson_46_composition.html",
+          "topics": [
+            "Rule of thirds in 3D space",
+            "Leading lines and depth",
+            "Foreground, middle ground, background",
+            "Balance and visual weight",
+            "Framing your subject"
+          ],
+          "project": "Create three compositions of the same scene using different principles"
+        },
+        {
+          "lesson_number": "11.2",
+          "lesson_title": "Telling Stories with Scenes",
+          "filename": "lesson_47_storytelling.html",
+          "topics": [
+            "Visual narrative techniques",
+            "Character interaction and body language",
+            "Environmental storytelling",
+            "Creating mood and atmosphere",
+            "Scene planning and sketching"
+          ],
+          "project": "Create a scene that tells a clear story without words"
+        },
+        {
+          "lesson_number": "11.3",
+          "lesson_title": "Creating Complex Multi-Figure Scenes",
+          "filename": "lesson_48_complex_scenes.html",
+          "topics": [
+            "Managing scene complexity",
+            "Figure interactions and relationships",
+            "Avoiding technical issues (poke-through, collisions)",
+            "Performance optimization for large scenes"
+          ],
+          "project": "Create a scene with 3-5 figures interacting"
+        },
+        {
+          "lesson_number": "11.4",
+          "lesson_title": "Environment and Atmosphere",
+          "filename": "lesson_49_environment.html",
+          "topics": [
+            "Using atmospheric effects (fog, depth cue)",
+            "Environmental color and mood",
+            "Depth of field for focus",
+            "Scale and perspective"
+          ],
+          "project": "Create the same scene in three different moods (happy, mysterious, dramatic)"
+        }
+      ]
+    },
+    {
+      "module_number": 12,
+      "module_title": "Final Projects and Portfolio",
+      "module_goal": "Create portfolio-worthy pieces and prepare for continued learning",
+      "lessons": [
+        {
+          "lesson_number": "12.1",
+          "lesson_title": "Planning Your Portfolio Piece",
+          "filename": "lesson_50_portfolio_planning.html",
+          "topics": [
+            "Choosing your best work",
+            "Planning a showcase piece",
+            "Complexity vs. polish",
+            "Technical specifications for portfolio images"
+          ],
+          "project": "Plan and sketch your final portfolio scene"
+        },
+        {
+          "lesson_number": "12.2",
+          "lesson_title": "Creating a Character Portrait Series",
+          "filename": "lesson_51_portrait_series.html",
+          "topics": [
+            "Professional character portraits",
+            "Lighting for portrait work",
+            "Multiple angles and expressions",
+            "Consistency across a series"
+          ],
+          "project": "Create a 3-5 image portrait series"
+        },
+        {
+          "lesson_number": "12.3",
+          "lesson_title": "Creating an Action Scene",
+          "filename": "lesson_52_action_scene.html",
+          "topics": [
+            "Dynamic poses and motion",
+            "Multiple figures in action",
+            "Environmental interaction",
+            "Special effects basics"
+          ],
+          "project": "Create a dynamic action scene"
+        },
+        {
+          "lesson_number": "12.4",
+          "lesson_title": "Creating a Narrative Scene",
+          "filename": "lesson_53_narrative_scene.html",
+          "topics": [
+            "Beginning, middle, or end moment",
+            "Environmental storytelling",
+            "Emotional impact",
+            "Technical polish"
+          ],
+          "project": "Create a scene that tells part of a story"
+        },
+        {
+          "lesson_number": "12.5",
+          "lesson_title": "Course Conclusion and Next Steps",
+          "filename": "lesson_54_conclusion.html",
+          "topics": [
+            "Reviewing everything you've learned",
+            "Where to find continued learning resources",
+            "Community and forums",
+            "Specialization paths (illustration, animation, VFX)",
+            "Keeping your skills sharp",
+            "Sharing your work"
+          ],
+          "project": "Complete and polish your final portfolio piece"
+        }
+      ]
+    }
+  ],
+  "appendices": [
+    {
+      "appendix_id": "A",
+      "title": "Keyboard Shortcuts Quick Reference",
+      "filename": "appendix_a_shortcuts.html"
+    },
+    {
+      "appendix_id": "B",
+      "title": "Common Problems and Solutions",
+      "filename": "appendix_b_troubleshooting.html"
+    },
+    {
+      "appendix_id": "C",
+      "title": "Resource Library",
+      "filename": "appendix_c_resources.html"
+    },
+    {
+      "appendix_id": "D",
+      "title": "Glossary of Poser Terms",
+      "filename": "appendix_d_glossary.html"
+    },
+    {
+      "appendix_id": "E",
+      "title": "Figure and Content Recommendations",
+      "filename": "appendix_e_content.html"
+    },
+    {
+      "appendix_id": "F",
+      "title": "Hardware Requirements and Optimization",
+      "filename": "appendix_f_hardware.html"
+    }
+  ],
+  "learning_paths": {
+    "core_path": {
+      "description": "Essential skills for all students",
+      "modules": [1, 2, 3, 4, 5, 6, 12]
+    },
+    "animation_focus": {
+      "description": "Core path plus animation skills",
+      "modules": [1, 2, 3, 4, 5, 6, 7, 8, 12]
+    },
+    "advanced_techniques": {
+      "description": "Full course with all advanced features",
+      "modules": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    }
+  },
+  "pacing": {
+    "lesson_duration": "30-60 minutes",
+    "project_duration": "30-90 minutes",
+    "weekly_commitment": "3-5 hours",
+    "total_duration_weeks": "12-15"
+  },
+  "prerequisites": {
+    "skills": ["Basic computer skills"],
+    "software": ["Poser 12 installed"],
+    "content": ["At least one base figure (comes with Poser)"],
+    "hardware": {
+      "recommended_ram": "16GB",
+      "recommended_gpu": "Dedicated GPU"
+    }
+  },
+  "success_metrics": [
+    "Navigate Poser 12 interface confidently",
+    "Create natural, expressive character poses",
+    "Build complete scenes with multiple elements",
+    "Apply and customize materials effectively",
+    "Light scenes for different moods and styles",
+    "Render high-quality final images",
+    "Create basic animations (optional path)",
+    "Design custom characters",
+    "Compose storytelling scenes",
+    "Build a portfolio of 5-10 polished pieces"
+  ]
+}

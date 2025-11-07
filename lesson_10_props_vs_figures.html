@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn the fundamental differences between props and figures in Poser 12, and master the art of loading, positioning, and combining them to create complete scenes.">
+    <meta name="author" content="Poser 12 Course">
+    <title>Understanding Props vs. Figures - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <nav class="topnav" role="navigation" aria-label="Main Navigation">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🎨</span>
+                <span class="logo-text">Poser 12 Mastery</span>
+            </a>
+            <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">ðŸ  Home</a></li>
+                <li><a href="index.html#modules">ðŸ"š Modules</a></li>
+                <li><a href="index.html#resources">ðŸ"§ Resources</a></li>
+                <li><a href="index.html#about">ℹï¸ About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="breadcrumb" role="navigation" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> &gt; 
+        <a href="index.html#module-3">Module 3: Working with Props and Scenes</a> &gt; 
+        <span>Lesson 10: Understanding Props vs. Figures</span>
+    </div>
+
+    <main class="container">
+        <article class="lesson-content">
+            <header class="lesson-header">
+                <h1>ðŸª" Understanding Props vs. Figures</h1>
+                <p class="lesson-subtitle">Building Complete Scenes with the Right Elements</p>
+            </header>
+
+            <p class="lead">
+                Imagine you're directing a movie. Your actors are the stars—they move, emote, and bring life to the scene. But what about the chair they sit on? The coffee cup they hold? The desk they lean against? Those are the <strong>props</strong>—the supporting cast that makes your scene believable and complete. In Poser, understanding the difference between figures and props, and how they work together, is your gateway to creating rich, engaging 3D scenes that tell stories.
+            </p>
+
+            <p>
+                Up until now, you've focused primarily on figures—those poseable, articulated characters that are the heart of Poser. But figures alone, floating in empty space, can only do so much. The real magic happens when you start combining them with props to create environments, give them objects to interact with, and build worlds that feel lived-in and authentic.
+            </p>
+
+            <p>
+                This lesson marks an exciting shift in your Poser journey. You're moving from "posing a character" to "creating a scene." You'll learn what makes props different from figures, how to find and load them efficiently, and most importantly, how to make figures and props work together seamlessly—like having your character actually hold that coffee cup or sit naturally on that chair.
+            </p>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin: 2rem 0;">
+                <h3 style="color: white; margin-top: 0;">ðŸ'¡ What You'll Learn in This Lesson</h3>
+                <ul style="color: white;">
+                    <li><strong>The fundamental differences</strong> between props and figures in Poser</li>
+                    <li><strong>How to navigate the library</strong> to find exactly the props you need</li>
+                    <li><strong>Loading and positioning props</strong> in your scene with precision</li>
+                    <li><strong>Scaling and rotating props</strong> to fit your scene perfectly</li>
+                    <li><strong>Parenting props to figures</strong> so they can hold objects naturally</li>
+                    <li><strong>Building a complete scene</strong> with a figure sitting on a chair and holding a cup</li>
+                </ul>
+                <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                    <p style="margin: 0; color: white;"><strong>âž• Estimated Time:</strong> 45-60 minutes</p>
+                    <p style="margin: 0.5rem 0 0 0; color: white;"><strong>ðŸŽ¯ Project:</strong> Create a figure sitting on a chair, holding a coffee cup</p>
+                </div>
+            </div>
+
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">ðŸ"' In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#props-vs-figures" class="toc-link">Props vs. Figures: What's the Difference?</a></li>
+                        <li><a href="#when-to-use" class="toc-link">When to Use Props vs. Figures</a></li>
+                        <li><a href="#library-navigation" class="toc-link">Navigating the Props Library</a></li>
+                        <li><a href="#loading-props" class="toc-link">Loading Props Into Your Scene</a></li>
+                        <li><a href="#positioning-props" class="toc-link">Positioning, Scaling, and Rotating Props</a></li>
+                        <li><a href="#parenting-basics" class="toc-link">Parenting Props to Figures</a></li>
+                        <li><a href="#practical-techniques" class="toc-link">Practical Parenting Techniques</a></li>
+                        <li><a href="#organization" class="toc-link">Scene Organization and Hierarchy</a></li>
+                        <li><a href="#project" class="toc-link">Project: Figure with Chair and Cup</a></li>
+                        <li><a href="#summary" class="toc-link">Lesson Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <section id="props-vs-figures" class="lesson-section">
+                <h2>ðŸŽ­ Props vs. Figures: What's the Difference?</h2>
+                
+                <p>
+                    Let's start with the basics. Both props and figures are 3D objects in Poser, but they serve very different purposes and have distinctly different capabilities. Understanding these differences is crucial because it affects how you work with each type of element.
+                </p>
+
+                <h3>Figures: The Articulated Performers</h3>
+
+                <p>
+                    Think of figures as <strong>puppets or articulated action figures</strong>. They have several defining characteristics:
+                </p>
+
+                <div class="card">
+                    <h4>🎪 Key Characteristics of Figures</h4>
+                    <ul>
+                        <li><strong>Jointed skeleton (rigging):</strong> Figures have an internal bone structure that allows them to bend, twist, and pose at multiple points. That's why you can bend an arm at the elbow, rotate a hand at the wrist, or tilt a head on its neck.</li>
+                        <li><strong>Hierarchical body parts:</strong> Every figure is made up of multiple parts organized in a parent-child relationship. The hip is the parent, the thigh is its child, the shin is the thigh's child, and so on.</li>
+                        <li><strong>Morphs and parameters:</strong> Figures typically come with morphs that let you change their shape—make them taller, more muscular, change facial features, adjust body proportions.</li>
+                        <li><strong>Conforming capability:</strong> Figures can have clothing and accessories conform (fit) to them automatically as they pose.</li>
+                        <li><strong>Poseable:</strong> The entire purpose of a figure is to be posed into different positions.</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Think of it this way:</strong> A figure is like a marionette. You can move its arms, legs, head, fingers—every articulated part responds to your direction. It's designed for movement and expression.</p>
+                </blockquote>
+
+                <h3>Props: The Static (But Essential) Set Pieces</h3>
+
+                <p>
+                    Props, on the other hand, are like <strong>furniture on a movie set or items in a photograph</strong>. Here's what defines them:
+                </p>
+
+                <div class="card">
+                    <h4>ðŸª' Key Characteristics of Props</h4>
+                    <ul>
+                        <li><strong>No internal skeleton:</strong> Props are typically single, rigid objects. A chair is a chair—it doesn't have joints or bones that let you bend it (unless it's specifically designed as a special prop).</li>
+                        <li><strong>Treated as a whole:</strong> When you move, rotate, or scale a prop, you're affecting the entire object as one unit.</li>
+                        <li><strong>Simpler structure:</strong> Props are generally less complex than figures because they don't need the sophisticated rigging system.</li>
+                        <li><strong>Can be parented:</strong> Props can be attached (parented) to figures or other props so they move together.</li>
+                        <li><strong>Scene elements:</strong> Props serve as your environment, your objects, your set dressing—everything from buildings to teacups.</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Think of it this way:</strong> A prop is like a physical object in the real world. A coffee mug is a coffee mug—you pick it up and move it as a whole unit. You don't bend its handle like you'd bend an elbow.</p>
+                </blockquote>
+
+                <h3>The Visual Comparison</h3>
+
+                <div class="mermaid">
+                    graph TB
+                    subgraph "FIGURE Example: Human Character"
+                        F[Hip - Root/Parent] --> T1[Left Thigh]
+                        F --> T2[Right Thigh]
+                        F --> AB[Abdomen]
+                        T1 --> S1[Left Shin]
+                        T2 --> S2[Right Shin]
+                        AB --> CH[Chest]
+                        CH --> LA[Left Shoulder]
+                        CH --> RA[Right Shoulder]
+                        CH --> NE[Neck]
+                        NE --> HD[Head]
+                    end
+                    
+                    subgraph "PROP Example: Coffee Mug"
+                        P[Entire Mug - Single Unit]
+                    end
+                    
+                    style F fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style P fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style HD fill:#764ba2,stroke:#333,stroke-width:1px,color:#fff
+                    style LA fill:#764ba2,stroke:#333,stroke-width:1px,color:#fff
+                    style RA fill:#764ba2,stroke:#333,stroke-width:1px,color:#fff
+                </div>
+
+                <p>
+                    Notice how the figure has this complex tree structure of interconnected parts, while the prop is just one simple element? That's the fundamental architectural difference.
+                </p>
+
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">ðŸ"' In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#props-vs-figures" class="toc-link">Props vs. Figures: What's the Difference?</a></li>
+                        <li><a href="#when-to-use" class="toc-link">When to Use Props vs. Figures</a></li>
+                        <li><a href="#library-navigation" class="toc-link">Navigating the Props Library</a></li>
+                        <li><a href="#loading-props" class="toc-link">Loading Props Into Your Scene</a></li>
+                        <li><a href="#positioning-props" class="toc-link">Positioning, Scaling, and Rotating Props</a></li>
+                        <li><a href="#parenting-basics" class="toc-link">Parenting Props to Figures</a></li>
+                        <li><a href="#practical-techniques" class="toc-link">Practical Parenting Techniques</a></li>
+                        <li><a href="#organization" class="toc-link">Scene Organization and Hierarchy</a></li>
+                        <li><a href="#project" class="toc-link">Project: Figure with Chair and Cup</a></li>
+                        <li><a href="#summary" class="toc-link">Lesson Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <section id="props-vs-figures" class="lesson-section">
+                <h2>ðŸŽ­ Props vs. Figures: What's the Difference?</h2>
+                
+                <p>
+                    Let's start with the basics. Both props and figures are 3D objects in Poser, but they serve very different purposes and have distinctly different capabilities. Understanding these differences is crucial because it affects how you work with each type of element.
+                </p>
+
+                <h3>Figures: The Articulated Performers</h3>
+
+                <p>
+                    Think of figures as <strong>puppets or articulated action figures</strong>. They have several defining characteristics:
+                </p>
+
+                <div class="card">
+                    <h4>🎪 Key Characteristics of Figures</h4>
+                    <ul>
+                        <li><strong>Jointed skeleton (rigging):</strong> Figures have an internal bone structure that allows them to bend, twist, and pose at multiple points. That's why you can bend an arm at the elbow, rotate a hand at the wrist, or tilt a head on its neck.</li>
+                        <li><strong>Hierarchical body parts:</strong> Every figure is made up of multiple parts organized in a parent-child relationship. The hip is the parent, the thigh is its child, the shin is the thigh's child, and so on.</li>
+                        <li><strong>Morphs and parameters:</strong> Figures typically come with morphs that let you change their shape—make them taller, more muscular, change facial features, adjust body proportions.</li>
+                        <li><strong>Conforming capability:</strong> Figures can have clothing and accessories conform (fit) to them automatically as they pose.</li>
+                        <li><strong>Poseable:</strong> The entire purpose of a figure is to be posed into different positions.</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Think of it this way:</strong> A figure is like a marionette. You can move its arms, legs, head, fingers—every articulated part responds to your direction. It's designed for movement and expression.</p>
+                </blockquote>
+
+                <h3>Props: The Static (But Essential) Set Pieces</h3>
+
+                <p>
+                    Props, on the other hand, are like <strong>furniture on a movie set or items in a photograph</strong>. Here's what defines them:
+                </p>
+
+                <div class="card">
+                    <h4>ðŸª' Key Characteristics of Props</h4>
+                    <ul>
+                        <li><strong>No internal skeleton:</strong> Props are typically single, rigid objects. A chair is a chair—it doesn't have joints or bones that let you bend it (unless it's specifically designed as a special prop).</li>
+                        <li><strong>Treated as a whole:</strong> When you move, rotate, or scale a prop, you're affecting the entire object as one unit.</li>
+                        <li><strong>Simpler structure:</strong> Props are generally less complex than figures because they don't need the sophisticated rigging system.</li>
+                        <li><strong>Can be parented:</strong> Props can be attached (parented) to figures or other props so they move together.</li>
+                        <li><strong>Scene elements:</strong> Props serve as your environment, your objects, your set dressing—everything from buildings to teacups.</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Think of it this way:</strong> A prop is like a physical object in the real world. A coffee mug is a coffee mug—you pick it up and move it as a whole unit. You don't bend its handle like you'd bend an elbow.</p>
+                </blockquote>
+
+                <h3>The Visual Comparison</h3>
+
+                <div class="mermaid">
+                    graph TB
+                    subgraph "FIGURE Example: Human Character"
+                        F[Hip - Root/Parent] --> T1[Left Thigh]
+                        F --> T2[Right Thigh]
+                        F --> AB[Abdomen]
+                        T1 --> S1[Left Shin]
+                        T2 --> S2[Right Shin]
+                        AB --> CH[Chest]
+                        CH --> LA[Left Shoulder]
+                        CH --> RA[Right Shoulder]
+                        CH --> NE[Neck]
+                        NE --> HD[Head]
+                    end
+                    
+                    subgraph "PROP Example: Coffee Mug"
+                        P[Entire Mug - Single Unit]
+                    end
+                    
+                    style F fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style P fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style HD fill:#764ba2,stroke:#333,stroke-width:1px,color:#fff
+                    style LA fill:#764ba2,stroke:#333,stroke-width:1px,color:#fff
+                    style RA fill:#764ba2,stroke:#333,stroke-width:1px,color:#fff
+                </div>
+
+                <p>
+                    Notice how the figure has this complex tree structure of interconnected parts, while the prop is just one simple element? That's the fundamental architectural difference.
+                </p>
+
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">ðŸ"' In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#props-vs-figures" class="toc-link">Props vs. Figures: What's the Difference?</a></li>
+                        <li><a href="#when-to-use" class="toc-link">When to Use Props vs. Figures</a></li>
+                        <li><a href="#library-navigation" class="toc-link">Navigating the Props Library</a></li>
+                        <li><a href="#loading-props" class="toc-link">Loading Props Into Your Scene</a></li>
+                        <li><a href="#positioning-props" class="toc-link">Positioning, Scaling, and Rotating Props</a></li>
+                        <li><a href="#parenting-basics" class="toc-link">Parenting Props to Figures</a></li>
+                        <li><a href="#practical-techniques" class="toc-link">Practical Parenting Techniques</a></li>
+                        <li><a href="#organization" class="toc-link">Scene Organization and Hierarchy</a></li>
+                        <li><a href="#project" class="toc-link">Project: Figure with Chair and Cup</a></li>
+                        <li><a href="#summary" class="toc-link">Lesson Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <section id="props-vs-figures" class="lesson-section">
+                <h2>ðŸŽ­ Props vs. Figures: What's the Difference?</h2>
+                
+                <p>
+                    Let's start with the basics. Both props and figures are 3D objects in Poser, but they serve very different purposes and have distinctly different capabilities. Understanding these differences is crucial because it affects how you work with each type of element.
+                </p>
+
+                <h3>Figures: The Articulated Performers</h3>
+
+                <p>
+                    Think of figures as <strong>puppets or articulated action figures</strong>. They have several defining characteristics:
+                </p>
+
+                <div class="card">
+                    <h4>🎪 Key Characteristics of Figures</h4>
+                    <ul>
+                        <li><strong>Jointed skeleton (rigging):</strong> Figures have an internal bone structure that allows them to bend, twist, and pose at multiple points. That's why you can bend an arm at the elbow, rotate a hand at the wrist, or tilt a head on its neck.</li>
+                        <li><strong>Hierarchical body parts:</strong> Every figure is made up of multiple parts organized in a parent-child relationship. The hip is the parent, the thigh is its child, the shin is the thigh's child, and so on.</li>
+                        <li><strong>Morphs and parameters:</strong> Figures typically come with morphs that let you change their shape—make them taller, more muscular, change facial features, adjust body proportions.</li>
+                        <li><strong>Conforming capability:</strong> Figures can have clothing and accessories conform (fit) to them automatically as they pose.</li>
+                        <li><strong>Poseable:</strong> The entire purpose of a figure is to be posed into different positions.</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Think of it this way:</strong> A figure is like a marionette. You can move its arms, legs, head, fingers—every articulated part responds to your direction. It's designed for movement and expression.</p>
+                </blockquote>
+
+                <h3>Props: The Static (But Essential) Set Pieces</h3>
+
+                <p>
+                    Props, on the other hand, are like <strong>furniture on a movie set or items in a photograph</strong>. Here's what defines them:
+                </p>
+
+                <div class="card">
+                    <h4>ðŸª' Key Characteristics of Props</h4>
+                    <ul>
+                        <li><strong>No internal skeleton:</strong> Props are typically single, rigid objects. A chair is a chair—it doesn't have joints or bones that let you bend it (unless it's specifically designed as a special prop).</li>
+                        <li><strong>Treated as a whole:</strong> When you move, rotate, or scale a prop, you're affecting the entire object as one unit.</li>
+                        <li><strong>Simpler structure:</strong> Props are generally less complex than figures because they don't need the sophisticated rigging system.</li>
+                        <li><strong>Can be parented:</strong> Props can be attached (parented) to figures or other props so they move together.</li>
+                        <li><strong>Scene elements:</strong> Props serve as your environment, your objects, your set dressing—everything from buildings to teacups.</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Think of it this way:</strong> A prop is like a physical object in the real world. A coffee mug is a coffee mug—you pick it up and move it as a whole unit. You don't bend its handle like you'd bend an elbow.</p>
+                </blockquote>
+
+                <h3>The Visual Comparison</h3>
+
+                <div class="mermaid">
+                    graph TB
+                    subgraph "FIGURE Example: Human Character"
+                        F[Hip - Root/Parent] --> T1[Left Thigh]
+                        F --> T2[Right Thigh]
+                        F --> AB[Abdomen]
+                        T1 --> S1[Left Shin]
+                        T2 --> S2[Right Shin]
+                        AB --> CH[Chest]
+                        CH --> LA[Left Shoulder]
+                        CH --> RA[Right Shoulder]
+                        CH --> NE[Neck]
+                        NE --> HD[Head]
+                    end
+                    
+                    subgraph "PROP Example: Coffee Mug"
+                        P[Entire Mug - Single Unit]
+                    end
+                    
+                    style F fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style P fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style HD fill:#764ba2,stroke:#333,stroke-width:1px,color:#fff
+                    style LA fill:#764ba2,stroke:#333,stroke-width:1px,color:#fff
+                    style RA fill:#764ba2,stroke:#333,stroke-width:1px,color:#fff
+                </div>
+
+                <p>
+                    Notice how the figure has this complex tree structure of interconnected parts, while the prop is just one simple element? That's the fundamental architectural difference.
+                </p>
+
+            <section id="library-navigation" class="lesson-section">
+                <h2>ðŸ"š Navigating the Props Library</h2>
+
+                <p>
+                    Now that you understand what props are, let's talk about finding them. The Poser Library is your treasure chest of content, and props make up a huge portion of that treasure. Let's learn how to navigate it efficiently.
+                </p>
+
+                <h3>Opening the Library Palette</h3>
+
+                <p>
+                    If your Library palette isn't already visible (it usually appears on the right side of the Poser interface), you can open it by:
+                </p>
+
+                <div class="card">
+                    <ul>
+                        <li><strong>Method 1:</strong> Click on <strong>Window</strong> menu → <strong>Libraries</strong></li>
+                        <li><strong>Method 2:</strong> Look for the Library tab if it's docked with other palettes</li>
+                        <li><strong>Method 3:</strong> Press <kbd>Ctrl+Shift+L</kbd> (Windows) or <kbd>Cmd+Shift+L</kbd> (Mac)</li>
+                    </ul>
+                </div>
+
+                <h3>Understanding Library Organization</h3>
+
+                <p>
+                    The Library palette has a dropdown menu at the top that lets you switch between different content categories. Here's what you'll find:
+                </p>
+
+                <div class="mermaid">
+                    graph TD
+                    L[Library Dropdown] --> F[Figures]
+                    L --> P[Props]
+                    L --> PC[Pose]
+                    L --> FA[Face]
+                    L --> H[Hair]
+                    L --> HD[Hand]
+                    L --> M[Materials]
+                    L --> C[Camera]
+                    L --> LT[Lights]
+                    
+                    style P fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style L fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <p>
+                    For this lesson, we're focusing on the <strong>Props</strong> category. Select it from the dropdown menu.
+                </p>
+
+                <h3>Props Library Structure</h3>
+
+                <p>
+                    Once you're in the Props section, you'll see a folder hierarchy. The exact folders depend on what content you have installed, but here's what you'll typically find:
+                </p>
+
+                <div class="card" style="background: #f5f5f5;">
+                    <h4>📁 Common Prop Categories</h4>
+                    <ul>
+                        <li><strong>Primitive Shapes:</strong> Basic geometric objects (spheres, cubes, cylinders) useful for blocking out scenes or as placeholders</li>
+                        <li><strong>Furniture:</strong> Chairs, tables, beds, sofas, desks—everything you need to furnish a scene</li>
+                        <li><strong>Accessories:</strong> Small items like glasses, jewelry, watches, bags</li>
+                        <li><strong>Architecture:</strong> Buildings, walls, doors, windows, structural elements</li>
+                        <li><strong>Nature:</strong> Trees, rocks, plants, terrain elements</li>
+                        <li><strong>Vehicles:</strong> Cars, bicycles, spaceships, boats</li>
+                        <li><strong>Weapons:</strong> Swords, guns, bows, shields</li>
+                        <li><strong>Everyday Objects:</strong> Books, cups, phones, computers, tools</li>
+                        <li><strong>Food and Drink:</strong> Plates, cups, food items, bottles</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Pro Tip:</strong> Poser comes with a set of basic props, but the real treasure comes when you start adding third-party content from sites like Renderosity, DAZ 3D, or ShareCG. Many free prop sets are available to expand your library.</p>
+                </blockquote>
+
+                <h3>Browsing and Previewing Props</h3>
+
+                <p>
+                    The Library shows you thumbnail previews of each prop. Here's how to navigate effectively:
+                </p>
+
+                <div class="card">
+                    <h4>🖱️ Navigation Tips</h4>
+                    <ul>
+                        <li><strong>Single-click a thumbnail</strong> to see a larger preview in the preview pane</li>
+                        <li><strong>Double-click a thumbnail</strong> to load the prop into your scene</li>
+                        <li><strong>Use the up arrow button</strong> at the top of the Library to go back to parent folders</li>
+                        <li><strong>Click folder thumbnails</strong> to navigate deeper into subcategories</li>
+                        <li><strong>Use the search function</strong> (if available in your version) to find specific items quickly</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>âš ï¸ Common Library Gotcha</h4>
+                    <p>
+                        Sometimes you'll see <strong>Runtime</strong> folders in your Library. Don't panic! "Runtime" is just Poser's term for a content directory. Think of it as a filing cabinet. You might have multiple Runtimes if you've installed content from different sources. Just navigate through them like any other folder.
+                    </p>
+                </div>
+
+                <h3>Finding Specific Props Quickly</h3>
+
+                <p>
+                    When you need a specific prop, here's an efficient strategy:
+                </p>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Know what you need] --> B[Think category]
+                    B --> C[Navigate to that folder]
+                    C --> D[Browse thumbnails]
+                    D --> E[Preview with single-click]
+                    E --> F[Double-click to load]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style F fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <p>
+                    <strong>Example:</strong> If you need a chair, think "Furniture" → navigate to Props → Furniture → Chairs. Browse the options, click one to preview it, and if it's right, double-click to load it.
+                </p>
+
+            </section>
+
+            <section id="loading-props" class="lesson-section">
+                <h2>📥 Loading Props Into Your Scene</h2>
+
+                <p>
+                    Loading a prop is beautifully simple, but there are a few things worth knowing to make the process smooth and predictable.
+                </p>
+
+                <h3>The Basic Loading Process</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>âœ… Step-by-Step: Loading a Prop</h4>
+                    <ol>
+                        <li><strong>Open the Library palette</strong> and select "Props" from the dropdown</li>
+                        <li><strong>Navigate to the prop you want</strong> using the folder structure</li>
+                        <li><strong>Double-click the prop thumbnail</strong></li>
+                        <li><strong>Wait a moment</strong> as Poser loads the prop into your scene</li>
+                        <li><strong>The prop appears</strong> at the center of the scene (0,0,0 coordinates)</li>
+                    </ol>
+                </div>
+
+                <p>
+                    That's it! The prop is now in your scene, ready to be positioned and used.
+                </p>
+
+                <h3>Where Props Appear When Loaded</h3>
+
+                <p>
+                    Unlike figures, which typically load standing on the ground plane, props usually load at the <strong>world center</strong>—the exact center of your 3D space. This is coordinates X=0, Y=0, Z=0.
+                </p>
+
+                <blockquote>
+                    <p><strong>💡 Think of it this way:</strong> Imagine your 3D scene as a room. The world center is the exact middle of that room—not the floor, not the ceiling, but floating right in the middle of the space. That's where most props appear when you first load them.</p>
+                </blockquote>
+
+                <p>
+                    This means you'll almost always need to reposition a prop after loading it. That's completely normal! Props load at world center to give you a predictable starting point.
+                </p>
+
+                <h3>Multiple Props in a Scene</h3>
+
+                <p>
+                    You can load as many props as you want into a scene. Each time you load a prop:
+                </p>
+
+                <div class="card">
+                    <ul>
+                        <li>It appears at world center (usually overlapping any previous props)</li>
+                        <li>It gets added to the scene hierarchy</li>
+                        <li>It becomes selectable from the Actor list or by clicking in the viewport</li>
+                        <li>It exists independently unless you parent it to something</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>âš ï¸ Overlapping Props</h4>
+                    <p>
+                        If you load multiple props without moving them, they'll all stack up at world center, overlapping each other. This can look confusing! Just remember: load one prop, position it, then load the next. Or load them all, then move them one at a time into their proper positions.
+                    </p>
+                </div>
+
+                <h3>Selecting Props After Loading</h3>
+
+                <p>
+                    Once a prop is in your scene, you need to be able to select it to work with it. There are several ways:
+                </p>
+
+                <div class="card" style="background: #f5f5f5;">
+                    <h4>🎯 Methods for Selecting Props</h4>
+                    <ul>
+                        <li><strong>Click directly on the prop</strong> in the Document Window (viewport)</li>
+                        <li><strong>Use the Actor selector</strong> (dropdown menu, usually at the top of the interface)</li>
+                        <li><strong>Use the Hierarchy Editor</strong> (Window → Hierarchy Editor) to see all scene elements</li>
+                        <li><strong>Right-click in the viewport</strong> and select the prop from a context menu (if multiple items overlap)</li>
+                    </ul>
+                </div>
+
+                <p>
+                    When a prop is selected, you'll usually see a selection indicator (like a bounding box or highlight) around it in the viewport.
+                </p>
+
+            </section>
+
+            <section id="positioning-props" class="lesson-section">
+                <h2>🎯 Positioning, Scaling, and Rotating Props</h2>
+
+                <p>
+                    Now comes the fun part—moving your props around to create your scene! Props can be moved, rotated, and scaled just like figures, but since they're simpler objects, the process is more straightforward.
+                </p>
+
+                <h3>The Transform Tools</h3>
+
+                <p>
+                    Poser has three primary ways to manipulate props in 3D space. Think of these as your fundamental building blocks:
+                </p>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Transform Operations] --> B[Translate - Move]
+                    A --> C[Rotate - Turn]
+                    A --> D[Scale - Resize]
+                    
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style B fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style C fill:#FF9800,stroke:#333,stroke-width:2px,color:#fff
+                    style D fill:#2196F3,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Moving Props (Translation)</h3>
+
+                <p>
+                    Translation means moving the prop from one location to another in 3D space. You can move props along three axes:
+                </p>
+
+                <div class="card">
+                    <h4>📐 The Three Axes of Movement</h4>
+                    <ul>
+                        <li><strong>X-axis (Red):</strong> Left and right movement</li>
+                        <li><strong>Y-axis (Green):</strong> Up and down movement</li>
+                        <li><strong>Z-axis (Blue):</strong> Forward and backward movement (depth)</li>
+                    </ul>
+                </div>
+
+                <h4>Using the Parameter Dials</h4>
+
+                <p>
+                    The most precise way to move a prop is using the parameter dials in the Properties panel:
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>âœ… Moving with Parameter Dials</h4>
+                    <ol>
+                        <li><strong>Select the prop</strong> you want to move</li>
+                        <li><strong>Look at the Properties panel</strong> (usually on the right side)</li>
+                        <li><strong>Find the Transform section</strong> with xTran, yTran, and zTran dials</li>
+                        <li><strong>Click and drag the dial</strong> left or right to change the value</li>
+                        <li><strong>Or click the number</strong> and type a specific value for precision</li>
+                    </ol>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Pro Tip:</strong> Positive xTran moves right, negative moves left. Positive yTran moves up, negative moves down. Positive zTran moves toward the camera, negative moves away from it.</p>
+                </blockquote>
+
+                <h4>Using the Editing Tool</h4>
+
+                <p>
+                    For more intuitive, visual positioning, use the Editing Tool (sometimes called the Translate/Pull tool):
+                </p>
+
+                <div class="card">
+                    <ul>
+                        <li><strong>Select the prop</strong></li>
+                        <li><strong>Choose the Editing Tool</strong> from the toolbar (or press <kbd>E</kbd>)</li>
+                        <li><strong>Click and drag on the prop</strong> to move it freely in the viewport</li>
+                        <li><strong>Hold Shift while dragging</strong> to constrain movement to one axis</li>
+                    </ul>
+                </div>
+
+                <h3>Rotating Props</h3>
+
+                <p>
+                    Rotation changes the orientation of the prop—which way it's facing and at what angle.
+                </p>
+
+                <div class="card" style="background: #fff3e0; border-left: 4px solid #FF9800;">
+                    <h4>🔄 The Three Axes of Rotation</h4>
+                    <ul>
+                        <li><strong>xRotate:</strong> Rotation around the X-axis (like a propeller spinning)</li>
+                        <li><strong>yRotate:</strong> Rotation around the Y-axis (like a turntable spinning)</li>
+                        <li><strong>zRotate:</strong> Rotation around the Z-axis (like a wheel rolling)</li>
+                    </ul>
+                </div>
+
+                <p>
+                    Rotation works similarly to translation:
+                </p>
+
+                <div class="card">
+                    <ul>
+                        <li><strong>Use parameter dials</strong> (xRotate, yRotate, zRotate) for precise angles</li>
+                        <li><strong>Use the Rotate/Twist Tool</strong> for interactive rotation</li>
+                        <li><strong>Values are in degrees:</strong> 90° is a quarter turn, 180° is half turn, 360° is full rotation</li>
+                    </ul>
+                </div>
+
+                <h3>Scaling Props</h3>
+
+                <p>
+                    Scaling changes the size of a prop—making it larger or smaller. This is incredibly useful because props don't always come at the perfect size for your scene.
+                </p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>📏 Scaling Options</h4>
+                    <ul>
+                        <li><strong>Uniform Scale:</strong> Changes size proportionally (keeps the same shape)</li>
+                        <li><strong>xScale, yScale, zScale:</strong> Change size along individual axes (can distort)</li>
+                        <li><strong>100% = original size:</strong> Higher values make it bigger, lower values make it smaller</li>
+                    </ul>
+                </div>
+
+                <p>
+                    Most of the time, you'll want to use <strong>uniform scale</strong> to keep the prop's proportions intact. Imagine scaling a coffee mug—if you only increase yScale (height), you'd end up with a tall, skinny mug that looks weird!
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>âœ… Scaling Best Practices</h4>
+                    <ul>
+                        <li><strong>Use Scale parameter</strong> (or sometimes called "Scale" or "Size") for uniform scaling</li>
+                        <li><strong>150% = one and a half times larger</strong></li>
+                        <li><strong>50% = half the size</strong></li>
+                        <li><strong>Only use xScale/yScale/zScale separately</strong> if you intentionally want to squash or stretch</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Real-World Example:</strong> You load a chair, but it's too big for your figure to sit in comfortably. Select the chair, find the Scale parameter, and set it to 80% to make it 20% smaller. Now it fits perfectly!</p>
+                </blockquote>
+
+                <h3>The Visual Transform Tool</h3>
+
+                <p>
+                    Poser has a visual gizmo (a 3D widget) that appears when you use certain tools, showing you the axes you can manipulate:
+                </p>
+
+                <div class="card">
+                    <ul>
+                        <li><strong>Red arrow/circle = X-axis</strong></li>
+                        <li><strong>Green arrow/circle = Y-axis</strong></li>
+                        <li><strong>Blue arrow/circle = Z-axis</strong></li>
+                        <li><strong>Click and drag these colored elements</strong> to transform along specific axes</li>
+                    </ul>
+                </div>
+
+                <h3>Quick Reference: Transform Shortcuts</h3>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Operation</th>
+                            <th>Parameter Dials</th>
+                            <th>Visual Effect</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Move Left/Right</strong></td>
+                            <td>xTran</td>
+                            <td>Prop slides horizontally</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Move Up/Down</strong></td>
+                            <td>yTran</td>
+                            <td>Prop rises or descends</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Move Forward/Back</strong></td>
+                            <td>zTran</td>
+                            <td>Prop moves in depth</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Spin Horizontally</strong></td>
+                            <td>yRotate</td>
+                            <td>Prop rotates like a turntable</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tip Forward/Back</strong></td>
+                            <td>xRotate</td>
+                            <td>Prop tilts forward or backward</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Roll Side to Side</strong></td>
+                            <td>zRotate</td>
+                            <td>Prop rolls left or right</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Make Bigger/Smaller</strong></td>
+                            <td>Scale</td>
+                            <td>Prop grows or shrinks uniformly</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </section>
+
+            <section id="parenting-basics" class="lesson-section">
+                <h2>🔗 Parenting Props to Figures</h2>
+
+                <p>
+                    Here's where things get really interesting. <strong>Parenting</strong> is one of the most powerful concepts in Poser, and it's absolutely essential for creating realistic scenes where figures interact with objects.
+                </p>
+
+                <h3>What is Parenting?</h3>
+
+                <p>
+                    Think of parenting as creating a relationship where one object (the <strong>child</strong>) becomes attached to another object (the <strong>parent</strong>). When the parent moves or rotates, the child moves with it automatically.
+                </p>
+
+                <blockquote>
+                    <p><strong>💡 Real-World Analogy:</strong> Imagine holding a coffee cup in your hand. When you lift your arm, the cup moves with your hand. When you turn your wrist, the cup rotates too. That's parenting! Your hand is the parent, the cup is the child.</p>
+                </blockquote>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Figure - Body] --> B[Right Hand - Parent]
+                    B --> C[Coffee Cup - Child]
+                    
+                    B2[When hand moves...]
+                    C2[...cup moves with it automatically]
+                    
+                    B2 -.-> C2
+                    
+                    style B fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style C fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style B2 fill:#FF9800,stroke:#333,stroke-width:2px,color:#fff
+                    style C2 fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Why Parenting Matters</h3>
+
+                <p>
+                    Without parenting, every time you moved a figure's hand, you'd have to manually reposition anything they're holding. That's tedious and imprecise. With parenting:
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>âœ… Benefits of Parenting</h4>
+                    <ul>
+                        <li><strong>Automatic movement:</strong> The child object follows the parent everywhere</li>
+                        <li><strong>Maintains relationship:</strong> The relative position stays consistent</li>
+                        <li><strong>Easy reposing:</strong> Change the figure's pose, and held objects stay in their hands</li>
+                        <li><strong>Realistic interactions:</strong> Characters can hold, wear, or interact with props naturally</li>
+                        <li><strong>Scene organization:</strong> Complex setups stay organized and manageable</li>
+                    </ul>
+                </div>
+
+                <h3>The Parenting Process: Step by Step</h3>
+
+                <p>
+                    Let's walk through how to parent a prop (like a sword) to a figure's hand:
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h4 style="color: white;">ðŸ"— How to Parent a Prop</h4>
+                    <ol style="color: white;">
+                        <li><strong>Select the prop</strong> (the child—what you want to attach). In this case, the sword.</li>
+                        <li><strong>Look for the "Parent" option</strong> in the Properties panel. It might be in the "Properties" tab or a dropdown menu labeled "Set Parent" or similar.</li>
+                        <li><strong>Click the dropdown</strong> that currently probably says "Universe" or "None"</li>
+                        <li><strong>Navigate through the hierarchy</strong> in the dropdown menu to find the body part you want to parent to (e.g., Figure 1 → Right Hand)</li>
+                        <li><strong>Select that body part</strong> from the menu</li>
+                        <li><strong>The prop is now parented!</strong> Move the hand—the sword moves with it</li>
+                    </ol>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Key Point:</strong> You're always selecting the CHILD (the thing you want to attach) and then telling it WHO its parent is. It's like a kid choosing which adult to hold hands with.</p>
+                </blockquote>
+
+                <h3>Understanding "Universe" as the Default Parent</h3>
+
+                <p>
+                    When you first load a prop, its parent is set to <strong>"Universe"</strong>. What does that mean?
+                </p>
+
+                <div class="card">
+                    <p>
+                        <strong>Universe</strong> is Poser's term for "the world itself"—the global 3D space. When a prop is parented to Universe, it exists independently in the scene. It doesn't follow anything else; it's just sitting in 3D space at whatever coordinates you placed it.
+                    </p>
+                    <p>
+                        This is perfect for furniture, buildings, trees—things that are part of the environment and don't need to move with a figure.
+                    </p>
+                </div>
+
+                <h3>Common Parenting Scenarios</h3>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Scenario</th>
+                            <th>Child (Prop)</th>
+                            <th>Parent (Body Part)</th>
+                            <th>Why</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Character holding sword</td>
+                            <td>Sword</td>
+                            <td>Right Hand (or Left Hand)</td>
+                            <td>Sword needs to move with hand</td>
+                        </tr>
+                        <tr>
+                            <td>Character drinking coffee</td>
+                            <td>Coffee cup</td>
+                            <td>Right Hand</td>
+                            <td>Cup stays in hand as arm moves</td>
+                        </tr>
+                        <tr>
+                            <td>Character wearing glasses</td>
+                            <td>Glasses</td>
+                            <td>Head</td>
+                            <td>Glasses move when head turns</td>
+                        </tr>
+                        <tr>
+                            <td>Character wearing backpack</td>
+                            <td>Backpack</td>
+                            <td>Chest or Abdomen</td>
+                            <td>Backpack follows body movement</td>
+                        </tr>
+                        <tr>
+                            <td>Chair in room</td>
+                            <td>Chair</td>
+                            <td>Universe</td>
+                            <td>Chair is part of static environment</td>
+                        </tr>
+                        <tr>
+                            <td>Lamp on table</td>
+                            <td>Lamp</td>
+                            <td>Table (if table is a prop)</td>
+                            <td>Lamp stays on table if table moves</td>
+                        </tr>
+                        <tr>
+                            <td>Book in hand</td>
+                            <td>Book</td>
+                            <td>Left Hand</td>
+                            <td>Book held while reading</td>
+                        </tr>
+                        <tr>
+                            <td>Phone to ear</td>
+                            <td>Phone</td>
+                            <td>Right Hand or Head</td>
+                            <td>Phone stays positioned for call</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Unparenting (Breaking the Connection)</h3>
+
+                <p>
+                    Sometimes you need to detach a prop from its parent. Maybe you want the character to set down the cup, or drop the sword. Here's how:
+                </p>
+
+                <div class="card">
+                    <ol>
+                        <li><strong>Select the parented prop</strong></li>
+                        <li><strong>Go to the Parent dropdown</strong> in the Properties panel</li>
+                        <li><strong>Select "Universe"</strong> from the menu</li>
+                        <li><strong>The prop is now independent</strong> and stays where it is, but no longer follows the parent</li>
+                    </ol>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Practical Example:</strong> Your character is holding a cup (parented to right hand), takes a drink, then sets it on a table. You'd animate this by: keeping it parented while the hand moves to the mouth, then unparenting it (set to Universe) when the hand releases it onto the table.</p>
+                </blockquote>
+
+            </section>
+
+            <section id="practical-techniques" class="lesson-section">
+                <h2>🎨 Practical Parenting Techniques</h2>
+
+                <p>
+                    Now that you understand the theory, let's talk about the practical skills that make parenting work smoothly in real scenes.
+                </p>
+
+                <h3>Positioning Props Before vs. After Parenting</h3>
+
+                <p>
+                    One of the most common questions beginners have is: "Should I position the prop first, then parent it? Or parent it first, then position it?" Here's the answer:
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>âœ… The Best Workflow</h4>
+                    <ol>
+                        <li><strong>Load the prop</strong> into your scene</li>
+                        <li><strong>Get it roughly into position</strong> near where it needs to be (close to the hand, near the head, etc.)</li>
+                        <li><strong>Parent the prop</strong> to the correct body part</li>
+                        <li><strong>Fine-tune the position and rotation</strong> using the prop's transform parameters</li>
+                    </ol>
+                    <p>
+                        Why this order? Because once parented, the prop's position is now <em>relative to the parent</em>. It's easier to see where you need to make adjustments after the parenting relationship is established.
+                    </p>
+                </div>
+
+                <h3>Working with Parented Props</h3>
+
+                <p>
+                    When a prop is parented, its transform values (position, rotation) become <strong>relative to the parent</strong> rather than to world space. This is important to understand:
+                </p>
+
+                <div class="card">
+                    <h4>ðŸ"„ Understanding Relative Transforms</h4>
+                    <p>
+                        <strong>Before parenting:</strong> xTran = 5 means "5 units to the right of world center"
+                    </p>
+                    <p>
+                        <strong>After parenting to Right Hand:</strong> xTran = 5 means "5 units to the right of the hand's position"
+                    </p>
+                    <p>
+                        This is actually a good thing! It means when the hand moves, the prop maintains its position relative to the hand—exactly what you want for a held object.
+                    </p>
+                </div>
+
+                <h3>Common Adjustment Techniques</h3>
+
+                <p>
+                    After parenting a prop, you'll almost always need to adjust it. Here are the typical adjustments:
+                </p>
+
+                <div class="card" style="background: #f5f5f5;">
+                    <h4>ðŸ"§ Fine-Tuning Parented Props</h4>
+                    <ul>
+                        <li><strong>Position adjustment:</strong> Use small xTran, yTran, zTran values to slide the prop into the perfect spot (like nestling a cup in the palm)</li>
+                        <li><strong>Rotation adjustment:</strong> Use xRotate, yRotate, zRotate to tilt or turn the prop so it looks natural (like tilting a sword at a heroic angle)</li>
+                        <li><strong>Scale adjustment:</strong> Sometimes you need to make the prop slightly bigger or smaller to look proportional to the hand</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Pro Tip:</strong> Make small adjustments incrementally. Move the xTran by 0.1 at a time and check the result. It's much easier to dial in the perfect position with tiny adjustments than big jumps.</p>
+                </blockquote>
+
+                <h3>Parenting Props to Props</h3>
+
+                <p>
+                    Here's something powerful: you can parent props to other props, not just to figures!
+                </p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>🎯 Prop-to-Prop Parenting Use Cases</h4>
+                    <ul>
+                        <li><strong>Lamp on a table:</strong> Parent the lamp to the table so if you move the table, the lamp moves too</li>
+                        <li><strong>Books on a shelf:</strong> Parent multiple books to the shelf prop for easy repositioning</li>
+                        <li><strong>Items in a basket:</strong> Parent items to the basket so they move as a group</li>
+                        <li><strong>Accessories on furniture:</strong> Vases on tables, pillows on couches, etc.</li>
+                    </ul>
+                </div>
+
+                <p>
+                    The process is identical: select the child prop, use the Parent dropdown, and choose the parent prop instead of a body part.
+                </p>
+
+                <h3>Troubleshooting Common Parenting Issues</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>âš ï¸ Problem: Prop appears in the wrong place after parenting</h4>
+                    <p><strong>Solution:</strong> This is normal! After parenting, adjust the prop's position and rotation parameters to get it where you want. Remember, the values are now relative to the parent.</p>
+                </div>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>âš ï¸ Problem: Prop is too big or small for the figure's hand</h4>
+                    <p><strong>Solution:</strong> After parenting, adjust the prop's Scale parameter. A sword might need to be 80% of its original size to look right in the hand.</p>
+                </div>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>âš ï¸ Problem: Prop rotates weirdly when I move the parent</h4>
+                    <p><strong>Solution:</strong> Check the prop's rotation values. Set them to 0, 0, 0 first, then adjust from there. Sometimes imported props have strange default rotations.</p>
+                </div>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>âš ï¸ Problem: Can't find the body part in the Parent dropdown</h4>
+                    <p><strong>Solution:</strong> Make sure you're navigating the full hierarchy. The dropdown is like a folder structure—expand "Figure 1," then expand "Right Collar," then "Right Shoulder," then "Right Forearm," then finally "Right Hand."</p>
+                </div>
+
+            </section>
+
+            <section id="organization" class="lesson-section">
+                <h2>📑 Scene Organization and Hierarchy</h2>
+
+                <p>
+                    As you add more props and figures to your scenes, organization becomes crucial. Let's talk about keeping everything manageable.
+                </p>
+
+                <h3>The Hierarchy Editor</h3>
+
+                <p>
+                    The Hierarchy Editor (access it via <strong>Window → Hierarchy Editor</strong>) is your command center for complex scenes. It shows you:
+                </p>
+
+                <div class="card">
+                    <ul>
+                        <li><strong>All figures and props</strong> in your scene</li>
+                        <li><strong>Parent-child relationships</strong> displayed as an expandable tree</li>
+                        <li><strong>Quick selection:</strong> Click any item to select it</li>
+                        <li><strong>Visibility controls:</strong> Toggle items on/off</li>
+                    </ul>
+                </div>
+
+                <div class="mermaid">
+                    graph TD
+                    U[Universe - Scene Root] --> F[Figure 1]
+                    U --> C[Chair - Prop]
+                    U --> T[Table - Prop]
+                    
+                    F --> RH[Right Hand]
+                    RH --> CU[Coffee Cup - Parented]
+                    
+                    T --> B[Book - Parented to Table]
+                    
+                    style U fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style F fill:#764ba2,stroke:#333,stroke-width:2px,color:#fff
+                    style CU fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style B fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <p>
+                    This tree structure shows exactly what's parented to what, making it easy to understand and modify your scene's organization.
+                </p>
+
+                <h3>Naming Your Props</h3>
+
+                <p>
+                    By default, props get generic names like "Prop 1," "Prop 2," etc. In a complex scene with dozens of items, this becomes confusing fast. Rename your props!
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>âœ… How to Rename Props</h4>
+                    <ol>
+                        <li><strong>Select the prop</strong></li>
+                        <li><strong>Look at the top of the Properties panel</strong> where it shows the current name</li>
+                        <li><strong>Click the name field</strong> and type a new, descriptive name</li>
+                        <li><strong>Press Enter</strong> to confirm</li>
+                    </ol>
+                    <p>
+                        Good naming examples: "Office Chair," "Hero's Sword," "Coffee Cup 1," "Kitchen Table"
+                    </p>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Pro Tip:</strong> Develop a naming convention early. If you have multiple similar props, number them: "Chair 01," "Chair 02," "Chair 03." This makes scene management much easier in complex projects.</p>
+                </blockquote>
+
+                <h3>Scene Organization Best Practices</h3>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h4 style="color: white;">ðŸ—‚ï¸ Organization Tips for Complex Scenes</h4>
+                    <ul style="color: white;">
+                        <li><strong>Name everything descriptively</strong> as soon as you load it</li>
+                        <li><strong>Group related props by parenting:</strong> All items on a desk parented to the desk prop</li>
+                        <li><strong>Use consistent naming:</strong> Prefix similar items (all furniture with "FURN_", all held items with "HELD_", etc.)</li>
+                        <li><strong>Save incremental versions:</strong> "Scene_v01.pz3," "Scene_v02.pz3" as you add complexity</li>
+                        <li><strong>Document your parent relationships:</strong> In complex scenes, keep notes about what's parented to what</li>
+                    </ul>
+                </div>
+
+                <h3>Performance Considerations</h3>
+
+                <p>
+                    Props are generally less demanding than figures, but scenes with hundreds of props can slow down. Here's what to keep in mind:
+                </p>
+
+                <div class="card">
+                    <ul>
+                        <li><strong>Simple geometry is faster:</strong> A basic cube as a placeholder renders faster than a detailed prop</li>
+                        <li><strong>Turn off visibility</strong> for props not in the current camera view</li>
+                        <li><strong>Use simpler props for background elements</strong> that won't be seen in detail</li>
+                        <li><strong>Delete props you're not using</strong> rather than just hiding them</li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <section id="project" class="lesson-section">
+                <h2>ðŸŽ¯ Project: Figure with Chair and Cup</h2>
+
+                <p>
+                    Time to put everything together! In this project, you'll create a complete scene with a figure sitting on a chair and holding a coffee cup. This exercise combines all the skills you've learned in this lesson.
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white; margin: 2rem 0;">
+                    <h3 style="color: white; margin-top: 0;">ðŸŽ¯ Project Goal</h3>
+                    <p style="color: white;">
+                        Create a realistic scene of a figure sitting comfortably on a chair, holding a coffee cup in one hand. The scene should demonstrate proper prop loading, positioning, and parenting techniques.
+                    </p>
+                </div>
+
+                <h3>Step-by-Step Instructions</h3>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>Step 1: Load Your Figure</h4>
+                    <ol>
+                        <li><strong>Start a new scene</strong> (File → New)</li>
+                        <li><strong>Load your preferred figure</strong> from the Figures library</li>
+                        <li><strong>Give the figure a basic standing pose</strong> for now—we'll adjust it later</li>
+                        <li><strong>Position your camera</strong> for a good three-quarter view</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>Step 2: Load and Position the Chair</h4>
+                    <ol>
+                        <li><strong>Switch to the Props library</strong></li>
+                        <li><strong>Navigate to Furniture or wherever chairs are located</strong> in your library</li>
+                        <li><strong>Load a chair</strong> by double-clicking its thumbnail</li>
+                        <li><strong>The chair appears at world center</strong>—move it so it's behind the figure</li>
+                        <li><strong>Adjust the chair's position:</strong>
+                            <ul>
+                                <li>Use <strong>yTran</strong> to lower it to floor level (negative values move it down)</li>
+                                <li>Use <strong>xTran</strong> and <strong>zTran</strong> to position it where the figure will sit</li>
+                                <li>Use <strong>yRotate</strong> if you need to turn the chair to face a different direction</li>
+                            </ul>
+                        </li>
+                        <li><strong>Scale the chair if needed</strong> to match your figure's proportions (try Scale = 90% or 110%)</li>
+                        <li><strong>Rename the prop</strong> to "Chair" or "Sitting Chair" for clarity</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>Step 3: Pose the Figure to Sit</h4>
+                    <ol>
+                        <li><strong>Select your figure</strong></li>
+                        <li><strong>Create a sitting pose:</strong>
+                            <ul>
+                                <li><strong>Bend both thighs forward</strong> (xRotate around 90 degrees)</li>
+                                <li><strong>Bend both shins</strong> to bring the lower legs down (xRotate around -90 degrees)</li>
+                                <li><strong>Adjust the hip position</strong> (yTran) to lower the figure onto the chair seat</li>
+                                <li><strong>Position the feet flat</strong> on the ground</li>
+                                <li><strong>Adjust the torso</strong> to lean back slightly into the chair if desired</li>
+                            </ul>
+                        </li>
+                        <li><strong>Fine-tune the position</strong> so the figure looks comfortable and natural</li>
+                        <li><strong>Pose one arm</strong> to rest naturally (perhaps on the armrest or lap)</li>
+                        <li><strong>Pose the other arm</strong> bent upward as if holding something (we'll add the cup next)</li>
+                    </ol>
+                    <p>
+                        <em>Tip: This is where you practice your posing skills from earlier lessons! Remember natural weight distribution and avoiding perfect symmetry.</em>
+                    </p>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>Step 4: Load the Coffee Cup</h4>
+                    <ol>
+                        <li><strong>Go back to the Props library</strong></li>
+                        <li><strong>Find a cup or mug</strong> (look in categories like Kitchen, Food & Drink, or Everyday Objects)</li>
+                        <li><strong>Load the cup</strong> by double-clicking</li>
+                        <li><strong>Roughly position it</strong> near the figure's hand using the transform dials</li>
+                        <li><strong>Rename the prop</strong> to "Coffee Cup" for easy identification</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>Step 5: Parent the Cup to the Hand</h4>
+                    <ol>
+                        <li><strong>Make sure the cup is selected</strong></li>
+                        <li><strong>Find the Parent dropdown</strong> in the Properties panel</li>
+                        <li><strong>Click the dropdown</strong> (it currently says "Universe")</li>
+                        <li><strong>Navigate to the correct hand:</strong>
+                            <ul>
+                                <li>Expand "Figure 1" (or whatever your figure is named)</li>
+                                <li>Expand "Right Collar" → "Right Shoulder" → "Right Forearm"</li>
+                                <li>Select "Right Hand" (or Left Hand if that's the arm you posed)</li>
+                            </ul>
+                        </li>
+                        <li><strong>The cup is now parented!</strong> Move the hand—the cup should follow</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>Step 6: Fine-Tune the Cup Position</h4>
+                    <ol>
+                        <li><strong>With the cup still selected,</strong> adjust its position relative to the hand</li>
+                        <li><strong>Use small increments:</strong>
+                            <ul>
+                                <li><strong>xTran:</strong> Slide the cup left or right in the hand</li>
+                                <li><strong>yTran:</strong> Raise or lower it</li>
+                                <li><strong>zTran:</strong> Push it forward or back</li>
+                            </ul>
+                        </li>
+                        <li><strong>Adjust rotation</strong> so the cup looks naturally held:
+                            <ul>
+                                <li><strong>xRotate:</strong> Tip the cup forward or back</li>
+                                <li><strong>yRotate:</strong> Turn it left or right</li>
+                                <li><strong>zRotate:</strong> Roll it</li>
+                            </ul>
+                        </li>
+                        <li><strong>Scale if needed</strong> to match hand size (try 80-120%)</li>
+                        <li><strong>Goal:</strong> The cup should nestle naturally in the palm and fingers</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>Step 7: Adjust the Hand Pose</h4>
+                    <ol>
+                        <li><strong>Select the hand</strong> that's holding the cup</li>
+                        <li><strong>Adjust finger positions:</strong>
+                            <ul>
+                                <li>Curve fingers around the cup</li>
+                                <li>Position the thumb on the opposite side</li>
+                                <li>Make it look like a natural grip</li>
+                            </ul>
+                        </li>
+                        <li><strong>Remember:</strong> The cup will move with the hand because it's parented!</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>Step 8: Final Polish</h4>
+                    <ol>
+                        <li><strong>Add an expression:</strong> Give your figure a relaxed, content expression</li>
+                        <li><strong>Adjust the camera:</strong> Find the best angle to show your scene</li>
+                        <li><strong>Check proportions:</strong> Does everything look natural and believable?</li>
+                        <li><strong>Test the parenting:</strong> Move the arm—the cup should follow perfectly</li>
+                        <li><strong>Save your scene!</strong> File → Save As → "Sitting_with_Coffee.pz3"</li>
+                    </ol>
+                </div>
+
+                <h3>Success Checklist</h3>
+
+                <p>Your project is complete when you can check off these items:</p>
+
+                <div class="card">
+                    <h4>âœ… Project Completion Checklist</h4>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li>☐ <strong>Figure is loaded and posed naturally</strong></li>
+                        <li>☐ <strong>Chair is positioned at the correct height and location</strong></li>
+                        <li>☐ <strong>Figure is sitting on the chair convincingly</strong></li>
+                        <li>☐ <strong>Coffee cup is loaded and visible</strong></li>
+                        <li>☐ <strong>Cup is parented to the figure's hand</strong></li>
+                        <li>☐ <strong>Cup position looks natural (nestled in the palm)</strong></li>
+                        <li>☐ <strong>Hand is posed to grip the cup realistically</strong></li>
+                        <li>☐ <strong>When you move the arm, the cup moves with it</strong></li>
+                        <li>☐ <strong>All props are renamed with descriptive names</strong></li>
+                        <li>☐ <strong>Scene is saved with a clear filename</strong></li>
+                    </ul>
+                </div>
+
+                <h3>Bonus Challenges (Optional)</h3>
+
+                <p>If you want to push your skills further, try these additional challenges:</p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>ðŸ† Bonus Challenge Ideas</h4>
+                    <ul>
+                        <li><strong>Add a second prop:</strong> Give the figure a book in their other hand, or place a plate on their lap</li>
+                        <li><strong>Add table elements:</strong> Load a small side table next to the chair and parent a prop (like a phone or book) to the table</li>
+                        <li><strong>Create a reading scene:</strong> Replace the coffee with a book, adjust the pose to a reading position</li>
+                        <li><strong>Add environmental props:</strong> Place a lamp, a rug, or a potted plant nearby to flesh out the scene</li>
+                        <li><strong>Experiment with different poses:</strong> Change the sitting pose—legs crossed, slouching, leaning forward, etc.</li>
+                        <li><strong>Try different angles:</strong> Save multiple camera positions showing your scene from different viewpoints</li>
+                    </ul>
+                </div>
+
+                <h3>Common Issues and Solutions</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>âš ï¸ Troubleshooting Your Project</h4>
+                    
+                    <p><strong>Problem:</strong> Figure is floating above the chair or sinking through it</p>
+                    <p><strong>Solution:</strong> Adjust the figure's yTran (hip height) and check the chair's yTran to ensure they're at matching heights.</p>
+                    
+                    <p><strong>Problem:</strong> Cup is way off to the side or completely wrong position after parenting</p>
+                    <p><strong>Solution:</strong> Completely normal! Use the cup's xTran, yTran, and zTran to slide it into the palm. Remember, these values are now relative to the hand.</p>
+                    
+                    <p><strong>Problem:</strong> Hand looks stiff or unnatural around the cup</p>
+                    <p><strong>Solution:</strong> Review Lesson 7 (Hand Posing). Curve the fingers naturally, don't keep them perfectly straight. Thumbs should oppose the fingers.</p>
+                    
+                    <p><strong>Problem:</strong> Chair is too big or too small for the figure</p>
+                    <p><strong>Solution:</strong> Select the chair and adjust its Scale parameter. Try 80% to make it smaller, or 120% to make it larger.</p>
+                    
+                    <p><strong>Problem:</strong> When I move the arm, the cup doesn't follow</p>
+                    <p><strong>Solution:</strong> The cup isn't properly parented. Re-check the Parent dropdown—it should say "Right Hand" (or whichever hand you're using), not "Universe."</p>
+                </div>
+
+            </section>
+
+            <section id="summary" class="lesson-section">
+                <h2>📝 Lesson Summary</h2>
+
+                <p>
+                    Congratulations! You've just unlocked one of the most important skills in Poser—the ability to combine figures and props to create complete, believable scenes. Let's recap what you've learned:
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3 style="color: white; margin-top: 0;">🎯 Key Takeaways</h3>
+                    
+                    <h4 style="color: white;">Understanding the Fundamentals</h4>
+                    <ul style="color: white;">
+                        <li><strong>Figures vs. Props:</strong> Figures are articulated, poseable characters with complex rigging. Props are static objects that serve as environment, furniture, and items.</li>
+                        <li><strong>When to use each:</strong> Use figures for anything that needs to pose (characters, creatures, articulated robots). Use props for inanimate objects, furniture, and environment elements.</li>
+                        <li><strong>Library organization:</strong> Props are organized by category in the Props library, making them easy to find and load.</li>
+                    </ul>
+
+                    <h4 style="color: white;">Working with Props</h4>
+                    <ul style="color: white;">
+                        <li><strong>Loading props:</strong> Double-click or drag-and-drop from the library. Props appear at world origin by default.</li>
+                        <li><strong>Transformation tools:</strong> Use Translate (moving), Scale (sizing), and Rotate (turning) tools to position props precisely in your scene.</li>
+                        <li><strong>Parameter dials:</strong> Fine-tune position with X, Y, Z coordinates, adjust scale uniformly or per-axis, and rotate on any axis using the Parameters panel.</li>
+                    </ul>
+
+                    <h4 style="color: white;">Parenting: The Magic Connection</h4>
+                    <ul style="color: white;">
+                        <li><strong>What parenting does:</strong> Creates a relationship where the child (prop) follows the parent (figure body part) wherever it moves.</li>
+                        <li><strong>How to parent:</strong> Select the prop, use Object menu → Change Parent, select the appropriate body part. The prop becomes a permanent companion to that body part.</li>
+                        <li><strong>Practical applications:</strong> Figures holding cups, wearing hats, carrying bags, sitting on chairs—parenting makes objects move naturally with figures.</li>
+                        <li><strong>The positioning dance:</strong> Parent first (rough connection), then fine-tune position, rotation, and scale to make it look natural.</li>
+                    </ul>
+
+                    <h4 style="color: white;">Scene Organization</h4>
+                    <ul style="color: white;">
+                        <li><strong>Hierarchy panel:</strong> Your visual map of everything in the scene, showing parent-child relationships clearly.</li>
+                        <li><strong>Naming conventions:</strong> Give props descriptive names to keep large scenes organized and manageable.</li>
+                        <li><strong>Grouping strategy:</strong> Group related props together for easier scene management.</li>
+                        <li><strong>Visibility control:</strong> Use the eye icon in the Hierarchy panel to hide props temporarily without deleting them.</li>
+                    </ul>
+                </div>
+
+                <h3>The Skills You've Mastered</h3>
+
+                <div class="card">
+                    <h4>✅ Technical Skills Checklist</h4>
+                    <ul>
+                        <li>✅ Navigate the Props library efficiently</li>
+                        <li>✅ Load props into scenes using multiple methods</li>
+                        <li>✅ Position props precisely using Translate, Scale, and Rotate tools</li>
+                        <li>✅ Use parameter dials for fine-tuned adjustments</li>
+                        <li>✅ Parent props to figure body parts</li>
+                        <li>✅ Adjust parented props to look natural</li>
+                        <li>✅ Manage scene hierarchy and organization</li>
+                        <li>✅ Rename and organize multiple props</li>
+                        <li>✅ Troubleshoot common parenting issues</li>
+                        <li>✅ Create complete scenes with figures and props working together</li>
+                    </ul>
+                </div>
+
+                <h3>Real-World Applications</h3>
+
+                <p>
+                    The skills you've learned in this lesson form the foundation for virtually every scene you'll create in Poser. Think about it:
+                </p>
+
+                <div class="card" style="background-color: #f3e5f5; border-left: 4px solid #9C27B0;">
+                    <h4>🎨 What You Can Now Create</h4>
+                    <ul>
+                        <li><strong>Character portraits:</strong> Position a figure in a chair with natural props around them</li>
+                        <li><strong>Action scenes:</strong> Have characters holding weapons, tools, or other objects convincingly</li>
+                        <li><strong>Everyday scenarios:</strong> People working at desks, eating at tables, relaxing on couches</li>
+                        <li><strong>Storytelling scenes:</strong> Create complete environments where characters interact with their world</li>
+                        <li><strong>Commercial illustrations:</strong> Product shots with hands holding items, demonstration scenes</li>
+                        <li><strong>Fantasy or sci-fi scenes:</strong> Warriors with swords, astronauts with equipment, wizards with staffs</li>
+                    </ul>
+                    <p>
+                        Every one of these scenarios requires the combination of figures and props you've practiced today. You're not just learning software mechanics—you're learning how to build worlds.
+                    </p>
+                </div>
+
+                <h3>Common Challenges and How to Overcome Them</h3>
+
+                <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Troubleshooting Quick Reference</h4>
+                    
+                    <p><strong>Problem: "The prop is way too big/small when I load it!"</strong></p>
+                    <p><strong>Solution:</strong> Different prop creators use different scales. Use the Scale tool or scale parameter dials to adjust. Start with the Scale dial at 100% and adjust up or down by 10-20% increments until it looks right.</p>
+                    
+                    <p><strong>Problem: "When I parent the cup to the hand, it's pointing the wrong direction!"</strong></p>
+                    <p><strong>Solution:</strong> After parenting, use the Rotate tool to adjust the prop's orientation. Remember: parent first (connection), position second (placement), rotate third (orientation), scale fourth (size).</p>
+                    
+                    <p><strong>Problem: "The prop moves with the hand but looks unnatural—it's floating or penetrating!"</strong></p>
+                    <p><strong>Solution:</strong> This is normal! Parenting creates the relationship, but you must fine-tune the position. Use small adjustments (1-5 units) on the parameter dials to position it perfectly.</p>
+                    
+                    <p><strong>Problem: "I can't find the prop I want in the library!"</strong></p>
+                    <p><strong>Solution:</strong> Props are organized by category. Check related categories (kitchen items might be under Props → Household or Props → Kitchen). Use the search function if your library has one.</p>
+                    
+                    <p><strong>Problem: "My scene is getting messy with too many props!"</strong></p>
+                    <p><strong>Solution:</strong> Use the Hierarchy panel to organize. Rename props descriptively, and consider grouping related props. Hide props you're not working on using the visibility toggle.</p>
+                </div>
+
+                <h3>Building on This Foundation</h3>
+
+                <p>
+                    This lesson is the first step into the world of scene building. In upcoming lessons, you'll learn even more powerful techniques:
+                </p>
+
+                <div class="card">
+                    <h4>🚀 What's Coming Next</h4>
+                    <ul>
+                        <li><strong>Next lesson:</strong> Building complete environments with multiple props and set pieces</li>
+                        <li><strong>Soon:</strong> Working with multiple figures in the same scene</li>
+                        <li><strong>Coming up:</strong> Smart props and conforming items that automatically fit figures</li>
+                        <li><strong>Advanced:</strong> Creating complex scenes with lighting, materials, and atmospheric effects</li>
+                        <li><strong>Later:</strong> Scene composition techniques for visual storytelling</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>💡 Remember:</strong> Every professional Poser artist started exactly where you are now—learning how to make a figure hold a cup or sit on a chair. These fundamentals are the building blocks of every impressive scene you'll ever see. Master these basics, and you're on your way to creating truly remarkable 3D art.</p>
+                </blockquote>
+
+                <h3>Practice Makes Perfect</h3>
+
+                <p>
+                    Don't stop with just the project we did today. The best way to internalize these skills is through practice and experimentation:
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✨ Practice Challenges</h4>
+                    <ol>
+                        <li><strong>Different props, same technique:</strong> Practice parenting different objects to hands—a phone, a book, a sword, a baseball bat. Each will require slightly different positioning.</li>
+                        <li><strong>Multiple props:</strong> Create a scene where a figure is holding one object and sitting on another. This practices parenting to different body parts.</li>
+                        <li><strong>Scale variety:</strong> Load the same prop multiple times at different scales. Create a scene with objects of varying sizes (tiny toy cup vs. normal cup vs. giant decorative cup).</li>
+                        <li><strong>Rotation practice:</strong> Take a simple prop like a box and practice rotating it to exact angles—45 degrees, 90 degrees, 180 degrees. This builds your spatial reasoning.</li>
+                        <li><strong>Organization challenge:</strong> Create a scene with 10+ props and practice keeping them organized with good naming and hierarchy management.</li>
+                    </ol>
+                </div>
+
+                <h3>Your Creative Journey</h3>
+
+                <p>
+                    You've taken a significant step today. You're no longer just posing isolated figures—you're building scenes, creating contexts, and telling visual stories. The figure on a chair holding a cup might seem simple, but it's the foundation for everything from comic book panels to movie concept art to game character designs.
+                </p>
+
+                <p>
+                    Every time you add a prop to a scene, you're making a creative decision. What kind of chair? What does it say about the character? Is the cup full or empty? Coffee or tea? These tiny choices are the language of visual storytelling, and you're becoming fluent in it.
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white; text-align: center; padding: 2rem;">
+                    <h3 style="color: white; margin-top: 0;">🎉 Congratulations!</h3>
+                    <p style="color: white; font-size: 1.1em; margin: 1rem 0;">
+                        You've completed Lesson 10 and mastered the art of combining figures and props!
+                    </p>
+                    <p style="color: white; margin: 1rem 0;">
+                        You can now create complete scenes with figures interacting naturally with their environment. That's a huge milestone in your Poser journey!
+                    </p>
+                    <p style="color: white; font-style: italic; margin-top: 1.5rem;">
+                        "The scene is your canvas, figures are your actors, and props are your set. You're now the director of your own 3D world!" 🎬
+                    </p>
+                </div>
+
+            </section>
+
+        </article>
+
+        <nav class="lesson-nav" aria-label="Lesson Navigation">
+            <a href="lesson_09_action_poses.html" class="prev-lesson">← Previous: Full Body Poses - Walking and Action</a>
+            <a href="index.html" class="home-link">🏠 Course Home</a>
+            <a href="lesson_11_first_scene.html" class="next-lesson">Next: Building Your First Scene →</a>
+        </nav>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Poser 12 Mastery Course. All rights reserved.</p>
+            <p>Empowering aspiring 3D artists to create stunning character art.</p>
+        </div>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

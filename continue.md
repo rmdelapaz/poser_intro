@@ -22,10 +22,18 @@ This is a comprehensive Poser 12 course for absolute beginners. The course teach
 7. ✅ **Lesson 07** - `lesson_07_hand_posing.html` - Advanced Hand Posing
 8. ✅ **Lesson 08** - `lesson_08_facial_expressions.html` - Facial Expressions and Emotion
 
+### ✅ Completed Lessons (Module 3: Working with Props and Scenes)
+9. ✅ **Lesson 09** - `lesson_09_props_scenes.html` - Working with Props and Building Scenes
+10. ✅ **Lesson 10** - `lesson_10_multiple_figures.html` - Working with Multiple Figures
+11. ✅ **Lesson 11** - `lesson_11_scene_composition.html` - Scene Composition and Visual Storytelling
+
+### ✅ Completed Lessons (Module 4: Lighting and Atmosphere)
+12. ✅ **Lesson 12** - `lesson_12_lighting_basics.html` - Lighting Fundamentals
+
 ### 📍 Next Lesson to Create
-- **Lesson 09** - Module 3 begins: Working with Props and Scenes
-  - Topics: Loading props from library, positioning and scaling objects, parent/child relationships with props, creating scene compositions
-  - Focus: Building environments around characters
+- **Lesson 13** - Advanced Lighting Techniques
+  - Topics: HDR lighting, global illumination, bounce light, caustics, atmospheric effects
+  - Focus: Professional lighting techniques for stunning renders
 
 ## File Creation Guidelines
 
@@ -248,13 +256,15 @@ Before considering a lesson complete:
 
 ## File Creation Process
 
-1. **Single file approach** (preferred for most lessons)
-   - Create complete HTML file in one write operation
-   - Aim for focused, practical lessons (8,000-12,000 words)
-   - Include all required elements
+1. **Multiple file approach** (REQUIRED for long lessons)
+   - Create lesson in separate numbered parts (part_01, part_02, etc.)
+   - User will concatenate parts together
+   - Each part should be a complete section
+   - Aim for 8-15 parts per lesson depending on complexity
 
 2. **After each lesson:**
-   - Verify file was created successfully
+   - Verify all parts were created successfully
+   - User will join parts and inform you of final filename
    - PAUSE and ask: "Should I continue to the next lesson?"
    - Wait for user confirmation before proceeding
 
@@ -283,16 +293,19 @@ Before considering a lesson complete:
 - Hand posing
 - Facial expressions
 
-### Module 3: Working with Props and Scenes (Starting with Lesson 9)
+### Module 3: Working with Props and Scenes (Lessons 9-11) ✅ COMPLETE
 - Props and environment building
-- Scene composition
 - Multiple figures
-- Storytelling through scenes
+- Scene composition and visual storytelling
+
+### Module 4: Lighting and Atmosphere (Starting with Lesson 12) 🔄 IN PROGRESS
+- Lighting fundamentals ✅
+- Advanced lighting techniques
+- Materials and textures
+- Atmospheric effects
 
 ### Future Modules
-- Lighting
-- Materials and textures
-- Rendering
+- Rendering and optimization
 - Advanced techniques
 - Animation basics
 - Final projects
@@ -300,7 +313,7 @@ Before considering a lesson complete:
 ## Important Reminders
 
 1. **File paths:** Use `\\wsl$\Ubuntu\home\practicalace\projects\poser_course\`
-2. **Always create complete, functional HTML files**
+2. **Always create lessons in multiple parts** for easier management
 3. **Pause after each lesson** for user confirmation
 4. **Keep instructor tone consistent** - friendly, encouraging, practical
 5. **Progressive learning** - each lesson builds on previous ones
@@ -309,16 +322,17 @@ Before considering a lesson complete:
 
 ## Next Steps
 
-**Ready to begin Module 3!** 
-Start with **Lesson 09: Working with Props and Building Scenes**
+**Ready to continue Module 4!** 
+Next up: **Lesson 13: Advanced Lighting Techniques**
 
 Topics to cover:
-- Loading props from the library
-- Positioning, scaling, and rotating objects
-- Parent/child relationships between props and figures
-- Scene composition basics
-- Creating believable environments
+- HDR lighting and image-based lighting
+- Global illumination and bounce light
+- Advanced shadow techniques
+- Caustics and special lighting effects
+- Atmospheric effects (fog, volumetric lighting)
+- Professional lighting workflows
 
 ---
 
-**Status: 8 lessons complete | Module 2 finished | Ready for Module 3**
+**Status: 12 lessons complete | Module 3 finished | Module 4 in progress**
