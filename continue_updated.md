@@ -8,37 +8,57 @@ This is a comprehensive Poser 12 course for absolute beginners. The course teach
 - **Template Reference:** `\\wsl$\Ubuntu\home\practicalace\projects\course_template`
 - **Lesson Plan:** `course_lesson_plan.json` (in poser_course directory - if available)
 
-## Current Progress
+## Current Progress Summary
 
-### ✅ Completed Lessons (Module 1: Getting Started)
-1. ✅ **Lesson 01** - `lesson_01_welcome_to_poser.html` - Welcome to Poser 12
-2. ✅ **Lesson 02** - `lesson_02_interface_tour.html` - The Poser Interface Tour
-3. ✅ **Lesson 03** - `lesson_03_first_figure.html` - Your First Figure
-4. ✅ **Lesson 04** - `lesson_04_cameras_and_views.html` - Cameras and Views
+### ✅ MODULE 1: Getting Started (COMPLETE)
+1. ✅ Lesson 01 - Welcome to Poser 12
+2. ✅ Lesson 02 - The Poser Interface Tour
+3. ✅ Lesson 03 - Your First Figure
+4. ✅ Lesson 04 - Cameras and Views
 
-### ✅ Completed Lessons (Module 2: Essential Posing Techniques)
-5. ✅ **Lesson 05** - `lesson_05_figure_hierarchy.html` - Understanding the Figure Hierarchy
-6. ✅ **Lesson 06** - `lesson_06_natural_poses.html` - Creating Natural Poses
-7. ✅ **Lesson 07** - `lesson_07_hand_posing.html` - Advanced Hand Posing
-8. ✅ **Lesson 08** - `lesson_08_facial_expressions.html` - Facial Expressions and Emotion
-9. ✅ **Lesson 09** - `lesson_09_action_poses.html` - Full Body Poses - Walking and Action
+### ✅ MODULE 2: Essential Posing Techniques (COMPLETE)
+5. ✅ Lesson 05 - Understanding the Figure Hierarchy
+6. ✅ Lesson 06 - Creating Natural Poses
+7. ✅ Lesson 07 - Advanced Hand Posing
+8. ✅ Lesson 08 - Facial Expressions and Emotion
+9. ✅ Lesson 09 - Full Body Poses - Walking and Action
 
-### ✅ Completed Lessons (Module 3: Working with Props and Scenes)
-10. ✅ **Lesson 10** - `lesson_10_props_vs_figures.html` - Understanding Props vs. Figures
-11. ✅ **Lesson 11** - `lesson_11_first_scene.html` - Building Your First Scene (IN PROGRESS - Parts 01-04 created)
+### ✅ MODULE 3: Working with Props and Scenes (COMPLETE)
+10. ✅ Lesson 10 - Understanding Props vs. Figures
+11. ✅ Lesson 11 - Building Your First Scene
+12. ✅ Lesson 12 - Working with Multiple Figures
+13. ✅ Lesson 13 - Smart Props and Conforming Items
 
-### 📍 Next Lesson to Create
-- **Lesson 11** - Building Your First Scene (CONTINUE FROM PART 04)
-  - Already created: parts 01-04
-  - Need to complete: parts 05-17 approximately
-  - Topics remaining: Ground plane, arranging props, scene layers, lighting basics, camera work, project, summary
-  - Focus: Complete indoor office scene with figure at desk
+### ✅ MODULE 4: Materials and Textures (COMPLETE)
+14. ✅ Lesson 14 - Introduction to the Material Room
+15. ✅ Lesson 15 - Texture Maps and UV Mapping
+16. ✅ Lesson 16 - Skin Materials and Realism
+17. ✅ Lesson 17 - Creating and Editing Simple Materials
+18. ✅ Lesson 18 - Material Collections and Efficiency
 
-OR if Lesson 11 is complete:
+### 🔄 MODULE 5: Lighting Fundamentals (IN PROGRESS)
+19. 🔄 **Lesson 19 - Understanding Light Types** (IN PROGRESS - 50% complete)
+    - ✅ Parts 01-06 created:
+      - Part 01: Header, introduction, learning objectives
+      - Part 02: Table of Contents, Why lighting matters
+      - Part 03: Light Fundamentals and Properties (intensity, color, shadows, falloff)
+      - Part 04: Infinite Lights (Directional) - Complete section
+      - Part 05: Point Lights (Omnidirectional) - Complete section
+      - Part 06: Spotlights (Focused Beams) - Complete section
+    - 📍 **CONTINUE FROM PART 07**
+    - Remaining topics to complete:
+      - Part 07: Image-Based Lighting (IBL)
+      - Part 08: Comparing Light Types Side by Side
+      - Part 09: Choosing the Right Light Type
+      - Part 10-11: Project - Light Type Comparison Scene (2 parts)
+      - Part 12: Summary, wrap-up, navigation, footer
 
-- **Lesson 12** - Working with Multiple Figures
-  - Topics: Loading and managing multiple figures, figure naming, creating interactions, avoiding interpenetration, group posing
-  - Project: Create a scene with two figures interacting (handshake, conversation, etc.)
+20. ⏳ Lesson 20 - Three-Point Lighting Fundamentals (NOT STARTED)
+21. ⏳ Lesson 21 - Natural and Outdoor Lighting (NOT STARTED)
+22. ⏳ Lesson 22 - Indoor and Dramatic Lighting (NOT STARTED)
+
+### 📍 NEXT ACTION
+**Continue Lesson 19, Part 07** - Image-Based Lighting (IBL) section
 
 ## File Creation Guidelines
 
@@ -353,4 +373,6 @@ Topics to cover:
 
 ---
 
-**Status: 11 lessons complete | Module 2 finished | Module 3 in progress**
+**Status: 18 lessons complete | Modules 1-4 finished | Module 5 in progress (Lesson 19 at 50%)**
+
+**Total Progress: 19 out of 54 planned lessons (35% complete)**

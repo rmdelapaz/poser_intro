@@ -1,0 +1,2282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master efficient material workflows in Poser 12. Learn to create collections, apply materials to multiple objects, and optimize your material library for maximum productivity.">
+    <meta name="author" content="Poser 12 Course">
+    <title>Material Collections and Efficiency - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>🎨 Poser 12 Mastery Course</h1>
+        <nav aria-label="Main Navigation">
+            <a href="index.html">Home</a>
+            <a href="module_04.html">Module 4</a>
+            <a href="resources.html">Resources</a>
+        </nav>
+    </header>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> &gt;
+        <a href="module_04.html">Module 4: Materials and Textures</a> &gt;
+        <span>Lesson 18: Material Collections and Efficiency</span>
+    </nav>
+
+    <main>
+        <article>
+            <h1>Material Collections and Efficiency</h1>
+            
+            <p class="lead">
+                You know how to create materials. Now let's talk about working smarter, not harder. In this lesson, you'll learn professional workflow techniques that turn material work from a time-consuming chore into a quick, efficient process. We're talking about saving hours of work through smart organization, reusable collections, and batch operations that let you material entire scenes in minutes instead of hours.
+            </p>
+
+            <blockquote>
+                <p>
+                    <strong>Think of it this way:</strong> Creating materials is like learning to cook. Creating material collections and workflows is like meal prepping for the week. Sure, you could cook dinner from scratch every single night—but imagine having pre-prepped ingredients, ready-made spice blends, and a system that lets you create restaurant-quality meals in 15 minutes. That's what this lesson is about: setting up systems that make future work effortless.
+                </p>
+            </blockquote>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3>📚 What You'll Learn</h3>
+                <ul style="color: white;">
+                    <li>Creating themed material collections for different scene types</li>
+                    <li>Applying materials to multiple objects simultaneously</li>
+                    <li>Building master materials that spawn infinite variations</li>
+                    <li>Organizing large material libraries for instant access</li>
+                    <li>Copying and sharing materials between projects</li>
+                    <li>Performance optimization techniques for faster renders</li>
+                    <li>Material troubleshooting shortcuts and time-savers</li>
+                    <li>Professional material workflow best practices</li>
+                </ul>
+                
+                <p style="color: white; margin-bottom: 0;">
+                    <strong>⏱️ Estimated time:</strong> 40-50 minutes<br>
+                    <strong>🎯 Project:</strong> Create a themed material collection (Medieval, Modern, or Sci-Fi) with at least 10 materials organized for efficient reuse
+                </p>
+            </div>
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">🔖 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#workflow-philosophy" class="toc-link">The Material Workflow Philosophy</a></li>
+                        <li><a href="#themed-collections" class="toc-link">Creating Themed Material Collections</a></li>
+                        <li><a href="#batch-operations" class="toc-link">Applying Materials to Multiple Objects</a></li>
+                        <li><a href="#master-materials" class="toc-link">Master Materials and Variations</a></li>
+                        <li><a href="#library-management" class="toc-link">Advanced Library Organization</a></li>
+                        <li><a href="#sharing-materials" class="toc-link">Copying and Sharing Materials</a></li>
+                        <li><a href="#performance-optimization" class="toc-link">Material Performance Optimization</a></li>
+                        <li><a href="#workflow-shortcuts" class="toc-link">Professional Workflow Shortcuts</a></li>
+                        <li><a href="#project" class="toc-link">Project: Build a Themed Collection</a></li>
+                        <li><a href="#summary" class="toc-link">Summary and Next Steps</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <h2>Why Material Efficiency Matters</h2>
+
+            <p>
+                Here's a scenario every 3D artist faces: You've just loaded a medieval castle scene with 50+ props—stone walls, wooden furniture, metal weapons, fabric banners, glass windows. If you apply materials one object at a time, you're looking at hours of work. But with the right workflow? Ten minutes, maybe fifteen.
+            </p>
+
+            <p>
+                Material efficiency isn't just about speed—it's about consistency, creativity, and sustainability. Let's break down why this matters:
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Time savings multiply</strong> – A system that saves you 30 minutes per project adds up to dozens of hours saved over a year. That's time you can spend on creative work instead of repetitive tasks.
+                </li>
+                <li>
+                    <strong>Consistency looks professional</strong> – When all your stone props use the same material family, your scene feels cohesive. Random materials from different sources create visual chaos.
+                </li>
+                <li>
+                    <strong>Experimentation becomes effortless</strong> – Want to see your scene in different moods? With material collections, changing from "bright sunny castle" to "dark fortress" is a few clicks, not hours of work.
+                </li>
+                <li>
+                    <strong>Collaboration gets easier</strong> – Organized material collections can be shared with team members or across your own projects, ensuring everyone works with the same high-quality materials.
+                </li>
+                <li>
+                    <strong>Mental bandwidth is preserved</strong> – Decision fatigue is real. Having pre-made material collections means less thinking about technical details and more energy for creative decisions.
+                </li>
+            </ul>
+
+            <blockquote>
+                <p>
+                    <strong>Professional Insight:</strong> In production environments—game studios, animation houses, visualization firms—material libraries and efficient workflows aren't optional; they're essential. Artists who can material a complex scene in minutes while maintaining quality and consistency are invaluable. The techniques you'll learn in this lesson are industry-standard practices used by professionals worldwide.
+                </p>
+            </blockquote>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>💡 The Productivity Paradox</h4>
+                <p>
+                    Here's something interesting: spending an hour building a good material collection saves you five minutes every time you use it. That sounds like a bad trade—until you realize you'll use that collection dozens of times. Professional artists think in terms of "time invested" vs. "time saved over project lifetime." A collection used 20 times means that one-hour investment saved you 100 minutes total—and the savings keep growing with each use. This lesson is about making those investments that pay dividends forever.
+                </p>
+            </div>
+        <section id="workflow-philosophy">
+            <h2>The Material Workflow Philosophy</h2>
+
+            <p>
+                Before diving into techniques, let's establish a philosophy that will guide all your material work. Professional workflows are built on principles, not just procedures.
+            </p>
+
+            <h3>The Three-Tier Material System</h3>
+
+            <p>
+                Think of your material library in three tiers, like a pyramid:
+            </p>
+
+            <div class="mermaid">
+                graph TD
+                A[Base Materials<br/>Universal, Fundamental] --> B[Themed Collections<br/>Project-Specific Sets]
+                B --> C[Scene Materials<br/>Custom per Scene]
+                
+                style A fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                style B fill:#FF9800,stroke:#333,stroke-width:2px,color:#fff
+                style C fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+            </div>
+
+            <div class="card">
+                <h4>Tier 1: Base Materials (Foundation)</h4>
+                <p>These are your universal, go-to materials that work in any project:</p>
+                <ul>
+                    <li>Generic metals (chrome, gold, copper, iron)</li>
+                    <li>Generic woods (oak, pine, mahogany)</li>
+                    <li>Generic glass (clear, frosted)</li>
+                    <li>Basic fabrics (cotton, silk, leather)</li>
+                    <li>Common surfaces (concrete, stone, plastic)</li>
+                </ul>
+                <p><strong>Use case:</strong> When you need a quick material and don't care about specific theming. These are your "grab and go" materials.</p>
+            </div>
+
+            <div class="card">
+                <h4>Tier 2: Themed Collections (Project-Level)</h4>
+                <p>These are curated sets for specific genres or project types:</p>
+                <ul>
+                    <li>Medieval Collection (weathered stone, aged wood, tarnished metal)</li>
+                    <li>Modern Collection (polished surfaces, glass, stainless steel)</li>
+                    <li>Sci-Fi Collection (metallic panels, glowing elements, high-tech materials)</li>
+                    <li>Natural Collection (earth tones, organic textures, natural materials)</li>
+                    <li>Fantasy Collection (magical effects, vibrant colors, ethereal materials)</li>
+                </ul>
+                <p><strong>Use case:</strong> When starting a themed project, load the entire collection and apply materials knowing they'll all work together visually.</p>
+            </div>
+
+            <div class="card">
+                <h4>Tier 3: Scene Materials (Scene-Specific)</h4>
+                <p>These are custom materials created for one specific scene:</p>
+                <ul>
+                    <li>Hero prop materials (highly detailed, unique)</li>
+                    <li>Special effect materials (one-off needs)</li>
+                    <li>Exact color matches for client requirements</li>
+                    <li>Experimental or artistic materials</li>
+                </ul>
+                <p><strong>Use case:</strong> When you need something unique that won't be reused. These may or may not get saved to your library.</p>
+            </div>
+
+            <h3>The DRY Principle: Don't Repeat Yourself</h3>
+
+            <p>
+                This principle from programming applies perfectly to material work. If you find yourself creating the same material more than once, you should have saved it. If you're manually applying materials to similar objects, you should batch them. If you're tweaking the same properties repeatedly, you should create a master material.
+            </p>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>✅ The DRY Workflow Checklist</h4>
+                <p>Before doing material work, ask yourself:</p>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li>☑ Have I created this material before? → Search library first</li>
+                    <li>☑ Will I use this material again? → Save it immediately</li>
+                    <li>☑ Am I applying to multiple similar objects? → Batch operation</li>
+                    <li>☑ Am I making similar materials? → Create variations from a master</li>
+                    <li>☑ Am I repeating the same adjustments? → Save a preset</li>
+                </ul>
+            </div>
+
+            <h3>The 80/20 Rule for Material Libraries</h3>
+
+            <p>
+                Research shows that artists typically use 20% of their material library 80% of the time. Identify your most-used materials and make them easiest to access. Don't bury your go-to materials in nested folders—put them in a "Favorites" or "Most Used" category at the top level.
+            </p>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Material Category</th>
+                        <th>Usage Frequency</th>
+                        <th>Organization Strategy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Daily Drivers</strong></td>
+                        <td>Used in 80%+ of projects</td>
+                        <td>Top-level "Favorites" folder, quick access</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Regular Use</strong></td>
+                        <td>Used in 30-50% of projects</td>
+                        <td>Main categories, well-organized</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Occasional</strong></td>
+                        <td>Used in 10-30% of projects</td>
+                        <td>Subcategories by theme or type</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Rare/Special</strong></td>
+                        <td>Used in <10% of projects</td>
+                        <td>Deep subfolders, searchable by name</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>The "Material Kitchen" Mindset</h3>
+
+            <p>
+                Think of your material workflow like a professional kitchen. A good kitchen has:
+            </p>
+
+            <ul>
+                <li><strong>Mise en place</strong> (everything in its place) – Organized libraries where you can find anything in seconds</li>
+                <li><strong>Prep stations</strong> – Template scenes where you test materials before using them</li>
+                <li><strong>Recipe cards</strong> – Documentation of your material settings and workflows</li>
+                <li><strong>Spice blends</strong> – Pre-mixed material collections ready to apply</li>
+                <li><strong>Clean-as-you-go</strong> – Saving and organizing materials immediately, not "later"</li>
+            </ul>
+
+            <blockquote>
+                <p>
+                    <strong>The Professional Difference:</strong> Amateur artists spend their time making materials. Professional artists spend their time making art—because they've already made the materials. The difference isn't talent or skill; it's systems. A professional has spent hours building libraries and workflows so they never have to repeat work. This lesson is about becoming that professional.
+                </p>
+            </blockquote>
+
+            <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h4>⚠️ Avoid the Hoarding Trap</h4>
+                <p>
+                    There's a fine line between a useful library and digital hoarding. Don't save every single material you ever create "just in case." Be selective. Save materials that are genuinely reusable, well-made, and documented. A library of 100 excellent, organized materials beats a library of 1000 random materials you can't find or remember. Quality over quantity always wins.
+                </p>
+            </div>
+        <section id="themed-collections">
+            <h2>Creating Themed Material Collections</h2>
+
+            <p>
+                Themed collections are game-changers. Instead of hunting through your library for materials that work together, you load a pre-curated set where everything is already coordinated. Let's learn how to build collections that make your work effortless.
+            </p>
+
+            <h3>What Makes a Good Themed Collection?</h3>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3 style="color: white;">🎨 Elements of an Excellent Collection</h3>
+                <ol style="color: white;">
+                    <li><strong>Visual cohesion</strong> – All materials share a common aesthetic (color palette, finish level, wear level)</li>
+                    <li><strong>Complete coverage</strong> – Includes materials for all common object types in that theme</li>
+                    <li><strong>Variations</strong> – Multiple versions of each material type (light/dark wood, clean/dirty metal)</li>
+                    <li><strong>Consistent naming</strong> – Clear, descriptive names following the same pattern</li>
+                    <li><strong>Proper organization</strong> – Grouped logically within the collection</li>
+                    <li><strong>Documentation</strong> – Notes on intended use and any special requirements</li>
+                </ol>
+            </div>
+
+            <h3>Medieval/Fantasy Collection Blueprint</h3>
+
+            <p>
+                Let's break down a complete medieval collection as an example. This same approach works for any theme.
+            </p>
+
+            <div class="card">
+                <h4>Medieval Collection - Material List</h4>
+                
+                <p><strong>Stone Materials (4-5 variants):</strong></p>
+                <ul>
+                    <li>Stone_Castle_Wall_Gray (rough, weathered)</li>
+                    <li>Stone_Floor_Worn (smooth from foot traffic)</li>
+                    <li>Stone_Cobblestone (individual stones visible)</li>
+                    <li>Stone_Carved (for decorative elements)</li>
+                    <li>Stone_Dark_Dungeon (damp, mossy)</li>
+                </ul>
+
+                <p><strong>Wood Materials (4-5 variants):</strong></p>
+                <ul>
+                    <li>Wood_Oak_Dark_Aged (furniture)</li>
+                    <li>Wood_Pine_Rough (structural beams)</li>
+                    <li>Wood_Plank_Weathered (doors, floors)</li>
+                    <li>Wood_Carved_Decorative (ornamental)</li>
+                    <li>Wood_Barrel (for barrels, buckets)</li>
+                </ul>
+
+                <p><strong>Metal Materials (4-5 variants):</strong></p>
+                <ul>
+                    <li>Metal_Iron_Aged (weapons, tools)</li>
+                    <li>Metal_Iron_Rusty (old, weathered metal)</li>
+                    <li>Metal_Steel_Polished (armor, swords)</li>
+                    <li>Metal_Bronze_Tarnished (decorative items)</li>
+                    <li>Metal_Gold_Aged (jewelry, treasure)</li>
+                </ul>
+
+                <p><strong>Fabric Materials (3-4 variants):</strong></p>
+                <ul>
+                    <li>Fabric_Wool_Rough (clothing, blankets)</li>
+                    <li>Fabric_Linen_Natural (basic clothing)</li>
+                    <li>Fabric_Silk_Rich (noble clothing, banners)</li>
+                    <li>Leather_Brown_Worn (armor, accessories)</li>
+                </ul>
+
+                <p><strong>Special Materials (2-3 variants):</strong></p>
+                <ul>
+                    <li>Glass_Window_Old (leaded glass, imperfect)</li>
+                    <li>Rope_Hemp (rigging, ties)</li>
+                    <li>Thatch_Roof (straw roofing)</li>
+                </ul>
+            </div>
+
+            <p>
+                <strong>Total:</strong> 18-22 materials that cover everything you'd encounter in a medieval scene. Once built, you can material an entire castle in minutes.
+            </p>
+
+            <h3>Modern/Contemporary Collection Blueprint</h3>
+
+            <div class="card">
+                <h4>Modern Collection - Material List</h4>
+                
+                <p><strong>Metals (4-5 variants):</strong></p>
+                <ul>
+                    <li>Metal_Stainless_Brushed (appliances)</li>
+                    <li>Metal_Chrome_Polished (fixtures)</li>
+                    <li>Metal_Aluminum_Matte (structural)</li>
+                    <li>Metal_Copper_Satin (decorative)</li>
+                </ul>
+
+                <p><strong>Glass (4-5 variants):</strong></p>
+                <ul>
+                    <li>Glass_Clear_Window (standard windows)</li>
+                    <li>Glass_Frosted_Privacy (bathrooms, offices)</li>
+                    <li>Glass_Tinted_Light (automotive, architecture)</li>
+                    <li>Glass_Mirror (reflective surfaces)</li>
+                </ul>
+
+                <p><strong>Wood (3-4 variants):</strong></p>
+                <ul>
+                    <li>Wood_Hardwood_Floor_Light (flooring)</li>
+                    <li>Wood_Walnut_Polished (furniture)</li>
+                    <li>Wood_Veneer_Modern (cabinets)</li>
+                </ul>
+
+                <p><strong>Plastics (3-4 variants):</strong></p>
+                <ul>
+                    <li>Plastic_White_Matte (appliances)</li>
+                    <li>Plastic_Black_Glossy (electronics)</li>
+                    <li>Plastic_Clear (containers, housings)</li>
+                </ul>
+
+                <p><strong>Surfaces (4-5 variants):</strong></p>
+                <ul>
+                    <li>Concrete_Smooth_Gray (floors, walls)</li>
+                    <li>Marble_White_Polished (countertops)</li>
+                    <li>Granite_Dark_Polished (surfaces)</li>
+                    <li>Tile_Ceramic_White (bathrooms, kitchens)</li>
+                    <li>Paint_Wall_Matte (walls, various colors)</li>
+                </ul>
+
+                <p><strong>Fabrics (2-3 variants):</strong></p>
+                <ul>
+                    <li>Fabric_Cotton_Clean (upholstery)</li>
+                    <li>Leather_Modern_Smooth (furniture)</li>
+                    <li>Carpet_Short_Pile (flooring)</li>
+                </ul>
+            </div>
+
+            <h3>Sci-Fi/Futuristic Collection Blueprint</h3>
+
+            <div class="card">
+                <h4>Sci-Fi Collection - Material List</h4>
+                
+                <p><strong>Metal Panels (5-6 variants):</strong></p>
+                <ul>
+                    <li>Panel_Brushed_Clean (pristine tech)</li>
+                    <li>Panel_Riveted_Industrial (heavy machinery)</li>
+                    <li>Panel_Carbon_Fiber (high-tech composites)</li>
+                    <li>Panel_Grated_Floor (walkways)</li>
+                    <li>Panel_Worn_Spaceship (used vessels)</li>
+                </ul>
+
+                <p><strong>Glowing Elements (3-4 variants):</strong></p>
+                <ul>
+                    <li>Screen_Hologram_Blue (displays)</li>
+                    <li>Strip_Light_Cyan (edge lighting)</li>
+                    <li>Panel_Glowing_Green (power indicators)</li>
+                    <li>Energy_Field_Purple (force fields)</li>
+                </ul>
+
+                <p><strong>Glass/Transparent (3-4 variants):</strong></p>
+                <ul>
+                    <li>Glass_Viewport_Thick (spaceship windows)</li>
+                    <li>Plastic_Dome_Clear (helmets, shields)</li>
+                    <li>Glass_Tinted_Dark (privacy screens)</li>
+                </ul>
+
+                <p><strong>Specialty (4-5 variants):</strong></p>
+                <ul>
+                    <li>Rubber_Black_Industrial (seals, padding)</li>
+                    <li>Wire_Cables_Bundled (technical details)</li>
+                    <li>Concrete_Worn_Industrial (stations, bases)</li>
+                    <li>Chrome_Reflective (robot parts)</li>
+                </ul>
+            </div>
+
+            <h3>Building Your Collection: Step by Step</h3>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>📋 Collection Building Workflow</h4>
+                <ol>
+                    <li>
+                        <strong>Research and reference</strong>
+                        <p>Gather reference images of your theme. Create a mood board showing the materials you want to capture.</p>
+                    </li>
+                    <li>
+                        <strong>Define your palette</strong>
+                        <p>Establish color schemes, finish levels (matte vs. glossy), and wear patterns consistent across the collection.</p>
+                    </li>
+                    <li>
+                        <strong>Create base materials</strong>
+                        <p>Build 3-5 "hero" materials that define the collection's look. Get these perfect first.</p>
+                    </li>
+                    <li>
+                        <strong>Create variations</strong>
+                        <p>From each base, create light/dark, clean/dirty, or other logical variations.</p>
+                    </li>
+                    <li>
+                        <strong>Test together</strong>
+                        <p>Load a scene with various objects and apply your materials. Do they work together visually?</p>
+                    </li>
+                    <li>
+                        <strong>Refine and balance</strong>
+                        <p>Adjust materials so nothing is too bright, too dark, or visually competing. Harmony is key.</p>
+                    </li>
+                    <li>
+                        <strong>Name consistently</strong>
+                        <p>Use your naming convention: [Theme]_[Type]_[Variant]_[Finish]</p>
+                    </li>
+                    <li>
+                        <strong>Document</strong>
+                        <p>Create a text file listing all materials, their intended uses, and any special notes.</p>
+                    </li>
+                    <li>
+                        <strong>Save as set</strong>
+                        <p>Save all materials to a dedicated library folder for that collection.</p>
+                    </li>
+                </ol>
+            </div>
+
+            <blockquote>
+                <p>
+                    <strong>Pro Tip - Start Small:</strong> Don't try to build a 50-material collection in one sitting. Start with 8-10 essential materials, use them in a project, identify gaps, then expand. Collections built through real use are always better than theoretical "complete" collections that include materials you'll never need.
+                </p>
+            </blockquote>
+        <section id="batch-operations">
+            <h2>Applying Materials to Multiple Objects</h2>
+
+            <p>
+                Imagine you have 20 stone pillars in your scene. Applying the same material one by one would be tedious. Let's learn efficient techniques for batch material operations that save massive amounts of time.
+            </p>
+
+            <h3>Method 1: Multi-Select and Apply</h3>
+
+            <p>
+                This is the most straightforward batch method and works great when you want to apply one material to multiple similar objects.
+            </p>
+
+            <div class="card">
+                <h4>Multi-Select Workflow:</h4>
+                <ol>
+                    <li>
+                        <strong>Select the first object</strong>
+                        <p>Click on the first object you want to material.</p>
+                    </li>
+                    <li>
+                        <strong>Add to selection</strong>
+                        <p>Hold Ctrl (Cmd on Mac) and click additional objects. They'll all highlight showing they're selected.</p>
+                    </li>
+                    <li>
+                        <strong>Open Material Room or Library</strong>
+                        <p>With all objects selected, open your material library.</p>
+                    </li>
+                    <li>
+                        <strong>Apply material</strong>
+                        <p>Double-click or drag the material. It applies to ALL selected objects simultaneously.</p>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>💡 Selection Shortcuts</h4>
+                <ul>
+                    <li><strong>Ctrl+Click (Cmd+Click):</strong> Add individual objects to selection</li>
+                    <li><strong>Shift+Click:</strong> Select range of objects in hierarchy</li>
+                    <li><strong>Ctrl+A (Cmd+A):</strong> Select all objects (use carefully!)</li>
+                    <li><strong>Alt+Click:</strong> Select entire hierarchy group (parent and all children)</li>
+                </ul>
+            </div>
+
+            <h3>Method 2: The "Match Material" Technique</h3>
+
+            <p>
+                This method copies materials from one object to others, perfect when you've customized a material on one object and want to replicate it exactly.
+            </p>
+
+            <div class="card">
+                <h4>Match Material Workflow:</h4>
+                <ol>
+                    <li>
+                        <strong>Create your perfect material</strong>
+                        <p>Get one object's material exactly how you want it.</p>
+                    </li>
+                    <li>
+                        <strong>Select that object</strong>
+                        <p>Click the object with the material you want to copy.</p>
+                    </li>
+                    <li>
+                        <strong>Enter Material Room</strong>
+                        <p>Press Ctrl+M (Cmd+M) to open the Material Room.</p>
+                    </li>
+                    <li>
+                        <strong>Copy the material</strong>
+                        <p>Right-click on the material zone → "Copy Material" (or use Copy button).</p>
+                    </li>
+                    <li>
+                        <strong>Select target objects</strong>
+                        <p>Select the objects you want to apply the material to (multi-select works here).</p>
+                    </li>
+                    <li>
+                        <strong>Paste the material</strong>
+                        <p>Right-click → "Paste Material" (or use Paste button). Done!</p>
+                    </li>
+                </ol>
+            </div>
+
+            <h3>Method 3: Group Materials</h3>
+
+            <p>
+                When objects are grouped, you can often apply materials to the entire group at once. This is especially useful for architectural elements or prop sets.
+            </p>
+
+            <div class="card">
+                <h4>Group Material Workflow:</h4>
+                <ol>
+                    <li>
+                        <strong>Create or identify groups</strong>
+                        <p>Group related objects using Object → Group Objects (Ctrl+G / Cmd+G).</p>
+                    </li>
+                    <li>
+                        <strong>Name your groups descriptively</strong>
+                        <p>Example: "StonePillars_Group", "WoodenFurniture_Group", etc.</p>
+                    </li>
+                    <li>
+                        <strong>Select the group</strong>
+                        <p>Click the group in the hierarchy.</p>
+                    </li>
+                    <li>
+                        <strong>Apply material to group</strong>
+                        <p>Load material from library—it applies to all objects in the group.</p>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h4>⚠️ Group Material Limitations</h4>
+                <p>
+                    Group materials work well when all objects in the group should have the same material. If objects need different materials (like a table that has wood legs and a glass top), you'll need to material them individually or create subgroups. Also, some complex props may not respond to group materials—in those cases, use multi-select instead.
+                </p>
+            </div>
+
+            <h3>Method 4: Python Scripts for Advanced Batch Operations</h3>
+
+            <p>
+                For power users, Python scripts can automate complex material operations. While script writing is beyond this lesson's scope, many useful scripts are available from the Poser community.
+            </p>
+
+            <div class="card">
+                <h4>Useful Material Scripts to Find:</h4>
+                <ul>
+                    <li><strong>Material Copier</strong> – Copies materials by name pattern (all objects with "stone" in name get stone material)</li>
+                    <li><strong>Material Randomizer</strong> – Applies random variations from a set to avoid uniformity</li>
+                    <li><strong>Texture Path Updater</strong> – Updates all texture paths at once if you move texture files</li>
+                    <li><strong>Material Report Generator</strong> – Creates a list of all materials in scene for documentation</li>
+                </ul>
+            </div>
+
+            <h3>Strategic Batching: Planning Your Approach</h3>
+
+            <p>
+                The key to efficient batching is grouping your work logically. Here's a strategic approach:
+            </p>
+
+            <div class="mermaid">
+                graph TD
+                A[Load Scene] --> B[Identify Material Families]
+                B --> C[Group 1: All Stone]
+                B --> D[Group 2: All Wood]
+                B --> E[Group 3: All Metal]
+                C --> F[Apply Stone Material to All]
+                D --> G[Apply Wood Material to All]
+                E --> H[Apply Metal Material to All]
+                F --> I[Adjust Individual Exceptions]
+                G --> I
+                H --> I
+                
+                style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                style B fill:#FF9800,stroke:#333,stroke-width:2px,color:#fff
+                style I fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+            </div>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Scenario</th>
+                        <th>Best Method</th>
+                        <th>Estimated Time Savings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10+ identical objects</td>
+                        <td>Multi-select and apply</td>
+                        <td>5-10 minutes → 30 seconds</td>
+                    </tr>
+                    <tr>
+                        <td>Copy custom material to similar objects</td>
+                        <td>Material copy/paste</td>
+                        <td>15 minutes → 2 minutes</td>
+                    </tr>
+                    <tr>
+                        <td>Entire room of furniture</td>
+                        <td>Groups + themed collection</td>
+                        <td>30 minutes → 5 minutes</td>
+                    </tr>
+                    <tr>
+                        <td>Scene with 100+ props</td>
+                        <td>Strategic batching + groups</td>
+                        <td>2 hours → 20 minutes</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <blockquote>
+                <p>
+                    <strong>The Professional Habit:</strong> Professional artists batch their material work. They don't apply materials as they build the scene—they build the entire scene first, then material everything in one focused session. This approach is faster and results in better material consistency because you can see the whole scene and make coordinated decisions.
+                </p>
+            </blockquote>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>✅ Batch Operations Checklist</h4>
+                <p>Before batching materials:</p>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li>☑ Organize scene hierarchy with clear naming</li>
+                    <li>☑ Group similar objects that need the same materials</li>
+                    <li>☑ Have your material collection loaded and ready</li>
+                    <li>☑ Do a preview render to ensure materials are loading correctly</li>
+                    <li>☑ Save your scene before applying materials (undo safety)</li>
+                </ul>
+            </div>
+        <section id="master-materials">
+            <h2>Master Materials and Variations</h2>
+
+            <p>
+                Here's where material work gets really powerful: creating one "master" material that spawns endless variations. Instead of building similar materials from scratch every time, you create one perfect base and derive variations from it.
+            </p>
+
+            <h3>What Is a Master Material?</h3>
+
+            <p>
+                A master material is a carefully crafted base material that captures the essential properties of a material type. It's designed to be easily modified into variations without rebuilding from scratch.
+            </p>
+
+            <blockquote>
+                <p>
+                    <strong>Think of it like this:</strong> A master material is like a recipe for chocolate chip cookies. Once you have the base recipe perfected, creating variations (add walnuts, use dark chocolate, make them smaller) is trivial—you're not inventing cookies from scratch each time. The same principle applies to materials.
+                </p>
+            </blockquote>
+
+            <h3>Creating a Master Material: Example - Wood</h3>
+
+            <p>
+                Let's walk through creating a master wood material that can spawn dozens of variations.
+            </p>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3 style="color: white;">🎯 Master Wood Material Recipe</h3>
+                <p style="color: white;"><strong>Base Properties (the unchanging foundation):</strong></p>
+                <ul style="color: white;">
+                    <li><strong>Diffuse_Map:</strong> Generic wood grain texture (neutral color)</li>
+                    <li><strong>Bump_Map:</strong> Same wood grain texture</li>
+                    <li><strong>Bump_Amount:</strong> 0.03</li>
+                    <li><strong>Roughness:</strong> 0.35</li>
+                </ul>
+                <p style="color: white;"><strong>Variable Properties (what you'll adjust for variations):</strong></p>
+                <ul style="color: white;">
+                    <li><strong>Diffuse_Color:</strong> Wood tone (light tan to dark brown)</li>
+                    <li><strong>Specular_Value:</strong> 0.2 to 0.5 (raw vs. polished)</li>
+                    <li><strong>Reflection_Value:</strong> 0.0 to 0.2 (matte vs. glossy finish)</li>
+                </ul>
+            </div>
+
+            <h3>Spawning Variations from the Master</h3>
+
+            <p>
+                Once you have a master, creating variations is quick:
+            </p>
+
+            <div class="card">
+                <h4>Wood Variation 1: Light Pine</h4>
+                <ul>
+                    <li>Start with master wood material</li>
+                    <li>Set Diffuse_Color: Light tan (200, 175, 130)</li>
+                    <li>Set Specular_Value: 0.2 (raw finish)</li>
+                    <li>Set Reflection: 0.0</li>
+                    <li>Save as "Wood_Pine_Light_Raw"</li>
+                </ul>
+                <p><strong>Time to create:</strong> 2 minutes</p>
+            </div>
+
+            <div class="card">
+                <h4>Wood Variation 2: Dark Mahogany Polished</h4>
+                <ul>
+                    <li>Start with master wood material</li>
+                    <li>Set Diffuse_Color: Rich dark brown (100, 50, 35)</li>
+                    <li>Set Specular_Value: 0.5 (polished finish)</li>
+                    <li>Set Reflection: 0.15</li>
+                    <li>Save as "Wood_Mahogany_Dark_Polished"</li>
+                </ul>
+                <p><strong>Time to create:</strong> 2 minutes</p>
+            </div>
+
+            <div class="card">
+                <h4>Wood Variation 3: Weathered Gray</h4>
+                <ul>
+                    <li>Start with master wood material</li>
+                    <li>Set Diffuse_Color: Gray-brown (130, 120, 105)</li>
+                    <li>Set Specular_Value: 0.1 (very matte)</li>
+                    <li>Increase Bump_Amount: 0.05 (rougher surface)</li>
+                    <li>Set Reflection: 0.0</li>
+                    <li>Save as "Wood_Weathered_Gray"</li>
+                </ul>
+                <p><strong>Time to create:</strong> 2 minutes</p>
+            </div>
+
+            <p>
+                In 6 minutes, you've created three distinct wood materials—and you can keep going. Need 10 more wood types? 20 more minutes. This is the power of master materials.
+            </p>
+
+            <h3>Master Material Templates for Different Types</h3>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Material Type</th>
+                        <th>Fixed Properties</th>
+                        <th>Variable Properties</th>
+                        <th>Variation Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Metal</strong></td>
+                        <td>High specularity (0.8-1.0)<br>Low roughness (0.1-0.2)<br>High reflection (0.7-0.9)</td>
+                        <td>Diffuse_Color<br>Specular_Color</td>
+                        <td>Gold, silver, copper, bronze, aluminum</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Glass</strong></td>
+                        <td>High transparency (0.9-0.95)<br>Refraction enabled (1.5-1.6)<br>High specularity (0.8-0.9)</td>
+                        <td>Diffuse_Color (tint)<br>Roughness (clear vs. frosted)<br>Bump (texture)</td>
+                        <td>Clear, frosted, colored, textured</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fabric</strong></td>
+                        <td>Low specularity (0.1-0.3)<br>High roughness (0.6-0.8)<br>Diffuse + Bump maps</td>
+                        <td>Diffuse_Color<br>Bump_Amount<br>Specular (fabric type)</td>
+                        <td>Cotton, silk, wool, linen, velvet</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stone</strong></td>
+                        <td>Low specularity (0.1-0.2)<br>Medium roughness (0.5-0.7)<br>Bump map texture</td>
+                        <td>Diffuse_Color<br>Bump_Amount<br>Specular (polished vs. rough)</td>
+                        <td>Marble, granite, sandstone, concrete</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>The Variation Matrix Approach</h3>
+
+            <p>
+                For maximum efficiency, plan your variations in a matrix. This ensures complete coverage without duplication.
+            </p>
+
+            <div class="card">
+                <h4>Example: Wood Material Matrix</h4>
+                <table class="modern-table" style="font-size: 0.9rem;">
+                    <thead>
+                        <tr>
+                            <th>Wood Type</th>
+                            <th>Light Color</th>
+                            <th>Medium Color</th>
+                            <th>Dark Color</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Raw/Unfinished</strong></td>
+                            <td>Pine_Light_Raw</td>
+                            <td>Oak_Medium_Raw</td>
+                            <td>Walnut_Dark_Raw</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Polished</strong></td>
+                            <td>Maple_Light_Polished</td>
+                            <td>Oak_Medium_Polished</td>
+                            <td>Mahogany_Dark_Polished</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Weathered</strong></td>
+                            <td>Pine_Light_Weathered</td>
+                            <td>Wood_Medium_Weathered</td>
+                            <td>Wood_Dark_Weathered</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    This 3×3 matrix gives you 9 wood materials covering every common need. Using a master material, you can create all 9 in about 20 minutes.
+                </p>
+            </div>
+
+            <h3>Documenting Your Master Materials</h3>
+
+            <p>
+                For master materials to be truly useful, document them. Create a simple text file for each master:
+            </p>
+
+            <div class="card">
+                <h4>Master Material Documentation Template</h4>
+                <pre style="background: #f5f5f5; padding: 1rem; border-radius: 4px; overflow-x: auto;">
+MASTER MATERIAL: Wood_Master_v1
+
+Created: [Date]
+Last Updated: [Date]
+
+FIXED PROPERTIES:
+- Diffuse_Map: wood_grain_neutral.jpg
+- Bump_Map: wood_grain_neutral.jpg
+- Bump_Amount: 0.03
+- Roughness: 0.35
+
+VARIABLE PROPERTIES:
+- Diffuse_Color: Adjust for wood tone
+- Specular_Value: 0.2 (raw) to 0.5 (polished)
+- Reflection_Value: 0.0 (matte) to 0.2 (glossy)
+
+VARIATIONS CREATED:
+1. Wood_Pine_Light_Raw
+2. Wood_Oak_Medium_Raw
+3. Wood_Mahogany_Dark_Polished
+4. Wood_Weathered_Gray
+[... add as you create more]
+
+NOTES:
+- Works best with neutral-colored wood grain textures
+- For exotic woods, consider swapping diffuse texture
+- Bump amount may need adjustment for very rough woods
+</pre>
+            </div>
+
+            <blockquote>
+                <p>
+                    <strong>The Master Material Mindset:</strong> Every time you create a material you're happy with, ask yourself: "Could this be a master material?" If you can identify the variable properties, save it as a master and document it. Over time, you'll build a library of master materials that make creating new materials almost trivial. This is how professionals work efficiently at scale.
+                </p>
+            </blockquote>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>💡 Master Material Best Practices</h4>
+                <ul>
+                    <li><strong>Start generic:</strong> Master materials should be neutral and adaptable, not highly specific</li>
+                    <li><strong>Test variations:</strong> Create 3-4 test variations to ensure your master is flexible enough</li>
+                    <li><strong>Version your masters:</strong> Name them "Wood_Master_v1" so you can improve and iterate</li>
+                    <li><strong>Keep them simple:</strong> Complex master materials are harder to vary. Simpler is better</li>
+                    <li><strong>Document everything:</strong> Your future self (or teammates) needs to know what's variable</li>
+                </ul>
+            </div>
+        <section id="library-management">
+            <h2>Advanced Library Organization</h2>
+
+            <p>
+                As your material library grows from dozens to hundreds of materials, organization becomes critical. A poorly organized library wastes time and creativity. Let's set up a system that scales beautifully as your library expands.
+            </p>
+
+            <h3>The Professional Library Structure</h3>
+
+            <p>
+                Here's a proven folder structure that works for libraries of any size:
+            </p>
+
+            <div class="mermaid">
+                graph TD
+                A[Materials Library] --> B[_Favorites]
+                A --> C[Collections]
+                A --> D[By_Material_Type]
+                A --> E[Masters]
+                A --> F[_Archive]
+                
+                C --> C1[Medieval]
+                C --> C2[Modern]
+                C --> C3[Sci-Fi]
+                C --> C4[Natural]
+                
+                D --> D1[Metals]
+                D --> D2[Woods]
+                D --> D3[Glass]
+                D --> D4[Fabrics]
+                D --> D5[Stone]
+                
+                style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                style B fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                style E fill:#FF9800,stroke:#333,stroke-width:2px,color:#fff
+            </div>
+
+            <h3>Folder Breakdown</h3>
+
+            <div class="card">
+                <h4>_Favorites (Top Level)</h4>
+                <p>
+                    Use an underscore prefix to keep this at the top of alphabetical lists. This folder contains your most-used materials—the ones you reach for constantly. Limit it to 20-30 materials maximum. If everything is a favorite, nothing is.
+                </p>
+                <p><strong>What goes here:</strong> Daily-driver materials, go-to metals/woods/glass, frequently used utility materials</p>
+            </div>
+
+            <div class="card">
+                <h4>Collections (By Theme/Project)</h4>
+                <p>
+                    Themed material sets that work together visually. Each collection is a subfolder containing 10-25 related materials.
+                </p>
+                <p><strong>Subfolder examples:</strong></p>
+                <ul>
+                    <li>Medieval</li>
+                    <li>Modern_Architecture</li>
+                    <li>Sci-Fi_Industrial</li>
+                    <li>Natural_Organic</li>
+                    <li>Fantasy_Magical</li>
+                    <li>Urban_Gritty</li>
+                    <li>Clean_Minimal</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4>By_Material_Type (By Physical Type)</h4>
+                <p>
+                    Organized by what the material actually is, regardless of theme. This is where you search when you need "a metal" or "a wood" without caring about the theme.
+                </p>
+                <p><strong>Subfolder structure:</strong></p>
+                <ul>
+                    <li><strong>Metals/</strong> → Chrome, Gold, Iron, Steel, Copper, etc.</li>
+                    <li><strong>Woods/</strong> → Oak, Pine, Mahogany, Bamboo, etc.</li>
+                    <li><strong>Glass/</strong> → Clear, Frosted, Colored, etc.</li>
+                    <li><strong>Fabrics/</strong> → Cotton, Silk, Leather, Wool, etc.</li>
+                    <li><strong>Stone/</strong> → Marble, Granite, Sandstone, Concrete, etc.</li>
+                    <li><strong>Plastics/</strong> → Matte, Glossy, Transparent, etc.</li>
+                    <li><strong>Organic/</strong> → Skin, Hair, Plants, etc.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4>Masters (Template Materials)</h4>
+                <p>
+                    Your master materials that spawn variations. These should be clearly documented and versioned.
+                </p>
+                <p><strong>Organization:</strong></p>
+                <ul>
+                    <li>Metal_Master_v2</li>
+                    <li>Wood_Master_v3</li>
+                    <li>Glass_Master_v1</li>
+                    <li>Fabric_Master_v2</li>
+                </ul>
+                <p>Include a README.txt in this folder explaining how to use masters.</p>
+            </div>
+
+            <div class="card">
+                <h4>_Archive (Old/Deprecated)</h4>
+                <p>
+                    Materials you're not using anymore but don't want to delete. Outdated versions, experimental failures that might be useful someday, or superseded materials.
+                </p>
+                <p><strong>Rule:</strong> If you haven't used it in 6 months and have a better version, archive it. Don't clutter active folders with dead materials.</p>
+            </div>
+
+            <h3>Naming Conventions at Scale</h3>
+
+            <p>
+                When you have hundreds of materials, consistent naming becomes essential for search functionality. Here's an expanded naming system:
+            </p>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Purpose</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Type Prefix</strong></td>
+                        <td>Material category for sorting</td>
+                        <td>Metal_, Wood_, Glass_, Fabric_</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Specific Material</strong></td>
+                        <td>Exact type within category</td>
+                        <td>Oak, Chrome, Cotton, Marble</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Color/Tone</strong></td>
+                        <td>Visual variant</td>
+                        <td>Light, Dark, Red, Gray, Natural</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Finish</strong></td>
+                        <td>Surface treatment</td>
+                        <td>Polished, Matte, Brushed, Worn</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Condition (optional)</strong></td>
+                        <td>Age/state</td>
+                        <td>Clean, Dirty, Aged, New, Rusty</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="card">
+                <h4>Example Names Using Full Convention:</h4>
+                <ul>
+                    <li><code>Metal_Chrome_Polished_Clean</code></li>
+                    <li><code>Wood_Oak_Dark_Polished_Aged</code></li>
+                    <li><code>Glass_Clear_Frosted</code></li>
+                    <li><code>Fabric_Cotton_White_Matte_Clean</code></li>
+                    <li><code>Stone_Marble_White_Polished</code></li>
+                    <li><code>Metal_Iron_Gray_Rusty_Aged</code></li>
+                </ul>
+            </div>
+
+            <h3>Search and Filter Strategies</h3>
+
+            <p>
+                Poser's library has search functionality. Take advantage of it with smart naming:
+            </p>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>💡 Search-Friendly Naming Tips</h4>
+                <ul>
+                    <li><strong>Include searchable keywords:</strong> If it's shiny, include "polished" or "glossy" in the name</li>
+                    <li><strong>Use consistent terms:</strong> Always "Polished" not sometimes "Shiny" or "Glossy"</li>
+                    <li><strong>Add use-case tags:</strong> "Wood_Floor_Oak" vs "Wood_Furniture_Oak" helps filtering</li>
+                    <li><strong>Include color words:</strong> Even if obvious, "Metal_Gold" is more searchable than "Metal_Au"</li>
+                    <li><strong>Avoid abbreviations:</strong> "Metal_Aluminum" not "Metal_Al"—searching is harder with abbreviations</li>
+                </ul>
+            </div>
+
+            <h3>Tagging and Metadata</h3>
+
+            <p>
+                If Poser supports material metadata (notes, descriptions, tags), use it! This creates searchable context beyond the filename.
+            </p>
+
+            <div class="card">
+                <h4>Useful Metadata to Include:</h4>
+                <ul>
+                    <li><strong>Description:</strong> "Polished chrome for modern furniture and fixtures. High reflectivity."</li>
+                    <li><strong>Use cases:</strong> "Best for: appliances, bathroom fixtures, modern props"</li>
+                    <li><strong>Render requirements:</strong> "Requires: Ray tracing enabled, 3+ bounces"</li>
+                    <li><strong>Collection membership:</strong> "Part of: Modern_Architecture collection"</li>
+                    <li><strong>Creation date:</strong> Helps identify newer vs. older versions</li>
+                </ul>
+            </div>
+
+            <h3>Library Maintenance Schedule</h3>
+
+            <p>
+                Libraries need regular maintenance to stay useful. Set a schedule:
+            </p>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Frequency</th>
+                        <th>Task</th>
+                        <th>Time Required</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>After Each Project</strong></td>
+                        <td>Save any new materials created<br>Update Favorites if needed</td>
+                        <td>5 minutes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Weekly</strong></td>
+                        <td>Review recently added materials<br>Ensure consistent naming<br>Add missing metadata</td>
+                        <td>10-15 minutes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Monthly</strong></td>
+                        <td>Check for duplicates<br>Archive unused materials<br>Update master materials<br>Backup library</td>
+                        <td>30 minutes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Quarterly</strong></td>
+                        <td>Major reorganization if needed<br>Delete archived materials not used<br>Create new collections<br>Full backup</td>
+                        <td>1-2 hours</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <blockquote>
+                <p>
+                    <strong>The Library Paradox:</strong> The better organized your library, the less time you spend organizing it. A well-structured library stays organized naturally because materials have obvious homes. A poorly organized library requires constant maintenance because nothing has a clear place. Invest the time upfront to create a great structure, and maintenance becomes minimal.
+                </p>
+            </blockquote>
+        <section id="sharing-materials">
+            <h2>Copying and Sharing Materials</h2>
+
+            <p>
+                Whether you're working across multiple computers, collaborating with others, or just want to reuse materials from old projects, knowing how to copy and share materials is essential. Let's explore all the methods available.
+            </p>
+
+            <h3>Method 1: Material Collection Files</h3>
+
+            <p>
+                Poser allows you to save material collections as portable files that can be loaded on any computer with Poser installed.
+            </p>
+
+            <div class="card">
+                <h4>Creating a Material Collection File:</h4>
+                <ol>
+                    <li>
+                        <strong>Organize materials in a folder</strong>
+                        <p>Create a dedicated library folder with all materials you want to share.</p>
+                    </li>
+                    <li>
+                        <strong>Test the collection</strong>
+                        <p>Verify all materials work and have correct texture paths.</p>
+                    </li>
+                    <li>
+                        <strong>Export or copy the folder</strong>
+                        <p>Navigate to your Poser library folder and copy the entire material collection folder.</p>
+                    </li>
+                    <li>
+                        <strong>Include texture files</strong>
+                        <p>If materials use external textures, include those files or ensure they're embedded.</p>
+                    </li>
+                    <li>
+                        <strong>Add documentation</strong>
+                        <p>Include a README file explaining what's in the collection and how to install it.</p>
+                    </li>
+                </ol>
+            </div>
+
+            <h3>Method 2: Scene File Material Transfer</h3>
+
+            <p>
+                You can extract materials from saved scene files. This is useful for reusing materials from old projects.
+            </p>
+
+            <div class="card">
+                <h4>Extracting Materials from Scenes:</h4>
+                <ol>
+                    <li>Open the old scene file</li>
+                    <li>Select an object with the material you want</li>
+                    <li>Enter Material Room (Ctrl+M / Cmd+M)</li>
+                    <li>Save the material to your library</li>
+                    <li>Repeat for all materials you want to extract</li>
+                </ol>
+                <p><strong>Tip:</strong> Load the old scene alongside your new one using File → Merge. This lets you copy materials without closing your work.</p>
+            </div>
+
+            <h3>Method 3: Export/Import Material Sets</h3>
+
+            <p>
+                For sharing with team members or moving between computers, use Poser's export functionality if available.
+            </p>
+
+            <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h4>⚠️ Texture Path Issues</h4>
+                <p>
+                    The biggest problem with sharing materials is texture paths. If your material uses "C:\Users\YourName\Documents\Textures\wood.jpg" and you share it with someone else, their computer won't have that path and the texture will be missing.
+                </p>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li><strong>Use relative paths:</strong> Store textures in your Runtime folder structure</li>
+                    <li><strong>Include all textures:</strong> Share texture files along with materials</li>
+                    <li><strong>Document paths:</strong> Include a list of required textures and where to get them</li>
+                    <li><strong>Use embedded textures:</strong> Some materials can embed texture data (increases file size)</li>
+                </ul>
+            </div>
+
+            <h3>Best Practices for Portable Materials</h3>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Challenge</th>
+                        <th>Solution</th>
+                        <th>Implementation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Absolute texture paths</strong></td>
+                        <td>Use relative Runtime paths</td>
+                        <td>Store textures in Runtime/textures/ folders</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Missing textures</strong></td>
+                        <td>Include texture pack</td>
+                        <td>Zip materials + textures together</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Naming conflicts</strong></td>
+                        <td>Use unique prefixes</td>
+                        <td>Prefix materials with project/artist name</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Version differences</strong></td>
+                        <td>Document Poser version</td>
+                        <td>Include "Created in Poser 12" in README</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Unclear usage</strong></td>
+                        <td>Provide documentation</td>
+                        <td>Include screenshots and descriptions</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Creating a Shareable Material Package</h3>
+
+            <p>
+                If you're creating materials to share publicly or with a team, follow this professional packaging approach:
+            </p>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3 style="color: white;">📦 Professional Material Package Structure</h3>
+                <pre style="color: white; background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 4px;">
+MaterialCollection_Name/
+├── README.txt (Installation instructions, credits, usage notes)
+├── Materials/
+│   ├── Metal_Chrome_Polished.mc6
+│   ├── Wood_Oak_Dark.mc6
+│   ├── Glass_Clear.mc6
+│   └── ... (all material files)
+├── Textures/
+│   ├── wood_oak_diffuse.jpg
+│   ├── wood_oak_bump.jpg
+│   ├── metal_scratches.jpg
+│   └── ... (all required textures)
+├── Previews/
+│   ├── preview_metals.jpg
+│   ├── preview_woods.jpg
+│   └── ... (rendered examples)
+└── LICENSE.txt (Usage terms, if sharing publicly)
+                </pre>
+            </div>
+
+            <h3>Working Across Multiple Computers</h3>
+
+            <p>
+                If you work on multiple computers (desktop and laptop, home and office), here's how to keep materials synchronized:
+            </p>
+
+            <div class="card">
+                <h4>Synchronization Strategies:</h4>
+                <ol>
+                    <li>
+                        <strong>Cloud Storage Method</strong>
+                        <p>Store your entire material library in Dropbox/Google Drive/OneDrive. Point both computers to the cloud location. Materials stay synced automatically.</p>
+                        <p><strong>Pros:</strong> Always in sync, automatic backup</p>
+                        <p><strong>Cons:</strong> Requires internet, can be slow with large libraries</p>
+                    </li>
+                    <li>
+                        <strong>External Drive Method</strong>
+                        <p>Keep materials on a portable external drive. Plug it into whichever computer you're using.</p>
+                        <p><strong>Pros:</strong> Fast access, no internet needed</p>
+                        <p><strong>Cons:</strong> Must remember to bring drive, no backup</p>
+                    </li>
+                    <li>
+                        <strong>Manual Sync Method</strong>
+                        <p>Periodically export new materials and manually copy them to other computers.</p>
+                        <p><strong>Pros:</strong> Full control, simple</p>
+                        <p><strong>Cons:</strong> Easy to forget, materials can get out of sync</p>
+                    </li>
+                </ol>
+            </div>
+
+            <blockquote>
+                <p>
+                    <strong>Pro Workflow Tip:</strong> Many professional artists use a hybrid approach: keep frequently-used materials locally for speed, and sync new/experimental materials through cloud storage. This gives you fast access to your daily drivers while ensuring new work is backed up and available everywhere.
+                </p>
+            </blockquote>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>✅ Material Sharing Checklist</h4>
+                <p>Before sharing materials, verify:</p>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li>☑ All texture files are included or documented</li>
+                    <li>☑ Texture paths are relative (not absolute)</li>
+                    <li>☑ Material names are clear and descriptive</li>
+                    <li>☑ README file explains installation and usage</li>
+                    <li>☑ Preview images show what materials look like</li>
+                    <li>☑ No proprietary textures (if sharing publicly)</li>
+                    <li>☑ Tested on a clean Poser installation</li>
+                    <li>☑ Version compatibility is documented</li>
+                </ul>
+            </div>
+        <section id="performance-optimization">
+            <h2>Material Performance Optimization</h2>
+
+            <p>
+                Beautiful materials don't mean much if renders take forever. Let's learn how to optimize materials for faster render times without sacrificing visual quality—the balance every professional artist must master.
+            </p>
+
+            <h3>Understanding Material Render Cost</h3>
+
+            <p>
+                Not all material properties are equal in terms of render time. Some are cheap, some are expensive. Knowing which is which lets you make informed decisions.
+            </p>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Render Cost</th>
+                        <th>Impact on Time</th>
+                        <th>Optimization Strategy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Diffuse Color</strong></td>
+                        <td>Very Low</td>
+                        <td>Minimal</td>
+                        <td>No optimization needed</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Specularity</strong></td>
+                        <td>Low</td>
+                        <td>Minimal</td>
+                        <td>No optimization needed</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bump Mapping</strong></td>
+                        <td>Low-Medium</td>
+                        <td>+5-10%</td>
+                        <td>Use lower resolution bump maps</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reflection</strong></td>
+                        <td>High</td>
+                        <td>+30-100%</td>
+                        <td>Reduce reflection bounces, limit to key objects</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Transparency</strong></td>
+                        <td>High</td>
+                        <td>+40-150%</td>
+                        <td>Limit transparent objects, reduce refraction quality</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Refraction</strong></td>
+                        <td>Very High</td>
+                        <td>+50-200%</td>
+                        <td>Use only when necessary, reduce bounces</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Displacement</strong></td>
+                        <td>Very High</td>
+                        <td>+100-300%</td>
+                        <td>Use bump instead, or limit to hero objects</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SSS (Subsurface)</strong></td>
+                        <td>Very High</td>
+                        <td>+200-500%</td>
+                        <td>Use only on skin/organic, reduce sample count</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>The LOD Approach: Level of Detail for Materials</h3>
+
+            <p>
+                Game developers use Level of Detail (LOD) for 3D models—simpler versions for distant objects. Apply the same concept to materials.
+            </p>
+
+            <div class="mermaid">
+                graph TD
+                A[Object Distance] --> B{Close to Camera?}
+                B -->|Yes: Hero Objects| C[Full Quality Material<br/>All features enabled]
+                B -->|No: Background| D[Optimized Material<br/>Reduced features]
+                C --> E[Reflection: High<br/>Bump: Full<br/>Displacement: Yes]
+                D --> F[Reflection: None/Low<br/>Bump: Reduced<br/>Displacement: No]
+                
+                style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                style C fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                style D fill:#FF9800,stroke:#333,stroke-width:2px,color:#fff
+            </div>
+
+            <div class="card">
+                <h4>LOD Material Strategy:</h4>
+                <ul>
+                    <li>
+                        <strong>Hero LOD (closest objects):</strong>
+                        <ul>
+                            <li>Full material quality</li>
+                            <li>All reflections, transparencies enabled</li>
+                            <li>Highest resolution textures</li>
+                            <li>Displacement if needed</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Standard LOD (mid-ground):</strong>
+                        <ul>
+                            <li>Reflections reduced or disabled</li>
+                            <li>Bump instead of displacement</li>
+                            <li>Medium resolution textures</li>
+                            <li>Simplified material networks</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Background LOD (distant objects):</strong>
+                        <ul>
+                            <li>Diffuse color only (no reflections)</li>
+                            <li>Minimal or no bump</li>
+                            <li>Lower resolution textures</li>
+                            <li>As simple as possible</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <h3>Specific Optimization Techniques</h3>
+
+            <h4>Optimizing Reflections</h4>
+
+            <div class="card">
+                <p><strong>Problem:</strong> Reflections require ray tracing additional rays into the scene, multiplying render time.</p>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Reduce reflection value from 0.8 to 0.5 on non-critical objects (often imperceptible)</li>
+                    <li>Limit ray trace bounces to 2-3 instead of 6-8</li>
+                    <li>Use reflection maps (pre-rendered environment images) instead of ray traced reflections</li>
+                    <li>Apply reflections only to objects that truly need them (metals, glass, wet surfaces)</li>
+                </ul>
+                <p><strong>Savings:</strong> Can reduce render time by 30-50% in reflection-heavy scenes</p>
+            </div>
+
+            <h4>Optimizing Transparency and Refraction</h4>
+
+            <div class="card">
+                <p><strong>Problem:</strong> Transparent objects require tracing rays through multiple surfaces.</p>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Reduce transparency slightly (0.93 instead of 0.95) on background glass</li>
+                    <li>Disable refraction on distant glass objects—use transparency alone</li>
+                    <li>Simplify transparent object geometry (fewer faces = faster)</li>
+                    <li>Avoid stacking multiple transparent objects (window behind window behind window)</li>
+                </ul>
+                <p><strong>Savings:</strong> Can reduce render time by 40-60% in glass-heavy scenes</p>
+            </div>
+
+            <h4>Optimizing Textures</h4>
+
+            <div class="card">
+                <p><strong>Problem:</strong> Large texture files consume memory and slow texture lookups.</p>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Use appropriate resolution: 2K textures for close-ups, 1K for mid-ground, 512px for background</li>
+                    <li>Compress textures without visible quality loss (JPEG quality 90 instead of 100)</li>
+                    <li>Remove unnecessary alpha channels from textures that don't need transparency</li>
+                    <li>Use texture atlases (combine multiple textures into one image) where possible</li>
+                </ul>
+                <p><strong>Savings:</strong> Reduces memory usage and can speed renders by 10-20%</p>
+            </div>
+
+            <h3>The "Preview vs. Final" Material Strategy</h3>
+
+            <p>
+                Professional workflows use different material settings for previews and final renders. This lets you work fast and render slow.
+            </p>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3 style="color: white;">🎬 Two-Tier Material System</h3>
+                <p style="color: white;"><strong>Preview Materials (for working):</strong></p>
+                <ul style="color: white;">
+                    <li>Reflections: Disabled or minimal (0.2 max)</li>
+                    <li>Bump: Reduced amount (0.01 instead of 0.03)</li>
+                    <li>Displacement: Disabled entirely</li>
+                    <li>Transparency: Reduced quality</li>
+                    <li>SSS: Disabled</li>
+                </ul>
+                <p style="color: white;"><strong>Final Materials (for rendering):</strong></p>
+                <ul style="color: white;">
+                    <li>All features enabled</li>
+                    <li>Full quality settings</li>
+                    <li>Maximum detail</li>
+                </ul>
+            </div>
+
+            <p>
+                Create two versions of complex materials—one for preview, one for final. Work with preview materials, then batch-apply final materials before the final render.
+            </p>
+
+            <h3>Render Setting Optimizations</h3>
+
+            <p>
+                Sometimes the problem isn't the materials—it's the render settings. These affect how materials render:
+            </p>
+
+            <div class="card">
+                <h4>Critical Render Settings for Materials:</h4>
+                <ul>
+                    <li><strong>Ray trace bounces:</strong> Set to 3-4 instead of 8-10 (each bounce multiplies render time)</li>
+                    <li><strong>Pixel samples:</strong> Use 3-4 for previews, 6-8 for finals (higher = slower but cleaner)</li>
+                    <li><strong>Shadow quality:</strong> Use shadow maps for preview, ray traced shadows for final</li>
+                    <li><strong>Ambient occlusion:</strong> Disable during preview, enable for final</li>
+                    <li><strong>Motion blur/DOF:</strong> Disable unless absolutely necessary</li>
+                </ul>
+            </div>
+
+            <blockquote>
+                <p>
+                    <strong>The Professional Balance:</strong> Professionals don't aim for the fastest possible render—they aim for the best quality in reasonable time. A render that takes 5 minutes instead of 5 hours is acceptable. A render that takes 5 seconds but looks terrible isn't. The goal is finding that sweet spot where quality meets deadline. Material optimization is about removing invisible waste, not degrading quality.
+                </p>
+            </blockquote>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>✅ Optimization Decision Tree</h4>
+                <p>When render times are too long:</p>
+                <ol>
+                    <li><strong>Identify the slowest renders</strong> – Which scenes take longest? Focus there first</li>
+                    <li><strong>Profile materials</strong> – Disable materials one at a time to find the slow ones</li>
+                    <li><strong>Check render settings</strong> – Often settings, not materials, are the culprit</li>
+                    <li><strong>Apply LOD strategy</strong> – Full quality only where visible/important</li>
+                    <li><strong>Optimize textures</strong> – Reduce resolution on non-hero objects</li>
+                    <li><strong>Simplify where invisible</strong> – Remove features that don't show in final render</li>
+                    <li><strong>Test incrementally</strong> – Change one thing, test render, measure improvement</li>
+                </ol>
+            </div>
+        <section id="workflow-shortcuts">
+            <h2>Professional Workflow Shortcuts</h2>
+
+            <p>
+                Let's collect all the time-saving tricks, keyboard shortcuts, and workflow optimizations that professionals use daily. These small efficiencies compound into massive time savings over a career.
+            </p>
+
+            <h3>Essential Keyboard Shortcuts</h3>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>Windows</th>
+                        <th>Mac</th>
+                        <th>When to Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Material Room</strong></td>
+                        <td>Ctrl + M</td>
+                        <td>Cmd + M</td>
+                        <td>Quick access to materials</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Library Palette</strong></td>
+                        <td>Ctrl + Shift + F</td>
+                        <td>Cmd + Shift + F</td>
+                        <td>Load materials quickly</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Copy Material</strong></td>
+                        <td>Ctrl + C (in Mat Room)</td>
+                        <td>Cmd + C</td>
+                        <td>Copy to other objects</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Paste Material</strong></td>
+                        <td>Ctrl + V (in Mat Room)</td>
+                        <td>Cmd + V</td>
+                        <td>Apply copied material</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Select All</strong></td>
+                        <td>Ctrl + A</td>
+                        <td>Cmd + A</td>
+                        <td>Apply material to all</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Preview Render</strong></td>
+                        <td>Ctrl + Y</td>
+                        <td>Cmd + Y</td>
+                        <td>Quick material test</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>The "Material Testing Scene" Template</h3>
+
+            <p>
+                Professional artists maintain template scenes specifically for testing materials. This saves time and ensures consistent evaluation.
+            </p>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3 style="color: white;">🎨 Material Test Scene Setup</h3>
+                <ol style="color: white;">
+                    <li>
+                        <strong>Test objects</strong>
+                        <p style="color: white;">Several primitives: sphere (for most materials), cube (for directional textures), cylinder (for metals), plane (for flat materials)</p>
+                    </li>
+                    <li>
+                        <strong>Standard lighting</strong>
+                        <p style="color: white;">Three-point lighting setup that's consistent across all tests</p>
+                    </li>
+                    <li>
+                        <strong>Neutral environment</strong>
+                        <p style="color: white;">Mid-gray background to avoid color contamination</p>
+                    </li>
+                    <li>
+                        <strong>Reference materials</strong>
+                        <p style="color: white;">Keep one known-good material in scene for comparison</p>
+                    </li>
+                    <li>
+                        <strong>Multiple cameras</strong>
+                        <p style="color: white;">Close-up, mid-range, and context views saved</p>
+                    </li>
+                </ol>
+            </div>
+
+            <p>
+                Save this as "Material_Test_Template.pz3" and load it whenever you need to test new materials. Consistent testing conditions mean you can accurately judge material quality.
+            </p>
+
+            <h3>The "Material Swapping" Workflow</h3>
+
+            <p>
+                Want to try different material looks without losing your work? Use this technique:
+            </p>
+
+            <div class="card">
+                <h4>Non-Destructive Material Experimentation:</h4>
+                <ol>
+                    <li>
+                        <strong>Material Scene 1: Complete</strong>
+                        <p>Material your entire scene with your first choice (e.g., bright/clean materials)</p>
+                    </li>
+                    <li>
+                        <strong>Save with descriptive name</strong>
+                        <p>Example: "Castle_Scene_Bright.pz3"</p>
+                    </li>
+                    <li>
+                        <strong>Save As with new name</strong>
+                        <p>Example: "Castle_Scene_Dark.pz3"</p>
+                    </li>
+                    <li>
+                        <strong>Apply new material set</strong>
+                        <p>Load your dark/moody material collection</p>
+                    </li>
+                    <li>
+                        <strong>Batch apply to all objects</strong>
+                        <p>Use multi-select and groups to reapply quickly</p>
+                    </li>
+                    <li>
+                        <strong>Compare renders</strong>
+                        <p>Now you have two versions to compare without losing either</p>
+                    </li>
+                </ol>
+            </div>
+
+            <h3>The "Material Recipe Card" System</h3>
+
+            <p>
+                Document your material creation process so you can recreate or modify materials later without remembering every setting.
+            </p>
+
+            <div class="card">
+                <h4>Material Recipe Template:</h4>
+                <pre style="background: #f5f5f5; padding: 1rem; border-radius: 4px; overflow-x: auto;">
+MATERIAL: Wood_Oak_Dark_Polished_v2
+Created: 2025-03-15
+Scene: Castle Interior Project
+
+BASE SETTINGS:
+- Diffuse_Color: RGB(120, 75, 40)
+- Diffuse_Map: oak_grain_2k.jpg
+- Specular_Value: 0.45
+- Specular_Color: RGB(250, 245, 235)
+- Roughness: 0.35
+- Bump_Map: oak_grain_2k.jpg
+- Bump_Amount: 0.03
+- Reflection_Value: 0.15
+
+NOTES:
+- Works best on furniture and architectural elements
+- For darker version, reduce Diffuse_Color values by 20%
+- For more polished look, increase Specular to 0.5
+- Texture must be at least 1024px for close-ups
+
+RENDER REQUIREMENTS:
+- Ray tracing: Optional (reflection is subtle)
+- Works in both Firefly and SuperFly
+
+VARIATIONS CREATED:
+- Wood_Oak_Light_Polished (lighter diffuse)
+- Wood_Oak_Dark_Matte (no reflection, spec 0.2)
+</pre>
+            </div>
+
+            <h3>Quick Material Adjustments Without Material Room</h3>
+
+            <p>
+                Sometimes you need to tweak materials quickly without opening the Material Room. Here are shortcuts:
+            </p>
+
+            <div class="card">
+                <h4>In-Viewport Adjustments:</h4>
+                <ul>
+                    <li>
+                        <strong>Properties Panel:</strong> Select object → Properties panel often shows basic material controls (diffuse color, specularity)
+                    </li>
+                    <li>
+                        <strong>Parameter Dials:</strong> Some material properties available in parameter dials (depends on object)
+                    </li>
+                    <li>
+                        <strong>Alt+Click texture preview:</strong> In some interfaces, clicking texture thumbnails opens file browser for quick texture swaps
+                    </li>
+                </ul>
+            </div>
+
+            <h3>Batch Operations with Text Editors (Advanced)</h3>
+
+            <p>
+                Poser material files (.mc6) are text-based. For power users, you can edit them in a text editor for bulk changes.
+            </p>
+
+            <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h4>⚠️ Advanced Technique - Use Carefully</h4>
+                <p>Example use case: You have 50 wood materials all using "wood_grain_old.jpg" and need to update them to "wood_grain_new.jpg":</p>
+                <ol>
+                    <li>Close Poser</li>
+                    <li>Open all .mc6 files in a text editor that supports find/replace across files</li>
+                    <li>Find: "wood_grain_old.jpg"</li>
+                    <li>Replace: "wood_grain_new.jpg"</li>
+                    <li>Save all files</li>
+                    <li>Reopen Poser—all materials now use new texture</li>
+                </ol>
+                <p><strong>Warning:</strong> Always backup files before bulk text editing. One typo can break multiple materials.</p>
+            </div>
+
+            <h3>The "Material Audit" Process</h3>
+
+            <p>
+                Before final render, professionals do a material audit to catch issues:
+            </p>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>✅ Pre-Render Material Audit Checklist</h4>
+                <ol>
+                    <li>☑ <strong>Visual pass</strong> – Preview render and look for obviously wrong materials</li>
+                    <li>☑ <strong>Texture check</strong> – No missing texture warnings in log</li>
+                    <li>☑ <strong>Consistency check</strong> – Similar objects have consistent materials</li>
+                    <li>☑ <strong>LOD verification</strong> – Background objects use optimized materials</li>
+                    <li>☑ <strong>Reflection test</strong> – Reflective materials have something to reflect</li>
+                    <li>☑ <strong>Glass check</strong> – Transparent objects are visible (not invisible)</li>
+                    <li>☑ <strong>Scale verification</strong> – Texture scaling looks correct (not too small/large)</li>
+                    <li>☑ <strong>Render settings</strong> – Ray tracing and quality settings appropriate</li>
+                </ol>
+            </div>
+
+            <blockquote>
+                <p>
+                    <strong>The 5-Minute Rule:</strong> If a material tweak or workflow step takes longer than 5 minutes to do manually, find or create an automated solution. Python scripts, batch operations, or documented processes can turn 5-minute tasks into 5-second tasks. The professional mindset is always "how can I never have to do this manually again?"
+                </p>
+            </blockquote>
+        <section id="project">
+            <h2>Project: Build a Themed Material Collection</h2>
+
+            <p>
+                Time to put everything together! You'll create a complete themed material collection from scratch, organized professionally and ready for real project use. Choose one theme and commit to it—you'll build a production-ready collection you'll actually use in future work.
+            </p>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3>🎯 Project Goal</h3>
+                <p style="color: white;">
+                    Create a themed material collection with 10-15 materials, properly organized in your library with consistent naming, complete documentation, and tested in a sample scene. This collection should be ready to drop into any matching project and just work.
+                </p>
+            </div>
+
+            <h3>Step 1: Choose Your Theme (5 minutes)</h3>
+
+            <p>
+                Pick ONE theme from the options below. Don't try to do multiple themes—focus creates better results.
+            </p>
+
+            <div class="card">
+                <h4>Theme Options:</h4>
+                <ul>
+                    <li>
+                        <strong>Medieval Castle</strong>
+                        <p>Stone (castle wall, floor, carved), wood (aged oak, rough beam, door planks), metal (iron rusty, steel aged, bronze tarnished), fabric (wool, linen), glass (old window), leather</p>
+                    </li>
+                    <li>
+                        <strong>Modern Office</strong>
+                        <p>Glass (clear window, frosted partition), metal (brushed aluminum, chrome), wood (polished hardwood floor, walnut furniture), plastic (white matte, black glossy), concrete (smooth gray), fabric (upholstery)</p>
+                    </li>
+                    <li>
+                        <strong>Sci-Fi Spaceship</strong>
+                        <p>Metal panels (brushed, riveted, worn), glass (viewport thick, tinted), glowing elements (screen blue, strip light cyan, panel green), rubber (black industrial), chrome (reflective), concrete (industrial station)</p>
+                    </li>
+                    <li>
+                        <strong>Natural Environment</strong>
+                        <p>Stone (granite, sandstone, river rock), wood (bark, driftwood, log), water (clear, murky), earth (dirt, mud), foliage (leaf, grass), organic (moss, lichen)</p>
+                    </li>
+                </ul>
+            </div>
+
+            <h3>Step 2: Research and Plan (10 minutes)</h3>
+
+            <div class="card">
+                <h4>Planning Tasks:</h4>
+                <ol>
+                    <li>
+                        <strong>Gather reference images</strong>
+                        <p>Find 5-10 photos of your theme showing materials clearly. Save them in a reference folder.</p>
+                    </li>
+                    <li>
+                        <strong>Define your color palette</strong>
+                        <p>What are the dominant colors? Write down 3-5 RGB values that define your theme's look.</p>
+                    </li>
+                    <li>
+                        <strong>List required materials</strong>
+                        <p>What materials absolutely must be in this collection? Aim for 10-15 specific materials.</p>
+                    </li>
+                    <li>
+                        <strong>Plan variations</strong>
+                        <p>For each material type, do you need light/dark or clean/dirty variants?</p>
+                    </li>
+                </ol>
+            </div>
+
+            <h3>Step 3: Create Your Materials (40-60 minutes)</h3>
+
+            <p>
+                Now build your materials one by one. Use the techniques from previous lessons and this lesson's master material concepts.
+            </p>
+
+            <div class="card">
+                <h4>Material Creation Workflow:</h4>
+                <p><strong>For each material in your list:</strong></p>
+                <ol>
+                    <li>Load a test object (sphere, cube, or plane)</li>
+                    <li>Open Material Room (Ctrl+M / Cmd+M)</li>
+                    <li>Set up base properties following appropriate recipe:
+                        <ul>
+                            <li>Metal? Use metal recipe from Lesson 17</li>
+                            <li>Wood? Use wood recipe from Lesson 17</li>
+                            <li>Glass? Use glass recipe from Lesson 17</li>
+                        </ul>
+                    </li>
+                    <li>Customize to fit your theme (colors, finish, wear level)</li>
+                    <li>Do a test render to verify it looks right</li>
+                    <li>Save to library with proper naming: [Theme]_[Type]_[Variant]_[Finish]</li>
+                    <li>Move to next material</li>
+                </ol>
+            </div>
+
+            <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h4>⚠️ Time Management Tip</h4>
+                <p>
+                    If you're taking too long per material, you're over-thinking it. Set a 5-minute timer for each material. Get it "good enough," save it, move on. You can always refine later. The goal is a complete collection, not perfection.
+                </p>
+            </div>
+
+            <h3>Step 4: Organize and Document (15 minutes)</h3>
+
+            <div class="card">
+                <h4>Organization Tasks:</h4>
+                <ol>
+                    <li>
+                        <strong>Create collection folder</strong>
+                        <p>In your library, create a folder: "Collections/[Your Theme Name]"</p>
+                    </li>
+                    <li>
+                        <strong>Verify naming consistency</strong>
+                        <p>All materials should follow the same naming pattern. Fix any inconsistencies.</p>
+                    </li>
+                    <li>
+                        <strong>Create collection README</strong>
+                        <p>Write a text file documenting:</p>
+                        <ul>
+                            <li>What's in the collection</li>
+                            <li>Intended use cases</li>
+                            <li>Any special render requirements</li>
+                            <li>Color palette notes</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Add thumbnails if possible</strong>
+                        <p>Create visual previews of each material for easy identification.</p>
+                    </li>
+                </ol>
+            </div>
+
+            <h3>Step 5: Test in Context (20 minutes)</h3>
+
+            <p>
+                Materials need to prove themselves in an actual scene, not just on test spheres.
+            </p>
+
+            <div class="card">
+                <h4>Context Testing:</h4>
+                <ol>
+                    <li>
+                        <strong>Create or load appropriate scene</strong>
+                        <p>Load props that fit your theme (castle props for medieval, office props for modern, etc.)</p>
+                    </li>
+                    <li>
+                        <strong>Apply your collection systematically</strong>
+                        <p>Use batch operations to material all similar objects quickly</p>
+                    </li>
+                    <li>
+                        <strong>Set up basic lighting</strong>
+                        <p>Add lights appropriate to your theme</p>
+                    </li>
+                    <li>
+                        <strong>Render multiple views</strong>
+                        <p>Create 2-3 renders showing different areas/angles</p>
+                    </li>
+                    <li>
+                        <strong>Evaluate critically</strong>
+                        <p>Do materials work together? Any obvious gaps? Anything look wrong?</p>
+                    </li>
+                </ol>
+            </div>
+            <h3>Step 6: Refine and Finalize (15 minutes)</h3>
+
+            <div class="card">
+                <h4>Refinement Tasks:</h4>
+                <ol>
+                    <li>
+                        <strong>Fix identified issues</strong>
+                        <p>Based on your test renders, adjust materials that don't work quite right</p>
+                    </li>
+                    <li>
+                        <strong>Add any missing materials</strong>
+                        <p>Did testing reveal gaps? Create 1-2 additional materials if needed</p>
+                    </li>
+                    <li>
+                        <strong>Balance the collection</strong>
+                        <p>Ensure no material is too bright/dark/saturated compared to the rest</p>
+                    </li>
+                    <li>
+                        <strong>Update documentation</strong>
+                        <p>Add notes about what you learned during testing</p>
+                    </li>
+                    <li>
+                        <strong>Create showcase renders</strong>
+                        <p>Render 1-2 beauty shots showing your collection at its best</p>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>✅ Project Completion Checklist</h4>
+                <p>Your project is complete when you can check off:</p>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li>☑ Created 10-15 themed materials</li>
+                    <li>☑ All materials follow consistent naming convention</li>
+                    <li>☑ Materials organized in dedicated collection folder</li>
+                    <li>☑ README documentation created</li>
+                    <li>☑ Tested all materials in themed scene</li>
+                    <li>☑ Materials work together visually</li>
+                    <li>☑ Color palette is consistent across collection</li>
+                    <li>☑ At least 2-3 test renders created</li>
+                    <li>☑ Any issues identified and fixed</li>
+                    <li>☑ Collection is ready for use in real projects</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4>🏆 Bonus Challenges</h4>
+                <p>If you want to extend this project further:</p>
+                <ol>
+                    <li>
+                        <strong>Create master materials</strong>
+                        <p>Identify 2-3 materials that could be masters and document them properly with variation guidelines.</p>
+                    </li>
+                    <li>
+                        <strong>Build a second themed collection</strong>
+                        <p>Choose a different theme and create another 10-15 materials. Now you have two complete collections!</p>
+                    </li>
+                    <li>
+                        <strong>Create collection variations</strong>
+                        <p>Make "Clean" and "Dirty" versions of your entire collection, or "Bright" and "Dark" versions.</p>
+                    </li>
+                    <li>
+                        <strong>Export as shareable package</strong>
+                        <p>Package your collection with textures and documentation so you could share it with others.</p>
+                    </li>
+                    <li>
+                        <strong>Create a material catalog</strong>
+                        <p>Render all materials on identical spheres with identical lighting, creating a visual reference sheet.</p>
+                    </li>
+                    <li>
+                        <strong>Optimize for performance</strong>
+                        <p>Create "Preview" and "Final" versions of expensive materials in your collection.</p>
+                    </li>
+                </ol>
+            </div>
+
+            <blockquote>
+                <p>
+                    <strong>What You've Built:</strong> This isn't just a project—it's professional infrastructure. You now have a production-ready material collection you'll use again and again. More importantly, you've established a repeatable process. Building your next collection will take half the time because you know the workflow. This is how professionals work: build reusable assets once, benefit forever.
+                </p>
+            </blockquote>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3 style="color: white;">📊 Expected Results</h3>
+                <p style="color: white;"><strong>What you should have at the end:</strong></p>
+                <ul style="color: white;">
+                    <li>A themed collection of 10-15 materials</li>
+                    <li>All materials properly named and organized</li>
+                    <li>Documentation explaining the collection</li>
+                    <li>2-3 test renders showing materials in context</li>
+                    <li>A reusable process for creating future collections</li>
+                </ul>
+                <p style="color: white;"><strong>Time investment:</strong></p>
+                <ul style="color: white;">
+                    <li>First collection: 90-120 minutes</li>
+                    <li>Second collection: 60-90 minutes (faster!)</li>
+                    <li>Third collection: 45-60 minutes (even faster!)</li>
+                </ul>
+                <p style="color: white;"><strong>Time savings per project using collection:</strong></p>
+                <ul style="color: white;">
+                    <li>Simple scene: 10-15 minutes saved</li>
+                    <li>Complex scene: 30-60 minutes saved</li>
+                    <li>Multiple scenes: Hours saved</li>
+                </ul>
+            </div>
+
+            <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h4>💡 Pro Insight: The Collection Mindset</h4>
+                <p>
+                    Professional 3D artists think in collections, not individual materials. When they start a new project, they ask "What collection do I need?" not "What materials do I need?" This mindset shift—from individual assets to curated sets—is what separates hobbyists from professionals. You've just made that shift. Every themed project you do from now on should result in a collection you can reuse.
+                </p>
+            </div>
+        <section id="summary">
+            <h2>Wrapping Up: You're Now a Material Workflow Expert!</h2>
+
+            <p>
+                Congratulations! You've completed Module 4 and mastered not just material creation, but material workflow efficiency. You've learned to work like a professional, building reusable systems that compound value over time. This is a massive milestone.
+            </p>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3>🎓 Key Takeaways</h3>
+                <ul style="color: white;">
+                    <li>
+                        <strong>Systems beat repetition</strong> — Building material collections, master materials, and organized libraries means you never recreate the same work twice. Professionals invest time in systems that save time forever.
+                    </li>
+                    <li>
+                        <strong>Three-tier thinking</strong> — Organize materials in tiers: base materials for universal use, themed collections for projects, and scene-specific materials for unique needs. This structure scales beautifully.
+                    </li>
+                    <li>
+                        <strong>Batch operations transform productivity</strong> — Applying materials to multiple objects simultaneously, using groups, and strategic batching can reduce hours of work to minutes. Always think "can I batch this?"
+                    </li>
+                    <li>
+                        <strong>Master materials multiply efficiency</strong> — One well-designed master material can spawn dozens of variations in minutes. Document what's fixed and what's variable to enable easy variation creation.
+                    </li>
+                    <li>
+                        <strong>Organization enables speed</strong> — A well-structured library with consistent naming and logical categories lets you find anything in seconds. Time invested in organization pays infinite dividends.
+                    </li>
+                    <li>
+                        <strong>Collections ensure consistency</strong> — Themed material collections guarantee visual cohesion. Materials designed to work together create professional-looking scenes effortlessly.
+                    </li>
+                    <li>
+                        <strong>Performance optimization is essential</strong> — Understanding render costs and using LOD strategies means beautiful results without endless render times. Optimize strategically, not everywhere.
+                    </li>
+                    <li>
+                        <strong>Documentation preserves knowledge</strong> — Documenting materials, workflows, and collections means future you (or teammates) can understand and modify your work without archaeology.
+                    </li>
+                    <li>
+                        <strong>Portability requires planning</strong> — Materials that use relative paths, include texture files, and have proper documentation can be shared and reused across projects and computers.
+                    </li>
+                    <li>
+                        <strong>Workflow shortcuts compound</strong> — Every small efficiency (keyboard shortcuts, templates, batch operations) saves seconds per use, which becomes hours saved per year, which becomes weeks saved over a career.
+                    </li>
+                </ul>
+            </div>
+
+            <h3>What You Can Now Do</h3>
+
+            <p>
+                With the skills from this lesson and module, you can:
+            </p>
+
+            <ul>
+                <li>Create complete, themed material collections for any project type in under 2 hours</li>
+                <li>Apply materials to complex scenes with 50+ objects in 10-15 minutes instead of hours</li>
+                <li>Build and maintain an organized material library that scales to thousands of materials</li>
+                <li>Create master materials that spawn unlimited variations effortlessly</li>
+                <li>Share material collections with others or across your own computers seamlessly</li>
+                <li>Optimize materials for render performance without sacrificing visible quality</li>
+                <li>Use professional workflow techniques that multiply your productivity</li>
+                <li>Think systematically about asset creation and reuse</li>
+                <li>Work at professional speeds while maintaining professional quality</li>
+                <li>Build infrastructure that makes future work progressively easier</li>
+            </ul>
+
+            <h3>Your Complete Material Journey</h3>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Module 4 Lesson</th>
+                        <th>Core Skill</th>
+                        <th>Your Mastery Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Lesson 14</strong></td>
+                        <td>Material Room basics and shader understanding</td>
+                        <td>✅ Complete</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lesson 15</strong></td>
+                        <td>Texture mapping and UV coordinates</td>
+                        <td>✅ Complete</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lesson 16</strong></td>
+                        <td>Skin materials and subsurface scattering</td>
+                        <td>✅ Complete</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lesson 17</strong></td>
+                        <td>Creating custom materials (metal, wood, glass)</td>
+                        <td>✅ Complete</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lesson 18</strong></td>
+                        <td>Material workflows and efficiency systems</td>
+                        <td>✅ Complete</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>
+                <strong>Module 4: Materials and Textures — COMPLETE!</strong> You've mastered every aspect of materials from creation to organization to application. You're now equipped to material any scene professionally.
+            </p>
+
+            <blockquote>
+                <p>
+                    <strong>From One Artist to Another:</strong> The difference between where you started Module 4 and where you are now is transformative. You began knowing materials exist. You're finishing with professional material workflows that most hobbyists never develop. The systems you built in this lesson—collections, masters, organization—will serve you for your entire 3D career. Every project from now on builds on this foundation. That's the power of working systematically.
+                </p>
+            </blockquote>
+
+            <h3>What's Next: Module 5 - Lighting Fundamentals</h3>
+
+            <p>
+                You've conquered materials, and now it's time to learn what makes materials shine (literally): lighting. Even the best materials look flat without good lighting, and mediocre materials can look amazing with excellent lighting.
+            </p>
+
+            <p>
+                In Module 5, you'll learn:
+            </p>
+
+            <ul>
+                <li><strong>Light types and properties</strong> — Understanding every light type Poser offers and when to use each one</li>
+                <li><strong>Three-point lighting fundamentals</strong> — The classic setup that makes everything look professional</li>
+                <li><strong>Natural and outdoor lighting</strong> — Simulating sunlight, skylight, and environmental lighting</li>
+                <li><strong>Indoor and dramatic lighting</strong> — Creating mood and atmosphere through strategic light placement</li>
+                <li><strong>Lighting for materials</strong> — How to light different material types to showcase their properties</li>
+            </ul>
+
+            <p>
+                Lighting is where your scenes truly come alive. It's the difference between "okay" and "wow." With your material skills complete, adding professional lighting knowledge will elevate your work to the next level.
+            </p>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>💡 Between Now and the Next Module</h4>
+                <p>
+                    Here's how to reinforce what you've learned:
+                </p>
+                <ol>
+                    <li><strong>Use your collection</strong> — Apply your themed collection to at least one real scene</li>
+                    <li><strong>Build a second collection</strong> — Create a different themed collection to practice the workflow</li>
+                    <li><strong>Audit your library</strong> — Spend 30 minutes organizing any existing materials you had before this module</li>
+                    <li><strong>Create master materials</strong> — Document 2-3 of your best materials as masters for future variations</li>
+                    <li><strong>Practice batch operations</strong> — Load a complex scene and material it using only batch techniques</li>
+                    <li><strong>Share your work</strong> — If comfortable, share your material collection with the Poser community</li>
+                </ol>
+            </div>
+
+            <h3>The Bigger Picture: Your Skill Development</h3>
+
+            <p>
+                Look how far you've come since Lesson 1. You can now:
+            </p>
+
+            <ul>
+                <li>Navigate Poser confidently ✅</li>
+                <li>Pose figures naturally ✅</li>
+                <li>Build complete scenes with multiple elements ✅</li>
+                <li>Create and apply professional materials ✅</li>
+                <li>Work efficiently with organized workflows ✅</li>
+            </ul>
+
+            <p>
+                You're not a beginner anymore. You're an intermediate Poser artist with professional workflow habits. The remaining modules will build on this solid foundation, adding lighting, rendering, and advanced techniques that make you a complete 3D character artist.
+            </p>
+
+            <div class="card" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); color: white; text-align: center; padding: 2rem;">
+                <h3 style="color: white; margin-top: 0;">🎉 Module 4 Complete!</h3>
+                <p style="color: white; font-size: 1.1rem; margin-bottom: 0;">
+                    You've mastered materials AND material workflows! You now have professional systems that will serve you for years. Your material library will grow with every project, becoming one of your most valuable assets. This is the infrastructure that separates professionals from hobbyists. Take a moment to appreciate what you've built—then let's light it beautifully in Module 5!
+                </p>
+            </div>
+        </section>
+
+        <nav class="lesson-nav" aria-label="Lesson Navigation">
+            <a href="lesson_17_simple_materials.html" class="prev-lesson">← Previous: Creating Simple Materials</a>
+            <a href="index.html" class="home-link">🏠 Course Home</a>
+            <a href="lesson_19_light_types.html" class="next-lesson">Next: Understanding Light Types →</a>
+        </nav>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Poser 12 Mastery Course. All rights reserved.</p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

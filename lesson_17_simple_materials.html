@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn to create custom materials for props and objects in Poser 12. Master metal, wood, glass, and more with practical techniques.">
+    <meta name="author" content="Poser 12 Course">
+    <title>Creating and Editing Simple Materials - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>🎨 Poser 12 Mastery Course</h1>
+        <nav aria-label="Main Navigation">
+            <a href="index.html">Home</a>
+            <a href="module_04.html">Module 4</a>
+            <a href="resources.html">Resources</a>
+        </nav>
+    </header>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> &gt;
+        <a href="module_04.html">Module 4: Materials and Textures</a> &gt;
+        <span>Lesson 17: Creating Simple Materials</span>
+    </nav>
+
+    <main>
+        <article>
+            <h1>Creating and Editing Simple Materials</h1>
+            
+            <p class="lead">
+                Now that you've mastered the complexity of skin materials, let's explore the rest of the material world. In this lesson, you'll learn to create custom materials for everything else in your scenes—from shiny metals and polished wood to transparent glass and rough stone. These are the materials that turn empty props into believable objects that complete your virtual world.
+            </p>
+
+            <blockquote>
+                <p>
+                    <strong>Think of it this way:</strong> If skin materials are like painting a portrait, creating materials for props and environments is like set design for a movie. Every object in your scene tells part of the story, and the materials you choose determine whether your audience believes in the world you're creating. A rusty metal pipe, a polished mahogany desk, or a frosted glass window—each material choice adds layers of authenticity to your work.
+                </p>
+            </blockquote>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3>📚 What You'll Learn</h3>
+                <ul style="color: white;">
+                    <li>Understanding the Simple Material Room vs. Advanced Material Room</li>
+                    <li>The essential material properties every object needs</li>
+                    <li>Creating realistic metal materials with proper reflections</li>
+                    <li>Crafting wood materials with natural grain and variations</li>
+                    <li>Building transparent materials like glass and water</li>
+                    <li>Using bump and displacement maps for surface detail</li>
+                    <li>Saving custom materials to your library for reuse</li>
+                    <li>Troubleshooting common material issues</li>
+                </ul>
+                
+                <p style="color: white; margin-bottom: 0;">
+                    <strong>⏱️ Estimated time:</strong> 45-60 minutes<br>
+                    <strong>🎯 Project:</strong> Create a material collection featuring metal, wood, and glass materials applied to props in a styled scene
+                </p>
+            </div>
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">🔖 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#simple-vs-advanced" class="toc-link">Simple vs. Advanced Material Room</a></li>
+                        <li><a href="#material-properties" class="toc-link">Essential Material Properties Explained</a></li>
+                        <li><a href="#metal-materials" class="toc-link">Creating Realistic Metal Materials</a></li>
+                        <li><a href="#wood-materials" class="toc-link">Crafting Natural Wood Materials</a></li>
+                        <li><a href="#glass-transparency" class="toc-link">Glass and Transparent Materials</a></li>
+                        <li><a href="#bump-displacement" class="toc-link">Surface Detail with Bump and Displacement</a></li>
+                        <li><a href="#saving-materials" class="toc-link">Saving Materials to Your Library</a></li>
+                        <li><a href="#troubleshooting" class="toc-link">Common Material Problems and Solutions</a></li>
+                        <li><a href="#project" class="toc-link">Project: Create a Material Collection</a></li>
+                        <li><a href="#summary" class="toc-link">Summary and Next Steps</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <h2>Why Material Creation Matters</h2>
+
+            <p>
+                You might be thinking, "Why not just use materials that come with props?" That's a valid question! Here's why learning to create and edit materials yourself is essential:
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Most default materials are mediocre</strong> – Props often ship with basic materials that are "good enough" but not great. Learning to enhance them makes your work stand out.
+                </li>
+                <li>
+                    <strong>Artistic control</strong> – You can match materials to your artistic vision. Want that metal to be aged copper instead of shiny chrome? You can do that.
+                </li>
+                <li>
+                    <strong>Scene cohesion</strong> – Creating materials yourself ensures everything in your scene works together visually. A consistent material style unifies disparate props.
+                </li>
+                <li>
+                    <strong>Problem-solving</strong> – Sometimes materials break, look wrong, or don't work with your lighting. Understanding materials means you can fix these issues.
+                </li>
+                <li>
+                    <strong>Originality</strong> – When you create custom materials, your work becomes unique. Anyone can use default materials; custom materials make your art yours.
+                </li>
+            </ul>
+
+            <blockquote>
+                <p>
+                    <strong>Real-World Insight:</strong> In professional 3D work for games, film, or visualization, material artists are specialists who focus solely on creating and optimizing materials. It's considered such an important skill that entire careers are built around it. While you don't need to be a specialist, understanding material creation fundamentally changes the quality of your work.
+                </p>
+            </blockquote>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>💡 The 80/20 Rule of Materials</h4>
+                <p>
+                    Here's a secret that will save you countless hours: 80% of good materials come from getting just 20% of the properties right. You don't need to become a shader expert to create materials that look professional. Focus on mastering these five core properties—diffuse color, specularity, bump, reflection, and transparency—and you'll be able to create convincing materials for almost anything. The rest is just refinement.
+                </p>
+            </div>
+        <section id="simple-vs-advanced">
+            <h2>Simple vs. Advanced Material Room</h2>
+
+            <p>
+                Poser's Material Room has two interfaces, and knowing which one to use can save you from unnecessary complexity. Let's understand the difference so you can choose the right tool for the job.
+            </p>
+
+            <div class="mermaid">
+                graph TD
+                A[Material Room] --> B[Simple Material Room]
+                A --> C[Advanced Material Room]
+                B --> D[Sliders and Color Pickers]
+                B --> E[Quick Adjustments]
+                B --> F[Perfect for Beginners]
+                C --> G[Node-Based Editor]
+                C --> H[Complex Connections]
+                C --> I[Professional Control]
+                
+                style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                style B fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                style C fill:#FF9800,stroke:#333,stroke-width:2px,color:#fff
+            </div>
+
+            <h3>The Simple Material Room</h3>
+
+            <p>
+                The Simple Material Room presents materials as a set of sliders, color pickers, and dropdown menus. It's intuitive and straightforward—change a value, see the result. Think of it as the "dashboard view" of materials.
+            </p>
+
+            <div class="card">
+                <h4>When to Use Simple Material Room:</h4>
+                <ul>
+                    <li>You're creating basic materials (metal, wood, plastic, fabric)</li>
+                    <li>You want to quickly adjust existing materials</li>
+                    <li>You're learning material properties and want immediate feedback</li>
+                    <li>You need to change colors, shine, or bump without complexity</li>
+                    <li>You're working under time pressure and need "good enough" fast</li>
+                </ul>
+            </div>
+
+            <h3>The Advanced Material Room</h3>
+
+            <p>
+                The Advanced Material Room shows you the "under the hood" view—a node-based system where you connect different inputs to create complex materials. It's more powerful but also more intimidating at first. Think of it as the "engineer's view" where you can see exactly how everything connects.
+            </p>
+
+            <div class="card">
+                <h4>When to Use Advanced Material Room:</h4>
+                <ul>
+                    <li>You need to create complex, layered materials</li>
+                    <li>You want to understand what a material is actually doing</li>
+                    <li>You need to troubleshoot why a material isn't working</li>
+                    <li>You're creating procedural materials (generated patterns)</li>
+                    <li>You need precise control over how textures are combined</li>
+                </ul>
+            </div>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Simple Material Room</th>
+                        <th>Advanced Material Room</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Interface</strong></td>
+                        <td>Sliders and buttons</td>
+                        <td>Node graph</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Learning Curve</strong></td>
+                        <td>Gentle, intuitive</td>
+                        <td>Steep, technical</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Speed</strong></td>
+                        <td>Fast for simple changes</td>
+                        <td>Slower but more powerful</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Complexity</strong></td>
+                        <td>Limited to basic properties</td>
+                        <td>Unlimited complexity</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Best For</strong></td>
+                        <td>80% of everyday materials</td>
+                        <td>Complex materials and troubleshooting</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Visibility</strong></td>
+                        <td>Hides technical details</td>
+                        <td>Shows everything</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <blockquote>
+                <p>
+                    <strong>Pro Tip:</strong> You can switch between Simple and Advanced views anytime by clicking the "Simple" or "Advanced" tabs in the Material Room. The same material is underneath—these are just two different ways to view and edit it. When you're learning, start in Simple mode. Once you get comfortable, explore the Advanced view to understand what's really happening.
+                </p>
+            </blockquote>
+
+            <h3>For This Lesson: We're Using Simple</h3>
+
+            <p>
+                Throughout this lesson, we'll work primarily in the Simple Material Room. Why? Because you can create excellent materials without touching the node editor, and the Simple view helps you understand what each property does without getting lost in technical complexity. Once you master materials in Simple mode, the Advanced view will make much more sense.
+            </p>
+
+            <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h4>⚠️ Important Note</h4>
+                <p>
+                    If you open a material in Simple mode and see "Some material properties cannot be displayed in Simple mode," it means the material uses advanced node connections. You can still edit basic properties in Simple mode, but to see everything, you'll need the Advanced view. This is normal and not a problem—just a sign you're working with a more complex material.
+                </p>
+            </div>
+        <section id="material-properties">
+            <h2>Essential Material Properties Explained</h2>
+
+            <p>
+                Before we start creating specific materials, let's demystify the core properties you'll work with. Understanding what each property does is like learning the notes on a piano—once you know them, you can play any song (or create any material).
+            </p>
+
+            <h3>Diffuse Color: The Base Color</h3>
+
+            <p>
+                <strong>Diffuse color</strong> is the "true color" of your object—what color it appears to be under normal, even lighting. It's the most fundamental property of any material.
+            </p>
+
+            <div class="card">
+                <h4>Think of it like this:</h4>
+                <ul>
+                    <li>A red apple: diffuse color is red</li>
+                    <li>A blue car: diffuse color is blue</li>
+                    <li>A yellow banana: diffuse color is yellow</li>
+                    <li>A white wall: diffuse color is white (or off-white)</li>
+                </ul>
+            </div>
+
+            <p>
+                <strong>How to use it:</strong> Click the color swatch next to "Diffuse_Color" and pick your base color. For most objects, this is 70% of your material right here. Get this color right first, then refine everything else.
+            </p>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>💡 Color Choice Tip</h4>
+                <p>
+                    Real-world objects are rarely "pure" colors. Instead of pure red (255, 0, 0), use a slightly desaturated, slightly darker red (like 200, 45, 40). Instead of pure white (255, 255, 255), use off-white (240, 238, 235). This single trick instantly makes materials look more natural and less computer-generated.
+                </p>
+            </div>
+
+            <h3>Specularity: The Shine Factor</h3>
+
+            <p>
+                <strong>Specularity</strong> (often called "specular" or "spec") controls how shiny and reflective your object appears. It determines how bright spots appear where light hits the surface directly. High specularity = shiny. Low specularity = matte.
+            </p>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Material Type</th>
+                        <th>Specularity Value</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Highly Reflective</strong></td>
+                        <td>0.8 - 1.0</td>
+                        <td>Chrome, mirrors, polished metal, wet surfaces</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Moderately Shiny</strong></td>
+                        <td>0.4 - 0.7</td>
+                        <td>Plastic, painted surfaces, polished wood, skin</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Subtle Shine</strong></td>
+                        <td>0.2 - 0.4</td>
+                        <td>Satin fabric, leather, unpolished wood</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Matte/Flat</strong></td>
+                        <td>0.0 - 0.2</td>
+                        <td>Concrete, rough stone, matte paint, cardboard</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <blockquote>
+                <p>
+                    <strong>The Specularity Color Trick:</strong> Specularity doesn't have to be white! The "Specular_Color" property lets you tint the highlights. Metals typically have colored specularity (gold has yellow-orange highlights, copper has reddish highlights). Most other materials work fine with white or near-white specularity, but this is a powerful tool for realism with metals.
+                </p>
+            </blockquote>
+
+            <h3>Roughness: Controlling Highlight Size</h3>
+
+            <p>
+                <strong>Roughness</strong> (sometimes called "specular width" or "glossiness") controls how large or tight the specular highlights appear. It works together with specularity to define your surface quality.
+            </p>
+
+            <div class="mermaid">
+                graph LR
+                A[Low Roughness<br/>0.1 - 0.3] --> B[Tight, Sharp Highlights<br/>Polished, Smooth]
+                C[Medium Roughness<br/>0.4 - 0.6] --> D[Medium Highlights<br/>Semi-Gloss]
+                E[High Roughness<br/>0.7 - 1.0] --> F[Broad, Diffuse Highlights<br/>Matte, Rough]
+                
+                style A fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                style C fill:#FF9800,stroke:#333,stroke-width:2px,color:#fff
+                style E fill:#f44336,stroke:#333,stroke-width:2px,color:#fff
+            </div>
+
+            <p>
+                <strong>Common combinations:</strong>
+            </p>
+
+            <ul>
+                <li><strong>High specularity + Low roughness</strong> = Mirror-like polish (chrome, glass)</li>
+                <li><strong>High specularity + High roughness</strong> = Broad, soft shine (satin, brushed metal)</li>
+                <li><strong>Low specularity + Low roughness</strong> = Subtle, tight highlights (aged leather)</li>
+                <li><strong>Low specularity + High roughness</strong> = Very matte, no highlights (raw concrete)</li>
+            </ul>
+            <h3>Bump and Displacement: Adding Surface Detail</h3>
+
+            <p>
+                These two properties add surface texture without actually modeling it. They're incredibly powerful for adding realism with minimal effort.
+            </p>
+
+            <h4>Bump Maps: Fake Detail</h4>
+
+            <p>
+                <strong>Bump mapping</strong> creates the illusion of surface detail by manipulating how light interacts with the surface. It doesn't actually change the geometry—it's a lighting trick. Black areas appear recessed, white areas appear raised, and gray is neutral.
+            </p>
+
+            <div class="card">
+                <h4>Perfect for:</h4>
+                <ul>
+                    <li>Wood grain texture</li>
+                    <li>Fabric weave patterns</li>
+                    <li>Leather texture</li>
+                    <li>Orange peel or rough surfaces</li>
+                    <li>Minor imperfections and wear</li>
+                </ul>
+            </div>
+
+            <p>
+                <strong>How to use it:</strong> Load a grayscale image into the "Bump_Map" slot, then adjust the "Bump_Map_Amount" (typically 0.01 to 0.05 for subtle detail, up to 0.1 for pronounced texture). More is not better—too much bump looks fake!
+            </p>
+
+            <h4>Displacement Maps: Real Detail</h4>
+
+            <p>
+                <strong>Displacement mapping</strong> actually changes the surface geometry at render time. Unlike bump maps, displacement creates real depth that affects the silhouette of your object. It's slower to render but more accurate.
+            </p>
+
+            <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h4>⚠️ Displacement Caution</h4>
+                <p>
+                    Displacement can dramatically increase render times and requires the object to have sufficient geometry (subdivisions) to work properly. Start with bump mapping, and only use displacement when you absolutely need real geometric detail—like deep cracks, tiles, or relief sculptures where the silhouette matters.
+                </p>
+            </div>
+
+            <h3>Reflection: Mirror, Mirror</h3>
+
+            <p>
+                <strong>Reflection</strong> makes objects mirror their surroundings. The "Reflection_Value" slider (0.0 to 1.0) controls how much the environment is reflected in the surface.
+            </p>
+
+            <div class="card">
+                <h4>Reflection Guidelines:</h4>
+                <ul>
+                    <li><strong>0.0</strong> – No reflections at all (most matte surfaces)</li>
+                    <li><strong>0.1 - 0.3</strong> – Subtle environmental reflections (polished wood, glossy paint)</li>
+                    <li><strong>0.4 - 0.7</strong> – Noticeable reflections (polished metal, wet surfaces)</li>
+                    <li><strong>0.8 - 1.0</strong> – Strong mirror-like reflections (chrome, mirrors, glass)</li>
+                </ul>
+            </div>
+
+            <blockquote>
+                <p>
+                    <strong>Performance Note:</strong> Reflections require ray tracing and significantly increase render time. Use them strategically where they matter most (like a character's shiny eyeglasses) rather than applying them to every surface "just in case."
+                </p>
+            </blockquote>
+
+            <h3>Transparency: Seeing Through</h3>
+
+            <p>
+                <strong>Transparency</strong> controls how see-through your material is. A value of 0.0 is completely opaque (solid), while 1.0 is completely transparent (invisible).
+            </p>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Transparency Value</th>
+                        <th>Effect</th>
+                        <th>Common Uses</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>0.0</strong></td>
+                        <td>Completely solid</td>
+                        <td>Most objects (default)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>0.1 - 0.3</strong></td>
+                        <td>Slightly translucent</td>
+                        <td>Thin fabric, wax, jade, fingernails</td>
+                    </tr>
+                    <tr>
+                        <td><strong>0.4 - 0.7</strong></td>
+                        <td>Semi-transparent</td>
+                        <td>Frosted glass, thin plastic, lampshades</td>
+                    </tr>
+                    <tr>
+                        <td><strong>0.8 - 0.95</strong></td>
+                        <td>Highly transparent</td>
+                        <td>Clear glass, water, eyeglasses</td>
+                    </tr>
+                    <tr>
+                        <td><strong>0.96 - 1.0</strong></td>
+                        <td>Nearly invisible</td>
+                        <td>Special effects, energy fields (rarely used)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>💡 Glass Combo Tip</h4>
+                <p>
+                    For convincing glass: Set transparency to 0.90-0.95, specularity to 0.8-1.0, reflection to 0.5-0.8, and enable refraction if your render settings support it. This combination creates that signature glass look with reflections, transparency, and light bending.
+                </p>
+            </div>
+
+            <h3>Refraction: Bending Light</h3>
+
+            <p>
+                <strong>Refraction</strong> bends light as it passes through transparent objects. It's what makes a straw look bent when you put it in a glass of water. The "Refraction_Value" (typically called Index of Refraction or IOR) determines how much light bends.
+            </p>
+
+            <div class="card">
+                <h4>Common IOR Values:</h4>
+                <ul>
+                    <li><strong>1.0</strong> – No refraction (air, vacuum)</li>
+                    <li><strong>1.33</strong> – Water</li>
+                    <li><strong>1.5 - 1.6</strong> – Glass, plastic</li>
+                    <li><strong>1.77</strong> – Ruby, sapphire</li>
+                    <li><strong>2.4</strong> – Diamond</li>
+                </ul>
+            </div>
+
+            <p>
+                For most transparent objects like glass windows or bottles, an IOR of 1.5 works perfectly fine. Only adjust this if you're rendering gems or need scientifically accurate refraction.
+            </p>
+        <section id="metal-materials">
+            <h2>Creating Realistic Metal Materials</h2>
+
+            <p>
+                Metal is one of the most requested materials beginners want to master. The good news? Once you understand the principles, creating convincing metal is actually straightforward. Metal is all about reflection, specularity, and most importantly—colored highlights.
+            </p>
+
+            <blockquote>
+                <p>
+                    <strong>The Metal Secret:</strong> What makes metal look like metal isn't just shine—it's the colored specularity. Metals reflect their environment, but they also tint both their reflections and highlights with their base color. Gold has warm yellow-orange highlights, copper has reddish-brown highlights, and silver has cool, slightly blue-tinted highlights. This single detail makes the difference between "shiny plastic" and "real metal."
+                </p>
+            </blockquote>
+
+            <h3>The Core Metal Recipe</h3>
+
+            <p>
+                All metal materials follow this basic formula. Adjust the colors to create different metal types:
+            </p>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3 style="color: white;">🔧 Basic Metal Material Setup</h3>
+                <ol style="color: white;">
+                    <li><strong>Diffuse Color:</strong> Set to the metal's base color (darker than you think!)</li>
+                    <li><strong>Specularity:</strong> 0.8 - 1.0 (metals are highly specular)</li>
+                    <li><strong>Specular Color:</strong> Tinted version of the diffuse color (key to metal realism!)</li>
+                    <li><strong>Roughness:</strong> 0.1 - 0.3 for polished, 0.5 - 0.7 for brushed</li>
+                    <li><strong>Reflection:</strong> 0.6 - 0.9 (metals reflect their environment)</li>
+                    <li><strong>Bump (optional):</strong> 0.01 - 0.03 for subtle surface imperfections</li>
+                </ol>
+            </div>
+
+            <h3>Creating Chrome/Polished Steel</h3>
+
+            <p>
+                Let's start with the classic mirror-like metal. Chrome is great for learning because it's so reflective that mistakes are obvious—if you can make good chrome, you can make any metal.
+            </p>
+
+            <div class="card">
+                <h4>Chrome Material Settings:</h4>
+                <ul>
+                    <li><strong>Diffuse_Color:</strong> Very dark gray (50, 50, 50) – Not pure black!</li>
+                    <li><strong>Specular_Value:</strong> 1.0</li>
+                    <li><strong>Specular_Color:</strong> Bright white (245, 245, 245)</li>
+                    <li><strong>Roughness:</strong> 0.1 (tight, sharp highlights)</li>
+                    <li><strong>Reflection_Value:</strong> 0.85 - 0.95</li>
+                    <li><strong>Reflection_Color:</strong> Slight cool tint (240, 245, 250)</li>
+                </ul>
+            </div>
+
+            <blockquote>
+                <p>
+                    <strong>Why Dark Diffuse?</strong> You might think chrome should have a light diffuse color since it looks bright. But remember: chrome's brightness comes from reflections and specularity, not from the base color. The diffuse color is what you'd see in deep shadow where there's nothing to reflect—and that's dark!
+                </p>
+            </blockquote>
+
+            <h3>Creating Gold</h3>
+
+            <p>
+                Gold is where colored specularity really shines (pun intended). The warm, rich color in gold's reflections and highlights is what makes it unmistakably golden.
+            </p>
+
+            <div class="card">
+                <h4>Gold Material Settings:</h4>
+                <ul>
+                    <li><strong>Diffuse_Color:</strong> Dark golden yellow (140, 100, 30)</li>
+                    <li><strong>Specular_Value:</strong> 0.9</li>
+                    <li><strong>Specular_Color:</strong> Bright warm gold (255, 215, 100)</li>
+                    <li><strong>Roughness:</strong> 0.15 (slightly broader than chrome)</li>
+                    <li><strong>Reflection_Value:</strong> 0.7 - 0.8</li>
+                    <li><strong>Reflection_Color:</strong> Warm tint (255, 240, 200)</li>
+                </ul>
+            </div>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>💡 Age Your Gold</h4>
+                <p>
+                    New gold is bright and warm. Aged or antique gold is darker and more orange-brown. For aged gold, darken the diffuse color to (100, 70, 25) and reduce reflection to 0.5-0.6. Add a subtle bump map with worn texture for extra realism.
+                </p>
+            </div>
+
+            <h3>Creating Copper</h3>
+
+            <p>
+                Copper has that distinctive reddish-brown color that makes it instantly recognizable. Like gold, the magic is in the colored highlights.
+            </p>
+
+            <div class="card">
+                <h4>Copper Material Settings:</h4>
+                <ul>
+                    <li><strong>Diffuse_Color:</strong> Dark reddish-brown (100, 50, 35)</li>
+                    <li><strong>Specular_Value:</strong> 0.85</li>
+                    <li><strong>Specular_Color:</strong> Bright orange-red (255, 140, 100)</li>
+                    <li><strong>Roughness:</strong> 0.2 (copper is often slightly less polished than chrome)</li>
+                    <li><strong>Reflection_Value:</strong> 0.6 - 0.7</li>
+                    <li><strong>Reflection_Color:</strong> Warm reddish tint (255, 200, 180)</li>
+                </ul>
+            </div>
+
+            <h3>Creating Brushed/Satin Metal</h3>
+
+            <p>
+                Not all metal is mirror-polished. Brushed metal (like many appliances and industrial parts) has a distinctive directional grain that creates elongated highlights.
+            </p>
+
+            <div class="card">
+                <h4>Brushed Metal Adjustments:</h4>
+                <ol>
+                    <li>Start with any metal recipe above</li>
+                    <li>Increase <strong>Roughness</strong> to 0.5 - 0.7 (broader, softer highlights)</li>
+                    <li>Reduce <strong>Reflection</strong> to 0.4 - 0.6 (less mirror-like)</li>
+                    <li>Add an <strong>Anisotropic</strong> setting if available (creates directional highlights)</li>
+                    <li>Use a <strong>Bump Map</strong> with linear grain texture (0.02 - 0.04 amount)</li>
+                </ol>
+            </div>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Metal Type</th>
+                        <th>Diffuse Color</th>
+                        <th>Specular Color</th>
+                        <th>Key Characteristic</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Chrome/Steel</strong></td>
+                        <td>Dark Gray (50, 50, 50)</td>
+                        <td>White (245, 245, 245)</td>
+                        <td>Mirror-like, neutral</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gold</strong></td>
+                        <td>Dark Yellow (140, 100, 30)</td>
+                        <td>Bright Gold (255, 215, 100)</td>
+                        <td>Warm, rich glow</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Copper</strong></td>
+                        <td>Dark Brown-Red (100, 50, 35)</td>
+                        <td>Orange-Red (255, 140, 100)</td>
+                        <td>Reddish tint</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bronze</strong></td>
+                        <td>Dark Yellow-Brown (90, 65, 40)</td>
+                        <td>Orange-Gold (230, 180, 100)</td>
+                        <td>Between copper and gold</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Silver</strong></td>
+                        <td>Medium Gray (120, 120, 120)</td>
+                        <td>Bright Cool White (245, 248, 250)</td>
+                        <td>Cool, slightly blue tint</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Aluminum</strong></td>
+                        <td>Light Gray (150, 150, 150)</td>
+                        <td>White (240, 240, 240)</td>
+                        <td>Lighter, more matte</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h4>⚠️ Common Metal Mistakes</h4>
+                <ul>
+                    <li><strong>Too bright diffuse color:</strong> Metals get their brightness from reflections, not base color. Keep diffuse colors dark.</li>
+                    <li><strong>White specularity on colored metals:</strong> Don't forget to tint the specular color to match the metal type!</li>
+                    <li><strong>No environment to reflect:</strong> Metal looks best when there's something interesting to reflect. In an empty scene, add a skylight or IBL.</li>
+                    <li><strong>Perfect uniformity:</strong> Real metal has subtle imperfections. Add slight bump mapping or color variation for realism.</li>
+                </ul>
+            </div>
+        <section id="wood-materials">
+            <h2>Crafting Natural Wood Materials</h2>
+
+            <p>
+                Wood is everywhere in 3D scenes—furniture, floors, doors, walls, decorative objects. Creating convincing wood materials is essential for believable environments. The key to great wood isn't complexity; it's understanding how wood grain, color variation, and subtle specularity work together.
+            </p>
+
+            <blockquote>
+                <p>
+                    <strong>The Wood Philosophy:</strong> Wood is organic, which means it's inherently irregular. Perfect uniformity makes wood look fake. The best wood materials combine a base color with texture maps that add grain, color variation, and subtle imperfections. Think about real wood—it has knots, growth rings, lighter and darker areas. Your material should capture that natural variety.
+                </p>
+            </blockquote>
+
+            <h3>The Basic Wood Recipe</h3>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3 style="color: white;">🪵 Essential Wood Material Setup</h3>
+                <ol style="color: white;">
+                    <li><strong>Diffuse Color:</strong> Base wood color (browns, tans, or reddish)</li>
+                    <li><strong>Diffuse Map:</strong> Wood grain texture (crucial for realism!)</li>
+                    <li><strong>Specularity:</strong> 0.2 - 0.5 (depending on finish)</li>
+                    <li><strong>Roughness:</strong> 0.4 - 0.7 (wood is rarely mirror-smooth)</li>
+                    <li><strong>Bump Map:</strong> Same as diffuse texture (creates grain depth)</li>
+                    <li><strong>Bump Amount:</strong> 0.02 - 0.05 (subtle surface texture)</li>
+                </ol>
+            </div>
+
+            <h3>Creating Polished Wood (Furniture)</h3>
+
+            <p>
+                Polished wood—like you'd find on nice furniture, musical instruments, or hardwood floors—has a clear finish that enhances the grain and adds shine.
+            </p>
+
+            <div class="card">
+                <h4>Polished Wood Settings:</h4>
+                <ul>
+                    <li><strong>Diffuse_Color:</strong> Rich brown (120, 75, 40) for mahogany, or (140, 100, 60) for oak</li>
+                    <li><strong>Diffuse_Map:</strong> Wood grain texture image</li>
+                    <li><strong>Specular_Value:</strong> 0.4 - 0.5 (noticeable shine from the finish)</li>
+                    <li><strong>Specular_Color:</strong> Slightly warm white (250, 245, 235)</li>
+                    <li><strong>Roughness:</strong> 0.3 - 0.4 (semi-glossy finish)</li>
+                    <li><strong>Bump_Map:</strong> Same wood grain texture</li>
+                    <li><strong>Bump_Amount:</strong> 0.03 - 0.04</li>
+                    <li><strong>Reflection_Value:</strong> 0.1 - 0.2 (subtle environmental reflections)</li>
+                </ul>
+            </div>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>💡 The Texture Map Trick</h4>
+                <p>
+                    Using the same image for both the Diffuse_Map and the Bump_Map creates visual consistency—the grain pattern that adds color variation also creates surface texture. This is standard practice for wood materials and instantly makes them more convincing. Just remember to keep the bump amount subtle; wood grain should be felt, not mountainous!
+                </p>
+            </div>
+
+            <h3>Creating Raw/Unfinished Wood</h3>
+
+            <p>
+                Unfinished wood—like construction lumber, rough-hewn beams, or weathered fences—has no protective coating. It's more matte and absorbs light rather than reflecting it.
+            </p>
+
+            <div class="card">
+                <h4>Unfinished Wood Settings:</h4>
+                <ul>
+                    <li><strong>Diffuse_Color:</strong> Lighter tan (180, 150, 110) for pine, or gray-brown (130, 115, 95) for weathered</li>
+                    <li><strong>Diffuse_Map:</strong> Wood texture with more color variation</li>
+                    <li><strong>Specular_Value:</strong> 0.1 - 0.2 (very little shine)</li>
+                    <li><strong>Roughness:</strong> 0.6 - 0.8 (broad, diffuse highlights)</li>
+                    <li><strong>Bump_Map:</strong> Same texture, possibly grainier</li>
+                    <li><strong>Bump_Amount:</strong> 0.04 - 0.06 (more pronounced surface texture)</li>
+                    <li><strong>Reflection:</strong> 0.0 (no reflections on raw wood)</li>
+                </ul>
+            </div>
+
+            <h3>Creating Painted/Stained Wood</h3>
+
+            <p>
+                Sometimes wood is painted or heavily stained, where you still see the grain pattern but the color is more uniform. Think painted barn doors or stained deck planks.
+            </p>
+
+            <div class="card">
+                <h4>Painted Wood Settings:</h4>
+                <ul>
+                    <li><strong>Diffuse_Color:</strong> Paint color (any color you want)</li>
+                    <li><strong>Diffuse_Map:</strong> Wood grain texture, but desaturate it first or reduce its impact</li>
+                    <li><strong>Specular_Value:</strong> 0.3 - 0.4 (paint has moderate shine)</li>
+                    <li><strong>Roughness:</strong> 0.5 (semi-gloss paint finish)</li>
+                    <li><strong>Bump_Map:</strong> Same grain texture (grain shows through paint)</li>
+                    <li><strong>Bump_Amount:</strong> 0.02 (subtle, since paint fills some grain)</li>
+                </ul>
+            </div>
+
+            <h3>Wood Types and Color Palettes</h3>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Wood Type</th>
+                        <th>Color Range</th>
+                        <th>Characteristics</th>
+                        <th>Common Uses</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Pine</strong></td>
+                        <td>Light tan to yellow (200, 170, 120)</td>
+                        <td>Light, soft, visible knots</td>
+                        <td>Construction, furniture, paneling</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Oak</strong></td>
+                        <td>Medium brown (140, 100, 60)</td>
+                        <td>Prominent grain, durable</td>
+                        <td>Furniture, flooring, barrels</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mahogany</strong></td>
+                        <td>Rich reddish-brown (120, 60, 40)</td>
+                        <td>Fine grain, luxurious</td>
+                        <td>High-end furniture, instruments</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Walnut</strong></td>
+                        <td>Dark chocolate brown (90, 65, 50)</td>
+                        <td>Dark, straight grain</td>
+                        <td>Premium furniture, gunstocks</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cherry</strong></td>
+                        <td>Warm reddish-brown (140, 85, 60)</td>
+                        <td>Smooth grain, ages darker</td>
+                        <td>Cabinets, furniture</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Maple</strong></td>
+                        <td>Light cream (220, 200, 170)</td>
+                        <td>Fine grain, hard</td>
+                        <td>Flooring, bowling pins, furniture</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Weathered</strong></td>
+                        <td>Gray-brown (120, 110, 95)</td>
+                        <td>Aged, color faded</td>
+                        <td>Old barns, driftwood, fences</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <blockquote>
+                <p>
+                    <strong>Finding Wood Textures:</strong> Good wood grain textures are essential. You can find free seamless wood textures at sites like Textures.com (formerly CGTextures), Poliigon, or Pixabay. Look for high-resolution images (at least 2048×2048) that tile seamlessly. Having a library of 10-15 different wood grain textures will cover most of your needs.
+                </p>
+            </blockquote>
+
+            <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h4>⚠️ Common Wood Material Mistakes</h4>
+                <ul>
+                    <li>
+                        <strong>Too much specularity:</strong> Unless it's polished furniture, wood shouldn't be shiny. Most wood is semi-matte.
+                    </li>
+                    <li>
+                        <strong>No texture map:</strong> Solid color "wood" without grain looks like plastic painted brown. The grain texture is non-negotiable.
+                    </li>
+                    <li>
+                        <strong>Excessive bump:</strong> Wood grain is shallow. Too much bump makes your wood look like corrugated cardboard.
+                    </li>
+                    <li>
+                        <strong>Wrong grain direction:</strong> Grain should follow the object. A table top has horizontal grain; legs have vertical grain. Pay attention to UV mapping!
+                    </li>
+                    <li>
+                        <strong>Uniform color:</strong> Real wood varies in color across the surface. Use texture maps with natural color variation.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>💡 Quick Wood Enhancement</h4>
+                <p>
+                    To quickly enhance any wood material: Add a very subtle reflection value (0.05 - 0.1) and enable ambient occlusion in your render settings. This adds depth to the grain and makes the wood look more three-dimensional without being obviously shiny. This simple trick works wonders on furniture and architectural wood elements.
+                </p>
+            </div>
+        <section id="glass-transparency">
+            <h2>Glass and Transparent Materials</h2>
+
+            <p>
+                Glass and transparent materials can seem intimidating, but they follow a simple formula. The key is understanding that glass isn't just "invisible"—it's a combination of transparency, reflection, refraction, and specularity all working together to create that signature glass look.
+            </p>
+
+            <blockquote>
+                <p>
+                    <strong>The Glass Paradox:</strong> Glass appears mostly transparent when you look through it, but becomes visible through reflections on its surface and the way it bends light. A completely transparent object with no reflections would be truly invisible—and that's not what real glass looks like! The art of glass materials is balancing transparency with just enough reflection and refraction to make the glass itself visible and interesting.
+                </p>
+            </blockquote>
+
+            <h3>The Universal Glass Recipe</h3>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3 style="color: white;">🪟 Essential Glass Material Setup</h3>
+                <ol style="color: white;">
+                    <li><strong>Transparency:</strong> 0.90 - 0.95 (nearly transparent, but not invisible)</li>
+                    <li><strong>Specularity:</strong> 0.8 - 1.0 (glass is very shiny)</li>
+                    <li><strong>Roughness:</strong> 0.1 - 0.2 (tight, sharp highlights)</li>
+                    <li><strong>Reflection:</strong> 0.4 - 0.7 (strong environmental reflections)</li>
+                    <li><strong>Refraction (IOR):</strong> 1.5 - 1.6 (standard glass)</li>
+                    <li><strong>Diffuse Color:</strong> Slight tint if colored glass, otherwise white</li>
+                </ol>
+            </div>
+
+            <h3>Creating Clear Window Glass</h3>
+
+            <p>
+                This is your standard transparent glass—think windows, drinking glasses, or display cases. It's almost invisible but catches light beautifully.
+            </p>
+
+            <div class="card">
+                <h4>Clear Glass Settings:</h4>
+                <ul>
+                    <li><strong>Transparency_Value:</strong> 0.92 - 0.95</li>
+                    <li><strong>Diffuse_Color:</strong> Very slight cool tint (248, 250, 252) – not pure white!</li>
+                    <li><strong>Specular_Value:</strong> 0.9</li>
+                    <li><strong>Specular_Color:</strong> White (255, 255, 255)</li>
+                    <li><strong>Roughness:</strong> 0.1 (mirror-smooth surface)</li>
+                    <li><strong>Reflection_Value:</strong> 0.5 - 0.6</li>
+                    <li><strong>Refraction_Value (IOR):</strong> 1.52</li>
+                </ul>
+            </div>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>✅ Glass Rendering Requirements</h4>
+                <p>
+                    For glass to look right, your render settings MUST have ray tracing enabled. Glass requires the render engine to calculate how light reflects and refracts through the surface. Without ray tracing, glass will either look completely transparent (invisible) or weirdly opaque. If your glass doesn't look right, check your render settings first!
+                </p>
+            </div>
+
+            <h3>Creating Frosted/Textured Glass</h3>
+
+            <p>
+                Frosted glass—like shower doors, privacy windows, or decorative panels—is translucent but not transparent. You can see light and shapes through it, but not clear details.
+            </p>
+
+            <div class="card">
+                <h4>Frosted Glass Settings:</h4>
+                <ul>
+                    <li><strong>Transparency_Value:</strong> 0.6 - 0.8 (more opaque than clear glass)</li>
+                    <li><strong>Diffuse_Color:</strong> Slight white tint (240, 242, 245)</li>
+                    <li><strong>Specular_Value:</strong> 0.5 - 0.7 (less sharp than clear glass)</li>
+                    <li><strong>Roughness:</strong> 0.5 - 0.7 (diffused surface)</li>
+                    <li><strong>Reflection_Value:</strong> 0.2 - 0.3 (reduced reflections)</li>
+                    <li><strong>Bump_Map:</strong> Noise or grain texture</li>
+                    <li><strong>Bump_Amount:</strong> 0.03 - 0.05</li>
+                </ul>
+            </div>
+
+            <p>
+                The combination of increased roughness and bump mapping creates that characteristic frosted look where light diffuses through the surface.
+            </p>
+
+            <h3>Creating Colored Glass</h3>
+
+            <p>
+                Colored glass—like stained glass windows, colored bottles, or decorative objects—adds a tint to light passing through it.
+            </p>
+
+            <div class="card">
+                <h4>Colored Glass Approach:</h4>
+                <ol>
+                    <li>Start with the clear glass recipe above</li>
+                    <li>Set <strong>Diffuse_Color</strong> to your desired glass color (saturated but not too dark)</li>
+                    <li>Set <strong>Transparency_Color</strong> (if available) to the same color</li>
+                    <li>Keep <strong>Transparency_Value</strong> at 0.90 - 0.95</li>
+                    <li>The result: light passing through takes on the glass color</li>
+                </ol>
+            </div>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Glass Color</th>
+                        <th>Diffuse Color (RGB)</th>
+                        <th>Effect</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Blue Glass</strong></td>
+                        <td>(100, 150, 220)</td>
+                        <td>Cool, aquatic feel</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Green Glass</strong></td>
+                        <td>(120, 200, 140)</td>
+                        <td>Like old bottles</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Amber/Brown</strong></td>
+                        <td>(200, 140, 80)</td>
+                        <td>Beer bottles, antique glass</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Red Glass</strong></td>
+                        <td>(220, 80, 80)</td>
+                        <td>Dramatic, warm</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Purple Glass</strong></td>
+                        <td>(180, 120, 200)</td>
+                        <td>Regal, mysterious</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Creating Dirty/Aged Glass</h3>
+
+            <p>
+                Perfect glass is rare in the real world. Most glass has some degree of dirt, scratches, or aging. These imperfections make glass more believable and interesting.
+            </p>
+
+            <div class="card">
+                <h4>Aged Glass Enhancements:</h4>
+                <ul>
+                    <li>Reduce <strong>Transparency</strong> slightly to 0.85 - 0.90 (dirt reduces clarity)</li>
+                    <li>Add warm <strong>Diffuse_Color</strong> tint (245, 242, 230) for aged yellowing</li>
+                    <li>Add subtle <strong>Bump_Map</strong> with scratches or dirt texture (0.01 - 0.02)</li>
+                    <li>Consider adding an <strong>Opacity_Map</strong> with dirt/smudge patterns (optional advanced technique)</li>
+                    <li>Reduce <strong>Specularity</strong> slightly to 0.7 - 0.8 (surface degradation)</li>
+                </ul>
+            </div>
+
+            <h3>Other Transparent Materials</h3>
+
+            <h4>Water</h4>
+
+            <p>
+                Water is similar to glass but with different properties:
+            </p>
+
+            <div class="card">
+                <ul>
+                    <li><strong>Transparency:</strong> 0.85 - 0.92 (less transparent than glass)</li>
+                    <li><strong>Diffuse_Color:</strong> Slight blue-green tint (240, 250, 250)</li>
+                    <li><strong>Reflection:</strong> 0.4 - 0.6</li>
+                    <li><strong>Refraction (IOR):</strong> 1.33 (water's actual IOR)</li>
+                    <li><strong>Bump_Map:</strong> Water ripple texture (animated if possible)</li>
+                    <li><strong>Specular:</strong> 0.7 - 0.9</li>
+                </ul>
+            </div>
+
+            <h4>Plastic/Acrylic</h4>
+
+            <p>
+                Clear plastic is between glass and solid materials:
+            </p>
+
+            <div class="card">
+                <ul>
+                    <li><strong>Transparency:</strong> 0.7 - 0.9 (more opaque than glass)</li>
+                    <li><strong>Reflection:</strong> 0.3 - 0.5 (less reflective than glass)</li>
+                    <li><strong>Refraction (IOR):</strong> 1.49</li>
+                    <li><strong>Specular:</strong> 0.6 - 0.8</li>
+                    <li><strong>Roughness:</strong> 0.2 - 0.3 (slightly less perfect than glass)</li>
+                </ul>
+            </div>
+
+            <blockquote>
+                <p>
+                    <strong>Transparency Depth:</strong> When rendering thick glass (like a solid glass block or bottle), the transparency color becomes more visible. Light travels through more material, picking up more of the tint. This is why thick glass looks more colored than thin glass. For thin glass (like windows), the tint is barely noticeable. For thick glass (like bottles), the tint is pronounced.
+                </p>
+            </blockquote>
+
+            <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h4>⚠️ Common Glass Material Mistakes</h4>
+                <ul>
+                    <li>
+                        <strong>Too transparent (0.98 - 1.0):</strong> Glass that's too transparent becomes invisible. Keep it at 0.90 - 0.95 max.
+                    </li>
+                    <li>
+                        <strong>No reflections:</strong> Glass without reflections looks wrong. Reflections are what make glass visible!
+                    </li>
+                    <li>
+                        <strong>Ray tracing disabled:</strong> If glass looks weird, check render settings. Glass REQUIRES ray tracing.
+                    </li>
+                    <li>
+                        <strong>Single-sided geometry:</strong> Glass should have thickness. Single flat planes don't refract properly.
+                    </li>
+                    <li>
+                        <strong>Pure white diffuse:</strong> Even clear glass has a slight color tint. Pure white (255, 255, 255) looks fake.
+                    </li>
+                </ul>
+            </div>
+        <section id="bump-displacement">
+            <h2>Surface Detail with Bump and Displacement</h2>
+
+            <p>
+                We've mentioned bump and displacement maps several times already, but they deserve their own focused discussion. These two techniques add surface detail without adding geometry, and mastering them will take your materials from "okay" to "wow, that looks real."
+            </p>
+
+            <h3>Understanding Bump Mapping</h3>
+
+            <p>
+                Bump mapping is a lighting trick. It doesn't actually change your object's surface—instead, it changes how light interacts with the surface to create the illusion of depth. Think of it as telling the renderer "pretend this area is raised, this area is recessed" without actually moving any geometry.
+            </p>
+
+            <div class="mermaid">
+                graph TD
+                A[Bump Map Image] --> B[Black Areas]
+                A --> C[White Areas]
+                A --> D[Gray Areas]
+                B --> E[Appear Recessed<br/>Shadows]
+                C --> F[Appear Raised<br/>Highlights]
+                D --> G[Neutral<br/>No Change]
+                
+                style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                style B fill:#333,stroke:#333,stroke-width:2px,color:#fff
+                style C fill:#f0f0f0,stroke:#333,stroke-width:2px
+            </div>
+
+            <h3>How to Use Bump Maps Effectively</h3>
+
+            <div class="card">
+                <h4>Bump Map Best Practices:</h4>
+                <ol>
+                    <li>
+                        <strong>Use grayscale images</strong> – Bump maps interpret brightness as height. Color information is ignored, so save yourself texture memory and use grayscale.
+                    </li>
+                    <li>
+                        <strong>Keep amounts subtle</strong> – Values of 0.01 to 0.05 cover most needs. More than 0.1 usually looks wrong unless you're creating extreme effects.
+                    </li>
+                    <li>
+                        <strong>Match the diffuse texture</strong> – For wood, leather, fabric, etc., using your diffuse texture as the bump map creates natural consistency.
+                    </li>
+                    <li>
+                        <strong>Render to see results</strong> – Bump is invisible in the preview window. You must render to see bump mapping work.
+                    </li>
+                    <li>
+                        <strong>Test with side lighting</strong> – Bump is most visible when light comes from an angle. Direct front lighting makes bump less apparent.
+                    </li>
+                </ol>
+            </div>
+
+            <h3>Common Bump Map Applications</h3>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Material Type</th>
+                        <th>Bump Map Source</th>
+                        <th>Typical Amount</th>
+                        <th>Effect Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Wood</strong></td>
+                        <td>Wood grain texture</td>
+                        <td>0.02 - 0.04</td>
+                        <td>Grain depth, natural texture</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stone/Concrete</strong></td>
+                        <td>Noise or rough texture</td>
+                        <td>0.03 - 0.06</td>
+                        <td>Rough, pitted surface</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fabric</strong></td>
+                        <td>Weave pattern</td>
+                        <td>0.01 - 0.03</td>
+                        <td>Cloth texture, weave</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Leather</strong></td>
+                        <td>Leather grain texture</td>
+                        <td>0.02 - 0.04</td>
+                        <td>Natural leather texture</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Metal</strong></td>
+                        <td>Scratches, wear patterns</td>
+                        <td>0.01 - 0.02</td>
+                        <td>Surface imperfections</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Brick/Tile</strong></td>
+                        <td>Mortar lines, texture</td>
+                        <td>0.03 - 0.05</td>
+                        <td>Individual bricks/tiles</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>💡 The Instant Realism Trick</h4>
+                <p>
+                    Want to quickly improve any material? Add a subtle noise or scratches bump map at 0.01 - 0.015. This barely-visible texture adds micro-detail that breaks up perfect smoothness. In the real world, nothing is perfectly smooth—everything has microscopic imperfections. This tiny amount of bump captures that reality without being obvious. It's the professional touch that separates good materials from great ones.
+                </p>
+            </div>
+
+            <h3>Understanding Displacement Mapping</h3>
+
+            <p>
+                Unlike bump mapping (which is a lighting trick), displacement mapping actually changes the surface geometry at render time. It moves vertices up or down based on the displacement map, creating real geometric detail.
+            </p>
+
+            <div class="card">
+                <h4>When to Use Displacement Instead of Bump:</h4>
+                <ul>
+                    <li>When the surface detail affects the silhouette (edges) of your object</li>
+                    <li>When you need deep, pronounced surface features (deep cracks, tiles, relief sculptures)</li>
+                    <li>When bump mapping creates artifacts (the illusion breaks down)</li>
+                    <li>When you're creating close-up hero shots where detail is critical</li>
+                </ul>
+            </div>
+
+            <h3>Displacement Requirements and Settings</h3>
+
+            <p>
+                Displacement is more demanding than bump mapping. Here's what you need to know:
+            </p>
+
+            <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h4>⚠️ Displacement Requirements</h4>
+                <ol>
+                    <li>
+                        <strong>Sufficient geometry:</strong> The object needs enough polygons to displace. Low-poly objects won't displace well. You may need to increase subdivision levels.
+                    </li>
+                    <li>
+                        <strong>Render time:</strong> Displacement significantly increases render time. Use it strategically, not on every surface.
+                    </li>
+                    <li>
+                        <strong>Displacement bounds:</strong> Set appropriate displacement bounds (min/max) in the material settings, or parts may be cut off.
+                    </li>
+                    <li>
+                        <strong>Testing:</strong> Always test displacement with low-resolution renders first. Full-resolution displacement renders can be very slow.
+                    </li>
+                </ol>
+            </div>
+
+            <div class="card">
+                <h4>Typical Displacement Settings:</h4>
+                <ul>
+                    <li><strong>Displacement_Map:</strong> Grayscale height map image</li>
+                    <li><strong>Displacement_Amount:</strong> 0.1 - 0.5 (much higher than bump!)</li>
+                    <li><strong>Displacement_Bounds:</strong> Set min/max appropriately (often -0.5 to 0.5)</li>
+                    <li><strong>Object Subdivision:</strong> Increase subdivision level to 2-4 for smooth displacement</li>
+                </ul>
+            </div>
+
+            <h3>Bump vs. Displacement Decision Tree</h3>
+
+            <div class="mermaid">
+                graph TD
+                A[Need Surface Detail?] --> B{Does it affect<br/>the silhouette?}
+                B -->|No| C[Use Bump Map]
+                B -->|Yes| D{Deep detail<br/>or shallow?}
+                D -->|Shallow| C
+                D -->|Deep| E[Use Displacement]
+                C --> F[Fast renders<br/>Good for most uses]
+                E --> G[Slower renders<br/>Maximum realism]
+                
+                style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                style C fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                style E fill:#FF9800,stroke:#333,stroke-width:2px,color:#fff
+            </div>
+
+            <blockquote>
+                <p>
+                    <strong>Professional Workflow Tip:</strong> Most professional artists use bump mapping for 95% of their surface detail work. Displacement is reserved for hero objects in close-up shots or situations where bump mapping visibly fails. Don't feel like you need displacement for everything—good bump mapping is often indistinguishable from displacement and renders much faster.
+                </p>
+            </blockquote>
+
+            <h3>Creating Your Own Bump/Displacement Maps</h3>
+
+            <p>
+                You don't always need specialized texture packs. You can create bump maps from various sources:
+            </p>
+
+            <div class="card">
+                <h4>DIY Bump Map Sources:</h4>
+                <ul>
+                    <li>
+                        <strong>Convert diffuse textures to grayscale</strong> – Most image editors can desaturate color images. Your wood color texture becomes a wood bump texture.
+                    </li>
+                    <li>
+                        <strong>Use photo editing filters</strong> – High pass filters, contrast adjustments, and sharpening can enhance textures for bump mapping.
+                    </li>
+                    <li>
+                        <strong>Create in Photoshop/GIMP</strong> – Clouds filter, noise, and procedural patterns all make good bump maps.
+                    </li>
+                    <li>
+                        <strong>Online generators</strong> – Websites like NormalMap-Online.com can generate bump maps from regular photos.
+                    </li>
+                    <li>
+                        <strong>Existing normal maps</strong> – If you have normal maps, they can often work as bump maps (though they're technically different).
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>✅ Bump Map Quality Checklist</h4>
+                <p>A good bump map should:</p>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li>☑ Be grayscale (no color information)</li>
+                    <li>☑ Have good contrast (not too flat, not too extreme)</li>
+                    <li>☑ Tile seamlessly if used on large surfaces</li>
+                    <li>☑ Match the scale of your diffuse texture</li>
+                    <li>☑ Not have obvious patterns or repetition</li>
+                    <li>☑ Be appropriate resolution (at least 1024×1024, preferably 2048×2048)</li>
+                </ul>
+            </div>
+        <section id="saving-materials">
+            <h2>Saving Materials to Your Library</h2>
+
+            <p>
+                You've spent time creating the perfect metal, wood, or glass material. Now let's make sure you never have to recreate it from scratch! Saving custom materials to your library is one of the most valuable workflow habits you can develop.
+            </p>
+
+            <blockquote>
+                <p>
+                    <strong>Build Your Arsenal:</strong> Professional 3D artists accumulate material libraries over years of work. Every good material you create becomes a building block for future projects. A comprehensive personal material library can reduce a day's work to minutes. Start building yours now, and future you will be grateful!
+                </p>
+            </blockquote>
+
+            <h3>How to Save Materials to the Library</h3>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3 style="color: white;">📦 Saving a Material - Step by Step</h3>
+                <ol style="color: white;">
+                    <li>Open the <strong>Material Room</strong> (Ctrl+M / Cmd+M)</li>
+                    <li>Select the object with the material you want to save</li>
+                    <li>In the Material Room, select the specific material zone you customized</li>
+                    <li>Click the <strong>Library Palette</strong> icon (or press Ctrl+Shift+F / Cmd+Shift+F)</li>
+                    <li>Navigate to the <strong>Materials</strong> category</li>
+                    <li>Click the <strong>Add to Library</strong> button (+ icon) at the bottom</li>
+                    <li>Give your material a descriptive name</li>
+                    <li>Choose a category (create a new one if needed)</li>
+                    <li>Optionally, add a thumbnail and description</li>
+                    <li>Click <strong>OK</strong> to save</li>
+                </ol>
+            </div>
+
+            <h3>Organizing Your Material Library</h3>
+
+            <p>
+                A disorganized library becomes useless as it grows. Implement a system from day one, and stick to it. Here's a proven organizational structure:
+            </p>
+
+            <div class="card">
+                <h4>Recommended Material Library Categories:</h4>
+                <ul>
+                    <li>
+                        <strong>Metals</strong>
+                        <ul>
+                            <li>Polished (chrome, gold, silver, copper)</li>
+                            <li>Brushed (aluminum, steel)</li>
+                            <li>Aged (rust, patina, weathered)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Wood</strong>
+                        <ul>
+                            <li>Hardwood (oak, mahogany, walnut)</li>
+                            <li>Softwood (pine, cedar)</li>
+                            <li>Finished (polished, stained, varnished)</li>
+                            <li>Raw (unfinished, weathered)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Glass & Transparent</strong>
+                        <ul>
+                            <li>Clear glass</li>
+                            <li>Frosted/textured</li>
+                            <li>Colored glass</li>
+                            <li>Plastic/acrylic</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Stone & Masonry</strong>
+                        <ul>
+                            <li>Marble</li>
+                            <li>Granite</li>
+                            <li>Concrete</li>
+                            <li>Brick</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Fabric & Leather</strong>
+                        <ul>
+                            <li>Cotton/linen</li>
+                            <li>Silk/satin</li>
+                            <li>Leather (smooth, rough, aged)</li>
+                            <li>Velvet</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Specialty</strong>
+                        <ul>
+                            <li>Skin materials</li>
+                            <li>Eyes</li>
+                            <li>Hair</li>
+                            <li>Special effects</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <h3>Naming Conventions That Work</h3>
+
+            <p>
+                Good naming makes materials easy to find later. Use descriptive names that tell you exactly what the material is and how it looks.
+            </p>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>❌ Bad Name</th>
+                        <th>✅ Good Name</th>
+                        <th>Why It's Better</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Metal1</td>
+                        <td>Chrome_Polished</td>
+                        <td>Describes type and finish</td>
+                    </tr>
+                    <tr>
+                        <td>Wood</td>
+                        <td>Oak_Varnished_Light</td>
+                        <td>Specifies wood type, finish, and tone</td>
+                    </tr>
+                    <tr>
+                        <td>Glass</td>
+                        <td>Glass_Clear_Window</td>
+                        <td>Indicates transparency level and use</td>
+                    </tr>
+                    <tr>
+                        <td>MyMaterial</td>
+                        <td>Leather_Brown_Worn</td>
+                        <td>Describes material, color, and condition</td>
+                    </tr>
+                    <tr>
+                        <td>Test123</td>
+                        <td>Concrete_Rough_Gray</td>
+                        <td>Specific, searchable, memorable</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>💡 Naming Formula</h4>
+                <p>
+                    Use this formula for consistent, findable names:<br>
+                    <strong>[Material Type]_[Finish/Texture]_[Color/Variant]</strong>
+                </p>
+                <p>Examples:</p>
+                <ul>
+                    <li>Gold_Polished_Bright</li>
+                    <li>Wood_Oak_Dark_Stained</li>
+                    <li>Glass_Frosted_Blue</li>
+                    <li>Metal_Brushed_Aluminum</li>
+                    <li>Fabric_Cotton_White_Clean</li>
+                </ul>
+            </div>
+
+            <h3>Including Material Thumbnails</h3>
+
+            <p>
+                Visual thumbnails make browsing your library much faster. When saving materials, Poser can automatically create a thumbnail, or you can provide a custom one.
+            </p>
+
+            <div class="card">
+                <h4>Thumbnail Best Practices:</h4>
+                <ul>
+                    <li>Use a simple sphere or plane showing the material clearly</li>
+                    <li>Light it well so the material properties are visible</li>
+                    <li>Use consistent lighting across all thumbnails in a category</li>
+                    <li>Make thumbnails at least 200×200 pixels</li>
+                    <li>Show the material's key characteristic (shine for metal, grain for wood, etc.)</li>
+                </ul>
+            </div>
+
+            <h3>Adding Material Descriptions and Notes</h3>
+
+            <p>
+                When saving materials, you can add descriptions. Use this space to note:
+            </p>
+
+            <div class="card">
+                <ul>
+                    <li><strong>Key settings:</strong> "Specularity 0.9, Reflection 0.7, IOR 1.52"</li>
+                    <li><strong>Best uses:</strong> "Perfect for windows, drinking glasses, display cases"</li>
+                    <li><strong>Render requirements:</strong> "Requires ray tracing enabled"</li>
+                    <li><strong>Variations:</strong> "Reduce transparency to 0.7 for frosted version"</li>
+                    <li><strong>Texture dependencies:</strong> "Uses oak_grain.jpg for diffuse and bump"</li>
+                </ul>
+            </div>
+
+            <p>
+                Future you (or team members) will appreciate these notes when trying to understand or modify the material months later.
+            </p>
+
+            <h3>Backing Up Your Material Library</h3>
+
+            <p>
+                Your custom materials are valuable. Don't lose them to a hard drive failure or software reinstall!
+            </p>
+
+            <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h4>⚠️ Backup Your Library</h4>
+                <p>Poser libraries are stored in specific folders on your computer:</p>
+                <ul>
+                    <li><strong>Windows:</strong> Usually in <code>My Documents\Poser 12\Runtime\libraries\Materials</code></li>
+                    <li><strong>Mac:</strong> Usually in <code>Documents/Poser 12/Runtime/libraries/Materials</code></li>
+                </ul>
+                <p>Regularly back up this entire folder to cloud storage, external drives, or both. You can also export material collections as individual files to share or move between computers.</p>
+            </div>
+
+            <h3>Loading Materials from Your Library</h3>
+
+            <p>
+                Once saved, loading materials is simple:
+            </p>
+
+            <div class="card">
+                <ol>
+                    <li>Select the object you want to apply the material to</li>
+                    <li>Open the Library Palette (Ctrl+Shift+F / Cmd+Shift+F)</li>
+                    <li>Navigate to Materials → Your Category</li>
+                    <li>Double-click the material thumbnail to apply it</li>
+                    <li>Alternatively, drag and drop from library to the object</li>
+                </ol>
+            </div>
+
+            <blockquote>
+                <p>
+                    <strong>Time-Saving Workflow:</strong> As you work on projects, whenever you create a material that works well, immediately save it to your library before moving on. It takes 30 seconds and ensures you never lose that work. Over time, your library becomes a massive time-saver. What used to take 15 minutes to recreate becomes a 5-second library load.
+                </p>
+            </blockquote>
+        <section id="troubleshooting">
+            <h2>Common Material Problems and Solutions</h2>
+
+            <p>
+                Even with solid understanding, materials can behave unexpectedly. Let's troubleshoot the most common issues you'll encounter and learn how to fix them quickly.
+            </p>
+
+            <h3>Problem: Material Looks Plastic or Fake</h3>
+
+            <div class="card">
+                <h4>Symptoms:</h4>
+                <p>The material has color and some shine, but it looks like cheap plastic—too uniform, too smooth, or too "computer-generated."</p>
+                
+                <h4>Common Causes & Solutions:</h4>
+                <ul>
+                    <li>
+                        <strong>No texture variation:</strong> Add a bump map for surface detail and a subtle texture map for color variation. Real materials aren't perfectly uniform.
+                    </li>
+                    <li>
+                        <strong>Wrong specularity:</strong> Adjust the specular value. Too high = wet plastic, too low = dull clay. Most materials sit in the 0.3-0.6 range.
+                    </li>
+                    <li>
+                        <strong>Perfect smoothness:</strong> Increase roughness to 0.4-0.6 for most non-metal materials. Nothing in nature is perfectly smooth.
+                    </li>
+                    <li>
+                        <strong>Pure colors:</strong> Use slightly desaturated, slightly darker colors. Pure colors (full saturation at 255) look artificial.
+                    </li>
+                </ul>
+            </div>
+
+            <h3>Problem: Glass Is Invisible or Wrong</h3>
+
+            <div class="card">
+                <h4>Symptoms:</h4>
+                <p>Glass is completely invisible, shows as solid white, or doesn't refract light properly.</p>
+                
+                <h4>Common Causes & Solutions:</h4>
+                <ul>
+                    <li>
+                        <strong>Ray tracing disabled:</strong> Check render settings. Glass MUST have ray tracing enabled. This is the #1 cause of glass problems.
+                    </li>
+                    <li>
+                        <strong>Transparency too high:</strong> Reduce transparency from 1.0 to 0.90-0.95. Completely transparent objects disappear.
+                    </li>
+                    <li>
+                        <strong>No reflections:</strong> Glass needs reflection (0.5-0.7) to be visible. Increase the reflection value.
+                    </li>
+                    <li>
+                        <strong>Single-sided geometry:</strong> Glass should have thickness. Single flat planes don't refract correctly.
+                    </li>
+                    <li>
+                        <strong>Wrong refraction setting:</strong> Set IOR to 1.5-1.6 for glass. Default values may be wrong or missing.
+                    </li>
+                </ul>
+            </div>
+
+            <h3>Problem: Metal Looks Dull or Wrong</h3>
+
+            <div class="card">
+                <h4>Symptoms:</h4>
+                <p>Metal doesn't look reflective, appears flat, or has the wrong color characteristics.</p>
+                
+                <h4>Common Causes & Solutions:</h4>
+                <ul>
+                    <li>
+                        <strong>Diffuse too bright:</strong> Metal diffuse should be DARK. Reduce diffuse color values to 40-100 range for most metals.
+                    </li>
+                    <li>
+                        <strong>Specularity too low:</strong> Metals need high specularity (0.8-1.0). Increase it dramatically.
+                    </li>
+                    <li>
+                        <strong>White specular on colored metal:</strong> Tint the specular color to match the metal type. Gold = yellow highlights, copper = red-orange highlights.
+                    </li>
+                    <li>
+                        <strong>No environment to reflect:</strong> Metal shows reflections. Add lights or an HDRI environment for the metal to reflect.
+                    </li>
+                    <li>
+                        <strong>Roughness too high:</strong> For polished metal, use roughness of 0.1-0.3. Higher values create brushed metal look.
+                    </li>
+                </ul>
+            </div>
+
+            <h3>Problem: Bump Map Isn't Showing</h3>
+
+            <div class="card">
+                <h4>Symptoms:</h4>
+                <p>You've loaded a bump map, but the surface still looks perfectly smooth with no texture.</p>
+                
+                <h4>Common Causes & Solutions:</h4>
+                <ul>
+                    <li>
+                        <strong>Not rendering:</strong> Bump maps don't show in preview mode. You MUST render to see bump mapping effects.
+                    </li>
+                    <li>
+                        <strong>Amount too low:</strong> Increase bump amount from 0.01 to 0.03-0.05 to make it more visible.
+                    </li>
+                    <li>
+                        <strong>Lighting angle:</strong> Bump is most visible with side/angle lighting. Add a light from the side to see bump better.
+                    </li>
+                    <li>
+                        <strong>Wrong map loaded:</strong> Verify the bump map file is actually loaded. Check the texture path.
+                    </li>
+                    <li>
+                        <strong>Map too subtle:</strong> The bump map image may have too little contrast. Increase contrast in an image editor.
+                    </li>
+                </ul>
+            </div>
+
+            <h3>Problem: Material Has Strange Artifacts</h3>
+
+            <div class="card">
+                <h4>Symptoms:</h4>
+                <p>Weird spots, bands, noise, or other visual problems in the rendered material.</p>
+                
+                <h4>Common Causes & Solutions:</h4>
+                <ul>
+                    <li>
+                        <strong>Texture resolution too low:</strong> Use higher resolution textures (at least 1024×1024, preferably 2048×2048).
+                    </li>
+                    <li>
+                        <strong>Texture not seamless:</strong> For tiling textures, ensure they're seamless or visible seams will appear.
+                    </li>
+                    <li>
+                        <strong>UV mapping issues:</strong> The problem may be UV coordinates, not the material. Check UV mapping.
+                    </li>
+                    <li>
+                        <strong>Conflicting maps:</strong> Make sure bump, normal, and displacement maps aren't all active. Use one or the other.
+                    </li>
+                    <li>
+                        <strong>Render quality too low:</strong> Increase render quality settings, especially ray trace bounces and samples.
+                    </li>
+                </ul>
+            </div>
+
+            <h3>Problem: Materials Look Different in Different Renders</h3>
+
+            <div class="card">
+                <h4>Symptoms:</h4>
+                <p>The same material looks great in one scene but wrong in another, or Firefly vs. SuperFly renders look completely different.</p>
+                
+                <h4>Common Causes & Solutions:</h4>
+                <ul>
+                    <li>
+                        <strong>Different lighting:</strong> Materials respond to lighting. Same material + different lights = different appearance. This is normal and expected.
+                    </li>
+                    <li>
+                        <strong>Different render engines:</strong> Firefly and SuperFly interpret materials differently. Some materials need different settings for each engine.
+                    </li>
+                    <li>
+                        <strong>Different render settings:</strong> Ray tracing on/off, quality settings, and other render options dramatically affect material appearance.
+                    </li>
+                    <li>
+                        <strong>Scene scale:</strong> Tiny objects vs. huge objects can make the same material look different due to how light interacts with surfaces.
+                    </li>
+                </ul>
+            </div>
+
+            <h3>Problem: Render Times Are Extremely Slow</h3>
+
+            <div class="card">
+                <h4>Symptoms:</h4>
+                <p>After adding certain materials, renders that took minutes now take hours.</p>
+                
+                <h4>Common Causes & Solutions:</h4>
+                <ul>
+                    <li>
+                        <strong>Excessive reflections:</strong> Reflections are expensive. Reduce reflection values or limit reflections to key objects only.
+                    </li>
+                    <li>
+                        <strong>Multiple transparent objects:</strong> Transparency + refraction is render-intensive. Optimize by reducing transparency or IOR where possible.
+                    </li>
+                    <li>
+                        <strong>High displacement:</strong> Displacement dramatically increases render time. Use bump instead where you can get away with it.
+                    </li>
+                    <li>
+                        <strong>Too many ray trace bounces:</strong> In render settings, reduce maximum ray trace bounces from default (often 8) to 3-4.
+                    </li>
+                    <li>
+                        <strong>Overly complex node setups:</strong> Simplify materials in the Advanced Material Room if they're unnecessarily complex.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>💡 Systematic Troubleshooting Approach</h4>
+                <p>When materials don't look right:</p>
+                <ol>
+                    <li><strong>Isolate the object:</strong> Test render just the problem object in a simple scene to rule out lighting/environment issues</li>
+                    <li><strong>Check render settings:</strong> Verify ray tracing, quality, and other critical settings are correct</li>
+                    <li><strong>Compare to reference:</strong> Look at real-world photos of the material you're trying to create</li>
+                    <li><strong>Start simple:</strong> Strip the material back to basics, then add properties one at a time</li>
+                    <li><strong>Test lighting:</strong> Try different lighting setups—the problem might be lighting, not the material</li>
+                    <li><strong>Search forums:</strong> Chances are someone else had the same issue. Search Poser forums for solutions</li>
+                </ol>
+            </div>
+
+            <blockquote>
+                <p>
+                    <strong>The Golden Rule of Troubleshooting:</strong> When in doubt, simplify. Remove properties until the problem disappears, then add them back one at a time. This isolates exactly what's causing the issue. It's slower than guessing, but it's guaranteed to work.
+                </p>
+            </blockquote>
+        <section id="project">
+            <h2>Project: Create a Material Collection</h2>
+
+            <p>
+                Time to put everything together! In this project, you'll create a collection of custom materials and apply them to props in a styled scene. This hands-on exercise will cement your understanding and give you a starter material library for future work.
+            </p>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3>🎯 Project Goal</h3>
+                <p style="color: white;">
+                    Create custom materials for metal, wood, and glass. Apply these materials to props in a scene, demonstrating how different materials work together. Save all materials to your library with proper organization and naming. Create three rendered views showing your materials in different lighting conditions.
+                </p>
+            </div>
+
+            <h3>Part 1: Create Your Materials (30-40 minutes)</h3>
+
+            <p>
+                We'll create six materials that cover the most common needs. Take your time with each one—these will become templates for future projects.
+            </p>
+
+            <div class="card">
+                <h4>Material 1: Chrome Metal</h4>
+                <ol>
+                    <li>Load a simple prop (like a sphere or cylinder from the library)</li>
+                    <li>Enter the Material Room (Ctrl+M / Cmd+M)</li>
+                    <li>Set properties:
+                        <ul>
+                            <li>Diffuse_Color: Dark gray (50, 50, 50)</li>
+                            <li>Specular_Value: 1.0</li>
+                            <li>Specular_Color: White (245, 245, 245)</li>
+                            <li>Roughness: 0.1</li>
+                            <li>Reflection_Value: 0.90</li>
+                        </ul>
+                    </li>
+                    <li>Do a quick test render</li>
+                    <li>Save to library as "Metal_Chrome_Polished"</li>
+                </ol>
+            </div>
+
+            <div class="card">
+                <h4>Material 2: Gold Metal</h4>
+                <ol>
+                    <li>Using the same or another prop, create new material</li>
+                    <li>Set properties:
+                        <ul>
+                            <li>Diffuse_Color: Dark gold (140, 100, 30)</li>
+                            <li>Specular_Value: 0.9</li>
+                            <li>Specular_Color: Bright gold (255, 215, 100)</li>
+                            <li>Roughness: 0.15</li>
+                            <li>Reflection_Value: 0.75</li>
+                        </ul>
+                    </li>
+                    <li>Test render and adjust if needed</li>
+                    <li>Save to library as "Metal_Gold_Polished"</li>
+                </ol>
+            </div>
+
+            <div class="card">
+                <h4>Material 3: Polished Wood</h4>
+                <ol>
+                    <li>Create or load a new prop</li>
+                    <li>Set properties:
+                        <ul>
+                            <li>Diffuse_Color: Rich brown (120, 75, 40)</li>
+                            <li>Diffuse_Map: Load a wood grain texture (find a free one online if needed)</li>
+                            <li>Specular_Value: 0.45</li>
+                            <li>Roughness: 0.35</li>
+                            <li>Bump_Map: Same wood grain texture</li>
+                            <li>Bump_Amount: 0.03</li>
+                            <li>Reflection_Value: 0.15</li>
+                        </ul>
+                    </li>
+                    <li>Render to see the grain and shine</li>
+                    <li>Save to library as "Wood_Oak_Polished_Dark"</li>
+                </ol>
+            </div>
+
+            <div class="card">
+                <h4>Material 4: Raw Unfinished Wood</h4>
+                <ol>
+                    <li>Create or load another prop</li>
+                    <li>Set properties:
+                        <ul>
+                            <li>Diffuse_Color: Light tan (180, 150, 110)</li>
+                            <li>Diffuse_Map: Wood texture (lighter/raw looking)</li>
+                            <li>Specular_Value: 0.15</li>
+                            <li>Roughness: 0.7</li>
+                            <li>Bump_Map: Same texture</li>
+                            <li>Bump_Amount: 0.05</li>
+                            <li>Reflection: 0.0</li>
+                        </ul>
+                    </li>
+                    <li>Test render</li>
+                    <li>Save to library as "Wood_Pine_Raw_Light"</li>
+                </ol>
+            </div>
+
+            <div class="card">
+                <h4>Material 5: Clear Glass</h4>
+                <ol>
+                    <li>Create or load a new prop (works best with enclosed objects like bottles)</li>
+                    <li>Set properties:
+                        <ul>
+                            <li>Transparency_Value: 0.93</li>
+                            <li>Diffuse_Color: Slight blue tint (248, 250, 252)</li>
+                            <li>Specular_Value: 0.9</li>
+                            <li>Roughness: 0.1</li>
+                            <li>Reflection_Value: 0.55</li>
+                            <li>Refraction_Value (IOR): 1.52</li>
+                        </ul>
+                    </li>
+                    <li>IMPORTANT: Enable ray tracing in render settings!</li>
+                    <li>Test render</li>
+                    <li>Save to library as "Glass_Clear_Window"</li>
+                </ol>
+            </div>
+
+            <div class="card">
+                <h4>Material 6: Frosted Glass</h4>
+                <ol>
+                    <li>Use the same glass prop or create another</li>
+                    <li>Set properties:
+                        <ul>
+                            <li>Transparency_Value: 0.7</li>
+                            <li>Diffuse_Color: Slight white (240, 242, 245)</li>
+                            <li>Specular_Value: 0.6</li>
+                            <li>Roughness: 0.6</li>
+                            <li>Reflection_Value: 0.25</li>
+                            <li>Bump_Map: Noise or grain texture</li>
+                            <li>Bump_Amount: 0.04</li>
+                        </ul>
+                    </li>
+                    <li>Test render</li>
+                    <li>Save to library as "Glass_Frosted_White"</li>
+                </ol>
+            </div>
+        <section id="summary">
+            <h2>Wrapping Up: You're Now a Material Creator!</h2>
+
+            <p>
+                Congratulations! You've completed your journey through material creation. You started with understanding basic properties and now you can create professional metal, wood, and glass materials from scratch. This is a huge milestone in your 3D learning journey.
+            </p>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3>🎓 Key Takeaways</h3>
+                <ul style="color: white;">
+                    <li>
+                        <strong>The Simple Material Room is your friend</strong> for 80% of material work. You don't need to master the node editor to create professional materials—focus on understanding the core properties instead.
+                    </li>
+                    <li>
+                        <strong>Five properties rule them all:</strong> Diffuse color, specularity, roughness, reflection, and transparency. Master these, and you can create almost any material.
+                    </li>
+                    <li>
+                        <strong>Metal is about colored highlights</strong>—the specular color makes or breaks metal materials. Chrome has white highlights, gold has yellow-orange highlights, copper has reddish highlights.
+                    </li>
+                    <li>
+                        <strong>Wood needs texture maps</strong> to look real. Solid color "wood" always looks like plastic. The grain texture is non-negotiable.
+                    </li>
+                    <li>
+                        <strong>Glass is a balancing act</strong> between transparency (0.90-0.95), reflection (0.5-0.7), and refraction. Too transparent and it disappears; too opaque and it's not glass.
+                    </li>
+                    <li>
+                        <strong>Bump mapping adds instant realism</strong> at minimal render cost. Even subtle amounts (0.01-0.03) transform flat materials into believable surfaces.
+                    </li>
+                    <li>
+                        <strong>Save everything to your library</strong>—future you will thank present you. A personal material library is one of the most valuable assets for a 3D artist.
+                    </li>
+                    <li>
+                        <strong>Materials respond to lighting</strong>—the same material looks completely different under different lights. Test materials in varied lighting to ensure they work everywhere.
+                    </li>
+                    <li>
+                        <strong>Ray tracing isn't optional</strong> for glass and reflective metals. If materials look wrong, check render settings first—it's usually ray tracing.
+                    </li>
+                    <li>
+                        <strong>Imperfection equals realism</strong>—perfect uniformity looks fake. Add subtle texture variation, slight bump, and desaturated colors for believability.
+                    </li>
+                </ul>
+            </div>
+
+            <h3>What You Can Now Do</h3>
+
+            <p>
+                With the skills from this lesson, you can:
+            </p>
+
+            <ul>
+                <li>Create any common material type (metals, woods, glass, and more) from scratch</li>
+                <li>Understand what every material property does and when to use it</li>
+                <li>Enhance default materials that come with props to look more realistic</li>
+                <li>Build and organize a personal material library for efficient reuse</li>
+                <li>Troubleshoot material problems systematically when things don't look right</li>
+                <li>Use bump mapping to add surface detail without complex geometry</li>
+                <li>Create material variations (polished, aged, weathered) for any base material</li>
+                <li>Make informed choices between Simple and Advanced Material Room approaches</li>
+                <li>Test materials properly in different lighting conditions</li>
+                <li>Save time by reusing and adapting materials across multiple projects</li>
+            </ul>
+
+            <blockquote>
+                <p>
+                    <strong>From One Artist to Another:</strong> When I first learned materials, I was overwhelmed by all the properties and sliders. "How do I know what to adjust?" I wondered. Here's what I learned: start simple, observe what each property does, and build from there. The materials I create today use the exact same principles you learned in this lesson—I just have more practice recognizing what needs adjustment. You now have the foundation; the rest is just repetition and observation.
+                </p>
+            </blockquote>
+
+            <h3>Your Material Creation Journey</h3>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Material Module</th>
+                        <th>What You've Learned</th>
+                        <th>Your Skill Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Material Room Basics</strong></td>
+                        <td>Navigation, material properties, shader understanding</td>
+                        <td>✅ Completed (Lesson 14)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Texture Mapping</strong></td>
+                        <td>UV coordinates, loading textures, image-based materials</td>
+                        <td>✅ Completed (Lesson 15)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Skin Materials</strong></td>
+                        <td>SSS, realistic characters, zone-specific treatments</td>
+                        <td>✅ Completed (Lesson 16)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Custom Materials</strong></td>
+                        <td>Creating metal, wood, glass, and other prop materials</td>
+                        <td>✅ Completed (This lesson)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Material Collections</strong></td>
+                        <td>Organizing, managing, and applying materials efficiently</td>
+                        <td>📚 Coming next (Lesson 18)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Advanced Materials</strong></td>
+                        <td>Node editing, procedural materials, complex shaders</td>
+                        <td>📚 Future modules</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>What's Next: Material Collections and Workflow</h3>
+
+            <p>
+                You've learned to create individual materials, and you've started building your library. The next lesson focuses on efficiency—working with material collections, applying materials to entire scenes quickly, and developing professional workflow habits that save hours of work.
+            </p>
+
+            <p>
+                In Lesson 18, you'll learn to:
+            </p>
+
+            <ul>
+                <li><strong>Create material preset collections</strong> for different scene types (medieval, modern, sci-fi, etc.)</li>
+                <li><strong>Apply materials to multiple objects</strong> simultaneously</li>
+                <li><strong>Create material variations quickly</strong> using master materials</li>
+                <li><strong>Manage large material libraries</strong> efficiently as they grow</li>
+                <li><strong>Share materials</strong> between projects and with other artists</li>
+                <li><strong>Optimize materials for render performance</strong> without sacrificing quality</li>
+            </ul>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>💡 Between Now and the Next Lesson</h4>
+                <p>
+                    Here's your homework to reinforce what you've learned:
+                </p>
+                <ol>
+                    <li>Practice creating at least two materials not covered in this lesson (try fabric, stone, or plastic)</li>
+                    <li>Take a scene you've already created and upgrade its materials using your new skills</li>
+                    <li>Browse free texture sites and download 10-15 textures for your material library</li>
+                    <li>Experiment with material properties—deliberately make things wrong to understand each setting's impact</li>
+                    <li>Start a "material inspiration" folder—screenshot real-world materials you want to recreate</li>
+                </ol>
+            </div>
+
+            <h3>The Bigger Picture</h3>
+
+            <p>
+                Materials are how you bring life to your 3D scenes. You can pose figures perfectly, light brilliantly, and compose beautifully—but if materials look wrong, the whole image suffers. Conversely, great materials can elevate even simple scenes into professional-looking work.
+            </p>
+
+            <p>
+                The difference between amateur and professional 3D work often comes down to materials. Amateurs use default materials and hope for the best. Professionals customize every material until it's perfect for their specific needs. You now have the knowledge to be in the second group—use it!
+            </p>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>💡 Real-World Application</h4>
+                <p>
+                    These material skills transfer to other 3D applications. Whether you eventually work in Blender, Cinema 4D, Maya, or any other software, the fundamental principles remain the same. Metals need colored specularity, wood needs grain texture, glass needs transparency plus reflection. The tools may look different, but the concepts you learned today apply universally across the 3D industry.
+                </p>
+            </div>
+
+            <div class="card" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); color: white; text-align: center; padding: 2rem;">
+                <h3 style="color: white; margin-top: 0;">🎉 Lesson Complete!</h3>
+                <p style="color: white; font-size: 1.1rem; margin-bottom: 0;">
+                    You've mastered custom material creation! Your props will never look default again. With materials, you've completed the core skills of Module 4. Take pride in how far you've come—you can now create, texture, and materialize anything you imagine. Ready to streamline your material workflow even further? Let's continue!
+                </p>
+            </div>
+        </section>
+
+        <nav class="lesson-nav" aria-label="Lesson Navigation">
+            <a href="lesson_16_skin_materials.html" class="prev-lesson">← Previous: Skin Materials and Realism</a>
+            <a href="index.html" class="home-link">🏠 Course Home</a>
+            <a href="lesson_18_material_collections.html" class="next-lesson">Next: Material Collections and Efficiency →</a>
+        </nav>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Poser 12 Mastery Course. All rights reserved.</p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

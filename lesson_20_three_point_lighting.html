@@ -1,0 +1,3768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master the classic Hollywood three-point lighting setup - learn key light, fill light, and rim light techniques for professional character portraits in Poser 12">
+    <meta name="author" content="Poser 12 Course">
+    <title>Lesson 20: Three-Point Lighting Fundamentals - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="main-nav" aria-label="Main Navigation">
+    <a href="index.html" class="nav-home">🏠 Course Home</a>
+    <span class="nav-separator">|</span>
+    <a href="#module-5" class="nav-module">Module 5: Lighting Fundamentals</a>
+</nav>
+
+<!-- Breadcrumb -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a> &gt; 
+    <a href="#module-5">Module 5</a> &gt; 
+    <span>Lesson 20</span>
+</nav>
+
+<!-- Main Content -->
+<main>
+    <!-- Header Section -->
+    <header class="lesson-header">
+        <h1>🎬 Lesson 20: Three-Point Lighting Fundamentals</h1>
+        <p class="lesson-subtitle">Master the Classic Hollywood Lighting Setup</p>
+    </header>
+
+    <!-- Introduction -->
+    <section id="introduction">
+        <p class="lead">Welcome to one of the most important lessons in your lighting education! Three-point lighting is the cornerstone of professional lighting – it's been used in Hollywood for nearly a century, and it's still the standard approach for portraits, interviews, and character work today.</p>
+
+        <p>Think of three-point lighting as the "recipe" that always works. Just like a reliable recipe in cooking, this lighting setup produces consistently professional results every single time. Once you master this technique, you'll have a foundation you can build on for any lighting challenge.</p>
+
+        <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <h3>🎯 Why This Lesson Matters</h3>
+            <p style="color: white;">Three-point lighting is:</p>
+            <ul style="color: white;">
+                <li><strong>Universal:</strong> Used in film, photography, 3D art, and gaming</li>
+                <li><strong>Reliable:</strong> Produces professional results every time</li>
+                <li><strong>Flexible:</strong> Can be adjusted for any mood or style</li>
+                <li><strong>Professional:</strong> Immediately elevates the quality of your work</li>
+                <li><strong>Foundational:</strong> The basis for understanding all other lighting setups</li>
+            </ul>
+            <p style="color: white; margin-bottom: 0;">By the end of this lesson, you'll be able to light any character portrait like a professional cinematographer!</p>
+        </div>
+
+        <blockquote>
+            <p><strong>"I can always tell when someone understands three-point lighting. Their work suddenly looks professional, polished, and intentional. It's like watching someone discover the secret code to great lighting."</strong></p>
+            <footer>— Professional Cinematographer</footer>
+        </blockquote>
+    </section>
+
+    <!-- Learning Objectives -->
+    <section id="learning-objectives">
+        <div class="card">
+            <h2>📋 What You'll Learn</h2>
+            <p><strong>By the end of this lesson, you will be able to:</strong></p>
+            <ul>
+                <li>✅ <strong>Understand</strong> the three lights in three-point lighting and their roles</li>
+                <li>✅ <strong>Set up</strong> a complete three-point lighting system in Poser</li>
+                <li>✅ <strong>Position</strong> key, fill, and rim lights correctly</li>
+                <li>✅ <strong>Adjust</strong> light ratios for different moods and effects</li>
+                <li>✅ <strong>Control</strong> shadows and contrast effectively</li>
+                <li>✅ <strong>Create</strong> professional portrait lighting every time</li>
+                <li>✅ <strong>Troubleshoot</strong> common three-point lighting problems</li>
+                <li>✅ <strong>Adapt</strong> the setup for different styles (dramatic, soft, natural)</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>⏱️ Estimated Time:</strong> 60-75 minutes</p>
+                <p><strong>📁 Project:</strong> Create three portrait variations using three-point lighting</p>
+                <p><strong>💡 Difficulty:</strong> Intermediate</p>
+                <p><strong>🎓 Prerequisites:</strong> Lesson 19 (Understanding Light Types)</p>
+            </div>
+        </div>
+    </section>
+
+<!-- Lesson 20, Part 02: Table of Contents and Introduction -->
+
+<!-- Table of Contents -->
+<details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+    <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+        <h2 style="display: inline; margin: 0;">📑 In This Lesson</h2>
+    </summary>
+    <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+        <ol>
+            <li><a href="#what-is-three-point" class="toc-link">What is Three-Point Lighting?</a></li>
+            <li><a href="#the-three-lights" class="toc-link">The Three Lights Explained</a></li>
+            <li><a href="#key-light" class="toc-link">The Key Light - Your Main Light Source</a></li>
+            <li><a href="#fill-light" class="toc-link">The Fill Light - Controlling Shadows</a></li>
+            <li><a href="#rim-light" class="toc-link">The Rim Light - Creating Separation</a></li>
+            <li><a href="#light-ratios" class="toc-link">Understanding Light Ratios</a></li>
+            <li><a href="#setup-guide" class="toc-link">Step-by-Step Setup Guide</a></li>
+            <li><a href="#variations" class="toc-link">Three-Point Lighting Variations</a></li>
+            <li><a href="#troubleshooting" class="toc-link">Troubleshooting Common Issues</a></li>
+            <li><a href="#project" class="toc-link">Project: Create Professional Portraits</a></li>
+            <li><a href="#summary" class="toc-link">Summary and Next Steps</a></li>
+        </ol>
+    </nav>
+</details>
+
+<!-- Main Content Begins -->
+<section id="what-is-three-point">
+    <h2>🎭 What is Three-Point Lighting?</h2>
+    
+    <p>Three-point lighting is a standard method used in visual media including film, photography, video production, and 3D graphics. It's called "three-point" because it uses three separate light sources positioned at specific angles around your subject to create dimensional, professional-looking results.</p>
+
+    <p>Think of it this way: if you've ever watched a professional interview on TV, a movie character's close-up, or a magazine photo shoot, you've seen three-point lighting in action. It's the invisible technique that makes subjects look three-dimensional, separated from their backgrounds, and professionally lit.</p>
+
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h3>🎬 A Brief History</h3>
+        <p>Three-point lighting was developed in the early days of Hollywood (1920s-1930s) as cinematographers figured out the best way to light actors on film. The technique solved several problems:</p>
+        <ul>
+            <li>It made faces appear three-dimensional (not flat)</li>
+            <li>It separated actors from backgrounds</li>
+            <li>It controlled shadows effectively</li>
+            <li>It was reliable and repeatable</li>
+        </ul>
+        <p>Nearly 100 years later, we're still using this technique because it simply <em>works</em>. The fundamentals of good lighting haven't changed, even if the technology has!</p>
+    </div>
+
+    <h3>🎯 The Core Purpose</h3>
+    
+    <p>Three-point lighting accomplishes three main goals:</p>
+
+    <div class="mermaid">
+        graph TD
+        A[Three-Point Lighting Goals] --> B[Create Dimension]
+        A --> C[Control Shadows]
+        A --> D[Separate Subject from Background]
+        
+        B --> B1[Reveals form and depth]
+        C --> C1[Prevents overly harsh or flat look]
+        D --> D1[Makes subject stand out visually]
+        
+        style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+        style B fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+        style C fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+        style D fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Goal</th>
+                <th>What It Means</th>
+                <th>Why It Matters</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Create Dimension</strong></td>
+                <td>Make flat 2D images feel three-dimensional</td>
+                <td>Subjects appear realistic and sculptural, not flat like a cutout</td>
+            </tr>
+            <tr>
+                <td><strong>Control Shadows</strong></td>
+                <td>Manage where shadows fall and how dark they are</td>
+                <td>Prevents overly dark shadows (too dramatic) or no shadows (too flat)</td>
+            </tr>
+            <tr>
+                <td><strong>Create Separation</strong></td>
+                <td>Make the subject stand out from the background</td>
+                <td>Subject doesn't "blend into" the background; draws viewer's eye</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>💡 The Simple Explanation</h3>
+    
+    <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+        <p><strong>If you remember only one thing about three-point lighting, remember this:</strong></p>
+        <p style="font-size: 1.2em; margin: 1rem 0;"><em>"Three lights, three jobs: one to <strong>light</strong> the subject, one to <strong>soften</strong> the shadows, and one to <strong>separate</strong> the subject from the background."</em></p>
+        <p>That's it! Everything else is just details about how to do those three jobs well.</p>
+    </div>
+
+</section>
+
+<section id="the-three-lights">
+    <h2>🔆 The Three Lights Explained</h2>
+    
+    <p>Let's meet the three lights and understand what each one does. Think of them as three team members, each with a specific role to play:</p>
+
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h3>The Three-Light Team</h3>
+        
+        <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); margin-top: 1rem;">
+            <h4 style="color: white;">1️⃣ Key Light (The Star Player)</h4>
+            <ul style="color: white;">
+                <li><strong>Role:</strong> Main light source, creates primary illumination</li>
+                <li><strong>Strength:</strong> Brightest light in the setup</li>
+                <li><strong>Position:</strong> 30-45° to the side, elevated above subject</li>
+                <li><strong>Job:</strong> Defines form, creates main shadows, establishes the lighting mood</li>
+                <li><strong>Think of it as:</strong> The sun – the primary light that everything else reacts to</li>
+            </ul>
+        </div>
+
+        <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); margin-top: 1rem;">
+            <h4 style="color: white;">2️⃣ Fill Light (The Supporting Actor)</h4>
+            <ul style="color: white;">
+                <li><strong>Role:</strong> Softens shadows created by key light</li>
+                <li><strong>Strength:</strong> 30-50% brightness of key light (dimmer)</li>
+                <li><strong>Position:</strong> Opposite side from key light, at camera height or slightly below</li>
+                <li><strong>Job:</strong> Fills in dark shadows, controls contrast, maintains detail in shadow areas</li>
+                <li><strong>Think of it as:</strong> Reflected light or ambient room light – subtle but important</li>
+            </ul>
+        </div>
+
+        <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); margin-top: 1rem;">
+            <h4 style="color: white;">3️⃣ Rim Light (The Highlight Specialist)</h4>
+            <ul style="color: white;">
+                <li><strong>Role:</strong> Creates edge highlights, separates subject from background</li>
+                <li><strong>Strength:</strong> Equal to or slightly brighter than key light</li>
+                <li><strong>Position:</strong> Behind subject, high and to the side</li>
+                <li><strong>Job:</strong> Creates a bright rim around subject's edge, adds depth and separation</li>
+                <li><strong>Think of it as:</strong> Backlighting – adds that professional "glow" around the subject</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>📐 The Classic Three-Point Setup</h3>
+    
+    <p>Here's what the standard three-point lighting setup looks like from above (bird's eye view):</p>
+
+    <div class="mermaid">
+        graph TD
+        S[Subject/Figure<br/>Center Position] 
+        K[Key Light<br/>45° Front-Side<br/>Elevated]
+        F[Fill Light<br/>Opposite Side<br/>Camera Level]
+        R[Rim Light<br/>Behind & Above<br/>45° Back]
+        C[Camera<br/>Front View]
+        
+        K -.bright.-> S
+        F -.medium.-> S
+        R -.bright rim.-> S
+        C --> S
+        
+        style S fill:#FFD700,stroke:#333,stroke-width:3px,color:#000
+        style K fill:#ff6b6b,stroke:#333,stroke-width:2px,color:#fff
+        style F fill:#4ecdc4,stroke:#333,stroke-width:2px,color:#fff
+        style R fill:#95e1d3,stroke:#333,stroke-width:2px,color:#000
+        style C fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+    </div>
+
+    <div class="card">
+        <h4>Understanding the Diagram</h4>
+        <ul>
+            <li><strong>Subject (Gold):</strong> Your character/figure in the center</li>
+            <li><strong>Key Light (Red):</strong> Front and to one side, elevated – creates main lighting</li>
+            <li><strong>Fill Light (Teal):</strong> Opposite side from key, at camera level – softens shadows</li>
+            <li><strong>Rim Light (Light Green):</strong> Behind subject, elevated – creates edge highlighting</li>
+            <li><strong>Camera (Blue):</strong> Front view, where you're looking from</li>
+        </ul>
+    </div>
+
+    <h3>🎨 What Each Light Actually Does</h3>
+    
+    <p>Let's see what happens when you add each light one at a time:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Stage</th>
+                <th>What You See</th>
+                <th>Effect</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>No Lights</strong></td>
+                <td>Complete darkness (or default scene lighting)</td>
+                <td>Starting point</td>
+            </tr>
+            <tr>
+                <td><strong>+ Key Light Only</strong></td>
+                <td>Subject lit from one side, opposite side very dark</td>
+                <td>Dramatic but often too contrasted; missing detail in shadows</td>
+            </tr>
+            <tr>
+                <td><strong>+ Fill Light</strong></td>
+                <td>Shadows lighten, details visible on both sides</td>
+                <td>More balanced, professional look; subject clearly visible</td>
+            </tr>
+            <tr>
+                <td><strong>+ Rim Light</strong></td>
+                <td>Bright edge/outline around subject</td>
+                <td>Subject "pops" from background; adds polish and dimension</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+        <h4>⚠️ Important Concept: Build Gradually</h4>
+        <p>When setting up three-point lighting, <strong>always add lights one at a time</strong> in this order:</p>
+        <ol>
+            <li><strong>Key light first</strong> – Establish your main lighting direction</li>
+            <li><strong>Fill light second</strong> – Control shadow depth</li>
+            <li><strong>Rim light last</strong> – Add separation and polish</li>
+        </ol>
+        <p>This approach lets you see exactly what each light contributes and makes troubleshooting much easier!</p>
+    </div>
+
+    <blockquote>
+        <p><strong>"Three-point lighting isn't about using exactly three lights every time. It's about understanding the three <em>roles</em> that lights play: main illumination, shadow control, and separation. Sometimes you need more lights, sometimes fewer – but these three roles always matter."</strong></p>
+        <footer>— Professional Lighting Designer</footer>
+    </blockquote>
+
+</section>
+<!-- Lesson 20, Part 03: The Key Light - Your Main Light Source -->
+
+<section id="key-light">
+    <h2>🔑 The Key Light - Your Main Light Source</h2>
+    
+    <p>The key light is the foundation of your entire lighting setup. It's called the "key" light because it's the <em>key</em> to everything – it sets the mood, establishes the direction, creates the main shadows, and determines the overall look of your lighting.</p>
+
+    <p>Think of the key light as the sun in your scene. Even if other lights are present, the key light is the dominant force. Everything else reacts to what the key light does.</p>
+
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h3>🎯 Key Light Characteristics</h3>
+        <ul style="color: white;">
+            <li><strong>Brightest light:</strong> Should be the most powerful light in your setup</li>
+            <li><strong>Directional:</strong> Creates clear, defined shadows that show form</li>
+            <li><strong>Positioned strategically:</strong> Placed to create the most flattering angle</li>
+            <li><strong>Sets the mood:</strong> Hard key = dramatic, soft key = gentle</li>
+            <li><strong>Establishes direction:</strong> All other lights work around this one</li>
+        </ul>
+    </div>
+
+    <h3>📐 Key Light Positioning</h3>
+    
+    <p>Position is everything with the key light. The classic position is called the <strong>"Rembrandt position"</strong> after the famous painter who used similar lighting in his portraits.</p>
+
+    <div class="card">
+        <h4>The Classic Key Light Position</h4>
+        <p><strong>Horizontal Position:</strong></p>
+        <ul>
+            <li>30-45° to the side of your subject (not straight-on)</li>
+            <li>Can be on either left or right (your choice)</li>
+            <li>Creates a triangle of light on the cheek opposite the light</li>
+        </ul>
+        
+        <p><strong>Vertical Position:</strong></p>
+        <ul>
+            <li>30-45° above your subject's eye level</li>
+            <li>Angled downward toward the face</li>
+            <li>Creates natural-looking shadows under nose, chin</li>
+        </ul>
+
+        <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50; margin-top: 1rem;">
+            <p><strong>✅ Why These Angles?</strong></p>
+            <p>These angles mimic natural lighting conditions we're used to seeing:</p>
+            <ul>
+                <li><strong>Side angle (30-45°):</strong> How sunlight enters through a window</li>
+                <li><strong>Elevated angle (30-45°):</strong> How the sun sits in the sky</li>
+            </ul>
+            <p>Our brains are trained to interpret this as "natural" lighting, which is why it looks right!</p>
+        </div>
+    </div>
+
+    <div class="mermaid">
+        graph LR
+        A[Key Light Position] --> B[Horizontal: 30-45° to Side]
+        A --> C[Vertical: 30-45° Above]
+        
+        B --> D[Creates dimensional shadows]
+        C --> E[Natural, flattering angle]
+        
+        D --> F[Professional Portrait]
+        E --> F
+        
+        style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+        style F fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+    </div
+
+    <h3>🎨 Key Light Intensity</h3>
+    
+    <p>How bright should your key light be? Here's your guide:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Light Type Used</th>
+                <th>Starting Intensity</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Spotlight</strong></td>
+                <td>150-200%</td>
+                <td>Most common choice for key light; gives precise control</td>
+            </tr>
+            <tr>
+                <td><strong>Point Light</strong></td>
+                <td>180-250%</td>
+                <td>Softer look; needs higher intensity due to 360° spread</td>
+            </tr>
+            <tr>
+                <td><strong>Infinite Light</strong></td>
+                <td>100-120%</td>
+                <td>Less common for portraits but can work; very even illumination</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+        <h4>⚠️ Starting Point, Not Final Answer</h4>
+        <p>These intensity values are <strong>starting points</strong>. Every scene is different! Factors that affect intensity:</p>
+        <ul>
+            <li>Your figure's skin tone (darker skin needs brighter light)</li>
+            <li>Your figure's distance from the light</li>
+            <li>Your desired mood (dramatic vs. bright and cheerful)</li>
+            <li>Other lights in the scene (background lights, practical lights)</li>
+        </ul>
+        <p><strong>Always do a test render</strong> and adjust from there!</p>
+    </div>
+
+    <h3>💡 Key Light in Poser: Step by Step</h3>
+    
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h4>Setting Up Your Key Light</h4>
+        <ol>
+            <li><strong>Choose your light type</strong>
+                <ul>
+                    <li>Recommended: <strong>Spotlight</strong> for maximum control</li>
+                    <li>Alternative: Point Light for softer results</li>
+                </ul>
+            </li>
+            
+            <li><strong>Add the light to your scene</strong>
+                <ul>
+                    <li>Objects → Create Light → Spotlight (or Point Light)</li>
+                </ul>
+            </li>
+            
+            <li><strong>Position horizontally</strong>
+                <ul>
+                    <li>Move light to the <strong>left or right</strong> of your figure</li>
+                    <li>Distance: About 1.5-2x the figure's height away</li>
+                    <li>Angle: 30-45° from center</li>
+                </ul>
+            </li>
+            
+            <li><strong>Position vertically</strong>
+                <ul>
+                    <li>Raise the light <strong>above</strong> your figure's head</li>
+                    <li>Height: About 1.5x the figure's height</li>
+                    <li>Angle: 30-45° down toward face</li>
+                </ul>
+            </li>
+            
+            <li><strong>Aim the light (Spotlight only)</strong>
+                <ul>
+                    <li>Right-click light → Point At → [Your Figure's Head]</li>
+                    <li>Or manually rotate to aim at face</li>
+                    <li>Cone should encompass entire figure (or at least head/shoulders)</li>
+                </ul>
+            </li>
+            
+            <li><strong>Set intensity</strong>
+                <ul>
+                    <li>Spotlight: Start at 150-200%</li>
+                    <li>Point Light: Start at 180-250%</li>
+                </ul>
+            </li>
+            
+            <li><strong>Configure shadows</strong>
+                <ul>
+                    <li>Enable "Cast Shadows"</li>
+                    <li>Shadow type: Raytrace (best quality) or Depth Map (faster)</li>
+                    <li>Shadow blur: 5-10 for natural-looking soft shadows</li>
+                </ul>
+            </li>
+            
+            <li><strong>For Spotlight: Set cone angle</strong>
+                <ul>
+                    <li>Cone angle: 60-90° (wider = softer, more coverage)</li>
+                    <li>Edge falloff/Penumbra: 20-30 (softer edges look more natural)</li>
+                </ul>
+            </li>
+            
+            <li><strong>Test render!</strong>
+                <ul>
+                    <li>Do a quick preview render</li>
+                    <li>Check: Is the face well-lit? Can you see clear shadows?</li>
+                    <li>Adjust position or intensity as needed</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <h3>🎭 Key Light Effects on Mood</h3>
+    
+    <p>The position and hardness of your key light dramatically affects the mood of your portrait:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Key Light Style</th>
+                <th>Position/Settings</th>
+                <th>Mood Created</th>
+                <th>Best For</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Classic Portrait</strong></td>
+                <td>45° side, 45° above, medium intensity, soft shadows</td>
+                <td>Professional, flattering, neutral</td>
+                <td>Professional headshots, general portraits</td>
+            </tr>
+            <tr>
+                <td><strong>Dramatic</strong></td>
+                <td>60-80° side, 50° above, high intensity, hard shadows</td>
+                <td>Mysterious, intense, theatrical</td>
+                <td>Character portraits, film noir, dramatic scenes</td>
+            </tr>
+            <tr>
+                <td><strong>Soft/Beauty</strong></td>
+                <td>30° side, 30° above, lower intensity, very soft shadows</td>
+                <td>Gentle, romantic, approachable</td>
+                <td>Beauty shots, friendly portraits, soft moods</td>
+            </tr>
+            <tr>
+                <td><strong>Rembrandt</strong></td>
+                <td>45° side, 45° above, creates triangle of light on far cheek</td>
+                <td>Classic, timeless, artistic</td>
+                <td>Traditional portraits, artistic work</td>
+            </tr>
+            <tr>
+                <td><strong>Horror/Thriller</strong></td>
+                <td>Below subject (looking up), high intensity, hard shadows</td>
+                <td>Unsettling, eerie, unnatural</td>
+                <td>Horror characters, villains, dramatic effect</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card">
+        <h4>🎨 The Rembrandt Triangle</h4>
+        <p>Named after the famous painter Rembrandt van Rijn, this is the "signature" of perfect key light placement:</p>
+        <ul>
+            <li><strong>What it is:</strong> A small triangle of light that appears on the cheek opposite your key light</li>
+            <li><strong>How it forms:</strong> When the nose's shadow just barely connects with the shadow side of the face</li>
+            <li><strong>Why it matters:</strong> It's a visual indicator that your key light is in the optimal position</li>
+            <li><strong>How to achieve it:</strong> Key light at 45° horizontal, 45° vertical, aimed at the face</li>
+        </ul>
+        <p>If you see this triangle, you know your key light is positioned perfectly!</p>
+    </div>
+
+    <h3>🚫 Common Key Light Mistakes</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Mistake</th>
+                <th>Problem It Causes</th>
+                <th>How to Fix</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Key light straight-on</strong></td>
+                <td>Flat lighting, no dimension, looks amateur</td>
+                <td>Move light 30-45° to one side</td>
+            </tr>
+            <tr>
+                <td><strong>Key light too high</strong></td>
+                <td>Deep eye sockets, unflattering shadows under nose</td>
+                <td>Lower the light to 30-45° above eye level</td>
+            </tr>
+            <tr>
+                <td><strong>Key light too low</strong></td>
+                <td>Horror movie effect, unnatural look</td>
+                <td>Raise the light above subject's eyes</td>
+            </tr>
+            <tr>
+                <td><strong>Key light too far to side</strong></td>
+                <td>Half the face in complete shadow (too dramatic)</td>
+                <td>Bring light more toward front (30-45° range)</td>
+            </tr>
+            <tr>
+                <td><strong>Key light too weak</strong></td>
+                <td>Subject appears dim, muddy colors</td>
+                <td>Increase intensity by 20-50%</td>
+            </tr>
+            <tr>
+                <td><strong>Key light too strong</strong></td>
+                <td>Washed out, blown highlights, lost detail</td>
+                <td>Decrease intensity by 20-30%</td>
+            </tr>
+            <tr>
+                <td><strong>Harsh shadows</strong></td>
+                <td>Hard, distracting shadow edges</td>
+                <td>Increase shadow blur to 8-12</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+        <h4>✅ Quick Test: Is Your Key Light Working?</h4>
+        <p>Do a preview render with ONLY your key light on. You should see:</p>
+        <ul>
+            <li>✅ Clear definition of facial features</li>
+            <li>✅ Visible shadows that show form and depth</li>
+            <li>✅ One side of face brighter than the other</li>
+            <li>✅ Subject clearly visible (not too dark)</li>
+            <li>✅ Natural-looking shadow direction (not weird angles)</li>
+        </ul>
+        <p>If you see all of these, your key light is working! If not, adjust position or intensity.</p>
+    </div>
+
+    <blockquote>
+        <p><strong>"The key light is the most important light in your scene. Get this right, and everything else becomes easier. Get this wrong, and no amount of fill or rim lighting will save your image. Spend time perfecting your key light position – it's worth it."</strong></p>
+        <footer>— Professional Portrait Photographer</footer>
+    </blockquote>
+
+    <h3>🎓 Practice Exercise: Key Light Only</h3>
+    
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h4>Try It Now: Master the Key Light</h4>
+        <p style="color: white;">Before moving on to fill and rim lights, practice with just the key light:</p>
+        <ol style="color: white;">
+            <li>Load a figure in Poser</li>
+            <li>Delete any default lights</li>
+            <li>Add a single spotlight as your key light</li>
+            <li>Position it at 45° horizontal, 45° vertical</li>
+            <li>Set intensity to 150-200%</li>
+            <li>Render and observe</li>
+            <li>Try moving the light to different positions:
+                <ul>
+                    <li>More to the side (60-70°)</li>
+                    <li>Higher up (60° vertical)</li>
+                    <li>Lower down (20-30° vertical)</li>
+                </ul>
+            </li>
+            <li>Notice how each position changes the mood!</li>
+        </ol>
+        <p style="color: white; margin-bottom: 0;"><strong>Goal:</strong> Develop a feel for how key light position affects your image. This is time well spent!</p>
+    </div>
+
+</section>
+<!-- Lesson 20, Part 04: The Fill Light - Controlling Shadows -->
+
+<section id="fill-light">
+    <h2>🌤️ The Fill Light - Controlling Shadows</h2>
+    
+    <p>Once you have your key light positioned, you'll notice one side of your figure is well-lit while the other side is in shadow. This is where the fill light comes in! The fill light's job is to "fill in" those shadows, making sure they're not too dark while still maintaining the dimensional quality the key light created.</p>
+
+    <p>Think of the fill light as the supporting actor – it doesn't steal the show, but the scene wouldn't work without it. It's subtle, gentle, and essential.</p>
+
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h3>🎯 Fill Light Characteristics</h3>
+        <ul style="color: white;">
+            <li><strong>Secondary light:</strong> Always dimmer than the key light</li>
+            <li><strong>Soft and diffuse:</strong> Should NOT create harsh shadows of its own</li>
+            <li><strong>Opposite side:</strong> Positioned on the opposite side from key light</li>
+            <li><strong>Shadow control:</strong> Determines how dark shadows appear</li>
+            <li><strong>Maintains dimension:</strong> Brightens shadows WITHOUT eliminating them</li>
+        </ul>
+    </div>
+
+    <h3>🎨 The Key Concept: Light Ratio</h3>
+    
+    <p>The relationship between your key light and fill light is called the <strong>lighting ratio</strong>, and it's the most important concept in three-point lighting.</p>
+
+    <div class="card">
+        <h4>Understanding Lighting Ratios</h4>
+        <p><strong>Lighting Ratio = Key Light Intensity : Fill Light Intensity</strong></p>
+        
+        <p>Common ratios and what they create:</p>
+        <ul>
+            <li><strong>2:1 Ratio</strong> (Fill = 50% of Key)
+                <ul>
+                    <li>Very soft, minimal shadows</li>
+                    <li>Bright, cheerful, approachable mood</li>
+                    <li>Good for beauty shots, friendly portraits</li>
+                </ul>
+            </li>
+            <li><strong>3:1 Ratio</strong> (Fill = 33% of Key)
+                <ul>
+                    <li>Balanced, natural-looking</li>
+                    <li>Clear shadows but not harsh</li>
+                    <li>The "standard" professional portrait ratio</li>
+                </ul>
+            </li>
+            <li><strong>4:1 Ratio</strong> (Fill = 25% of Key)
+                <ul>
+                    <li>More dramatic, visible shadows</li>
+                    <li>Strong mood, more artistic</li>
+                    <li>Good for character work, dramatic portraits</li>
+                </ul>
+            </li>
+            <li><strong>8:1 or Higher</strong> (Fill = 12% or less of Key)
+                <ul>
+                    <li>Very dramatic, deep shadows</li>
+                    <li>Film noir, mystery, intense mood</li>
+                    <li>Use sparingly – can look too harsh</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Ratio</th>
+                <th>Fill Light Intensity<br/>(if Key = 200%)</th>
+                <th>Shadow Depth</th>
+                <th>Best For</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>2:1</strong></td>
+                <td>100% (50% of key)</td>
+                <td>Very light shadows</td>
+                <td>Beauty, fashion, bright portraits</td>
+            </tr>
+            <tr>
+                <td><strong>3:1</strong></td>
+                <td>66% (33% of key)</td>
+                <td>Visible but gentle shadows</td>
+                <td>Standard professional portraits</td>
+            </tr>
+            <tr>
+                <td><strong>4:1</strong></td>
+                <td>50% (25% of key)</td>
+                <td>Noticeable shadows</td>
+                <td>Character portraits, artistic work</td>
+            </tr>
+            <tr>
+                <td><strong>8:1</strong></td>
+                <td>25% (12.5% of key)</td>
+                <td>Deep, dramatic shadows</td>
+                <td>Film noir, dramatic scenes</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+        <h4>✅ The Default Starting Point</h4>
+        <p><strong>When in doubt, start with a 3:1 ratio</strong> (fill at 33% of key intensity).</p>
+        <p><strong>Example:</strong> If your key light is at 150%, set your fill light to 50%.</p>
+        <p>This ratio looks natural and professional in most situations. You can adjust from there based on the mood you want!</p>
+    </div>
+
+    <h3>📐 Fill Light Positioning</h3>
+    
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h4>Classic Fill Light Position</h4>
+        
+        <p><strong>Horizontal Position:</strong></p>
+        <ul>
+            <li><strong>Opposite side from key light</strong></li>
+            <li>If key is on the right, fill is on the left (and vice versa)</li>
+            <li>Usually closer to the camera than the key light</li>
+            <li>About 15-30° from camera center (not as far to the side as key)</li>
+        </ul>
+        
+        <p><strong>Vertical Position:</strong></p>
+        <ul>
+            <li><strong>At or slightly below camera height</strong></li>
+            <li>NOT elevated like the key light</li>
+            <li>Aiming straight at the subject's face</li>
+            <li>Sometimes even slightly angled UP (from below)</li>
+        </ul>
+
+        <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107; margin-top: 1rem;">
+            <p><strong>⚠️ Why Low Angle for Fill?</strong></p>
+            <p>Fill light is often positioned at or below camera height because:</p>
+            <ul>
+                <li>It simulates bounced/reflected light (which comes from below in real life)</li>
+                <li>It doesn't create conflicting shadows with the key light</li>
+                <li>It fills shadows naturally without adding complexity</li>
+            </ul>
+            <p>Think of it as simulating light bouncing off the floor or a reflector!</p>
+        </div>
+    </div>
+
+    <div class="mermaid">
+        graph TD
+        A[Fill Light Position] --> B[Opposite Side from Key]
+        A --> C[Camera Height or Below]
+        A --> D[Closer to Camera Axis]
+        
+        B --> E[Fills Shadowed Side]
+        C --> F[No Conflicting Shadows]
+        D --> G[Gentle, Even Fill]
+        
+        E --> H[Professional Result]
+        F --> H
+        G --> H
+        
+        style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+        style H fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+    </div>
+
+    <h3>💡 Fill Light in Poser: Step by Step</h3>
+    
+    <div class="card">
+        <h4>Setting Up Your Fill Light</h4>
+        <ol>
+            <li><strong>Choose your light type</strong>
+                <ul>
+                    <li>Recommended: <strong>Point Light</strong> (creates soft, diffuse fill)</li>
+                    <li>Alternative: Spotlight with wide cone (60-90°)</li>
+                </ul>
+            </li>
+            
+            <li><strong>Add the light to your scene</strong>
+                <ul>
+                    <li>Objects → Create Light → Point Light (or Spotlight)</li>
+                </ul>
+            </li>
+            
+            <li><strong>Position opposite from key light</strong>
+                <ul>
+                    <li>If key is on right, place fill on left (and vice versa)</li>
+                    <li>Distance: Similar distance as key, or slightly closer</li>
+                </ul>
+            </li>
+            
+            <li><strong>Set vertical position</strong>
+                <ul>
+                    <li>Position at camera height</li>
+                    <li>Aim straight at figure's face</li>
+                    <li>Don't elevate it like the key light</li>
+                </ul>
+            </li>
+            
+            <li><strong>Calculate fill intensity based on key</strong>
+                <ul>
+                    <li>If key is 150%, try:
+                        <ul>
+                            <li>2:1 ratio: Fill = 75%</li>
+                            <li>3:1 ratio: Fill = 50%</li>
+                            <li>4:1 ratio: Fill = 37%</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            
+            <li><strong>Disable or minimize shadows</strong>
+                <ul>
+                    <li><strong>Option 1 (Recommended):</strong> Turn off "Cast Shadows" completely</li>
+                    <li><strong>Option 2:</strong> Enable shadows but set shadow blur VERY high (20-30)</li>
+                    <li>Why? Fill light shouldn't create visible shadows of its own!</li>
+                </ul>
+            </li>
+            
+            <li><strong>If using Spotlight: Set wide cone</strong>
+                <ul>
+                    <li>Cone angle: 80-100° (very wide)</li>
+                    <li>Edge falloff: 40-50 (very soft edges)</li>
+                </ul>
+            </li>
+            
+            <li><strong>Test render with key + fill</strong>
+                <ul>
+                    <li>Turn on both key and fill lights</li>
+                    <li>Check: Are shadows too dark? Too light?</li>
+                    <li>Adjust fill intensity up or down as needed</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <h3>🎭 Fill Light Effects on Mood</h3>
+    
+    <p>Changing the fill light intensity (the lighting ratio) dramatically affects the mood:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Fill Light Strength</th>
+                <th>Ratio</th>
+                <th>Visual Effect</th>
+                <th>Mood Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Very Strong Fill</strong></td>
+                <td>2:1 or less</td>
+                <td>Minimal shadows, very bright, almost flat</td>
+                <td>Cheerful, optimistic, friendly, beauty/fashion</td>
+            </tr>
+            <tr>
+                <td><strong>Moderate Fill</strong></td>
+                <td>3:1 to 4:1</td>
+                <td>Visible shadows but not harsh, balanced</td>
+                <td>Natural, professional, neutral, approachable</td>
+            </tr>
+            <tr>
+                <td><strong>Weak Fill</strong></td>
+                <td>6:1 to 8:1</td>
+                <td>Deep shadows, strong contrast</td>
+                <td>Dramatic, serious, intense, mysterious</td>
+            </tr>
+            <tr>
+                <td><strong>No Fill</strong></td>
+                <td>∞:1 (infinite)</td>
+                <td>One side lit, other side in near-darkness</td>
+                <td>Extremely dramatic, harsh, film noir, horror</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card">
+        <h4>📸 Real-World Examples</h4>
+        <p><strong>High-key lighting</strong> (strong fill, 2:1-3:1):</p>
+        <ul>
+            <li>Fashion photography</li>
+            <li>Beauty commercials</li>
+            <li>Sitcoms and comedy shows</li>
+            <li>Children's portraits</li>
+        </ul>
+
+        <p><strong>Low-key lighting</strong> (weak fill, 6:1-8:1+):</p>
+        <ul>
+            <li>Film noir</li>
+            <li>Horror and thriller films</li>
+            <li>Dramatic character portraits</li>
+            <li>Moody artistic work</li>
+        </ul>
+
+        <p><strong>Mid-key lighting</strong> (moderate fill, 3:1-4:1):</p>
+        <ul>
+            <li>News and interviews</li>
+            <li>Corporate headshots</li>
+            <li>Documentary work</li>
+            <li>General professional portraits</li>
+        </ul>
+    </div>
+
+    <h3>🚫 Common Fill Light Mistakes</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Mistake</th>
+                <th>Problem It Causes</th>
+                <th>How to Fix</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Fill too bright</strong></td>
+                <td>Flat lighting, no dimension, washed out look</td>
+                <td>Reduce fill to 33-50% of key intensity</td>
+            </tr>
+            <tr>
+                <td><strong>Fill too dim</strong></td>
+                <td>Shadows too dark, lost detail, muddy</td>
+                <td>Increase fill intensity by 20-30%</td>
+            </tr>
+            <tr>
+                <td><strong>Fill casts visible shadows</strong></td>
+                <td>Competing shadow patterns, confusing look</td>
+                <td>Disable shadows on fill light OR increase shadow blur to 25+</td>
+            </tr>
+            <tr>
+                <td><strong>Fill on same side as key</strong></td>
+                <td>One side too bright, other side still dark</td>
+                <td>Move fill to opposite side from key</td>
+            </tr>
+            <tr>
+                <td><strong>Fill too high/elevated</strong></td>
+                <td>Creates downward shadows, conflicts with key</td>
+                <td>Lower fill to camera height or below</td>
+            </tr>
+            <tr>
+                <td><strong>Using spotlight with tight cone</strong></td>
+                <td>Visible cone edge, harsh fill light</td>
+                <td>Use Point Light instead, or widen spotlight cone to 80-100°</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+        <h4>⚠️ The "No Shadows" Rule for Fill Light</h4>
+        <p><strong>Your fill light should NOT create visible shadows of its own!</strong></p>
+        <p>Why? Because the key light already created the shadows that define form. If the fill light adds more shadows, you get:</p>
+        <ul>
+            <li>Competing shadow patterns</li>
+            <li>Confusing light direction</li>
+            <li>Unprofessional, messy look</li>
+        </ul>
+        <p><strong>Solution:</strong> Either turn off shadows on your fill light completely, or make them so soft (blur 25+) that they're invisible.</p>
+    </div>
+
+    <h3>🔍 Testing Your Fill Light</h3>
+    
+    <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+        <h4>✅ The Fill Light Test</h4>
+        <p><strong>Method 1: Compare renders</strong></p>
+        <ol>
+            <li>Render with ONLY key light → Note shadow darkness</li>
+            <li>Render with key + fill → Shadows should be lighter but still visible</li>
+            <li>If shadows disappear completely, fill is too strong</li>
+            <li>If shadows look the same, fill is too weak</li>
+        </ol>
+
+        <p><strong>Method 2: The squint test</strong></p>
+        <ol>
+            <li>Look at your render with key + fill</li>
+            <li>Squint your eyes to blur the details</li>
+            <li>You should still see the light side vs. shadow side distinction</li>
+            <li>If you can't tell which side is which when squinting, fill is too strong</li>
+        </ol>
+    </div>
+
+    <blockquote>
+        <p><strong>"The fill light is your contrast control dial. Want softer, gentler lighting? Increase the fill. Want more drama and mood? Decrease the fill. It's that simple – and that powerful."</strong></p>
+        <footer>— Professional Lighting Designer</footer>
+    </blockquote>
+
+    <h3>🎓 Practice Exercise: Adjust the Ratio</h3>
+    
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h4>Try It Now: Explore Lighting Ratios</h4>
+        <p style="color: white;">See how dramatically the fill light affects mood:</p>
+        <ol style="color: white;">
+            <li>Use your scene with the key light already set up</li>
+            <li>Add a fill light on the opposite side</li>
+            <li>Create four renders with different fill strengths:
+                <ul>
+                    <li><strong>Version 1:</strong> Fill at 75% of key (2:1 ratio) - bright and friendly</li>
+                    <li><strong>Version 2:</strong> Fill at 50% of key (3:1 ratio) - balanced standard</li>
+                    <li><strong>Version 3:</strong> Fill at 25% of key (4:1 ratio) - dramatic</li>
+                    <li><strong>Version 4:</strong> No fill at all - very dramatic</li>
+                </ul>
+            </li>
+            <li>Compare all four side by side</li>
+            <li>Notice how the mood changes with each ratio!</li>
+        </ol>
+        <p style="color: white; margin-bottom: 0;"><strong>Goal:</strong> Understand that the fill light is your "mood control" – master this and you master lighting!</p>
+    </div>
+
+</section>
+<!-- Lesson 20, Part 05: The Rim Light - Creating Separation -->
+
+<section id="rim-light">
+    <h2>✨ The Rim Light - Creating Separation</h2>
+    
+    <p>You've set up your key light and fill light – your subject is well-lit and the shadows are controlled. But something's missing. Your figure might still look a bit "flat" or too blended with the background. This is where the rim light works its magic!</p>
+
+    <p>The rim light (also called back light, hair light, or separation light) is the secret ingredient that makes professional portraits look professional. It creates a bright outline around your subject that makes them "pop" off the background and adds that polished, three-dimensional quality.</p>
+
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h3>🎯 Rim Light Characteristics</h3>
+        <ul style="color: white;">
+            <li><strong>From behind:</strong> Positioned behind and above the subject</li>
+            <li><strong>Creates edge highlights:</strong> Bright outline around hair, shoulders, edges</li>
+            <li><strong>Separation light:</strong> Makes subject stand out from background</li>
+            <li><strong>Can be bright:</strong> Often equal to or brighter than key light</li>
+            <li><strong>Optional but powerful:</strong> The "professional polish" light</li>
+        </ul>
+    </div>
+
+    <h3>🎨 What the Rim Light Does</h3>
+    
+    <p>The rim light serves several important purposes:</p>
+
+    <div class="card">
+        <h4>Primary Functions of Rim Light</h4>
+        
+        <p><strong>1. Creates Visual Separation</strong></p>
+        <ul>
+            <li>Distinguishes subject from background</li>
+            <li>Prevents subject from "blending in"</li>
+            <li>Adds depth to the overall image</li>
+            <li>Makes subject the clear focal point</li>
+        </ul>
+
+        <p><strong>2. Adds Dimension and Form</strong></p>
+        <ul>
+            <li>Reveals the edges and contours of the subject</li>
+            <li>Creates a three-dimensional quality</li>
+            <li>Shows hair texture and volume</li>
+            <li>Defines shoulders and body edges</li>
+        </ul>
+
+        <p><strong>3. Creates Professional Polish</strong></p>
+        <ul>
+            <li>That "Hollywood glow" effect</li>
+            <li>Makes the image look intentional and crafted</li>
+            <li>Elevates the overall quality instantly</li>
+            <li>The mark of professional lighting</li>
+        </ul>
+
+        <p><strong>4. Adds Visual Interest</strong></p>
+        <ul>
+            <li>Creates bright highlights that catch the eye</li>
+            <li>Adds sparkle and life to the image</li>
+            <li>Makes hair look more attractive and dimensional</li>
+            <li>Creates beautiful catchlights</li>
+        </ul>
+    </div>
+
+    <div class="mermaid">
+        graph TD
+        A[Rim Light] --> B[Separation from Background]
+        A --> C[Three-Dimensional Form]
+        A --> D[Professional Polish]
+        A --> E[Visual Interest]
+        
+        B --> F[Subject Stands Out]
+        C --> F
+        D --> F
+        E --> F
+        
+        style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+        style F fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+    </div>
+
+    <h3>📐 Rim Light Positioning</h3>
+    
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h4>Classic Rim Light Position</h4>
+        
+        <p><strong>Horizontal Position:</strong></p>
+        <ul>
+            <li><strong>Behind the subject</strong> (180° from camera)</li>
+            <li>Typically 30-45° to one side (not directly center-back)</li>
+            <li>Often on the SAME side as the key light (but behind instead of front)</li>
+            <li>Should not be visible in your camera view</li>
+        </ul>
+        
+        <p><strong>Vertical Position:</strong></p>
+        <ul>
+            <li><strong>Above the subject</strong> – significantly elevated</li>
+            <li>Higher than the key light (often 60-80° above horizontal)</li>
+            <li>Angled down toward the top of head and shoulders</li>
+            <li>Should create highlights on hair, shoulders, and edges</li>
+        </ul>
+
+        <p><strong>Distance:</strong></p>
+        <ul>
+            <li>Usually similar distance as key light</li>
+            <li>Close enough for bright highlights</li>
+            <li>Far enough to avoid washing out the back of the head</li>
+        </ul>
+    </div>
+
+    <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+        <h4>⚠️ Important: The Rim Light Should NOT Be Visible</h4>
+        <p>A common beginner mistake is positioning the rim light where you can see it in the camera view. The rim light should be:</p>
+        <ul>
+            <li><strong>Behind your subject</strong> (from the camera's perspective)</li>
+            <li><strong>Hidden</strong> by the subject's body</li>
+            <li><strong>Only visible as highlights</strong> around edges</li>
+        </ul>
+        <p>If you can see the actual light source in your render, it's too far forward! Move it more behind the subject.</p>
+    </div>
+
+    <div class="mermaid">
+        graph LR
+        C[Camera View] --> S[Subject]
+        K[Key Light<br/>Front-Side] -.key light.-> S
+        F[Fill Light<br/>Opposite Front] -.fill light.-> S
+        R[Rim Light<br/>Behind & Above] -.rim highlights.-> S
+        
+        style S fill:#FFD700,stroke:#333,stroke-width:3px,color:#000
+        style K fill:#ff6b6b,stroke:#333,stroke-width:2px,color:#fff
+        style F fill:#4ecdc4,stroke:#333,stroke-width:2px,color:#fff
+        style R fill:#95e1d3,stroke:#333,stroke-width:2px,color:#000
+        style C fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+    </div>
+
+    <h3>💡 Rim Light in Poser: Step by Step</h3>
+    
+    <div class="card">
+        <h4>Setting Up Your Rim Light</h4>
+        <ol>
+            <li><strong>Choose your light type</strong>
+                <ul>
+                    <li>Recommended: <strong>Spotlight</strong> for precise control</li>
+                    <li>Alternative: Point Light for softer rim effect</li>
+                </ul>
+            </li>
+            
+            <li><strong>Add the light to your scene</strong>
+                <ul>
+                    <li>Objects → Create Light → Spotlight (or Point Light)</li>
+                </ul>
+            </li>
+            
+            <li><strong>Position behind the subject</strong>
+                <ul>
+                    <li>Move light to behind your figure</li>
+                    <li>Offset 30-45° to one side (usually same side as key light)</li>
+                    <li>Make sure it's NOT visible in your camera view</li>
+                </ul>
+            </li>
+            
+            <li><strong>Elevate significantly</strong>
+                <ul>
+                    <li>Raise the light HIGH above your figure</li>
+                    <li>Height: 2-3x the figure's height</li>
+                    <li>Angle: 60-80° down toward subject</li>
+                </ul>
+            </li>
+            
+            <li><strong>Aim at the subject (Spotlight)</strong>
+                <ul>
+                    <li>Right-click light → Point At → [Figure's Head]</li>
+                    <li>Or manually rotate to aim downward at top of head</li>
+                    <li>Target: hair, top of shoulders, edge of face</li>
+                </ul>
+            </li>
+            
+            <li><strong>Set intensity</strong>
+                <ul>
+                    <li>Start at same intensity as key light (100-150%)</li>
+                    <li>Can go brighter for more dramatic rim (up to 200-250%)</li>
+                    <li>Rim light is often the brightest light in the scene!</li>
+                </ul>
+            </li>
+            
+            <li><strong>Configure shadows (usually ON)</strong>
+                <ul>
+                    <li>Enable "Cast Shadows" – rim light shadows are usually fine</li>
+                    <li>Shadow blur: 5-10 (moderate softness)</li>
+                    <li>The shadows will fall forward (away from camera) so they won't be distracting</li>
+                </ul>
+            </li>
+            
+            <li><strong>For Spotlight: Set cone angle</strong>
+                <ul>
+                    <li>Cone angle: 40-70° (tighter than key or fill)</li>
+                    <li>Edge falloff: 20-30 (soft edges)</li>
+                    <li>Focus the light on the edges you want to highlight</li>
+                </ul>
+            </li>
+            
+            <li><strong>Test render with all three lights</strong>
+                <ul>
+                    <li>Turn on key, fill, AND rim lights</li>
+                    <li>Look for: bright outline around head, shoulders, hair</li>
+                    <li>Adjust position or intensity as needed</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <h3>🎨 Rim Light Intensity and Effects</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Rim Light Strength</th>
+                <th>Relative to Key</th>
+                <th>Visual Effect</th>
+                <th>Best For</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Subtle Rim</strong></td>
+                <td>Equal to key light</td>
+                <td>Gentle edge definition, natural look</td>
+                <td>Natural portraits, documentary style</td>
+            </tr>
+            <tr>
+                <td><strong>Standard Rim</strong></td>
+                <td>1.2-1.5x key light</td>
+                <td>Clear separation, professional look</td>
+                <td>Standard professional portraits</td>
+            </tr>
+            <tr>
+                <td><strong>Strong Rim</strong></td>
+                <td>1.5-2x key light</td>
+                <td>Dramatic glow, Hollywood effect</td>
+                <td>Glamour shots, hero portraits</td>
+            </tr>
+            <tr>
+                <td><strong>Extreme Rim</strong></td>
+                <td>2x+ key light</td>
+                <td>Very bright halo, stylized look</td>
+                <td>Music videos, fashion, artistic work</td>
+            </tr>
+            <tr>
+                <td><strong>No Rim</strong></td>
+                <td>0% (not used)</td>
+                <td>Flatter, subject may blend with background</td>
+                <td>When separation isn't needed or desired</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card">
+        <h4>💡 Adjusting Rim Light for Different Effects</h4>
+        
+        <p><strong>For more separation:</strong></p>
+        <ul>
+            <li>Increase rim light intensity</li>
+            <li>Position rim light more to the side (not directly behind)</li>
+            <li>Use a darker background</li>
+        </ul>
+
+        <p><strong>For subtler effect:</strong></p>
+        <ul>
+            <li>Decrease rim light intensity</li>
+            <li>Position rim light more directly behind (less to the side)</li>
+            <li>Use Point Light instead of Spotlight for softer rim</li>
+        </ul>
+
+        <p><strong>For dramatic "hero" look:</strong></p>
+        <ul>
+            <li>Very high intensity (2-3x key light)</li>
+            <li>Tight spotlight cone (30-40°)</li>
+            <li>Position to create strong highlights on one side</li>
+        </ul>
+    </div>
+
+    <h3>🌈 Colored Rim Lights</h3>
+    
+    <p>Rim lights don't have to be white! Colored rim lights create interesting effects and mood:</p>
+
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h4>Creative Color Choices</h4>
+        
+        <p><strong>Warm rim (orange/gold):</strong></p>
+        <ul>
+            <li>Simulates sunset or golden hour lighting</li>
+            <li>Creates warm, inviting mood</li>
+            <li>Great for romantic or nostalgic scenes</li>
+            <li>Example: RGB (255, 200, 150)</li>
+        </ul>
+
+        <p><strong>Cool rim (blue/cyan):</strong></p>
+        <ul>
+            <li>Simulates moonlight or cool atmospheres</li>
+            <li>Creates mysterious, dramatic mood</li>
+            <li>Good for sci-fi or nighttime scenes</li>
+            <li>Example: RGB (150, 200, 255)</li>
+        </ul>
+
+        <p><strong>Contrasting colors:</strong></p>
+        <ul>
+            <li>If key light is warm, use cool rim (and vice versa)</li>
+            <li>Creates visual interest and dimension</li>
+            <li>Very common in film and photography</li>
+            <li>Example: Warm key (orange) + Cool rim (blue)</li>
+        </ul>
+
+        <p><strong>Fantasy/stylized colors:</strong></p>
+        <ul>
+            <li>Purple, green, pink, etc.</li>
+            <li>For fantasy characters, magical scenes</li>
+            <li>Music videos, stylized artwork</li>
+            <li>Use carefully – can look unnatural if overdone</li>
+        </ul>
+    </div>
+
+    <h3>🚫 Common Rim Light Mistakes</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Mistake</th>
+                <th>Problem It Causes</th>
+                <th>How to Fix</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Rim light visible in shot</strong></td>
+                <td>Light source shows in frame, looks unprofessional</td>
+                <td>Move rim light more behind subject, check camera view</td>
+            </tr>
+            <tr>
+                <td><strong>Rim too dim</strong></td>
+                <td>No visible edge highlights, rim effect is lost</td>
+                <td>Increase intensity to match or exceed key light</td>
+            </tr>
+            <tr>
+                <td><strong>Rim too bright</strong></td>
+                <td>Blown out, looks like a halo, distracting</td>
+                <td>Reduce intensity by 30-50%</td>
+            </tr>
+            <tr>
+                <td><strong>Rim positioned too low</strong></td>
+                <td>Lights the back awkwardly, not creating rim effect</td>
+                <td>Elevate rim light significantly (60-80° up)</td>
+            </tr>
+            <tr>
+                <td><strong>Rim at front instead of back</strong></td>
+                <td>Creates competing key light, confusing</td>
+                <td>Move rim light to behind subject (180° from camera)</td>
+            </tr>
+            <tr>
+                <td><strong>Too wide spotlight cone</strong></td>
+                <td>Lights too much of scene, washes out background</td>
+                <td>Narrow cone to 40-60°, focus on edges only</td>
+            </tr>
+            <tr>
+                <td><strong>Rim on wrong side</strong></td>
+                <td>May conflict with key light direction</td>
+                <td>Usually place on same side as key light (but behind)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+        <h4>⚠️ The "Can't See It" Problem</h4>
+        <p>Sometimes you set up a rim light but don't see any rim effect. Common causes:</p>
+        <ul>
+            <li><strong>Light is too dim:</strong> Rim needs to be bright – try 150-200% intensity</li>
+            <li><strong>Wrong position:</strong> Must be behind and above, not to the side</li>
+            <li><strong>Hair/clothing too dark:</strong> Rim shows best on edges that contrast with background</li>
+            <li><strong>Light background:</strong> Rim effect is subtle on light backgrounds – use darker background or colored rim</li>
+        </ul>
+        <p><strong>Quick test:</strong> Temporarily turn off key and fill lights. You should see bright edges around your subject with just the rim light on!</p>
+    </div>
+
+    <h3>🎭 Variations: Multiple Rim Lights</h3>
+    
+    <p>Professional setups often use more than one rim light:</p>
+
+    <div class="card">
+        <h4>Two Rim Lights (Classic Setup)</h4>
+        <ul>
+            <li><strong>Left rim:</strong> Behind left side, elevated</li>
+            <li><strong>Right rim:</strong> Behind right side, elevated</li>
+            <li><strong>Effect:</strong> Creates rim on both edges, very polished look</li>
+            <li><strong>When to use:</strong> Professional portraits, glamour shots, when you want maximum separation</li>
+        </ul>
+        
+        <p><strong>Tip:</strong> Make one rim slightly brighter than the other to maintain visual hierarchy!</p>
+    </div>
+
+    <div class="card">
+        <h4>Hair Light (Specialized Rim)</h4>
+        <ul>
+            <li><strong>Position:</strong> Directly behind and above (not to the side)</li>
+            <li><strong>Tight focus:</strong> Spotlight aimed only at hair</li>
+            <li><strong>Effect:</strong> Makes hair glow beautifully</li>
+            <li><strong>When to use:</strong> Beauty shots, fashion, when hair is a key feature</li>
+        </ul>
+    </div>
+
+    <h3>✅ Testing Your Rim Light</h3>
+    
+    <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+        <h4>The Rim Light Checklist</h4>
+        <p><strong>Your rim light is working correctly if you see:</strong></p>
+        <ul>
+            <li>☐ Bright highlights along the edges of hair</li>
+            <li>☐ Highlights on shoulders/edges of body</li>
+            <li>☐ Subject visually separated from background</li>
+            <li>☐ Three-dimensional quality enhanced</li>
+            <li>☐ Professional, polished look</li>
+            <li>☐ NO visible light source in the shot</li>
+            <li>☐ Rim highlights are brighter than the background</li>
+        </ul>
+        
+        <p><strong>Quick isolation test:</strong></p>
+        <ol>
+            <li>Turn off key and fill lights</li>
+            <li>Leave only rim light on</li>
+            <li>You should see bright edges around your subject's silhouette</li>
+            <li>If you don't see bright edges, adjust position or increase intensity</li>
+        </ol>
+    </div>
+
+    <blockquote>
+        <p><strong>"The rim light is optional in the sense that your image can work without it – but it's mandatory if you want that professional, polished look. It's the difference between 'good lighting' and 'great lighting.' Never skip the rim light in your final work."</strong></p>
+        <footer>— Professional Portrait Photographer</footer>
+    </blockquote>
+
+    <h3>🎓 Practice Exercise: Master the Rim</h3>
+    
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h4>Try It Now: Rim Light Experimentation</h4>
+        <p style="color: white;">See the power of the rim light:</p>
+        <ol style="color: white;">
+            <li>Use your scene with key and fill lights already set up</li>
+            <li>Render once WITHOUT rim light – save this</li>
+            <li>Add a rim light behind and above your subject</li>
+            <li>Render with rim light – save this</li>
+            <li>Compare the two images side by side</li>
+            <li>Notice:
+                <ul>
+                    <li>How the rim-lit version "pops" more</li>
+                    <li>The three-dimensional quality increases</li>
+                    <li>The subject separates from background</li>
+                    <li>The overall professional quality improves</li>
+                </ul>
+            </li>
+            <li>Try different rim positions and intensities</li>
+            <li>Experiment with a colored rim light</li>
+        </ol>
+        <p style="color: white; margin-bottom: 0;"><strong>Goal:</strong> Understand that the rim light is the "secret sauce" that makes professional lighting look professional!</p>
+    </div>
+
+</section>
+<!-- Lesson 20, Part 06: Light Ratios and Complete Setup Guide -->
+
+<section id="light-ratios">
+    <h2>⚖️ Understanding Light Ratios</h2>
+    
+    <p>You've learned about each of the three lights individually. Now let's talk about how they work together as a system. The relationship between your lights – their relative intensities – is called the <strong>lighting ratio</strong>, and it's the key to controlling the overall mood and style of your lighting.</p>
+
+    <p>Think of light ratios like ingredients in a recipe. You know what flour, sugar, and eggs are individually, but the <em>proportions</em> determine whether you're making bread or cake. Same with lighting – the ratios determine whether you're creating soft beauty lighting or dramatic film noir.</p>
+
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h3>🎯 The Three Key Ratios</h3>
+        <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); margin-top: 1rem;">
+            <h4 style="color: white;">1. Key : Fill Ratio</h4>
+            <p style="color: white;"><strong>Controls shadow depth and contrast</strong></p>
+            <ul style="color: white;">
+                <li>Most important ratio in three-point lighting</li>
+                <li>Determines how dark shadows appear</li>
+                <li>Sets the overall mood (soft vs. dramatic)</li>
+            </ul>
+        </div>
+
+        <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); margin-top: 1rem;">
+            <h4 style="color: white;">2. Rim : Key Ratio</h4>
+            <p style="color: white;"><strong>Controls edge separation and intensity</strong></p>
+            <ul style="color: white;">
+                <li>Determines how bright the rim effect is</li>
+                <li>Affects how much subject "pops" from background</li>
+                <li>Sets the level of polish and drama</li>
+            </ul>
+        </div>
+
+        <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); margin-top: 1rem;">
+            <h4 style="color: white;">3. Overall Brightness</h4>
+            <p style="color: white;"><strong>The combined effect of all lights</strong></p>
+            <ul style="color: white;">
+                <li>How bright or dark the overall scene appears</li>
+                <li>Affects exposure and visibility</li>
+                <li>Sets whether it's high-key or low-key lighting</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>📊 Standard Three-Point Lighting Ratios</h3>
+    
+    <p>Here are the most common professional setups with their typical ratios:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Lighting Style</th>
+                <th>Key Light</th>
+                <th>Fill Light</th>
+                <th>Rim Light</th>
+                <th>Ratio</th>
+                <th>Look/Mood</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Beauty/Fashion</strong></td>
+                <td>100%</td>
+                <td>75-80%</td>
+                <td>100-120%</td>
+                <td>2:1 or less</td>
+                <td>Bright, soft, minimal shadows, flattering</td>
+            </tr>
+            <tr>
+                <td><strong>Standard Portrait</strong></td>
+                <td>100%</td>
+                <td>50%</td>
+                <td>100-150%</td>
+                <td>3:1</td>
+                <td>Professional, balanced, visible but gentle shadows</td>
+            </tr>
+            <tr>
+                <td><strong>Character Portrait</strong></td>
+                <td>100%</td>
+                <td>33%</td>
+                <td>120-180%</td>
+                <td>4:1</td>
+                <td>Dimensional, interesting, clear shadows</td>
+            </tr>
+            <tr>
+                <td><strong>Dramatic</strong></td>
+                <td>100%</td>
+                <td>20-25%</td>
+                <td>150-200%</td>
+                <td>6:1</td>
+                <td>Strong contrast, moody, artistic</td>
+            </tr>
+            <tr>
+                <td><strong>Film Noir</strong></td>
+                <td>100%</td>
+                <td>0-15%</td>
+                <td>180-250%</td>
+                <td>8:1+</td>
+                <td>Very dramatic, deep shadows, mystery</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+        <h4>✅ Starting Point: The 3:1 Standard</h4>
+        <p><strong>If you remember only one ratio, remember 3:1:</strong></p>
+        <ul>
+            <li><strong>Key Light:</strong> 150% intensity</li>
+            <li><strong>Fill Light:</strong> 50% intensity (1/3 of key)</li>
+            <li><strong>Rim Light:</strong> 150-180% intensity (equal to or slightly brighter than key)</li>
+        </ul>
+        <p>This setup works for 80% of portraits and always looks professional. Once you master this, you can adjust from there for different effects!</p>
+    </div>
+
+    <h3>🎨 How Ratios Affect Mood</h3>
+    
+    <div class="mermaid">
+        graph LR
+        A[Lighting Ratio] --> B[Low Ratio<br/>2:1 or less]
+        A --> C[Medium Ratio<br/>3:1 to 4:1]
+        A --> D[High Ratio<br/>6:1 or more]
+        
+        B --> B1[Soft, bright,<br/>cheerful]
+        C --> C1[Balanced,<br/>professional]
+        D --> D1[Dramatic,<br/>moody]
+        
+        style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+        style B1 fill:#FFE066,stroke:#333,stroke-width:2px,color:#000
+        style C1 fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+        style D1 fill:#7B2CBF,stroke:#333,stroke-width:2px,color:#fff
+    </div>
+
+    <div class="card">
+        <h4>Visual Examples by Ratio</h4>
+        
+        <p><strong>2:1 Ratio (Soft/Beauty Lighting):</strong></p>
+        <ul>
+            <li>Shadows are present but very light</li>
+            <li>Face appears evenly lit overall</li>
+            <li>Minimal contrast between light and shadow sides</li>
+            <li>Think: magazine beauty shots, fashion photography</li>
+        </ul>
+
+        <p><strong>3:1 Ratio (Standard Professional):</strong></p>
+        <ul>
+            <li>Clear distinction between light and shadow sides</li>
+            <li>Shadows visible but not harsh</li>
+            <li>Natural-looking, dimensional</li>
+            <li>Think: professional headshots, TV interviews</li>
+        </ul>
+
+        <p><strong>4:1 Ratio (Character/Artistic):</strong></p>
+        <ul>
+            <li>Strong shadows with good detail</li>
+            <li>Significant contrast but shadows not black</li>
+            <li>Interesting, dimensional look</li>
+            <li>Think: character portraits, editorial photography</li>
+        </ul>
+
+        <p><strong>8:1 Ratio (Dramatic/Film Noir):</strong></p>
+        <ul>
+            <li>Very dark shadows, strong contrast</li>
+            <li>Shadow side of face barely visible</li>
+            <li>Mysterious, intense mood</li>
+            <li>Think: film noir, thriller posters, dramatic art</li>
+        </ul>
+    </div>
+
+    <h3>🔧 Adjusting Ratios in Real Time</h3>
+    
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h4>The Ratio Adjustment Workflow</h4>
+        <ol>
+            <li><strong>Set your key light first</strong>
+                <ul>
+                    <li>This is your baseline (100%)</li>
+                    <li>Get position and intensity right before moving on</li>
+                </ul>
+            </li>
+            
+            <li><strong>Add fill based on desired ratio</strong>
+                <ul>
+                    <li>Want soft look? Fill = 50-75% of key</li>
+                    <li>Want standard look? Fill = 33-50% of key</li>
+                    <li>Want dramatic look? Fill = 15-30% of key</li>
+                </ul>
+            </li>
+            
+            <li><strong>Do a test render</strong>
+                <ul>
+                    <li>Check shadows – too dark? Too light?</li>
+                    <li>Adjust fill intensity up or down by 10-20%</li>
+                </ul>
+            </li>
+            
+            <li><strong>Add rim light</strong>
+                <ul>
+                    <li>Start equal to key light intensity</li>
+                    <li>Increase for more dramatic separation</li>
+                    <li>Decrease for subtler effect</li>
+                </ul>
+            </li>
+            
+            <li><strong>Final balance check</strong>
+                <ul>
+                    <li>Render with all three lights</li>
+                    <li>Is anything too bright or too dark?</li>
+                    <li>Fine-tune intensities in 10% increments</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+</section>
+
+<section id="setup-guide">
+    <h2>📋 Complete Three-Point Lighting Setup Guide</h2>
+    
+    <p>Now let's put it all together! Here's your step-by-step guide to setting up perfect three-point lighting in Poser from start to finish.</p>
+
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h3>🎬 The Complete Setup Process</h3>
+        <p style="color: white;">Follow these steps in order for best results:</p>
+    </div>
+
+    <h3>Phase 1: Preparation</h3>
+    
+    <div class="card">
+        <h4>Step 1: Scene Setup</h4>
+        <ol>
+            <li>Load your figure in Poser</li>
+            <li>Position figure in a neutral pose (or your desired pose)</li>
+            <li>Set your camera angle (3/4 view works great for portraits)</li>
+            <li><strong>Delete all default lights</strong> – start with complete darkness</li>
+        </ol>
+        
+        <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107; margin-top: 1rem;">
+            <p><strong>⚠️ Critical:</strong> Always delete default lights! Default Poser lighting interferes with your three-point setup. You want total control, starting from darkness.</p>
+        </div>
+    </div>
+
+    <h3>Phase 2: Key Light Setup</h3>
+    
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h4>Step 2: Add and Position Key Light</h4>
+        <ol>
+            <li><strong>Add light:</strong> Objects → Create Light → Spotlight</li>
+            <li><strong>Position horizontally:</strong>
+                <ul>
+                    <li>Move 30-45° to the left or right of figure</li>
+                    <li>Distance: 1.5-2x figure height</li>
+                </ul>
+            </li>
+            <li><strong>Position vertically:</strong>
+                <ul>
+                    <li>Raise to 30-45° above figure's eye level</li>
+                    <li>Height: About 1.5x figure height</li>
+                </ul>
+            </li>
+            <li><strong>Aim light:</strong>
+                <ul>
+                    <li>Right-click light → Point At → [Figure Head]</li>
+                    <li>Or manually rotate to aim at face</li>
+                </ul>
+            </li>
+            <li><strong>Set intensity:</strong> 150% (starting point)</li>
+            <li><strong>Set cone:</strong> 60-80° cone angle, 20-30 edge falloff</li>
+            <li><strong>Enable shadows:</strong> Cast Shadows ON, blur 5-10</li>
+            <li><strong>Test render:</strong> Preview to check lighting direction</li>
+        </ol>
+    </div>
+
+    <h3>Phase 3: Fill Light Setup</h3>
+    
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h4>Step 3: Add and Position Fill Light</h4>
+        <ol>
+            <li><strong>Add light:</strong> Objects → Create Light → Point Light</li>
+            <li><strong>Position horizontally:</strong>
+                <ul>
+                    <li>Opposite side from key light</li>
+                    <li>Closer to camera (15-30° from center)</li>
+                    <li>Similar distance as key light</li>
+                </ul>
+            </li>
+            <li><strong>Position vertically:</strong>
+                <ul>
+                    <li>At camera height or slightly below</li>
+                    <li>NOT elevated like key light</li>
+                </ul>
+            </li>
+            <li><strong>Set intensity:</strong> 50% (for 3:1 ratio with 150% key)</li>
+            <li><strong>Disable shadows:</strong> Cast Shadows OFF (or blur 25+)</li>
+            <li><strong>Test render:</strong> Check shadow softness with key + fill</li>
+        </ol>
+    </div>
+
+    <h3>Phase 4: Rim Light Setup</h3>
+    
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h4>Step 4: Add and Position Rim Light</h4>
+        <ol>
+            <li><strong>Add light:</strong> Objects → Create Light → Spotlight</li>
+            <li><strong>Position horizontally:</strong>
+                <ul>
+                    <li>Behind figure (180° from camera)</li>
+                    <li>Offset 30-45° to one side (usually same side as key)</li>
+                    <li>Make sure it's not visible in camera view</li>
+                </ul>
+            </li>
+            <li><strong>Position vertically:</strong>
+                <ul>
+                    <li>High above figure (60-80° angle)</li>
+                    <li>Height: 2-3x figure height</li>
+                </ul>
+            </li>
+            <li><strong>Aim light:</strong>
+                <ul>
+                    <li>Right-click → Point At → [Figure Head]</li>
+                    <li>Aim at top of head and shoulders</li>
+                </ul>
+            </li>
+            <li><strong>Set intensity:</strong> 150-180% (equal to or brighter than key)</li>
+            <li><strong>Set cone:</strong> 50-70° cone angle, 20-30 edge falloff</li>
+            <li><strong>Enable shadows:</strong> Cast Shadows ON, blur 5-10</li>
+            <li><strong>Test render:</strong> Check for rim highlights on edges</li>
+        </ol>
+    </div>
+
+    <h3>Phase 5: Fine-Tuning</h3>
+    
+    <div class="card">
+        <h4>Step 5: Balance and Refine</h4>
+        <ol>
+            <li><strong>Full render with all three lights</strong>
+                <ul>
+                    <li>Use your standard quality settings</li>
+                    <li>Check overall balance</li>
+                </ul>
+            </li>
+            
+            <li><strong>Evaluate key light:</strong>
+                <ul>
+                    <li>Is the face well-lit and defined?</li>
+                    <li>Are shadows in the right places?</li>
+                    <li>Too bright? Reduce by 10-20%</li>
+                    <li>Too dim? Increase by 10-20%</li>
+                </ul>
+            </li>
+            
+            <li><strong>Evaluate fill light:</strong>
+                <ul>
+                    <li>Are shadows too dark? Increase fill</li>
+                    <li>Is the image too flat? Decrease fill</li>
+                    <li>Adjust in 10% increments</li>
+                </ul>
+            </li>
+            
+            <li><strong>Evaluate rim light:</strong>
+                <ul>
+                    <li>Is there a visible rim effect?</li>
+                    <li>Too subtle? Increase by 20-30%</li>
+                    <li>Too bright/distracting? Decrease by 20-30%</li>
+                </ul>
+            </li>
+            
+            <li><strong>Check for issues:</strong>
+                <ul>
+                    <li>Hot spots (overly bright areas)?</li>
+                    <li>Pure black shadows (lost detail)?</li>
+                    <li>Conflicting shadows?</li>
+                    <li>Light sources visible in shot?</li>
+                </ul>
+            </li>
+            
+            <li><strong>Make small adjustments</strong>
+                <ul>
+                    <li>Move lights in small increments</li>
+                    <li>Adjust intensities by 10% at a time</li>
+                    <li>Test render after each change</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <h3>📊 Quick Reference Settings Chart</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Light</th>
+                <th>Type</th>
+                <th>Position</th>
+                <th>Intensity</th>
+                <th>Shadows</th>
+                <th>Cone/Settings</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Key Light</strong></td>
+                <td>Spotlight</td>
+                <td>30-45° side<br/>30-45° up</td>
+                <td>150%<br/>(baseline)</td>
+                <td>ON<br/>Blur: 5-10</td>
+                <td>Cone: 60-80°<br/>Falloff: 20-30</td>
+            </tr>
+            <tr>
+                <td><strong>Fill Light</strong></td>
+                <td>Point Light</td>
+                <td>Opposite side<br/>Camera level</td>
+                <td>50%<br/>(3:1 ratio)</td>
+                <td>OFF<br/>(or blur 25+)</td>
+                <td>N/A<br/>(Point Light)</td>
+            </tr>
+            <tr>
+                <td><strong>Rim Light</strong></td>
+                <td>Spotlight</td>
+                <td>Behind, 30-45° side<br/>60-80° up</td>
+                <td>150-180%<br/>(equal or more)</td>
+                <td>ON<br/>Blur: 5-10</td>
+                <td>Cone: 50-70°<br/>Falloff: 20-30</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+        <h4>✅ Success Checklist: Is Your Setup Complete?</h4>
+        <p>Your three-point lighting is properly set up when you can answer "yes" to all of these:</p>
+        <ul>
+            <li>☐ Key light creates clear, directional shadows</li>
+            <li>☐ Fill light softens shadows without eliminating them</li>
+            <li>☐ Rim light creates visible edge highlights</li>
+            <li>☐ Subject is clearly separated from background</li>
+            <li>☐ Face has three-dimensional quality</li>
+            <li>☐ No single light overwhelms the others</li>
+            <li>☐ No visible hot spots or blown-out areas</li>
+            <li>☐ Shadow detail is visible (not pure black)</li>
+            <li>☐ Mood matches your intention</li>
+            <li>☐ Overall look is professional and polished</li>
+        </ul>
+    </div>
+
+    <h3>⏱️ Time-Saving Tips</h3>
+    
+    <div class="card">
+        <h4>Speed Up Your Workflow</h4>
+        <ul>
+            <li><strong>Save light presets:</strong> Once you have a good setup, save each light as a preset for reuse</li>
+            <li><strong>Use quick renders:</strong> Test at 640x480 or draft quality while adjusting</li>
+            <li><strong>Work in stages:</strong> Perfect one light before adding the next</li>
+            <li><strong>Name your lights:</strong> Rename lights to "Key", "Fill", "Rim" for easy identification</li>
+            <li><strong>Use the isolation method:</strong> Turn lights on/off individually to see their contribution</li>
+            <li><strong>Start with templates:</strong> Create a base scene with lights positioned for quick reuse</li>
+        </ul>
+    </div>
+
+    <blockquote>
+        <p><strong>"Your first three-point lighting setup might take 30-60 minutes. Your tenth will take 10 minutes. Your hundredth will take 5 minutes. The process becomes instinctive with practice, but you have to put in the reps. Every setup teaches you something new."</strong></p>
+        <footer>— Professional Lighting Instructor</footer>
+    </blockquote>
+
+</section>
+<!-- Lesson 20, Part 07: Three-Point Lighting Variations -->
+
+<section id="variations">
+    <h2>🎨 Three-Point Lighting Variations</h2>
+    
+    <p>Now that you understand the classic three-point lighting setup, let's explore variations! The beauty of three-point lighting is that it's not a rigid formula – it's a flexible framework you can adapt for different moods, styles, and creative effects.</p>
+
+    <p>Think of the standard setup as your "home base" – once you know it well, you can venture out and experiment, always knowing you can return to the reliable baseline if needed.</p>
+
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h3>🎯 Why Variations Matter</h3>
+        <ul style="color: white;">
+            <li><strong>Different subjects need different lighting:</strong> Children vs. warriors</li>
+            <li><strong>Different moods require different approaches:</strong> Happy vs. mysterious</li>
+            <li><strong>Creative expression:</strong> Your unique style and vision</li>
+            <li><strong>Problem-solving:</strong> Adapting to challenging scenes or figures</li>
+            <li><strong>Professional versatility:</strong> Meeting diverse client needs</li>
+        </ul>
+    </div>
+
+    <h3>🌟 High-Key Lighting (Bright and Cheerful)</h3>
+    
+    <div class="card">
+        <h4>What is High-Key Lighting?</h4>
+        <p>High-key lighting is bright, soft, and cheerful with minimal shadows. It's characterized by overall bright illumination and very low contrast.</p>
+        
+        <p><strong>Best for:</strong></p>
+        <ul>
+            <li>Beauty and fashion photography</li>
+            <li>Children's portraits</li>
+            <li>Cheerful, optimistic scenes</li>
+            <li>Product photography</li>
+            <li>Comedy and upbeat content</li>
+        </ul>
+
+        <p><strong>How to achieve it:</strong></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Light</th>
+                    <th>Adjustment from Standard</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Key Light</strong></td>
+                    <td>• Position more frontal (20-30° instead of 45°)<br/>• Slightly lower angle (30° instead of 45°)<br/>• Softer shadows (blur 10-15)</td>
+                </tr>
+                <tr>
+                    <td><strong>Fill Light</strong></td>
+                    <td>• Very strong (60-80% of key)<br/>• Creates 2:1 or 1.5:1 ratio<br/>• Brings shadows very close to key brightness</td>
+                </tr>
+                <tr>
+                    <td><strong>Rim Light</strong></td>
+                    <td>• Moderate intensity (100-120% of key)<br/>• Creates gentle separation<br/>• Not overly dramatic</td>
+                </tr>
+                <tr>
+                    <td><strong>Additional</strong></td>
+                    <td>• Consider adding background lights<br/>• Use light-colored backgrounds<br/>• Overall bright, airy feel</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>🌑 Low-Key Lighting (Dramatic and Moody)</h3>
+    
+    <div class="card">
+        <h4>What is Low-Key Lighting?</h4>
+        <p>Low-key lighting is characterized by strong contrast, deep shadows, and dramatic mood. It emphasizes darkness with selective illumination.</p>
+        
+        <p><strong>Best for:</strong></p>
+        <ul>
+            <li>Film noir and mystery</li>
+            <li>Horror and thriller</li>
+            <li>Dramatic character portraits</li>
+            <li>Artistic and moody work</li>
+            <li>Villain or intense character shots</li>
+        </ul>
+
+        <p><strong>How to achieve it:</strong></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Light</th>
+                    <th>Adjustment from Standard</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Key Light</strong></td>
+                    <td>• Position more to side (60-80° angle)<br/>• Can be elevated more (50-60°)<br/>• Harder shadows (blur 3-5)<br/>• Creates strong directional lighting</td>
+                </tr>
+                <tr>
+                    <td><strong>Fill Light</strong></td>
+                    <td>• Very weak (15-25% of key)<br/>• Creates 6:1 or 8:1 ratio<br/>• Shadows stay very dark<br/>• Can be omitted entirely for extreme effect</td>
+                </tr>
+                <tr>
+                    <td><strong>Rim Light</strong></td>
+                    <td>• Very strong (150-250% of key)<br/>• Creates dramatic edge separation<br/>• Often colored (blue, purple, etc.)<br/>• High contrast rim effect</td>
+                </tr>
+                <tr>
+                    <td><strong>Additional</strong></td>
+                    <td>• Dark backgrounds essential<br/>• Minimize ambient light<br/>• Embrace deep shadows and darkness</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>🎭 Rembrandt Lighting (Classic Artistic)</h3>
+    
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h4>The Rembrandt Setup</h4>
+        <p>Named after the Dutch master painter, Rembrandt lighting creates a distinctive triangle of light on the cheek opposite the key light.</p>
+        
+        <p><strong>Characteristics:</strong></p>
+        <ul>
+            <li>Small triangle of light on shadow-side cheek</li>
+            <li>One side of face mostly in shadow</li>
+            <li>Classic, timeless, artistic look</li>
+            <li>Strong sense of depth and dimension</li>
+        </ul>
+
+        <p><strong>Setup specifics:</strong></p>
+        <ul>
+            <li><strong>Key Light:</strong> 45° to side, 45° above (exactly!)</li>
+            <li><strong>Position matters:</strong> Must create nose shadow that just touches cheek shadow</li>
+            <li><strong>Fill Light:</strong> 30-40% of key (4:1 ratio typical)</li>
+            <li><strong>Rim Light:</strong> Standard positioning, 120-150% of key</li>
+            <li><strong>The triangle:</strong> Should be visible under far eye on shadow-side cheek</li>
+        </ul>
+
+        <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50; margin-top: 1rem;">
+            <p><strong>✅ How to Check for the Triangle:</strong></p>
+            <p>Look at the cheek on the shadow side (opposite your key light). You should see a small triangle of light formed by:</p>
+            <ul>
+                <li>The nose shadow coming down</li>
+                <li>The shadow from the cheek going up</li>
+                <li>These two shadows meeting to create a lit triangle</li>
+            </ul>
+            <p>If you see it, you've achieved perfect Rembrandt lighting!</p>
+        </div>
+    </div>
+
+    <h3>🌅 Split Lighting (Dramatic Division)</h3>
+    
+    <div class="card">
+        <h4>Split Lighting Setup</h4>
+        <p>Split lighting divides the face exactly in half – one side lit, one side in shadow. It's dramatic and creates a strong, powerful look.</p>
+        
+        <p><strong>Best for:</strong></p>
+        <ul>
+            <li>Dramatic portraits</li>
+            <li>Masculine, powerful characters</li>
+            <li>Artistic, stylized work</li>
+            <li>Creating mystery or duality</li>
+        </ul>
+
+        <p><strong>How to achieve it:</strong></p>
+        <ul>
+            <li><strong>Key Light:</strong> Place at exactly 90° to the side (directly to left or right)</li>
+            <li><strong>Height:</strong> At subject's eye level or slightly above</li>
+            <li><strong>Result:</strong> One half of face lit, other half completely in shadow</li>
+            <li><strong>Fill Light:</strong> Very minimal (10-20%) or none at all</li>
+            <li><strong>Rim Light:</strong> Optional, but if used, place on shadow side for edge definition</li>
+        </ul>
+
+        <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107; margin-top: 1rem;">
+            <p><strong>⚠️ Use Carefully:</strong> Split lighting is very dramatic and not flattering for everyone. It works best on subjects with strong, angular features. Use it intentionally for specific effects, not as your default!</p>
+        </div>
+    </div>
+
+    <h3>🝰 Butterfly Lighting (Beauty/Glamour)</h3>
+    
+    <div class="card">
+        <h4>Butterfly Lighting Setup</h4>
+        <p>Also called "Paramount lighting," butterfly lighting is named for the butterfly-shaped shadow it creates under the nose.</p>
+        
+        <p><strong>Best for:</strong></p>
+        <ul>
+            <li>Beauty and glamour shots</li>
+            <li>Fashion photography</li>
+            <li>Highlighting cheekbones</li>
+            <li>Classic Hollywood portraits</li>
+        </ul>
+
+        <p><strong>How to achieve it:</strong></p>
+        <ul>
+            <li><strong>Key Light:</strong> Directly in front of subject, elevated (45-60° above)</li>
+            <li><strong>Creates:</strong> Small butterfly-shaped shadow under nose</li>
+            <li><strong>Position:</strong> Light is on camera axis (directly above camera)</li>
+            <li><strong>Fill Light:</strong> Place below camera, reflects up under face (50-60% of key)</li>
+            <li><strong>Rim Light:</strong> Standard back positioning for separation</li>
+            <li><strong>Result:</strong> Emphasizes cheekbones, creates symmetrical, glamorous look</li>
+        </ul>
+
+        <p><strong>Variation - Clamshell Lighting:</strong></p>
+        <ul>
+            <li>Key light above + large fill reflector below = "clamshell"</li>
+            <li>Very soft, flattering light</li>
+            <li>Minimizes wrinkles and imperfections</li>
+            <li>Classic beauty photography setup</li>
+        </ul>
+    </div>
+
+    <h3>🎬 Cinematic Variations</h3>
+    
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h4>Film-Inspired Lighting Styles</h4>
+        
+        <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); margin-top: 1rem;">
+            <h4 style="color: white;">Noir Style</h4>
+            <ul style="color: white;">
+                <li><strong>Key:</strong> Hard, from low angle or extreme side</li>
+                <li><strong>Fill:</strong> Minimal or none (8:1+ ratio)</li>
+                <li><strong>Rim:</strong> Very strong, often from side instead of behind</li>
+                <li><strong>Effect:</strong> Deep shadows, mystery, dramatic contrast</li>
+                <li><strong>Colors:</strong> Cool tones, desaturated</li>
+            </ul>
+        </div>
+
+        <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); margin-top: 1rem;">
+            <h4 style="color: white;">Horror Style</h4>
+            <ul style="color: white;">
+                <li><strong>Key:</strong> From below (underlighting) – unnatural and eerie</li>
+                <li><strong>Fill:</strong> None or very minimal from above</li>
+                <li><strong>Rim:</strong> Optional, colored (green, red, purple)</li>
+                <li><strong>Effect:</strong> Creepy, unsettling, reveals eye sockets</li>
+                <li><strong>Colors:</strong> Sickly greens, reds, cold blues</li>
+            </ul>
+        </div>
+
+        <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); margin-top: 1rem;">
+            <h4 style="color: white;">Action/Hero Style</h4>
+            <ul style="color: white;">
+                <li><strong>Key:</strong> Strong from heroic angle (slightly above and to side)</li>
+                <li><strong>Fill:</strong> Moderate (3:1 to 4:1 ratio)</li>
+                <li><strong>Rim:</strong> Very strong, often multiple rims (150-200% each)</li>
+                <li><strong>Effect:</strong> Epic, powerful, dimensioned</li>
+                <li><strong>Colors:</strong> Warm key + cool rims = dynamic contrast</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>🎨 Creative Color Combinations</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Color Scheme</th>
+                <th>Key Light Color</th>
+                <th>Fill Light Color</th>
+                <th>Rim Light Color</th>
+                <th>Effect/Mood</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Classic Neutral</strong></td>
+                <td>Warm white<br/>(255, 245, 230)</td>
+                <td>Cool white<br/>(245, 250, 255)</td>
+                <td>White<br/>(255, 255, 255)</td>
+                <td>Natural, balanced, professional</td>
+            </tr>
+            <tr>
+                <td><strong>Golden Hour</strong></td>
+                <td>Warm orange<br/>(255, 200, 150)</td>
+                <td>Soft warm<br/>(255, 230, 200)</td>
+                <td>Golden<br/>(255, 210, 160)</td>
+                <td>Warm, romantic, sunset feel</td>
+            </tr>
+            <tr>
+                <td><strong>Cool/Dramatic</strong></td>
+                <td>Neutral<br/>(255, 255, 255)</td>
+                <td>Cool blue<br/>(200, 220, 255)</td>
+                <td>Cyan<br/>(150, 220, 255)</td>
+                <td>Modern, cool, cinematic</td>
+            </tr>
+            <tr>
+                <td><strong>Warm/Cool Contrast</strong></td>
+                <td>Warm<br/>(255, 220, 180)</td>
+                <td>Neutral<br/>(255, 255, 255)</td>
+                <td>Cool blue<br/>(180, 210, 255)</td>
+                <td>Dynamic, cinematic, depth</td>
+            </tr>
+            <tr>
+                <td><strong>Teal & Orange</strong></td>
+                <td>Orange<br/>(255, 180, 120)</td>
+                <td>Neutral warm<br/>(255, 240, 220)</td>
+                <td>Teal<br/>(100, 200, 200)</td>
+                <td>Modern film look, popular style</td>
+            </tr>
+            <tr>
+                <td><strong>Fantasy/Magical</strong></td>
+                <td>Purple<br/>(200, 150, 255)</td>
+                <td>Soft pink<br/>(255, 200, 220)</td>
+                <td>Cyan<br/>(150, 255, 255)</td>
+                <td>Otherworldly, magical, fantasy</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+        <h4>✅ Color Contrast Principle</h4>
+        <p><strong>The cinematography trick:</strong> Use contrasting temperatures for key and rim lights.</p>
+        <ul>
+            <li><strong>Warm key + Cool rim:</strong> Creates visual interest and depth</li>
+            <li><strong>Cool key + Warm rim:</strong> Also works, just reversed</li>
+            <li><strong>Why it works:</strong> Color contrast creates visual separation and dimension</li>
+        </ul>
+        <p>This is why so many movies use warm/orange key lights with cool/blue rim lights – it's visually dynamic!</p>
+    </div>
+
+    <h3>🔄 Modified Ratios for Special Effects</h3>
+    
+    <div class="card">
+        <h4>Extreme Ratios for Creative Impact</h4>
+        
+        <p><strong>1:1 Ratio (Almost Flat):</strong></p>
+        <ul>
+            <li>Fill equals or nearly equals key</li>
+            <li>Minimal shadows, very soft look</li>
+            <li>Best for: Scientific photography, documentation, very soft beauty shots</li>
+            <li>Caution: Can look too flat if not careful</li>
+        </ul>
+
+        <p><strong>10:1+ Ratio (Extreme Drama):</strong></p>
+        <ul>
+            <li>Fill is 10% or less of key (or none)</li>
+            <li>One side nearly black, extreme contrast</li>
+            <li>Best for: Artistic portraits, dramatic character shots, stylized work</li>
+            <li>Caution: Very little detail in shadows</li>
+        </ul>
+
+        <p><strong>Rim Brighter Than Key (Halo Effect):</strong></p>
+        <ul>
+            <li>Rim at 200-300% of key light</li>
+            <li>Creates strong glowing edges</li>
+            <li>Best for: Hero shots, angelic characters, fantasy</li>
+            <li>Caution: Can be too dramatic for realistic work</li>
+        </ul>
+    </div>
+
+    <h3>🎯 When to Break the Rules</h3>
+    
+    <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+        <h4>⚠️ Intentional Rule-Breaking</h4>
+        <p>Three-point lighting is a guideline, not a law. Break the rules when:</p>
+        <ul>
+            <li><strong>Creative vision demands it:</strong> Your artistic intent trumps conventions</li>
+            <li><strong>Mood requires it:</strong> Horror might need only one harsh light from below</li>
+            <li><strong>Subject suggests it:</strong> Some subjects look better with two lights, or four</li>
+            <li><strong>You know why you're breaking it:</strong> Intentional choices vs. mistakes</li>
+        </ul>
+        <p><strong>The key:</strong> Learn the rules first, THEN break them intentionally. Random rule-breaking looks amateurish; intentional rule-breaking looks artistic!</p>
+    </div>
+
+    <blockquote>
+        <p><strong>"Three-point lighting isn't a prison – it's a launching pad. Master the fundamentals so well that you can deviate from them with confidence. The best cinematographers know when to use three-point lighting and when to do something completely different."</strong></p>
+        <footer>— Award-Winning Cinematographer</footer>
+    </blockquote>
+
+    <h3>🎓 Practice Exercise: Create Three Moods</h3>
+    
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h4>Try It Now: Three Variations, One Subject</h4>
+        <p style="color: white;">Practice adapting your lighting for different moods:</p>
+        <ol style="color: white;">
+            <li>Set up standard three-point lighting on your figure</li>
+            <li><strong>Version 1 - High Key:</strong>
+                <ul>
+                    <li>Increase fill to 70-80% of key</li>
+                    <li>Make all lights slightly brighter overall</li>
+                    <li>Use warm, friendly colors</li>
+                    <li>Goal: Bright, cheerful, optimistic</li>
+                </ul>
+            </li>
+            <li><strong>Version 2 - Standard Portrait:</strong>
+                <ul>
+                    <li>Use 3:1 ratio (fill at 33% of key)</li>
+                    <li>Balanced intensity</li>
+                    <li>Neutral colors</li>
+                    <li>Goal: Professional, balanced</li>
+                </ul>
+            </li>
+            <li><strong>Version 3 - Low Key/Dramatic:</strong>
+                <ul>
+                    <li>Reduce fill to 20% or less</li>
+                    <li>Increase rim to 200%+</li>
+                    <li>Use contrasting colors (warm key, cool rim)</li>
+                    <li>Goal: Mysterious, dramatic, moody</li>
+                </ul>
+            </li>
+            <li>Render all three and compare side by side</li>
+        </ol>
+        <p style="color: white; margin-bottom: 0;"><strong>Learning goal:</strong> See how dramatically you can change mood using the same basic three-light setup with different ratios and colors!</p>
+    </div>
+
+</section>
+<!-- Lesson 20, Part 08: Troubleshooting Common Issues -->
+
+<section id="troubleshooting">
+    <h2>🔧 Troubleshooting Common Issues</h2>
+    
+    <p>Even with the best setup instructions, things can go wrong. Don't worry – troubleshooting lighting is a normal part of the learning process! In fact, learning to diagnose and fix lighting problems is just as important as setting up the lights correctly in the first place.</p>
+
+    <p>This section covers the most common three-point lighting issues and how to solve them quickly.</p>
+
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h3>🎯 The Troubleshooting Mindset</h3>
+        <p style="color: white;">When something looks wrong, follow this process:</p>
+        <ol style="color: white;">
+            <li><strong>Identify what's wrong:</strong> Be specific – "shadows too dark" not just "looks bad"</li>
+            <li><strong>Isolate the problem:</strong> Turn lights on/off individually to find the culprit</li>
+            <li><strong>Make small adjustments:</strong> Change one thing at a time, test render</li>
+            <li><strong>Compare before/after:</strong> Keep track of what changes improved or worsened the issue</li>
+        </ol>
+    </div>
+
+    <h3>🚫 Problem #1: Subject Too Dark Overall</h3>
+    
+    <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+        <h4>⚠️ Symptoms</h4>
+        <ul>
+            <li>Figure is hard to see clearly</li>
+            <li>Colors appear muddy or dull</li>
+            <li>Details lost in shadows</li>
+            <li>Overall underexposed look</li>
+        </ul>
+
+        <h4>🔍 Likely Causes</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cause</th>
+                    <th>Solution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Key light too dim</strong></td>
+                    <td>Increase key light intensity by 20-30%</td>
+                </tr>
+                <tr>
+                    <td><strong>Fill light too dim</strong></td>
+                    <td>Increase fill light intensity by 30-50%</td>
+                </tr>
+                <tr>
+                    <td><strong>Lights too far away</strong></td>
+                    <td>Move key and fill lights closer to subject</td>
+                </tr>
+                <tr>
+                    <td><strong>Dark materials/skin</strong></td>
+                    <td>Darker figures need brighter lights – increase all lights by 20-40%</td>
+                </tr>
+                <tr>
+                    <td><strong>No ambient light</strong></td>
+                    <td>Add very weak ambient light (10-20%) or increase fill</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>✅ Quick Fix</h4>
+        <p><strong>Emergency solution:</strong> Multiply all light intensities by 1.3x (increase by 30%). If key is 150%, make it 195%. If fill is 50%, make it 65%. This maintains your ratios while brightening everything.</p>
+    </div>
+
+    <h3>💡 Problem #2: Subject Too Bright / Washed Out</h3>
+    
+    <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+        <h4>⚠️ Symptoms</h4>
+        <ul>
+            <li>Blown-out highlights (pure white areas)</li>
+            <li>Lost detail in bright areas</li>
+            <li>Figure looks overexposed</li>
+            <li>Flat appearance despite good light positioning</li>
+        </ul>
+
+        <h4>🔍 Likely Causes</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cause</th>
+                    <th>Solution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Key light too bright</strong></td>
+                    <td>Decrease key light intensity by 20-30%</td>
+                </tr>
+                <tr>
+                    <td><strong>Fill light too strong</strong></td>
+                    <td>Decrease fill light by 30-50% to restore contrast</td>
+                </tr>
+                <tr>
+                    <td><strong>Rim light washing out back</strong></td>
+                    <td>Decrease rim intensity or move it farther away</td>
+                </tr>
+                <tr>
+                    <td><strong>Too many lights combined</strong></td>
+                    <td>Turn off extra lights, stick to just key + fill + rim</td>
+                </tr>
+                <tr>
+                    <td><strong>Light-colored figure/clothing</strong></td>
+                    <td>Light surfaces reflect more – reduce all lights by 20-30%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>✅ Quick Fix</h4>
+        <p><strong>Emergency solution:</strong> Divide all light intensities by 1.3 (reduce by 23%). Maintains ratios while darkening overall. Or specifically target the fill light – reducing it by 40-50% often solves wash-out issues.</p>
+    </div>
+
+    <h3>👥 Problem #3: No Visible Rim Light Effect</h3>
+    
+    <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+        <h4>⚠️ Symptoms</h4>
+        <ul>
+            <li>No visible edge highlights on hair or shoulders</li>
+            <li>Subject doesn't separate from background</li>
+            <li>Rim light seems to do nothing</li>
+        </ul>
+
+        <h4>🔍 Likely Causes & Solutions</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cause</th>
+                    <th>Diagnostic Test</th>
+                    <th>Solution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Rim too dim</strong></td>
+                    <td>Turn off key/fill, render with only rim</td>
+                    <td>Increase rim to 150-200% (should be bright!)</td>
+                </tr>
+                <tr>
+                    <td><strong>Wrong position</strong></td>
+                    <td>Can you see the light source in render?</td>
+                    <td>Move rim more behind subject (not visible in frame)</td>
+                </tr>
+                <tr>
+                    <td><strong>Not elevated enough</strong></td>
+                    <td>Check if light is above subject</td>
+                    <td>Raise rim light higher (60-80° angle)</td>
+                </tr>
+                <tr>
+                    <td><strong>Dark hair/clothing</strong></td>
+                    <td>Check rim on arms/face edges instead</td>
+                    <td>Increase rim brightness by 50-100% for dark subjects</td>
+                </tr>
+                <tr>
+                    <td><strong>Light background</strong></td>
+                    <td>Rim effect lost against bright background</td>
+                    <td>Use darker background or colored rim light</td>
+                </tr>
+                <tr>
+                    <td><strong>Spotlight cone too narrow</strong></td>
+                    <td>Check if cone encompasses subject</td>
+                    <td>Widen cone to 60-80°</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>✅ Quick Test</h4>
+        <p><strong>Isolation test:</strong> Turn off key and fill lights. Render with ONLY rim light. You should see bright edges. If you don't see anything bright, your rim light isn't working – check position and intensity!</p>
+    </div>
+
+    <h3>🌗 Problem #4: Shadows Too Dark / Lost Detail</h3>
+    
+    <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+        <h4>⚠️ Symptoms</h4>
+        <ul>
+            <li>Shadow side of face is nearly black</li>
+            <li>Can't see detail in shadowed areas</li>
+            <li>Shadows feel too heavy or harsh</li>
+            <li>High contrast looks unnatural</li>
+        </ul>
+
+        <h4>🔍 Solutions by Severity</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Severity</th>
+                    <th>What to Adjust</th>
+                    <th>Specific Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Slightly too dark</strong></td>
+                    <td>Fill light intensity</td>
+                    <td>Increase fill by 20-30% (e.g., 50% → 65%)</td>
+                </tr>
+                <tr>
+                    <td><strong>Moderately too dark</strong></td>
+                    <td>Fill light intensity + position</td>
+                    <td>Increase fill by 50% AND move closer to subject</td>
+                </tr>
+                <tr>
+                    <td><strong>Very dark (almost black)</strong></td>
+                    <td>Lighting ratio</td>
+                    <td>Change from 4:1 to 2:1 ratio (double fill intensity)</td>
+                </tr>
+                <tr>
+                    <td><strong>No detail at all</strong></td>
+                    <td>Might need additional fill</td>
+                    <td>Add second weak point light from below (10-20%)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>✅ Progressive Fix</h4>
+        <ol>
+            <li>First, increase fill light by 30%</li>
+            <li>Still too dark? Increase another 20%</li>
+            <li>Still too dark? Move fill light closer to subject</li>
+            <li>Still too dark? Add second weak fill from below</li>
+        </ol>
+    </div>
+
+    <h3>📸 Problem #5: Flat / No Dimension</h3>
+    
+    <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+        <h4>⚠️ Symptoms</h4>
+        <ul>
+            <li>Figure looks two-dimensional</li>
+            <li>Lacks depth and form</li>
+            <li>Appears evenly lit all over</li>
+            <li>No interesting shadows or highlights</li>
+        </ul>
+
+        <h4>🔍 Likely Causes & Solutions</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cause</th>
+                    <th>Why It Causes Flatness</th>
+                    <th>Solution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Key light too frontal</strong></td>
+                    <td>No shadows to show form</td>
+                    <td>Move key to 40-45° to the side</td>
+                </tr>
+                <tr>
+                    <td><strong>Fill light too strong</strong></td>
+                    <td>Fills in all shadows</td>
+                    <td>Reduce fill to 30-40% of key (create 3:1 or 4:1 ratio)</td>
+                </tr>
+                <tr>
+                    <td><strong>No rim light</strong></td>
+                    <td>No edge separation</td>
+                    <td>Add rim light at 150% behind and above</td>
+                </tr>
+                <tr>
+                    <td><strong>All lights same color</strong></td>
+                    <td>No color contrast</td>
+                    <td>Make rim slightly cool if key is warm (or vice versa)</td>
+                </tr>
+                <tr>
+                    <td><strong>Lights positioned symmetrically</strong></td>
+                    <td>Cancels dimensional shadows</td>
+                    <td>Ensure key and fill are at different angles/heights</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>✅ Dimension Checklist</h4>
+        <p>Your lighting creates dimension when you can see:</p>
+        <ul>
+            <li>☐ Clear difference between light side and shadow side of face</li>
+            <li>☐ Visible shadows under nose, chin, cheekbones</li>
+            <li>☐ Bright rim highlights along edges</li>
+            <li>☐ Gradual transition from light to shadow (not instant)</li>
+        </ul>
+    </div>
+
+    <h3>⚡ Problem #6: Conflicting Shadows</h3>
+    
+    <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+        <h4>⚠️ Symptoms</h4>
+        <ul>
+            <li>Multiple shadows in different directions</li>
+            <li>Confusing light direction</li>
+            <li>Unnatural-looking shadow patterns</li>
+            <li>Messy, unprofessional appearance</li>
+        </ul>
+
+        <h4>🔍 Cause: Fill or Rim Light Creating Visible Shadows</h4>
+        <p><strong>The rule:</strong> Only your KEY light should create visible, directional shadows. Fill and rim lights should either have no shadows or very soft ones.</p>
+
+        <h4>✅ Solutions</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Problematic Light</th>
+                    <th>Fix Option 1</th>
+                    <th>Fix Option 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Fill light shadows</strong></td>
+                    <td>Turn off "Cast Shadows" completely</td>
+                    <td>Increase shadow blur to 25-30 (makes them invisible)</td>
+                </tr>
+                <tr>
+                    <td><strong>Rim light shadows</strong></td>
+                    <td>Usually OK since they fall forward (away from camera)</td>
+                    <td>If visible, increase shadow blur to 15-20</td>
+                </tr>
+                <tr>
+                    <td><strong>Extra lights</strong></td>
+                    <td>Disable shadows on ALL lights except key</td>
+                    <td>Remove unnecessary lights entirely</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>🎯 Quick Diagnostic</h4>
+        <p>Turn lights on one at a time and render:</p>
+        <ol>
+            <li><strong>Key only:</strong> Should see clear directional shadows ✓</li>
+            <li><strong>Add Fill:</strong> Shadows should soften, NOT add new shadows</li>
+            <li><strong>Add Rim:</strong> Should see edge highlights, shadows fall forward</li>
+        </ol>
+        <p>If fill or rim adds confusing shadows, disable their shadow casting!</p>
+    </div>
+
+    <h3>🎨 Problem #7: Colors Look Wrong</h3>
+    
+    <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+        <h4>⚠️ Symptoms</h4>
+        <ul>
+            <li>Skin tones appear unnatural</li>
+            <li>Overall color cast (too blue, too yellow)</li>
+            <li>Colors don't match your intention</li>
+        </ul>
+
+        <h4>🔍 Causes & Solutions</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Issue</th>
+                    <th>Cause</th>
+                    <th>Solution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Everything too blue/cold</strong></td>
+                    <td>Lights set to cool white</td>
+                    <td>Warm up lights (add yellow/orange tint)</td>
+                </tr>
+                <tr>
+                    <td><strong>Everything too yellow/warm</strong></td>
+                    <td>Lights set to warm white</td>
+                    <td>Cool down lights (add blue tint)</td>
+                </tr>
+                <tr>
+                    <td><strong>Skin looks sickly</strong></td>
+                    <td>Green or wrong color temperature</td>
+                    <td>Use warm white (255, 245, 230) for key light</td>
+                </tr>
+                <tr>
+                    <td><strong>Too much color contrast</strong></td>
+                    <td>Wildly different light colors</td>
+                    <td>Use subtle color differences, not extreme ones</td>
+                </tr>
+                <tr>
+                    <td><strong>Colored lighting wrong mood</strong></td>
+                    <td>Color choice doesn't match scene</td>
+                    <td>Match colors to mood (warm = friendly, cool = dramatic)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>✅ Safe Color Choices</h4>
+        <p><strong>Can't go wrong with these:</strong></p>
+        <ul>
+            <li><strong>Key Light:</strong> Warm white (255, 245, 230) or pure white</li>
+            <li><strong>Fill Light:</strong> Slightly cool white (245, 250, 255) or match key</li>
+            <li><strong>Rim Light:</strong> Pure white or slightly cool (240, 245, 255)</li>
+        </ul>
+        <p>These create natural-looking results in almost any situation!</p>
+    </div>
+
+    <h3>🎭 Problem #8: Lighting Works in Preview But Not Final Render</h3>
+    
+    <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+        <h4>⚠️ Symptoms</h4>
+        <ul>
+            <li>Looks good in preview/OpenGL but terrible in final render</li>
+            <li>Different brightness between preview and render</li>
+            <li>Shadows appear or disappear in final render</li>
+        </ul>
+
+        <h4>🔍 Cause: Preview vs. Render Engines Are Different</h4>
+        <p>Preview uses simplified OpenGL rendering. Final renders use Firefly or SuperFly which calculate light differently.</p>
+
+        <h4>✅ Solutions</h4>
+        <ul>
+            <li><strong>Always test with actual renders:</strong> Don't rely on preview for lighting adjustments</li>
+            <li><strong>Use draft quality test renders:</strong> Fast but accurate lighting feedback</li>
+            <li><strong>Render at small size:</strong> 640x480 renders quickly but shows accurate lighting</li>
+            <li><strong>Enable shadows in preview:</strong> Document Display → Display Style → Show Shadows (gives more accurate preview)</li>
+        </ul>
+
+        <p><strong>Bottom line:</strong> Preview is for positioning, render is for judging lighting quality!</p>
+    </div>
+
+    <h3>🔄 The Systematic Troubleshooting Process</h3>
+    
+    <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+        <h4>✅ When Something's Wrong, Follow These Steps:</h4>
+        <ol>
+            <li><strong>Identify the specific problem</strong>
+                <ul>
+                    <li>Too dark? Too bright? Flat? Confusing shadows?</li>
+                    <li>Be specific about what's wrong</li>
+                </ul>
+            </li>
+            
+            <li><strong>Isolate the cause</strong>
+                <ul>
+                    <li>Turn off all lights</li>
+                    <li>Turn on key only → How does it look?</li>
+                    <li>Add fill → What changed?</li>
+                    <li>Add rim → What changed?</li>
+                </ul>
+            </li>
+            
+            <li><strong>Make one change at a time</strong>
+                <ul>
+                    <li>Adjust one light's intensity</li>
+                    <li>Test render</li>
+                    <li>Better or worse?</li>
+                    <li>Proceed based on result</li>
+                </ul>
+            </li>
+            
+            <li><strong>Use small increments</strong>
+                <ul>
+                    <li>Adjust intensity by 10-20% at a time</li>
+                    <li>Move lights in small position changes</li>
+                    <li>Don't make huge changes randomly</li>
+                </ul>
+            </li>
+            
+            <li><strong>Compare before and after</strong>
+                <ul>
+                    <li>Save renders as you go</li>
+                    <li>Compare to see if changes improved things</li>
+                    <li>Keep track of what worked</li>
+                </ul>
+            </li>
+            
+            <li><strong>Return to baseline if lost</strong>
+                <ul>
+                    <li>If totally confused, return to standard 3:1 setup</li>
+                    <li>Key 150%, Fill 50%, Rim 150%</li>
+                    <li>Start over from working foundation</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <h3>📝 Quick Troubleshooting Checklist</h3>
+    
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h4>Before Asking for Help, Check These:</h4>
+        <ul>
+            <li>☐ Are all three lights actually turned on and visible?</li>
+            <li>☐ Is key light positioned at 30-45° to side and elevated?</li>
+            <li>☐ Is fill light on opposite side from key?</li>
+            <li>☐ Is rim light behind subject (not visible in camera)?</li>
+            <li>☐ Are light intensities in reasonable ranges (50-200%)?</li>
+            <li>☐ Is fill light dimmer than key light?</li>
+            <li>☐ Are shadows enabled on key light?</li>
+            <li>☐ Are shadows disabled (or very soft) on fill light?</li>
+            <li>☐ Have you done actual test renders (not just preview)?</li>
+            <li>☐ Have you tried the isolation test (one light at a time)?</li>
+        </ul>
+        <p>Checking these basics solves 90% of lighting problems!</p>
+    </div>
+
+    <blockquote>
+        <p><strong>"Troubleshooting lighting isn't a sign you're doing something wrong – it's a sign you're learning. Every professional lighting artist has spent hours troubleshooting. The difference is they've learned to diagnose problems quickly through experience. You're building that experience right now."</strong></p>
+        <footer>— Lighting Technical Director</footer>
+    </blockquote>
+
+</section>
+<!-- Lesson 20, Part 09: Project - Create Professional Portraits -->
+
+<section id="project">
+    <h2>🎨 Project: Create Professional Portraits</h2>
+    
+    <p>Now it's time to put everything together! In this hands-on project, you'll create three professional portrait variations using three-point lighting. Each variation will use different ratios and styles to achieve different moods – and by the end, you'll have portfolio-worthy images and real-world experience with professional lighting.</p>
+
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h3>🎯 Project Goals</h3>
+        <ul style="color: white;">
+            <li><strong>Master the complete setup:</strong> Set up all three lights correctly from scratch</li>
+            <li><strong>Understand ratios in practice:</strong> See how different ratios create different moods</li>
+            <li><strong>Build your portfolio:</strong> Create three polished, professional-looking portraits</li>
+            <li><strong>Develop your eye:</strong> Learn to evaluate and adjust lighting critically</li>
+            <li><strong>Build confidence:</strong> Prove to yourself you can create professional lighting</li>
+        </ul>
+    </div>
+
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h4>⏱️ Time Required</h4>
+        <p><strong>Total Project Time:</strong> 2-3 hours</p>
+        <ul>
+            <li><strong>Scene Setup:</strong> 15 minutes</li>
+            <li><strong>Portrait 1 (Standard):</strong> 45-60 minutes</li>
+            <li><strong>Portrait 2 (High-Key):</strong> 30-45 minutes</li>
+            <li><strong>Portrait 3 (Dramatic):</strong> 30-45 minutes</li>
+            <li><strong>Final polish and comparison:</strong> 15-30 minutes</li>
+        </ul>
+        <p><strong>Note:</strong> First portrait takes longest as you learn. Subsequent portraits are faster!</p>
+    </div>
+
+    <h3>📋 What You'll Need</h3>
+    
+    <div class="card">
+        <h4>Materials Checklist</h4>
+        <ul>
+            <li>✅ <strong>Poser 12</strong> open and ready</li>
+            <li>✅ <strong>A figure</strong> (any Poser figure works – use what you have)</li>
+            <li>✅ <strong>Simple neutral pose</strong> (standing or sitting, facing camera at 3/4 angle)</li>
+            <li>✅ <strong>Neutral background</strong> (gray or dark works best for seeing rim light)</li>
+            <li>✅ <strong>2-3 hours</strong> of focused time</li>
+            <li>✅ <strong>Notebook</strong> for recording light settings (optional but recommended)</li>
+        </ul>
+    </div>
+
+    <h3>🎬 Phase 1: Scene Preparation</h3>
+    
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h4>Step 1: Set Up Your Base Scene</h4>
+        <ol>
+            <li><strong>Create new scene</strong>
+                <ul>
+                    <li>File → New (start fresh)</li>
+                    <li>Delete any default lights that appear</li>
+                </ul>
+            </li>
+            
+            <li><strong>Load your figure</strong>
+                <ul>
+                    <li>Choose any figure from your library</li>
+                    <li>Ryan, Andy, Alyson, or Sydney all work great</li>
+                    <li>Default Poser figures are perfect for learning</li>
+                </ul>
+            </li>
+            
+            <li><strong>Create a simple pose</strong>
+                <ul>
+                    <li>Standing pose works great</li>
+                    <li>Hands at sides or one hand on hip</li>
+                    <li>Head turned slightly (not straight-on)</li>
+                    <li>Slight weight shift for natural look</li>
+                    <li><strong>Keep it simple!</strong> Focus is on lighting, not complex posing</li>
+                </ul>
+            </li>
+            
+            <li><strong>Position your camera</strong>
+                <ul>
+                    <li>Use Main Camera</li>
+                    <li>3/4 view (about 45° from straight-on)</li>
+                    <li>Slightly elevated (looking slightly down at figure)</li>
+                    <li>Frame: head and shoulders, or full upper body</li>
+                    <li><strong>IMPORTANT:</strong> Lock this camera position! Don't move it for entire project</li>
+                </ul>
+            </li>
+            
+            <li><strong>Add simple background (optional)</strong>
+                <ul>
+                    <li>Props → Primitives → Ground Plane (for shadow surface)</li>
+                    <li>Or use a simple prop backdrop</li>
+                    <li>Keep background neutral – gray or dark color</li>
+                </ul>
+            </li>
+            
+            <li><strong>Save as base scene</strong>
+                <ul>
+                    <li>File → Save As → "Portrait_Project_Base.pz3"</li>
+                    <li>You'll reload this for each portrait variation</li>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50; margin-top: 1rem;">
+            <p><strong>✅ Pro Tip:</strong> Choose a figure with interesting features! Characters with distinctive faces photograph better than generic ones. Also, consider clothing – simple, solid-colored clothing works better than complex patterns for learning lighting.</p>
+        </div>
+    </div>
+
+    <h3>📸 Portrait 1: Standard Professional Portrait</h3>
+    
+    <p>This is your baseline – the classic, professional portrait with balanced 3:1 lighting that works for headshots, professional profiles, and general portrait work.</p>
+
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h4>Portrait 1 Specifications</h4>
+        <ul style="color: white;">
+            <li><strong>Style:</strong> Standard professional portrait</li>
+            <li><strong>Mood:</strong> Neutral, balanced, professional</li>
+            <li><strong>Ratio:</strong> 3:1 (key to fill)</li>
+            <li><strong>Best for:</strong> Headshots, LinkedIn photos, professional work</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h4>Step-by-Step Setup</h4>
+        
+        <p><strong>A. Key Light Setup</strong></p>
+        <ol>
+            <li>Objects → Create Light → Spotlight</li>
+            <li>Position: 45° to the right (or left) of figure</li>
+            <li>Height: 45° above eye level</li>
+            <li>Distance: About 1.5x figure height</li>
+            <li>Aim: Right-click → Point At → [Figure Head]</li>
+            <li>Intensity: <strong>150%</strong></li>
+            <li>Cone angle: 70°</li>
+            <li>Edge falloff: 25</li>
+            <li>Shadows: ON, blur 8</li>
+            <li>Color: Warm white (255, 245, 230)</li>
+        </ol>
+
+        <p><strong>B. Test Render #1</strong></p>
+        <ul>
+            <li>Render at draft quality, 800x600</li>
+            <li>Check: Is face well-lit? Shadows in good places?</li>
+            <li>Adjust key position if needed</li>
+            <li>Look for Rembrandt triangle on far cheek</li>
+        </ul>
+
+        <p><strong>C. Fill Light Setup</strong></p>
+        <ol>
+            <li>Objects → Create Light → Point Light</li>
+            <li>Position: Opposite side from key light</li>
+            <li>Height: Camera level (not elevated)</li>
+            <li>Distance: Similar to key light</li>
+            <li>Intensity: <strong>50%</strong> (3:1 ratio with 150% key)</li>
+            <li>Shadows: OFF</li>
+            <li>Color: Slightly cool white (245, 250, 255)</li>
+        </ol>
+
+        <p><strong>D. Test Render #2</strong></p>
+        <ul>
+            <li>Render with key + fill</li>
+            <li>Check: Are shadows too dark? Too light?</li>
+            <li>Should see clear difference between light/shadow sides</li>
+            <li>But shadow side should have visible detail</li>
+            <li>Adjust fill if needed (±10-20%)</li>
+        </ul>
+
+        <p><strong>E. Rim Light Setup</strong></p>
+        <ol>
+            <li>Objects → Create Light → Spotlight</li>
+            <li>Position: Behind figure, 30-45° to one side</li>
+            <li>Height: High above (60-70° angle)</li>
+            <li>Make sure it's NOT visible in camera view</li>
+            <li>Aim: Right-click → Point At → [Figure Head]</li>
+            <li>Intensity: <strong>160%</strong></li>
+            <li>Cone angle: 60°</li>
+            <li>Edge falloff: 25</li>
+            <li>Shadows: ON, blur 8</li>
+            <li>Color: Pure white (255, 255, 255)</li>
+        </ol>
+
+        <p><strong>F. Final Render</strong></p>
+        <ul>
+            <li>Render with all three lights</li>
+            <li>Use your standard quality settings</li>
+            <li>Check for: visible rim on hair/shoulders, balanced overall look</li>
+            <li>Fine-tune any lights that need adjustment</li>
+            <li>When satisfied, render at full quality</li>
+            <li>Save as: <strong>"Portrait_01_Standard.png"</strong></li>
+        </ul>
+    </div>
+
+    <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+        <h4>✅ Success Criteria for Portrait 1</h4>
+        <p>Your portrait is successful if you see:</p>
+        <ul>
+            <li>☐ Clear light side and shadow side distinction</li>
+            <li>☐ Shadows are visible but not too dark</li>
+            <li>☐ Rim light creates edge highlights</li>
+            <li>☐ Subject separated from background</li>
+            <li>☐ Professional, balanced appearance</li>
+            <li>☐ Three-dimensional quality</li>
+        </ul>
+    </div>
+
+    <h3>🌟 Portrait 2: High-Key Bright Portrait</h3>
+    
+    <p>Now let's create a brighter, more cheerful version with soft shadows and an upbeat mood.</p>
+
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h4>Portrait 2 Specifications</h4>
+        <ul style="color: white;">
+            <li><strong>Style:</strong> High-key, bright, soft</li>
+            <li><strong>Mood:</strong> Cheerful, friendly, optimistic</li>
+            <li><strong>Ratio:</strong> 2:1 or less (key to fill)</li>
+            <li><strong>Best for:</strong> Beauty shots, fashion, friendly portraits</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h4>Quick Setup (Start from Portrait 1)</h4>
+        <p><strong>You can modify Portrait 1 lights OR start fresh. Here's the quick modification approach:</strong></p>
+        
+        <ol>
+            <li><strong>Reload base scene</strong>
+                <ul>
+                    <li>File → Open → Portrait_Project_Base.pz3</li>
+                    <li>Start fresh for cleaner organization</li>
+                </ul>
+            </li>
+            
+            <li><strong>Set up lights using same positions as Portrait 1</strong></li>
+            
+            <li><strong>Key adjustments for high-key look:</strong></li>
+        </ol>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Light</th>
+                    <th>Standard (P1)</th>
+                    <th>High-Key (P2)</th>
+                    <th>Change</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Key Light</strong></td>
+                    <td>150%, 45° side</td>
+                    <td>150%, 30° side<br/>(more frontal)</td>
+                    <td>Move more toward front</td>
+                </tr>
+                <tr>
+                    <td><strong>Fill Light</strong></td>
+                    <td>50% (3:1 ratio)</td>
+                    <td>90-100% (2:1 ratio)</td>
+                    <td>Much brighter fill</td>
+                </tr>
+                <tr>
+                    <td><strong>Rim Light</strong></td>
+                    <td>160%</td>
+                    <td>120-140%</td>
+                    <td>Moderate rim</td>
+                </tr>
+                <tr>
+                    <td><strong>Shadow Blur</strong></td>
+                    <td>8</td>
+                    <td>12-15</td>
+                    <td>Softer shadows</td>
+                </tr>
+                <tr>
+                    <td><strong>Colors</strong></td>
+                    <td>Warm key, cool fill</td>
+                    <td>All warm/neutral</td>
+                    <td>Unified warm tone</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Render and compare:</strong></p>
+        <ul>
+            <li>This should look brighter and softer than Portrait 1</li>
+            <li>Shadows should be much lighter</li>
+            <li>Overall cheerful, approachable mood</li>
+            <li>Save as: <strong>"Portrait_02_HighKey.png"</strong></li>
+        </ul>
+    </div>
+
+    <h3>🌑 Portrait 3: Dramatic Low-Key Portrait</h3>
+    
+    <p>Finally, let's create a moody, dramatic version with deep shadows and strong contrast.</p>
+
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h4>Portrait 3 Specifications</h4>
+        <ul style="color: white;">
+            <li><strong>Style:</strong> Low-key, dramatic, moody</li>
+            <li><strong>Mood:</strong> Mysterious, intense, artistic</li>
+            <li><strong>Ratio:</strong> 6:1 or higher (key to fill)</li>
+            <li><strong>Best for:</strong> Character work, artistic portraits, dramatic scenes</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h4>Setup for Maximum Drama</h4>
+        
+        <ol>
+            <li><strong>Reload base scene again</strong></li>
+            
+            <li><strong>Key adjustments for dramatic look:</strong></li>
+        </ol>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Light</th>
+                    <th>Standard (P1)</th>
+                    <th>Dramatic (P3)</th>
+                    <th>Change</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Key Light</strong></td>
+                    <td>150%, 45° side</td>
+                    <td>160%, 60-70° side<br/>(more to side)</td>
+                    <td>Further to side, slightly brighter</td>
+                </tr>
+                <tr>
+                    <td><strong>Fill Light</strong></td>
+                    <td>50% (3:1 ratio)</td>
+                    <td>20-25% (6:1+ ratio)</td>
+                    <td>Much weaker fill</td>
+                </tr>
+                <tr>
+                    <td><strong>Rim Light</strong></td>
+                    <td>160%</td>
+                    <td>200-250%</td>
+                    <td>Very strong rim</td>
+                </tr>
+                <tr>
+                    <td><strong>Shadow Blur</strong></td>
+                    <td>8</td>
+                    <td>3-5</td>
+                    <td>Harder shadows</td>
+                </tr>
+                <tr>
+                    <td><strong>Colors</strong></td>
+                    <td>Warm key, cool fill</td>
+                    <td>Warm key (orange)<br/>Cool rim (blue)</td>
+                    <td>Strong color contrast</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Optional enhancement:</strong></p>
+        <ul>
+            <li>Add second rim light on opposite side (150-180%)</li>
+            <li>Creates double rim effect</li>
+            <li>Very dramatic, cinematic look</li>
+        </ul>
+
+        <p><strong>Render and compare:</strong></p>
+        <ul>
+            <li>Should look much darker and more contrasty than P1 and P2</li>
+            <li>Deep shadows with strong rim separation</li>
+            <li>Mysterious, intense mood</li>
+            <li>Save as: <strong>"Portrait_03_Dramatic.png"</strong></li>
+        </ul>
+    </div>
+
+    <h3>📊 Phase 2: Comparison and Analysis</h3>
+    
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h4>Compare Your Three Portraits</h4>
+        <ol>
+            <li><strong>Open all three renders in an image viewer</strong>
+                <ul>
+                    <li>Or create a side-by-side comparison in image editor</li>
+                    <li>Arrange: Standard | High-Key | Dramatic</li>
+                </ul>
+            </li>
+            
+            <li><strong>Analyze the differences:</strong></li>
+        </ol>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Aspect</th>
+                    <th>Portrait 1<br/>(Standard)</th>
+                    <th>Portrait 2<br/>(High-Key)</th>
+                    <th>Portrait 3<br/>(Dramatic)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Shadow depth</strong></td>
+                    <td>Moderate</td>
+                    <td>Very light</td>
+                    <td>Very deep</td>
+                </tr>
+                <tr>
+                    <td><strong>Overall brightness</strong></td>
+                    <td>Balanced</td>
+                    <td>Bright</td>
+                    <td>Dark</td>
+                </tr>
+                <tr>
+                    <td><strong>Contrast</strong></td>
+                    <td>Medium</td>
+                    <td>Low</td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td><strong>Mood</strong></td>
+                    <td>Professional, neutral</td>
+                    <td>Cheerful, friendly</td>
+                    <td>Mysterious, intense</td>
+                </tr>
+                <tr>
+                    <td><strong>Rim visibility</strong></td>
+                    <td>Clear</td>
+                    <td>Moderate</td>
+                    <td>Very strong</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>📝 Document Your Settings</h3>
+    
+    <div class="card">
+        <h4>Record What You Learned</h4>
+        <p>Create a reference document with your light settings for each portrait:</p>
+        
+        <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; font-family: monospace; margin: 1rem 0;">
+<pre style="margin: 0;">PORTRAIT LIGHTING PROJECT - SETTINGS REFERENCE
+============================================
+
+PORTRAIT 1 - STANDARD PROFESSIONAL
+-----------------------------------
+Key Light: Spotlight, 150%, 45° right, 45° up, Cone 70°
+Fill Light: Point, 50%, opposite side, camera level
+Rim Light: Spotlight, 160%, behind 45°, high 60°+
+Ratio: 3:1
+Mood: Professional, balanced
+Notes: [Your observations]
+
+PORTRAIT 2 - HIGH-KEY BRIGHT
+-----------------------------
+Key Light: Spotlight, 150%, 30° right, 40° up, Cone 70°
+Fill Light: Point, 90-100%, opposite side, camera level
+Rim Light: Spotlight, 120-140%, behind, high
+Ratio: 2:1
+Mood: Cheerful, friendly
+Notes: [Your observations]
+
+PORTRAIT 3 - DRAMATIC LOW-KEY
+------------------------------
+Key Light: Spotlight, 160%, 60-70° right, 50° up, Cone 60°
+Fill Light: Point, 20-25%, opposite side, camera level
+Rim Light: Spotlight, 200-250%, behind, very high
+Ratio: 6:1+
+Mood: Mysterious, dramatic
+Notes: [Your observations]
+
+KEY LEARNINGS:
+--------------
+- What surprised me:
+- Which portrait I like best:
+- Which was hardest to set up:
+- What I would do differently next time:
+</pre>
+        </div>
+    </div>
+
+    <h3>🎯 Bonus Challenges (Optional)</h3>
+    
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h4>Take It Further</h4>
+        <p style="color: white;">If you want to practice more:</p>
+        
+        <ol style="color: white;">
+            <li><strong>Portrait 4: Rembrandt Lighting</strong>
+                <ul>
+                    <li>Set up key to create triangle of light on far cheek</li>
+                    <li>4:1 ratio, classic artistic look</li>
+                </ul>
+            </li>
+            
+            <li><strong>Portrait 5: Split Lighting</strong>
+                <ul>
+                    <li>Key at 90° to side, minimal fill</li>
+                    <li>Half face lit, half in shadow</li>
+                </ul>
+            </li>
+            
+            <li><strong>Portrait 6: Butterfly Lighting</strong>
+                <ul>
+                    <li>Key directly in front and above</li>
+                    <li>Creates butterfly shadow under nose</li>
+                </ul>
+            </li>
+            
+            <li><strong>Portrait 7: Custom Creative</strong>
+                <ul>
+                    <li>Use colored lights for fantasy/sci-fi effect</li>
+                    <li>Experiment with your own unique style</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <h3>🏆 Project Completion Checklist</h3>
+    
+    <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+        <h4>✅ You've Completed the Project When You Have:</h4>
+        <ul style="list-style: none; padding-left: 0;">
+            <li>☐ <strong>Three rendered portraits</strong> (Standard, High-Key, Dramatic)</li>
+            <li>☐ <strong>Each portrait uses proper three-point lighting</strong></li>
+            <li>☐ <strong>Clear differences in mood</strong> between the three versions</li>
+            <li>☐ <strong>Professional quality</strong> in at least the Standard portrait</li>
+            <li>☐ <strong>Documented settings</strong> for future reference</li>
+            <li>☐ <strong>Understanding of how ratios affect mood</strong></li>
+            <li>☐ <strong>Confidence</strong> in setting up three-point lighting</li>
+        </ul>
+    </div>
+
+    <blockquote>
+        <p><strong>"The project you just completed is the exact same process professional lighting artists use every day. You've learned a professional skill. The difference between you and a pro is just practice – and you've taken a huge step toward building that experience."</strong></p>
+        <footer>— Professional Portrait Photographer</footer>
+    </blockquote>
+
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h3>🎉 Congratulations!</h3>
+        <p style="color: white; font-size: 1.1em;">You've just completed three professional portrait lighting setups! You now have:</p>
+        <ul style="color: white;">
+            <li>✅ Hands-on experience with three-point lighting</li>
+            <li>✅ Understanding of how lighting ratios affect mood</li>
+            <li>✅ Three portfolio-worthy portraits</li>
+            <li>✅ A reference guide you created yourself</li>
+            <li>✅ The confidence to light any portrait scene</li>
+        </ul>
+        <p style="color: white; margin-bottom: 0;"><strong>Save these renders! They're proof of your growing skills and great portfolio pieces.</strong></p>
+    </div>
+
+</section>
+<!-- Lesson 20, Part 10: Summary, Wrap-up, Navigation, and Footer -->
+
+<section id="summary">
+    <h2>🎓 Lesson Summary: Three-Point Lighting Fundamentals</h2>
+    
+    <p>Congratulations! You've just mastered one of the most important skills in visual media – three-point lighting. This isn't just a Poser skill or a 3D skill – it's a universal principle used in film, photography, and any medium where lighting matters.</p>
+
+    <p>Let's recap what you've learned and prepare you for the exciting lighting lessons ahead.</p>
+
+    <h3>📚 What You've Mastered</h3>
+    
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h3>Key Concepts Learned</h3>
+        
+        <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); margin-top: 1rem;">
+            <h4 style="color: white;">🔑 The Key Light</h4>
+            <ul style="color: white;">
+                <li>Your main light source, the brightest and most important</li>
+                <li>Positioned 30-45° to side, 30-45° above subject</li>
+                <li>Creates the primary shadows that define form</li>
+                <li>Sets the overall mood and direction of lighting</li>
+            </ul>
+        </div>
+
+        <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); margin-top: 1rem;">
+            <h4 style="color: white;">🌤️ The Fill Light</h4>
+            <ul style="color: white;">
+                <li>Controls shadow depth and contrast</li>
+                <li>Opposite side from key, at camera level</li>
+                <li>Should NOT create its own visible shadows</li>
+                <li>The "mood control dial" – adjust for different effects</li>
+            </ul>
+        </div>
+
+        <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); margin-top: 1rem;">
+            <h4 style="color: white;">✨ The Rim Light</h4>
+            <ul style="color: white;">
+                <li>Creates separation from background</li>
+                <li>Behind subject, elevated 60-80°</li>
+                <li>Creates bright edge highlights</li>
+                <li>The "professional polish" light</li>
+            </ul>
+        </div>
+
+        <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); margin-top: 1rem;">
+            <h4 style="color: white;">⚖️ Lighting Ratios</h4>
+            <ul style="color: white;">
+                <li><strong>2:1 Ratio:</strong> Soft, high-key, minimal shadows</li>
+                <li><strong>3:1 Ratio:</strong> Standard professional (your go-to)</li>
+                <li><strong>4:1 Ratio:</strong> Character/artistic with clear shadows</li>
+                <li><strong>6:1+ Ratio:</strong> Dramatic, low-key, deep shadows</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>🎯 The Quick Reference You Need</h3>
+    
+    <p>Bookmark this section! This is your "three-point lighting cheat sheet" for quick reference:</p>
+
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h4>The Standard Three-Point Setup (3:1 Ratio)</h4>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Light</th>
+                    <th>Type</th>
+                    <th>Position</th>
+                    <th>Intensity</th>
+                    <th>Settings</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Key</strong></td>
+                    <td>Spotlight</td>
+                    <td>45° side<br/>45° up</td>
+                    <td>150%</td>
+                    <td>Cone: 70°<br/>Shadows: ON<br/>Blur: 8</td>
+                </tr>
+                <tr>
+                    <td><strong>Fill</strong></td>
+                    <td>Point Light</td>
+                    <td>Opposite side<br/>Camera level</td>
+                    <td>50%</td>
+                    <td>Shadows: OFF</td>
+                </tr>
+                <tr>
+                    <td><strong>Rim</strong></td>
+                    <td>Spotlight</td>
+                    <td>Behind<br/>60-80° up</td>
+                    <td>150-180%</td>
+                    <td>Cone: 60°<br/>Shadows: ON<br/>Blur: 8</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p><strong>This setup works for 80% of portrait situations!</strong> Start here, then adjust based on your needs.</p>
+    </div>
+
+    <h3>💡 The Golden Rules You Should Never Forget</h3>
+    
+    <div class="card">
+        <h4>Rule #1: Build One Light at a Time</h4>
+        <p>Always add lights in order: Key → Fill → Rim. Test after each addition. This makes troubleshooting infinitely easier!</p>
+    </div>
+
+    <div class="card">
+        <h4>Rule #2: Ratios Control Mood</h4>
+        <p>Want to change the mood? Adjust the fill light. It's your fastest way to go from cheerful (strong fill) to dramatic (weak fill).</p>
+    </div>
+
+    <div class="card">
+        <h4>Rule #3: Only Key Light Should Create Visible Shadows</h4>
+        <p>Fill and rim lights should have shadows disabled or very soft. Multiple competing shadows look unprofessional.</p>
+    </div>
+
+    <div class="card">
+        <h4>Rule #4: Rim Light Makes It Professional</h4>
+        <p>You can skip the rim light, but you'll lose that polished, professional separation. It's the difference between good and great.</p>
+    </div>
+
+    <div class="card">
+        <h4>Rule #5: Start with 3:1, Adjust from There</h4>
+        <p>The standard 3:1 ratio is your baseline. It always looks professional. Once you have it working, you can adjust for specific effects.</p>
+    </div>
+
+    <h3>🎨 Variations You Now Understand</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Style</th>
+                <th>When to Use</th>
+                <th>Key Adjustment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>High-Key</strong></td>
+                <td>Cheerful, beauty, fashion</td>
+                <td>Strong fill (2:1 ratio or less)</td>
+            </tr>
+            <tr>
+                <td><strong>Low-Key</strong></td>
+                <td>Dramatic, mysterious, artistic</td>
+                <td>Weak fill (6:1+ ratio)</td>
+            </tr>
+            <tr>
+                <td><strong>Rembrandt</strong></td>
+                <td>Classic artistic portraits</td>
+                <td>Key at exactly 45°/45°, creates triangle</td>
+            </tr>
+            <tr>
+                <td><strong>Split Lighting</strong></td>
+                <td>Dramatic, powerful characters</td>
+                <td>Key at 90° to side</td>
+            </tr>
+            <tr>
+                <td><strong>Butterfly</strong></td>
+                <td>Beauty, glamour, Hollywood</td>
+                <td>Key directly above and in front</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>🚀 What's Next: Your Lighting Journey</h3>
+    
+    <p>You've mastered the fundamentals. Now you'll learn to apply three-point lighting in specific situations:</p>
+
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h4>📖 Upcoming Lessons</h4>
+        
+        <p><strong>Lesson 21: Natural and Outdoor Lighting</strong></p>
+        <ul>
+            <li>Using three-point lighting for outdoor scenes</li>
+            <li>Simulating different times of day</li>
+            <li>Working with natural light and IBL</li>
+            <li>Combining three-point with environmental lighting</li>
+        </ul>
+
+        <p><strong>Lesson 22: Indoor and Dramatic Lighting</strong></p>
+        <ul>
+            <li>Three-point lighting for interior scenes</li>
+            <li>Practical lights combined with three-point</li>
+            <li>Creating dramatic and stylized lighting</li>
+            <li>Film noir and cinematic techniques</li>
+        </ul>
+
+        <p><strong>Module 6: Rendering Your Work</strong></p>
+        <ul>
+            <li>How lighting affects render times</li>
+            <li>Optimizing your three-point setups</li>
+            <li>Final polish for portfolio-worthy images</li>
+        </ul>
+    </div>
+
+    <h3>🎓 Practice Recommendations</h3>
+    
+    <p>Before moving to the next lesson, strengthen your three-point lighting skills:</p>
+
+    <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+        <h4>✅ Essential Practice (Do at least 2-3)</h4>
+        
+        <p><strong>For Beginners:</strong></p>
+        <ul>
+            <li>Set up three-point lighting on 3 different figures</li>
+            <li>Create the same setup 5 times to build muscle memory</li>
+            <li>Practice adjusting ratios (2:1, 3:1, 4:1, 6:1) on one figure</li>
+            <li>Try all three lights in different colors</li>
+        </ul>
+
+        <p><strong>For Intermediate Practice:</strong></p>
+        <ul>
+            <li>Recreate lighting from 3 reference photos you admire</li>
+            <li>Create high-key, mid-key, and low-key versions of the same scene</li>
+            <li>Practice all the variations: Rembrandt, Split, Butterfly</li>
+            <li>Light a scene with multiple figures using three-point for each</li>
+        </ul>
+
+        <p><strong>For Advanced Challenge:</strong></p>
+        <ul>
+            <li>Create a portfolio series (5 portraits, different lighting for each)</li>
+            <li>Combine three-point with IBL for hybrid realism</li>
+            <li>Create a lighting study showing 10 different moods</li>
+            <li>Light a complex multi-figure scene professionally</li>
+        </ul>
+    </div>
+
+    <h3>📖 Additional Resources</h3>
+    
+    <div class="card">
+        <h4>Expand Your Knowledge</h4>
+        
+        <p><strong>Study Real-World Examples:</strong></p>
+        <ul>
+            <li>Watch behind-the-scenes of professional photo shoots on YouTube</li>
+            <li>Analyze portrait lighting in movies and TV shows</li>
+            <li>Study professional portrait photography on Instagram or Pinterest</li>
+            <li>Look at classic paintings (Rembrandt, Vermeer) for lighting inspiration</li>
+        </ul>
+
+        <p><strong>Practice Analysis:</strong></p>
+        <ul>
+            <li>When watching movies, pause on close-ups and identify key, fill, and rim</li>
+            <li>Look at professional portraits and figure out the lighting ratio</li>
+            <li>Try to recreate lighting setups from photos you admire</li>
+        </ul>
+
+        <p><strong>Build Your Reference Library:</strong></p>
+        <ul>
+            <li>Save examples of lighting you like (organized by style)</li>
+            <li>Document your successful setups with screenshots and settings</li>
+            <li>Create a "lighting swipe file" for inspiration</li>
+        </ul>
+    </div>
+
+    <h3>❓ Final Q&A</h3>
+    
+    <div class="card">
+        <h4>Q: Do I always need all three lights?</h4>
+        <p><strong>A:</strong> No! Three-point lighting is a guideline, not a law. Sometimes two lights work great. Sometimes you need four. The "three roles" (main light, shadow control, separation) are what matter, not the exact number of lights.</p>
+    </div>
+
+    <div class="card">
+        <h4>Q: What if my lighting still doesn't look professional?</h4>
+        <p><strong>A:</strong> Keep practicing! Professional lighting takes time to develop an eye for. Try these: (1) Work from reference photos, (2) Start with the exact settings from this lesson, (3) Make small adjustments, (4) Get feedback from the Poser community.</p>
+    </div>
+
+    <div class="card">
+        <h4>Q: Can I use three-point lighting for full-body shots?</h4>
+        <p><strong>A:</strong> Absolutely! The same principles apply. You might need to adjust light distances and cone angles to cover more of the figure, but the basic setup is identical.</p>
+    </div>
+
+    <div class="card">
+        <h4>Q: Should I save my three-point lighting setups?</h4>
+        <p><strong>A:</strong> YES! Save successful setups as light presets or scene files. Building a library of "go-to" lighting rigs saves enormous time on future projects.</p>
+    </div>
+
+    <div class="card">
+        <h4>Q: How long until three-point lighting becomes "automatic"?</h4>
+        <p><strong>A:</strong> Most students feel comfortable after 10-15 practice setups. After 50+ setups, it becomes intuitive. The key is deliberate practice – don't just repeat, try to improve each time.</p>
+    </div>
+
+    <h3>🏆 Your Achievement</h3>
+    
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h3>Congratulations! You've Completed Lesson 20! 🎉</h3>
+        <p style="color: white; font-size: 1.1em;">You now possess a professional-level skill that took cinematographers and photographers decades to develop. You can:</p>
+        <ul style="color: white;">
+            <li>✅ Set up professional three-point lighting from scratch</li>
+            <li>✅ Understand and control lighting ratios</li>
+            <li>✅ Create different moods by adjusting lights</li>
+            <li>✅ Identify and fix common lighting problems</li>
+            <li>✅ Apply variations for different styles</li>
+            <li>✅ Create portfolio-quality portrait lighting</li>
+        </ul>
+        <p style="color: white; margin-bottom: 0;"><strong>This knowledge is universal – it applies to Poser, photography, film, and any visual medium. You've learned a skill that will serve you for life!</strong></p>
+    </div>
+
+    <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+        <h4>✅ Before Moving On</h4>
+        <p>Make sure you:</p>
+        <ul>
+            <li>Completed the three-portrait project (or at least attempted it)</li>
+            <li>Understand the role of each light (key, fill, rim)</li>
+            <li>Can explain lighting ratios and their effects</li>
+            <li>Feel comfortable setting up three-point lighting</li>
+            <li>Know how to troubleshoot common problems</li>
+        </ul>
+        <p>If any of these feel uncertain, spend more time with this lesson. Three-point lighting is foundational to everything that follows!</p>
+    </div>
+
+    <h3>💬 Final Thoughts</h3>
+    
+    <blockquote>
+        <p><strong>"You've learned the same lighting technique used by Hollywood cinematographers, professional photographers, and 3D artists worldwide. The setup you practiced today is used on million-dollar film sets and in tiny home studios. It works because the fundamentals of good lighting never change. What matters now is practice – every portrait you light, every scene you illuminate, every adjustment you make builds your intuition. You're not just learning Poser; you're learning to see light the way professionals do. That's a powerful skill, and you've just taken a huge step toward mastering it."</strong></p>
+        <footer>— Your Instructor</footer>
+    </blockquote>
+
+    <div class="card" style="background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); color: white;">
+        <h3>🎓 Keep Growing, Keep Creating</h3>
+        <p style="color: white;">Three-point lighting is your foundation. Everything you learn from here builds on this base. You've done the hard work of understanding the fundamentals – now it's time to apply them in countless creative ways!</p>
+        <p style="color: white; margin-bottom: 0;"><strong>Ready to take your lighting skills outdoors? Let's continue to Lesson 21: Natural and Outdoor Lighting!</strong></p>
+    </div>
+
+</section>
+
+<!-- Navigation Links -->
+<nav class="lesson-nav" aria-label="Lesson Navigation">
+    <a href="lesson_19_light_types.html" class="prev-lesson">← Previous: Understanding Light Types</a>
+    <a href="index.html" class="home-link">🏠 Course Home</a>
+    <a href="lesson_21_outdoor_lighting.html" class="next-lesson">Next: Natural and Outdoor Lighting →</a>
+</nav>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Poser 12 Mastery Course. All rights reserved.</p>
+    <p>Lesson 20: Three-Point Lighting Fundamentals | Module 5: Lighting Fundamentals</p>
+</footer>
+
+<!-- Required Scripts -->
+<script src="js/clipboard.js"></script>
+<script src="js/course-enhancements.js"></script>
+
+</body>
+</html>

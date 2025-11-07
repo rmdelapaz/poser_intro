@@ -1,0 +1,4132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master all light types in Poser 12. Learn when and how to use infinite lights, point lights, spotlights, and IBL for professional lighting results.">
+    <meta name="author" content="Poser 12 Course">
+    <title>Understanding Light Types - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>🎨 Poser 12 Mastery Course</h1>
+        <nav aria-label="Main Navigation">
+            <a href="index.html">Home</a>
+            <a href="module_05.html">Module 5</a>
+            <a href="resources.html">Resources</a>
+        </nav>
+    </header>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> &gt;
+        <a href="module_05.html">Module 5: Lighting Fundamentals</a> &gt;
+        <span>Lesson 19: Understanding Light Types</span>
+    </nav>
+
+    <main>
+        <article>
+            <h1>Understanding Light Types</h1>
+            
+            <p class="lead">
+                Welcome to Module 5! You've mastered posing, scene building, and materials. Now it's time to learn the element that brings everything together: lighting. Without light, your beautifully posed figures and carefully crafted materials sit in darkness. With good lighting, even simple scenes become compelling. In this lesson, you'll learn about every light type Poser offers and master when to use each one.
+            </p>
+
+            <blockquote>
+                <p>
+                    <strong>Think of it this way:</strong> If materials are the paint on your canvas, lighting is the brush that reveals them. You can have the most expensive paints in the world, but without skilled brush technique, the painting falls flat. The same is true in 3D: brilliant materials need brilliant lighting to shine. Lighting isn't just technical—it's the soul of your image, the mood setter, the storyteller. Master lighting, and you master 3D artistry.
+                </p>
+            </blockquote>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3>📚 What You'll Learn</h3>
+                <ul style="color: white;">
+                    <li>The four main light types and their unique characteristics</li>
+                    <li>Infinite lights (directional) for sunlight and moonlight</li>
+                    <li>Point lights for omnidirectional light sources like bulbs</li>
+                    <li>Spotlights for focused, controllable illumination</li>
+                    <li>Image-Based Lighting (IBL) for realistic environmental lighting</li>
+                    <li>Essential light properties: intensity, color, shadows, and falloff</li>
+                    <li>When to use each light type for different scenarios</li>
+                    <li>How different lights affect materials and mood</li>
+                </ul>
+                
+                <p style="color: white; margin-bottom: 0;">
+                    <strong>⏱️ Estimated time:</strong> 45-55 minutes<br>
+                    <strong>🎯 Project:</strong> Create a lighting comparison scene showing the same subject lit four different ways using each light type
+                </p>
+            </div>
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">🔖 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#why-lighting-matters" class="toc-link">Why Lighting Matters More Than You Think</a></li>
+                        <li><a href="#light-fundamentals" class="toc-link">Light Fundamentals and Properties</a></li>
+                        <li><a href="#infinite-lights" class="toc-link">Infinite Lights (Directional)</a></li>
+                        <li><a href="#point-lights" class="toc-link">Point Lights (Omnidirectional)</a></li>
+                        <li><a href="#spotlights" class="toc-link">Spotlights (Focused Beams)</a></li>
+                        <li><a href="#ibl" class="toc-link">Image-Based Lighting (IBL)</a></li>
+                        <li><a href="#comparing-lights" class="toc-link">Comparing Light Types Side by Side</a></li>
+                        <li><a href="#choosing-lights" class="toc-link">Choosing the Right Light Type</a></li>
+                        <li><a href="#project" class="toc-link">Project: Light Type Comparison Scene</a></li>
+                        <li><a href="#summary" class="toc-link">Summary and Next Steps</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <h2>Why Lighting Matters More Than You Think</h2>
+
+            <p>
+                Here's a truth that surprises many beginners: lighting is more important than materials. Yes, really. You can take a scene with basic materials and mediocre posing, add excellent lighting, and create a compelling image. But take a scene with perfect materials and brilliant posing, add poor lighting, and it falls flat.
+            </p>
+
+            <p>
+                Lighting does four critical things:
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Reveals form and depth</strong> — Light and shadow define three-dimensionality. Without proper lighting, even well-modeled objects look flat and lifeless.
+                </li>
+                <li>
+                    <strong>Creates mood and atmosphere</strong> — Bright, even lighting feels cheerful and safe. Dramatic shadows feel mysterious or dangerous. Lighting tells your viewer how to feel.
+                </li>
+                <li>
+                    <strong>Directs attention</strong> — The human eye is drawn to light. Strategic lighting guides viewers to look exactly where you want them to look.
+                </li>
+                <li>
+                    <strong>Showcases materials</strong> — All those beautiful materials you created? They need light to reveal their properties. The right lighting makes materials sing.
+                </li>
+            </ul>
+
+            <blockquote>
+                <p>
+                    <strong>The Photographer's Wisdom:</strong> Professional photographers say "photography is painting with light." The exact same principle applies to 3D art. You're not just placing lights in a scene—you're sculpting with light and shadow. Every light you add is a brushstroke. This lesson teaches you the brushes; the next lessons teach you how to paint masterpieces with them.
+                </p>
+            </blockquote>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>💡 The 70/30 Rule</h4>
+                <p>
+                    Professional 3D artists estimate that 70% of what makes an image look good comes from lighting, and only 30% comes from everything else (models, textures, materials, etc.). This isn't to diminish the importance of materials—it's to emphasize that lighting is the multiplier that makes everything else visible. Good materials + good lighting = excellence. Good materials + poor lighting = disappointment. This is why we dedicate an entire module to lighting mastery.
+                </p>
+            </div>
+
+            <h3>The Journey Ahead</h3>
+
+            <p>
+                This module (Module 5) will take you from "lights exist" to "I can light anything professionally." Here's the roadmap:
+            </p>
+
+            <div class="card">
+                <h4>Module 5 Structure:</h4>
+                <ul>
+                    <li><strong>Lesson 19 (This lesson):</strong> Understanding all light types and their properties</li>
+                    <li><strong>Lesson 20:</strong> Three-point lighting fundamentals (the foundation of all professional lighting)</li>
+                    <li><strong>Lesson 21:</strong> Natural and outdoor lighting (sunlight, sky, environmental)</li>
+                    <li><strong>Lesson 22:</strong> Indoor and dramatic lighting (creating mood and atmosphere)</li>
+                </ul>
+                <p>By the end of Module 5, you'll be able to light any scene professionally, from bright outdoor environments to moody indoor portraits.</p>
+            </div>
+
+            <h3>Before We Dive In: The Lighting Mindset</h3>
+
+            <p>
+                Approach lighting with these principles in mind:
+            </p>
+
+            <div class="card">
+                <ul>
+                    <li>
+                        <strong>Start simple, add complexity</strong> — Begin with one light. Understand what it does. Add a second only when you know why you need it.
+                    </li>
+                    <li>
+                        <strong>Observe real world constantly</strong> — Look at how light behaves in reality. How does sunlight through a window look? How do shadows fall? Real observation builds intuition.
+                    </li>
+                    <li>
+                        <strong>Every light has a purpose</strong> — If you can't explain why a light is in your scene, remove it. Random lights create chaos, not beauty.
+                    </li>
+                    <li>
+                        <strong>Shadows are as important as light</strong> — Don't fear darkness. Shadows create drama, depth, and interest. Overlighting everything makes scenes flat.
+                    </li>
+                    <li>
+                        <strong>Render early and often</strong> — Lighting doesn't show properly in preview mode. Render small test patches frequently to see what you're actually creating.
+                    </li>
+                </ul>
+            </div>
+
+            <blockquote>
+                <p>
+                    <strong>Real-World Insight:</strong> In film and photography, the person who controls lighting (the cinematographer or lighting director) is considered the visual artist of the production. Directors direct actors, but cinematographers direct light—and light creates the visual story. In 3D, you wear both hats. This lesson begins your journey to becoming your own cinematographer.
+                </p>
+            </blockquote>
+        <section id="workflow-philosophy">
+            <h2>The Material Workflow Philosophy</h2>
+
+            <p>
+                Before diving into techniques, let's establish a philosophy that will guide all your material work. Professional workflows are built on principles, not just procedures.
+            </p>
+
+            <h3>The Three-Tier Material System</h3>
+
+            <p>
+                Think of your material library in three tiers, like a pyramid:
+            </p>
+
+            <div class="mermaid">
+                graph TD
+                A[Base Materials<br/>Universal, Fundamental] --> B[Themed Collections<br/>Project-Specific Sets]
+                B --> C[Scene Materials<br/>Custom per Scene]
+                
+                style A fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                style B fill:#FF9800,stroke:#333,stroke-width:2px,color:#fff
+                style C fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+            </div>
+
+            <div class="card">
+                <h4>Tier 1: Base Materials (Foundation)</h4>
+                <p>These are your universal, go-to materials that work in any project:</p>
+                <ul>
+                    <li>Generic metals (chrome, gold, copper, iron)</li>
+                    <li>Generic woods (oak, pine, mahogany)</li>
+                    <li>Generic glass (clear, frosted)</li>
+                    <li>Basic fabrics (cotton, silk, leather)</li>
+                    <li>Common surfaces (concrete, stone, plastic)</li>
+                </ul>
+                <p><strong>Use case:</strong> When you need a quick material and don't care about specific theming. These are your "grab and go" materials.</p>
+            </div>
+
+            <div class="card">
+                <h4>Tier 2: Themed Collections (Project-Level)</h4>
+                <p>These are curated sets for specific genres or project types:</p>
+                <ul>
+                    <li>Medieval Collection (weathered stone, aged wood, tarnished metal)</li>
+                    <li>Modern Collection (polished surfaces, glass, stainless steel)</li>
+                    <li>Sci-Fi Collection (metallic panels, glowing elements, high-tech materials)</li>
+                    <li>Natural Collection (earth tones, organic textures, natural materials)</li>
+                    <li>Fantasy Collection (magical effects, vibrant colors, ethereal materials)</li>
+                </ul>
+                <p><strong>Use case:</strong> When starting a themed project, load the entire collection and apply materials knowing they'll all work together visually.</p>
+            </div>
+
+            <div class="card">
+                <h4>Tier 3: Scene Materials (Scene-Specific)</h4>
+                <p>These are custom materials created for one specific scene:</p>
+                <ul>
+                    <li>Hero prop materials (highly detailed, unique)</li>
+                    <li>Special effect materials (one-off needs)</li>
+                    <li>Exact color matches for client requirements</li>
+                    <li>Experimental or artistic materials</li>
+                </ul>
+                <p><strong>Use case:</strong> When you need something unique that won't be reused. These may or may not get saved to your library.</p>
+            </div>
+
+            <h3>The DRY Principle: Don't Repeat Yourself</h3>
+
+            <p>
+                This principle from programming applies perfectly to material work. If you find yourself creating the same material more than once, you should have saved it. If you're manually applying materials to similar objects, you should batch them. If you're tweaking the same properties repeatedly, you should create a master material.
+            </p>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>✅ The DRY Workflow Checklist</h4>
+                <p>Before doing material work, ask yourself:</p>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li>☑ Have I created this material before? → Search library first</li>
+                    <li>☑ Will I use this material again? → Save it immediately</li>
+                    <li>☑ Am I applying to multiple similar objects? → Batch operation</li>
+                    <li>☑ Am I making similar materials? → Create variations from a master</li>
+                    <li>☑ Am I repeating the same adjustments? → Save a preset</li>
+                </ul>
+            </div>
+
+            <h3>The 80/20 Rule for Material Libraries</h3>
+
+            <p>
+                Research shows that artists typically use 20% of their material library 80% of the time. Identify your most-used materials and make them easiest to access. Don't bury your go-to materials in nested folders—put them in a "Favorites" or "Most Used" category at the top level.
+            </p>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Material Category</th>
+                        <th>Usage Frequency</th>
+                        <th>Organization Strategy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Daily Drivers</strong></td>
+                        <td>Used in 80%+ of projects</td>
+                        <td>Top-level "Favorites" folder, quick access</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Regular Use</strong></td>
+                        <td>Used in 30-50% of projects</td>
+                        <td>Main categories, well-organized</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Occasional</strong></td>
+                        <td>Used in 10-30% of projects</td>
+                        <td>Subcategories by theme or type</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Rare/Special</strong></td>
+                        <td>Used in <10% of projects</td>
+                        <td>Deep subfolders, searchable by name</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>The "Material Kitchen" Mindset</h3>
+
+            <p>
+                Think of your material workflow like a professional kitchen. A good kitchen has:
+            </p>
+
+            <ul>
+                <li><strong>Mise en place</strong> (everything in its place) – Organized libraries where you can find anything in seconds</li>
+                <li><strong>Prep stations</strong> – Template scenes where you test materials before using them</li>
+                <li><strong>Recipe cards</strong> – Documentation of your material settings and workflows</li>
+                <li><strong>Spice blends</strong> – Pre-mixed material collections ready to apply</li>
+                <li><strong>Clean-as-you-go</strong> – Saving and organizing materials immediately, not "later"</li>
+            </ul>
+
+            <blockquote>
+                <p>
+                    <strong>The Professional Difference:</strong> Amateur artists spend their time making materials. Professional artists spend their time making art—because they've already made the materials. The difference isn't talent or skill; it's systems. A professional has spent hours building libraries and workflows so they never have to repeat work. This lesson is about becoming that professional.
+                </p>
+            </blockquote>
+
+            <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h4>⚠️ Avoid the Hoarding Trap</h4>
+                <p>
+                    There's a fine line between a useful library and digital hoarding. Don't save every single material you ever create "just in case." Be selective. Save materials that are genuinely reusable, well-made, and documented. A library of 100 excellent, organized materials beats a library of 1000 random materials you can't find or remember. Quality over quantity always wins.
+                </p>
+            </div>
+        <section id="infinite-lights">
+            <h2>Infinite Lights (Directional)</h2>
+
+            <p>
+                Infinite lights, also called directional lights, are Poser's most fundamental light type. They simulate distant light sources where all rays are parallel—like the sun. Despite the name "infinite," these are your go-to lights for most basic lighting needs.
+            </p>
+
+            <h3>How Infinite Lights Work</h3>
+
+            <p>
+                Imagine the sun: it's so far away that by the time light rays reach Earth, they're essentially parallel to each other. An infinite light works the same way—it doesn't have a position in your scene, only a direction. Moving an infinite light closer or farther from your subject doesn't change the lighting; only rotating the light (changing its direction) matters.
+            </p>
+
+            <div class="mermaid">
+                graph TD
+                A[Infinite Light] --> B[Parallel Rays]
+                B --> C[Equal Intensity Everywhere]
+                B --> D[Direction Matters<br/>Position Doesn't]
+                
+                style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                style B fill:#FF9800,stroke:#333,stroke-width:2px,color:#fff
+            </div>
+
+            <h3>Key Characteristics</h3>
+
+            <div class="card">
+                <h4>Infinite Light Properties:</h4>
+                <ul>
+                    <li><strong>Parallel rays</strong> — All light travels in the same direction</li>
+                    <li><strong>No falloff</strong> — Intensity stays constant regardless of distance</li>
+                    <li><strong>Direction-based</strong> — Rotation changes lighting, position doesn't</li>
+                    <li><strong>Sharp shadows</strong> — By default creates hard-edged shadows (like direct sun)</li>
+                    <li><strong>Even coverage</strong> — Lights entire scene uniformly from the specified direction</li>
+                </ul>
+            </div>
+
+            <h3>When to Use Infinite Lights</h3>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Scenario</th>
+                        <th>Why Infinite Light Works</th>
+                        <th>Settings Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Outdoor Sunlight</strong></td>
+                        <td>Sun is distant, rays are parallel</td>
+                        <td>Intensity: 85%, Color: Slight warm (255, 252, 240), Sharp shadows</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Moonlight</strong></td>
+                        <td>Moon is distant like sun</td>
+                        <td>Intensity: 40%, Color: Cool blue (200, 220, 255), Soft shadows</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Key Light</strong></td>
+                        <td>Simple, even coverage for main illumination</td>
+                        <td>Intensity: 80-100%, Color: White or warm, Medium shadows</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fill Light</strong></td>
+                        <td>Uniform shadow filling without hotspots</td>
+                        <td>Intensity: 30-50%, No shadows, Opposite key light</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Rim Light</strong></td>
+                        <td>Clean edge lighting from consistent direction</td>
+                        <td>Intensity: 70%, Color: Slightly cool, Behind subject</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Setting Up an Infinite Light</h3>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3 style="color: white;">☀️ Creating Your First Infinite Light</h3>
+                <ol style="color: white;">
+                    <li>
+                        <strong>Add the light</strong>
+                        <p style="color: white;">Go to Object → Create Light → Infinite Light (or use the light creation tool)</p>
+                    </li>
+                    <li>
+                        <strong>Position doesn't matter—only direction</strong>
+                        <p style="color: white;">Don't worry about moving the light closer or farther. Focus on rotation.</p>
+                    </li>
+                    <li>
+                        <strong>Rotate to desired direction</strong>
+                        <p style="color: white;">Use rotation controls (xRotate, yRotate, zRotate) to aim the light. For sunlight from top-right, try: xRotate: -45°, yRotate: 45°</p>
+                    </li>
+                    <li>
+                        <strong>Adjust intensity</strong>
+                        <p style="color: white;">Start at 80-100% and adjust based on test renders</p>
+                    </li>
+                    <li>
+                        <strong>Set color temperature</strong>
+                        <p style="color: white;">Slightly warm (255, 250, 245) for sun, slightly cool (245, 248, 255) for shade</p>
+                    </li>
+                    <li>
+                        <strong>Enable shadows</strong>
+                        <p style="color: white;">Turn on shadow casting (ray traced for quality, depth map for speed)</p>
+                    </li>
+                    <li>
+                        <strong>Test render</strong>
+                        <p style="color: white;">Render a small area to see the actual result</p>
+                    </li>
+                </ol>
+            </div>
+
+            <h3>Infinite Light Angles and Mood</h3>
+
+            <p>
+                The direction of your infinite light dramatically affects mood. Here are classic angles and their effects:
+            </p>
+
+            <div class="card">
+                <h4>Top Light (Noon Sun)</h4>
+                <p><strong>Rotation:</strong> xRotate: -70° to -90°, yRotate: 0°</p>
+                <p><strong>Effect:</strong> Even, flat lighting. Minimal drama. Feels like midday. Good for product shots where you want to see everything clearly.</p>
+                <p><strong>Mood:</strong> Neutral, documentary, informative</p>
+            </div>
+
+            <div class="card">
+                <h4>45° High Angle (Morning/Afternoon Sun)</h4>
+                <p><strong>Rotation:</strong> xRotate: -45°, yRotate: 45°</p>
+                <p><strong>Effect:</strong> Classic lighting angle. Reveals form well, creates pleasant shadows. Most versatile angle.</p>
+                <p><strong>Mood:</strong> Natural, balanced, professional</p>
+            </div>
+
+            <div class="card">
+                <h4>Low Side Light (Sunrise/Sunset)</h4>
+                <p><strong>Rotation:</strong> xRotate: -15° to -30°, yRotate: 60-90°</p>
+                <p><strong>Effect:</strong> Long dramatic shadows, warm glow. Strong sense of direction and depth.</p>
+                <p><strong>Mood:</strong> Romantic, nostalgic, dramatic</p>
+            </div>
+
+            <div class="card">
+                <h4>Back Light (Rim/Silhouette)</h4>
+                <p><strong>Rotation:</strong> xRotate: -30°, yRotate: 180° (behind subject)</p>
+                <p><strong>Effect:</strong> Creates glowing edges, separates subject from background. Can create silhouettes if very bright.</p>
+                <p><strong>Mood:</strong> Ethereal, mysterious, dramatic separation</p>
+            </div>
+
+            <h3>Common Infinite Light Mistakes</h3>
+
+            <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h4>⚠️ Avoid These Pitfalls</h4>
+                <ul>
+                    <li>
+                        <strong>Trying to move infinite lights closer:</strong> Position doesn't affect infinite lights—only rotation matters. Don't waste time moving them around.
+                    </li>
+                    <li>
+                        <strong>Pure white light:</strong> Always add subtle color temperature. Pure white (255,255,255) looks artificial.
+                    </li>
+                    <li>
+                        <strong>Too many infinite lights:</strong> Multiple suns create confusing shadows. Use one infinite light as your "sun" and use other light types for fill and accents.
+                    </li>
+                    <li>
+                        <strong>Forgetting shadows:</strong> Without shadows, infinite lights create flat, unrealistic lighting. Always enable shadows on your key infinite light.
+                    </li>
+                    <li>
+                        <strong>Wrong shadow blur for sunlight:</strong> Direct sunlight should have relatively sharp shadows (blur: 1-3). Soft shadows look like overcast, not sun.
+                    </li>
+                </ul>
+            </div>
+
+            <blockquote>
+                <p>
+                    <strong>Pro Tip - The Sun Simulator:</strong> When creating outdoor scenes, your main infinite light IS the sun. Think about time of day and sun position. Morning sun comes from the east (low angle, warm orange). Noon sun comes from straight above (high angle, neutral white). Evening sun comes from the west (low angle, warm orange-red). Match your infinite light direction to the time of day you're depicting, and your scenes will feel instantly more realistic.
+                </p>
+            </blockquote>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>✅ Infinite Light Quick Reference</h4>
+                <p><strong>Best for:</strong></p>
+                <ul>
+                    <li>Outdoor scenes (sun, moon)</li>
+                    <li>Primary key lights</li>
+                    <li>Uniform fill lighting</li>
+                    <li>Simple, predictable lighting</li>
+                </ul>
+                <p><strong>Not ideal for:</strong></p>
+                <ul>
+                    <li>Simulating nearby light sources (bulbs, candles)</li>
+                    <li>Creating localized hot spots</li>
+                    <li>Light that changes intensity with distance</li>
+                </ul>
+            </div>
+        <section id="point-lights">
+            <h2>Point Lights (Omnidirectional)</h2>
+
+            <p>
+                Point lights radiate in all directions from a single point, like a bare light bulb hanging in space. Unlike infinite lights where direction matters, point lights are all about position—where you place them determines what they illuminate.
+            </p>
+
+            <h3>How Point Lights Work</h3>
+
+            <p>
+                Think of a light bulb: light shoots out in every direction equally. That's a point light. Position matters tremendously—closer means brighter, farther means dimmer (if falloff is enabled). Point lights are perfect for simulating real-world light sources like bulbs, candles, fires, and other omnidirectional emitters.
+            </p>
+
+            <div class="mermaid">
+                graph TD
+                A[Point Light] --> B[Radiates in All Directions]
+                B --> C[Position Critical]
+                B --> D[Distance Affects Intensity]
+                C --> E[Closer = Brighter]
+                D --> F[Falloff Enabled]
+                
+                style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                style B fill:#FF9800,stroke:#333,stroke-width:2px,color:#fff
+            </div
+
+            <h3>Key Characteristics</h3>
+
+            <div class="card">
+                <h4>Point Light Properties:</h4>
+                <ul>
+                    <li><strong>Omnidirectional emission</strong> — Radiates equally in all directions (360°)</li>
+                    <li><strong>Position-dependent</strong> — Where you place it matters; distance affects lighting</li>
+                    <li><strong>Falloff options</strong> — Can simulate realistic distance attenuation</li>
+                    <li><strong>Localized effect</strong> — Illuminates area around it, not entire scene</li>
+                    <li><strong>Multiple shadow directions</strong> — Can cast shadows in all directions from the light source</li>
+                </ul>
+            </div>
+
+            <h3>When to Use Point Lights</h3>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Scenario</th>
+                        <th>Why Point Light Works</th>
+                        <th>Settings Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Light Bulbs</strong></td>
+                        <td>Real bulbs radiate omnidirectionally</td>
+                        <td>Intensity: 60-80%, Warm color (255, 220, 180), Inverse square falloff</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Candles/Fire</strong></td>
+                        <td>Flames emit light in all directions</td>
+                        <td>Intensity: 50-70%, Orange (255, 147, 41), Short falloff range</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lamps</strong></td>
+                        <td>Table/floor lamps without directional shades</td>
+                        <td>Intensity: 70-90%, Warm white (255, 235, 205), Medium falloff</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Glow Effects</strong></td>
+                        <td>Magical orbs, energy sources, glowing objects</td>
+                        <td>Intensity: Variable, Color matches glow, Short range</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Accent Lights</strong></td>
+                        <td>Small highlights in specific areas</td>
+                        <td>Intensity: 40-60%, Colored if desired, No shadows</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Understanding Falloff with Point Lights</h3>
+
+            <p>
+                Falloff is crucial for point lights. It determines how light intensity changes with distance from the source.
+            </p>
+
+            <div class="card">
+                <h4>Falloff Types Explained:</h4>
+                <ul>
+                    <li>
+                        <strong>Inverse Square (Physical):</strong>
+                        <p>Follows real physics. Light at 2 meters is 1/4 as bright as at 1 meter. Most realistic but can create extreme contrast.</p>
+                        <p><strong>Use when:</strong> Simulating realistic indoor lighting, small spaces where falloff matters</p>
+                    </li>
+                    <li>
+                        <strong>Inverse Linear:</strong>
+                        <p>Linear decrease with distance. Less extreme than inverse square, easier to control.</p>
+                        <p><strong>Use when:</strong> You want falloff but inverse square is too dramatic</p>
+                    </li>
+                    <li>
+                        <strong>No Falloff:</strong>
+                        <p>Light intensity remains constant regardless of distance (like infinite light).</p>
+                        <p><strong>Use when:</strong> You want omnidirectional light without distance variation</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>💡 Falloff Start and End</h4>
+                <p>
+                    Many 3D applications (check Poser's specific implementation) let you set falloff start and end distances:
+                </p>
+                <ul>
+                    <li><strong>Start Distance:</strong> Light is full intensity until this distance</li>
+                    <li><strong>End Distance:</strong> Light reaches zero intensity at this distance</li>
+                </ul>
+                <p>
+                    Example: Bulb with start: 0.5m, end: 3m means full brightness up to 0.5m, gradual falloff from 0.5m to 3m, darkness beyond 3m. Use this to control how far your lights reach.
+                </p>
+            </div>
+
+            <h3>Setting Up a Point Light</h3>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3 style="color: white;">💡 Creating Your First Point Light</h3>
+                <ol style="color: white;">
+                    <li>
+                        <strong>Add the light</strong>
+                        <p style="color: white;">Object → Create Light → Point Light</p>
+                    </li>
+                    <li>
+                        <strong>Position carefully</strong>
+                        <p style="color: white;">Move the light to where your light source should be (above a lamp, inside a lantern, etc.)</p>
+                    </li>
+                    <li>
+                        <strong>Set falloff type</strong>
+                        <p style="color: white;">Choose inverse square for realism, or adjust to taste</p>
+                    </li>
+                    <li>
+                        <strong>Adjust intensity</strong>
+                        <p style="color: white;">Start higher than you think (80-100%) because falloff will reduce it quickly</p>
+                    </li>
+                    <li>
+                        <strong>Set color temperature</strong>
+                        <p style="color: white;">Warm (255, 220, 180) for bulbs, orange (255, 147, 41) for candles</p>
+                    </li>
+                    <li>
+                        <strong>Configure shadows</strong>
+                        <p style="color: white;">Enable if the light should cast shadows (usually yes for main lights, no for accents)</p>
+                    </li>
+                    <li>
+                        <strong>Set falloff range</strong>
+                        <p style="color: white;">Adjust how far the light reaches based on your scene scale</p>
+                    </li>
+                    <li>
+                        <strong>Test render</strong>
+                        <p style="color: white;">Check the sphere of influence and adjust position/intensity</p>
+                    </li>
+                </ol>
+            </div>
+
+            <h3>Point Light Placement Strategies</h3>
+
+            <div class="card">
+                <h4>Strategic Positioning:</h4>
+                <ul>
+                    <li>
+                        <strong>Inside practical lights:</strong> Place point lights inside lamp models, lanterns, or light fixtures for realistic lighting
+                    </li>
+                    <li>
+                        <strong>Slightly above/in front:</strong> For character lighting, place point lights slightly above and in front to avoid unflattering under-lit faces
+                    </li>
+                    <li>
+                        <strong>Multiple for coverage:</strong> Use several point lights to illuminate large areas instead of one super-bright light
+                    </li>
+                    <li>
+                        <strong>Height matters:</strong> Low point lights (floor level) create dramatic upward shadows; high point lights (ceiling level) create downward shadows
+                    </li>
+                    <li>
+                        <strong>Hidden from camera:</strong> You can place point lights anywhere—they don't have to be "visible" as objects
+                    </li>
+                </ul>
+            </div>
+
+            <h3>Creative Uses for Point Lights</h3>
+
+            <div class="card">
+                <h4>Beyond Basic Bulbs:</h4>
+                <ol>
+                    <li>
+                        <strong>Fake ambient occlusion:</strong>
+                        <p>Place low-intensity point lights in corners and crevices to simulate indirect light bounce</p>
+                    </li>
+                    <li>
+                        <strong>Rim light substitute:</strong>
+                        <p>Position behind subject for omnidirectional rim lighting effect</p>
+                    </li>
+                    <li>
+                        <strong>Atmospheric particles:</strong>
+                        <p>Multiple colored point lights can simulate magical effects, fireflies, or energy sources</p>
+                    </li>
+                    <li>
+                        <strong>Fill light alternative:</strong>
+                        <p>Strategically placed point lights can provide localized fill without affecting the entire scene</p>
+                    </li>
+                </ol>
+            </div>
+
+            <h3>Common Point Light Mistakes</h3>
+
+            <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h4>⚠️ Avoid These Pitfalls</h4>
+                <ul>
+                    <li>
+                        <strong>Too intense without falloff:</strong> Point lights without falloff at high intensity blow out everything. Always use appropriate falloff for realistic results.
+                    </li>
+                    <li>
+                        <strong>Wrong color temperature:</strong> Indoor bulbs should be warm (yellow-orange), not cool white. Match the light color to what the bulb would actually emit.
+                    </li>
+                    <li>
+                        <strong>Forgetting falloff range:</strong> If your light isn't reaching far enough (or reaches too far), adjust falloff end distance, not just intensity.
+                    </li>
+                    <li>
+                        <strong>One light for huge area:</strong> Point lights are localized by nature. Use multiple point lights to illuminate large spaces naturally.
+                    </li>
+                    <li>
+                        <strong>Ignoring light position:</strong> Unlike infinite lights, even small position changes dramatically affect point light results. Fine-tune position carefully.
+                    </li>
+                </ul>
+            </div>
+
+            <blockquote>
+                <p>
+                    <strong>Real-World Observation:</strong> Next time you're in a room with practical lights (lamps, bulbs, candles), notice how light doesn't reach evenly everywhere. Corners are darker, areas far from lights fade to shadow, and objects closer to lights are brighter. Point lights with falloff recreate this natural behavior. Your scenes will feel more realistic when you embrace these natural light gradients instead of fighting them.
+                </p>
+            </blockquote>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>✅ Point Light Quick Reference</h4>
+                <p><strong>Best for:</strong></p>
+                <ul>
+                    <li>Light bulbs and lamps</li>
+                    <li>Candles and fires</li>
+                    <li>Localized lighting effects</li>
+                    <li>Multiple small light sources</li>
+                    <li>Magical/glowing elements</li>
+                </ul>
+                <p><strong>Not ideal for:</strong></p>
+                <ul>
+                    <li>Simulating the sun (too localized)</li>
+                    <li>Uniform scene illumination (use infinite)</li>
+                    <li>Focused, directional beams (use spotlights)</li>
+                </ul>
+            </div>
+        <section id="spotlights">
+            <h2>Spotlights (Focused Beams)</h2>
+
+            <p>
+                Spotlights are the most controllable light type—they emit a focused cone of light in a specific direction. Think theater spotlights, flashlights, or car headlights. Spotlights give you precision control over exactly where light falls and where it doesn't.
+            </p>
+
+            <h3>How Spotlights Work</h3>
+
+            <p>
+                A spotlight combines aspects of both infinite and point lights: like a point light, its position matters, but like an infinite light, it has direction. The light forms a cone shape, with parameters controlling how wide the cone is and how soft the edges are.
+            </p>
+
+            <div class="mermaid">
+                graph TD
+                A[Spotlight] --> B[Positioned Light Source]
+                A --> C[Directional Beam]
+                B --> D[Position Matters]
+                C --> E[Rotation Controls Direction]
+                B --> F[Cone of Light]
+                C --> F
+                F --> G[Adjustable Width]
+                F --> H[Adjustable Edge Softness]
+                
+                style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                style F fill:#FF9800,stroke:#333,stroke-width:2px,color:#fff
+            </div
+
+            <h3>Key Characteristics</h3>
+
+            <div class="card">
+                <h4>Spotlight Properties:</h4>
+                <ul>
+                    <li><strong>Conical beam</strong> — Light forms a cone shape with adjustable angle</li>
+                    <li><strong>Position and direction</strong> — Both where it is and where it points matter</li>
+                    <li><strong>Controllable spread</strong> — Adjust beam width from narrow to wide</li>
+                    <li><strong>Edge feathering</strong> — Control how hard or soft the beam edges are</li>
+                    <li><strong>Falloff options</strong> — Can have distance-based intensity falloff</li>
+                    <li><strong>Precise targeting</strong> — Can illuminate specific objects while leaving others dark</li>
+                </ul>
+            </div>
+
+            <h3>Spotlight Parameters Explained</h3>
+
+            <p>
+                Spotlights have unique parameters beyond basic intensity and color:
+            </p>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>What It Controls</th>
+                        <th>Typical Values</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Cone Angle</strong></td>
+                        <td>Width of the light beam (in degrees)</td>
+                        <td>Narrow: 20-40°, Medium: 45-70°, Wide: 80-120°</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Penumbra/Edge Blur</strong></td>
+                        <td>Softness of the beam edges</td>
+                        <td>Hard edge: 0-5, Soft edge: 10-20, Very soft: 25+</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Distance Limit</strong></td>
+                        <td>How far the light reaches</td>
+                        <td>Depends on scene scale; adjust to fit</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Falloff Type</strong></td>
+                        <td>How intensity decreases with distance</td>
+                        <td>Linear or inverse square for realism</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>When to Use Spotlights</h3>
+
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Scenario</th>
+                        <th>Why Spotlight Works</th>
+                        <th>Settings Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Theater/Stage Lighting</strong></td>
+                        <td>Real stage lights are spotlights</td>
+                        <td>Cone: 45-60°, Intensity: 90%, White, Hard edges</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Desk/Reading Lamps</strong></td>
+                        <td>Lamps with shades direct light downward</td>
+                        <td>Cone: 60-80°, Warm color, Medium edge blur</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Flashlights/Torches</strong></td>
+                        <td>Handheld lights create focused beams</td>
+                        <td>Cone: 30-50°, Intensity: 80%, Soft edges, Falloff</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ceiling Spotlights</strong></td>
+                        <td>Recessed or track lighting</td>
+                        <td>Cone: 40-60°, Warm white, Medium blur, Short range</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Car Headlights</strong></td>
+                        <td>Vehicle lights are directional beams</td>
+                        <td>Cone: 45-70°, Slightly cool white, Fog/atmosphere</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Accent Lighting</strong></td>
+                        <td>Highlight specific objects or areas</td>
+                        <td>Narrow cone (20-30°), Medium intensity, Soft edges</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Setting Up a Spotlight</h3>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3 style="color: white;">🔦 Creating Your First Spotlight</h3>
+                <ol style="color: white;">
+                    <li>
+                        <strong>Add the light</strong>
+                        <p style="color: white;">Object → Create Light → Spotlight</p>
+                    </li>
+                    <li>
+                        <strong>Position the spotlight</strong>
+                        <p style="color: white;">Move to where the light source should be (ceiling, lamp position, etc.)</p>
+                    </li>
+                    <li>
+                        <strong>Aim the spotlight</strong>
+                        <p style="color: white;">Rotate to point at your subject. Use the viewport to see the cone direction.</p>
+                    </li>
+                    <li>
+                        <strong>Adjust cone angle</strong>
+                        <p style="color: white;">Start with 60° and adjust wider or narrower based on coverage needed</p>
+                    </li>
+                    <li>
+                        <strong>Set edge softness</strong>
+                        <p style="color: white;">Penumbra/blur of 10-15 creates natural-looking beam edges</p>
+                    </li>
+                    <li>
+                        <strong>Configure intensity</strong>
+                        <p style="color: white;">70-90% typically; higher if using falloff</p>
+                    </li>
+                    <li>
+                        <strong>Set color</strong>
+                        <p style="color: white;">Match the light source (warm for incandescent, cool for LED)</p>
+                    </li>
+                    <li>
+                        <strong>Enable falloff if needed</strong>
+                        <p style="color: white;">Use for realistic distance attenuation</p>
+                    </li>
+                    <li>
+                        <strong>Test render</strong>
+                        <p style="color: white;">Check coverage, beam shape, and edge quality</p>
+                    </li>
+                </ol>
+            </div>
+
+            <h3>Spotlight Techniques</h3>
+
+            <div class="card">
+                <h4>Narrow Beam (Accent)</h4>
+                <p><strong>Cone Angle:</strong> 20-35°</p>
+                <p><strong>Use:</strong> Highlighting specific objects, creating focal points, dramatic spotlighting</p>
+                <p><strong>Tips:</strong> Use soft edges (blur 15-20) to avoid harsh circles. Multiple narrow spots can create gallery lighting effect.</p>
+            </div>
+
+            <div class="card">
+                <h4>Medium Beam (General Purpose)</h4>
+                <p><strong>Cone Angle:</strong> 45-70°</p>
+                <p><strong>Use:</strong> Most common spotlight use, good for desk lamps, ceiling lights, general illumination</p>
+                <p><strong>Tips:</strong> The sweet spot for versatility. Works for most indoor lighting scenarios.</p>
+            </div>
+
+            <div class="card">
+                <h4>Wide Beam (Area Coverage)</h4>
+                <p><strong>Cone Angle:</strong> 80-120°</p>
+                <p><strong>Use:</strong> Floor lamps, wide-coverage ceiling lights, washing walls with light</p>
+                <p><strong>Tips:</strong> At very wide angles, spotlights approach the coverage of point lights but with directional control.</p>
+            </div>
+
+            <h3>Creating Theatrical Lighting</h3>
+
+            <p>
+                Stage and theater lighting is the classic spotlight use case. Here's how to achieve that dramatic theater look:
+            </p>
+
+            <div class="card">
+                <h4>Theater Spotlight Setup:</h4>
+                <ol>
+                    <li><strong>Main spot:</strong> 45° angle from above-front, cone 50-60°, intensity 95%, hard edges (blur 5)</li>
+                    <li><strong>Back spot:</strong> Behind and above at 135°, cone 40-50°, intensity 70%, creates rim light</li>
+                    <li><strong>Optional side spots:</strong> From left/right at 90°, lower intensity (40-50%), adds dimensionality</li>
+                    <li><strong>Color gels:</strong> Add slight color to spots (warm main, cool back) for visual interest</li>
+                </ol>
+            </div>
+
+            <h3>Common Spotlight Mistakes</h3>
+
+            <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h4>⚠️ Avoid These Pitfalls</h4>
+                <ul>
+                    <li>
+                        <strong>Overly narrow beams:</strong> Very narrow spotlights (under 20°) create unrealistic pinpoint effects unless you're specifically going for that theatrical look.
+                    </li>
+                    <li>
+                        <strong>Hard edges everywhere:</strong> Real-world spotlights rarely have perfectly hard edges. Add some penumbra (10-15) for realism.
+                    </li>
+                    <li>
+                        <strong>Wrong positioning:</strong> Spotlights need to be aimed carefully. Test and adjust position AND rotation until the beam hits your target.
+                    </li>
+                    <li>
+                        <strong>Forgetting falloff:</strong> Spotlights without falloff can look artificial. Enable distance falloff for more realistic results.
+                    </li>
+                    <li>
+                        <strong>Too many overlapping:</strong> Multiple spotlights hitting the same area create competing shadows. Use one main spotlight per area.
+                    </li>
+                </ul>
+            </div>
+
+            <blockquote>
+                <p>
+                    <strong>The Spotlight Control Advantage:</strong> Spotlights are the most "intentional" light type. They don't accidentally light things you don't want lit. This makes them perfect for precise lighting scenarios where you need exact control—museum displays, product photography setups, architectural accent lighting, or any situation where "light this, but not that" is important. Master spotlights, and you gain precise control over viewer attention.
+                </p>
+            </blockquote>
+
+            <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <h4>✅ Spotlight Quick Reference</h4>
+                <p><strong>Best for:</strong></p>
+                <ul>
+                    <li>Focused, directional lighting</li>
+                    <li>Theater and stage lighting</li>
+                    <li>Desk lamps and reading lights</li>
+                    <li>Accent lighting on specific objects</li>
+                    <li>Precise control over lit areas</li>
+                </ul>
+                <p><strong>Not ideal for:</strong></p>
+                <ul>
+                    <li>General ambient lighting (use infinite or point)</li>
+                    <li>Omnidirectional sources (use point)</li>
+                    <li>Outdoor sunlight (use infinite)</li>
+                </ul>
+            </div>
+<!-- Lesson 19, Part 07: Image-Based Lighting (IBL) -->
+
+<section id="image-based-lighting">
+    <h2>🌍 Image-Based Lighting (IBL): The Environment as Your Light Source</h2>
+    
+    <p>Now we're entering truly exciting territory! Image-Based Lighting (IBL) is like wrapping your entire scene in a photograph and letting that photograph become your light source. Instead of placing individual lights, you're using a complete 360-degree environment image to illuminate your figures naturally.</p>
+
+    <p>Think of it this way: when you take a photograph outdoors, your subject isn't lit by "one light" or "three lights" – they're lit by the <em>entire sky</em>, by reflections from nearby buildings, by light bouncing off the ground, by everything in the environment. IBL recreates this natural, complex lighting in Poser by using an image of a real (or imaginary) environment.</p>
+
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin: 2rem 0;">
+        <h3>💡 Why IBL is a Game-Changer</h3>
+        <ul style="color: white;">
+            <li><strong>Instant realism:</strong> Natural light distribution from real environments</li>
+            <li><strong>Authentic reflections:</strong> Your figures reflect their actual surroundings</li>
+            <li><strong>Atmospheric quality:</strong> Captures the mood and ambiance of real places</li>
+            <li><strong>Time-saving:</strong> One IBL can replace complex multi-light setups</li>
+            <li><strong>Physically accurate:</strong> Based on actual light measurements from photographs</li>
+        </ul>
+    </div>
+
+    <h3>🎭 What is an HDRI Image?</h3>
+    
+    <p>IBL typically uses something called HDRI (High Dynamic Range Image) files. Let's break down what makes these special:</p>
+
+    <div class="card">
+        <h4>Understanding HDRI Files</h4>
+        <p><strong>Regular photos</strong> can only capture a limited range of brightness – from dark shadows to bright highlights. If you've ever taken a photo where the sky is perfectly exposed but everything else is too dark, or the foreground looks great but the sky is completely white, you've experienced this limitation.</p>
+        
+        <p><strong>HDRI files</strong> capture a much wider range of brightness values – from the darkest shadows to the brightness of the sun itself. This means they can accurately represent the actual light levels in a real environment, which is exactly what we need for realistic lighting.</p>
+        
+        <p>Common HDRI formats in Poser:</p>
+        <ul>
+            <li><strong>.hdr</strong> – Radiance HDR format (most common)</li>
+            <li><strong>.exr</strong> – OpenEXR format (very high quality)</li>
+            <li><strong>.jpg/.png</strong> – Can be used but won't have the full dynamic range</li>
+        </ul>
+    </div>
+
+    <h3>🔧 How to Set Up IBL in Poser</h3>
+    
+    <p>Setting up Image-Based Lighting might seem complex at first, but once you understand the process, it becomes second nature. Here's your step-by-step guide:</p>
+
+    <div class="mermaid">
+        graph TD
+        A[Start with Scene] --> B[Open Material Room]
+        B --> C[Select 'Background' in Scene list]
+        C --> D[Find Background Color/Image channel]
+        D --> E[Load HDRI image file]
+        E --> F[Enable 'Use Background Picture' in Render Settings]
+        F --> G[Set IBL as light source]
+        G --> H[Adjust intensity and rotation]
+        H --> I[Render and refine]
+        
+        style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+        style I fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+    </div>
+
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h4>📋 Detailed Setup Steps</h4>
+        <ol>
+            <li><strong>Access the Material Room:</strong>
+                <ul>
+                    <li>Click on "Material Room" in the top tabs</li>
+                    <li>This is where you control how surfaces respond to light</li>
+                </ul>
+            </li>
+            <li><strong>Select the Background:</strong>
+                <ul>
+                    <li>In the "Objects" list, find and select "Background"</li>
+                    <li>This represents your scene's environment</li>
+                </ul>
+            </li>
+            <li><strong>Load Your HDRI:</strong>
+                <ul>
+                    <li>Find the "Background Color" channel in the shader tree</li>
+                    <li>Click the small arrow next to it and choose "New Node" → "Image Map"</li>
+                    <li>Click on the Image Map node and browse to your HDRI file</li>
+                    <li>Select your .hdr or .exr file</li>
+                </ul>
+            </li>
+            <li><strong>Enable Background Rendering:</strong>
+                <ul>
+                    <li>Go to Render Settings (Render menu → Render Settings)</li>
+                    <li>Find the option "Use Background Picture" and enable it</li>
+                    <li>This makes the HDRI visible in your final render</li>
+                </ul>
+            </li>
+            <li><strong>Activate IBL:</strong>
+                <ul>
+                    <li>In Render Settings, look for "Image Based Lighting" or "IBL" options</li>
+                    <li>Enable IBL and set the quality level (Higher = better but slower)</li>
+                    <li>Some versions have this in the Material Room background settings</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <h3>🎨 Types of HDRI Environments</h3>
+    
+    <p>Different HDRI environments create dramatically different lighting moods. Here are the main categories you'll work with:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Environment Type</th>
+                <th>Lighting Characteristics</th>
+                <th>Best Used For</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>🌅 Outdoor Daylight</strong></td>
+                <td>
+                    <ul>
+                        <li>Strong directional component (sun)</li>
+                        <li>Soft ambient fill from sky</li>
+                        <li>Natural color temperature</li>
+                    </ul>
+                </td>
+                <td>Portraits, full-body shots, natural scenes, product visualization</td>
+            </tr>
+            <tr>
+                <td><strong>🌤️ Overcast Sky</strong></td>
+                <td>
+                    <ul>
+                        <li>Very soft, diffused light</li>
+                        <li>Minimal shadows</li>
+                        <li>Even illumination</li>
+                    </ul>
+                </td>
+                <td>Beauty shots, product photography, minimizing harsh shadows</td>
+            </tr>
+            <tr>
+                <td><strong>🌆 Urban/City</strong></td>
+                <td>
+                    <ul>
+                        <li>Complex light reflections</li>
+                        <li>Mixed color temperatures</li>
+                        <li>Interesting highlight patterns</li>
+                    </ul>
+                </td>
+                <td>Modern scenes, architecture visualization, urban characters</td>
+            </tr>
+            <tr>
+                <td><strong>🏠 Interior Spaces</strong></td>
+                <td>
+                    <ul>
+                        <li>Directional light from windows</li>
+                        <li>Warm artificial light sources</li>
+                        <li>Controlled contrast</li>
+                    </ul>
+                </td>
+                <td>Indoor scenes, architectural interiors, cozy atmospheres</td>
+            </tr>
+            <tr>
+                <td><strong>🌲 Natural Environments</strong></td>
+                <td>
+                    <ul>
+                        <li>Dappled light through foliage</li>
+                        <li>Earthy color tones</li>
+                        <li>Organic light patterns</li>
+                    </ul>
+                </td>
+                <td>Fantasy scenes, nature settings, forest characters</td>
+            </tr>
+            <tr>
+                <td><strong>🎬 Studio Setups</strong></td>
+                <td>
+                    <ul>
+                        <li>Controlled, professional lighting</li>
+                        <li>Neutral backgrounds</li>
+                        <li>Predictable results</li>
+                    </ul>
+                </td>
+                <td>Portfolio work, product shots, clean professional renders</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>⚙️ Controlling IBL Intensity and Rotation</h3>
+    
+    <p>Once you've loaded an HDRI, you have powerful controls to adjust how it affects your scene:</p>
+
+    <div class="card">
+        <h4>Intensity Control</h4>
+        <p><strong>What it does:</strong> Controls how bright the IBL is, which directly affects how much light falls on your figures.</p>
+        
+        <p><strong>Typical values:</strong></p>
+        <ul>
+            <li><strong>0.5 - 1.0:</strong> Subtle fill light, works well with additional lights</li>
+            <li><strong>1.0 - 2.0:</strong> Standard IBL lighting (most common range)</li>
+            <li><strong>2.0 - 5.0:</strong> Very bright, direct outdoor lighting effect</li>
+            <li><strong>5.0+:</strong> Extreme brightness, special effects</li>
+        </ul>
+
+        <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50; margin-top: 1rem;">
+            <p><strong>✅ Pro Tip:</strong> Start with intensity 1.0 and adjust from there. Too high and your figures will look washed out; too low and they'll appear muddy. The "right" value depends on your HDRI – outdoor HDRIs often need lower intensity than studio HDRIs.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h4>Rotation Control</h4>
+        <p><strong>What it does:</strong> Rotates the HDRI environment around your scene, changing where the light comes from.</p>
+        
+        <p>Imagine your HDRI is a giant sphere wrapped around your scene. When you rotate it:</p>
+        <ul>
+            <li>The sun (in an outdoor HDRI) moves around your figure</li>
+            <li>Reflections change on shiny surfaces</li>
+            <li>Shadow directions shift</li>
+            <li>The overall mood can change dramatically</li>
+        </ul>
+
+        <p><strong>Rotation workflow:</strong></p>
+        <ol>
+            <li>Do a quick test render with default rotation</li>
+            <li>Note where the main light source is hitting your figure</li>
+            <li>Rotate the HDRI by 90° increments to find the best angle</li>
+            <li>Fine-tune with smaller adjustments (10-45°)</li>
+            <li>Watch reflections on eyes and shiny surfaces – they should look natural</li>
+        </ol>
+
+        <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107; margin-top: 1rem;">
+            <p><strong>⚠️ Common Mistake:</strong> Many beginners load an HDRI and wonder why their figure looks odd. Often, the main light in the HDRI is hitting from a weird angle – simply rotating the environment 180° can completely transform the image!</p>
+        </div>
+    </div>
+
+    <h3>🎯 When to Use IBL vs. Traditional Lights</h3>
+    
+    <p>IBL is powerful, but it's not always the right choice. Here's how to decide:</p>
+
+    <div class="mermaid">
+        graph LR
+        A[Your Scene Needs] --> B{Natural Realism?}
+        B -->|Yes| C[Use IBL]
+        B -->|No| D{Specific Look?}
+        D -->|Yes| E[Use Traditional Lights]
+        D -->|No| F{Outdoor Scene?}
+        F -->|Yes| C
+        F -->|No| G{Studio Look?}
+        G -->|Yes| H[Studio HDRI or Traditional]
+        G -->|No| E
+        
+        style C fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+        style E fill:#2196F3,stroke:#333,stroke-width:2px,color:#fff
+        style H fill:#FF9800,stroke:#333,stroke-width:2px,color:#fff
+    </div>
+
+    <div class="card">
+        <h4>Choose IBL when you want:</h4>
+        <ul>
+            <li>✅ Natural, realistic outdoor lighting</li>
+            <li>✅ Complex reflections that match a real environment</li>
+            <li>✅ Quick setup for realistic results</li>
+            <li>✅ Authentic atmosphere (beach, forest, city, etc.)</li>
+            <li>✅ Physically accurate light behavior</li>
+            <li>✅ To save time on complex lighting setups</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h4>Choose Traditional Lights when you want:</h4>
+        <ul>
+            <li>✅ Complete artistic control over every light</li>
+            <li>✅ Dramatic, stylized lighting (film noir, horror, fantasy)</li>
+            <li>✅ Precise shadow placement</li>
+            <li>✅ Abstract or impossible lighting scenarios</li>
+            <li>✅ To isolate specific features with spotlights</li>
+            <li>✅ Faster render times (IBL can be slower)</li>
+        </ul>
+    </div>
+
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h4>💡 Best of Both Worlds: Hybrid Lighting</h4>
+        <p style="color: white;">Many professional artists combine IBL with traditional lights! Use IBL for overall illumination and realistic reflections, then add a spotlight for dramatic emphasis or a point light to brighten a face. This gives you realism AND artistic control.</p>
+        <p style="color: white; margin-bottom: 0;"><strong>Example:</strong> Use an outdoor HDRI for natural lighting and environment reflections, but add a warm spotlight from the side to create rim lighting and separate your character from the background.</p>
+    </div>
+
+    <h3>🔍 IBL Technical Considerations</h3>
+    
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h4>Quality Settings</h4>
+        <p>IBL has quality settings that affect both render time and final quality:</p>
+        <ul>
+            <li><strong>Low Quality (16-32 samples):</strong> Fast renders, good for testing, may show noise</li>
+            <li><strong>Medium Quality (64-128 samples):</strong> Balanced approach, suitable for most work</li>
+            <li><strong>High Quality (256+ samples):</strong> Final renders, clean results, slower rendering</li>
+        </ul>
+        <p><strong>Testing workflow:</strong> Use low quality while positioning and adjusting, switch to high quality for final renders.</p>
+    </div>
+
+    <div class="card">
+        <h4>Resolution and File Size</h4>
+        <p>HDRI files can be large, and resolution matters:</p>
+        <ul>
+            <li><strong>2K (2048×1024):</strong> Good for general use, smaller file size</li>
+            <li><strong>4K (4096×2048):</strong> Better quality, especially for reflections</li>
+            <li><strong>8K+ (8192×4096+):</strong> Highest quality, very large files, for professional work</li>
+        </ul>
+        <p><strong>Reality check:</strong> Unless you're creating close-up renders where reflections are critical, 2K or 4K HDRIs are usually perfectly fine. Don't stress about having the absolute highest resolution.</p>
+    </div>
+
+    <h3>🎨 Creative Uses of IBL</h3>
+    
+    <blockquote>
+        <p><strong>"The beautiful thing about IBL is that it captures not just light, but atmosphere. A sunset HDRI doesn't just provide orange light – it provides the <em>feeling</em> of sunset: warm, soft, nostalgic. That emotional quality is built right into your lighting."</strong></p>
+        <footer>— Professional 3D Artist</footer>
+    </blockquote>
+
+    <div class="card">
+        <h4>Matching Photography Lighting</h4>
+        <p>If you're compositing your 3D figure into a photograph, use an HDRI that matches the lighting conditions of your photo:</p>
+        <ul>
+            <li>Outdoor photo on sunny day → Sunny outdoor HDRI</li>
+            <li>Indoor photo with window light → Interior HDRI with strong directional component</li>
+            <li>Overcast photo → Overcast or soft studio HDRI</li>
+        </ul>
+        <p>This makes your 3D elements blend seamlessly into the photograph.</p>
+    </div>
+
+    <div class="card">
+        <h4>Creating Mood with Environment</h4>
+        <p>Different environments create different emotional responses:</p>
+        <ul>
+            <li><strong>Beach/Tropical HDRIs:</strong> Relaxed, vacation feeling</li>
+            <li><strong>Forest HDRIs:</strong> Mysterious, natural, peaceful</li>
+            <li><strong>Industrial/Urban HDRIs:</strong> Modern, gritty, energetic</li>
+            <li><strong>Studio HDRIs:</strong> Professional, clean, controlled</li>
+            <li><strong>Sunset/Golden Hour HDRIs:</strong> Romantic, warm, nostalgic</li>
+            <li><strong>Night City HDRIs:</strong> Dramatic, moody, cinematic</li>
+        </ul>
+    </div>
+
+    <h3>📚 Where to Find HDRI Images</h3>
+    
+    <p>You don't need to photograph your own HDRIs (though you can!). There are many resources:</p>
+
+    <div class="card">
+        <h4>Free HDRI Resources</h4>
+        <ul>
+            <li><strong>Polyhaven.com</strong> – Huge library of free, high-quality HDRIs</li>
+            <li><strong>HDRIHaven.com</strong> – Outdoor and nature HDRIs</li>
+            <li><strong>HDRMaps.com</strong> – Mix of free and paid options</li>
+            <li><strong>HDRI Skies</strong> – Specialized in sky and outdoor environments</li>
+        </ul>
+        <p><strong>Tip:</strong> Always check the license – most are free for commercial use, but verify!</p>
+    </div>
+
+    <div class="card">
+        <h4>Premium HDRI Resources</h4>
+        <ul>
+            <li><strong>HDRILink</strong> – Professional quality, studio and outdoor</li>
+            <li><strong>CGAxis</strong> – High-end HDRIs for commercial work</li>
+            <li><strong>Motion Mill</strong> – Specialized in unique locations</li>
+        </ul>
+        <p>Premium HDRIs often have higher resolution, better dynamic range, and more unique locations.</p>
+    </div>
+
+    <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+        <h4>✅ Getting Started Recommendation</h4>
+        <p>Start with <strong>Polyhaven.com</strong> – it's completely free, has excellent quality, and offers a huge variety. Download 3-5 different types (outdoor sunny, overcast, studio, indoor, sunset) and experiment with each to understand how they affect your scenes differently.</p>
+    </div>
+
+    <h3>🛠️ Troubleshooting IBL</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Problem</th>
+                <th>Likely Cause</th>
+                <th>Solution</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>IBL doesn't seem to work</strong></td>
+                <td>Not enabled in render settings</td>
+                <td>Check Render Settings → Enable "Image Based Lighting" or "Use IBL"</td>
+            </tr>
+            <tr>
+                <td><strong>Scene too bright/washed out</strong></td>
+                <td>IBL intensity too high</td>
+                <td>Reduce intensity to 1.0 or lower; some HDRIs need 0.5-0.7</td>
+            </tr>
+            <tr>
+                <td><strong>Scene too dark</strong></td>
+                <td>IBL intensity too low</td>
+                <td>Increase intensity to 1.5-2.0; check that IBL is actually enabled</td>
+            </tr>
+            <tr>
+                <td><strong>Weird lighting angle</strong></td>
+                <td>HDRI rotation not aligned</td>
+                <td>Rotate the HDRI 90° or 180° to reposition the main light source</td>
+            </tr>
+            <tr>
+                <td><strong>Noisy/grainy render</strong></td>
+                <td>IBL quality too low</td>
+                <td>Increase IBL samples/quality in render settings (128+ samples)</td>
+            </tr>
+            <tr>
+                <td><strong>Slow render times</strong></td>
+                <td>IBL quality too high</td>
+                <td>Reduce samples for test renders; use high quality only for finals</td>
+            </tr>
+            <tr>
+                <td><strong>Background visible but no lighting</strong></td>
+                <td>Background image vs. IBL confusion</td>
+                <td>Having a background image doesn't automatically enable IBL – must enable separately</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+        <h4>⚠️ Important Distinction</h4>
+        <p><strong>"Use Background Picture"</strong> and <strong>"Image Based Lighting"</strong> are two separate settings:</p>
+        <ul>
+            <li><strong>Use Background Picture:</strong> Shows the HDRI as the background in your render</li>
+            <li><strong>Image Based Lighting:</strong> Uses the HDRI to actually <em>light</em> your scene</li>
+        </ul>
+        <p>You can have one without the other! For example, you might use IBL for lighting but hide the background, or show a background image without using it for lighting.</p>
+    </div>
+
+    <h3>🎓 Practice Challenge: IBL Exploration</h3>
+    
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h4>Try It Now: The Three Environment Test</h4>
+        <p style="color: white;">This exercise helps you understand how dramatically environment affects mood:</p>
+        <ol style="color: white;">
+            <li>Load a figure in Poser (any figure will do)</li>
+            <li>Set up a simple pose (standing neutral is fine)</li>
+            <li>Download three HDRIs from Polyhaven:
+                <ul>
+                    <li>One outdoor sunny environment</li>
+                    <li>One overcast or studio environment</li>
+                    <li>One sunset/golden hour environment</li>
+                </ul>
+            </li>
+            <li>For each HDRI:
+                <ul>
+                    <li>Load it following the setup steps above</li>
+                    <li>Set intensity to 1.0</li>
+                    <li>Rotate to find the most flattering angle</li>
+                    <li>Render</li>
+                </ul>
+            </li>
+            <li>Compare all three renders side by side</li>
+        </ol>
+        <p style="color: white; margin-bottom: 0;"><strong>What to observe:</strong> Notice how the same figure in the same pose can look energetic and vibrant (sunny), soft and professional (studio), or warm and nostalgic (sunset) just by changing the environment. That's the power of IBL!</p>
+    </div>
+
+</section>
+<!-- Lesson 19, Part 08: Comparing Light Types Side by Side -->
+
+<section id="comparing-light-types">
+    <h2>🔄 Comparing Light Types Side by Side</h2>
+    
+    <p>Now that we've explored each light type individually, let's put them side by side and compare them directly. This is where the differences really become clear, and you'll start to develop an intuition for which light to reach for in different situations.</p>
+
+    <p>Think of this section as your "cheat sheet" – a quick reference guide you can come back to whenever you're setting up a scene and wondering, "Which light should I use here?"</p>
+
+    <h3>📊 The Complete Comparison Table</h3>
+    
+    <p>Here's everything you need to know about each light type in one comprehensive table:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>Infinite Light</th>
+                <th>Point Light</th>
+                <th>Spotlight</th>
+                <th>IBL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Light Direction</strong></td>
+                <td>Parallel rays from one direction</td>
+                <td>Radiates equally in all directions</td>
+                <td>Focused beam in one direction</td>
+                <td>Illumination from entire environment</td>
+            </tr>
+            <tr>
+                <td><strong>Position Matters?</strong></td>
+                <td>❌ No (only rotation matters)</td>
+                <td>✅ Yes (critical)</td>
+                <td>✅ Yes (critical)</td>
+                <td>❌ No (wraps entire scene)</td>
+            </tr>
+            <tr>
+                <td><strong>Falloff</strong></td>
+                <td>None (constant intensity)</td>
+                <td>Yes (inverse square law)</td>
+                <td>Yes (inverse square law)</td>
+                <td>Environment-dependent</td>
+            </tr>
+            <tr>
+                <td><strong>Shadow Type</strong></td>
+                <td>Parallel, consistent</td>
+                <td>Radiating from source</td>
+                <td>Focused, dramatic</td>
+                <td>Soft, natural, complex</td>
+            </tr>
+            <tr>
+                <td><strong>Coverage Area</strong></td>
+                <td>Entire scene uniformly</td>
+                <td>360° sphere around light</td>
+                <td>Defined cone angle</td>
+                <td>Entire scene from all angles</td>
+            </tr>
+            <tr>
+                <td><strong>Best For</strong></td>
+                <td>Sun, moon, outdoor scenes</td>
+                <td>Lamps, candles, magical effects</td>
+                <td>Stage lighting, focus, drama</td>
+                <td>Natural realism, environments</td>
+            </tr>
+            <tr>
+                <td><strong>Setup Complexity</strong></td>
+                <td>⭐ Simple</td>
+                <td>⭐⭐ Moderate</td>
+                <td>⭐⭐⭐ Complex</td>
+                <td>⭐⭐⭐⭐ Most Complex</td>
+            </tr>
+            <tr>
+                <td><strong>Render Speed</strong></td>
+                <td>⚡ Fast</td>
+                <td>⚡⚡ Moderate</td>
+                <td>⚡⚡ Moderate</td>
+                <td>⚡⚡⚡ Slower</td>
+            </tr>
+            <tr>
+                <td><strong>Artistic Control</strong></td>
+                <td>⭐⭐ Limited</td>
+                <td>⭐⭐⭐ Good</td>
+                <td>⭐⭐⭐⭐⭐ Maximum</td>
+                <td>⭐⭐ Limited (but realistic)</td>
+            </tr>
+            <tr>
+                <td><strong>Realism Level</strong></td>
+                <td>⭐⭐⭐⭐ Very realistic</td>
+                <td>⭐⭐⭐ Realistic</td>
+                <td>⭐⭐⭐ Realistic (when used correctly)</td>
+                <td>⭐⭐⭐⭐⭐ Most realistic</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>🎯 Side-by-Side Scenarios</h3>
+    
+    <p>Let's look at specific situations and see how each light type would handle them. This will help you build your intuition for light selection.</p>
+
+    <div class="card">
+        <h4>Scenario 1: Portrait of a Character Standing Outdoors</h4>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Light Type</th>
+                    <th>Result</th>
+                    <th>Why It Works/Doesn't Work</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Infinite Light</strong></td>
+                    <td>✅ Excellent Choice</td>
+                    <td>Simulates natural sunlight perfectly. Consistent shadows, natural appearance. This is what the sun actually does.</td>
+                </tr>
+                <tr>
+                    <td><strong>Point Light</strong></td>
+                    <td>⚠️ Looks Artificial</td>
+                    <td>Creates radiating shadows that don't match outdoor lighting. Would need to be very far away to approximate sunlight.</td>
+                </tr>
+                <tr>
+                    <td><strong>Spotlight</strong></td>
+                    <td>❌ Wrong Tool</td>
+                    <td>Creates a visible cone of light. Unless you're showing a character in an actual spotlight beam, this looks unnatural.</td>
+                </tr>
+                <tr>
+                    <td><strong>IBL</strong></td>
+                    <td>✅ Best Realism</td>
+                    <td>Captures not just sunlight but sky light, ground bounce, and atmospheric effects. Most realistic but slower to render.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h4>Scenario 2: Character Sitting at a Desk with a Lamp</h4>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Light Type</th>
+                    <th>Result</th>
+                    <th>Why It Works/Doesn't Work</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Infinite Light</strong></td>
+                    <td>❌ Wrong Tool</td>
+                    <td>Would light the entire scene uniformly. Lamps don't work this way – they have falloff and localized illumination.</td>
+                </tr>
+                <tr>
+                    <td><strong>Point Light</strong></td>
+                    <td>✅ Perfect Choice</td>
+                    <td>Exactly what a real lamp does – radiates light in all directions with natural falloff. Place it where the bulb would be.</td>
+                </tr>
+                <tr>
+                    <td><strong>Spotlight</strong></td>
+                    <td>⚠️ Depends on Lamp Type</td>
+                    <td>Works if it's a desk lamp with a shade that focuses light downward. Wrong for a table lamp with a fabric shade.</td>
+                </tr>
+                <tr>
+                    <td><strong>IBL</strong></td>
+                    <td>⚠️ Not the Main Light</td>
+                    <td>Can provide ambient room lighting, but won't create the focused illumination of the desk lamp itself.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h4>Scenario 3: Dramatic Hero Shot with Strong Shadows</h4>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Light Type</th>
+                    <th>Result</th>
+                    <th>Why It Works/Doesn't Work</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Infinite Light</strong></td>
+                    <td>⚠️ Limited Drama</td>
+                    <td>Creates consistent shadows but lights everything equally. Hard to create focused drama or isolate the subject.</td>
+                </tr>
+                <tr>
+                    <td><strong>Point Light</strong></td>
+                    <td>⚠️ Some Drama</td>
+                    <td>Can create falloff and mood, but illuminates in all directions. You'll also light things you don't want lit.</td>
+                </tr>
+                <tr>
+                    <td><strong>Spotlight</strong></td>
+                    <td>✅ Maximum Drama</td>
+                    <td>Perfect for this! Precisely control what's lit and what's in shadow. Create rim lighting, highlight specific features. This is what Hollywood uses.</td>
+                </tr>
+                <tr>
+                    <td><strong>IBL</strong></td>
+                    <td>❌ Too Natural</td>
+                    <td>IBL creates realistic lighting, which is exactly what you DON'T want for dramatic, stylized shots. It fills in shadows and creates even illumination.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h4>Scenario 4: Product Showcase (Jewelry, Props, Items)</h4>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Light Type</th>
+                    <th>Result</th>
+                    <th>Why It Works/Doesn't Work</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Infinite Light</strong></td>
+                    <td>⚠️ Basic But Limited</td>
+                    <td>Creates consistent lighting but doesn't show depth or create interesting highlights on reflective surfaces.</td>
+                </tr>
+                <tr>
+                    <td><strong>Point Light</strong></td>
+                    <td>✅ Good for Highlights</td>
+                    <td>Creates nice specular highlights on shiny surfaces. Multiple point lights from different angles work great for products.</td>
+                </tr>
+                <tr>
+                    <td><strong>Spotlight</strong></td>
+                    <td>✅ Professional Look</td>
+                    <td>Gives you precise control over where light hits. Can create dramatic rim lighting and separate product from background.</td>
+                </tr>
+                <tr>
+                    <td><strong>IBL</strong></td>
+                    <td>✅ Best Reflections</td>
+                    <td>Creates beautiful, natural reflections on metallic and glass surfaces. Studio HDRIs are specifically designed for product photography.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>🎨 Light Combinations: The Power of Mixing</h3>
+    
+    <p>Here's a professional secret: you rarely use just <em>one</em> light type. The magic happens when you combine them strategically. Let's look at proven combinations:</p>
+
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h3>💡 Classic Combinations That Always Work</h3>
+        
+        <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); margin-top: 1rem;">
+            <h4 style="color: white;">The Outdoor Portrait Combo</h4>
+            <p style="color: white;"><strong>Infinite Light (Key) + Point Light (Fill)</strong></p>
+            <ul style="color: white;">
+                <li><strong>Infinite Light:</strong> Acts as the sun (key light) – bright, directional, creates main shadows</li>
+                <li><strong>Point Light:</strong> Acts as sky light or reflector (fill light) – softer, fills in shadows, placed opposite the sun</li>
+                <li><strong>Result:</strong> Natural-looking outdoor portrait with controlled shadow depth</li>
+            </ul>
+        </div>
+
+        <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); margin-top: 1rem;">
+            <h4 style="color: white;">The Studio Portrait Combo</h4>
+            <p style="color: white;"><strong>Spotlight (Key) + Spotlight (Rim) + Point Light (Fill)</strong></p>
+            <ul style="color: white;">
+                <li><strong>Spotlight #1:</strong> Main light at 45° – creates dimension</li>
+                <li><strong>Spotlight #2:</strong> Behind subject at 45° – rim/separation light</li>
+                <li><strong>Point Light:</strong> Gentle fill from camera position – softens shadows</li>
+                <li><strong>Result:</strong> Professional studio portrait with depth and separation</li>
+            </ul>
+        </div>
+
+        <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); margin-top: 1rem;">
+            <h4 style="color: white;">The Natural Realism Combo</h4>
+            <p style="color: white;"><strong>IBL (Environment) + Spotlight (Accent)</strong></p>
+            <ul style="color: white;">
+                <li><strong>IBL:</strong> Provides overall realistic lighting and reflections</li>
+                <li><strong>Spotlight:</strong> Adds dramatic emphasis to face or key features</li>
+                <li><strong>Result:</strong> Photorealistic base with artistic control over focal points</li>
+            </ul>
+        </div>
+
+        <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); margin-top: 1rem;">
+            <h4 style="color: white;">The Interior Scene Combo</h4>
+            <p style="color: white;"><strong>Infinite Light (Window) + Multiple Point Lights (Lamps) + IBL (Low Intensity)</strong></p>
+            <ul style="color: white;">
+                <li><strong>Infinite Light:</strong> Simulates sunlight coming through window</li>
+                <li><strong>Point Lights:</strong> Placed at practical lights (lamps, ceiling lights)</li>
+                <li><strong>IBL (Low):</strong> Subtle ambient fill, set to 0.3-0.5 intensity</li>
+                <li><strong>Result:</strong> Believable interior with natural and artificial light sources</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>⚖️ Strengths and Weaknesses Summary</h3>
+    
+    <p>Every light type has situations where it excels and situations where it struggles. Understanding this helps you pick the right tool:</p>
+
+    <div class="mermaid">
+        graph TD
+        A[Light Selection Decision] --> B{What's the primary light source in reality?}
+        B -->|Sun/Moon| C[Infinite Light]
+        B -->|Lamp/Bulb| D[Point Light]
+        B -->|Focused Beam| E[Spotlight]
+        B -->|Entire Environment| F[IBL]
+        
+        C --> G{Need more control?}
+        D --> G
+        E --> G
+        F --> G
+        
+        G -->|Yes| H[Add secondary lights]
+        G -->|No| I[Single light is fine]
+        
+        style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+        style H fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+        style I fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Light Type</th>
+                <th>Strengths (When to Use)</th>
+                <th>Weaknesses (When to Avoid)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Infinite Light</strong></td>
+                <td>
+                    <ul>
+                        <li>Perfect for outdoor daylight</li>
+                        <li>Fast rendering</li>
+                        <li>Consistent results</li>
+                        <li>Easy to set up</li>
+                        <li>Predictable shadows</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Can't create localized lighting</li>
+                        <li>No falloff (unrealistic for close sources)</li>
+                        <li>Limited dramatic control</li>
+                        <li>Wrong for interior practical lights</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Point Light</strong></td>
+                <td>
+                    <ul>
+                        <li>Perfect for lamps and bulbs</li>
+                        <li>Natural falloff</li>
+                        <li>Great for multiple sources</li>
+                        <li>Realistic light spread</li>
+                        <li>Good for highlights</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Can't control direction</li>
+                        <li>Lights everything around it</li>
+                        <li>Hard to create focused drama</li>
+                        <li>Wrong for sunlight</li>
+                        <li>Positioning can be tricky</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Spotlight</strong></td>
+                <td>
+                    <ul>
+                        <li>Maximum artistic control</li>
+                        <li>Perfect for dramatic lighting</li>
+                        <li>Great for focusing attention</li>
+                        <li>Precise shadow control</li>
+                        <li>Professional studio look</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Complex to set up</li>
+                        <li>Can look artificial if not careful</li>
+                        <li>Time-consuming to position</li>
+                        <li>Wrong for natural outdoor scenes</li>
+                        <li>Requires more skill to use well</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>IBL</strong></td>
+                <td>
+                    <ul>
+                        <li>Most realistic results</li>
+                        <li>Beautiful natural reflections</li>
+                        <li>Captures atmospheric quality</li>
+                        <li>One light does it all</li>
+                        <li>Physically accurate</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Slower render times</li>
+                        <li>Less artistic control</li>
+                        <li>Complex setup</li>
+                        <li>Can be TOO realistic (lacks drama)</li>
+                        <li>Large file sizes</li>
+                        <li>Harder to troubleshoot</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>🎬 Real-World Lighting Scenarios</h3>
+    
+    <p>Let's translate some common real-world lighting situations into Poser light setups:</p>
+
+    <div class="card">
+        <h4>🌅 Golden Hour Photography</h4>
+        <p><strong>Real World:</strong> Sunset or sunrise light – warm, low angle, soft but directional</p>
+        <p><strong>Poser Setup:</strong></p>
+        <ul>
+            <li><strong>Option 1 (Simple):</strong> Infinite Light, warm orange color (#FFA566), low angle (15-20°)</li>
+            <li><strong>Option 2 (Best):</strong> Golden hour HDRI from Polyhaven, intensity 1.2-1.5</li>
+            <li><strong>Option 3 (Control):</strong> Warm infinite light + warm spotlight as rim light + cool point light as fill</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h4>💡 Cozy Living Room at Night</h4>
+        <p><strong>Real World:</strong> Table lamps, maybe TV glow, dark windows</p>
+        <p><strong>Poser Setup:</strong></p>
+        <ul>
+            <li><strong>Primary:</strong> Point lights at each lamp location (warm, #FFE4B5, intensity 0.8-1.2)</li>
+            <li><strong>Secondary:</strong> Weak point light for TV glow (cool blue, #B0C4DE, intensity 0.3)</li>
+            <li><strong>Ambient:</strong> Very low intensity point light for general room ambiance (0.2-0.3)</li>
+            <li><strong>Note:</strong> Keep it dark! Nighttime scenes should have large dark areas</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h4>🎭 Theater Stage Performance</h4>
+        <p><strong>Real World:</strong> Multiple stage lights, dramatic shadows, spotlights on performers</p>
+        <p><strong>Poser Setup:</strong></p>
+        <ul>
+            <li><strong>Key Light:</strong> Spotlight from front at 45°, focused on performer (intensity 1.5-2.0)</li>
+            <li><strong>Rim Lights:</strong> Two spotlights from back corners at 45° (colored, intensity 0.8-1.2)</li>
+            <li><strong>Fill:</strong> Weak point light from camera (intensity 0.3-0.5)</li>
+            <li><strong>Background:</strong> Dim point light behind performer to suggest stage lights (intensity 0.5)</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h4>🏢 Office Cubicle - Fluorescent Lighting</h4>
+        <p><strong>Real World:</strong> Overhead fluorescent panels, even but slightly harsh light</p>
+        <p><strong>Poser Setup:</strong></p>
+        <ul>
+            <li><strong>Option 1 (Simple):</strong> Infinite light from above, cool white (#F0F8FF), intensity 1.0, softer shadows</li>
+            <li><strong>Option 2 (Better):</strong> Studio HDRI with neutral lighting, intensity 1.2-1.5</li>
+            <li><strong>Option 3 (Accurate):</strong> Multiple point lights arranged in grid pattern overhead (like actual ceiling panels)</li>
+        </ul>
+    </div>
+
+    <h3>🔄 Quick Decision Flowchart</h3>
+    
+    <p>Still not sure which light to use? Follow this quick decision tree:</p>
+
+    <div class="mermaid">
+        graph TD
+        A[Start: Need to Light Scene] --> B{Is this outdoor?}
+        B -->|Yes| C{Need maximum realism?}
+        B -->|No| D{Is this interior?}
+        
+        C -->|Yes| E[Use IBL with outdoor HDRI]
+        C -->|No| F[Use Infinite Light as sun]
+        
+        D -->|Yes| G{Practical lights visible? <br/>lamps, candles, etc.}
+        D -->|No| H{Need dramatic look?}
+        
+        G -->|Yes| I[Use Point Lights at each source]
+        G -->|No| J[Use IBL or Infinite as ambient]
+        
+        H -->|Yes| K[Use Spotlights for drama]
+        H -->|No| L[Use light appropriate to scenario]
+        
+        style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+        style E fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+        style F fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+        style I fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+        style J fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+        style K fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+        style L fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+    </div>
+
+    <h3>📝 The One-Sentence Summary for Each Light</h3>
+    
+    <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+        <p><strong>If you remember nothing else, remember these:</strong></p>
+        <ul>
+            <li><strong>Infinite Light:</strong> "Use this when you need the sun or moon – directional, consistent, no falloff."</li>
+            <li><strong>Point Light:</strong> "Use this when you need a light bulb or lamp – radiates equally, has falloff."</li>
+            <li><strong>Spotlight:</strong> "Use this when you need precision and drama – focused beam, maximum control."</li>
+            <li><strong>IBL:</strong> "Use this when you need maximum realism – environment lighting, natural reflections."</li>
+        </ul>
+    </div>
+
+    <blockquote>
+        <p><strong>"The best lighting setup is the one that serves your creative vision. Sometimes that means photorealistic IBL. Sometimes it means a single dramatic spotlight. Learn the rules so you know when to break them."</strong></p>
+        <footer>— Professional 3D Artist</footer>
+    </blockquote>
+
+    <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+        <h4>✅ Pro Tip: Start Simple, Add Complexity</h4>
+        <p>When lighting a new scene:</p>
+        <ol>
+            <li><strong>Start with ONE light</strong> – establish your main light source first</li>
+            <li><strong>Test render</strong> – see what you have</li>
+            <li><strong>Identify problems</strong> – too dark here? Too bright there? No depth?</li>
+            <li><strong>Add ONE more light</strong> – solve the biggest problem</li>
+            <li><strong>Repeat</strong> – add lights only when needed to solve specific issues</li>
+        </ol>
+        <p>Most successful scenes use 2-4 lights, not 10-20. More lights = more complexity = more problems.</p>
+    </div>
+
+</section>
+<!-- Lesson 19, Part 09: Choosing the Right Light Type -->
+
+<section id="choosing-light-type">
+    <h2>🎯 Choosing the Right Light Type: A Practical Guide</h2>
+    
+    <p>Now comes the practical part: how do you actually <em>choose</em> which light to use when you're staring at a blank Poser scene? This section is all about developing your decision-making skills and building confidence in your lighting choices.</p>
+
+    <p>Think of this as your "lighting consultant" – the voice in your head that helps you make smart choices quickly. Once you internalize these principles, choosing the right light becomes almost automatic.</p>
+
+    <h3>🤔 The Three Key Questions</h3>
+    
+    <p>Before you add any light to your scene, ask yourself these three questions. They'll guide you to the right choice 90% of the time:</p>
+
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h3>Question 1: What is the light source in reality?</h3>
+        <p style="color: white;">This is your starting point. Imagine you're recreating this scene in the real world – what would be lighting it?</p>
+        <ul style="color: white;">
+            <li><strong>Sun or moon?</strong> → Infinite Light or outdoor IBL</li>
+            <li><strong>Light bulb, lamp, or candle?</strong> → Point Light</li>
+            <li><strong>Flashlight, stage light, or focused beam?</strong> → Spotlight</li>
+            <li><strong>Entire environment (sky, buildings, nature)?</strong> → IBL</li>
+            <li><strong>Multiple different sources?</strong> → Combination approach</li>
+        </ul>
+        <p style="color: white; margin-bottom: 0;"><strong>The Rule:</strong> Match your Poser lights to what would exist in reality. This is the foundation of believable lighting.</p>
+    </div>
+
+    <div class="card" style="background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); color: white; margin-top: 2rem;">
+        <h3>Question 2: What mood are you trying to create?</h3>
+        <p style="color: white;">Sometimes realism takes a back seat to emotion and atmosphere. What feeling do you want the viewer to experience?</p>
+        <ul style="color: white;">
+            <li><strong>Natural, realistic, authentic?</strong> → IBL or Infinite Light</li>
+            <li><strong>Dramatic, mysterious, theatrical?</strong> → Spotlights with strong shadows</li>
+            <li><strong>Warm, cozy, intimate?</strong> → Warm Point Lights with falloff</li>
+            <li><strong>Professional, clean, neutral?</strong> → Studio IBL or even Infinite Light</li>
+            <li><strong>Eerie, unsettling, ominous?</strong> → Unusual angles, colored lights, harsh shadows</li>
+        </ul>
+        <p style="color: white; margin-bottom: 0;"><strong>The Rule:</strong> If mood matters more than realism, let artistic choices override realistic light placement.</p>
+    </div>
+
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin-top: 2rem;">
+        <h3>Question 3: How much control do you need?</h3>
+        <p style="color: white;">Some lights are easier to use but offer less control. Others are complex but give you precision. Choose based on your needs.</p>
+        <ul style="color: white;">
+            <li><strong>Just need it to look good quickly?</strong> → IBL or Infinite Light (easiest)</li>
+            <li><strong>Need to highlight specific features?</strong> → Spotlight (most control)</li>
+            <li><strong>Need natural falloff and highlights?</strong> → Point Light (moderate control)</li>
+            <li><strong>Want to combine realism with tweaks?</strong> → IBL + Spotlight combo</li>
+        </ul>
+        <p style="color: white; margin-bottom: 0;"><strong>The Rule:</strong> More control = more setup time. Choose the simplest light that achieves your goal.</p>
+    </div>
+
+    <h3>🗺️ The Scene Type Guide</h3>
+    
+    <p>Different types of scenes have different lighting needs. Here's your quick reference guide organized by scene type:</p>
+
+    <div class="card">
+        <h4>🏞️ Outdoor Scenes (Daytime)</h4>
+        <p><strong>Primary Challenge:</strong> Simulating natural sunlight and sky light</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Best Light Choice</th>
+                    <th>Why</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bright sunny day</td>
+                    <td><strong>Infinite Light</strong> (key) + <strong>Point Light</strong> (fill)</td>
+                    <td>Infinite = sun, Point = sky light. Fast and effective.</td>
+                </tr>
+                <tr>
+                    <td>Maximum realism needed</td>
+                    <td><strong>Outdoor sunny IBL</strong></td>
+                    <td>Captures natural light distribution and atmospheric effects</td>
+                </tr>
+                <tr>
+                    <td>Overcast day</td>
+                    <td><strong>Overcast IBL</strong> or soft <strong>Infinite Light</strong></td>
+                    <td>Soft, diffused light with minimal shadows</td>
+                </tr>
+                <tr>
+                    <td>Golden hour (sunset/sunrise)</td>
+                    <td><strong>Golden hour IBL</strong> or warm <strong>Infinite Light</strong> at low angle</td>
+                    <td>Warm color temperature and long shadows</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50; margin-top: 1rem;">
+            <p><strong>✅ Quick Decision:</strong> Use Infinite Light if speed matters or you're learning. Use IBL if you need professional results and have time to render.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h4>🌙 Outdoor Scenes (Nighttime)</h4>
+        <p><strong>Primary Challenge:</strong> Creating believable darkness while keeping subject visible</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Best Light Choice</th>
+                    <th>Why</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Moonlit scene</td>
+                    <td><strong>Infinite Light</strong> (cool blue, low intensity 0.3-0.5)</td>
+                    <td>Moonlight behaves like weak sunlight – parallel rays</td>
+                </tr>
+                <tr>
+                    <td>City street at night</td>
+                    <td>Multiple <strong>Point Lights</strong> (streetlamps) + ambient fill</td>
+                    <td>Each light source needs individual representation</td>
+                </tr>
+                <tr>
+                    <td>Character with flashlight</td>
+                    <td><strong>Spotlight</strong> from character's hand position</td>
+                    <td>Focused beam with clear direction and falloff</td>
+                </tr>
+                <tr>
+                    <td>Campfire scene</td>
+                    <td><strong>Point Light</strong> (warm orange) at fire location</td>
+                    <td>Fire radiates light equally in all directions</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107; margin-top: 1rem;">
+            <p><strong>⚠️ Important:</strong> Night scenes should be DARK. Don't be afraid of shadows and black areas. Keep overall intensity low (0.3-0.8) – that's what makes it look like nighttime!</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h4>🏠 Interior Scenes (Well-Lit)</h4>
+        <p><strong>Primary Challenge:</strong> Balancing multiple light sources and maintaining natural appearance</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Best Light Choice</th>
+                    <th>Why</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Daylight through windows</td>
+                    <td><strong>Infinite Light</strong> from window direction + ambient fill</td>
+                    <td>Simulates directional sunlight entering room</td>
+                </tr>
+                <tr>
+                    <td>Living room with lamps</td>
+                    <td><strong>Point Light</strong> at each lamp location</td>
+                    <td>Each lamp needs its own light source for realism</td>
+                </tr>
+                <tr>
+                    <td>Kitchen overhead lighting</td>
+                    <td><strong>Point Lights</strong> arranged in grid OR <strong>Infinite</strong> from above</td>
+                    <td>Multiple ceiling lights create even illumination</td>
+                </tr>
+                <tr>
+                    <td>Reading by desk lamp</td>
+                    <td><strong>Point Light</strong> or <strong>Spotlight</strong> (if lamp has shade)</td>
+                    <td>Depends on lamp type – diffused vs. focused beam</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50; margin-top: 1rem;">
+            <p><strong>✅ Pro Technique:</strong> For interior realism, use weak <strong>IBL</strong> (intensity 0.2-0.4) as ambient base, then add <strong>Point Lights</strong> at visible light sources. This creates realistic bounce light automatically.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h4>🎨 Studio/Portrait Shots</h4>
+        <p><strong>Primary Challenge:</strong> Creating professional, controlled lighting that flatters the subject</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Best Light Choice</th>
+                    <th>Why</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Professional headshot</td>
+                    <td><strong>Studio IBL</strong> OR <strong>Spotlight</strong> setup (key + rim + fill)</td>
+                    <td>Studio IBL is fastest; spotlights give more control</td>
+                </tr>
+                <tr>
+                    <td>Beauty/glamour shot</td>
+                    <td><strong>Soft IBL</strong> + <strong>Spotlight</strong> for catchlights in eyes</td>
+                    <td>Combines softness with precise highlights</td>
+                </tr>
+                <tr>
+                    <td>Dramatic portrait</td>
+                    <td><strong>Single Spotlight</strong> (side lighting) + weak fill</td>
+                    <td>Creates strong shadows and dimension</td>
+                </tr>
+                <tr>
+                    <td>Product photography</td>
+                    <td><strong>Studio IBL</strong> for reflections + <strong>Spotlights</strong> for accents</td>
+                    <td>IBL provides natural reflections; spots add definition</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h4>🎭 Dramatic/Stylized Scenes</h4>
+        <p><strong>Primary Challenge:</strong> Creating mood and emotion through lighting, not realism</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Best Light Choice</th>
+                    <th>Why</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Film noir style</td>
+                    <td><strong>Strong Spotlight</strong> (high contrast) + minimal fill</td>
+                    <td>Creates dramatic shadows and mystery</td>
+                </tr>
+                <tr>
+                    <td>Horror/thriller</td>
+                    <td><strong>Spotlight</strong> from below + colored lights</td>
+                    <td>Unusual angles create unease; color adds atmosphere</td>
+                </tr>
+                <tr>
+                    <td>Hero pose/action shot</td>
+                    <td>Multiple <strong>Spotlights</strong> (key + rim lights)</td>
+                    <td>Precise control over highlights and shadows for impact</td>
+                </tr>
+                <tr>
+                    <td>Fantasy/magical effect</td>
+                    <td>Colored <strong>Point Lights</strong> + <strong>Spotlights</strong></td>
+                    <td>Unnatural colors and placement create fantastical mood</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3; margin-top: 1rem;">
+            <p><strong>💡 Remember:</strong> For dramatic scenes, you're not trying to be realistic – you're creating an <em>effect</em>. Don't be afraid to place lights in "wrong" positions if it creates the mood you want!</p>
+        </div>
+    </div>
+
+    <h3>🚦 The Traffic Light Decision System</h3>
+    
+    <p>Here's a simple way to think about when each light type is the right choice:</p>
+
+    <div class="mermaid">
+        graph TD
+        A[Need to Light This Scene] --> B{Check the situation}
+        
+        B --> C[🟢 GREEN LIGHT - First Choice]
+        B --> D[🟡 YELLOW LIGHT - Can Work]
+        B --> E[🔴 RED LIGHT - Wrong Tool]
+        
+        C --> C1[Fast decision, use immediately]
+        D --> D1[Will work but requires more setup]
+        E --> E1[Choose different light type]
+        
+        style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+        style C fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+        style D fill:#FFC107,stroke:#333,stroke-width:2px,color:#333
+        style E fill:#f44336,stroke:#333,stroke-width:2px,color:#fff
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Situation</th>
+                <th>🟢 Green Light (Best Choice)</th>
+                <th>🟡 Yellow Light (Can Work)</th>
+                <th>🔴 Red Light (Avoid)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Outdoor sunny day</strong></td>
+                <td>Infinite Light, Outdoor IBL</td>
+                <td>Spotlight (as sun replacement)</td>
+                <td>Point Light (wrong falloff)</td>
+            </tr>
+            <tr>
+                <td><strong>Table lamp</strong></td>
+                <td>Point Light</td>
+                <td>Spotlight (if directional shade)</td>
+                <td>Infinite Light (no falloff), IBL (not localized)</td>
+            </tr>
+            <tr>
+                <td><strong>Stage performance</strong></td>
+                <td>Spotlights</td>
+                <td>Point Lights (less control)</td>
+                <td>Infinite Light (lights everything), IBL (too natural)</td>
+            </tr>
+            <tr>
+                <td><strong>Natural portrait outdoors</strong></td>
+                <td>IBL (best realism)</td>
+                <td>Infinite + Point combo (faster)</td>
+                <td>Single Spotlight (too dramatic)</td>
+            </tr>
+            <tr>
+                <td><strong>Candlelight scene</strong></td>
+                <td>Point Light (warm orange)</td>
+                <td>Small radius Spotlight</td>
+                <td>Infinite Light (wrong behavior), IBL (not localized)</td>
+            </tr>
+            <tr>
+                <td><strong>Moonlight</strong></td>
+                <td>Infinite Light (cool, dim)</td>
+                <td>IBL (night sky HDRI)</td>
+                <td>Point Light (wrong direction)</td>
+            </tr>
+            <tr>
+                <td><strong>Dramatic hero shot</strong></td>
+                <td>Spotlights (multiple angles)</td>
+                <td>Point Lights (less precision)</td>
+                <td>IBL (too even/natural)</td>
+            </tr>
+            <tr>
+                <td><strong>Product photography</strong></td>
+                <td>Studio IBL + Spotlights</td>
+                <td>Multiple Point Lights</td>
+                <td>Single Infinite Light (too flat)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>🎓 Practice: The Light Selection Challenge</h3>
+    
+    <p>Let's test your understanding with some scenarios. For each one, think about which light you'd choose BEFORE you read the answer:</p>
+
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h4>Scenario 1: Medieval Tavern Interior at Night</h4>
+        <p style="color: white;"><strong>Details:</strong> Dimly lit, fireplace in corner, few candles on tables, warm and cozy atmosphere</p>
+        
+        <details style="margin-top: 1rem; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 4px;">
+            <summary style="cursor: pointer; font-weight: bold; color: white;">Click to see recommended setup</summary>
+            <div style="margin-top: 1rem; color: white;">
+                <p><strong>Best Choice:</strong></p>
+                <ul style="color: white;">
+                    <li><strong>Fireplace:</strong> Warm orange Point Light (intensity 1.2-1.5, positioned at fire)</li>
+                    <li><strong>Candles:</strong> Small Point Lights at each candle (intensity 0.5-0.8, warm yellow)</li>
+                    <li><strong>Ambient:</strong> Very weak Point Light for general room (intensity 0.2-0.3)</li>
+                </ul>
+                <p><strong>Why:</strong> Each visible light source gets its own Point Light. Keep it dim – taverns at night are dark! The warm colors create the cozy atmosphere.</p>
+            </div>
+        </details>
+    </div>
+
+    <div class="card" style="background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); color: white; margin-top: 1.5rem;">
+        <h4>Scenario 2: Superhero Landing Pose</h4>
+        <p style="color: white;"><strong>Details:</strong> Character landing dramatically, need impact and power, doesn't have to be realistic</p>
+        
+        <details style="margin-top: 1rem; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 4px;">
+            <summary style="cursor: pointer; font-weight: bold; color: white;">Click to see recommended setup</summary>
+            <div style="margin-top: 1rem; color: white;">
+                <p><strong>Best Choice:</strong></p>
+                <ul style="color: white;">
+                    <li><strong>Key Light:</strong> Strong Spotlight from above-front (intensity 1.8-2.2)</li>
+                    <li><strong>Rim Lights:</strong> Two Spotlights from back at 45° angles (intensity 1.0-1.5, slightly colored)</li>
+                    <li><strong>Fill:</strong> Weak Point Light from camera position (intensity 0.3-0.5)</li>
+                </ul>
+                <p><strong>Why:</strong> Spotlights give maximum drama. Rim lights create separation and power. This is theatrical lighting – all about impact, not realism!</p>
+            </div>
+        </details>
+    </div>
+
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin-top: 1.5rem;">
+        <h4>Scenario 3: Character Reading in Bed at Night</h4>
+        <p style="color: white;"><strong>Details:</strong> Person reading a book, bedside lamp on, rest of room dark, peaceful mood</p>
+        
+        <details style="margin-top: 1rem; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 4px;">
+            <summary style="cursor: pointer; font-weight: bold; color: white;">Click to see recommended setup</summary>
+            <div style="margin-top: 1rem; color: white;">
+                <p><strong>Best Choice:</strong></p>
+                <ul style="color: white;">
+                    <li><strong>Bedside Lamp:</strong> Point Light at lamp position (intensity 0.8-1.2, warm)</li>
+                    <li><strong>Book Light:</strong> Small Spotlight aimed at book (intensity 0.5-0.8) OR rely on lamp Point Light</li>
+                    <li><strong>Ambient:</strong> Very weak fill (intensity 0.1-0.2) to prevent pure black areas</li>
+                </ul>
+                <p><strong>Why:</strong> Point Light for the lamp (it radiates in all directions). Optional spotlight on book for reading emphasis. Keep it dark – it's nighttime! Most of the room should be shadowy.</p>
+            </div>
+        </details>
+    </div>
+
+    <div class="card" style="background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); color: white; margin-top: 1.5rem;">
+        <h4>Scenario 4: Fashion Model in Nature</h4>
+        <p style="color: white;"><strong>Details:</strong> Full-body shot, natural outdoor setting, needs to look professional and polished</p>
+        
+        <details style="margin-top: 1rem; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 4px;">
+            <summary style="cursor: pointer; font-weight: bold; color: white;">Click to see recommended setup</summary>
+            <div style="margin-top: 1rem; color: white;">
+                <p><strong>Best Choice (Professional):</strong></p>
+                <ul style="color: white;">
+                    <li><strong>Primary:</strong> Outdoor IBL (sunny or overcast, depending on mood)</li>
+                    <li><strong>Optional Enhancement:</strong> Soft Spotlight for face (intensity 0.5-0.8)</li>
+                </ul>
+                <p><strong>Best Choice (Fast/Learning):</strong></p>
+                <ul style="color: white;">
+                    <li><strong>Sun:</strong> Infinite Light at 45° angle (intensity 1.2-1.5)</li>
+                    <li><strong>Sky Fill:</strong> Cool Point Light from opposite direction (intensity 0.5-0.7)</li>
+                </ul>
+                <p><strong>Why:</strong> IBL gives most realistic outdoor look with natural reflections. If you need faster renders or more control, the Infinite + Point combo works great too.</p>
+            </div>
+        </details>
+    </div>
+
+    <h3>🧭 Your Personal Decision Framework</h3>
+    
+    <p>After working with Poser lighting for a while, you'll develop your own preferences and workflow. Here's how to build your personal decision framework:</p>
+
+    <div class="card">
+        <h4>Step 1: Define Your Default Setups</h4>
+        <p>Create "go-to" lighting rigs that you can quickly adapt:</p>
+        <ul>
+            <li><strong>Outdoor Default:</strong> Infinite Light (sun) + Point Light (sky fill)</li>
+            <li><strong>Studio Default:</strong> Three spotlights (key, rim, fill) OR studio IBL</li>
+            <li><strong>Interior Default:</strong> Weak IBL ambient + Point Lights at visible sources</li>
+            <li><strong>Night Default:</strong> Dim lights, dark shadows, warm colors</li>
+        </ul>
+        <p>Save these setups so you can load them quickly and adjust as needed.</p>
+    </div>
+
+    <div class="card">
+        <h4>Step 2: Identify Your Speed vs. Quality Balance</h4>
+        <p>Decide what matters more for each project:</p>
+        <ul>
+            <li><strong>Speed Priority:</strong> Use simpler lights (Infinite, basic Point Lights)</li>
+            <li><strong>Quality Priority:</strong> Use IBL and take time with Spotlights</li>
+            <li><strong>Practice Projects:</strong> Experiment with complex setups without time pressure</li>
+            <li><strong>Client Work:</strong> Use proven setups that you know work</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h4>Step 3: Build Your Reference Library</h4>
+        <p>Collect examples of lighting you admire:</p>
+        <ul>
+            <li>Screenshot successful renders with notes on what lights you used</li>
+            <li>Save photos of real-world lighting that inspires you</li>
+            <li>Download HDRI collections for different moods and environments</li>
+            <li>Create a "lighting swipe file" of reference images organized by type</li>
+        </ul>
+    </div>
+
+    <blockquote>
+        <p><strong>"The difference between amateur and professional lighting isn't complexity – it's intentionality. Professionals choose lights that serve their specific purpose, not just 'what looks cool.' Every light should have a reason for being there."</strong></p>
+        <footer>— Professional 3D Lighting Artist</footer>
+    </blockquote>
+
+    <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+        <h4>✅ The Golden Rule of Light Selection</h4>
+        <p><strong>When in doubt, match reality first, then adjust for artistic effect.</strong></p>
+        <p>Start by asking "What would light this scene in real life?" and choose lights that match those sources. Once you have realistic base lighting, you can add or adjust lights for dramatic effect, mood, or emphasis.</p>
+        <p>This approach works 95% of the time and will never steer you completely wrong.</p>
+    </div>
+
+    <div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+        <h4>⚠️ Common Decision-Making Mistakes</h4>
+        <ul>
+            <li><strong>Using IBL for everything:</strong> IBL is great but not always the answer. Sometimes simple lights work better and render faster.</li>
+            <li><strong>Too many lights:</strong> More lights ≠ better results. Most great renders use 2-4 lights, carefully placed.</li>
+            <li><strong>Ignoring falloff:</strong> Using Infinite Lights for lamps or Point Lights for sun looks immediately wrong.</li>
+            <li><strong>Forgetting about color:</strong> Light color temperature is crucial. Outdoor light is cooler, indoor light is warmer.</li>
+            <li><strong>Not testing as you go:</strong> Do quick test renders to check your lighting before spending time on high-quality final renders.</li>
+        </ul>
+    </div>
+
+</section>
+<!-- Lesson 19, Part 10: Project - Light Type Comparison Scene (Part 1 of 2) -->
+
+<section id="project-light-comparison">
+  <h2>🎨 Project: Light Type Comparison Scene</h2>
+
+  <p>
+    Now it's time to put everything you've learned into practice! In this
+    hands-on project, you'll create a single scene and light it four different
+    ways – once with each light type. This will give you direct, side-by-side
+    experience with how each light behaves and when each is most effective.
+  </p>
+
+  <p>
+    Think of this as your "lighting lab experiment." By the end of this project,
+    you'll have a deeper understanding of light types than hours of reading
+    could provide. There's no substitute for actually <em>doing</em> it
+    yourself!
+  </p>
+
+  <div
+    class="card"
+    style="
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    "
+  >
+    <h3>🎯 Project Goals</h3>
+    <ul style="color: white">
+      <li>
+        <strong>Experience:</strong> Get hands-on practice with all four light
+        types
+      </li>
+      <li>
+        <strong>Compare:</strong> See the differences side-by-side in real
+        renders
+      </li>
+      <li>
+        <strong>Learn:</strong> Understand which lights work best for different
+        effects
+      </li>
+      <li>
+        <strong>Build Confidence:</strong> Develop your intuition for light
+        selection
+      </li>
+      <li>
+        <strong>Create Reference:</strong> Build your own comparison that you
+        can refer back to
+      </li>
+    </ul>
+  </div>
+
+  <div
+    class="card"
+    style="background-color: #e3f2fd; border-left: 4px solid #2196f3"
+  >
+    <h4>⏱️ Time Required</h4>
+    <p><strong>Total Project Time:</strong> 1.5 - 2 hours</p>
+    <ul>
+      <li><strong>Scene Setup:</strong> 15-20 minutes</li>
+      <li><strong>Infinite Light Version:</strong> 15 minutes</li>
+      <li><strong>Point Light Version:</strong> 15 minutes</li>
+      <li><strong>Spotlight Version:</strong> 20-25 minutes (more complex)</li>
+      <li>
+        <strong>IBL Version:</strong> 20-25 minutes (including HDRI download)
+      </li>
+      <li><strong>Comparison and Notes:</strong> 10-15 minutes</li>
+    </ul>
+    <p>
+      <strong>Tip:</strong> You don't have to complete this all at once. It's
+      fine to work on one light type per session!
+    </p>
+  </div>
+
+  <h3>📋 What You'll Need</h3>
+
+  <div class="card">
+    <h4>Materials Checklist</h4>
+    <ul>
+      <li>✅ <strong>Poser 12</strong> open and ready</li>
+      <li>
+        ✅ <strong>A figure</strong> (any figure will work – use a default Poser
+        figure)
+      </li>
+      <li>
+        ✅ <strong>A simple prop</strong> (optional but helpful – like a chair,
+        cube, or sphere)
+      </li>
+      <li>
+        ✅ <strong>HDRI file</strong> (we'll guide you on downloading a free
+        one)
+      </li>
+      <li>
+        ✅ <strong>Notebook or text file</strong> for recording observations
+      </li>
+      <li>
+        ✅ <strong>About 2 hours</strong> of uninterrupted time (can be split
+        across sessions)
+      </li>
+    </ul>
+  </div>
+
+  <div class="card" style="background: #e8f5e9; border-left: 4px solid #4caf50">
+    <h4>✅ Before You Begin</h4>
+    <p>Make sure you're comfortable with:</p>
+    <ul>
+      <li>Loading figures in Poser (Lesson 3)</li>
+      <li>Creating simple poses (Lessons 6-7)</li>
+      <li>Basic camera controls (Lesson 4)</li>
+      <li>Navigating the Poser interface (Lesson 2)</li>
+    </ul>
+    <p>
+      If any of these feel shaky, it's worth quickly reviewing those lessons
+      first. This project will be much more enjoyable if you're comfortable with
+      the basics!
+    </p>
+  </div>
+
+  <h3>🎬 Part 1: Setting Up Your Scene</h3>
+
+  <p>
+    First, we need to create a consistent scene that will work well for all four
+    lighting approaches. The key is simplicity – we want to focus on the
+    lighting, not complex scene elements.
+  </p>
+
+  <div class="card">
+    <h4>Step 1: Start Fresh</h4>
+    <ol>
+      <li>Open Poser 12</li>
+      <li>Start with a new, empty scene (File → New)</li>
+      <li>
+        Make sure you're starting clean with no existing lights or figures
+      </li>
+    </ol>
+
+    <div
+      class="card"
+      style="
+        background-color: #fff3cd;
+        border-left: 4px solid #ffc107;
+        margin-top: 1rem;
+      "
+    >
+      <p>
+        <strong>⚠️ Important:</strong> Delete any default lights that Poser
+        creates automatically. We want to start with NO lights so you can add
+        them intentionally. Go to the Scene hierarchy and delete any lights you
+        see.
+      </p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4>Step 2: Load Your Figure</h4>
+    <ol>
+      <li>
+        Load any figure you like from the Figures library
+        <ul>
+          <li>Andy, Alyson, Ryan, or Sydney all work great</li>
+          <li>Default Poser figures are perfect for this</li>
+          <li>
+            Don't use complex characters with lots of clothing yet – keep it
+            simple!
+          </li>
+        </ul>
+      </li>
+      <li>Position the figure at the center of your scene (usually 0,0,0)</li>
+      <li>
+        Don't worry about a complex pose – a simple standing or sitting pose is
+        fine
+      </li>
+    </ol>
+
+    <div
+      class="card"
+      style="
+        background: #e8f5e9;
+        border-left: 4px solid #4caf50;
+        margin-top: 1rem;
+      "
+    >
+      <p>
+        <strong>✅ Recommended Pose:</strong> Use a simple standing pose with
+        hands at sides or a casual stance. You want to see the figure clearly
+        from multiple angles, so avoid extreme poses or poses where the figure
+        is hunched over.
+      </p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4>Step 3: Optional - Add a Simple Prop</h4>
+    <p>
+      Adding one simple geometric prop helps you see how lights interact with
+      different surfaces. This is optional but recommended:
+    </p>
+    <ol>
+      <li>Go to Props → Primitives</li>
+      <li>Add a <strong>Box</strong> or <strong>Ball</strong> to the scene</li>
+      <li>Position it near your figure (to the side or slightly in front)</li>
+      <li>Scale it to about waist-height of your figure</li>
+    </ol>
+
+    <p><strong>Why this helps:</strong> The prop will show you things like:</p>
+    <ul>
+      <li>How shadows fall on different surfaces</li>
+      <li>How light falloff affects nearby objects</li>
+      <li>How different light types create different shadow patterns</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h4>Step 4: Set Up Your Camera View</h4>
+    <ol>
+      <li>Switch to the Main Camera (not the Posing Camera)</li>
+      <li>
+        Position the camera at a 3/4 angle to your figure
+        <ul>
+          <li>Not straight-on (that's boring)</li>
+          <li>Not pure profile (can't see enough)</li>
+          <li>About 45° off-center works perfectly</li>
+        </ul>
+      </li>
+      <li>
+        Frame the shot so you can see:
+        <ul>
+          <li>The entire figure (or most of it)</li>
+          <li>Your prop if you added one</li>
+          <li>Some of the ground plane (to see shadows)</li>
+        </ul>
+      </li>
+      <li>
+        <strong>IMPORTANT:</strong> Once your camera is positioned, DON'T MOVE
+        IT for the rest of the project! You want identical camera angles for all
+        four lighting versions.
+      </li>
+    </ol>
+
+    <div
+      class="card"
+      style="
+        background-color: #e3f2fd;
+        border-left: 4px solid #2196f3;
+        margin-top: 1rem;
+      "
+    >
+      <p>
+        <strong>💡 Pro Tip:</strong> Save a camera preset! Once you have your
+        camera positioned perfectly, save it as a camera preset. This way, if
+        you accidentally move the camera, you can instantly restore the exact
+        same angle. (Camera menu → Create Camera → Save Camera Settings)
+      </p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4>Step 5: Save Your Base Scene</h4>
+    <ol>
+      <li>
+        Save your scene now as "<strong>Light_Comparison_Base.pz3</strong>"
+      </li>
+      <li>This is your starting point for all four lighting versions</li>
+      <li>You'll load this file four times and light it four different ways</li>
+    </ol>
+
+    <p><strong>Your base scene should have:</strong></p>
+    <ul>
+      <li>✅ One figure in a simple pose</li>
+      <li>✅ Optional simple prop (box or ball)</li>
+      <li>✅ Camera positioned at 3/4 angle</li>
+      <li>✅ NO lights (we'll add those next)</li>
+      <li>✅ Scene saved with a clear filename</li>
+    </ul>
+  </div>
+
+  <h3>🎨 Part 2: Creating a Reference System</h3>
+
+  <p>
+    Before we start lighting, let's set up a way to track what you learn. This
+    will make the project much more valuable!
+  </p>
+
+  <div class="card">
+    <h4>Create Your Comparison Document</h4>
+    <p>
+      Open a text file, document, or notebook and create a template like this:
+    </p>
+
+    <div
+      style="
+        background: #f5f5f5;
+        padding: 1rem;
+        border-radius: 4px;
+        font-family: monospace;
+        margin: 1rem 0;
+      "
+    >
+      <pre style="margin: 0">
+LIGHT TYPE COMPARISON PROJECT
+=============================
+
+BASE SCENE SETUP:
+- Figure Used: [name]
+- Prop Used: [description]
+- Camera Angle: [description]
+- Date: [today's date]
+
+---
+
+VERSION 1: INFINITE LIGHT
+Setup Details:
+- Light position/rotation:
+- Intensity:
+- Color:
+- Shadow settings:
+
+Observations:
+- What I liked:
+- What I didn't like:
+- Best used for:
+- Render time:
+
+---
+
+VERSION 2: POINT LIGHT
+Setup Details:
+- Light position:
+- Intensity:
+- Falloff settings:
+- Color:
+
+Observations:
+- What I liked:
+- What I didn't like:
+- Best used for:
+- Render time:
+
+---
+
+VERSION 3: SPOTLIGHT
+Setup Details:
+- Light position:
+- Cone angle:
+- Intensity:
+- Edge softness:
+
+Observations:
+- What I liked:
+- What I didn't like:
+- Best used for:
+- Render time:
+
+---
+
+VERSION 4: IBL
+Setup Details:
+- HDRI used:
+- Intensity:
+- Rotation:
+- Quality settings:
+
+Observations:
+- What I liked:
+- What I didn't like:
+- Best used for:
+- Render time:
+
+---
+
+FINAL COMPARISON:
+Which light looked most natural:
+Which light gave most control:
+Which light was fastest:
+Which light would I use for portraits:
+Which light would I use for drama:
+
+Overall learning:
+</pre
+      >
+    </div>
+
+    <p>
+      Copy this template now – you'll fill it in as you work through each
+      lighting version!
+    </p>
+  </div>
+
+  <div class="card" style="background: #e8f5e9; border-left: 4px solid #4caf50">
+    <h4>✅ Why Document Your Process?</h4>
+    <p>Taking notes might seem tedious, but it's incredibly valuable:</p>
+    <ul>
+      <li>
+        <strong>Reinforces learning:</strong> Writing down observations helps
+        you remember them
+      </li>
+      <li>
+        <strong>Builds reference:</strong> You can look back at your notes when
+        setting up future scenes
+      </li>
+      <li>
+        <strong>Tracks progress:</strong> You'll see how much you've learned
+      </li>
+      <li>
+        <strong>Identifies patterns:</strong> Written comparisons reveal
+        insights you might miss otherwise
+      </li>
+    </ul>
+    <p>
+      Trust the process – students who take notes learn significantly faster!
+    </p>
+  </div>
+
+  <h3>⚙️ Render Settings for Consistency</h3>
+
+  <p>
+    To make fair comparisons, you need consistent render settings across all
+    four versions:
+  </p>
+
+  <div class="card">
+    <h4>Recommended Render Settings</h4>
+    <p>Go to Render → Render Settings and configure:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Setting</th>
+          <th>Recommended Value</th>
+          <th>Why</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Render Dimensions</strong></td>
+          <td>1024 x 768 or smaller</td>
+          <td>Smaller = faster renders for testing</td>
+        </tr>
+        <tr>
+          <td><strong>Render Engine</strong></td>
+          <td>Firefly or SuperFly (consistent across all tests)</td>
+          <td>Different engines produce different results</td>
+        </tr>
+        <tr>
+          <td><strong>Shadow Type</strong></td>
+          <td>Raytrace or Depth Map (your choice, but consistent)</td>
+          <td>Affects shadow quality and render time</td>
+        </tr>
+        <tr>
+          <td><strong>Shadow Blur</strong></td>
+          <td>Medium (5-10)</td>
+          <td>Softer shadows look more natural</td>
+        </tr>
+        <tr>
+          <td><strong>Anti-Aliasing</strong></td>
+          <td>Medium</td>
+          <td>Balances quality and speed</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div
+      class="card"
+      style="
+        background-color: #fff3cd;
+        border-left: 4px solid #ffc107;
+        margin-top: 1rem;
+      "
+    >
+      <p>
+        <strong>⚠️ Critical:</strong> Use the SAME render settings for all four
+        versions! If you change settings between tests, you can't fairly compare
+        the results. Write down your settings in your comparison document.
+      </p>
+    </div>
+  </div>
+
+  <h3>📸 Taking Comparison Screenshots</h3>
+
+  <div class="card">
+    <h4>Workflow for Each Light Type</h4>
+    <p>For each of the four lighting versions, follow this process:</p>
+    <ol>
+      <li><strong>Load your base scene</strong> (Light_Comparison_Base.pz3)</li>
+      <li><strong>Add the light(s)</strong> for that version</li>
+      <li>
+        <strong>Adjust settings</strong> until you're happy with the preview
+      </li>
+      <li><strong>Render</strong> at your standard settings</li>
+      <li>
+        <strong>Save the render</strong> with a clear name:
+        <ul>
+          <li>Light_Comparison_Infinite.png</li>
+          <li>Light_Comparison_Point.png</li>
+          <li>Light_Comparison_Spotlight.png</li>
+          <li>Light_Comparison_IBL.png</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Save the scene file</strong> (so you can revisit it later)
+      </li>
+      <li>
+        <strong>Fill in your observations</strong> in the comparison document
+      </li>
+    </ol>
+  </div>
+
+  <div class="card" style="background: #e8f5e9; border-left: 4px solid #4caf50">
+    <h4>✅ Quick Test Renders</h4>
+    <p>
+      Don't wait for high-quality renders while you're experimenting! Use these
+      tricks:
+    </p>
+    <ul>
+      <li>
+        <strong>Preview Renders:</strong> Use Draft or Preview quality while
+        adjusting lights
+      </li>
+      <li>
+        <strong>Small Dimensions:</strong> Test at 640x480 or even smaller
+      </li>
+      <li>
+        <strong>Lower Samples:</strong> For IBL especially, use low sample
+        counts during testing
+      </li>
+      <li>
+        <strong>Save Quality for Finals:</strong> Only render at full quality
+        when you're completely happy with the lighting
+      </li>
+    </ul>
+    <p>
+      A 10-second test render tells you as much as a 5-minute final render for
+      positioning and intensity!
+    </p>
+  </div>
+
+  <h3>🎯 Success Checklist: Part 1 Complete</h3>
+
+  <p>
+    Before moving on to actually lighting the scene (Part 2), make sure you
+    have:
+  </p>
+
+  <div class="card">
+    <ul style="list-style: none; padding-left: 0">
+      <li>
+        ☐ <strong>Base scene created</strong> with figure and optional prop
+      </li>
+      <li>☐ <strong>Camera positioned</strong> at 3/4 angle and NOT MOVING</li>
+      <li>
+        ☐ <strong>All default lights deleted</strong> (starting from darkness)
+      </li>
+      <li>
+        ☐ <strong>Base scene saved</strong> as "Light_Comparison_Base.pz3"
+      </li>
+      <li>
+        ☐ <strong>Comparison document created</strong> with template ready
+      </li>
+      <li>☐ <strong>Render settings configured</strong> and documented</li>
+      <li>☐ <strong>File naming system planned</strong> for saving renders</li>
+      <li>☐ <strong>Ready to experiment!</strong> Mind open, notebook ready</li>
+    </ul>
+  </div>
+
+  <blockquote>
+    <p>
+      <strong
+        >"The best way to understand lighting is to experiment. Every scene you
+        light teaches you something new. This project will teach you more about
+        practical lighting than weeks of theory."</strong
+      >
+    </p>
+    <footer>— Professional 3D Artist</footer>
+  </blockquote>
+
+  <div
+    class="card"
+    style="
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    "
+  >
+    <h3>🚀 Ready for Part 2?</h3>
+    <p style="color: white">
+      In Part 2, we'll light your scene four different ways:
+    </p>
+    <ul style="color: white">
+      <li><strong>Version 1:</strong> Infinite Light (Sun simulation)</li>
+      <li><strong>Version 2:</strong> Point Light (Localized lighting)</li>
+      <li><strong>Version 3:</strong> Spotlight (Dramatic precision)</li>
+      <li><strong>Version 4:</strong> IBL (Natural realism)</li>
+    </ul>
+    <p style="color: white; margin-bottom: 0">
+      For each version, you'll get step-by-step instructions, troubleshooting
+      tips, and guidance on what to observe. Let's continue!
+    </p>
+  </div>
+</section>
+<!-- Lesson 19, Part 11: Project - Light Type Comparison Scene (Part 2 of 2) -->
+
+<h3>🔆 Version 1: Infinite Light Setup</h3>
+
+<p>Let's start with Infinite Light because it's the simplest and fastest. This will simulate outdoor sunlight.</p>
+
+<div class="card">
+    <h4>Step-by-Step: Infinite Light</h4>
+    
+    <ol>
+        <li><strong>Load your base scene</strong>
+            <ul>
+                <li>File → Open → Light_Comparison_Base.pz3</li>
+                <li>Verify your figure and camera are exactly as you left them</li>
+            </ul>
+        </li>
+        
+        <li><strong>Add an Infinite Light</strong>
+            <ul>
+                <li>Go to Objects → Create Light → Infinite Light</li>
+                <li>The light appears in your scene</li>
+                <li>Don't worry about its position – only rotation matters!</li>
+            </ul>
+        </li>
+        
+        <li><strong>Position the light direction</strong>
+            <ul>
+                <li>Select the Infinite Light in your scene hierarchy</li>
+                <li>Rotate it to come from above and to the side (simulating afternoon sun)</li>
+                <li><strong>Suggested angles:</strong>
+                    <ul>
+                        <li>X-Rotate (up/down): -45° to -30° (angled down from above)</li>
+                        <li>Y-Rotate (side to side): 30° to 45° (coming from the side)</li>
+                        <li>Z-Rotate: 0° (usually not needed)</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        
+        <li><strong>Adjust intensity</strong>
+            <ul>
+                <li>In the Properties panel, find "Intensity"</li>
+                <li>Start with <strong>100%</strong> (or 1.0)</li>
+                <li>If too bright: reduce to 80-90%</li>
+                <li>If too dim: increase to 110-120%</li>
+            </ul>
+        </li>
+        
+        <li><strong>Set light color</strong>
+            <ul>
+                <li>Click on the color swatch in Properties</li>
+                <li>For natural sunlight: very slightly warm white (RGB: 255, 250, 240)</li>
+                <li>Or just leave it pure white for this comparison</li>
+            </ul>
+        </li>
+        
+        <li><strong>Enable shadows</strong>
+            <ul>
+                <li>Make sure "Cast Shadows" is checked</li>
+                <li>Set shadow type to Raytrace or Depth Map</li>
+                <li>Shadow blur: 5-10 for natural-looking soft shadows</li>
+            </ul>
+        </li>
+        
+        <li><strong>Do a test render</strong>
+            <ul>
+                <li>Render at draft/preview quality first</li>
+                <li>Check: Can you see your figure clearly? Are shadows visible on the ground?</li>
+                <li>Adjust intensity or rotation if needed</li>
+            </ul>
+        </li>
+        
+        <li><strong>Final render and save</strong>
+            <ul>
+                <li>Render at your standard quality settings</li>
+                <li>Save render as: <strong>Light_Comparison_Infinite.png</strong></li>
+                <li>Save scene as: <strong>Light_Comparison_Infinite.pz3</strong></li>
+            </ul>
+        </li>
+    </ol>
+</div>
+
+<div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+    <h4>What to Observe: Infinite Light</h4>
+    <p>While looking at your render, note in your comparison document:</p>
+    <ul>
+        <li><strong>Shadow direction:</strong> Are all shadows parallel? (They should be!)</li>
+        <li><strong>Light consistency:</strong> Is the light intensity the same everywhere?</li>
+        <li><strong>Coverage:</strong> Does the light reach all parts of your scene equally?</li>
+        <li><strong>Realism:</strong> Does it look like natural outdoor lighting?</li>
+        <li><strong>Setup time:</strong> How long did this take? (Should be quick!)</li>
+        <li><strong>Render time:</strong> Note how long the final render took</li>
+    </ul>
+</div>
+
+<div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+    <h4>⚠️ Troubleshooting: Infinite Light</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Problem</th>
+                <th>Solution</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Scene is too dark</td>
+                <td>Increase intensity to 120-150%</td>
+            </tr>
+            <tr>
+                <td>Figure is washed out</td>
+                <td>Decrease intensity to 70-80%</td>
+            </tr>
+            <tr>
+                <td>Shadows too harsh</td>
+                <td>Increase shadow blur to 10-15</td>
+            </tr>
+            <tr>
+                <td>Can't see shadows</td>
+                <td>Make sure "Cast Shadows" is enabled; check ground plane is visible</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h3>💡 Version 2: Point Light Setup</h3>
+
+<p>Now let's try Point Light. This simulates a localized light source like a lamp or light bulb.</p>
+
+<div class="card">
+    <h4>Step-by-Step: Point Light</h4>
+    
+    <ol>
+        <li><strong>Load your base scene again</strong>
+            <ul>
+                <li>File → Open → Light_Comparison_Base.pz3</li>
+                <li>Start fresh (don't use the Infinite Light version)</li>
+            </ul>
+        </li>
+        
+        <li><strong>Add a Point Light</strong>
+            <ul>
+                <li>Objects → Create Light → Point Light</li>
+                <li>The light appears at the origin (0,0,0)</li>
+            </ul>
+        </li>
+        
+        <li><strong>Position the Point Light</strong>
+            <ul>
+                <li>This is crucial – position matters a lot for Point Lights!</li>
+                <li><strong>Suggested position:</strong>
+                    <ul>
+                        <li>X: 100 to 150 (to the side of figure)</li>
+                        <li>Y: 150 to 200 (above figure's head)</li>
+                        <li>Z: 100 to 150 (in front of figure)</li>
+                    </ul>
+                </li>
+                <li>Essentially: above, to the side, and in front</li>
+                <li>You should see the light icon in the preview window</li>
+            </ul>
+        </li>
+        
+        <li><strong>Adjust intensity</strong>
+            <ul>
+                <li>Point Lights need higher intensity because of falloff</li>
+                <li>Start with <strong>150-200%</strong> (or 1.5-2.0)</li>
+                <li>You'll likely need to adjust after a test render</li>
+            </ul>
+        </li>
+        
+        <li><strong>Set falloff</strong>
+            <ul>
+                <li>Check "Inverse Square" falloff (most realistic)</li>
+                <li>Or use "Inverse Linear" if Inverse Square is too dramatic</li>
+                <li>This creates the natural dimming as distance increases</li>
+            </ul>
+        </li>
+        
+        <li><strong>Configure shadows</strong>
+            <ul>
+                <li>Enable "Cast Shadows"</li>
+                <li>Shadow blur: 8-12 (Point Lights benefit from softer shadows)</li>
+            </ul>
+        </li>
+        
+        <li><strong>Test and adjust</strong>
+            <ul>
+                <li>Do a preview render</li>
+                <li>Notice: The figure is brighter where it's closest to the light</li>
+                <li>Shadows radiate away from the light position</li>
+                <li>Adjust position and intensity as needed</li>
+            </ul>
+        </li>
+        
+        <li><strong>Optional: Add a fill light</strong>
+            <ul>
+                <li>Point Lights can create very dark shadows</li>
+                <li>Add a second, weaker Point Light on the opposite side</li>
+                <li>Position: opposite side from main light</li>
+                <li>Intensity: 30-50% (much dimmer than main light)</li>
+                <li>This fills in shadows naturally</li>
+            </ul>
+        </li>
+        
+        <li><strong>Final render and save</strong>
+            <ul>
+                <li>Render at standard quality</li>
+                <li>Save render as: <strong>Light_Comparison_Point.png</strong></li>
+                <li>Save scene as: <strong>Light_Comparison_Point.pz3</strong></li>
+            </ul>
+        </li>
+    </ol>
+</div>
+
+<div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+    <h4>What to Observe: Point Light</h4>
+    <p>Note these specific characteristics:</p>
+    <ul>
+        <li><strong>Falloff effect:</strong> Is the figure brighter on the side closest to the light?</li>
+        <li><strong>Shadow pattern:</strong> Do shadows radiate away from the light position?</li>
+        <li><strong>Dimensional quality:</strong> Does the figure look more three-dimensional than with Infinite Light?</li>
+        <li><strong>Positioning challenge:</strong> Was it harder to position than Infinite Light?</li>
+        <li><strong>Realism:</strong> Does this look like indoor lighting or a lamp?</li>
+        <li><strong>Dark areas:</strong> Are some areas too dark? (This is normal for Point Lights!)</li>
+    </ul>
+</div>
+
+<div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+    <h4>⚠️ Troubleshooting: Point Light</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Problem</th>
+                <th>Solution</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Figure too dark overall</td>
+                <td>Increase intensity to 250-300% OR move light closer to figure</td>
+            </tr>
+            <tr>
+                <td>Hot spot on figure (too bright)</td>
+                <td>Decrease intensity OR move light farther away</td>
+            </tr>
+            <tr>
+                <td>Shadows too dark</td>
+                <td>Add a weak fill light on opposite side (30-50% intensity)</td>
+            </tr>
+            <tr>
+                <td>Falloff too strong</td>
+                <td>Use Inverse Linear instead of Inverse Square falloff</td>
+            </tr>
+            <tr>
+                <td>Light doesn't seem to do anything</td>
+                <td>Check position – might be behind figure or too far away</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h3>🎯 Version 3: Spotlight Setup</h3>
+
+<p>Spotlights are the most complex but give you maximum control. This will create dramatic, focused lighting.</p>
+
+<div class="card">
+    <h4>Step-by-Step: Spotlight</h4>
+    
+    <ol>
+        <li><strong>Load base scene</strong>
+            <ul>
+                <li>File → Open → Light_Comparison_Base.pz3</li>
+                <li>Fresh start with no lights</li>
+            </ul>
+        </li>
+        
+        <li><strong>Add a Spotlight</strong>
+            <ul>
+                <li>Objects → Create Light → Spotlight</li>
+                <li>A spotlight appears with a cone indicator</li>
+            </ul>
+        </li>
+        
+        <li><strong>Position the Spotlight</strong>
+            <ul>
+                <li><strong>Position</strong> (where the light is):
+                    <ul>
+                        <li>X: 100-150 (to the side)</li>
+                        <li>Y: 150-200 (above)</li>
+                        <li>Z: 100-150 (in front)</li>
+                    </ul>
+                </li>
+                <li>Similar to Point Light position, but now you'll also rotate it</li>
+            </ul>
+        </li>
+        
+        <li><strong>Aim the Spotlight</strong>
+            <ul>
+                <li><strong>Critical step:</strong> Point the spotlight AT your figure</li>
+                <li>Method 1: Use "Point At" function
+                    <ul>
+                        <li>Right-click spotlight → Point At → [Your Figure]</li>
+                        <li>This automatically aims the light</li>
+                    </ul>
+                </li>
+                <li>Method 2: Manual rotation
+                    <ul>
+                        <li>Adjust X, Y, Z rotation until cone points at figure</li>
+                        <li>Watch the cone indicator in the preview window</li>
+                    </ul>
+                </li>
+                <li>The cone should fully encompass your figure</li>
+            </ul>
+        </li>
+        
+        <li><strong>Set cone angle</strong>
+            <ul>
+                <li>Find "Angle" or "Cone Angle" in Properties</li>
+                <li>Start with <strong>60-90 degrees</strong></li>
+                <li>Smaller angle = tighter beam (more dramatic)</li>
+                <li>Larger angle = wider coverage (more general)</li>
+                <li>For this comparison, try 70 degrees</li>
+            </ul>
+        </li>
+        
+        <li><strong>Adjust edge softness</strong>
+            <ul>
+                <li>Find "Edge Falloff" or "Penumbra"</li>
+                <li>Set to <strong>20-30</strong> for soft edges</li>
+                <li>0 = hard edge (visible cone edge)</li>
+                <li>Higher values = softer, more gradual falloff</li>
+            </ul>
+        </li>
+        
+        <li><strong>Set intensity</strong>
+            <ul>
+                <li>Spotlights often need high intensity</li>
+                <li>Start with <strong>150-200%</strong></li>
+                <li>Adjust after test render</li>
+            </ul>
+        </li>
+        
+        <li><strong>Enable shadows</strong>
+            <ul>
+                <li>Cast Shadows: ON</li>
+                <li>Shadow blur: 5-10</li>
+                <li>Spotlight shadows are usually quite sharp and dramatic</li>
+            </ul>
+        </li>
+        
+        <li><strong>Test render</strong>
+            <ul>
+                <li>Preview render to check coverage</li>
+                <li>Is the figure fully lit, or is part in shadow?</li>
+                <li>Adjust cone angle or position as needed</li>
+            </ul>
+        </li>
+        
+        <li><strong>Optional: Add rim light</strong>
+            <ul>
+                <li>For extra drama, add a second spotlight from behind</li>
+                <li>Position behind and above figure</li>
+                <li>Aim at the back of head/shoulders</li>
+                <li>Intensity: 80-120%</li>
+                <li>This creates a bright outline (rim light effect)</li>
+            </ul>
+        </li>
+        
+        <li><strong>Final render and save</strong>
+            <ul>
+                <li>Render at standard quality</li>
+                <li>Save render as: <strong>Light_Comparison_Spotlight.png</strong></li>
+                <li>Save scene as: <strong>Light_Comparison_Spotlight.pz3</strong></li>
+            </ul>
+        </li>
+    </ol>
+</div>
+
+<div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+    <h4>What to Observe: Spotlight</h4>
+    <p>Pay special attention to:</p>
+    <ul>
+        <li><strong>Directional control:</strong> Could you precisely aim the light where you wanted?</li>
+        <li><strong>Cone visibility:</strong> Can you see where the light beam starts and ends?</li>
+        <li><strong>Dramatic effect:</strong> Does this look more theatrical/dramatic than previous versions?</li>
+        <li><strong>Shadow quality:</strong> Are shadows sharper and more defined?</li>
+        <li><strong>Setup complexity:</strong> Was this significantly harder to set up?</li>
+        <li><strong>Control level:</strong> Do you feel you have more artistic control?</li>
+        <li><strong>Mood:</strong> What emotion does this lighting create?</li>
+    </ul>
+</div>
+
+<div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+    <h4>⚠️ Troubleshooting: Spotlight</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Problem</th>
+                <th>Solution</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Figure not lit at all</td>
+                <td>Spotlight isn't aimed correctly – use "Point At" function</td>
+            </tr>
+            <tr>
+                <td>Only part of figure lit</td>
+                <td>Cone angle too narrow – increase to 80-100 degrees</td>
+            </tr>
+            <tr>
+                <td>Visible cone edge (hard circle)</td>
+                <td>Increase edge falloff/penumbra to 30-50</td>
+            </tr>
+            <tr>
+                <td>Too dramatic/dark</td>
+                <td>Add a weak fill light (Point Light at 40% from camera)</td>
+            </tr>
+            <tr>
+                <td>Can't see where spotlight points</td>
+                <td>Enable "Show Cone" in display options; adjust cone angle to see indicator</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h3>🌍 Version 4: IBL Setup</h3>
+
+<p>Finally, let's create the most realistic version using Image-Based Lighting. This will take a bit more setup but produces beautiful natural results.</p>
+
+<div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+    <h4>✅ Before You Start: Download an HDRI</h4>
+    <p>If you don't already have an HDRI file, do this first:</p>
+    <ol>
+        <li>Go to <strong>Polyhaven.com</strong></li>
+        <li>Click on "HDRIs"</li>
+        <li>Choose any outdoor environment (sunny day works great for comparison)</li>
+        <li>Download the <strong>2K .hdr</strong> file (you don't need higher resolution for this)</li>
+        <li>Save it somewhere you'll remember (like Documents/Poser/HDRIs)</li>
+    </ol>
+    <p><strong>Recommended HDRIs for this project:</strong></p>
+    <ul>
+        <li>"studio_small_09" – Great studio lighting</li>
+        <li>"kiara_1_dawn" – Beautiful natural outdoor light</li>
+        <li>"sunflowers" – Warm, natural daylight</li>
+    </ul>
+</div>
+
+<div class="card">
+    <h4>Step-by-Step: IBL</h4>
+    
+    <ol>
+        <li><strong>Load base scene</strong>
+            <ul>
+                <li>File → Open → Light_Comparison_Base.pz3</li>
+            </ul>
+        </li>
+        
+        <li><strong>Open Material Room</strong>
+            <ul>
+                <li>Click "Material Room" tab at top of Poser window</li>
+                <li>This is where you'll set up the HDRI</li>
+            </ul>
+        </li>
+        
+        <li><strong>Select Background</strong>
+            <ul>
+                <li>In the Objects list (left side), find and select "Background"</li>
+                <li>You'll see the Background shader tree appear</li>
+            </ul>
+        </li>
+        
+        <li><strong>Load HDRI image</strong>
+            <ul>
+                <li>Find the "Background_Color" node in the shader tree</li>
+                <li>Click the dropdown arrow next to it</li>
+                <li>Choose "New Node" → "Image Map"</li>
+                <li>In the Image Map node, click the small button to browse</li>
+                <li>Navigate to your downloaded .hdr file and select it</li>
+            </ul>
+        </li>
+        
+        <li><strong>Enable background rendering</strong>
+            <ul>
+                <li>Go back to Pose Room (click "Pose" tab)</li>
+                <li>Open Render Settings (Render menu → Render Settings)</li>
+                <li>Find "Use Background Picture" or "Background" and enable it</li>
+                <li>This makes the HDRI visible in your render</li>
+            </ul>
+        </li>
+        
+        <li><strong>Enable IBL</strong>
+            <ul>
+                <li>Still in Render Settings</li>
+                <li>Find "Image Based Lighting" or "IBL" section</li>
+                <li>Enable IBL</li>
+                <li>Set quality to Medium for testing (you can increase later)</li>
+            </ul>
+        </li>
+        
+        <li><strong>Adjust IBL intensity</strong>
+            <ul>
+                <li>In Render Settings, find "IBL Intensity"</li>
+                <li>Start with <strong>1.0</strong></li>
+                <li>You may need to adjust after test render</li>
+                <li>Typical range: 0.8-1.5</li>
+            </ul>
+        </li>
+        
+        <li><strong>Test render</strong>
+            <ul>
+                <li>Do a quick preview render</li>
+                <li><strong>Note:</strong> IBL renders slower than other light types</li>
+                <li>Use draft quality and small dimensions for testing</li>
+            </ul>
+        </li>
+        
+        <li><strong>Rotate HDRI if needed</strong>
+            <ul>
+                <li>If the lighting angle isn't flattering, rotate the environment</li>
+                <li>In Render Settings, find "IBL Rotation" or similar</li>
+                <li>Try rotating by 90° or 180°</li>
+                <li>This changes where the main light comes from</li>
+            </ul>
+        </li>
+        
+        <li><strong>Final render and save</strong>
+            <ul>
+                <li>Increase IBL quality to Medium or High</li>
+                <li>Render at standard settings</li>
+                <li><strong>Be patient</strong> – IBL renders take longer!</li>
+                <li>Save render as: <strong>Light_Comparison_IBL.png</strong></li>
+                <li>Save scene as: <strong>Light_Comparison_IBL.pz3</strong></li>
+            </ul>
+        </li>
+    </ol>
+</div>
+
+<div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+    <h4>What to Observe: IBL</h4>
+    <p>Look for these unique IBL characteristics:</p>
+    <ul>
+        <li><strong>Natural quality:</strong> Does this look more photorealistic than the other versions?</li>
+        <li><strong>Reflections:</strong> Do you see environment reflections on your figure (especially in eyes)?</li>
+        <li><strong>Soft shadows:</strong> Are shadows softer and more natural-looking?</li>
+        <li><strong>Atmospheric quality:</strong> Does the HDRI environment affect the overall mood?</li>
+        <li><strong>Render time:</strong> How much longer did this take compared to other lights?</li>
+        <li><strong>Setup complexity:</strong> Was this more complicated to set up?</li>
+        <li><strong>Control level:</strong> Did you feel like you had less artistic control?</li>
+    </ul>
+</div>
+
+<div class="card" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+    <h4>⚠️ Troubleshooting: IBL</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Problem</th>
+                <th>Solution</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>IBL doesn't seem to work</td>
+                <td>Make sure BOTH "Use Background Picture" AND "Enable IBL" are turned on</td>
+            </tr>
+            <tr>
+                <td>Scene too bright</td>
+                <td>Reduce IBL intensity to 0.6-0.8</td>
+            </tr>
+            <tr>
+                <td>Scene too dark</td>
+                <td>Increase IBL intensity to 1.5-2.0</td>
+            </tr>
+            <tr>
+                <td>Lighting angle is wrong</td>
+                <td>Rotate the HDRI environment by 90° or 180°</td>
+            </tr>
+            <tr>
+                <td>Render is grainy/noisy</td>
+                <td>Increase IBL quality/samples (but this increases render time)</td>
+            </tr>
+            <tr>
+                <td>Takes forever to render</td>
+                <td>Reduce IBL quality for testing; use small render dimensions</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h3>📊 Part 3: Comparing Your Results</h3>
+
+<p>Now comes the exciting part – looking at all four renders side by side and analyzing what you've learned!</p>
+
+<div class="card">
+    <h4>Create a Visual Comparison</h4>
+    <ol>
+        <li><strong>Open all four renders in an image viewer</strong>
+            <ul>
+                <li>Or use an image editing program to put them side-by-side</li>
+                <li>Arrange them in a 2x2 grid for easy comparison</li>
+            </ul>
+        </li>
+        
+        <li><strong>Label each image clearly</strong>
+            <ul>
+                <li>Infinite Light (top left)</li>
+                <li>Point Light (top right)</li>
+                <li>Spotlight (bottom left)</li>
+                <li>IBL (bottom right)</li>
+            </ul>
+        </li>
+        
+        <li><strong>Save this comparison image</strong>
+            <ul>
+                <li>This becomes a valuable reference for future projects</li>
+                <li>You'll look back at this often as you learn!</li>
+            </ul>
+        </li>
+    </ol>
+</div>
+
+<div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+    <h3>🔍 Analysis Questions</h3>
+    <p style="color: white;">Answer these questions in your comparison document:</p>
+    
+    <h4 style="color: white;">Natural Realism</h4>
+    <ul style="color: white;">
+        <li>Which version looks most like a photograph?</li>
+        <li>Which version looks most artificial?</li>
+        <li>Which would you use for an outdoor scene?</li>
+        <li>Which would you use for indoor scenes?</li>
+    </ul>
+    
+    <h4 style="color: white;">Artistic Control</h4>
+    <ul style="color: white;">
+        <li>Which light gave you the most precise control?</li>
+        <li>Which was easiest to set up?</li>
+        <li>Which was most frustrating to position?</li>
+        <li>Which would you use for dramatic effects?</li>
+    </ul>
+    
+    <h4 style="color: white;">Technical Considerations</h4>
+    <ul style="color: white;">
+        <li>Which rendered fastest?</li>
+        <li>Which rendered slowest?</li>
+        <li>Which created the best shadows?</li>
+        <li>Which created the softest shadows?</li>
+    </ul>
+    
+    <h4 style="color: white;">Practical Use</h4>
+    <ul style="color: white;">
+        <li>Which would you use for a quick test render?</li>
+        <li>Which would you use for a final professional render?</li>
+        <li>Which best suits your personal style?</li>
+        <li>Which surprised you the most?</li>
+    </ul>
+</div>
+
+<h3>🎓 What You've Learned</h3>
+
+<blockquote>
+    <p><strong>"Congratulations! You've just completed one of the most valuable exercises in 3D lighting. Most artists learn these differences over months or years of trial and error. You've compressed that learning into a single focused project."</strong></p>
+    <footer>— Your Instructor</footer>
+</blockquote>
+
+<div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+    <h4>✅ Key Insights You Should Have Gained</h4>
+    <ul>
+        <li><strong>Infinite Light:</strong> Fast, consistent, perfect for outdoor scenes, but limited control</li>
+        <li><strong>Point Light:</strong> Natural falloff, good for lamps, requires careful positioning</li>
+        <li><strong>Spotlight:</strong> Maximum control, dramatic effects, complex but powerful</li>
+        <li><strong>IBL:</strong> Most realistic, beautiful reflections, slower but worth it for quality work</li>
+    </ul>
+</div>
+
+<h3>🚀 Bonus Challenges (Optional)</h3>
+
+<p>Want to deepen your understanding? Try these additional experiments:</p>
+
+<div class="card">
+    <h4>Challenge 1: Three-Point Lighting</h4>
+    <p>Create a fifth version using <strong>three spotlights</strong> (key + fill + rim). This is the classic Hollywood lighting setup. Compare it to your single-light versions.</p>
+</div>
+
+<div class="card">
+    <h4>Challenge 2: Night Scene</h4>
+    <p>Take your base scene and create night versions with each light type. How do the lights behave differently at low intensities with cool colors?</p>
+</div>
+
+<div class="card">
+    <h4>Challenge 3: Hybrid Approach</h4>
+    <p>Create a version that combines IBL (for realism) with a Spotlight (for drama). This is what many professionals do!</p>
+</div>
+
+<div class="card">
+    <h4>Challenge 4: Different HDRIs</h4>
+    <p>Create three more IBL renders using different HDRI environments (studio, overcast, golden hour). See how dramatically the environment affects the result.</p>
+</div>
+
+<h3>📝 Project Completion Checklist</h3>
+
+<div class="card">
+    <p><strong>You've completed the project when you have:</strong></p>
+    <ul style="list-style: none; padding-left: 0;">
+        <li>☐ <strong>Four rendered images</strong> (one for each light type)</li>
+        <li>☐ <strong>Four saved scene files</strong> (so you can revisit them)</li>
+        <li>☐ <strong>Comparison document completed</strong> with all observations</li>
+        <li>☐ <strong>Side-by-side comparison image</strong> created and saved</li>
+        <li>☐ <strong>Analysis questions answered</strong> thoughtfully</li>
+        <li>☐ <strong>Personal insights recorded</strong> about which lights you prefer</li>
+        <li>☐ <strong>Understanding</strong> of when to use each light type</li>
+    </ul>
+</div>
+
+<div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+    <h3>🎉 Congratulations!</h3>
+    <p style="color: white; font-size: 1.1em;">You've completed the Light Type Comparison Project! You now have practical, hands-on experience with all four major light types in Poser. This knowledge forms the foundation of every lighting decision you'll make going forward.</p>
+    <p style="color: white;">More importantly, you have a reference you created yourself – your own comparison renders that you can look back at whenever you're unsure which light to use. This is invaluable!</p>
+    <p style="color: white; margin-bottom: 0;"><strong>Save your work, save your notes, and remember: every great artist started exactly where you are now – learning by doing!</strong></p>
+</div>
+
+</section>
+<!-- Lesson 19, Part 12: Summary, Wrap-up, Navigation, and Footer -->
+
+<section id="lesson-summary">
+    <h2>🎓 Lesson Summary: Understanding Light Types</h2>
+    
+    <p>What a journey! You've just completed one of the most important lessons in your Poser education. Understanding light types isn't just about technical knowledge – it's about developing the intuition to make smart creative decisions quickly.</p>
+
+    <p>Let's recap everything you've learned and prepare you for the exciting lighting lessons ahead.</p>
+
+    <h3>📚 What You've Mastered</h3>
+    
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h3>Key Takeaways</h3>
+        
+        <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); margin-top: 1rem;">
+            <h4 style="color: white;">☀️ Infinite Lights</h4>
+            <ul style="color: white;">
+                <li>Perfect for simulating sun and moon</li>
+                <li>Parallel rays create consistent shadows</li>
+                <li>Position doesn't matter – only rotation</li>
+                <li>Fast rendering, reliable results</li>
+                <li>Your go-to for outdoor scenes</li>
+            </ul>
+        </div>
+
+        <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); margin-top: 1rem;">
+            <h4 style="color: white;">💡 Point Lights</h4>
+            <ul style="color: white;">
+                <li>Radiates equally in all directions</li>
+                <li>Natural falloff with distance</li>
+                <li>Ideal for lamps, bulbs, candles</li>
+                <li>Position is critical</li>
+                <li>Creates dimensional, localized lighting</li>
+            </ul>
+        </div>
+
+        <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); margin-top: 1rem;">
+            <h4 style="color: white;">🎯 Spotlights</h4>
+            <ul style="color: white;">
+                <li>Focused beam with controllable cone</li>
+                <li>Maximum artistic control</li>
+                <li>Perfect for dramatic, theatrical lighting</li>
+                <li>Complex to set up but worth it</li>
+                <li>Your tool for precision and impact</li>
+            </ul>
+        </div>
+
+        <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); margin-top: 1rem;">
+            <h4 style="color: white;">🌍 Image-Based Lighting (IBL)</h4>
+            <ul style="color: white;">
+                <li>Uses HDRI environments for lighting</li>
+                <li>Most realistic, photographic results</li>
+                <li>Natural reflections and atmosphere</li>
+                <li>Slower rendering but beautiful quality</li>
+                <li>Your secret weapon for realism</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>🎯 The Quick Reference Guide</h3>
+    
+    <p>Bookmark this section! This is your "cheat sheet" for choosing lights quickly:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>When You Need...</th>
+                <th>Use This Light</th>
+                <th>Quick Setup Tip</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Outdoor sunlight</strong></td>
+                <td>Infinite Light or Outdoor IBL</td>
+                <td>45° angle, slightly warm color</td>
+            </tr>
+            <tr>
+                <td><strong>Indoor lamp</strong></td>
+                <td>Point Light</td>
+                <td>Place at bulb location, intensity 150-200%</td>
+            </tr>
+            <tr>
+                <td><strong>Moonlight</strong></td>
+                <td>Infinite Light</td>
+                <td>Cool blue color, low intensity (30-50%)</td>
+            </tr>
+            <tr>
+                <td><strong>Dramatic portrait</strong></td>
+                <td>Spotlight(s)</td>
+                <td>Key + rim + fill setup</td>
+            </tr>
+            <tr>
+                <td><strong>Realistic outdoor portrait</strong></td>
+                <td>Outdoor IBL</td>
+                <td>Sunny or overcast HDRI, intensity 1.0-1.5</td>
+            </tr>
+            <tr>
+                <td><strong>Studio portrait</strong></td>
+                <td>Studio IBL or 3 Spotlights</td>
+                <td>IBL is faster, spotlights give more control</td>
+            </tr>
+            <tr>
+                <td><strong>Candles/fire</strong></td>
+                <td>Point Light</td>
+                <td>Warm orange, positioned at flame</td>
+            </tr>
+            <tr>
+                <td><strong>Flashlight/searchlight</strong></td>
+                <td>Spotlight</td>
+                <td>Narrow cone (30-45°), strong intensity</td>
+            </tr>
+            <tr>
+                <td><strong>Stage performance</strong></td>
+                <td>Multiple Spotlights</td>
+                <td>Different colors, various angles</td>
+            </tr>
+            <tr>
+                <td><strong>Product photography</strong></td>
+                <td>Studio IBL + Spotlights</td>
+                <td>IBL for reflections, spots for highlights</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>💡 The Golden Rules of Lighting</h3>
+    
+    <p>These principles will guide you through every lighting decision you make:</p>
+
+    <div class="card">
+        <h4>Rule #1: Match Reality First</h4>
+        <p>Always start by asking "What would light this scene in real life?" Choose lights that match those real-world sources. You can adjust for artistic effect later, but realistic base lighting is always a good starting point.</p>
+    </div>
+
+    <div class="card">
+        <h4>Rule #2: Less is More</h4>
+        <p>Most successful scenes use 2-4 lights, not 10-20. Every light you add increases complexity and potential problems. Add lights only when they solve a specific problem or create a specific effect you want.</p>
+    </div>
+
+    <div class="card">
+        <h4>Rule #3: Consider Falloff</h4>
+        <p>Real-world lights get dimmer with distance (except the sun/moon). Point Lights and Spotlights have falloff; Infinite Lights don't. If your light source has a physical location in the scene, it probably needs falloff.</p>
+    </div>
+
+    <div class="card">
+        <h4>Rule #4: Test Early, Test Often</h4>
+        <p>Don't wait until you've finished a complex light setup to render. Do quick draft renders constantly while adjusting. A 10-second test render saves you from spending 10 minutes on a high-quality render that you then have to redo.</p>
+    </div>
+
+    <div class="card">
+        <h4>Rule #5: Save Successful Setups</h4>
+        <p>When you create lighting that works well, save it! Save the scene file, take notes on the light positions and intensities, or save a light preset. Building a library of "go-to" lighting setups will save you hours in future projects.</p>
+    </div>
+
+    <blockquote>
+        <p><strong>"Good lighting isn't about which lights you use – it's about using the right lights intentionally. Every light should have a purpose. If you can't explain why a light is there, it probably shouldn't be."</strong></p>
+        <footer>— Professional Lighting Artist</footer>
+    </blockquote>
+
+    <h3>🚀 What's Next: Your Lighting Journey</h3>
+    
+    <p>You've learned the <em>types</em> of lights – now you'll learn how to use them like a professional. Here's what's coming in the rest of Module 5:</p>
+
+    <div class="card" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+        <h4>📖 Upcoming Lessons</h4>
+        <ul>
+            <li><strong>Lesson 20: Three-Point Lighting Fundamentals</strong>
+                <ul>
+                    <li>The Hollywood standard lighting setup</li>
+                    <li>Key light, fill light, and rim light explained</li>
+                    <li>Creating professional portraits every time</li>
+                </ul>
+            </li>
+            <li><strong>Lesson 21: Natural and Outdoor Lighting</strong>
+                <ul>
+                    <li>Simulating different times of day</li>
+                    <li>Weather conditions (sunny, overcast, stormy)</li>
+                    <li>Working with natural environments</li>
+                </ul>
+            </li>
+            <li><strong>Lesson 22: Indoor and Dramatic Lighting</strong>
+                <ul>
+                    <li>Interior lighting strategies</li>
+                    <li>Creating mood and atmosphere</li>
+                    <li>Dramatic and stylized lighting techniques</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <h3>🎨 Practice Recommendations</h3>
+    
+    <p>Before moving to the next lesson, solidify your understanding with these practice exercises:</p>
+
+    <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+        <h4>✅ Recommended Practice (Choose 2-3)</h4>
+        
+        <p><strong>Beginner Practice:</strong></p>
+        <ul>
+            <li>Create 5 simple scenes, each using only ONE type of light</li>
+            <li>Experiment with light color – create warm, cool, and colored light effects</li>
+            <li>Practice positioning lights at different angles around a figure</li>
+        </ul>
+
+        <p><strong>Intermediate Practice:</strong></p>
+        <ul>
+            <li>Recreate the lighting from a photograph you admire</li>
+            <li>Create a "day to night" series showing the same scene at different times</li>
+            <li>Build a library of 3 "go-to" lighting setups you can reuse</li>
+        </ul>
+
+        <p><strong>Advanced Challenge:</strong></p>
+        <ul>
+            <li>Create identical scenes using all 4 light types and analyze which works best</li>
+            <li>Light a complex multi-figure scene with multiple light sources</li>
+            <li>Create both realistic and stylized versions of the same scene</li>
+        </ul>
+    </div>
+
+    <h3>📖 Additional Resources</h3>
+    
+    <div class="card">
+        <h4>Expand Your Knowledge</h4>
+        <p><strong>Free HDRI Resources:</strong></p>
+        <ul>
+            <li><strong>Polyhaven.com</strong> – Huge library of free HDRIs (highly recommended!)</li>
+            <li><strong>HDRIHaven.com</strong> – Outdoor and natural environments</li>
+            <li><strong>HDRMaps.com</strong> – Mix of free and premium options</li>
+        </ul>
+
+        <p><strong>Photography Resources (for lighting inspiration):</strong></p>
+        <ul>
+            <li>Study portrait photography on Instagram or Pinterest</li>
+            <li>Watch YouTube tutorials on photography lighting setups</li>
+            <li>Analyze lighting in movies and TV shows you enjoy</li>
+        </ul>
+
+        <p><strong>Poser Community:</strong></p>
+        <ul>
+            <li>Renderosity.com – Poser community with forums and galleries</li>
+            <li>Official Poser forums – Direct support and user discussions</li>
+            <li>Share your work and get feedback from experienced users!</li>
+        </ul>
+    </div>
+
+    <h3>❓ Common Questions Answered</h3>
+    
+    <div class="card">
+        <h4>Q: How many lights should I use in a typical scene?</h4>
+        <p><strong>A:</strong> Most professional scenes use 2-4 lights. A single light can work for simple scenes, and complex scenes might use 5-7 lights, but more than that usually creates more problems than it solves. Quality over quantity!</p>
+    </div>
+
+    <div class="card">
+        <h4>Q: Should I always use IBL since it's the most realistic?</h4>
+        <p><strong>A:</strong> No! IBL is great for realism but slower to render and offers less artistic control. Use IBL when photorealism matters most. For stylized work, dramatic lighting, or quick projects, traditional lights are often better choices.</p>
+    </div>
+
+    <div class="card">
+        <h4>Q: Can I mix different light types in the same scene?</h4>
+        <p><strong>A:</strong> Absolutely! In fact, mixing light types is very common. For example: IBL for overall environmental lighting + Spotlight for dramatic emphasis. Or: Infinite Light as sun + Point Lights for fill. Hybrid approaches often give the best results.</p>
+    </div>
+
+    <div class="card">
+        <h4>Q: Why do my renders look flat even with lights?</h4>
+        <p><strong>A:</strong> Flat lighting usually means your light is coming straight from the camera position (front lighting). Move lights to the side at 30-45° angles to create shadows and dimension. Shadows are what create depth!</p>
+    </div>
+
+    <div class="card">
+        <h4>Q: My shadows are too dark/harsh. How do I fix this?</h4>
+        <p><strong>A:</strong> Three solutions: (1) Increase shadow blur for softer shadows, (2) Add a weak fill light on the opposite side to brighten shadows, or (3) Use ambient light to lift overall darkness. Never be afraid of some darkness though – contrast is good!</p>
+    </div>
+
+    <div class="card">
+        <h4>Q: How do I know if I've chosen the right light?</h4>
+        <p><strong>A:</strong> Ask yourself: "Could this light source exist in reality?" If yes, you're on the right track. Also, does the lighting support your creative goal? If it looks good and serves your purpose, it's the right choice!</p>
+    </div>
+
+    <h3>🏆 Your Achievement</h3>
+    
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h3>Congratulations! You've Completed Lesson 19! 🎉</h3>
+        <p style="color: white; font-size: 1.1em;">You now understand the fundamental building blocks of all 3D lighting. You can:</p>
+        <ul style="color: white;">
+            <li>✅ Identify which light type to use for any situation</li>
+            <li>✅ Explain how each light type behaves differently</li>
+            <li>✅ Set up Infinite, Point, Spot, and IBL lights confidently</li>
+            <li>✅ Make informed decisions about light selection</li>
+            <li>✅ Troubleshoot common lighting problems</li>
+            <li>✅ Compare and evaluate different lighting approaches</li>
+        </ul>
+        <p style="color: white; margin-bottom: 0;"><strong>This knowledge forms the foundation for everything you'll learn about lighting in Poser. You've taken a huge step forward in your 3D artist journey!</strong></p>
+    </div>
+
+    <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+        <h4>✅ Before Moving On</h4>
+        <p>Make sure you:</p>
+        <ul>
+            <li>Completed the Light Comparison Project (or at least attempted it)</li>
+            <li>Understand the basic characteristics of each light type</li>
+            <li>Can explain when to use each light type</li>
+            <li>Feel comfortable adding and adjusting lights in Poser</li>
+        </ul>
+        <p>If any of these feel shaky, it's worth spending more time with this lesson. Everything that follows builds on this foundation!</p>
+    </div>
+
+    <h3>💬 Final Thoughts</h3>
+    
+    <blockquote>
+        <p><strong>"Lighting is often called 'painting with light' – and for good reason. Just like a painter chooses different brushes for different effects, you now know which 'light brush' to use for any scene. The technical knowledge is important, but what matters most is developing your artistic eye. Every render you create, every light you place, every test you run – it's all building your intuition. Trust the process, keep experimenting, and remember: even professional lighting artists started exactly where you are now."</strong></p>
+        <footer>— Your Instructor</footer>
+    </blockquote>
+
+    <div class="card" style="background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); color: white;">
+        <h3>🎓 Keep Learning, Keep Growing</h3>
+        <p style="color: white;">The best 3D artists are those who never stop learning and experimenting. You've taken an important step today. Tomorrow, you'll take another. Keep going – you're doing great!</p>
+        <p style="color: white; margin-bottom: 0;"><strong>Ready to learn professional lighting techniques? Let's continue to Lesson 20: Three-Point Lighting Fundamentals!</strong></p>
+    </div>
+
+</section>
+
+<!-- Navigation Links -->
+<nav class="lesson-nav" aria-label="Lesson Navigation">
+    <a href="lesson_18_material_collections.html" class="prev-lesson">← Previous: Material Collections and Efficiency</a>
+    <a href="index.html" class="home-link">🏠 Course Home</a>
+    <a href="lesson_20_three_point_lighting.html" class="next-lesson">Next: Three-Point Lighting Fundamentals →</a>
+</nav>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Poser 12 Mastery Course. All rights reserved.</p>
+    <p>Lesson 19: Understanding Light Types | Module 5: Lighting Fundamentals</p>
+</footer>
+
+<!-- Required Scripts -->
+<script src="js/clipboard.js"></script>
+<script src="js/course-enhancements.js"></script>
+
+</body>
+</html>
