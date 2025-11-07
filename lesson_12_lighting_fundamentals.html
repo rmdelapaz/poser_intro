@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master lighting fundamentals in Poser 12. Learn three-point lighting, light types, mood creation, and professional techniques to make your 3D renders shine.">
+    <meta name="author" content="Poser 12 Course">
+    <title>Lighting Fundamentals - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <nav class="main-nav" aria-label="Main Navigation">
+        <div class="nav-container">
+            <a href="index.html" class="logo">🎨 Poser 12 Mastery</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#modules">Modules</a>
+                <a href="index.html#resources">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> &gt; 
+        <a href="index.html#module4">Module 4: Lighting and Atmosphere</a> &gt;
+        <span>Lesson 12</span>
+    </nav>
+
+    <main class="container">
+        <article>
+            <header class="lesson-header">
+                <h1>💡 Lighting Fundamentals: Painting with Light</h1>
+                <p class="lead">
+                    You've built amazing scenes with perfectly posed characters and careful composition—but without proper lighting, they'll fall flat. Lighting isn't just about visibility; it's about <strong>mood, depth, focus, and storytelling</strong>. Think of lighting as painting with light itself—you're sculpting your scene through illumination and shadow, guiding the viewer's eye, and creating atmosphere that transforms technical renders into emotional experiences.
+                </p>
+                <p class="lead">
+                    Professional cinematographers spend years mastering lighting because it's that crucial to visual storytelling. The same light setup can make a scene feel romantic or ominous, peaceful or tense, natural or supernatural. In this lesson, you'll learn the fundamental principles that professionals use every day—the lighting setups, techniques, and approaches that separate amateur renders from professional-quality work.
+                </p>
+            </header>
+
+            <div class="card">
+                <h3>📋 What You'll Learn</h3>
+                <ul>
+                    <li><strong>Light fundamentals</strong> - Properties of light: intensity, color, direction, and falloff</li>
+                    <li><strong>Light types in Poser</strong> - Infinite lights, point lights, spotlights, and area lights</li>
+                    <li><strong>Three-point lighting</strong> - The industry-standard setup for character lighting</li>
+                    <li><strong>Light quality</strong> - Hard vs. soft lighting and when to use each</li>
+                    <li><strong>Mood through lighting</strong> - Creating specific atmospheres and emotions</li>
+                    <li><strong>Shadows and depth</strong> - Using shadows to add dimension and drama</li>
+                    <li><strong>Color temperature</strong> - Warm vs. cool lighting for different effects</li>
+                    <li><strong>Common lighting scenarios</strong> - Daytime, nighttime, indoor, outdoor setups</li>
+                    <li><strong>Practical techniques</strong> - Professional tricks for better renders</li>
+                </ul>
+                <p><strong>⏱️ Estimated Time:</strong> 75-90 minutes</p>
+                <p><strong>🎯 Project:</strong> Create three versions of the same scene with different lighting moods</p>
+            </div>
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">📑 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#why-lighting-matters" class="toc-link">Why Lighting Matters</a></li>
+                        <li><a href="#light-properties" class="toc-link">Properties of Light</a></li>
+                        <li><a href="#light-types" class="toc-link">Light Types in Poser</a></li>
+                        <li><a href="#three-point-lighting" class="toc-link">Three-Point Lighting Setup</a></li>
+                        <li><a href="#light-quality" class="toc-link">Hard vs Soft Light</a></li>
+                        <li><a href="#shadows" class="toc-link">Working with Shadows</a></li>
+                        <li><a href="#color-temperature" class="toc-link">Color and Temperature</a></li>
+                        <li><a href="#mood-lighting" class="toc-link">Lighting for Mood</a></li>
+                        <li><a href="#common-scenarios" class="toc-link">Common Lighting Scenarios</a></li>
+                        <li><a href="#practical-tips" class="toc-link">Professional Techniques</a></li>
+                        <li><a href="#project" class="toc-link">Project: Mood Lighting Studies</a></li>
+                        <li><a href="#summary" class="toc-link">Summary and Next Steps</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <section id="why-lighting-matters">
+                <h2>🌟 Why Lighting Matters</h2>
+                
+                <p>
+                    Let me start with a bold statement: <strong>lighting is more important than your models, textures, or even poses</strong>. You can have the most detailed character in the world with perfect textures and an amazing pose, but bad lighting will make it look amateurish. Conversely, decent models with professional lighting look incredible.
+                </p>
+
+                <p>
+                    Think about photography for a moment. Professional photographers obsess over lighting—they'll spend hours setting up lights for a single shot. Why? Because they understand that photography literally means "writing with light" (from Greek: photos = light, graphos = writing). <strong>3D rendering is the same thing.</strong> You're painting your scene with light, and the quality of that painting depends entirely on how well you handle your light sources.
+                </p>
+
+                <blockquote>
+                    <p><strong>"Lighting can transform the ordinary into the extraordinary, the ugly into the beautiful."</strong> – Roger Deakins, legendary cinematographer</p>
+                </blockquote>
+
+                <h3>What Good Lighting Does</h3>
+
+                <p>
+                    Professional lighting serves multiple crucial purposes simultaneously:
+                </p>
+
+                <p>
+                    <strong>Creates Depth and Dimension:</strong> Proper lighting reveals form and shape. Without it, everything looks flat—like cutouts pasted on a background. Light and shadow working together create the illusion of three-dimensional space that our brains expect to see.
+                </p>
+
+                <p>
+                    <strong>Directs Attention:</strong> Your eyes automatically go to the brightest areas in an image. Strategic lighting puts the spotlight (literally!) on your focal point while letting less important areas recede into shadows. It's visual hierarchy through illumination.
+                </p>
+
+                <p>
+                    <strong>Sets the Mood:</strong> Lighting carries tremendous emotional weight. Warm, soft light feels inviting and comfortable. Cool, harsh light feels clinical or ominous. The exact same scene lit differently tells completely different emotional stories.
+                </p>
+
+                <p>
+                    <strong>Suggests Time and Place:</strong> Lighting tells us when and where we are. Warm golden light = sunset or sunrise. Blue-ish light = daytime or moonlight. Harsh overhead light = noon. Single warm source = candlelight or fire. The lighting instantly communicates context.
+                </p>
+
+                <p>
+                    <strong>Reveals and Conceals:</strong> What you light is shown; what remains in shadow is hidden. This selective revelation creates mystery, focus, and visual interest. Not everything needs to be equally visible—in fact, hiding elements in shadow often makes images more compelling.
+                </p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 The Photographer's Secret</h4>
+                    <p>
+                        Professional photographers have a saying: <strong>"Anyone can take a good photo in good light."</strong> The real skill is creating good light when it doesn't naturally exist. That's exactly what you do in 3D—you create the light from scratch, giving you god-like control that photographers envy.
+                    </p>
+                    <p>
+                        Unlike photographers who must work with available light or lug around expensive equipment, you can place perfect lights anywhere, at any intensity, in any color. This power comes with responsibility—you must learn to wield it well.
+                    </p>
+                </div>
+
+                <h3>Bad Lighting: What to Avoid</h3>
+
+                <p>
+                    Before we dive into good lighting, let's understand what bad lighting looks like so you can spot and avoid it:
+                </p>
+
+                <p>
+                    <strong>Flat, even illumination:</strong> When everything is lit equally, nothing stands out. The image looks washed out and lifeless. There's no depth because there are no shadows to define forms. This is the default "let there be light everywhere" approach beginners use—and it never works.
+                </p>
+
+                <p>
+                    <strong>Harsh, unmotivated shadows:</strong> Strong shadows that don't make sense—shadows pointing in wrong directions, multiple conflicting shadows, or shadows that are distractingly sharp when they shouldn't be. These break the illusion of reality.
+                </p>
+
+                <p>
+                    <strong>No focal point emphasis:</strong> Every part of the scene is equally bright, so the viewer doesn't know where to look. Good lighting creates clear visual hierarchy—some things brighter (important) and others darker (less important).
+                </p>
+
+                <p>
+                    <strong>Unrealistic color:</strong> Light that's the wrong color temperature for the scenario. Indoor scenes with blue daylight-colored lighting, or outdoor scenes with warm tungsten lighting. These subtle mismatches make scenes feel "off" even if viewers can't articulate why.
+                </p>
+
+                <p>
+                    <strong>Insufficient contrast:</strong> When the difference between lights and darks is too small, images look muddy and unclear. Our eyes need contrast to understand forms and create interest.
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The Default Light Trap</h4>
+                    <p>
+                        Many 3D programs, including Poser, come with default lighting—usually a single headlight that follows your camera. This default lighting is purely functional for viewing your scene while you work. <strong>It is NOT meant for final renders!</strong>
+                    </p>
+                    <p>
+                        Default lighting creates flat, lifeless results. One of the first steps toward professional-quality renders is replacing default lighting with intentional, well-planned light setups. If your render looks flat and boring, check your lights—you're probably still using defaults!
+                    </p>
+                </div>
+
+                <h3>The Lighting Mindset</h3>
+
+                <p>
+                    As you learn lighting, adopt this professional mindset: <strong>every light in your scene must justify its existence</strong>. Ask yourself:
+                </p>
+
+                <ul>
+                    <li>Why is this light here? What purpose does it serve?</li>
+                    <li>Where would this light come from in reality (sun, lamp, window, fire)?</li>
+                    <li>What mood or effect am I trying to create with this light?</li>
+                    <li>Does this light help my focal point or compete with it?</li>
+                    <li>Could I remove this light without hurting the scene?</li>
+                </ul>
+
+                <p>
+                    Every light should have a job: key light (main illumination), fill light (softens shadows), rim light (separation), accent light (highlights specific features). Lights without jobs are just clutter that confuses your scene. <strong>More lights doesn't mean better lighting.</strong> In fact, professionals often use fewer lights more strategically rather than flooding scenes with light sources.
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3 style="color: white;">🎬 Cinematographer's Philosophy</h3>
+                    <p style="color: white;">
+                        <strong>"I don't add light to make things visible—I add light to create beauty, mood, and focus. Visibility is just the baseline."</strong>
+                    </p>
+                    <p style="color: white;">
+                        This is the difference between functional lighting (making things visible) and artistic lighting (making things beautiful and meaningful). You're not just illuminating your scene—you're sculpting it with light and shadow. Think like a sculptor, not a light switch.
+                    </p>
+                </div>
+
+                <blockquote>
+                    <p><strong>Remember:</strong> In the real world, we don't notice good lighting—we just feel its effects. It creates mood without announcing itself. Your goal is the same: lighting so good it's invisible, yet its effects are powerful and unmistakable.</p>
+                </blockquote>
+            </section>
+            <section id="light-properties">
+                <h2>🔆 Properties of Light</h2>
+                
+                <p>
+                    Before we start placing lights, let's understand the fundamental properties that every light possesses. These properties are your control panel for creating any lighting effect you can imagine.
+                </p>
+
+                <h3>Intensity (Brightness)</h3>
+
+                <p>
+                    <strong>What it is:</strong> How bright the light is—the amount of illumination it produces. In Poser, this is usually controlled by an "Intensity" slider or numeric value.
+                </p>
+
+                <p>
+                    <strong>How it works:</strong> Higher values = brighter light = more illumination on surfaces. Lower values = dimmer light = subtle illumination. Most lights default to intensity of 1.0 (100%), but you can go higher or lower as needed.
+                </p>
+
+                <p>
+                    <strong>When to adjust:</strong> 
+                </p>
+                <ul>
+                    <li><strong>Main light source:</strong> Often 80-100% intensity to provide primary illumination</li>
+                    <li><strong>Fill lights:</strong> Typically 20-40% intensity to soften shadows without overpowering</li>
+                    <li><strong>Accent lights:</strong> Variable intensity depending on effect desired</li>
+                    <li><strong>Rim/edge lights:</strong> Often 60-80% to create visible separation without being too bright</li>
+                </ul>
+
+                <div class="card">
+                    <h4>💡 The Intensity Balance</h4>
+                    <p>
+                        <strong>Key principle:</strong> Your brightest light (key light) should be significantly brighter than other lights. If all lights are equally bright, you get flat, confusing illumination.
+                    </p>
+                    <p>
+                        A good starting ratio: Key light at 100%, fill light at 30%, rim light at 70%. These aren't rules—just a solid starting point you can adjust based on the mood you want.
+                    </p>
+                </div>
+
+                <h3>Color</h3>
+
+                <p>
+                    <strong>What it is:</strong> The hue of the light—warm (oranges/yellows), cool (blues), or neutral (white). Real-world light sources each have characteristic colors.
+                </p>
+
+                <p>
+                    <strong>Why it matters:</strong> Color dramatically affects mood and realism. Sunlight at sunset is warm golden-orange. Moonlight appears bluish. Fluorescent office lighting is cool white with greenish tint. Indoor tungsten bulbs are warm yellow.
+                </p>
+
+                <p>
+                    <strong>Common light colors:</strong>
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Light Source</th>
+                            <th>Color Temperature</th>
+                            <th>Mood/Effect</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Candlelight</td>
+                            <td>Very warm orange</td>
+                            <td>Intimate, romantic, old-fashioned</td>
+                        </tr>
+                        <tr>
+                            <td>Sunset/Sunrise</td>
+                            <td>Warm golden orange</td>
+                            <td>Nostalgic, peaceful, dramatic</td>
+                        </tr>
+                        <tr>
+                            <td>Tungsten bulb (indoor)</td>
+                            <td>Warm yellow-white</td>
+                            <td>Cozy, indoor, comfortable</td>
+                        </tr>
+                        <tr>
+                            <td>Noon daylight</td>
+                            <td>Neutral white</td>
+                            <td>Natural, clear, energetic</td>
+                        </tr>
+                        <tr>
+                            <td>Overcast sky</td>
+                            <td>Cool blue-white</td>
+                            <td>Soft, even, calm or somber</td>
+                        </tr>
+                        <tr>
+                            <td>Moonlight</td>
+                            <td>Cool blue</td>
+                            <td>Night, mysterious, cold</td>
+                        </tr>
+                        <tr>
+                            <td>Fluorescent</td>
+                            <td>Cool white with green tint</td>
+                            <td>Institutional, clinical, harsh</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    <strong>Pro tip:</strong> Don't make all your lights the same color! Natural scenes have color variety. A warm key light (sun) with a cooler fill light (sky) creates more realistic and visually interesting illumination than everything being the same neutral white.
+                </p>
+
+                <h3>Direction</h3>
+
+                <p>
+                    <strong>What it is:</strong> Where the light is coming from and where it's pointing. Direction determines which surfaces are lit and where shadows fall.
+                </p>
+
+                <p>
+                    <strong>Why it matters enormously:</strong> Light direction is perhaps the most important property for creating mood and revealing form. The same subject lit from different directions looks completely different.
+                </p>
+
+                <p>
+                    <strong>Common directions and their effects:</strong>
+                </p>
+
+                <p>
+                    <strong>Front lighting (light facing subject):</strong> Flat, even illumination. Hides texture and form. Good for beauty lighting (minimizes imperfections) but can look boring. Think passport photo lighting—safe but not exciting.
+                </p>
+
+                <p>
+                    <strong>Side lighting (45° angle is classic):</strong> Reveals texture and form beautifully. Creates depth through shadows. This is the foundation of three-point lighting. Makes surfaces interesting by showing their contours.
+                </p>
+
+                <p>
+                    <strong>Back lighting (behind subject):</strong> Creates silhouettes or rim lighting. Separates subject from background. Can be dramatic and mysterious. Often used as accent rather than main light.
+                </p>
+
+                <p>
+                    <strong>Top lighting (directly above):</strong> Creates ominous shadows under eyes, nose, chin. Often used for dramatic or sinister effects. Natural at noon but usually unflattering for portraits.
+                </p>
+
+                <p>
+                    <strong>Bottom lighting (from below):</strong> Unnatural and creepy—the "flashlight under face" horror effect. Use sparingly and only for specific dramatic effects. Rarely occurs in nature, so it feels wrong.
+                </p>
+
+                <div class="mermaid">
+                    graph TB
+                    A[Light Direction] --> B[Front Light<br/>Flat, Even]
+                    A --> C[Side Light<br/>Depth, Texture]
+                    A --> D[Back Light<br/>Separation, Drama]
+                    A --> E[Top Light<br/>Ominous]
+                    A --> F[Bottom Light<br/>Unnatural]
+                    style A fill:#667eea,stroke:#333,stroke-width:3px,color:#fff
+                    style C fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Falloff (Attenuation)</h3>
+
+                <p>
+                    <strong>What it is:</strong> How quickly light diminishes with distance from the source. Some lights stay constant regardless of distance; others get weaker as you move away.
+                </p>
+
+                <p>
+                    <strong>Real-world physics:</strong> In reality, light intensity follows the "inverse square law"—doubling the distance quarters the brightness. This is natural falloff. However, 3D software often gives you control over falloff behavior for artistic purposes.
+                </p>
+
+                <p>
+                    <strong>Falloff types:</strong>
+                </p>
+
+                <ul>
+                    <li><strong>No falloff (constant):</strong> Light maintains intensity regardless of distance. Useful for simulating distant sources like the sun. Not physically accurate for nearby sources but sometimes artistically desirable.</li>
+                    <li><strong>Linear falloff:</strong> Light decreases at a constant rate. Somewhat artificial but predictable and easier to control than realistic falloff.</li>
+                    <li><strong>Inverse square falloff:</strong> Physically accurate—light decreases rapidly with distance. Creates natural-looking illumination but can be tricky to control. Close objects very bright, distant objects very dark.</li>
+                </ul>
+
+                <p>
+                    <strong>When to adjust:</strong> Use realistic falloff for close light sources (lamps, candles, nearby windows) to create natural depth. Use constant falloff for distant sources (sun, sky) or when you need even illumination across the scene.
+                </p>
+
+                <h3>Shadows</h3>
+
+                <p>
+                    <strong>What they are:</strong> Areas where light is blocked by objects. Shadows are just as important as the light itself—they define form, create depth, and add realism.
+                </p>
+
+                <p>
+                    <strong>Shadow controls:</strong>
+                </p>
+
+                <ul>
+                    <li><strong>Shadow on/off:</strong> Whether the light casts shadows at all. Not all lights need shadows!</li>
+                    <li><strong>Shadow softness:</strong> Sharp/hard shadows vs. soft/diffused shadows. Controlled by shadow blur or quality settings.</li>
+                    <li><strong>Shadow darkness:</strong> How dark the shadow is. Sometimes you want lighter, more transparent shadows.</li>
+                    <li><strong>Shadow resolution:</strong> How detailed/crisp the shadow edges are. Higher resolution = sharper, more detailed shadows but slower renders.</li>
+                </ul>
+
+                <p>
+                    We'll dive deeper into shadows in their own section—they deserve special attention!
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Light Properties Quick Reference</h4>
+                    <p>When adding any light, ask yourself:</p>
+                    <ul>
+                        <li><strong>Intensity:</strong> How bright? (Main light bright, fill lights dimmer)</li>
+                        <li><strong>Color:</strong> What hue? (Match the light source type and mood)</li>
+                        <li><strong>Direction:</strong> Where from? (45° side angle often best for key light)</li>
+                        <li><strong>Falloff:</strong> Distance behavior? (Realistic for nearby, constant for distant)</li>
+                        <li><strong>Shadows:</strong> Cast them? How soft/hard?</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>Master these five properties</strong> and you can create any lighting effect imaginable. Every lighting technique, setup, and style ultimately comes down to manipulating these fundamental properties strategically. They're your lighting vocabulary—learn to speak it fluently!</p>
+                </blockquote>
+            </section>
+            <section id="light-types">
+                <h2>💡 Light Types in Poser</h2>
+                
+                <p>
+                    Poser offers several types of lights, each simulating different real-world light sources. Understanding when to use each type is crucial for creating realistic and effective lighting.
+                </p>
+
+                <h3>Infinite Light (Distant Light)</h3>
+
+                <p>
+                    <strong>What it simulates:</strong> Extremely distant light sources like the sun. Light rays travel parallel rather than radiating from a point.
+                </p>
+
+                <p>
+                    <strong>How it works:</strong> Position doesn't matter—only direction. You can place it anywhere in your scene; only its rotation/orientation affects the lighting. All light rays are parallel, like sunlight.
+                </p>
+
+                <p>
+                    <strong>Characteristics:</strong>
+                </p>
+                <ul>
+                    <li>No falloff—intensity constant regardless of distance</li>
+                    <li>Lights entire scene evenly</li>
+                    <li>Creates sharp, parallel shadows</li>
+                    <li>Direction-dependent, position-independent</li>
+                </ul>
+
+                <p>
+                    <strong>When to use:</strong>
+                </p>
+                <ul>
+                    <li>Simulating sunlight (outdoor scenes)</li>
+                    <li>General ambient-style illumination</li>
+                    <li>When you need even lighting across large areas</li>
+                    <li>As key light in many setups</li>
+                </ul>
+
+                <p>
+                    <strong>Best practices:</strong> Great for outdoor scenes as the sun. Angle it 30-45° from horizontal for natural-looking sunlight. Can also serve as key light in studio setups. Very efficient since position doesn't matter.
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Common Mistake</h4>
+                    <p>
+                        Beginners often try to move infinite lights closer to "make them brighter" on specific objects. <strong>This doesn't work!</strong> Infinite light position has no effect. Instead, adjust intensity or add additional lights for specific areas.
+                    </p>
+                </div>
+
+                <h3>Point Light (Omnidirectional Light)</h3>
+
+                <p>
+                    <strong>What it simulates:</strong> A light bulb or any light source that radiates in all directions from a single point.
+                </p>
+
+                <p>
+                    <strong>How it works:</strong> Emits light equally in all directions (360° sphere). Think of it as a bare light bulb floating in space—it lights everything around it.
+                </p>
+
+                <p>
+                    <strong>Characteristics:</strong>
+                </p>
+                <ul>
+                    <li>Radiates in all directions from source</li>
+                    <li>Has realistic falloff (gets dimmer with distance)</li>
+                    <li>Position matters greatly</li>
+                    <li>Can cast shadows in multiple directions</li>
+                </ul>
+
+                <p>
+                    <strong>When to use:</strong>
+                </p>
+                <ul>
+                    <li>Light bulbs, lamps</li>
+                    <li>Candles, torches, fires</li>
+                    <li>Street lights</li>
+                    <li>Any omnidirectional light source</li>
+                    <li>Fill lights in studio setups</li>
+                </ul>
+
+                <p>
+                    <strong>Best practices:</strong> Position near visible light sources (lamp props) for realism. Adjust falloff to control illumination distance. Good for creating localized pools of light. Works well as fill light in three-point setups.
+                </p>
+
+                <h3>Spotlight</h3>
+
+                <p>
+                    <strong>What it simulates:</strong> Focused, directional light sources like theatrical spotlights, flashlights, or headlights.
+                </p>
+
+                <p>
+                    <strong>How it works:</strong> Emits light in a cone shape—bright in the center, dimming toward edges. You control the cone angle (how wide the beam) and potentially the edge softness.
+                </p>
+
+                <p>
+                    <strong>Characteristics:</strong>
+                </p>
+                <ul>
+                    <li>Cone-shaped illumination</li>
+                    <li>Highly directional and controllable</li>
+                    <li>Can have soft or hard edges</li>
+                    <li>Both position and aim direction matter</li>
+                    <li>Excellent control over what gets lit</li>
+                </ul>
+
+                <p>
+                    <strong>When to use:</strong>
+                </p>
+                <ul>
+                    <li>Theatrical or stage lighting</li>
+                    <li>Flashlights, headlights, searchlights</li>
+                    <li>When you need precise control over illuminated area</li>
+                    <li>Creating dramatic pools of light</li>
+                    <li>Highlighting specific elements</li>
+                    <li>Rim/edge lighting in three-point setup</li>
+                </ul>
+
+                <p>
+                    <strong>Best practices:</strong> Point spotlights at your focal point for dramatic emphasis. Adjust cone angle—narrow for focused beams, wider for area coverage. Use as rim lights positioned behind subject. Great for creating mystery by lighting only specific areas.
+                </p>
+
+                <div class="card">
+                    <h4>💡 Spotlight Parameters</h4>
+                    <p><strong>Cone angle:</strong> Width of the light beam. Smaller = tighter spotlight, larger = broader coverage.</p>
+                    <p><strong>Edge softness:</strong> How gradually the light fades at beam edges. Hard edge = sharp circle, soft edge = gradual fadeout.</p>
+                    <p><strong>Intensity dropoff:</strong> Whether light is even across the cone or brighter in center.</p>
+                </div>
+
+                <h3>Area Light (Soft Box)</h3>
+
+                <p>
+                    <strong>What it simulates:</strong> Large light sources like softboxes, window light, or overcast sky—sources that create very soft, diffused lighting.
+                </p>
+
+                <p>
+                    <strong>How it works:</strong> Instead of light coming from a point, it comes from a surface area (rectangle or circle). This creates naturally soft shadows and even illumination, just like real photography softboxes.
+                </p>
+
+                <p>
+                    <strong>Characteristics:</strong>
+                </p>
+                <ul>
+                    <li>Creates very soft, flattering light</li>
+                    <li>Soft, barely visible shadows</li>
+                    <li>More realistic than point lights for many scenarios</li>
+                    <li>Computationally expensive (slower renders)</li>
+                    <li>Size of area affects shadow softness</li>
+                </ul>
+
+                <p>
+                    <strong>When to use:</strong>
+                </p>
+                <ul>
+                    <li>Portrait lighting (very flattering)</li>
+                    <li>Studio photography simulations</li>
+                    <li>Window light</li>
+                    <li>Overcast sky simulation</li>
+                    <li>When you want soft, professional-looking illumination</li>
+                </ul>
+
+                <p>
+                    <strong>Best practices:</strong> Larger area = softer shadows. Position like a photographer's softbox. Great for beauty/portrait lighting. Use as key or fill light for soft, professional look. Be aware of longer render times—worth it for the quality!
+                </p>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Light Types] --> B[Infinite Light<br/>Sun, Distant]
+                    A --> C[Point Light<br/>Bulbs, Omnidirectional]
+                    A --> D[Spotlight<br/>Focused Beam]
+                    A --> E[Area Light<br/>Soft, Diffused]
+                    style A fill:#667eea,stroke:#333,stroke-width:3px,color:#fff
+                    style B fill:#FFA726,stroke:#333,stroke-width:2px,color:#fff
+                    style C fill:#FFEB3B,stroke:#333,stroke-width:2px
+                    style D fill:#9C27B0,stroke:#333,stroke-width:2px,color:#fff
+                    style E fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Choosing the Right Light Type</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Scenario</th>
+                            <th>Best Light Type</th>
+                            <th>Why</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Outdoor daytime</td>
+                            <td>Infinite Light</td>
+                            <td>Simulates sun perfectly</td>
+                        </tr>
+                        <tr>
+                            <td>Indoor lamp</td>
+                            <td>Point Light</td>
+                            <td>Omnidirectional, realistic falloff</td>
+                        </tr>
+                        <tr>
+                            <td>Candle/torch</td>
+                            <td>Point Light</td>
+                            <td>Radiates from source, natural falloff</td>
+                        </tr>
+                        <tr>
+                            <td>Flashlight/headlight</td>
+                            <td>Spotlight</td>
+                            <td>Directional cone of light</td>
+                        </tr>
+                        <tr>
+                            <td>Dramatic emphasis</td>
+                            <td>Spotlight</td>
+                            <td>Precise control, theatrical</td>
+                        </tr>
+                        <tr>
+                            <td>Portrait/beauty shot</td>
+                            <td>Area Light</td>
+                            <td>Soft, flattering illumination</td>
+                        </tr>
+                        <tr>
+                            <td>Window light</td>
+                            <td>Area Light or Infinite</td>
+                            <td>Soft and directional</td>
+                        </tr>
+                        <tr>
+                            <td>Rim/edge lighting</td>
+                            <td>Spotlight or Infinite</td>
+                            <td>Directional control</td>
+                        </tr>
+                        <tr>
+                            <td>Fill light (softening shadows)</td>
+                            <td>Point or Area Light</td>
+                            <td>Even, non-directional fill</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Combining Light Types</h3>
+
+                <p>
+                    Professional lighting setups often use <strong>multiple light types together</strong>. You're not limited to one! Common combinations:
+                </p>
+
+                <ul>
+                    <li><strong>Infinite (key) + Point (fill) + Spotlight (rim):</strong> Classic three-point setup with varied light types</li>
+                    <li><strong>Area (key) + Point (fill):</strong> Soft, flattering portrait lighting</li>
+                    <li><strong>Infinite (sun) + Area (sky fill):</strong> Realistic outdoor lighting</li>
+                    <li><strong>Multiple Spotlights:</strong> Theatrical or dramatic lighting with multiple focused beams</li>
+                </ul>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Light Type Selection Guide</h4>
+                    <p>Quick decision tree:</p>
+                    <ol>
+                        <li>Is it the sun? → <strong>Infinite Light</strong></li>
+                        <li>Is it omnidirectional (bulb, candle)? → <strong>Point Light</strong></li>
+                        <li>Is it a focused beam? → <strong>Spotlight</strong></li>
+                        <li>Do you want really soft shadows? → <strong>Area Light</strong></li>
+                        <li>Not sure? → Start with <strong>Spotlight</strong> (most versatile)</li>
+                    </ol>
+                </div>
+
+                <blockquote>
+                    <p><strong>Remember:</strong> The "best" light type depends on what you're simulating and the effect you want. There's no single correct answer—only better and worse choices for specific situations. Experiment with different types to see how they affect your scene, and don't be afraid to mix types within the same setup!</p>
+                </blockquote>
+            </section>
+            <section id="three-point-lighting">
+                <h2>🎬 Three-Point Lighting: The Foundation</h2>
+                
+                <p>
+                    If you learn only <em>one</em> lighting technique, make it three-point lighting. This is the industry-standard setup used in photography, cinematography, and 3D rendering for over a century. Why? <strong>Because it works.</strong> It creates dimensional, professional-looking results consistently and predictably.
+                </p>
+
+                <p>
+                    Three-point lighting uses three strategically placed lights, each with a specific job. Together, they create depth, separate the subject from the background, and provide control over mood and visibility. It's called "three-point" but it's really a system—you can adjust it, modify it, or break rules once you understand the foundation.
+                </p>
+
+                <h3>The Three Lights</h3>
+
+                <h4>1. Key Light (Main Light)</h4>
+
+                <p>
+                    <strong>Role:</strong> The primary light source—your "sun" or main illumination. This is the brightest, most important light in your setup.
+                </p>
+
+                <p>
+                    <strong>Position:</strong> Typically placed 30-45° to the side of your subject and 30-45° above eye level. This creates natural-looking shadows that reveal form and texture. The exact angle depends on desired effect, but this range works for most situations.
+                </p>
+
+                <p>
+                    <strong>Characteristics:</strong>
+                </p>
+                <ul>
+                    <li>Highest intensity (usually 80-100%)</li>
+                    <li>Creates the main shadows (defines form)</li>
+                    <li>Determines overall exposure</li>
+                    <li>Sets the mood and direction of lighting</li>
+                    <li>Should cast shadows</li>
+                </ul>
+
+                <p>
+                    <strong>Light type:</strong> Typically Infinite Light or Spotlight. Area Light for softer, more flattering effect.
+                </p>
+
+                <p>
+                    <strong>Color:</strong> Depends on scenario—warm for sunset/indoor, neutral for daylight, cool for moonlight.
+                </p>
+
+                <div class="card">
+                    <h4>💡 Key Light Placement Guidelines</h4>
+                    <p><strong>Classic position:</strong> 45° horizontal (to left or right), 45° vertical (above subject). Called the "Rembrandt position" because the master painter used this lighting in his portraits.</p>
+                    <p><strong>Variations:</strong></p>
+                    <ul>
+                        <li><strong>30° angle:</strong> More frontal, softer shadows, flatter</li>
+                        <li><strong>60° angle:</strong> More dramatic, stronger shadows, more dimensional</li>
+                        <li><strong>90° angle (side lighting):</strong> Very dramatic, half the face lit, very textural</li>
+                    </ul>
+                </div>
+
+                <h4>2. Fill Light (Shadow Softener)</h4>
+
+                <p>
+                    <strong>Role:</strong> Softens the shadows created by the key light without eliminating them. Think of it as "filling in" the dark areas so they're not pure black.
+                </p>
+
+                <p>
+                    <strong>Position:</strong> Opposite side from key light, roughly at camera level or slightly above. Not as high as key light. Positioned to illuminate the shadowed side of the subject.
+                </p>
+
+                <p>
+                    <strong>Characteristics:</strong>
+                </p>
+                <ul>
+                    <li>Lower intensity than key light (typically 20-40%)</li>
+                    <li>Often doesn't cast shadows (or very soft shadows)</li>
+                    <li>Reduces contrast without eliminating it</li>
+                    <li>Makes shadows visible rather than pure black</li>
+                    <li>Provides detail in shadow areas</li>
+                </ul>
+
+                <p>
+                    <strong>Light type:</strong> Point Light or Area Light work well. Spotlights can work if aimed and softened properly.
+                </p>
+
+                <p>
+                    <strong>Color:</strong> Often slightly cooler than key light for natural look (blue-ish fill with warm key mimics sunlight + skylight).
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Fill Light Mistake</h4>
+                    <p>
+                        <strong>Too bright:</strong> If fill light is too intense, it competes with key light and flattens the image. You lose depth and dimension. Fill should be <em>noticeably</em> dimmer than key.
+                    </p>
+                    <p>
+                        <strong>The rule:</strong> Shadows should still be visible—just not pitch black. If you can't tell which is the key light and which is the fill, your fill is too bright!
+                    </p>
+                </div>
+
+                <h4>3. Rim Light / Back Light (Separation)</h4>
+
+                <p>
+                    <strong>Role:</strong> Creates a highlight around the edges of the subject, separating them from the background. Also called "edge light," "hair light," or "kicker light."
+                </p>
+
+                <p>
+                    <strong>Position:</strong> Behind the subject, aimed at their back/sides. Typically elevated and angled down slightly. Should be out of camera view.
+                </p>
+
+                <p>
+                    <strong>Characteristics:</strong>
+                </p>
+                <ul>
+                    <li>Medium-high intensity (60-80%)</li>
+                    <li>Creates edge highlights on hair, shoulders, sides</li>
+                    <li>Separates subject from background visually</li>
+                    <li>Adds depth and dimensionality</li>
+                    <li>Creates subtle "glow" or "halo" effect</li>
+                    <li>May or may not cast visible shadows (usually not important)</li>
+                </ul>
+
+                <p>
+                    <strong>Light type:</strong> Spotlight works best for precise control. Infinite Light can work for broader effect.
+                </p>
+
+                <p>
+                    <strong>Color:</strong> Often neutral or slightly cool. Can be creative—warm rim light with cool key creates interesting contrast.
+                </p>
+
+                <div class="card">
+                    <h4>💡 Rim Light Magic</h4>
+                    <p>
+                        Rim light is what separates amateur renders from professional ones. It's the secret sauce that makes subjects "pop" from backgrounds. Without it, even well-lit subjects can look pasted onto backgrounds. With it, subjects have presence and depth.
+                    </p>
+                    <p>
+                        <strong>Look for rim lighting in movies—</strong>once you know what it is, you'll see it everywhere! That subtle glow around actors' hair and shoulders? That's rim lighting doing its job.
+                    </p>
+                </div>
+
+                <h3>The Three-Point Setup Diagram</h3>
+
+                <div class="mermaid">
+                    graph TD
+                    S[Subject<br/>Character] 
+                    K[Key Light<br/>45° Side & Above<br/>Brightest]
+                    F[Fill Light<br/>Opposite Side<br/>Low Angle<br/>Dimmer]
+                    R[Rim Light<br/>Behind Subject<br/>Elevated]
+                    C[Camera]
+                    
+                    K -.Main Illumination.-> S
+                    F -.Softens Shadows.-> S
+                    R -.Edge Highlight.-> S
+                    C -.Views.-> S
+                    
+                    style S fill:#ff6b6b,stroke:#333,stroke-width:3px,color:#fff
+                    style K fill:#FFA726,stroke:#333,stroke-width:2px,color:#fff
+                    style F fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style R fill:#2196F3,stroke:#333,stroke-width:2px,color:#fff
+                    style C fill:#9C27B0,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Building a Three-Point Setup in Poser</h3>
+
+                <p>
+                    Let's walk through creating this setup step-by-step:
+                </p>
+
+                <div class="card">
+                    <h4>Step 1: Delete Default Lights</h4>
+                    <p>Remove any default headlights or existing lights. Start with a dark scene—you'll add lights intentionally.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Step 2: Add Key Light</h4>
+                    <ol>
+                        <li>Add Spotlight or Infinite Light</li>
+                        <li>Position 45° to the side (left or right—your choice)</li>
+                        <li>Elevate 30-45° above subject</li>
+                        <li>Point at subject's face/focal point</li>
+                        <li>Set intensity to 100%</li>
+                        <li>Enable shadows</li>
+                        <li>Test render—subject should be clearly lit on one side, shadowed on the other</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Step 3: Add Fill Light</h4>
+                    <ol>
+                        <li>Add Point Light or Area Light</li>
+                        <li>Position opposite side from key light</li>
+                        <li>At or slightly above camera level (lower than key)</li>
+                        <li>Aim generally toward subject</li>
+                        <li>Set intensity to 30% to start</li>
+                        <li>Disable shadows (or very soft shadows)</li>
+                        <li>Test render—shadows should be visible but not pitch black</li>
+                        <li>Adjust intensity until shadows look right</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Step 4: Add Rim Light</h4>
+                    <ol>
+                        <li>Add Spotlight</li>
+                        <li>Position behind subject, elevated</li>
+                        <li>Aim at subject's back/shoulders/hair</li>
+                        <li>Ensure it's out of camera view</li>
+                        <li>Set intensity to 70% to start</li>
+                        <li>Shadow settings don't matter much (rim creates edge highlights)</li>
+                        <li>Test render—look for subtle glow around subject edges</li>
+                        <li>Adjust position and intensity for desired edge effect</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Step 5: Fine-Tune</h4>
+                    <ol>
+                        <li>Render full quality test</li>
+                        <li>Check: Does key light create good form-revealing shadows?</li>
+                        <li>Check: Does fill light soften shadows without eliminating them?</li>
+                        <li>Check: Does rim light separate subject from background?</li>
+                        <li>Adjust intensities for desired mood (dramatic = more contrast, soft = less contrast)</li>
+                        <li>Adjust colors if desired (warm key, cool fill)</li>
+                    </ol>
+                </div>
+
+                <h3>Three-Point Variations</h3>
+
+                <p>
+                    Once you master basic three-point, try these variations:
+                </p>
+
+                <p>
+                    <strong>High-Key Lighting:</strong> Bright, low-contrast version. Increase fill light intensity (maybe 50-60% of key) to minimize shadows. Creates cheerful, optimistic, commercial look. Good for comedy, beauty shots, light-hearted content.
+                </p>
+
+                <p>
+                    <strong>Low-Key Lighting:</strong> Dark, high-contrast version. Reduce or eliminate fill light. Let shadows be dark and dramatic. Creates moody, mysterious, serious tone. Good for drama, film noir, suspense, horror.
+                </p>
+
+                <p>
+                    <strong>Rembrandt Lighting:</strong> Key light positioned to create a small triangle of light on the shadowed cheek (under the eye). Classic portrait lighting style. Very flattering and artistic.
+                </p>
+
+                <p>
+                    <strong>Butterfly Lighting:</strong> Key light directly in front and above subject, creating butterfly-shaped shadow under nose. Glamorous, fashion-style lighting. Minimizes imperfections.
+                </p>
+
+                <p>
+                    <strong>Split Lighting:</strong> Key light at 90° to subject (directly to side), no fill or minimal fill. Half the face lit, half in shadow. Very dramatic and edgy.
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Style</th>
+                            <th>Key Position</th>
+                            <th>Fill Intensity</th>
+                            <th>Mood</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Standard Three-Point</strong></td>
+                            <td>45° side & above</td>
+                            <td>30-40%</td>
+                            <td>Balanced, natural</td>
+                        </tr>
+                        <tr>
+                            <td><strong>High-Key</strong></td>
+                            <td>45° or frontal</td>
+                            <td>50-60%</td>
+                            <td>Bright, cheerful</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Low-Key</strong></td>
+                            <td>45° or steeper</td>
+                            <td>0-20%</td>
+                            <td>Dark, dramatic</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rembrandt</strong></td>
+                            <td>45° creating triangle</td>
+                            <td>20-30%</td>
+                            <td>Artistic, classic</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Split</strong></td>
+                            <td>90° (side)</td>
+                            <td>0-10%</td>
+                            <td>Very dramatic</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Three-Point Lighting Checklist</h4>
+                    <ul>
+                        <li>□ Key light is brightest and creates main shadows</li>
+                        <li>□ Fill light is noticeably dimmer than key</li>
+                        <li>□ Shadows are visible but not pure black</li>
+                        <li>□ Rim light creates edge separation</li>
+                        <li>□ Subject appears three-dimensional, not flat</li>
+                        <li>□ Background and subject are visually separated</li>
+                        <li>□ Overall exposure looks good (not too bright or dark)</li>
+                        <li>□ Mood matches intent (dramatic vs. soft)</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>Master three-point lighting</strong> and you've mastered the foundation of professional illumination. Everything else—complex multi-light setups, specialized techniques, creative effects—builds on this core system. Learn it deeply, practice it repeatedly, and internalize its principles. It's your lighting bedrock!</p>
+                </blockquote>
+            </section>

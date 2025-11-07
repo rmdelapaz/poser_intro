@@ -1,0 +1,2479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master scene composition and visual storytelling in Poser 12. Learn the rule of thirds, depth techniques, focal points, and how to guide the viewer's eye through your 3D scenes.">
+    <meta name="author" content="Poser 12 Course">
+    <title>Scene Composition and Storytelling - Poser 12 Mastery Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f0f0f0',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#667eea'
+            }
+        });
+    </script>
+</head>
+<body>
+    <nav class="main-nav" aria-label="Main Navigation">
+        <div class="nav-container">
+            <a href="index.html" class="logo">🎨 Poser 12 Mastery</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#modules">Modules</a>
+                <a href="index.html#resources">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> &gt; 
+        <a href="index.html#module3">Module 3: Working with Props and Scenes</a> &gt;
+        <span>Lesson 11</span>
+    </nav>
+
+    <main class="container">
+        <article>
+            <header class="lesson-header">
+                <h1>🎬 Scene Composition and Visual Storytelling</h1>
+                <p class="lead">
+                    Ever wonder why some images immediately grab your attention while others feel... empty? Why certain scenes feel balanced and engaging while others seem chaotic? The secret isn't magic—it's composition. In this lesson, we're diving into the art and science of arranging elements in your 3D scenes to create images that don't just look good, but tell powerful stories that connect with viewers on an emotional level.
+                </p>
+                <p class="lead">
+                    Think of composition as the grammar of visual storytelling. Just as a well-structured sentence communicates clearly, a well-composed scene guides your viewer's eye exactly where you want it to go, creates the mood you intend, and conveys your story without a single word. Whether you're creating character portraits, action scenes, or atmospheric environments, mastering composition transforms your work from "technically correct" to genuinely captivating.
+                </p>
+            </header>
+
+            <div class="card">
+                <h3>📋 What You'll Learn</h3>
+                <ul>
+                    <li><strong>Composition fundamentals</strong> - The rule of thirds, leading lines, and visual balance that make scenes feel "right"</li>
+                    <li><strong>Depth and dimensionality</strong> - Creating foreground, midground, and background layers that draw viewers into your 3D world</li>
+                    <li><strong>Focal points and emphasis</strong> - Directing attention to your main subject using contrast, framing, and strategic placement</li>
+                    <li><strong>Visual flow and eye movement</strong> - Designing invisible paths that guide viewers through your scene</li>
+                    <li><strong>Mood through composition</strong> - Using arrangement, space, and framing to evoke specific emotions</li>
+                    <li><strong>Storytelling techniques</strong> - Turning static scenes into narratives that engage and resonate</li>
+                    <li><strong>Common composition mistakes</strong> - What to avoid and how to fix weak arrangements</li>
+                </ul>
+                <p><strong>⏱️ Estimated Time:</strong> 60-75 minutes</p>
+                <p><strong>🎯 Project:</strong> Create three different compositional studies of the same scene to see how arrangement changes meaning</p>
+            </div>
+            <details class="card" open style="position: sticky; top: 80px; z-index: 100; background: var(--card-bg, white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; user-select: none;">
+                    <h2 style="display: inline; margin: 0;">📑 In This Lesson</h2>
+                </summary>
+                <nav aria-label="Table of Contents" style="padding: 0 1rem 1rem 1rem;">
+                    <ol>
+                        <li><a href="#why-composition-matters" class="toc-link">Why Composition Matters in 3D Art</a></li>
+                        <li><a href="#rule-of-thirds" class="toc-link">The Rule of Thirds and Power Points</a></li>
+                        <li><a href="#visual-balance" class="toc-link">Visual Balance and Weight</a></li>
+                        <li><a href="#creating-depth" class="toc-link">Creating Depth Through Layers</a></li>
+                        <li><a href="#leading-lines" class="toc-link">Leading Lines and Eye Direction</a></li>
+                        <li><a href="#focal-points" class="toc-link">Establishing Strong Focal Points</a></li>
+                        <li><a href="#framing-techniques" class="toc-link">Framing and Containment</a></li>
+                        <li><a href="#negative-space" class="toc-link">The Power of Negative Space</a></li>
+                        <li><a href="#mood-composition" class="toc-link">Composition for Mood and Emotion</a></li>
+                        <li><a href="#common-mistakes" class="toc-link">Common Composition Mistakes</a></li>
+                        <li><a href="#project" class="toc-link">Project: Compositional Studies</a></li>
+                        <li><a href="#summary" class="toc-link">Summary and Next Steps</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <section id="why-composition-matters">
+                <h2>🎯 Why Composition Matters in 3D Art</h2>
+                
+                <p>
+                    Let me tell you something that changed my perspective on 3D art forever: <strong>Technical perfection means nothing without good composition</strong>. You can have the most detailed character model, the most realistic materials, perfect lighting—but if your composition is weak, your image won't connect with viewers. It's like having all the ingredients for a gourmet meal but throwing them on a plate randomly instead of plating them beautifully.
+                </p>
+
+                <p>
+                    Composition is about <em>intentional arrangement</em>. Every element in your scene—every character, prop, light source, empty space—should be placed deliberately to serve your story and guide your viewer's experience. Think of yourself as a movie director: you're not just capturing what's there, you're <strong>orchestrating every detail</strong> to create a specific effect.
+                </p>
+
+                <div class="card" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h4>💡 The Photography Connection</h4>
+                    <p>
+                        Here's the beautiful advantage you have as a 3D artist: unlike photographers who must work with what's in front of them, <strong>you control everything</strong>. You can move that tree, adjust that building's height, change the sky, reposition your character—anything! This means you have <em>no excuse</em> for poor composition. Use this power wisely.
+                    </p>
+                    <p>
+                        Professional photographers spend years learning to "see" good compositions in the real world. You get to <strong>build</strong> them from scratch. That's an incredible creative advantage—but it also means you need to understand composition principles deeply, because you're making every decision yourself.
+                    </p>
+                </div>
+
+                <h3>What Composition Actually Does</h3>
+
+                <p>
+                    Good composition serves several crucial purposes in your 3D scenes:
+                </p>
+
+                <p>
+                    <strong>Directs Attention:</strong> Your viewer's eye naturally follows certain paths and patterns. Composition creates these paths, guiding viewers to your main subject and then through the rest of the scene in the order you intend. It's like creating a visual tour guide.
+                </p>
+
+                <p>
+                    <strong>Establishes Hierarchy:</strong> Not everything in your scene is equally important. Composition makes it crystal clear what matters most (your focal point), what supports the story (secondary elements), and what provides context (background details). Without this hierarchy, scenes feel confusing and aimless.
+                </p>
+
+                <p>
+                    <strong>Creates Mood:</strong> The way you arrange elements dramatically affects the emotional tone of your scene. Tight, close framing creates tension and intimacy. Open, spacious composition suggests freedom or isolation. Diagonal lines add energy and drama. Horizontal lines convey calm and stability. Every compositional choice carries emotional weight.
+                </p>
+
+                <p>
+                    <strong>Tells Story:</strong> Composition itself is a storytelling tool. The relationship between elements—who's in front, who's separated, what's emphasized, what's hidden—communicates narrative information instantly. A character standing alone in empty space tells a different story than one surrounded by other figures.
+                </p>
+
+                <p>
+                    <strong>Creates Visual Satisfaction:</strong> Humans are wired to find certain arrangements pleasing. Balanced compositions feel stable and comfortable. Dynamic compositions feel exciting. Harmonious arrangements are easy on the eyes. Good composition taps into these deep psychological responses, making your images more enjoyable to view.
+                </p>
+
+                <blockquote>
+                    <p><strong>Think of composition as silent storytelling.</strong> Before your viewer consciously thinks about what they're seeing, they're already <em>feeling</em> your composition. They're experiencing the mood, sensing the relationships, following the path you've laid out—all in the first second of viewing.</p>
+                </blockquote>
+
+                <div class="card">
+                    <h4>🎨 The Artist's Eye</h4>
+                    <p>
+                        Here's a fun exercise: Next time you're watching a movie or TV show, pause during a dramatic scene. Look at how the shot is composed. Where are the characters placed? What's in focus? How much empty space surrounds them? What lines draw your eye through the frame?
+                    </p>
+                    <p>
+                        Cinematographers are masters of composition because <em>every frame is intentional</em>. They're using the exact same principles you'll learn in this lesson. As a Poser artist, you're essentially a cinematographer for still images. Start training your eye to notice these choices everywhere—movies, photographs, paintings, even advertisements. <strong>Great composition is everywhere once you know how to see it.</strong>
+                    </p>
+                </div>
+
+                <h3>The Poser Advantage</h3>
+
+                <p>
+                    Working in Poser gives you incredible compositional flexibility that traditional artists would envy:
+                </p>
+
+                <ul>
+                    <li><strong>Infinite do-overs:</strong> Don't like where a character is standing? Move them. Takes two seconds.</li>
+                    <li><strong>Perfect camera control:</strong> Adjust your viewpoint precisely without physically moving anything.</li>
+                    <li><strong>Easy experimentation:</strong> Save multiple camera angles for the same scene and compare them.</li>
+                    <li><strong>Complete control:</strong> Change time of day, weather, add or remove elements—anything you want.</li>
+                    <li><strong>Preview your choices:</strong> See exactly how your composition looks before rendering.</li>
+                </ul>
+
+                <p>
+                    This lesson will teach you the timeless principles that artists have used for centuries, adapted specifically for 3D work in Poser. Some of these rules you'll follow religiously. Others you'll learn to break artfully. But first, you need to understand what the "rules" actually are and <em>why</em> they work.
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3 style="color: white;">🎯 Your Composition Mindset</h3>
+                    <p style="color: white;">
+                        From this lesson forward, approach every scene with these questions: <strong>What's my story? Where should the eye go first? What feeling do I want to create? What can I remove?</strong> Great composition isn't about filling the frame with stuff—it's about <em>intentional arrangement</em> that serves your vision.
+                    </p>
+                    <p style="color: white;">
+                        Remember: <strong>Every element earns its place in the scene by contributing to your story.</strong> If it doesn't help tell your story or guide the viewer's eye, question whether it needs to be there at all.
+                    </p>
+                </div>
+            </section>
+            <section id="rule-of-thirds">
+                <h2>📐 The Rule of Thirds and Power Points</h2>
+                
+                <p>
+                    If you learn only <em>one</em> composition principle, make it this one: <strong>the Rule of Thirds</strong>. It's not just a beginner guideline—professional artists use it constantly because it works. The rule is beautifully simple but surprisingly powerful in creating balanced, engaging compositions.
+                </p>
+
+                <h3>Understanding the Grid</h3>
+
+                <p>
+                    Imagine dividing your frame into nine equal rectangles using two horizontal lines and two vertical lines, like a tic-tac-toe grid. These lines divide your image into thirds both horizontally and vertically—hence "Rule of Thirds." Most cameras and image editing software can display this grid, and guess what? Poser's camera views can show you these guides too!
+                </p>
+
+                <div class="mermaid">
+                    graph TB
+                    subgraph "Rule of Thirds Grid"
+                    A[Top Left Power Point]
+                    B[Top Right Power Point]
+                    C[Bottom Left Power Point]
+                    D[Bottom Right Power Point]
+                    E[Left Vertical Line]
+                    F[Right Vertical Line]
+                    G[Top Horizontal Line]
+                    H[Bottom Horizontal Line]
+                    end
+                    style A fill:#ff6b6b,stroke:#333,stroke-width:3px,color:#fff
+                    style B fill:#ff6b6b,stroke:#333,stroke-width:3px,color:#fff
+                    style C fill:#ff6b6b,stroke:#333,stroke-width:3px,color:#fff
+                    style D fill:#ff6b6b,stroke:#333,stroke-width:3px,color:#fff
+                </div>
+
+                <p>
+                    The magic happens at the <strong>intersections</strong> where these lines cross. These four intersection points are called "power points" or "sweet spots," and they're where human eyes naturally gravitate when viewing an image. Place your main subject at one of these points, and your composition immediately feels more dynamic and engaging than if you centered everything.
+                </p>
+
+                <h3>Why It Works: The Psychology</h3>
+
+                <p>
+                    Here's the thing: human vision isn't uniform across our field of view. Our eyes naturally scan images in predictable patterns, and those power points align perfectly with where we <em>want</em> to look. Centering your subject can feel static and formal—like a passport photo. Placing them off-center creates visual interest, implies movement or direction, and simply feels more natural.
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The Center Trap</h4>
+                    <p>
+                        New artists instinctively center everything: character dead center, horizon line dead center, props symmetrically arranged. It feels "safe" and "balanced." But here's the truth: <strong>centered compositions are usually boring</strong>. They lack dynamism and visual interest.
+                    </p>
+                    <p>
+                        There are exceptions—formal portraits, symmetrical architecture, certain artistic effects—but 80% of the time, off-center composition using the Rule of Thirds will produce more engaging results. Break the centering habit early!
+                    </p>
+                </div>
+
+                <h3>Practical Application in Poser</h3>
+
+                <p>
+                    Let's make this concrete with real scenarios you'll face in Poser:
+                </p>
+
+                <p>
+                    <strong>Character Portraits:</strong> Position your character's eyes on the upper horizontal third line. If they're looking left, place them on the right vertical third line (giving them "looking room"). If looking right, place them on the left third line. This creates natural, engaging portraits that feel balanced without being static.
+                </p>
+
+                <p>
+                    <strong>Full-Body Shots:</strong> Align your character's head or torso with one of the vertical third lines. Place their feet near the bottom third line. This positioning creates a strong vertical that guides the eye while leaving room for visual breathing space.
+                </p>
+
+                <p>
+                    <strong>Horizon Lines:</strong> When creating outdoor scenes or landscapes, place your horizon on either the upper or lower third line—never in the middle. Upper third emphasizes the ground/foreground (dramatic, grounded feeling). Lower third emphasizes the sky (expansive, open feeling). Middle? Boring and indecisive.
+                </p>
+
+                <p>
+                    <strong>Action Shots:</strong> If your character is moving or looking in a direction, place them on the opposite third line from where they're heading. This creates "movement space" or "looking room"—empty space in front of them that implies direction and motion. A character running right should be positioned on the left third line with space opening up to the right.
+                </p>
+
+                <blockquote>
+                    <p><strong>Pro tip:</strong> The Rule of Thirds isn't just about where you place things—it's about creating <em>relationships</em> between elements. Use one power point for your main subject, another for a secondary element. This creates visual dialogue between elements and guides the eye through your scene.</p>
+                </blockquote>
+
+                <h3>Multiple Subjects and the Grid</h3>
+
+                <p>
+                    What if you have two characters in your scene? Here's where the Rule of Thirds becomes even more interesting. Place one character at the left power point, the other at the right. Instant visual balance! Or stack them vertically—one at upper right, one at lower left—for a more dynamic diagonal arrangement.
+                </p>
+
+                <p>
+                    For three or more subjects, you're creating <strong>visual triangles</strong>. Position them so they align with different power points, creating geometric relationships that guide the eye around the composition. Think of it like connect-the-dots—your viewer's eye will trace between these points naturally.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Quick Rule of Thirds Checklist</h4>
+                    <ul>
+                        <li>Main subject at a power point (intersection)? ✓</li>
+                        <li>Horizon or major horizontal elements on a third line? ✓</li>
+                        <li>Strong vertical elements aligned with vertical third lines? ✓</li>
+                        <li>Direction of movement/gaze has breathing room? ✓</li>
+                        <li>Nothing important dead center unless intentional? ✓</li>
+                    </ul>
+                </div>
+
+                <h3>Setting Up the Grid in Poser</h3>
+
+                <p>
+                    While Poser doesn't have a built-in Rule of Thirds overlay (unfortunately), you can work around this easily:
+                </p>
+
+                <ol>
+                    <li><strong>Use your preview:</strong> Most image viewers and editing software can display a Rule of Thirds grid. Take a quick screenshot of your Poser preview and view it with grid overlay.</li>
+                    <li><strong>Mental visualization:</strong> With practice, you'll mentally divide the frame into thirds automatically. It becomes second nature.</li>
+                    <li><strong>Post-crop method:</strong> Compose slightly wider than needed, then crop with grid guides in your image editor to perfect the thirds placement.</li>
+                    <li><strong>External reference:</strong> Keep a transparent grid image open on a second monitor, or print one out as a physical reference.</li>
+                </ol>
+
+                <h3>When to Break the Rule</h3>
+
+                <p>
+                    Yes, you read that right—sometimes you <em>should</em> break the Rule of Thirds. But here's the key: <strong>break it intentionally, not accidentally</strong>. Breaking composition rules can create powerful effects when done for specific reasons:
+                </p>
+
+                <p>
+                    <strong>Centered for symmetry:</strong> Formal portraits, architecture, religious or ceremonial imagery—centered composition adds gravitas and formality.
+                </p>
+
+                <p>
+                    <strong>Centered for confrontation:</strong> A character staring directly at the camera from dead center creates intensity and directness. They're confronting the viewer.
+                </p>
+
+                <p>
+                    <strong>Extreme off-center:</strong> Pushing elements even further toward the edges than the thirds creates tension, unease, or dramatic emphasis.
+                </p>
+
+                <p>
+                    <strong>Split-screen effects:</strong> Dividing the frame exactly in half can work for comparison shots or dual narratives—but this is advanced stuff.
+                </p>
+
+                <div class="card">
+                    <h4>🎯 Try It Now: The Thirds Experiment</h4>
+                    <p>
+                        Here's a quick experiment you can do right now: Load any figure in Poser. Create three camera views of the same pose:
+                    </p>
+                    <ol>
+                        <li><strong>Version 1:</strong> Character dead center in frame</li>
+                        <li><strong>Version 2:</strong> Character positioned on left third line, facing right</li>
+                        <li><strong>Version 3:</strong> Character positioned on right third line, facing left</li>
+                    </ol>
+                    <p>
+                        Render all three as quick previews. Compare them side by side. Notice how versions 2 and 3 feel more dynamic and interesting? That's the Rule of Thirds at work. The centered version feels static and formal—not <em>bad</em>, but less engaging for most purposes.
+                    </p>
+                    <p>
+                        <strong>Bonus:</strong> Now try version 4—character in lower right power point, looking up and left toward the upper left power point. See how your eye follows that diagonal line? That's compositional storytelling!
+                    </p>
+                </div>
+
+                <p>
+                    The Rule of Thirds is your foundation. Master this, and you're already ahead of 90% of beginning 3D artists. It's simple enough to use immediately but deep enough that professionals still rely on it every day. Make it your default compositional approach, and you'll see immediate improvement in your scene arrangements.
+                </p>
+            </section>
+            <section id="visual-balance">
+                <h2>⚖️ Visual Balance and Weight</h2>
+                
+                <p>
+                    Imagine your scene as a seesaw—every element has "weight" that affects the balance. A large, dark object on one side needs something to counterbalance it on the other side, or your composition feels lopsided and uncomfortable. Understanding visual weight and balance is essential for creating scenes that feel <em>right</em>, even when viewers can't articulate why.
+                </p>
+
+                <h3>What Creates Visual Weight?</h3>
+
+                <p>
+                    Not all elements in your scene carry the same visual importance. Several factors determine how much "weight" an element has in your composition:
+                </p>
+
+                <p>
+                    <strong>Size:</strong> Bigger objects naturally command more attention. A towering figure dominates the composition more than a small one. Simple physics applied to visuals—larger things feel heavier.
+                </p>
+
+                <p>
+                    <strong>Color and Contrast:</strong> Bright, saturated colors weigh more than muted tones. A red dress in a sea of grays will anchor your composition powerfully. High contrast elements (very dark against very light) also carry significant weight. Your eye can't help but notice them.
+                </p>
+
+                <p>
+                    <strong>Detail and Texture:</strong> Highly detailed or textured areas draw the eye more than smooth, simple areas. A intricately detailed face carries more weight than a plain wall behind it. Complexity attracts attention.
+                </p>
+
+                <p>
+                    <strong>Position in Frame:</strong> Elements near the edges or corners of your frame feel heavier than elements near the center. This seems counterintuitive, but it's true—corner placement creates visual tension that adds weight.
+                </p>
+
+                <p>
+                    <strong>Isolation:</strong> An isolated element—something separated from other elements by empty space—gains weight from that isolation. A lone figure in empty space commands attention precisely because they're alone.
+                </p>
+
+                <p>
+                    <strong>Human Subjects:</strong> People (especially faces and eyes) automatically carry tremendous visual weight. We're hardwired to notice faces. A small human face will dominate a composition even when surrounded by larger objects.
+                </p>
+
+                <blockquote>
+                    <p><strong>The weight test:</strong> Squint at your scene preview until details blur. What catches your eye first? That's your heaviest element. Where does your eye go second, third? You're seeing the visual weight hierarchy. If your main subject isn't one of the top two things you notice, your balance needs adjustment.</p>
+                </blockquote>
+
+                <h3>Types of Balance</h3>
+
+                <p>
+                    There are three main ways to balance your compositions, each creating a different feeling:
+                </p>
+
+                <h4>Symmetrical Balance</h4>
+
+                <p>
+                    This is <strong>formal, stable, and traditional</strong>. Elements on the left mirror elements on the right. Think of a perfectly centered character with matching props on either side, or two characters equidistant from center facing each other. Symmetrical balance feels calm, orderly, and authoritative. It's perfect for portraits, formal scenes, or situations where you want to convey stability and tradition.
+                </p>
+
+                <p>
+                    However, symmetrical balance can feel static or boring if overused. It's like perfectly balanced scales—stable but not particularly dynamic. Use it when formality serves your story.
+                </p>
+
+                <h4>Asymmetrical Balance</h4>
+
+                <p>
+                    This is where things get interesting! <strong>Asymmetrical balance uses different-weighted elements that balance each other out</strong>—like a seesaw with an adult on one end close to the center and a child on the other end far from center. It's dynamic, modern, and visually engaging.
+                </p>
+
+                <p>
+                    Example: A large, dark figure on the left third of your frame balanced by a small, brightly lit object on the right third. They're different, but they balance. Or a group of three characters on the left balanced by empty space and a dramatic sky on the right. Asymmetry creates movement and interest while still maintaining balance.
+                </p>
+
+                <p>
+                    Most professional composition uses asymmetrical balance because it's more engaging and natural. It takes more skill to pull off (you're balancing unlike elements), but the results are worth it.
+                </p>
+
+                <div class="card">
+                    <h4>💡 The Balancing Act</h4>
+                    <p>
+                        Think of visual weight like actual weight on a scale, but with a twist:
+                    </p>
+                    <ul>
+                        <li><strong>One large element</strong> = can be balanced by <strong>several small elements</strong></li>
+                        <li><strong>One bright colorful object</strong> = can be balanced by <strong>a larger muted object</strong></li>
+                        <li><strong>Detailed, busy area</strong> = can be balanced by <strong>larger simple area</strong></li>
+                        <li><strong>Human face</strong> = needs <strong>significant counterweight</strong> to balance</li>
+                    </ul>
+                    <p>
+                        The key is that opposite sides of your composition should feel roughly equal in total weight, even if the individual elements are very different.
+                    </p>
+                </div>
+
+                <h4>Radial Balance</h4>
+
+                <p>
+                    Less common but powerful when appropriate: <strong>elements radiate from a central point</strong>, like spokes on a wheel or petals on a flower. This creates circular movement and draws the eye to the center. Think of a character surrounded by other elements arranged in a circular pattern, or a spiral composition that leads inward.
+                </p>
+
+                <p>
+                    Radial balance works great for mystical scenes, group portraits arranged in circles, or dramatic moments where everything points to a central event. It's specialized but effective for the right situations.
+                </p>
+
+                <h3>Balancing in Poser: Practical Techniques</h3>
+
+                <p>
+                    Let's get practical. How do you actually achieve good balance in your Poser scenes?
+                </p>
+
+                <p>
+                    <strong>Use the halves test:</strong> Mentally divide your frame in half vertically. Cover one half with your hand (or in your mind). Does the visible half feel too heavy or too light? Now check the other half. If one side clearly overpowers the other, you need to adjust. Add weight to the light side or reduce weight on the heavy side.
+                </p>
+
+                <p>
+                    <strong>Balance characters with environment:</strong> A character on one side can be balanced by architectural elements, props, or interesting background details on the other side. You're not limited to balancing characters with characters. A person on the left third can be perfectly balanced by a dramatic sky, a tree, or architectural detail on the right.
+                </p>
+
+                <p>
+                    <strong>Use color strategically:</strong> Can't physically move elements to create balance? Change their colors or materials. Brightening or darkening elements adjusts their weight. Adding color saturation increases weight; reducing it decreases weight. This is especially useful when working with fixed backgrounds or environments.
+                </p>
+
+                <p>
+                    <strong>Leverage negative space:</strong> Empty space itself has weight! A small, detailed character can be balanced by a large expanse of empty sky or plain wall. The simplicity and emptiness of the negative space provides counterweight to the complex, detailed character.
+                </p>
+
+                <p>
+                    <strong>Create visual triangles:</strong> When working with multiple elements, arrange them in triangular patterns. Triangles are naturally stable and balanced. Three characters? Don't line them up horizontally—arrange them in a triangle with one forward, two back at different heights. Much more interesting and naturally balanced.
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The Balance Trap</h4>
+                    <p>
+                        Here's something that confuses beginners: <strong>balanced doesn't mean equal</strong>. You don't need the same amount of "stuff" on both sides of your frame. In fact, having exactly equal amounts often looks artificial and boring.
+                    </p>
+                    <p>
+                        Think asymmetrical: a small but visually heavy element (bright, detailed, or contrasting) can balance a large but light element (muted, simple, or low contrast). The <em>total visual weight</em> should balance, not the physical size or number of elements.
+                    </p>
+                </div>
+
+                <h3>Dynamic vs. Static Balance</h3>
+
+                <p>
+                    Here's where balance gets really interesting: you can choose between stable, static balance or dynamic, active balance depending on your story needs.
+                </p>
+
+                <p>
+                    <strong>Static balance</strong> feels calm, settled, and permanent. Horizontal lines, symmetrical arrangements, centered weight—these create peaceful, stable compositions. Perfect for contemplative scenes, portraits, formal settings, or moments of calm in your narrative.
+                </p>
+
+                <p>
+                    <strong>Dynamic balance</strong> feels energetic, temporary, and active. Diagonal lines, asymmetrical arrangements, off-center weight—these create tension and movement even in still images. Perfect for action scenes, emotional moments, dramatic situations, or anywhere you want visual energy.
+                </p>
+
+                <p>
+                    Neither is better—they serve different purposes. A tense confrontation needs dynamic balance. A peaceful meditation scene needs static balance. Choose based on your story and mood.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Balance Quick Check</h4>
+                    <p>Before finalizing any composition, ask yourself:</p>
+                    <ul>
+                        <li>Does one side of the frame feel significantly heavier than the other?</li>
+                        <li>Is there a visual "pull" in one direction that feels uncomfortable?</li>
+                        <li>Do my heavy elements have appropriate counterweights?</li>
+                        <li>Does the overall balance match my intended mood (stable vs. dynamic)?</li>
+                        <li>When I squint, does the distribution of visual weight feel right?</li>
+                    </ul>
+                    <p>
+                        If you answered "yes" to the first two and "no" to the others, time to rebalance!
+                    </p>
+                </div>
+
+                <h3>Intentional Imbalance</h3>
+
+                <p>
+                    Sometimes you <em>want</em> imbalance! Deliberately unbalanced compositions create unease, tension, or instability—perfect for dramatic scenes, horror, suspense, or showing a character's internal turmoil. A character pushed far to one edge with nothing to balance them feels isolated and vulnerable. That's intentional imbalance serving your story.
+                </p>
+
+                <p>
+                    The key word is <em>intentional</em>. Accidental imbalance just looks like you don't know what you're doing. Intentional imbalance creates specific emotional effects. Know the difference!
+                </p>
+
+                <blockquote>
+                    <p><strong>Remember:</strong> Visual balance isn't about mathematical precision—it's about what <em>feels right</em>. Trust your eye. If a composition feels off-balance, it probably is, even if you can't immediately articulate why. Take the time to adjust until it feels comfortable (or deliberately uncomfortable, if that's your intent).</p>
+                </blockquote>
+            </section>
+            <section id="creating-depth">
+                <h2>🌄 Creating Depth Through Layers</h2>
+                
+                <p>
+                    One of the biggest challenges in 3D art is something that seems paradoxical: <strong>making your 3D scenes actually look three-dimensional</strong>. Yes, you're working in 3D space, but when you render to a 2D image, all that depth can flatten out surprisingly fast. The solution? Understanding and emphasizing the three depth layers that create the illusion of space: foreground, midground, and background.
+                </p>
+
+                <h3>The Three-Layer Strategy</h3>
+
+                <p>
+                    Think of your scene like looking through a window into a layered world. Professional photographers, cinematographers, and artists use this three-layer approach constantly because it creates immediate depth and dimensionality:
+                </p>
+
+                <p>
+                    <strong>Foreground:</strong> The closest layer to the camera, often partially visible at the edges of the frame. This might be vegetation, architectural elements, props, or even another character out of focus. The foreground <em>frames</em> your scene and establishes scale. It says "there's something between you and the main subject."
+                </p>
+
+                <p>
+                    <strong>Midground:</strong> Your primary action happens here. This is where your main character stands, where the story unfolds. It's typically in sharp focus and where viewers spend most of their attention. This is your stage.
+                </p>
+
+                <p>
+                    <strong>Background:</strong> The furthest layer, providing context and atmosphere. Backgrounds establish setting, time, mood, and scale. A character in an empty white void tells no story; that same character with an interesting background inhabits a world. Backgrounds can be detailed or simple, but they should always support rather than compete with your midground.
+                </p>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Foreground<br/>Close to Camera<br/>Framing Elements] -->|Creates Depth| B[Midground<br/>Main Subject<br/>Primary Focus]
+                    B -->|Provides Context| C[Background<br/>Far from Camera<br/>Setting & Atmosphere]
+                    style A fill:#e8f5e9,stroke:#4CAF50,stroke-width:3px
+                    style B fill:#fff3cd,stroke:#ffc107,stroke-width:3px
+                    style C fill:#e3f2fd,stroke:#2196F3,stroke-width:3px
+                </div>
+
+                <p>
+                    The magic happens when all three layers work together. Each layer should be visually distinct from the others—different in distance, focus, or detail level. This separation creates the depth that pulls viewers into your scene.
+                </p>
+
+                <h3>Foreground: The Frame Within the Frame</h3>
+
+                <p>
+                    Foreground elements do several important jobs in your composition:
+                </p>
+
+                <p>
+                    <strong>Create depth cues:</strong> Something close in the foreground immediately establishes distance to the midground. Our brains understand spatial relationships—if there's something near, the next thing must be further. Instant depth perception.
+                </p>
+
+                <p>
+                    <strong>Frame your subject:</strong> Strategic foreground elements can create natural frames around your main subject. Branches hanging down from the top of the frame, a doorway, architectural elements on the sides—these focus attention on your midground by containing it within the foreground.
+                </p>
+
+                <p>
+                    <strong>Add context and atmosphere:</strong> Foreground vegetation suggests a natural setting. Foreground architecture suggests civilization. Foreground props tell us about the environment. These are storytelling details that enrich your scene.
+                </p>
+
+                <p>
+                    <strong>Control composition:</strong> Don't like how your scene's edges look? Add foreground elements to guide the eye or block unwanted areas. Foreground gives you control over the viewer's window into your world.
+                </p>
+
+                <div class="card">
+                    <h4>💡 Foreground Best Practices in Poser</h4>
+                    <p><strong>Keep it simple:</strong> Foreground should enhance, not distract. Simple shapes work better than complex, detailed objects. You want suggestion, not competition for attention.</p>
+                    <p><strong>Use blur strategically:</strong> Slightly out-of-focus foreground elements create depth without pulling attention from your midground. If Poser's render settings allow depth-of-field, use it here!</p>
+                    <p><strong>Position at edges:</strong> Foreground elements typically work best at the frame edges—sides, top, or bottom. Avoid cluttering the center where your main subject lives.</p>
+                    <p><strong>Transparency and partial visibility:</strong> You don't need complete foreground objects. A tree branch partially entering the frame from the side works perfectly. Suggestion is powerful.</p>
+                </div>
+
+                <h3>Midground: Your Stage</h3>
+
+                <p>
+                    This is where your story happens. The midground should be your <strong>clearest, sharpest, most detailed layer</strong>. This is where viewers focus, where the action occurs, where your main characters exist.
+                </p>
+
+                <p>
+                    Keep your midground relatively clean and uncluttered. This doesn't mean empty—just that every element here should be purposeful. Too many competing elements in the midground confuses the eye and dilutes your focal point.
+                </p>
+
+                <p>
+                    <strong>Scale and presence:</strong> Your midground characters and props should be sized appropriately to command attention. They shouldn't be tiny specs lost in the frame, nor should they overwhelm everything else (unless that's your intent). They should feel like they <em>belong</em> in this layer—not too close, not too far.
+                </p>
+
+                <p>
+                    <strong>Breathing room:</strong> Even though the midground is your focus layer, don't pack it full. Leave space around your main subjects. This negative space helps them stand out and prevents visual claustrophobia. Remember: empty space has value!
+                </p>
+
+                <h3>Background: Setting the Stage</h3>
+
+                <p>
+                    Your background establishes context, mood, and scale. It answers the question: "Where are we?" A forest background tells a different story than a cyberpunk city, which tells a different story than an empty desert.
+                </p>
+
+                <p>
+                    <strong>Simplify for emphasis:</strong> Here's a key principle: <em>your background should be less detailed than your midground</em>. Why? Because you want attention on your main subject, not on the background. This doesn't mean boring backgrounds—just that they should be simpler, softer, or more unified than your midground.
+                </p>
+
+                <p>
+                    <strong>Atmospheric perspective:</strong> Things farther away appear lighter, bluer, and less contrasted due to atmosphere. Even in a 3D program, you can simulate this by making backgrounds slightly desaturated, lighter, and lower in contrast than your midground. This naturally pushes them back in space.
+                </p>
+
+                <p>
+                    <strong>Gradients and sky:</strong> A plain white or gray background wastes an opportunity. Add a gradient—darker at top, lighter at bottom (or vice versa). This simple change adds tremendous depth. A sky with clouds or color variation tells us we're looking at distance.
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The Background Trap</h4>
+                    <p>
+                        Beginners often create super-detailed, highly-contrasted backgrounds because they want impressive scenes. But here's the problem: <strong>detailed backgrounds compete with your main subject</strong>. The viewer's eye doesn't know where to focus.
+                    </p>
+                    <p>
+                        Professional artists do the opposite: they simplify backgrounds strategically. If your character has intricate details, keep the background simple. If your background is complex, keep your character's presentation clean and bold. <em>Contrast in complexity creates focus.</em>
+                    </p>
+                </div>
+
+                <h3>Overlapping: The Depth Secret</h3>
+
+                <p>
+                    Here's one of the most powerful depth techniques, and it's beautifully simple: <strong>overlap elements between layers</strong>. When a foreground tree partially obscures a midground character, who partially obscures a background building, our brains instantly understand the spatial relationships. Overlap is perhaps the strongest depth cue you have.
+                </p>
+
+                <p>
+                    In Poser, this means positioning elements so they partially cover each other from the camera's viewpoint. Don't arrange everything neatly side-by-side where nothing touches—that flattens the scene. Instead, allow elements to overlap. This is how we perceive depth in the real world.
+                </p>
+
+                <h3>Depth Through Scale</h3>
+
+                <p>
+                    Objects appear smaller as they recede into the distance. This size difference is a fundamental depth cue. In your Poser scenes, make sure foreground elements are larger than midground elements, which are larger than background elements (unless you're deliberately playing with scale for effect).
+                </p>
+
+                <p>
+                    Example: Three figures at different depths. The closest should appear significantly larger in frame than the furthest. This reinforces depth through size perspective.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Depth Checklist</h4>
+                    <p>Does your scene have:</p>
+                    <ul>
+                        <li>Something in the foreground (even if subtle or at frame edges)?</li>
+                        <li>Clear midground with your main subject?</li>
+                        <li>Background that provides context without overwhelming?</li>
+                        <li>Overlapping elements between layers?</li>
+                        <li>Variation in detail levels between layers (more detail = closer)?</li>
+                        <li>Atmospheric perspective (distant things lighter/softer)?</li>
+                        <li>Scale relationships that reinforce distance?</li>
+                    </ul>
+                    <p>The more of these you can check off, the more dimensional your scene will feel!</p>
+                </div>
+
+                <h3>Practical Depth Techniques in Poser</h3>
+
+                <p>
+                    Let's make this actionable with specific Poser techniques:
+                </p>
+
+                <p>
+                    <strong>Use props as foreground frames:</strong> Load simple prop elements like plants, architectural pieces, or furniture. Position them close to camera, partially at frame edges. They don't need to be perfectly in view—partially visible works great.
+                </p>
+
+                <p>
+                    <strong>Camera focal length matters:</strong> Wide-angle lenses (lower focal lengths) exaggerate depth between layers. Telephoto lenses (higher focal lengths) compress depth. Choose based on how much depth separation you want. Wide for dramatic depth, telephoto for compressed, intimate feeling.
+                </p>
+
+                <p>
+                    <strong>Lighting supports depth:</strong> Light your midground more than your background. This naturally draws attention to your main subject while pushing the background back visually. Foreground can be darker (silhouetted) or lighter, depending on your mood.
+                </p>
+
+                <p>
+                    <strong>Ground plane matters:</strong> A visible ground plane that extends from foreground through midground to background creates tremendous depth. Shadows, texture, or patterns on this ground plane reinforce the distance. Don't underestimate the power of a good floor or ground texture!</p>
+
+                <blockquote>
+                    <p><strong>Think in layers:</strong> As you build scenes in Poser, consciously think "What's my foreground? What's my midground? What's my background?" Arrange elements to emphasize these layers. Position your camera to see multiple layers overlapping. This layered thinking automatically creates depth.</p>
+                </blockquote>
+
+                <p>
+                    Depth transforms flat renders into windows into believable 3D worlds. It's the difference between looking <em>at</em> an image and looking <em>into</em> a scene. Master these three layers, and your compositions will immediately feel more professional and engaging.
+                </p>
+            </section>
+            <section id="leading-lines">
+                <h2>➡️ Leading Lines and Eye Direction</h2>
+                
+                <p>
+                    Your viewer's eye doesn't wander randomly around your image—it follows <strong>paths</strong>. Lines in your composition, whether actual or implied, create these paths and guide the viewer's gaze exactly where you want it to go. Understanding leading lines is like learning to control your viewer's visual journey through your scene. It's powerful stuff!
+                </p>
+
+                <h3>What Are Leading Lines?</h3>
+
+                <p>
+                    Leading lines are any linear elements in your composition that direct the eye from one part of the image to another. They can be actual physical lines (roads, fences, architectural edges) or implied lines (the direction someone's looking, a sequence of objects, the flow of a gesture). Our eyes naturally want to follow lines to see where they lead.
+                </p>
+
+                <p>
+                    Think about walking down a hallway. Your eyes naturally follow the hallway to see where it goes. That's exactly how leading lines work in composition—they create visual hallways that guide the eye through your image, ultimately leading to your focal point.
+                </p>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Entry Point<br/>Where Eye Enters Scene] -->|Leading Line| B[Secondary Element<br/>Supporting Interest]
+                    B -->|Leading Line| C[Focal Point<br/>Main Subject]
+                    style A fill:#e3f2fd,stroke:#2196F3,stroke-width:2px
+                    style B fill:#fff3cd,stroke:#ffc107,stroke-width:2px
+                    style C fill:#e8f5e9,stroke:#4CAF50,stroke-width:3px
+                </div>
+
+                <h3>Types of Leading Lines</h3>
+
+                <p>
+                    Different types of lines create different effects and guide the eye in different ways:
+                </p>
+
+                <h4>Horizontal Lines</h4>
+
+                <p>
+                    <strong>Create calm, stability, and peace.</strong> Horizontal lines mirror our horizon and ground—they feel restful and steady. A calm ocean, a flat desert, a character lying down—these horizontal lines slow the eye's movement and create tranquility.
+                </p>
+
+                <p>
+                    Use horizontal lines when you want to convey: calmness, stability, rest, breadth, expansiveness. They move the eye side-to-side across the frame in a gentle, leisurely way. Perfect for peaceful scenes, contemplative moments, or establishing shots that show scope.
+                </p>
+
+                <h4>Vertical Lines</h4>
+
+                <p>
+                    <strong>Create strength, growth, and grandeur.</strong> Vertical lines reach upward or plunge downward—they have power and presence. Tall trees, standing figures, towering architecture—vertical lines command respect and suggest strength or aspiration.
+                </p>
+
+                <p>
+                    Use vertical lines when you want to convey: power, strength, height, growth, stability, dignity. They move the eye up and down through the frame, creating a sense of grandeur. Perfect for portraits, architectural scenes, or moments emphasizing strength and stature.
+                </p>
+
+                <h4>Diagonal Lines</h4>
+
+                <p>
+                    <strong>Create energy, dynamism, and tension.</strong> This is where composition gets exciting! Diagonal lines are <em>active</em>—they suggest movement, action, and instability. They're neither at rest horizontally nor stable vertically—they're in between, creating visual tension.
+                </p>
+
+                <p>
+                    Use diagonal lines when you want to convey: action, movement, energy, tension, drama, dynamism. They move the eye rapidly through the frame, creating excitement and urgency. Perfect for action scenes, dramatic moments, or anywhere you want visual energy.
+                </p>
+
+                <p>
+                    <strong>Bonus tip:</strong> Diagonal lines from bottom-left to top-right feel "ascending" and positive (we read that direction). Diagonal lines from top-left to bottom-right feel "descending" and can suggest decline or fall. Use this subtle directional psychology!
+                </p>
+
+                <h4>Curved Lines</h4>
+
+                <p>
+                    <strong>Create grace, beauty, and flow.</strong> Curves are organic and natural—they're how things exist in nature. S-curves are especially powerful, creating elegant, flowing movement through your composition. Think of a winding path, a curved staircase, the arc of a figure's pose.
+                </p>
+
+                <p>
+                    Use curved lines when you want to convey: grace, beauty, femininity, nature, flow, elegance. They move the eye smoothly and pleasantly through the frame, creating a satisfying visual journey. Perfect for portraits, natural scenes, or anywhere you want elegance and flow.
+                </p>
+
+                <h4>Converging Lines</h4>
+
+                <p>
+                    <strong>Create depth and focus.</strong> Lines that converge toward a point create powerful perspective and depth. Railroad tracks disappearing into the distance, hallways, roads, building edges—converging lines pull the eye deep into the image toward a vanishing point.
+                </p>
+
+                <p>
+                    Use converging lines when you want to: create dramatic depth, focus attention on a specific point, suggest journey or destination. Place your main subject at or near the convergence point for maximum impact. These lines essentially point at your focal point like arrows.
+                </p>
+
+                <div class="card">
+                    <h4>💡 The Power of Combination</h4>
+                    <p>
+                        The most interesting compositions often use <strong>multiple types of lines together</strong>. Horizontal lines for stability in the background, with diagonal lines in the midground for energy, guided by a curved line that leads to your focal point. This layering of line types creates visual richness and guides the eye on a more interesting journey.
+                    </p>
+                    <p>
+                        Think of it like music: a single note is fine, but a chord is richer. Multiple line types working together create visual chords that are more engaging than any single line type alone.
+                    </p>
+                </div>
+
+                <h3>Finding and Creating Leading Lines in Poser</h3>
+
+                <p>
+                    Now for the practical part: how do you actually use this in your Poser scenes?
+                </p>
+
+                <p>
+                    <strong>Architectural elements:</strong> Props like walls, fences, railings, columns, and building edges create obvious leading lines. Position these elements to point toward your main subject or guide the eye through the scene. A fence line leading to your character? Perfect leading line.
+                </p>
+
+                <p>
+                    <strong>Ground patterns:</strong> Floor tiles, brick patterns, shadows, ground texture—these create grids and lines that guide the eye. A tiled floor with perspective creates natural converging lines toward your character.
+                </p>
+
+                <p>
+                    <strong>Body language and poses:</strong> A character's arm extended pointing? That's a leading line pointing at what they're indicating. Their body forming a curve? That's a curved leading line. The line from their eye gaze to what they're looking at? Another leading line. Human poses are full of directional lines!
+                </p>
+
+                <p>
+                    <strong>Props and arrangements:</strong> A sword blade, a staff, a line of objects, a row of trees—any elongated or arranged element creates leading lines. Be intentional about which direction these elements point. Point them toward your focal point, not away from it!
+                </p>
+
+                <p>
+                    <strong>Light and shadow:</strong> Shadows create lines too! Light streaming through a window creates directional lines. Shadow patterns on walls or ground guide the eye. Use lighting creatively to paint leading lines with light and shadow.
+                </p>
+
+                <p>
+                    <strong>Implied lines:</strong> The space between two characters creates an implied line. The direction of movement creates an implied line. A sequence of objects creates an implied line that the eye follows from one to the next. These invisible lines are just as powerful as physical ones.
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Lines Can Betray You</h4>
+                    <p>
+                        Here's the danger: <strong>lines lead the eye OUT of your frame as easily as they lead it IN</strong>. A leading line that points away from your subject and straight out the edge of your frame is actually hurting your composition—it's an exit sign telling viewers where to leave!
+                    </p>
+                    <p>
+                        Check your lines carefully. Do they lead to your subject or away from it? Do they guide the eye through the frame or straight out of it? Adjust elements so lines either: (1) lead to your focal point, (2) create a journey through your scene, or (3) curve back into the frame instead of exiting.
+                    </p>
+                    <p>
+                        <strong>Pro tip:</strong> Lines leading out of frame at corners are especially problematic. They create strong exit paths. Avoid having strong lines point directly out of your corners unless you're deliberately creating tension or imbalance.
+                    </p>
+                </div>
+
+                <h3>The S-Curve: The Most Elegant Line</h3>
+
+                <p>
+                    Worth special mention: the <strong>S-curve</strong> is perhaps the most pleasing line in composition. It's gentle, flowing, and creates an engaging visual journey. The eye enters at one end of the S and smoothly follows the curve through the frame.
+                </p>
+
+                <p>
+                    How to create S-curves in Poser:
+                </p>
+
+                <ul>
+                    <li><strong>Character poses:</strong> A figure with weight shifted creates an S-curve through their body—hip out, torso curved, shoulders angled. This is why the "contrapposto" pose works so well!</li>
+                    <li><strong>Winding paths:</strong> A path or road that curves through your scene in an S-shape guides the eye beautifully through all three depth layers.</li>
+                    <li><strong>Arranged elements:</strong> Position multiple objects in an S-shaped pattern—foreground to midground to background in a flowing curve.</li>
+                    <li><strong>Flowing fabric or hair:</strong> Cloth simulation or hair that flows in an S-curve adds elegance and movement to your composition.</li>
+                </ul>
+
+                <p>
+                    S-curves rarely look bad. They're naturally pleasing to the eye and create sophisticated, professional-looking compositions almost automatically. When in doubt, look for ways to create or emphasize S-curves in your scene.
+                </p>
+
+                <h3>Eye Gaze: The Invisible Leading Line</h3>
+
+                <p>
+                    One of the most powerful leading lines isn't a line at all—it's <strong>where your character is looking</strong>. Humans are hardwired to follow eye gaze. If your character is looking at something, viewers will instinctively look there too. This is an invisible but incredibly strong leading line.
+                </p>
+
+                <p>
+                    Use this to your advantage:
+                </p>
+
+                <ul>
+                    <li>Have your character look at important elements you want viewers to notice</li>
+                    <li>In multi-character scenes, use eye gaze to show relationships and hierarchy</li>
+                    <li>A character looking off-frame creates tension—viewers want to see what they're seeing</li>
+                    <li>A character looking at the viewer creates direct engagement and connection</li>
+                </ul>
+
+                <p>
+                    Direction of gaze is so powerful that it can override other compositional elements. Place a character looking toward the frame edge? Viewers will feel uncomfortable because they're being led out of the image. Place them looking toward your other compositional elements? Viewers naturally follow that gaze inward through the scene.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Leading Lines Checklist</h4>
+                    <p>Review your composition and identify:</p>
+                    <ul>
+                        <li>What are the dominant lines in my scene (horizontal, vertical, diagonal, curved)?</li>
+                        <li>Do these lines lead TO my focal point or AWAY from it?</li>
+                        <li>Are there lines leading out of the frame that I should redirect?</li>
+                        <li>Can I add or adjust elements to create better leading lines?</li>
+                        <li>Where is my character looking, and does that support or fight my composition?</li>
+                        <li>Do my lines match the mood I want (calm horizontals, active diagonals, etc.)?</li>
+                        <li>Am I using multiple line types for visual interest?</li>
+                    </ul>
+                </div>
+
+                <h3>Practical Exercise: Line Analysis</h3>
+
+                <p>
+                    Here's a great way to train your eye: Take any professional photograph, movie still, or painting you admire. Using image editing software (or even just your finger on a screen), <strong>trace the major lines</strong> in the composition. You'll start seeing the underlying structure—how diagonal arms lead to horizontal elements lead to curved paths lead to the focal point.
+                </p>
+
+                <p>
+                    Professional artists construct these line patterns deliberately. Once you can see the lines, you can recreate similar patterns in your own Poser scenes. It's like seeing the skeleton underneath the skin—the structure becomes obvious and replicable.
+                </p>
+
+                <blockquote>
+                    <p><strong>Remember:</strong> Leading lines are about <em>intention</em>. Every line in your composition is either helping or hurting your focal point. Make them help. Guide the eye deliberately through your scene on a journey that ends at your main subject. That's the power of leading lines—they turn random viewing into guided experience.</p>
+                </blockquote>
+            </section>
+            <section id="focal-points">
+                <h2>🎯 Establishing Strong Focal Points</h2>
+                
+                <p>
+                    Every great composition answers one fundamental question immediately: <strong>"What am I supposed to look at?"</strong> That's your focal point—the star of your show, the reason the image exists. Without a clear focal point, viewers feel lost and confused. With a strong focal point, they know exactly where to look and what matters. Let's master the art of creating unmistakable focal points that grab and hold attention.
+                </p>
+
+                <h3>Why Focal Points Matter</h3>
+
+                <p>
+                    Think about walking into a room where everyone is talking at once, all at the same volume. Overwhelming, right? That's a composition without a focal point—visual noise where nothing stands out. Now imagine one person speaking clearly while others quietly murmur. Immediately, you know where to focus. <strong>That's what a strong focal point does for your composition.</strong>
+                </p>
+
+                <p>
+                    Your focal point is your primary subject, the element that tells your story. Everything else in the composition should support this focal point, not compete with it. Supporting elements are like a great supporting cast in a movie—they enhance the star without stealing the show.
+                </p>
+
+                <blockquote>
+                    <p><strong>The one-second rule:</strong> When someone views your image, they should identify the focal point within one second. If it takes longer, your focal point isn't strong enough. If they're not sure what to look at, you've failed at composition's most basic job: directing attention.</p>
+                </blockquote>
+
+                <h3>Techniques for Creating Strong Focal Points</h3>
+
+                <p>
+                    You have multiple tools at your disposal to make your focal point dominant. The pros use several of these techniques simultaneously for maximum impact:
+                </p>
+
+                <h4>Contrast: The Attention Magnet</h4>
+
+                <p>
+                    <strong>Contrast is the single most powerful tool</strong> for creating focal points. The human eye is automatically drawn to areas of highest contrast. This works in multiple ways:
+                </p>
+
+                <p>
+                    <strong>Tonal contrast:</strong> Light against dark or dark against light. A brightly lit character against a dark background (or vice versa) creates instant focal point dominance. This is why rim lighting is so effective—it creates edge contrast that separates subjects from backgrounds.
+                </p>
+
+                <p>
+                    <strong>Color contrast:</strong> A warm color in a cool environment stands out. A saturated color among desaturated tones demands attention. That classic red dress in a monochrome environment? Pure focal point power through color contrast. Think complementary colors—red against green, blue against orange, purple against yellow—these create maximum color contrast.
+                </p>
+
+                <p>
+                    <strong>Detail contrast:</strong> High detail in a simple environment (or vice versa). A highly detailed character face against a soft, blurred background creates focal point through detail contrast. The eye naturally seeks the area with the most information.
+                </p>
+
+                <p>
+                    <strong>Texture contrast:</strong> Rough textures against smooth surfaces. The varied, complex texture naturally draws attention compared to uniform, simple surfaces.
+                </p>
+
+                <div class="card">
+                    <h4>💡 Contrast Stacking</h4>
+                    <p>
+                        Here's a pro technique: <strong>use multiple types of contrast simultaneously</strong> on your focal point. A brightly lit (tonal contrast) character in red clothing (color contrast) with detailed facial features (detail contrast) against a simple background? That's contrast stacking, and it creates an absolutely undeniable focal point.
+                    </p>
+                    <p>
+                        Don't rely on just one type of contrast. Layer them. Each additional layer of contrast makes your focal point stronger and more impossible to miss.
+                    </p>
+                </div>
+
+                <h4>Size and Scale</h4>
+
+                <p>
+                    Larger elements naturally dominate compositions. If your main character is significantly larger in frame than other elements, they're automatically the focal point. This is why close-ups and medium shots work so well for character focus—size creates dominance.
+                </p>
+
+                <p>
+                    However, be careful: <strong>bigger isn't always better</strong>. An enormous, blurry background element won't be your focal point even though it's large. Size works best when combined with other focal point techniques—a large <em>and</em> detailed <em>and</em> contrasted element? Now you're talking focal point power!
+                </p>
+
+                <h4>Sharpness and Focus</h4>
+
+                <p>
+                    Our eyes are drawn to sharp, in-focus elements and tend to skip over blurry ones. In photography, this is controlled with depth of field. In Poser, you can simulate this with render settings or achieve it in post-processing.
+                </p>
+
+                <p>
+                    <strong>Selective focus</strong> is incredibly powerful: main character sharp, everything else slightly soft. The eye goes immediately to the sharp area. It's like the image is saying "Look here! This is what matters!"
+                </p>
+
+                <p>
+                    Even without technical blur, you can create focus through detail distribution. Make your focal point highly detailed while keeping surrounding elements simpler. The eye still gravitates to the detail-rich area.
+                </p>
+
+                <h4>Isolation and Negative Space</h4>
+
+                <p>
+                    <strong>Give your focal point breathing room.</strong> An element surrounded by empty space naturally becomes the focal point—it's the only thing there! This is why minimalist compositions can be so powerful. When there's nothing else to look at, the one element present dominates completely.
+                </p>
+
+                <p>
+                    You don't need extreme minimalism to use isolation effectively. Just ensure your focal point has clear space around it, separating it from other elements. This visual separation makes it distinct and obvious. Crowding your focal point with other elements dilutes its power.
+                </p>
+
+                <h4>Placement Using Rule of Thirds</h4>
+
+                <p>
+                    Remember those power points we discussed? <strong>Placing your focal point at a Rule of Thirds intersection</strong> automatically gives it compositional emphasis. These sweet spots are where eyes naturally land, so positioning your subject there reinforces their importance.
+                </p>
+
+                <p>
+                    This is why the Rule of Thirds isn't just about balance—it's also about focal point placement. The intersections aren't just aesthetically pleasing spots; they're attention-grabbing locations.
+                </p>
+
+                <h4>Directional Elements</h4>
+
+                <p>
+                    Use everything in your composition to <strong>point at your focal point</strong>. Leading lines converging on your subject? Check. Other characters' eye gaze directed at your main character? Check. Architectural elements framing or pointing toward your focal point? Check.
+                </p>
+
+                <p>
+                    Think of your composition as a conspiracy where every element is secretly (or not so secretly) pointing at the star. Arrows don't need to be literal—implied direction through arrangement, gaze, and leading lines all create "arrows" pointing at your focal point.
+                </p>
+
+                <div class="mermaid">
+                    graph TD
+                    A[Leading Lines] -->|Direct to| F[FOCAL POINT]
+                    B[Eye Gaze] -->|Direct to| F
+                    C[Lighting] -->|Highlights| F
+                    D[Contrast] -->|Emphasizes| F
+                    E[Negative Space] -->|Frames| F
+                    style F fill:#ff6b6b,stroke:#333,stroke-width:4px,color:#fff
+                    style A fill:#e3f2fd,stroke:#2196F3,stroke-width:2px
+                    style B fill:#e3f2fd,stroke:#2196F3,stroke-width:2px
+                    style C fill:#e3f2fd,stroke:#2196F3,stroke-width:2px
+                    style D fill:#e3f2fd,stroke:#2196F3,stroke-width:2px
+                    style E fill:#e3f2fd,stroke:#2196F3,stroke-width:2px
+                </div>
+
+                <h3>Common Focal Point Mistakes</h3>
+
+                <p>
+                    Let's talk about what <em>not</em> to do:
+                </p>
+
+                <p>
+                    <strong>Multiple competing focal points:</strong> The biggest mistake! When two or more elements fight for attention with equal strength, the viewer doesn't know where to look. Their eye bounces between elements, never settling. Choose ONE primary focal point and make everything else secondary.
+                </p>
+
+                <p>
+                    <strong>Hidden focal point:</strong> Your main subject is there, but they're the same value, color, and size as everything else. They don't stand out. Remember: your focal point must be <em>obviously</em> the focal point. Subtle doesn't cut it.
+                </p>
+
+                <p>
+                    <strong>Edge placement:</strong> Placing your focal point right at the frame edge rarely works well. Give them some breathing room from the edges. Edges are for supporting elements and framing, not for your star.
+                </p>
+
+                <p>
+                    <strong>Background overwhelm:</strong> Your background is so detailed, contrasted, or colorful that it competes with your main subject. Background should support, not compete. If your background is more interesting than your focal point, you've got problems.
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The Everything-Is-Important Trap</h4>
+                    <p>
+                        New artists often want to make <em>everything</em> in their scene equally detailed, lit, and emphasized because "it's all important!" But here's the hard truth: <strong>when everything is important, nothing is important</strong>.
+                    </p>
+                    <p>
+                        You must make choices. You must decide what matters most. Your focal point gets the spotlight—full contrast, detail, lighting, the works. Everything else gets dialed back to supporting-role status. This hierarchy is what creates clear, powerful compositions.
+                    </p>
+                    <p>
+                        Think of it like mixing audio: you don't make every instrument equally loud. You bring the lead vocal forward and keep the instruments supporting. Same principle in visual composition.
+                    </p>
+                </div>
+
+                <h3>Secondary Focal Points</h3>
+
+                <p>
+                    Sometimes you need <strong>secondary focal points</strong>—elements that matter but don't dominate. These create visual interest and support your narrative without competing with your primary focal point.
+                </p>
+
+                <p>
+                    The key is <em>hierarchy</em>. Your primary focal point should be clearly dominant (strongest contrast, largest, most detailed). Secondary focal points should be noticeably less dominant but still interesting (moderate contrast, smaller, or less detailed). The eye should naturally go to the primary focal point first, then discover secondary elements.
+                </p>
+
+                <p>
+                    Think of it like: Primary = 100% attention-grabbing strength, Secondary = 50-60%, Background = 20-30%. This graduated hierarchy guides the eye in a clear order without confusion.
+                </p>
+
+                <h3>Testing Your Focal Point</h3>
+
+                <p>
+                    Here are quick tests to verify your focal point is working:
+                </p>
+
+                <p>
+                    <strong>The squint test:</strong> Squint at your composition until details blur. What do you see first when things get fuzzy? That's your visual focal point. If it's not your intended focal point, you need to adjust contrasts and emphasis.
+                </p>
+
+                <p>
+                    <strong>The thumbnail test:</strong> View your composition as a tiny thumbnail. What stands out? The focal point should still be obvious even at tiny sizes. If it disappears or gets lost, it's not strong enough.
+                </p>
+
+                <p>
+                    <strong>The fresh-eyes test:</strong> Show your composition to someone unfamiliar with it for just one second. Ask them what they noticed first. If they don't say your intended focal point, you've got work to do!</p>
+
+                <p>
+                    <strong>The removal test:</strong> Imagine removing your focal point. Does the composition fall apart? Good—it should! Your focal point should be so central to the composition that removing it would break everything. If the composition works fine without it, your focal point wasn't strong enough.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Focal Point Checklist</h4>
+                    <ul>
+                        <li>Can I identify my primary focal point in under one second?</li>
+                        <li>Does my focal point have the highest contrast in the scene?</li>
+                        <li>Is my focal point the largest important element?</li>
+                        <li>Is my focal point the most detailed and sharp area?</li>
+                        <li>Does my focal point have breathing room (negative space)?</li>
+                        <li>Do other elements point toward or frame my focal point?</li>
+                        <li>Are there any elements competing with my focal point for attention?</li>
+                        <li>Have I tested my focal point with squint/thumbnail/fresh-eyes tests?</li>
+                    </ul>
+                    <p>If you can confidently check off most of these, you've got a strong focal point!</p>
+                </div>
+
+                <h3>Focal Points in Poser: Practical Application</h3>
+
+                <p>
+                    Let's make this concrete with Poser-specific techniques:
+                </p>
+
+                <p>
+                    <strong>Lighting for emphasis:</strong> Use your lights to create contrast on your focal point. Brighten your character's face while keeping the background darker. Use rim lights to separate them from the background. Lighting is your contrast control panel—use it deliberately!
+                </p>
+
+                <p>
+                    <strong>Material adjustments:</strong> Make your focal point's materials more detailed or contrasted. If your character is the focal point, give them interesting textures and materials while keeping background elements simpler. Adjust specularity to create highlights that draw the eye.
+                </p>
+
+                <p>
+                    <strong>Camera focal length:</strong> Use telephoto focal lengths (higher mm values) to create compressed depth and natural background blur. This isolates your foreground subject as the automatic focal point. Wide angles do the opposite—everything stays relatively sharp and in focus, which can dilute focal point strength.
+                </p>
+
+                <p>
+                    <strong>Post-processing:</strong> If you can't achieve enough focal point emphasis in Poser, handle it in post. Add selective sharpening to your focal point, selective blur to backgrounds, adjust contrast curves to emphasize your subject, or use color grading to make your focal point's colors pop while muting others.
+                </p>
+
+                <blockquote>
+                    <p><strong>The golden rule of focal points:</strong> There can be only one primary focal point. Secondary elements are fine, background interest is fine, but <em>one thing must dominate</em>. Make your choice clear, emphasize it strongly, and don't apologize for it. Commit to your focal point completely.</p>
+                </blockquote>
+
+                <p>
+                    A strong focal point transforms a random collection of elements into a purposeful composition. It gives your image direction, meaning, and impact. Master focal points, and your work immediately becomes more professional and intentional.
+                </p>
+            </section>
+            <section id="framing-techniques">
+                <h2>🖼️ Framing and Containment</h2>
+                
+                <p>
+                    Imagine looking through a window at a beautiful scene. The window frame naturally draws your attention to what's visible through it, right? That's the power of framing in composition—<strong>creating frames within your frame</strong> that direct attention and add visual structure. Framing is like giving your focal point its own picture frame, making it impossible to miss and adding layers of depth to your composition.
+                </p>
+
+                <h3>What Is Framing?</h3>
+
+                <p>
+                    Framing uses elements within your scene to create borders or "windows" that contain and emphasize your main subject. These frames can be complete (encircling the subject entirely) or partial (framing from one or two sides). The frame itself becomes part of your composition, adding context, depth, and focus.
+                </p>
+
+                <p>
+                    Think of framing as putting a spotlight around your subject. The frame says "Look here! This is what matters!" while simultaneously adding visual interest and storytelling context through the framing elements themselves.
+                </p>
+
+                <h3>Types of Framing</h3>
+
+                <h4>Natural Framing</h4>
+
+                <p>
+                    <strong>Using environmental elements as frames.</strong> This is the most common and often most effective type of framing:
+                </p>
+
+                <p>
+                    <strong>Doorways and archways:</strong> Classic framing devices. Position your character in a doorway, and the door frame naturally contains them. Archways do the same thing with added elegance. These architectural frames are powerful because they're believable and add location context.
+                </p>
+
+                <p>
+                    <strong>Windows:</strong> Viewing your subject through a window creates instant framing. The window can be in the foreground (we're looking through it) or your character can be looking out through it. Either way, the window frame contains and emphasizes.
+                </p>
+
+                <p>
+                    <strong>Vegetation:</strong> Tree branches hanging into frame from above and sides create natural, organic frames. Foliage at frame edges contains your midground subject beautifully. This works especially well for outdoor scenes and creates immediate depth.
+                </p>
+
+                <p>
+                    <strong>Cave openings or tunnels:</strong> Looking through a cave opening at a character outside (or vice versa) creates dramatic framing with the added benefit of strong foreground-to-background depth.
+                </p>
+
+                <p>
+                    <strong>Mirrors and reflections:</strong> A character viewed in a mirror is naturally framed by the mirror's edges. Reflections add the bonus of showing the subject from a different angle simultaneously.
+                </p>
+
+                <div class="card">
+                    <h4>💡 Layered Framing</h4>
+                    <p>
+                        Advanced technique: <strong>use multiple frames at different depths</strong>. For example: tree branches in the immediate foreground, viewed through a doorway in the midground, containing a character in the background. This creates tremendous depth and visual interest through nested frames.
+                    </p>
+                    <p>
+                        Each frame layer adds depth and focuses attention progressively deeper into the scene. It's like Russian nesting dolls of composition—each frame leads you to the next, ultimately revealing your focal point.
+                    </p>
+                </div>
+
+                <h4>Architectural Framing</h4>
+
+                <p>
+                    <strong>Using built structures as frames:</strong>
+                </p>
+
+                <p>
+                    <strong>Columns and pillars:</strong> Two columns creating a space between them naturally frames whatever's in that space. Classical architecture uses this extensively—rows of columns create multiple framing opportunities.
+                </p>
+
+                <p>
+                    <strong>Walls and corners:</strong> The corner of a building, two walls meeting, or a corridor's walls create strong linear frames that guide the eye down their length to your subject.
+                </p>
+
+                <p>
+                    <strong>Overhangs and ceilings:</strong> An overhead element like a porch roof, ceiling, or bridge creates a horizontal frame element that contains the scene below. This adds a sense of shelter or containment.
+                </p>
+
+                <p>
+                    <strong>Ruins and broken structures:</strong> A broken wall section, crumbling archway, or damaged building creates interesting, imperfect frames that add narrative—suggesting history, conflict, or decay while still providing framing structure.
+                </p>
+
+                <h4>Light and Shadow Framing</h4>
+
+                <p>
+                    <strong>Using lighting to create frames:</strong> This is where it gets really creative!
+                </p>
+
+                <p>
+                    <strong>Spotlighting:</strong> A pool of light in darkness naturally contains your subject. Everything outside the light pool fades to black, creating a perfect organic frame. Think of theatrical spotlighting—it works in 3D art too!
+                </p>
+
+                <p>
+                    <strong>Window light:</strong> Light streaming through a window creates a frame of light on the wall or floor. Position your character within this light pattern, and they're naturally framed by light itself.
+                </p>
+
+                <p>
+                    <strong>Shadow patterns:</strong> Venetian blind shadows, tree shadows, architectural shadows—any strong shadow pattern can create frame-like structures that contain or emphasize elements.
+                </p>
+
+                <p>
+                    <strong>Vignetting:</strong> Darkening the frame edges creates a subtle frame that draws attention inward. This can be achieved through rendering or post-processing. The eye naturally avoids the darkened edges and focuses on the lighter center.
+                </p>
+
+                <h4>Object Framing</h4>
+
+                <p>
+                    <strong>Using props and objects as frame elements:</strong>
+                </p>
+
+                <p>
+                    <strong>Furniture:</strong> A chair back in the foreground, table in the bottom of frame, or bookshelf at the side—furniture pieces can create partial frames that add depth and context while directing attention.
+                </p>
+
+                <p>
+                    <strong>Props with holes:</strong> Looking through a steering wheel, fence pickets, railing bars, or any object with openings creates interesting frames with texture and context. The prop adds story information while framing.
+                </p>
+
+                <p>
+                    <strong>Character-created frames:</strong> A character's arms raised forming a frame above their head, hands framing their face, or two characters standing apart creating a frame between them—human bodies can create organic frames.
+                </p>
+
+                <div class="mermaid">
+                    graph TB
+                    A[Foreground Frame Element] -->|Directs Attention Through| B[Frame Opening]
+                    B -->|Contains| C[Focal Point - Main Subject]
+                    D[Frame Edge Details] -->|Add Context| B
+                    E[Background] -->|Provides Depth| C
+                    style A fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                    style B fill:#fff3cd,stroke:#ffc107,stroke-width:2px
+                    style C fill:#ff6b6b,stroke:#333,stroke-width:3px,color:#fff
+                    style D fill:#764ba2,stroke:#333,stroke-width:2px,color:#fff
+                    style E fill:#e3f2fd,stroke:#2196F3,stroke-width:2px
+                </div>
+
+                <h3>Why Framing Works</h3>
+
+                <p>
+                    Framing is psychologically powerful for several reasons:
+                </p>
+
+                <p>
+                    <strong>Directs attention:</strong> Frames create natural boundaries that guide the eye inward toward your focal point. They're like visual arrows saying "Look inside this space!"
+                </p>
+
+                <p>
+                    <strong>Creates depth:</strong> Frame in foreground + subject in midground automatically creates layered depth. You're showing multiple spatial planes simultaneously, making the image feel three-dimensional.
+                </p>
+
+                <p>
+                    <strong>Adds context:</strong> The frame itself tells story. A doorway frame suggests interior/exterior transition. A vegetation frame suggests outdoor setting. A mirror frame suggests vanity or self-reflection. The frame adds meaning beyond just containing the subject.
+                </p>
+
+                <p>
+                    <strong>Creates intimacy:</strong> Framing often creates a sense of "looking in" on the subject, as if we're peeking through a window or doorway. This voyeuristic quality can add intimacy or drama to the scene.
+                </p>
+
+                <p>
+                    <strong>Separates subject from background:</strong> A good frame visually isolates your subject from a busy or distracting background, making them stand out even when the background itself is complex.
+                </p>
+
+                <blockquote>
+                    <p><strong>The window principle:</strong> We're naturally drawn to look through frames and openings—it's human curiosity. When we see a doorway, we want to see what's beyond it. Use this instinct! Place your focal point on the other side of a frame element, and viewers will automatically look through the frame to your subject.</p>
+                </blockquote>
+
+                <h3>Framing Techniques in Poser</h3>
+
+                <p>
+                    Let's make this practical with specific Poser approaches:
+                </p>
+
+                <p>
+                    <strong>Load frame-creating props:</strong> Doors, windows, archways, vegetation props—anything that can create frame elements. Position these in your foreground or midground to frame your character in the background or midground.
+                </p>
+
+                <p>
+                    <strong>Camera positioning is key:</strong> You create frames by aligning your camera so frame elements appear at frame edges while your subject is visible through them. This often means positioning your camera close to frame elements (doorway threshold, near a tree) and shooting through them.
+                </p>
+
+                <p>
+                    <strong>Use transparency and depth:</strong> Frame elements don't need to be solid. Semi-transparent foliage, chain-link fences, or blurred foreground elements create interesting frames that add texture without blocking view.
+                </p>
+
+                <p>
+                    <strong>Combine with Rule of Thirds:</strong> Position your frame opening at power points, or position your framed subject at power points within the frame. This combines two powerful techniques for maximum impact.
+                </p>
+
+                <p>
+                    <strong>Lighting supports framing:</strong> Light your framed subject more brightly than the frame elements. The contrast draws attention through the frame to the subject. Dark frame + light subject = powerful framing.
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Framing Pitfalls to Avoid</h4>
+                    <p>
+                        <strong>Cluttered frames:</strong> Frame elements that are too busy, detailed, or high-contrast can compete with your subject instead of framing them. Keep frames simpler and lower contrast than your focal point.
+                    </p>
+                    <p>
+                        <strong>Blocked view:</strong> Frame elements that obscure too much of your subject frustrate viewers. Frame should contain, not hide. If we can't see your subject clearly, the frame has become a barrier rather than an aid.
+                    </p>
+                    <p>
+                        <strong>Unnatural positioning:</strong> If you have to contort your scene unnaturally to create framing, it will look forced. Framing should feel organic to the scene, not obviously contrived. Work with your environment naturally.
+                    </p>
+                    <p>
+                        <strong>Centered framing:</strong> A frame with your subject dead center can feel static. Try offset framing where your subject is framed but positioned according to Rule of Thirds within that frame. More dynamic!
+                    </p>
+                </div>
+
+                <h3>Partial Framing</h3>
+
+                <p>
+                    You don't need complete frames around your subject. <strong>Partial framing</strong> can be just as effective and often feels more natural:
+                </p>
+
+                <p>
+                    <strong>One-side framing:</strong> A tree or architectural element on just one side of frame creates a partial frame while leaving the other side open. This creates directionality and asymmetry.
+                </p>
+
+                <p>
+                    <strong>Top framing:</strong> Overhead elements (tree branches, architectural overhangs) creating a frame across the top while leaving bottom and sides open. This creates a sense of shelter or containment.
+                </p>
+
+                <p>
+                    <strong>Corner framing:</strong> Frame elements in one or two corners create subtle framing that doesn't overpower the composition. This is gentle framing that adds interest without dominating.
+                </p>
+
+                <p>
+                    Partial framing often feels more natural and less contrived than complete framing. It suggests framing without forcing it, giving viewers' eyes guidance without restricting them completely.
+                </p>
+
+                <h3>Negative Space as Framing</h3>
+
+                <p>
+                    Here's a subtle technique: <strong>empty space itself can frame</strong>. A character surrounded by negative space is framed by that emptiness. The contrast between the subject and the void creates a psychological frame even without physical elements.
+                </p>
+
+                <p>
+                    This minimalist framing is powerful for creating focus and mood. A lone character in vast emptiness feels isolated, dramatic, contemplative. The emptiness frames them by being everything they're not—the contrast creates the frame.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Framing Checklist</h4>
+                    <ul>
+                        <li>Do I have foreground elements that can create natural frames?</li>
+                        <li>Does my frame direct attention TO my subject rather than away from it?</li>
+                        <li>Is my frame simpler/darker than my focal point?</li>
+                        <li>Does my frame add context or storytelling information?</li>
+                        <li>Can viewers clearly see my subject through/within the frame?</li>
+                        <li>Does the framing feel natural to the scene, not forced?</li>
+                        <li>Have I combined framing with other techniques (Rule of Thirds, lighting)?</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>Remember:</strong> Framing should serve your composition, not dominate it. The goal is to enhance and direct attention to your focal point, not to show off clever framing techniques. If viewers notice your framing more than your subject, you've overdone it. Framing should feel natural and serve the story.</p>
+                </blockquote>
+
+                <p>
+                    Framing is one of the most sophisticated composition techniques, adding layers of visual interest, depth, and focus to your scenes. It transforms flat renders into dimensional spaces with clear focal points. Start noticing framing in professional photographs and films—once you see it, you'll see it everywhere!
+                </p>
+            </section>
+            <section id="negative-space">
+                <h2>⬜ The Power of Negative Space</h2>
+                
+                <p>
+                    Here's something that blows beginners' minds: <strong>empty space is not wasted space</strong>. In fact, what you <em>don't</em> put in your scene is often as important as what you do put there. Negative space—the empty areas around and between your subjects—is a powerful compositional tool that creates focus, mood, and visual breathing room. Let's explore how emptiness creates impact.
+                </p>
+
+                <h3>What Is Negative Space?</h3>
+
+                <p>
+                    Negative space is the area around your main subjects (the "positive space"). It's the sky around a character, the blank wall behind them, the empty floor, the open areas of your composition. Many beginners see this space as "nothing" or "wasted frame"—but professional artists see it as active, purposeful design space.
+                </p>
+
+                <p>
+                    Think of negative space like silence in music. Silence isn't the absence of music—it's part of the composition! Those pauses between notes make the notes more impactful. Same with negative space: the emptiness makes your subjects more powerful by giving them room to exist and breathe.
+                </p>
+
+                <blockquote>
+                    <p><strong>The minimalist principle:</strong> Less is more. Every element you add to a scene divides attention. Strategic emptiness concentrates attention. Sometimes the most powerful composition is the simplest one—subject plus meaningful empty space, nothing more.</p>
+                </blockquote>
+
+                <h3>What Negative Space Accomplishes</h3>
+
+                <p>
+                    Negative space isn't lazy composition—it's doing important work:
+                </p>
+
+                <p>
+                    <strong>Creates focus:</strong> With less competing for attention, your subject dominates completely. A character alone in vast emptiness is impossible to miss. The negative space says "Look at this one thing—it's all that matters here."
+                </p>
+
+                <p>
+                    <strong>Provides rest for the eye:</strong> Busy, cluttered compositions tire viewers. Negative space gives the eye places to rest, making the overall composition more comfortable to view. It's visual breathing room.
+                </p>
+
+                <p>
+                    <strong>Creates mood:</strong> Vast negative space can feel lonely, contemplative, peaceful, or dramatic depending on context. The emptiness itself carries emotional weight. A character surrounded by huge empty space feels isolated or small. That's the negative space creating mood.
+                </p>
+
+                <p>
+                    <strong>Implies scale:</strong> Negative space around an object can make it feel small and vulnerable, or give it room to feel important and significant. Same object, different negative space = different meaning.
+                </p>
+
+                <p>
+                    <strong>Directs movement:</strong> Empty space implies direction. A character with negative space in front of them has "room to move" in that direction. Negative space behind them suggests they're moving away from that space. The distribution of emptiness tells a story.
+                </p>
+
+                <div class="card">
+                    <h4>💡 The 60-40 Rule</h4>
+                    <p>
+                        A useful guideline: <strong>aim for roughly 60% negative space to 40% positive space</strong> in your compositions. This isn't a hard rule, but it's a good starting point for balanced, focused compositions that don't feel cluttered.
+                    </p>
+                    <p>
+                        Too much positive space (lots of stuff) = visual chaos. Too much negative space (almost empty) = lack of interest. The 60-40 split creates harmony where your subject has presence without overwhelming, and space has purpose without dominating.
+                    </p>
+                    <p>
+                        Of course, you can intentionally violate this for effect. 90% negative space creates minimalist drama. 80% positive space creates energy and complexity. But start with 60-40 and adjust from there.
+                    </p>
+                </div>
+
+                <h3>Types of Negative Space</h3>
+
+                <h4>Passive Negative Space</h4>
+
+                <p>
+                    <strong>Blank, uniform areas</strong> that simply provide breathing room. A plain sky, a white wall, an empty floor—these don't draw attention to themselves. They exist to let your subject shine. This is the most common type of negative space and often the most effective.
+                </p>
+
+                <p>
+                    Passive negative space should be:<ul>
+                    <li><strong>Low contrast:</strong> Don't compete with your subject through stark differences</li>
+                    <li><strong>Low detail:</strong> Simple, uniform areas that don't distract</li>
+                    <li><strong>Appropriate to context:</strong> Sky for outdoor, wall for indoor, etc.</li>
+                    <li><strong>Mood-supporting:</strong> Dark for drama, light for optimism, blue for cool, warm for cozy</li>
+                    </ul>
+                </p>
+
+                <h4>Active Negative Space</h4>
+
+                <p>
+                    <strong>Empty space with subtle texture or interest</strong> that supports without distracting. A softly clouded sky, a subtly textured wall, gentle gradients—these add visual interest to your negative space without making it compete with your subject.
+                </p>
+
+                <p>
+                    Active negative space is trickier. Too much activity and it's no longer "negative"—it becomes competing positive space. The key is keeping it <em>subtle</em>. Your negative space can have interest, but it should never compete with your focal point for attention.
+                </p>
+
+                <h4>Shaped Negative Space</h4>
+
+                <p>
+                    Sometimes the <strong>shape of your negative space itself becomes interesting</strong>. The empty area between two characters creates a shape. The sky visible between tree branches creates shapes. These negative space shapes can add visual interest and even subliminal meaning.
+                </p>
+
+                <p>
+                    Example: Two characters facing each other with the negative space between them forming an hourglass or vase shape. The negative space shape itself becomes a compositional element that adds elegance to the arrangement.
+                </p>
+
+                <h3>Negative Space for Direction and Balance</h3>
+
+                <p>
+                    The <strong>distribution of negative space</strong> around your subject tells a story:
+                </p>
+
+                <p>
+                    <strong>Leading space (looking room):</strong> When a character looks or moves in a direction, place more negative space in that direction. A character looking right should have more empty space on the right side of frame. This creates "room to look" and feels natural. Violating this (no space in the direction of gaze) creates tension and claustrophobia.
+                </p>
+
+                <p>
+                    <strong>Following space:</strong> Conversely, negative space behind a moving subject suggests the space they've traveled through. An athlete running left with more space on the right (behind them) suggests their journey and creates a sense of movement and speed.
+                </p>
+
+                <p>
+                    <strong>Balanced space:</strong> Equal negative space on both sides creates stability and formality. This works for centered, formal compositions where you want symmetry and balance rather than dynamism.
+                </p>
+
+                <p>
+                    <strong>Asymmetric space:</strong> Unequal negative space distribution creates visual tension and interest. More space on one side draws the eye in that direction and creates dynamic imbalance (which can be desirable for energy and movement).
+                </p>
+
+                <div class="mermaid">
+                    graph LR
+                    A[Character<br/>Facing Right] -.->|Negative Space<br/>Looking Room| B[Empty Space<br/>Direction of Gaze]
+                    C[Empty Space<br/>Behind] -.->|Negative Space<br/>Following Room| A
+                    style A fill:#ff6b6b,stroke:#333,stroke-width:3px,color:#fff
+                    style B fill:#e3f2fd,stroke:#2196F3,stroke-width:2px
+                    style C fill:#f5f5f5,stroke:#999,stroke-width:2px
+                </div>
+
+                <h3>Common Negative Space Mistakes</h3>
+
+                <p>
+                    <strong>The clutter trap:</strong> Filling every inch of frame with "interesting stuff." This eliminates negative space entirely and creates visual chaos. Remember: not every pixel needs to contain something. Emptiness has value!
+                </p>
+
+                <p>
+                    <strong>Inconsistent negative space quality:</strong> Mixing passive and active negative space inconsistently. If one area has plain negative space and another has textured, busy negative space, it feels unbalanced. Keep your negative space consistent in character across the composition.
+                </p>
+
+                <p>
+                    <strong>Tangents and distractions:</strong> Negative space that accidentally creates unfortunate shapes or contains distracting elements. A tree appearing to grow from a character's head ruins the negative space's purpose. Keep negative space clean and purposeful.
+                </p>
+
+                <p>
+                    <strong>Wrong direction:</strong> Putting negative space behind a character who's looking forward creates discomfort. They need looking room ahead, not behind. Negative space distribution should support your subject's direction and intent.
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The Fear of Empty Space</h4>
+                    <p>
+                        Many beginners fear empty space. They think: "All this blank area is wasted! I should fill it with something!" This leads to cluttered, unfocused compositions where nothing stands out because everything competes.
+                    </p>
+                    <p>
+                        <strong>Trust the emptiness.</strong> Professional designers and artists use negative space confidently because they understand its power. That "wasted" space is actually doing important work—focusing attention, creating mood, providing rest, and making your subject the undeniable star.
+                    </p>
+                    <p>
+                        Challenge yourself: Create a composition that's 70% negative space. It will feel uncomfortably empty at first. But notice how powerful and focused your subject becomes. That's the magic of negative space.
+                    </p>
+                </div>
+
+                <h3>Negative Space in Poser Scenes</h3>
+
+                <p>
+                    Practical application in Poser:
+                </p>
+
+                <p>
+                    <strong>Simple backgrounds:</strong> Instead of detailed environment props, use simple sky domes, colored backdrops, or gradient backgrounds. These provide clean negative space that lets your character dominate.
+                </p>
+
+                <p>
+                    <strong>Camera framing:</strong> Position your camera to include significant empty space around your subject. Don't zoom in so tight that the character fills the frame edge-to-edge. Give them room!
+                </p>
+
+                <p>
+                    <strong>Lighting creates negative space:</strong> Dark areas become negative space. Use shadows and falloff to create areas that fade to black or near-black, providing negative space even in busy environments.
+                </p>
+
+                <p>
+                    <strong>Depth of field:</strong> Blurred backgrounds become negative space. Even if there are props and details back there, when they're sufficiently blurred, they function as negative space—present but not demanding attention.
+                </p>
+
+                <p>
+                    <strong>Minimal props:</strong> Resist the urge to load every prop in the library. Each prop you add reduces negative space and divides attention. Ask yourself: "Does this prop earn its place by contributing to the story, or am I just filling space?"
+                </p>
+
+                <h3>Negative Space for Different Moods</h3>
+
+                <p>
+                    The character of your negative space affects mood dramatically:
+                </p>
+
+                <p>
+                    <strong>Vast, light negative space:</strong> Creates feelings of freedom, optimism, possibility, or isolation depending on context. A character in bright, expansive space feels either liberated or lonely—your call.
+                </p>
+
+                <p>
+                    <strong>Vast, dark negative space:</strong> Creates mystery, drama, fear, or contemplation. A character in darkness feels threatened, introspective, or dramatic. The dark negative space adds weight and mood.
+                </p>
+
+                <p>
+                    <strong>Minimal negative space:</strong> Creates intimacy, closeness, or claustrophobia. Less room around your subject makes things feel more immediate and personal—or oppressively close, depending on your intent.
+                </p>
+
+                <p>
+                    <strong>Colored negative space:</strong> The color of your empty space matters! Blue negative space feels cool and calm. Red negative space adds energy or danger. Warm tones feel inviting; cool tones feel distant. Use color psychology in your negative space.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Negative Space Checklist</h4>
+                    <ul>
+                        <li>Does my composition have adequate breathing room around the subject?</li>
+                        <li>Is negative space distributed appropriately for direction/balance?</li>
+                        <li>Is my negative space simple enough to not compete with my subject?</li>
+                        <li>Does the negative space support my intended mood?</li>
+                        <li>Have I avoided filling every inch of frame with "stuff"?</li>
+                        <li>Is the character and quality of negative space consistent across the frame?</li>
+                        <li>Does my negative space help focus attention on the focal point?</li>
+                    </ul>
+                </div>
+
+                <blockquote>
+                    <p><strong>The minimalist challenge:</strong> Try this exercise—create a composition with ONE character and NOTHING else. Just character and empty space. Force yourself to rely entirely on negative space for impact. You'll discover how powerful simplicity can be. Then gradually add elements back only if they truly improve the composition. This exercise teaches restraint and the value of emptiness.</p>
+                </blockquote>
+
+                <p>
+                    Negative space is sophisticated, mature composition. It requires confidence—the confidence to leave areas empty, to resist filling every corner, to trust that less can be more. Master negative space, and your work will immediately look more professional and intentional.
+                </p>
+            </section>
+            <section id="mood-composition">
+                <h2>🎭 Composition for Mood and Emotion</h2>
+                
+                <p>
+                    Composition isn't just about arranging elements attractively—it's about <strong>creating emotional responses</strong>. The same scene arranged differently can evoke completely different feelings. Understanding how compositional choices affect mood gives you control over your viewer's emotional experience. Let's explore how to compose for specific feelings and atmospheres.
+                </p>
+
+                <h3>How Composition Creates Emotion</h3>
+
+                <p>
+                    Before we dive into specific moods, understand this fundamental truth: <strong>composition communicates emotion before the viewer consciously processes content</strong>. The arrangement of shapes, lines, spaces, and balance creates an immediate gut feeling that influences how viewers interpret everything else in your scene.
+                </p>
+
+                <p>
+                    Think of it like walking into a room. Before you've consciously thought about the furniture arrangement, lighting, or colors, you've already <em>felt</em> whether the room is welcoming or hostile, calm or chaotic. Composition does the same thing in your renders—it creates immediate emotional context.
+                </p>
+
+                <h3>Tension and Drama</h3>
+
+                <p>
+                    Want your scene to feel tense, dramatic, or urgent? Use these compositional approaches:
+                </p>
+
+                <p>
+                    <strong>Diagonal dominance:</strong> Fill your composition with diagonal lines. Diagonals are unstable—they're not at rest like horizontals or firmly rooted like verticals. They suggest movement, action, and instability. A character leaning, falling objects, diagonal architecture—all create tension through their angular instability.
+                </p>
+
+                <p>
+                    <strong>Dutch angles (tilted frame):</strong> Literally tilt your camera so the horizon isn't level. This disorientation creates immediate unease and drama. It's a staple of thriller and horror films for a reason—it makes viewers uncomfortable at a subliminal level.
+                </p>
+
+                <p>
+                    <strong>Tight framing:</strong> Minimal negative space, subjects close to frame edges, claustrophobic composition. When there's no breathing room, tension builds naturally. The viewer feels the compression and confinement.
+                </p>
+
+                <p>
+                    <strong>Asymmetric imbalance:</strong> Deliberately unbalanced composition with heavy elements on one side creates visual tension. The eye wants balance; denying it creates discomfort—perfect for dramatic scenes.
+                </p>
+
+                <p>
+                    <strong>High contrast:</strong> Stark differences between light and dark create drama. Deep shadows, brilliant highlights, no middle ground—this is theatrical and intense. Think film noir for ultimate high-contrast drama.
+                </p>
+
+                <div class="card">
+                    <h4>💡 Layering Tension</h4>
+                    <p>
+                        <strong>Combine multiple tension techniques for maximum impact.</strong> A Dutch-angled shot with diagonal compositions, tight framing, and high contrast creates overwhelming drama and tension. Don't be subtle when you want drama—layer your techniques aggressively.
+                    </p>
+                </div>
+
+                <h3>Calm and Serenity</h3>
+
+                <p>
+                    For peaceful, calm, contemplative moods, do the opposite:
+                </p>
+
+                <p>
+                    <strong>Horizontal emphasis:</strong> Horizontal lines create rest and stability. Calm waters, flat horizons, reclining figures—horizontals slow the eye's movement and create tranquility. Nothing is urgent or active about a horizontal line.
+                </p>
+
+                <p>
+                    <strong>Symmetrical balance:</strong> Perfect or near-perfect symmetry creates formal calm. Everything is in its place, balanced, ordered. There's no visual tension pulling in different directions—just peaceful equilibrium.
+                </p>
+
+                <p>
+                    <strong>Generous negative space:</strong> Give your subject plenty of breathing room. Open, airy compositions feel calm and unrushed. The emptiness itself conveys peace and stillness.
+                </p>
+
+                <p>
+                    <strong>Low contrast:</strong> Soft transitions between light and dark rather than harsh contrasts. Gentle lighting, muted colors, subtle shadows—everything is soothing and easy on the eyes.
+                </p>
+
+                <p>
+                    <strong>Level horizon:</strong> A perfectly level horizon reinforces stability and calm. There's no disorientation or instability—everything is grounded and secure.
+                </p>
+
+                <h3>Power and Strength</h3>
+
+                <p>
+                    To convey power, strength, or authority:
+                </p>
+
+                <p>
+                    <strong>Vertical dominance:</strong> Strong vertical lines suggest height, power, and stability. Towering columns, standing figures, tall architecture—verticals reach upward with strength and dignity. Low camera angles looking up amplify this power (makes subjects appear to tower above viewer).
+                </p>
+
+                <p>
+                    <strong>Central placement:</strong> Powerful subjects can dominate from center frame. While off-center is usually more interesting, centered powerful subjects feel authoritative and commanding. They're not asking for attention—they demand it.
+                </p>
+
+                <p>
+                    <strong>Size dominance:</strong> Make your powerful subject the largest element in frame. They should physically dominate the composition just as they dominate the story. Small = vulnerable, Large = powerful. Simple psychology.
+                </p>
+
+                <p>
+                    <strong>Upward angles:</strong> Shoot from low angles looking up. This makes subjects appear larger, taller, more imposing. It's the "hero angle" that cinematographers use to make characters seem powerful.
+                </p>
+
+                <p>
+                    <strong>Negative space as throne:</strong> A powerful figure surrounded by empty space—they own that space. The emptiness becomes a visual territory that belongs to them, emphasizing their power through the space they command.
+                </p>
+
+                <div class="mermaid">
+                    graph TB
+                    A[Mood: Tension/Drama] --> B[Diagonal Lines]
+                    A --> C[Tight Framing]
+                    A --> D[High Contrast]
+                    E[Mood: Calm/Serenity] --> F[Horizontal Lines]
+                    E --> G[Symmetry]
+                    E --> H[Generous Negative Space]
+                    I[Mood: Power/Strength] --> J[Vertical Lines]
+                    I --> K[Low Camera Angle]
+                    I --> L[Size Dominance]
+                    style A fill:#ff6b6b,stroke:#333,stroke-width:2px,color:#fff
+                    style E fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+                    style I fill:#667eea,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+
+                <h3>Vulnerability and Isolation</h3>
+
+                <p>
+                    To create feelings of vulnerability, loneliness, or isolation:
+                </p>
+
+                <p>
+                    <strong>Extreme negative space:</strong> A small figure in vast emptiness emphasizes their isolation and insignificance against the larger world. The massive negative space dwarfs them, making them appear vulnerable and alone.
+                </p>
+
+                <p>
+                    <strong>High or distant angles:</strong> Shoot from above or far away. This makes subjects appear small and vulnerable, like looking down on them from a detached, godlike perspective. They seem distant and unreachable.
+                </p>
+
+                <p>
+                    <strong>Edge placement:</strong> Position your subject near frame edges rather than central and secure. Edge placement creates visual instability—they could fall out of frame, they're not firmly anchored. This subtle positioning creates unease.
+                </p>
+
+                <p>
+                    <strong>Separating elements:</strong> In multi-character scenes, physical separation between characters creates emotional separation. Empty space between them = emotional distance = isolation even when surrounded by others.
+                </p>
+
+                <p>
+                    <strong>Cold color temperatures:</strong> Cool blues, grays, desaturated colors in your negative space amplify feelings of coldness and isolation. The color itself makes the space feel unwelcoming and distant.
+                </p>
+
+                <h3>Intimacy and Connection</h3>
+
+                <p>
+                    For intimate, personal, or connected feelings:
+                </p>
+
+                <p>
+                    <strong>Close framing:</strong> Get close to your subject. Close-ups naturally feel intimate—we're in their personal space, seeing details others might miss. There's nowhere to hide at close range.
+                </p>
+
+                <p>
+                    <strong>Eye-level angles:</strong> Meet your subject at their eye level. This creates equality and connection. We're not looking down (superior) or up (inferior) at them—we're meeting them as equals, creating intimacy.
+                </p>
+
+                <p>
+                    <strong>Minimal negative space:</strong> Reduced empty space creates closeness. When there's little distance between elements (or between viewer and subject), everything feels more immediate and personal.
+                </p>
+
+                <p>
+                    <strong>Overlapping elements:</strong> Characters or objects touching or overlapping creates connection. Physical proximity in the composition suggests emotional closeness. Separated = distant, Overlapping = connected.
+                </p>
+
+                <p>
+                    <strong>Warm color temperatures:</strong> Warm oranges, yellows, reds create welcoming, intimate atmospheres. The warmth itself makes space feel close and personal rather than distant and formal.
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Mixed Messages</h4>
+                    <p>
+                        Be careful about <strong>conflicting compositional signals</strong>. If you're trying to create calm but use lots of diagonals and high contrast, you're fighting yourself. If you want power but frame your subject small in the distance, the composition undermines your intent.
+                    </p>
+                    <p>
+                        <strong>Align all your compositional choices toward the same emotional goal.</strong> Lines, balance, spacing, angles, contrast—everything should work together to reinforce the mood you want. Mixed signals create confused, unclear emotional impact.
+                    </p>
+                </div>
+
+                <h3>Dynamic Energy</h3>
+
+                <p>
+                    For energetic, active, exciting compositions:
+                </p>
+
+                <p>
+                    <strong>Diagonal explosion:</strong> Multiple diagonal lines radiating from a central point creates explosive energy. It's visual dynamism and movement frozen in time. Perfect for action scenes or moments of high energy.
+                </p>
+
+                <p>
+                    <strong>Asymmetric balance:</strong> Dynamic asymmetry where elements balance but aren't symmetrical. This creates active, interesting balance rather than static formal balance. The eye has to work a bit to find the balance, which creates engagement.
+                </p>
+
+                <p>
+                    <strong>Implied movement:</strong> Position elements to suggest motion—characters mid-stride, objects in the air, flowing clothing. Even in a still image, implied movement creates energetic feeling.
+                </p>
+
+                <p>
+                    <strong>Multiple focal points:</strong> Carefully controlled multiple points of interest create visual energy as the eye moves between them. (But don't overdo it—they still need hierarchy!)
+                </p>
+
+                <p>
+                    <strong>Tight cropping of action:</strong> Cropping tightly into dynamic action makes it feel immediate and energetic. We're right in the middle of the action, not viewing it from comfortable distance.
+                </p>
+
+                <h3>Mystery and Intrigue</h3>
+
+                <p>
+                    To create mysterious or intriguing moods:
+                </p>
+
+                <p>
+                    <strong>Partial visibility:</strong> Show part of your subject, hide part in shadow or off-frame. What's hidden creates mystery and questions. The viewer's imagination fills in what they can't see.
+                </p>
+
+                <p>
+                    <strong>Unusual angles:</strong> Unexpected viewpoints create intrigue. Shoot through objects, from extreme angles, or from perspectives we don't normally see. Unusual views make ordinary subjects mysterious.
+                </p>
+
+                <p>
+                    <strong>High contrast with deep shadows:</strong> Areas of deep shadow that hide information create mystery. What's lurking in those shadows? The unknown areas intrigue viewers and create tension.
+                </p>
+
+                <p>
+                    <strong>Negative space with focal point ambiguity:</strong> Composition where it's not immediately clear what the focal point is—multiple elements of similar weight. The viewer has to search, which creates engagement and mystery.
+                </p>
+
+                <p>
+                    <strong>Backlighting and silhouettes:</strong> When we can't see a subject's face or details because they're backlit, they become mysterious. Silhouettes hide identity and create intrigue about who/what they are.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Mood Composition Checklist</h4>
+                    <p>For your intended mood, have you considered:</p>
+                    <ul>
+                        <li><strong>Line direction:</strong> Horizontal (calm), Vertical (power), Diagonal (drama/energy)?</li>
+                        <li><strong>Balance type:</strong> Symmetrical (formal/calm) or Asymmetrical (dynamic)?</li>
+                        <li><strong>Negative space:</strong> Generous (calm/isolation) or Minimal (intimate/tense)?</li>
+                        <li><strong>Camera angle:</strong> Low (power), High (vulnerable), Eye-level (intimate), Dutch (drama)?</li>
+                        <li><strong>Contrast level:</strong> High (drama) or Low (calm)?</li>
+                        <li><strong>Color temperature:</strong> Warm (welcoming) or Cool (distant)?</li>
+                        <li><strong>Framing:</strong> Tight (intense/intimate) or Open (free/calm)?</li>
+                    </ul>
+                    <p>Each choice should support your emotional intent!</p>
+                </div>
+
+                <blockquote>
+                    <p><strong>Emotional composition is purposeful composition.</strong> Before you start arranging elements, decide: "What do I want viewers to <em>feel</em>?" Then make every compositional choice—every line, angle, space, balance decision—support that feeling. Composition isn't decoration; it's <em>emotional architecture</em>.</p>
+                </blockquote>
+
+                <p>
+                    Understanding how composition creates mood transforms you from someone who arranges things attractively into someone who <strong>orchestrates emotional experiences</strong>. You're not just making pretty pictures—you're creating feelings, atmospheres, and psychological states in your viewers. That's the true power of compositional mastery.
+                </p>
+            </section>
+            <section id="common-mistakes">
+                <h2>🚫 Common Composition Mistakes</h2>
+                
+                <p>
+                    Let's talk about the composition errors that plague beginners and even some intermediate artists. Understanding what <em>not</em> to do is just as important as knowing best practices. These mistakes can undermine otherwise technically solid work, but once you know what to watch for, they're easy to spot and fix.
+                </p>
+
+                <h3>Centering Everything (The Bull's-Eye Effect)</h3>
+
+                <p>
+                    <strong>The problem:</strong> Placing your main subject dead center in the frame consistently. While centered composition has its place, doing it habitually creates static, uninteresting images that lack visual dynamism. Beginners do this because it feels "safe" and "balanced," but it's actually boring.
+                </p>
+
+                <p>
+                    <strong>Why it happens:</strong> It's our instinct to point the camera at what we want to photograph and put it right in the middle. In 3D art, we often default to centered compositions because it requires less thought about placement and balance.
+                </p>
+
+                <p>
+                    <strong>The fix:</strong> Apply the Rule of Thirds! Position your subject at power points instead of dead center. Off-center compositions create visual interest and implied movement. Only center deliberately for specific effects (formal portraits, confrontational direct address, symmetrical emphasis).
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Quick Test</h4>
+                    <p>
+                        Look at your last 10 compositions. If 8 or more have the subject centered, you've fallen into the centering trap! Challenge yourself: create 10 compositions where the main subject is deliberately <em>not</em> centered. Force yourself out of this habit.
+                    </p>
+                </div>
+
+                <h3>Cluttered, Unfocused Compositions</h3>
+
+                <p>
+                    <strong>The problem:</strong> Too many competing elements with no clear focal point. Every area of the frame has similar visual weight, so the viewer doesn't know where to look. It's visual noise—everything shouting for attention simultaneously.
+                </p>
+
+                <p>
+                    <strong>Why it happens:</strong> Enthusiasm! New artists want to show off everything they can do or include every cool prop they've found. They're afraid of "wasting" empty space, so they fill every corner. The result? Visual chaos.
+                </p>
+
+                <p>
+                    <strong>The fix:</strong> Ruthlessly edit. Ask of every element: "Does this serve my focal point or story?" If not, remove it. Embrace negative space. Create clear hierarchy where ONE element dominates. Remember: <em>less is more</em>. Sometimes deleting half your elements makes the composition twice as strong.
+                </p>
+
+                <h3>Mergers and Tangents</h3>
+
+                <p>
+                    <strong>The problem:</strong> Elements unintentionally touching, overlapping, or aligning in ways that create visual confusion. Classic examples: a pole appearing to grow from someone's head, a horizon line cutting through a character's neck, background elements perfectly aligning with foreground elements creating optical illusions.
+                </p>
+
+                <p>
+                    <strong>Why it happens:</strong> We're focused on individual elements and don't notice how they relate from the camera's viewpoint. Our 3D view shows everything clearly separated, but the 2D render reveals unfortunate overlaps we missed.
+                </p>
+
+                <p>
+                    <strong>The fix:</strong> Check your composition from the camera view constantly! Rotate around and adjust elements to eliminate unfortunate tangents. Small position adjustments can separate elements that appear merged. Make sure backgrounds don't create visual confusion with foreground subjects.
+                </p>
+
+                <div class="card">
+                    <h4>💡 The Squint Test Revisited</h4>
+                    <p>
+                        Squint at your composition until details blur. Tangents and mergers often become obvious when you can't see fine details—shapes that seemed separate merge into confusing blobs. If shapes merge when you squint, adjust their positions until they're clearly distinct even when blurred.
+                    </p>
+                </div>
+
+                <h3>Cutting Off Limbs Awkwardly</h3>
+
+                <p>
+                    <strong>The problem:</strong> Cropping your frame so it cuts through joints (elbows, knees, ankles, wrists) or through hands/feet. This creates uncomfortable, awkward crops that feel like body parts are missing rather than simply out of frame.
+                </p>
+
+                <p>
+                    <strong>Why it happens:</strong> Not paying attention to frame edges. We focus on the visible center and forget to check what's happening at the boundaries of our composition.
+                </p>
+
+                <p>
+                    <strong>The fix:</strong> Crop at natural breaking points. If you're cropping a figure, do it: mid-thigh (not at the knee), mid-upper arm (not at the elbow), at the waist, at the chest—never through joints. Or show the complete limb. Joints are psychologically important body landmarks; cutting through them feels wrong.
+                </p>
+
+                <h3>Ignoring the Background</h3>
+
+                <p>
+                    <strong>The problem:</strong> Focusing entirely on the main subject while the background becomes an afterthought—resulting in distracting, competing, or inappropriate backgrounds that undermine the composition.
+                </p>
+
+                <p>
+                    <strong>Why it happens:</strong> We load a character, pose them beautifully, get excited about how good they look, and forget that the environment matters too. Background feels like "just the background" rather than an integral part of composition.
+                </p>
+
+                <p>
+                    <strong>The fix:</strong> Treat background as deliberately as your foreground. Simplify busy backgrounds, blur what should be secondary, ensure background colors and contrasts support rather than compete with your subject. The background should enhance your focal point, not fight it.
+                </p>
+
+                <h3>Poor Use of Leading Lines</h3>
+
+                <p>
+                    <strong>The problem:</strong> Lines in the composition that lead the eye OUT of the frame or away from the focal point instead of toward it. Strong diagonals pointing to frame corners, paths leading off-screen, or eye gaze directed outward all create "exit signs" for viewers' attention.
+                </p>
+
+                <p>
+                    <strong>Why it happens:</strong> Not considering where lines actually lead. We see the line elements (roads, fences, arms) but don't track where they're pointing or what path they create for the viewer's eye.
+                </p>
+
+                <p>
+                    <strong>The fix:</strong> Trace your leading lines. Where do they actually lead? Adjust elements so lines guide the eye to your focal point or through your scene in the path you intend. If a line leads out of frame, curve it back in, block it with another element, or remove it entirely.
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ The Exit Problem</h4>
+                    <p>
+                        Lines exiting at corners are especially problematic—corners are natural exit routes for the eye. Strong lines pointing directly to corners create irresistible exit paths that pull attention right out of your composition. Check all four corners and eliminate any strong lines leading directly to them.
+                    </p>
+                </div>
+
+                <h3>Weak Focal Point Emphasis</h3>
+
+                <p>
+                    <strong>The problem:</strong> The main subject doesn't sufficiently stand out from surrounding elements. It's there, but it doesn't <em>dominate</em>. Multiple elements compete for attention with roughly equal weight, leaving viewers unsure where to focus.
+                </p>
+
+                <p>
+                    <strong>Why it happens:</strong> Being too democratic with attention—making everything equally detailed, lit, contrasted. Or being afraid to make bold choices that clearly establish hierarchy.
+                </p>
+
+                <p>
+                    <strong>The fix:</strong> Create clear contrast between your focal point and everything else. Make your focal point THE brightest, most detailed, highest contrast, or largest element. Don't be subtle—be obvious! Everything else should clearly be secondary. If there's any doubt about what the focal point is, make it more dominant.
+                </p>
+
+                <h3>Inappropriate Negative Space Distribution</h3>
+
+                <p>
+                    <strong>The problem:</strong> Placing subjects with no regard for the direction they're facing or moving. A character looking right while positioned on the right edge of frame (no looking room), or a running figure placed ahead of their direction of movement rather than behind it.
+                </p>
+
+                <p>
+                    <strong>Why it happens:</strong> Thinking about subject placement without considering direction, gaze, or implied movement. Treating composition as static arrangement rather than understanding its directional implications.
+                </p>
+
+                <p>
+                    <strong>The fix:</strong> Give subjects "looking room" or "moving room" in the direction they're oriented. If they look left, position them on the right with space opening to the left. If they're running right, position them on the left with space ahead of them. This creates natural flow rather than uncomfortable constraint.
+                </p>
+
+                <h3>Overusing Dutch Angles</h3>
+
+                <p>
+                    <strong>The problem:</strong> Tilting the camera constantly because it "looks cool" or "dynamic," even when the scene doesn't need or benefit from the disorientation. Dutch angles lose their power when overused and just become a gimmick.
+                </p>
+
+                <p>
+                    <strong>Why it happens:</strong> Dutch angles <em>do</em> look dynamic and different from standard compositions. Beginners discover them and use them everywhere without considering whether they serve the story or mood.
+                </p>
+
+                <p>
+                    <strong>The fix:</strong> Use Dutch angles deliberately for drama, disorientation, or unsettled feelings. Most scenes don't need them. A level horizon is usually more appropriate. Save Dutch angles for moments that truly warrant the visual disorientation they create.
+                </p>
+
+                <h3>Inconsistent Composition Style Within a Series</h3>
+
+                <p>
+                    <strong>The problem:</strong> When creating multiple images for a project or story, using wildly different compositional approaches in each image without purpose. One image is minimalist, the next is cluttered, another uses Dutch angles, another is perfectly symmetrical—with no cohesive visual language.
+                </p>
+
+                <p>
+                    <strong>Why it happens:</strong> Experimenting with different techniques without considering how images relate to each other as a series. Each image is composed in isolation without thinking about the overall set.
+                </p>
+
+                <p>
+                    <strong>The fix:</strong> Develop a consistent compositional approach for a series. If one image uses Rule of Thirds and generous negative space, maintain that approach across the set. Consistency creates professional cohesion. Variation within a consistent framework is fine, but the underlying approach should be recognizable across images.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Mistake-Checking Process</h4>
+                    <p>Before finalizing any composition, run through this checklist:</p>
+                    <ol>
+                        <li>Is my subject centered (unless I specifically want formal/symmetrical effect)?</li>
+                        <li>Can I remove any elements without weakening the composition?</li>
+                        <li>Are there any mergers, tangents, or awkward overlaps?</li>
+                        <li>If I'm cropping body parts, am I cropping at good points (not joints)?</li>
+                        <li>Does my background support or compete with my subject?</li>
+                        <li>Do leading lines guide TO my focal point or away from it?</li>
+                        <li>Is my focal point obviously the focal point?</li>
+                        <li>Does my subject have appropriate directional space?</li>
+                        <li>Am I using Dutch angle appropriately (or unnecessarily)?</li>
+                        <li>If part of a series, is this consistent with my other images?</li>
+                    </ol>
+                    <p>Regular self-checking prevents these common mistakes from undermining your work!</p>
+                </div>
+
+                <blockquote>
+                    <p><strong>The awareness principle:</strong> Once you <em>know</em> about these mistakes, you'll start seeing them everywhere—in your own work, in others' work, and even in some professional work. That awareness is valuable! Each mistake you learn to spot becomes one you'll naturally avoid. Building this compositional vocabulary of "what not to do" is just as important as learning "what to do."</p>
+                </blockquote>
+            </section>
+            <section id="project">
+                <h2>🎯 Project: Compositional Studies</h2>
+                
+                <p>
+                    Time to put all this theory into practice! This project will cement your understanding of how compositional choices affect meaning and mood. You're going to create <strong>three different compositional studies of the exact same scene</strong>—same character, same basic setting, but arranged three completely different ways to create three different feelings.
+                </p>
+
+                <p>
+                    This exercise is incredibly eye-opening because it demonstrates the power of composition to transform meaning. The "what" stays the same; only the "how" changes—but the impact is dramatically different.
+                </p>
+
+                <h3>Project Goals</h3>
+
+                <ul>
+                    <li>Practice applying multiple composition principles in real scenes</li>
+                    <li>Experience how arrangement changes meaning and mood</li>
+                    <li>Develop your ability to compose intentionally for specific effects</li>
+                    <li>Build muscle memory for compositional decision-making</li>
+                    <li>Create a portfolio piece that demonstrates compositional versatility</li>
+                </ul>
+
+                <h3>The Setup</h3>
+
+                <p>
+                    Choose a simple scenario for your scene. Keep the content straightforward because the focus is on <em>composition</em>, not complex storytelling or elaborate environments. Here are some suggestions:
+                </p>
+
+                <ul>
+                    <li><strong>Single character in a room:</strong> Character with simple furniture and walls</li>
+                    <li><strong>Character in outdoor space:</strong> Figure with some natural elements (tree, rocks, grass)</li>
+                    <li><strong>Two characters interacting:</strong> Simple conversation or interaction</li>
+                    <li><strong>Character with an object:</strong> Someone holding or looking at something important</li>
+                </ul>
+
+                <p>
+                    Load your basic scene in Poser with the character(s) and minimal props. Don't worry about perfect lighting or materials yet—focus on composition. You'll create three <em>completely different</em> compositions from this same basic setup.
+                </p>
+
+                <h3>Study 1: Calm and Peaceful</h3>
+
+                <p>
+                    <strong>Your goal:</strong> Create a composition that feels calm, serene, and contemplative.
+                </p>
+
+                <p>
+                    <strong>Apply these principles:</strong>
+                </p>
+
+                <ul>
+                    <li><strong>Horizontal emphasis:</strong> Look for or create horizontal lines in your composition</li>
+                    <li><strong>Symmetrical or near-symmetrical balance:</strong> Balanced, orderly arrangement</li>
+                    <li><strong>Generous negative space:</strong> Give your subject plenty of breathing room</li>
+                    <li><strong>Low contrast lighting:</strong> Soft, even illumination without harsh shadows</li>
+                    <li><strong>Rule of Thirds placement:</strong> But gentle, not dramatic placement</li>
+                    <li><strong>Level horizon:</strong> Keep your camera perfectly level</li>
+                </ul>
+
+                <p>
+                    <strong>Camera approach:</strong> Eye-level or slightly above. Not too close—give some distance that creates a contemplative viewing space.
+                </p>
+
+                <p>
+                    <strong>Color note:</strong> If adding color, use cool, muted, or soft warm tones. Nothing aggressive or highly saturated.
+                </p>
+
+                <p>
+                    <strong>What to avoid:</strong> Diagonals, tight framing, high contrast, Dutch angles, dramatic positioning.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Calm Study Checklist</h4>
+                    <ul>
+                        <li>Does the composition feel restful and balanced?</li>
+                        <li>Is there plenty of breathing room around the subject?</li>
+                        <li>Are horizontal lines dominant?</li>
+                        <li>Is the overall feeling one of peace rather than tension?</li>
+                        <li>Would this composition work for meditation or contemplation?</li>
+                    </ul>
+                </div>
+
+                <h3>Study 2: Dynamic and Dramatic</h3>
+
+                <p>
+                    <strong>Your goal:</strong> Using the same scene elements, create a composition that feels tense, dramatic, and energetic.
+                </p>
+
+                <p>
+                    <strong>Apply these principles:</strong>
+                </p>
+
+                <ul>
+                    <li><strong>Diagonal dominance:</strong> Angle everything—pose, camera, elements</li>
+                    <li><strong>Dutch angle:</strong> Tilt your camera 10-30 degrees</li>
+                    <li><strong>Tight framing:</strong> Get close, minimize negative space</li>
+                    <li><strong>High contrast:</strong> Dramatic lighting with strong shadows</li>
+                    <li><strong>Asymmetric imbalance:</strong> Deliberately unbalanced composition</li>
+                    <li><strong>Extreme angles:</strong> Very low or very high camera position</li>
+                </ul>
+
+                <p>
+                    <strong>Camera approach:</strong> Extreme angles—very low looking up, or very high looking down. Close to the subject. Dutch tilt!
+                </p>
+
+                <p>
+                    <strong>Color note:</strong> High contrast, possibly saturated colors or dramatic color schemes. Nothing soft or muted.
+                </p>
+
+                <p>
+                    <strong>What to avoid:</strong> Horizontal calm, symmetry, generous space, level horizons, soft even lighting.
+                </p>
+
+                <div class="card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Drama Study Checklist</h4>
+                    <ul>
+                        <li>Does the composition create visual tension?</li>
+                        <li>Are diagonals dominant throughout?</li>
+                        <li>Is the framing tight and intense?</li>
+                        <li>Does it feel active rather than restful?</li>
+                        <li>Would this composition work for an action or thriller scene?</li>
+                    </ul>
+                </div>
+
+                <h3>Study 3: Isolated and Contemplative</h3>
+
+                <p>
+                    <strong>Your goal:</strong> Create a composition emphasizing isolation, loneliness, or deep contemplation.
+                </p>
+
+                <p>
+                    <strong>Apply these principles:</strong>
+                </p>
+
+                <ul>
+                    <li><strong>Extreme negative space:</strong> Subject small in vast empty space</li>
+                    <li><strong>High or distant camera angle:</strong> Pull back and/or shoot from above</li>
+                    <li><strong>Edge or corner placement:</strong> Position subject near frame edges</li>
+                    <li><strong>Minimal or cool lighting:</strong> Not dramatic, but somewhat austere</li>
+                    <li><strong>Single focal point:</strong> Nothing competes with the isolated subject</li>
+                    <li><strong>Empty, simplified background:</strong> Reinforce the isolation</li>
+                </ul>
+
+                <p>
+                    <strong>Camera approach:</strong> Pull way back or shoot from above. Make the subject appear small in their environment. Distance creates emotional distance.
+                </p>
+
+                <p>
+                    <strong>Color note:</strong> Cool tones, desaturated colors, or monochromatic schemes. Nothing warm and inviting.
+                </p>
+
+                <p>
+                    <strong>What to avoid:</strong> Closeness, warmth, connection, tight framing, centrality.
+                </p>
+
+                <div class="card">
+                    <h4>💡 Isolation Study Checklist</h4>
+                    <ul>
+                        <li>Does the subject appear small and alone?</li>
+                        <li>Is negative space overwhelming rather than supporting?</li>
+                        <li>Does the composition create feelings of solitude?</li>
+                        <li>Is there visual and emotional distance from the subject?</li>
+                        <li>Would this composition convey loneliness or isolation?</li>
+                    </ul>
+                </div>
+
+                <h3>After Creating All Three Studies</h3>
+
+                <p>
+                    Once you've completed all three compositions, place them side by side and compare them. This is where the real learning happens:
+                </p>
+
+                <p>
+                    <strong>Analyze the differences:</strong> Same scene, completely different feelings. What specific compositional choices created each mood? Write down three key techniques that defined each study.
+                </p>
+
+                <p>
+                    <strong>Note what surprised you:</strong> Which techniques had the biggest impact? Was anything easier or harder than expected? What compositional choices felt most powerful?
+                </p>
+
+                <p>
+                    <strong>Show them to others:</strong> Without explaining which is which, show your three studies to friends or fellow artists. Ask them what each one makes them feel. Do they perceive the moods you intended?
+                </p>
+
+                <p>
+                    <strong>Refine if needed:</strong> Based on your analysis and feedback, refine any of the three studies that aren't hitting their intended mark. Small adjustments can make big differences.
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3 style="color: white;">🎯 Bonus Challenges</h3>
+                    <p style="color: white;">
+                        <strong>Challenge 1:</strong> Create a fourth study focusing on "power and strength"—use the principles for that mood and see how different it feels from your other three.
+                    </p>
+                    <p style="color: white;">
+                        <strong>Challenge 2:</strong> Take your dramatic study and intentionally break one major composition "rule" (like centering everything in a dramatic scene, or using only horizontals). See how breaking the rule changes the impact.
+                    </p>
+                    <p style="color: white;">
+                        <strong>Challenge 3:</strong> Create a time-lapse or progression showing how you transform one composition into another—moving camera, adjusting elements—to visualize the transformation between moods.
+                    </p>
+                    <p style="color: white;">
+                        <strong>Challenge 4:</strong> Do this entire exercise again with a completely different scene. Repetition with variety builds mastery!
+                    </p>
+                </div>
+
+                <h3>What You're Learning</h3>
+
+                <p>
+                    This project teaches you that <strong>composition is a language</strong>. The same words (same scene elements) arranged differently create completely different meanings. You're learning to "speak" composition fluently—to intentionally create specific effects rather than hoping things look good accidentally.
+                </p>
+
+                <p>
+                    This is also training your eye to <em>see</em> composition possibilities. Every scene you encounter from now on, you'll mentally consider: "How else could I compose this? What would change if I adjusted the framing, angles, or arrangement?"
+                </p>
+
+                <p>
+                    Save these studies! They're excellent portfolio pieces that demonstrate sophisticated understanding of composition. They also serve as personal references—when you need to create a specific mood in future, review these studies to remember which techniques work.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Project Complete Checklist</h4>
+                    <ul>
+                        <li>Created three distinct compositions of the same scene</li>
+                        <li>Study 1 emphasizes calm and peace</li>
+                        <li>Study 2 emphasizes drama and energy</li>
+                        <li>Study 3 emphasizes isolation and contemplation</li>
+                        <li>Each study uses appropriate compositional techniques for its mood</li>
+                        <li>Analyzed differences and learned from the comparison</li>
+                        <li>Gathered feedback from others on emotional impact</li>
+                        <li>Documented what you learned about composition's power</li>
+                    </ul>
+                </div>
+            </section>
+            <section id="summary">
+                <h2>📝 Summary and Key Takeaways</h2>
+                
+                <p>
+                    Congratulations! You've just completed one of the most important lessons in your Poser journey. Composition isn't just technical knowledge—it's the foundation of <strong>visual storytelling</strong>. Let's recap the essential principles you've learned:
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3 style="color: white;">🎯 Core Composition Principles</h3>
+                    
+                    <p style="color: white;">
+                        <strong>Rule of Thirds:</strong> Position key elements at power points (grid intersections) rather than centering them. This creates dynamic, engaging compositions that feel natural and balanced.
+                    </p>
+                    
+                    <p style="color: white;">
+                        <strong>Visual Balance:</strong> Every element has weight. Balance doesn't mean equal—it means appropriate counterweights. Asymmetric balance is usually more interesting than symmetric balance.
+                    </p>
+                    
+                    <p style="color: white;">
+                        <strong>Depth Through Layers:</strong> Create foreground, midground, and background layers. Overlap elements between layers. This transforms flat renders into dimensional spaces.
+                    </p>
+                    
+                    <p style="color: white;">
+                        <strong>Leading Lines:</strong> Lines guide the eye through your composition. Use them to direct attention to your focal point. Horizontal lines create calm, vertical lines suggest power, diagonal lines add energy.
+                    </p>
+                    
+                    <p style="color: white;">
+                        <strong>Strong Focal Points:</strong> One element must dominate. Use contrast, size, sharpness, isolation, and strategic placement to make your focal point unmistakable.
+                    </p>
+                    
+                    <p style="color: white;">
+                        <strong>Framing:</strong> Create frames within your frame to direct attention and add depth. Natural elements, architecture, and light can all serve as framing devices.
+                    </p>
+                    
+                    <p style="color: white;">
+                        <strong>Negative Space:</strong> Empty space isn't wasted space—it provides focus, breathing room, and mood. Strategic emptiness makes subjects more powerful.
+                    </p>
+                    
+                    <p style="color: white;">
+                        <strong>Composition Creates Mood:</strong> Your arrangement choices directly affect emotional impact. Diagonals create drama, horizontals create calm, tight framing creates intimacy, vast space creates isolation.
+                    </p>
+                </div>
+
+                <h3>The Composition Mindset</h3>
+
+                <p>
+                    Beyond specific techniques, you've learned to think compositionally:
+                </p>
+
+                <blockquote>
+                    <p><strong>Every element earns its place by serving the story and guiding the viewer's eye.</strong> Before adding anything to your scene, ask: "Does this help my composition or hurt it? Does it direct attention to my focal point or divide it? Does it support my mood or contradict it?"</p>
+                </blockquote>
+
+                <p>
+                    This critical thinking transforms you from someone who fills frames with stuff into someone who <em>designs visual experiences</em>. That's the real power of compositional mastery—intentionality in every choice.
+                </p>
+
+                <h3>Your Compositional Workflow</h3>
+
+                <p>
+                    Moving forward, approach every Poser scene with this workflow:
+                </p>
+
+                <ol>
+                    <li><strong>Define your intent:</strong> What's the mood? What should viewers feel? What's the story?</li>
+                    <li><strong>Identify your focal point:</strong> What's the star? What must viewers notice first?</li>
+                    <li><strong>Establish depth:</strong> How can I create foreground, midground, background layers?</li>
+                    <li><strong>Apply Rule of Thirds:</strong> Where should key elements sit in the frame?</li>
+                    <li><strong>Check balance:</strong> Does one side feel significantly heavier? Adjust until balanced.</li>
+                    <li><strong>Find or create leading lines:</strong> What guides the eye to my focal point?</li>
+                    <li><strong>Emphasize focal point:</strong> Contrast, size, sharpness—make it dominant.</li>
+                    <li><strong>Consider framing:</strong> Can I frame my subject to add depth and focus?</li>
+                    <li><strong>Embrace negative space:</strong> Where can I simplify? What can I remove?</li>
+                    <li><strong>Test the composition:</strong> Squint test, thumbnail test, fresh eyes test.</li>
+                    <li><strong>Check for mistakes:</strong> Mergers, tangents, poor crops, weak focal point?</li>
+                    <li><strong>Refine and iterate:</strong> Small adjustments often make huge differences.</li>
+                </ol>
+
+                <p>
+                    This might feel like a lot of steps initially, but with practice, it becomes automatic. Your eye will start seeing composition possibilities instinctively. You'll compose well without consciously running through checklists—it becomes second nature.
+                </p>
+
+                <h3>Practice Makes Permanent</h3>
+
+                <p>
+                    Understanding composition intellectually is step one. <strong>Applying it consistently is step two.</strong> Here's how to build compositional mastery:
+                </p>
+
+                <p>
+                    <strong>Analyze everything you see:</strong> Movies, photographs, paintings, advertisements—look at them compositionally. Notice the Rule of Thirds. Trace the leading lines. Identify the focal point techniques. Every image you view becomes a lesson.
+                </p>
+
+                <p>
+                    <strong>Create compositional studies regularly:</strong> Set aside time to practice composition purely. Don't worry about perfect renders or finished pieces—just compose, study, analyze, improve.
+                </p>
+
+                <p>
+                    <strong>Iterate deliberately:</strong> For important scenes, create multiple compositional versions. Don't settle for your first attempt. Professional artists often explore 5-10 compositional approaches before choosing the strongest one.
+                </p>
+
+                <p>
+                    <strong>Seek feedback specifically on composition:</strong> When showing work, ask: "Is the focal point clear? Does the composition support the mood? What draws your eye first?" Compositional feedback helps you see what others see.
+                </p>
+
+                <p>
+                    <strong>Keep a composition reference file:</strong> Screenshot compositions you admire (from any medium). When you need inspiration or are stuck, review these references. Build a personal library of compositional excellence.
+                </p>
+
+                <div class="card" style="background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                    <h4>✅ Your Composition Mastery Checklist</h4>
+                    <p><strong>You understand composition when you can:</strong></p>
+                    <ul>
+                        <li>Look at any scene and immediately identify strong and weak compositions</li>
+                        <li>Articulate WHY a composition works or doesn't work</li>
+                        <li>Create the same scene multiple ways for different emotional effects</li>
+                        <li>Spot and fix compositional problems before rendering</li>
+                        <li>Compose intentionally for specific moods without references</li>
+                        <li>Balance technical rules with artistic intuition</li>
+                        <li>Know when to follow rules and when to break them purposefully</li>
+                    </ul>
+                    <p>These are the marks of compositional mastery. Keep practicing until all of these feel natural!</p>
+                </div>
+
+                <h3>What's Next?</h3>
+
+                <p>
+                    Composition is foundational—everything else in 3D art builds on it. With solid compositional skills, you're ready to:
+                </p>
+
+                <ul>
+                    <li><strong>Master lighting:</strong> Good composition amplifies good lighting; great composition can even compensate for basic lighting</li>
+                    <li><strong>Refine rendering:</strong> Beautiful renders mean nothing without strong composition underneath</li>
+                    <li><strong>Tell better stories:</strong> Composition is storytelling; everything you create will be more narrative now</li>
+                    <li><strong>Develop your style:</strong> Compositional choices define artistic style—you're developing yours</li>
+                </ul>
+
+                <p>
+                    In our next lesson, we'll explore <strong>lighting fundamentals</strong>—how to illuminate your carefully composed scenes to create mood, depth, and visual impact. Composition and lighting work together; mastering both transforms your work completely.
+                </p>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3 style="color: white;">💡 Final Thoughts on Composition</h3>
+                    <p style="color: white;">
+                        Composition is both science and art. The principles you've learned are proven, reliable, and used by professionals worldwide. But they're not restrictive rules—they're tools in your creative toolkit.
+                    </p>
+                    <p style="color: white;">
+                        <strong>Learn the rules thoroughly, then break them purposefully.</strong> The best compositions often bend or break traditional guidelines—but the artists creating them understand what they're doing and why. You can't break rules effectively until you know them intimately.
+                    </p>
+                    <p style="color: white;">
+                        Trust your eye, experiment boldly, and remember: <em>every composition choice you make is telling your viewer something</em>. Make sure you're telling them the right story.
+                    </p>
+                </div>
+
+                <blockquote>
+                    <p><strong>"Composition is the strongest way of seeing." – Edward Weston</strong></p>
+                    <p>You've learned to see compositionally. You understand that arrangement isn't decoration—it's the foundation of visual communication. This knowledge will transform every image you create from this point forward. Embrace it, practice it, and watch your work evolve.</p>
+                </blockquote>
+            </section>
+        </article>
+
+        <nav class="lesson-nav" aria-label="Lesson Navigation">
+            <a href="lesson_10_multiple_figures.html" class="prev-lesson">← Previous: Working with Multiple Figures</a>
+            <a href="index.html" class="home-link">🏠 Course Home</a>
+            <a href="lesson_12_lighting_basics.html" class="next-lesson">Next: Lighting Fundamentals →</a>
+        </nav>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Poser 12 Mastery Course. All rights reserved.</p>
+            <p>Empowering artists to create compelling 3D characters and scenes through practical, hands-on education.</p>
+        </div>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>
